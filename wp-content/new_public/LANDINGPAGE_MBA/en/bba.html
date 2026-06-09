@@ -6899,8 +6899,8 @@
         </div>
     </div>
 
-    <script src="../common-assets/js/script.min.js?v=1780831787732" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1780831787732" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1780993000000" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1780993000000" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -8418,8 +8418,8 @@
             }
 
             function getPositionX(event) {
-                return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
-            }
+                    return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
+                }
         });
     </script>
 

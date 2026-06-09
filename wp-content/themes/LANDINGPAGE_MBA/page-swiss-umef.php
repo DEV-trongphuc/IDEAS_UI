@@ -2989,8 +2989,8 @@ ob_start(function ($html) {
             }
 
             function getPositionX(event) {
-                return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
-            }
+                    return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
+                }
         });
     </script>
 

@@ -260,9 +260,9 @@
         rel="stylesheet" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1780831787739" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1780831787739" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1780831787739" />
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1780993000000" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1780993000000" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1780993000000" />
     <style>
         @media (min-width: 992px) {
             .BBA-grid {
@@ -8339,7 +8339,7 @@
                 }
 
                 function getPositionX(e) {
-                    return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+                    return e.type.includes('mouse') ? e.pageX : (e.touches && e.touches.length > 0 ? e.touches[0].clientX : (e.changedTouches && e.changedTouches.length > 0 ? e.changedTouches[0].clientX : 0));
                 }
 
                 let autoSlideInterval;
@@ -9352,8 +9352,8 @@
         </div>
     </div>
 
-    <script src="../common-assets/js/script.min.js?v=1780831787739" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1780831787739" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1780993000000" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1780993000000" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -11239,8 +11239,8 @@
             }
 
             function getPositionX(event) {
-                return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
-            }
+                    return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
+                }
         });
     </script>
 
