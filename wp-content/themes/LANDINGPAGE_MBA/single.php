@@ -210,7 +210,7 @@ ob_start(function($html) {
         .article-main-title {
             font-size: 2.25rem;
             font-weight: 800;
-            color: #0f172a;
+            color: #ab0e00;
             line-height: 1.3;
             margin-bottom: 24px;
             letter-spacing: -0.02em;

@@ -19,3 +19,11 @@ Desktop.ini
 .idea/
 .vscode/
 *.log
+
+# Plugins
+wp-content/plugins/
+
+# Scratch and helper scripts
+search_container.py
+
+

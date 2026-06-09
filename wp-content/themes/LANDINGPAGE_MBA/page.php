@@ -77,10 +77,9 @@
     /* ─── PREMIUM PAGE STYLING ─── */
     .premium-page-hero {
         position: relative;
-        background-color: #080c14;
-        background-image: 
-            radial-gradient(circle at 10% 20%, rgba(185, 14, 0, 0.12) 0%, transparent 45%),
-            radial-gradient(circle at 90% 70%, rgba(185, 14, 0, 0.08) 0%, transparent 45%);
+        background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/11/ltnumef10202501.webp');
+        background-size: cover;
+        background-position: center;
         padding: 180px 20px 100px;
         text-align: center;
         overflow: hidden;
@@ -89,7 +88,7 @@
     .premium-page-hero-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(180deg, rgba(8, 12, 20, 0.6) 0%, #080c14 100%);
+        background: linear-gradient(180deg, rgba(8, 12, 20, 0.75) 0%, #080c14 100%);
         z-index: 1;
     }
 
