@@ -85,6 +85,11 @@ $pages = [
         'title' => 'Podcast - Ideas Podcast',
         'template' => 'page-ideas-podcast-series-01.php'
     ],
+    [
+        'slug' => 'bai-viet',
+        'title' => 'Tin tức & Sự kiện',
+        'template' => 'archive.php'
+    ],
 ];
 
 echo "<div style='font-family:monospace;padding:20px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:8px;max-width:800px;margin:20px auto;'>";
