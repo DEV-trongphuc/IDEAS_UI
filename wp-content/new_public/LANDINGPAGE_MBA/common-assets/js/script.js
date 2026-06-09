@@ -1545,7 +1545,8 @@ const isEn = document.documentElement.lang === 'en';
         initScrollDots();
     });
 
-    console.log('%cIDEAS × Swiss UMEF MBA [Portal]', 'background:#ab0e00;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700');
+    console.log('%cIDEAS × Swiss UMEF', 'background:#ab0e00;color:#fff;padding:4px 12px;border-radius:4px;font-weight:700');
+console.log('%cDesign by Turnio DEV - https://fb.com/turni0', 'color:#ab0e00;font-weight:600');
 
 })();
 
