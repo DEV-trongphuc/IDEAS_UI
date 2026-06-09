@@ -1,0 +1,21 @@
+# Database and custom config
+wp-config.php
+
+# Uploads and temporary directories
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+.tmb/
+.well-known/
+
+# Server configuration
+.htaccess
+
+# OS / IDE files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.idea/
+.vscode/
+*.log

@@ -1,0 +1,40 @@
+ction container -->
+                <div class="video-talk-wrapper" style="margin-top: 80px;">
+                    <div style="text-align: center; margin-bottom: 16px;">
+                        <span class="section-label"
+                            style="margin: 0; background: var(--clr-primary); color: #fff;">IDEAS TALK - AI</span>
+                    </div>
+                    <h2 class="section-title" style="text-align: center; margin-bottom: 48px; color: #ffffff;">
+                        Vượt Rào Cản Quốc Tế<br />
+                        <span class="gradient-text">Ứng Dụng AI Trong Học Tập</span>
+                    </h2>
+                    <div class="video-talk-grid">
+                        <!-- Video 1 -->
+                        <article class="video-talk-card"
+                            onclick="openVideoModal('https://www.youtube.com/embed/mB0mDrgjVNs?si=8OciF14MwQh1w1AF')">
+                            <div class="video-thumb-wrap">
+                                <img src="https://img.youtube.com/vi/mB0mDrgjVNs/hqdefault.jpg"
+                                    alt="Ứng dụng AI chăm sóc khách hàng đa kênh" loading="lazy" decoding="async" />
+                                <div class="play-btn-overlay">
+                                    <i class="fa-solid fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="video-talk-card-body">
+                                <div class="video-meta">
+                                    <span class="video-tag">IDEAS Talk - AI</span>
+                                    <span>23/03/2025</span>
+                                </div>
+                                <h3>Ứng dụng AI chăm sóc khách hàng đa kênh</h3>
+                            </div>
+                        </article>
+
+                        <!-- Video 2 -->
+                        <article class="video-talk-card"
+                            onclick="openVideoModal('https://www.youtube.com/embed/n0S6vGsilhs?si=qOu2_jTHYmvj5ppD')">
+                            <div class="video-thumb-wrap">
+                                <img src="https://img.youtube.com/vi/n0S6vGsilhs/maxresdefault.jpg" alt="Giải mã AI"
+                                    loading="lazy" decoding="async" />
+                                <div class="play-btn-overlay">
+                                    <i class="fa-solid fa-play"></i>
+                                </div>
+                            
