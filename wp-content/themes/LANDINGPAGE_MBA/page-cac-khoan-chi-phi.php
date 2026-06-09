@@ -31,6 +31,13 @@ ob_start(function ($html) {
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Các khoản chi phí & Lệ phí học vụ | IDEAS</title>
     <?php endif; ?>
@@ -380,7 +387,7 @@ ob_start(function ($html) {
             <div class="fee-container-width">
                 <div class="fee-section-title-wrap">
                     <span class="fee-section-tag"><i class="fa-solid fa-coins"></i> Lệ phí học vụ</span>
-                    <h2 class="fee-section-title">Chi Tiết <span>Các Khoản Phí</span> Swiss UMEF</h2>
+                    <h1 class="fee-section-title">Chi Tiết <span>Các Khoản Phí</span> Swiss UMEF</h1>
                     <p class="fee-section-subtitle">Áp dụng cho học viên tham gia học tập các chương trình cử nhân, thạc
                         sĩ và tiến sĩ liên kết Thụy Sĩ tại IDEAS.</p>
                 </div>

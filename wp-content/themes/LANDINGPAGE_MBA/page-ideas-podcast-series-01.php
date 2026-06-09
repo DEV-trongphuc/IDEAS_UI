@@ -31,6 +31,15 @@ ob_start(function ($html) {
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <!-- Preload LCP hero background image -->
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/11/Co-di-hoc-ko-nguoi-dep-1.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Ideas Podcast Series 01 – Vượt rào cản tiếng Anh | IDEAS</title>
     <?php endif; ?>
@@ -586,6 +595,7 @@ ob_start(function ($html) {
     <main id="content">
         <!-- Hero Section -->
         <section class="podcast-hero">
+            <div class="podcast-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/11/Co-di-hoc-ko-nguoi-dep-1.webp');"></div>
             <div class="podcast-hero-overlay"></div>
             <div class="podcast-hero-container">
                 <span class="podcast-hero-badge">

@@ -31,6 +31,15 @@ ob_start(function ($html) {
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <!-- Preload LCP hero background image -->
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>IDEAS Talk – Webinar &amp; Chuyên đề AI | IDEAS</title>
     <?php endif; ?>
@@ -592,6 +601,7 @@ ob_start(function ($html) {
     <main id="content">
         <!-- Hero Section -->
         <section class="talk-hero">
+            <div class="talk-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp');"></div>
             <div class="talk-hero-overlay"></div>
             <div class="talk-hero-container">
                 <span class="talk-hero-badge">

@@ -31,6 +31,13 @@ ob_start(function ($html) {
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Sơ đồ tổ chức & Cơ cấu nhân sự | IDEAS</title>
     <?php endif; ?>
@@ -1105,7 +1112,7 @@ ob_start(function ($html) {
 
                                         <article class="consultant-card">
                                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cphuc.webp"
-                                                class="consultant-avatar" alt="Lưu Phan Hoàng Phúc">
+                                                class="consultant-avatar" alt="Lưu Phan Hoàng Phúc" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Lưu Phan Hoàng Phúc</h4>
                                                 <span class="consultant-role">Tư vấn viên</span>
@@ -1118,7 +1125,7 @@ ob_start(function ($html) {
 
                                         <article class="consultant-card">
                                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cdan.webp"
-                                                class="consultant-avatar" alt="Nguyễn Thị Linh Đan">
+                                                class="consultant-avatar" alt="Nguyễn Thị Linh Đan" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Nguyễn Thị Linh Đan</h4>
                                                 <span class="consultant-role">Tư vấn viên</span>
@@ -1131,7 +1138,7 @@ ob_start(function ($html) {
 
                                         <article class="consultant-card">
                                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg"
-                                                class="consultant-avatar" alt="Lê Đinh Ý Nhi">
+                                                class="consultant-avatar" alt="Lê Đinh Ý Nhi" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Lê Đinh Ý Nhi</h4>
                                                 <span class="consultant-role">Tư vấn viên</span>
@@ -1144,7 +1151,7 @@ ob_start(function ($html) {
 
                                         <article class="consultant-card">
                                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/uyen.webp"
-                                                class="consultant-avatar" alt="Nguyễn Phương Uyên">
+                                                class="consultant-avatar" alt="Nguyễn Phương Uyên" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Nguyễn Phương Uyên</h4>
                                                 <span class="consultant-role">Tư vấn viên</span>
@@ -1174,7 +1181,7 @@ ob_start(function ($html) {
                         <div class="org-branch-col has-sub-branches">
                             <div class="org-node">
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/phamthiphuonglan_avt.jpg"
-                                    class="org-node-avatar" alt="Trưởng phòng Kế hoạch - Phạm Thị Phương Lan">
+                                    class="org-node-avatar" alt="Trưởng phòng Kế hoạch - Phạm Thị Phương Lan" loading="lazy" decoding="async">
                                 <div class="org-node-body">
                                     <div class="org-node-role">Trưởng Khối</div>
                                     <h3 class="org-node-name">Phạm Thị Phương Lan</h3>

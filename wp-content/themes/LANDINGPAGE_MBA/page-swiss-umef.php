@@ -31,6 +31,15 @@ ob_start(function ($html) {
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <!-- Preload LCP hero background image -->
+    <link rel="preload" fetchpriority="high" as="image" href="https://static.wixstatic.com/media/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg/v1/fill/w_1470,h_647,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS</title>
@@ -2049,7 +2058,7 @@ ob_start(function ($html) {
             <div class="umef-hero-logo-wrap">
                 <a href="https://www.swiss-umef.ch/" target="_blank" rel="noopener" class="umef-hero-logo-link">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShSoIjIIW_XlfCq3nbCxt--s3zt2lxrO74_A&s"
-                        alt="Swiss UMEF Logo" class="umef-hero-circle-logo" />
+                        alt="Swiss UMEF Logo" class="umef-hero-circle-logo" fetchpriority="high" decoding="async" />
                 </a>
             </div>
             <div class="umef-hero-badge">

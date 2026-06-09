@@ -43,6 +43,39 @@ ob_start(function($html) {
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preconnect to external domains for faster resource loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <!-- Preload LCP hero background image -->
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/01/ltn27122025.webp" />
+    <?php
+    // Preload LCP featured article image dynamically on page 1
+    $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    if ($current_page == 1) {
+        $latest_posts = get_posts(array(
+            'post_type'      => 'post',
+            'posts_per_page' => 1,
+            'post_status'    => 'publish'
+        ));
+        if (!empty($latest_posts)) {
+            $featured_id = $latest_posts[0]->ID;
+            $featured_img = get_the_post_thumbnail_url($featured_id, 'large');
+            if (!$featured_img) {
+                $content = $latest_posts[0]->post_content;
+                preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
+                $featured_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+            }
+            if ($featured_img) {
+                echo "\n    <!-- Preload LCP featured post image -->\n";
+                echo '    <link rel="preload" fetchpriority="high" as="image" href="' . esc_url($featured_img) . '" />' . "\n";
+            }
+        }
+    }
+    ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
 <title>Tin tức &amp; Sự kiện | <?php bloginfo('name'); ?></title>
 <?php endif; ?>
