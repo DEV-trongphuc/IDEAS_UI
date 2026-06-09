@@ -101,3 +101,15 @@ function blankslate_pingback_header() {
         printf( '<link rel="pingback" href="%s" />' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
     }
 }
+
+// Custom 301 Redirection Rules
+add_action( 'template_redirect', 'custom_page_redirections' );
+function custom_page_redirections() {
+    if ( ! empty( $_SERVER['REQUEST_URI'] ) ) {
+        $path = trim( parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' );
+        if ( $path === 'su-kien' ) {
+            wp_redirect( home_url( '/dong-su-kien' ), 301 );
+            exit;
+        }
+    }
+}
