@@ -1,4 +1,40 @@
-<?php get_header(); ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<head>
+    <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QKV7LKNLLH');
+        gtag('config', 'AW-11205917800');
+    </script>
+
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <!-- Link the main minified style.css -->
+    <?php 
+    $css_path = get_stylesheet_directory() . '/common-assets/css/style.min.css';
+    $css_version = file_exists($css_path) ? filemtime($css_path) : time();
+    ?>
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/style.min.css?v=<?php echo $css_version; ?>" />
+    
+    <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
+<!-- Shared Header & Mobile Menu -->
+<?php get_template_part('shared-header'); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -42,7 +78,7 @@
         background-image: 
             radial-gradient(circle at 10% 20%, rgba(185, 14, 0, 0.12) 0%, transparent 45%),
             radial-gradient(circle at 90% 70%, rgba(185, 14, 0, 0.08) 0%, transparent 45%);
-        padding: 150px 20px 100px;
+        padding: 180px 20px 100px;
         text-align: center;
         overflow: hidden;
     }
@@ -124,7 +160,7 @@
 
     @media (max-width: 768px) {
         .premium-page-hero {
-            padding: 120px 16px 70px;
+            padding: 150px 16px 70px;
         }
         .premium-page-content-wrapper {
             margin-top: -30px;
@@ -141,6 +177,7 @@
         line-height: 1.75;
         color: #334155;
         margin-bottom: 24px;
+        text-align: left;
     }
 
     .premium-page-body p:last-child {
@@ -155,6 +192,7 @@
         padding-left: 14px;
         border-left: 4px solid #ab0e00;
         line-height: 1.35;
+        text-align: left;
     }
 
     .premium-page-body h3 {
@@ -163,6 +201,7 @@
         color: #0f172a !important;
         margin: 35px 0 16px;
         line-height: 1.4;
+        text-align: left;
     }
 
     .premium-page-body ul, 
@@ -170,12 +209,14 @@
         padding-left: 24px;
         margin-bottom: 24px;
         color: #334155;
+        text-align: left;
     }
 
     .premium-page-body li {
         font-size: 1.02rem;
         line-height: 1.7;
         margin-bottom: 10px;
+        text-align: left;
     }
 
     .premium-page-body a {
@@ -199,12 +240,46 @@
         border-left: 4px solid #ab0e00;
         background: #f8fafc;
         border-radius: 0 16px 16px 0;
+        text-align: left;
     }
 
     .premium-page-body blockquote p {
         font-style: italic;
         font-size: 1.1rem;
         margin-bottom: 0;
+    }
+
+    /* ─── SKYLINE IMAGE OVERRIDES ─── */
+    .premium-page-body .ideas_main,
+    .premium-page-body .ideas_box {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .premium-page-body .ideas_fade_bottom {
+        display: block !important;
+        width: calc(100% + 120px) !important;
+        max-width: none !important;
+        height: auto !important;
+        margin-left: -60px !important;
+        margin-right: -60px !important;
+        margin-bottom: -50px !important;
+        margin-top: 40px !important;
+        opacity: 0.12 !important;
+        mix-blend-mode: multiply;
+        transition: opacity 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+        .premium-page-body .ideas_fade_bottom {
+            width: calc(100% + 48px) !important;
+            margin-left: -24px !important;
+            margin-right: -24px !important;
+            margin-bottom: -30px !important;
+            margin-top: 30px !important;
+        }
     }
 </style>
 
