@@ -97,7 +97,7 @@ if (is_page('so-do-to-chuc')) {
                 <p><?php echo esc_html($modal_subtitle); ?></p>
             </header>
 
-            <form class="cta-form modal-form" id="modal-cta-form" novalidate>
+            <form class="cta-form modal-form" id="modal-cta-form" data-submit-handler-registered="true" novalidate>
                 <div class="form-group">
                     <label for="modal-fullname">Họ và tên *</label>
                     <input type="text" id="modal-fullname" name="fullname" placeholder="Họ và tên của bạn" required />
@@ -594,12 +594,12 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const nameInput = form.querySelector('input[placeholder*="Họ và tên"]');
-            const phoneInput = form.querySelector('input[placeholder*="Số điện thoại"]');
-            const emailInput = form.querySelector('input[placeholder*="email"]');
-            const eduSelect = form.querySelector('select[name="education"]');
-            const engSelect = form.querySelector('select[name="english"]');
-            const msgTextarea = form.querySelector('textarea[name="message"]');
+            const nameInput = document.getElementById('modal-fullname') || form.querySelector('input[placeholder*="Họ và tên"]') || form.querySelector('input[type="text"]');
+            const phoneInput = document.getElementById('modal-phone') || form.querySelector('input[placeholder*="Số điện thoại"]') || form.querySelector('input[type="tel"]');
+            const emailInput = document.getElementById('modal-email') || form.querySelector('input[placeholder*="email"]') || form.querySelector('input[type="email"]');
+            const eduSelect = document.getElementById('modal-education') || form.querySelector('select[name="education"]');
+            const engSelect = document.getElementById('modal-english') || form.querySelector('select[name="english"]');
+            const msgTextarea = document.getElementById('modal-message') || form.querySelector('textarea[name="message"]');
 
             const name = nameInput ? nameInput.value.trim() : '';
             const phone = phoneInput ? phoneInput.value.trim() : '';
@@ -676,7 +676,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 firstName: name,
                 phoneNumber: phone,
                 time_dat_lich: "",
-                note_dat_lich: notePrefix,
+                note_dat_lich: notePrefix ? `${notePrefix} | ${combinedNote}` : combinedNote,
                 chuong_trinh_dat_lich: chuongTrinhVal
             };
 

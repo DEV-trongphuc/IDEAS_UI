@@ -346,6 +346,12 @@ const isEn = document.documentElement.lang === 'en';
         const formSuccess = document.getElementById(successId);
         if (!form) return;
 
+        // Prevent duplicate handler registration if another script already handles it
+        if (form.getAttribute('data-submit-handler-registered') === 'true' || form.dataset.submitHandlerRegistered === 'true') {
+            console.log(`Submit handler for #${formId} already registered, skipping script.js listener`);
+            return;
+        }
+
         const submitBtn = form.querySelector('button[type="submit"]');
         const btnText = submitBtn.querySelector('span') || submitBtn;
 
