@@ -6,6 +6,7 @@ function blankslate_setup() {
     if ( !isset( $content_width ) ) { $content_width = 1920; }
     register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'blankslate' ) ) );
     add_theme_support( 'title-tag' );
+    add_theme_support( 'post-thumbnails' );
 }
 
 add_action( 'wp_footer', 'blankslate_footer' );
