@@ -228,6 +228,7 @@ ob_start(function ($html) {
             .talk-hero p {
                 font-size: 1rem;
                 margin-bottom: 24px;
+                color: rgba(255, 255, 255, 0.9) !important;
             }
 
             .theater-section {

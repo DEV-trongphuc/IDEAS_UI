@@ -13,6 +13,9 @@
 
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+        <title><?php single_post_title(); ?> | <?php bloginfo('name'); ?></title>
+    <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
     
     <!-- Google Fonts & FontAwesome -->

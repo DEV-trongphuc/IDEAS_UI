@@ -248,6 +248,12 @@ ob_start(function ($html) {
                 padding: 120px 16px 45px !important;
             }
 
+            .events-hero p {
+                color: rgba(255, 255, 255, 0.9) !important;
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+            }
+
             .events-section {
                 padding: 40px 16px 60px !important;
             }
