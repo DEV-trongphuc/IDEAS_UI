@@ -133,8 +133,19 @@ ob_start(function($html) {
             text-align: center;
             position: relative;
             color: #ffffff;
-            overflow: hidden;
+            overflow: visible;
             border-bottom: 4px solid #ab0e00;
+        }
+        
+        .hero-bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
         }
         
         .counters-bg {
@@ -644,13 +655,15 @@ ob_start(function($html) {
 
     <!-- Banner Hero Area -->
     <section class="blog-archive-hero">
-        <div class="counters-bg" style="background-image: linear-gradient(135deg, rgba(185, 14, 0, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');"></div>
+        <div class="hero-bg-wrapper">
+            <div class="counters-bg" style="background-image: linear-gradient(135deg, rgba(185, 14, 0, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');"></div>
+        </div>
         <div class="container" style="position: relative; z-index: 3;">
             <h1>Tin Tức &amp; Sự Kiện</h1>
             <p>Cập nhật những thông tin tuyển sinh mới nhất, hoạt động của học viên và bài viết chia sẻ tri thức chuyên môn từ Hội đồng Học thuật IDEAS.</p>
             
             <!-- Search bar -->
-            <form role="search" method="get" class="archive-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <form role="search" method="get" class="archive-search-form" action="<?php echo esc_url( home_url( '/index.php' ) ); ?>">
                 <div class="search-input-wrap">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
                     <input type="search" class="search-input" placeholder="Tìm kiếm bài viết..." value="<?php echo get_search_query(); ?>" name="s" required />

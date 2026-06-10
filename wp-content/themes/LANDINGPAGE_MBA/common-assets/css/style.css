@@ -10800,7 +10800,13 @@ body .pain-card-desc {
     max-width: 100% !important;
     margin: 24px auto 0 !important;
     width: fit-content !important;
+    text-align: left !important;
   }
+
+  body .proof-check-item p {
+    text-align: left !important;
+  }
+
 
   /* Reduce shadow and glow on sample degree for mobile, and add bottom spacing */
   body .proof-degree-wrap {

@@ -304,7 +304,7 @@ ob_start(function($html) {
             <p>Trang bạn đang tìm kiếm không tồn tại, đã bị xóa hoặc đã được di chuyển sang một đường dẫn khác. Hãy thử tìm kiếm bài viết bên dưới hoặc quay lại trang chủ.</p>
             
             <!-- Search bar -->
-            <form role="search" method="get" class="error-search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <form role="search" method="get" class="error-search-form" action="<?php echo esc_url( home_url( '/index.php' ) ); ?>">
                 <div class="error-search-wrap">
                     <i class="fa-solid fa-magnifying-glass error-search-icon"></i>
                     <input type="search" class="error-search-input" placeholder="Tìm kiếm thông tin trên website..." value="" name="s" required />

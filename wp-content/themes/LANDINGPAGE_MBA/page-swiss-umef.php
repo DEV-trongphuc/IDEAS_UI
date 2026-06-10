@@ -2106,6 +2106,20 @@ ob_start(function ($html) {
       display: none !important;
     }
   }
+
+  /* Mobile checklist alignment fix */
+  @media (max-width: 768px) {
+    body .proof-card-checklist {
+      align-items: flex-start !important;
+      max-width: 100% !important;
+      margin: 24px auto 0 !important;
+      width: fit-content !important;
+      text-align: left !important;
+    }
+    body .proof-check-item p {
+      text-align: left !important;
+    }
+  }
 </style>
     <?php wp_head(); ?>
 </head>
@@ -2241,11 +2255,12 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-file-certificate"></i>
                             Chứng nhận kiểm định SAC
                         </a>
-                        <a href="https://www.swiss-umef.ch/en/accreditations-et-reconnaissances" class="acc-cert-thumb"
+                        <a href="https://www.swiss-umef.ch/en/partenaires" class="acc-cert-thumb"
                             target="_blank" rel="noopener noreferrer">
                             <i class="fa-solid fa-globe"></i>
-                            Xác thực từ Swiss UMEF
+                            Xác thực đối tác từ Swiss UMEF
                         </a>
+
                     </div>
                 </div>
             </div>
@@ -2410,12 +2425,12 @@ ob_start(function ($html) {
                 <div class="umef_news_card_img umef_news_card_img--sm">
                     <img loading="lazy" decoding="async"
                         src="https://ideas.edu.vn/wp-content/uploads/2026/06/ctqh.webp"
-                        alt="Chủ tịch Quốc hội dự Tọa đàm">
+                        alt="Chủ tịch Quốc hội Trần Thanh Mẫn dự Tọa đàm">
                 </div>
                 <div class="umef_news_card_body">
                     <div class="umef_news_card_tag"><i class="fa-solid fa-calendar-check"></i> Sự kiện đặc biệt
                     </div>
-                    <b>Chủ tịch Quốc hội dự Tọa đàm Xây dựng Trung tâm Tài chính Quốc tế</b>
+                    <b>Chủ tịch Quốc hội Trần Thanh Mẫn dự Tọa đàm Xây dựng Trung tâm Tài chính Quốc tế</b>
                     <div class="umef_news_card_meta">
                         <i class="fa-regular fa-calendar"></i>
                         <span>28/07/2025</span>
@@ -2758,7 +2773,7 @@ ob_start(function ($html) {
                     hỗ trợ 24/7 và cung cấp thư viện học thuật dồi dào, tôi đã có thể cân bằng hoàn hảo giữa công việc
                     quản lý bận rộn và việc hoàn thành luận văn thạc sĩ đúng hạn."</p>
                 <div class="testi-author">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/Logo-Swiss-UMEF.webp"
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
                         class="testi-author-img" alt="Học viên UMEF" />
                     <div class="testi-author-info">
                         <h4>Nguyễn Hoàng Minh</h4>

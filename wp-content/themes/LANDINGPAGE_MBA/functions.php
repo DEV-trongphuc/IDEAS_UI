@@ -4796,10 +4796,10 @@ function ideas_live_search_footer_assets() {
 
         /* For dark themes (like the hero section on archive and search page, where background is dark) */
         .archive-search-form .search-results-dropdown {
-            background: #1e293b;
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            color: #ffffff;
+            background: #ffffff;
+            border-color: #e2e8f0;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            color: #1e293b;
         }
 
         /* For 404 page (light background) */
@@ -4823,11 +4823,11 @@ function ideas_live_search_footer_assets() {
         }
 
         .archive-search-form .search-dropdown-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #f1f5f9;
         }
 
         .archive-search-form .search-dropdown-item:hover {
-            background: rgba(255, 255, 255, 0.06);
+            background: #f8fafc;
             transform: translateY(-1px);
         }
 
@@ -4875,7 +4875,7 @@ function ideas_live_search_footer_assets() {
         }
 
         .archive-search-form .search-dropdown-title {
-            color: #ffffff;
+            color: #0f172a;
         }
         .error-search-form .search-dropdown-title {
             color: #0f172a;
