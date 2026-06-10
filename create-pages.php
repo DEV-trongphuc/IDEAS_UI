@@ -86,6 +86,11 @@ $pages = [
         'template' => 'page-ideas-podcast-series-01.php'
     ],
     [
+        'slug' => 'sitemap',
+        'title' => 'Sơ đồ trang web',
+        'template' => 'page-sitemap.php'
+    ],
+    [
         'slug' => 'bai-viet',
         'title' => 'Tin tức & Sự kiện',
         'template' => 'archive.php'
