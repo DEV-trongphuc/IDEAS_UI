@@ -4,6 +4,8 @@ deployment:
     - export DEPLOYPATH=$HOME/public_html
     - mkdir -p $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     - mkdir -p $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
+    # Deploy .htaccess
+    - cp .htaccess $DEPLOYPATH/.htaccess
     # Deploy landing pages
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)
