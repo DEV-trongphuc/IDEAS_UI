@@ -123,15 +123,14 @@ ob_start(function ($html) {
 
     <style>
         /* ══════════════════════════════════════
-           MBA SEO PAGE – PREMIUM DARK DIRECTORY DESIGN
+           MBA SEO PAGE – PREMIUM WHITE DIRECTORY DESIGN
            ══════════════════════════════════════ */
         html,
         body {
             overflow-x: clip !important;
-            background-color: #080405 !important;
-            color: #f3f4f6 !important;
+            background-color: #ffffff !important;
+            color: #334155 !important; /* slate-700 */
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            scroll-behavior: smooth;
         }
 
         body::before {
@@ -140,9 +139,9 @@ ob_start(function ($html) {
             inset: 0;
             z-index: -1;
             background-image:
-                radial-gradient(circle at 10% 15%, rgba(171, 14, 0, 0.08) 0%, transparent 45%),
-                radial-gradient(circle at 90% 80%, rgba(171, 14, 0, 0.05) 0%, transparent 40%),
-                radial-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+                radial-gradient(circle at 10% 15%, rgba(171, 14, 0, 0.03) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(171, 14, 0, 0.02) 0%, transparent 40%),
+                radial-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 28px 28px;
             pointer-events: none;
             will-change: transform;
@@ -158,8 +157,8 @@ ob_start(function ($html) {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(171, 14, 0, 0.1);
-            color: #ff4d4d;
+            background: rgba(171, 14, 0, 0.06);
+            color: #ab0e00;
             padding: 6px 16px;
             border-radius: 100px;
             font-size: 0.8rem;
@@ -167,24 +166,24 @@ ob_start(function ($html) {
             letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 20px;
-            border: 1px solid rgba(171, 14, 0, 0.2);
+            border: 1px solid rgba(171, 14, 0, 0.12);
         }
         .section-title {
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             line-height: 1.25;
-            color: #fff;
+            color: #0f172a; /* slate-900 */
             margin-bottom: 20px;
         }
         .section-desc {
             font-size: 1.05rem;
-            color: #9ca3af;
+            color: #475569; /* slate-600 */
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto 50px;
         }
         .gradient-text {
-            background: linear-gradient(135deg, #ff8a8a 0%, #ab0e00 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #ff3030 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -195,12 +194,13 @@ ob_start(function ($html) {
             position: relative;
             text-align: center;
             overflow: hidden;
+            background: #ffffff;
         }
         .mba-hero::after {
             content: '';
             position: absolute;
             bottom: 0; left: 0; width: 100%; height: 150px;
-            background: linear-gradient(180deg, transparent, #080405);
+            background: linear-gradient(180deg, transparent, #ffffff);
             pointer-events: none;
         }
         .mba-hero-content {
@@ -212,13 +212,13 @@ ob_start(function ($html) {
         .mba-hero-title {
             font-size: clamp(2.2rem, 5vw, 3rem);
             font-weight: 800;
-            color: #fff;
+            color: #0f172a; /* slate-900 */
             line-height: 1.2;
             margin-bottom: 24px;
         }
         .mba-hero-sub {
             font-size: 1.15rem;
-            color: #d1d5db;
+            color: #334155; /* slate-700 */
             line-height: 1.6;
             margin-bottom: 35px;
         }
@@ -230,25 +230,25 @@ ob_start(function ($html) {
             margin-bottom: 40px;
         }
         .mba-hero-badge-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             padding: 10px 20px;
             border-radius: 100px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #e5e7eb;
+            color: #334155;
             display: flex;
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
         }
         .mba-hero-badge-item:hover {
-            border-color: rgba(171, 14, 0, 0.5);
-            background: rgba(171, 14, 0, 0.05);
+            border-color: rgba(171, 14, 0, 0.3);
+            background: rgba(171, 14, 0, 0.03);
             transform: translateY(-2px);
         }
         .mba-hero-badge-item i {
-            color: #ff4d4d;
+            color: #ab0e00;
         }
         .mba-hero-ctas {
             display: flex;
@@ -275,26 +275,26 @@ ob_start(function ($html) {
         .btn-ideas-primary:hover {
             background: #cf1500;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.25);
         }
         .btn-ideas-outline {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: transparent;
-            color: #fff;
+            color: #0f172a; /* slate-900 */
             padding: 14px 28px;
             border-radius: 100px;
             font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border: 1.5px solid #cbd5e1; /* slate-300 */
             cursor: pointer;
         }
         .btn-ideas-outline:hover {
-            border-color: #fff;
-            background: rgba(255, 255, 255, 0.05);
+            border-color: #0f172a;
+            background: rgba(15, 23, 42, 0.03);
             transform: translateY(-2px);
         }
         
@@ -310,8 +310,8 @@ ob_start(function ($html) {
             margin-top: 40px;
         }
         .catalog-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 24px;
             padding: 35px;
             display: flex;
@@ -320,56 +320,56 @@ ob_start(function ($html) {
             position: relative;
             z-index: 1;
             overflow: hidden;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
         }
         .catalog-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top right, rgba(171, 14, 0, 0.1) 0%, transparent 60%);
+            background: radial-gradient(circle at top right, rgba(171, 14, 0, 0.04) 0%, transparent 60%);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease;
         }
         .catalog-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(171, 14, 0, 0.3);
-            background: rgba(255, 255, 255, 0.04);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border-color: rgba(171, 14, 0, 0.2);
+            background: #ffffff;
+            box-shadow: 0 20px 40px -10px rgba(171, 14, 0, 0.1);
         }
         .catalog-card:hover::before {
             opacity: 1;
         }
         .catalog-card-icon {
             font-size: 2.2rem;
-            color: #ff4d4d;
+            color: #ab0e00;
             margin-bottom: 20px;
         }
         .catalog-card-title {
             font-size: 1.45rem;
             font-weight: 800;
-            color: #fff;
+            color: #0f172a; /* slate-900 */
             margin-bottom: 8px;
             line-height: 1.3;
         }
         .catalog-card-school {
             font-size: 0.85rem;
             font-weight: 700;
-            color: #ff4d4d;
+            color: #ab0e00;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 20px;
         }
         .catalog-card-desc {
             font-size: 0.95rem;
-            color: #9ca3af;
+            color: #475569; /* slate-600 */
             line-height: 1.6;
             margin-bottom: 24px;
             flex-grow: 1;
         }
         .catalog-card-meta {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
             padding: 20px 0;
             margin-bottom: 24px;
             display: grid;
@@ -381,19 +381,19 @@ ob_start(function ($html) {
             align-items: center;
             gap: 8px;
             font-size: 0.88rem;
-            color: #d1d5db;
+            color: #334155; /* slate-700 */
         }
         .catalog-meta-item i {
-            color: #ff4d4d;
+            color: #ab0e00;
             font-size: 0.9rem;
             width: 16px;
         }
         .catalog-card-btn {
             width: 100%;
             padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background: #f1f5f9; /* slate-100 */
+            border: 1px solid #e2e8f0;
+            color: #0f172a;
             font-weight: 700;
             border-radius: 12px;
             text-align: center;
@@ -405,39 +405,42 @@ ob_start(function ($html) {
         .catalog-card:hover .catalog-card-btn {
             background: #ab0e00;
             border-color: #ab0e00;
+            color: #ffffff;
         }
         
         /* ─── PARTNERS ─── */
         .partners-section {
             padding: 80px 0;
-            background: rgba(255, 255, 255, 0.01);
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
         }
         .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            display: flex;
+            justify-content: center;
             margin-top: 40px;
         }
         .partner-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
             transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
         }
         .partner-card:hover {
             border-color: rgba(171, 14, 0, 0.2);
-            background: rgba(171, 14, 0, 0.03);
+            background: #ffffff;
             transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.12);
         }
         .partner-logo-box {
-            height: 50px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -446,19 +449,17 @@ ob_start(function ($html) {
         .partner-logo-box img {
             max-height: 100%;
             max-width: 80%;
-            filter: brightness(0) invert(1);
-            opacity: 0.85;
             object-fit: contain;
         }
         .partner-title {
             font-size: 1.3rem;
             font-weight: 800;
-            color: #fff;
+            color: #0f172a;
             margin-bottom: 8px;
         }
         .partner-loc {
             font-size: 0.88rem;
-            color: #9ca3af;
+            color: #475569;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -466,17 +467,17 @@ ob_start(function ($html) {
             gap: 6px;
         }
         .partner-loc i {
-            color: #ff4d4d;
+            color: #ab0e00;
         }
         .partner-features {
             text-align: left;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid #e2e8f0;
             padding-top: 20px;
             flex-grow: 1;
         }
         .partner-feature-item {
             font-size: 0.88rem;
-            color: #d1d5db;
+            color: #334155;
             margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
@@ -484,7 +485,7 @@ ob_start(function ($html) {
             line-height: 1.4;
         }
         .partner-feature-item i {
-            color: #ff4d4d;
+            color: #ab0e00;
             margin-top: 3px;
             width: 14px;
         }
@@ -492,6 +493,7 @@ ob_start(function ($html) {
         /* ─── PROS & CONS ─── */
         .proscons-section {
             padding: 80px 0;
+            background: #ffffff;
         }
         .proscons-grid {
             display: grid;
@@ -505,10 +507,11 @@ ob_start(function ($html) {
             }
         }
         .proscons-col {
-            background: rgba(255, 255, 255, 0.015);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 24px;
             padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
         }
         .proscons-col-title {
             font-size: 1.4rem;
@@ -518,8 +521,8 @@ ob_start(function ($html) {
             align-items: center;
             gap: 12px;
         }
-        .pros-title { color: #34d399; }
-        .cons-title { color: #f87171; }
+        .pros-title { color: #059669; }
+        .cons-title { color: #dc2626; }
         .proscons-list {
             list-style: none;
             padding: 0;
@@ -536,24 +539,24 @@ ob_start(function ($html) {
             margin-top: 4px;
             font-size: 1.1rem;
         }
-        .pros-item i { color: #34d399; }
-        .cons-item i { color: #f87171; }
+        .pros-item i { color: #059669; }
+        .cons-item i { color: #dc2626; }
         .proscons-item h5 {
             font-size: 1rem;
             font-weight: 700;
-            color: #fff;
+            color: #0f172a;
             margin: 0 0 6px 0;
         }
         .proscons-item p {
             font-size: 0.92rem;
-            color: #9ca3af;
+            color: #475569;
             margin: 0;
         }
 
         /* ─── CORE COMPETENCIES ─── */
         .comp-section {
             padding: 80px 0;
-            background: radial-gradient(circle at center, rgba(171, 14, 0, 0.04) 0%, transparent 70%);
+            background: radial-gradient(circle at center, rgba(171, 14, 0, 0.02) 0%, transparent 70%);
         }
         .comp-grid {
             display: grid;
@@ -562,58 +565,61 @@ ob_start(function ($html) {
             margin-top: 40px;
         }
         .comp-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 16px;
             padding: 30px;
             position: relative;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
         }
         .comp-card:hover {
-            background: rgba(255, 255, 255, 0.03);
+            background: #ffffff;
             border-color: rgba(171, 14, 0, 0.2);
             transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.08);
         }
         .comp-num {
             font-size: 3rem;
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.02);
+            color: rgba(15, 23, 42, 0.03);
             position: absolute;
             top: 15px; right: 20px;
             line-height: 1;
             transition: color 0.3s ease;
         }
         .comp-card:hover .comp-num {
-            color: rgba(171, 14, 0, 0.08);
+            color: rgba(171, 14, 0, 0.06);
         }
         .comp-card-icon {
             font-size: 1.8rem;
-            color: #ff4d4d;
+            color: #ab0e00;
             margin-bottom: 20px;
         }
         .comp-card-title {
             font-size: 1.15rem;
             font-weight: 700;
-            color: #fff;
+            color: #0f172a;
             margin-bottom: 12px;
         }
         .comp-card-desc {
             font-size: 0.9rem;
-            color: #9ca3af;
+            color: #475569;
             line-height: 1.5;
         }
 
         /* ─── FAQ / ACCORDION ─── */
         .faq-section {
             padding: 80px 0;
+            background: #ffffff;
         }
         .faq-accordion {
             max-width: 800px;
             margin: 40px auto 0;
         }
         .faq-item {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
             border-radius: 12px;
             margin-bottom: 16px;
             overflow: hidden;
@@ -621,7 +627,8 @@ ob_start(function ($html) {
         }
         .faq-item:hover {
             border-color: rgba(171, 14, 0, 0.2);
-            background: rgba(255, 255, 255, 0.02);
+            background: #ffffff;
+            box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04);
         }
         .faq-header {
             padding: 20px 24px;
@@ -630,24 +637,24 @@ ob_start(function ($html) {
             justify-content: space-between;
             align-items: center;
             font-weight: 700;
-            color: #fff;
+            color: #0f172a;
             font-size: 1.05rem;
         }
         .faq-arrow {
             font-size: 0.8rem;
-            color: #9ca3af;
+            color: #64748b;
             transition: transform 0.3s ease;
         }
         .faq-item.active .faq-arrow {
             transform: rotate(180deg);
-            color: #ff4d4d;
+            color: #ab0e00;
         }
         .faq-body {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
             font-size: 0.95rem;
-            color: #9ca3af;
+            color: #475569;
             line-height: 1.6;
         }
         .faq-item.active .faq-body {
@@ -655,7 +662,7 @@ ob_start(function ($html) {
         }
         .faq-content {
             padding: 0 24px 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid #e2e8f0;
             padding-top: 16px;
         }
 
@@ -663,7 +670,7 @@ ob_start(function ($html) {
         .ideas-section {
             padding: 80px 0;
             position: relative;
-            background: linear-gradient(180deg, transparent, rgba(171, 14, 0, 0.04) 50%, transparent 100%);
+            background: linear-gradient(180deg, transparent, rgba(171, 14, 0, 0.02) 50%, transparent 100%);
         }
         .ideas-layout {
             display: grid;
@@ -681,8 +688,8 @@ ob_start(function ($html) {
             position: relative;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.1);
+            border: 1px solid #e2e8f0;
         }
         .ideas-img-box img {
             width: 100%;
@@ -700,19 +707,19 @@ ob_start(function ($html) {
             gap: 12px;
             margin-bottom: 20px;
             font-size: 1rem;
-            color: #e5e7eb;
+            color: #334155;
             line-height: 1.5;
         }
         .ideas-point-item i {
-            color: #ff4d4d;
+            color: #ab0e00;
             margin-top: 4px;
             width: 16px;
         }
 
         /* ─── CTA BANNER ─── */
         .cta-banner {
-            background: linear-gradient(135deg, rgba(171, 14, 0, 0.15) 0%, rgba(171, 14, 0, 0.05) 100%);
-            border: 1px solid rgba(171, 14, 0, 0.25);
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebeb 100%);
+            border: 1px solid rgba(171, 14, 0, 0.12);
             border-radius: 30px;
             padding: 60px 40px;
             text-align: center;
@@ -720,26 +727,27 @@ ob_start(function ($html) {
             position: relative;
             overflow: hidden;
             max-width: 1000px;
+            box-shadow: 0 10px 30px -10px rgba(171, 14, 0, 0.08);
         }
         .cta-banner-glow {
             position: absolute;
             width: 300px; height: 300px;
             background: #ab0e00;
             filter: blur(150px);
-            opacity: 0.15;
+            opacity: 0.05;
             top: -100px; left: -100px;
             pointer-events: none;
         }
         .cta-banner h2 {
             font-size: 2rem;
             font-weight: 800;
-            color: #fff;
+            color: #0f172a;
             margin-bottom: 15px;
             line-height: 1.3;
         }
         .cta-banner p {
             font-size: 1.05rem;
-            color: #d1d5db;
+            color: #475569;
             margin-bottom: 30px;
             max-width: 600px;
             margin-left: auto;
@@ -923,31 +931,31 @@ ob_start(function ($html) {
                         <a href="<?php echo esc_url(home_url('/mbainai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
                     </article>
 
-                    <!-- Card 5: Dual DBA -->
+                    <!-- Card 5: Top-up BBA -->
                     <article class="catalog-card">
                         <div class="catalog-card-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
+                            <i class="fa-solid fa-user-graduate"></i>
                         </div>
-                        <h3 class="catalog-card-title">Dual DBA</h3>
-                        <div class="catalog-card-school">ESTIAM (Pháp) &amp; Rosebank (Anh)</div>
+                        <h3 class="catalog-card-title">Top-up BBA</h3>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
                         <p class="catalog-card-desc">
-                            Chương trình Tiến sĩ Quản trị Kinh doanh song bằng danh giá từ Pháp và Anh. Dành cho các chuyên gia nghiên cứu, giảng viên đại học và lãnh đạo cấp cao muốn định vị học hàm học vị đỉnh cao.
+                            Chương trình liên thông cử nhân QTKD Thụy Sĩ nhanh chóng trong 12 tháng dành cho học viên đã tốt nghiệp Cao đẳng, Trung cấp hoặc hoàn thành năm 3 Đại học.
                         </p>
                         <div class="catalog-card-meta">
                             <div class="catalog-meta-item">
-                                <i class="fa-solid fa-hourglass-half"></i> <span>Hình thức học: Trực tuyến + Hướng dẫn</span>
+                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 12 tháng</span>
                             </div>
                             <div class="catalog-meta-item">
-                                <i class="fa-solid fa-book-open"></i> <span>Đầu ra: 2 bằng Tiến sĩ từ Pháp &amp; Vương Quốc Anh</span>
+                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: 10 môn học &amp; Luận văn tốt nghiệp</span>
                             </div>
                             <div class="catalog-meta-item">
-                                <i class="fa-solid fa-graduation-cap"></i> <span>Học vị: Doctor of Business Administration</span>
+                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 60 ECTS</span>
                             </div>
                             <div class="catalog-meta-item">
-                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Đạt tới học vị cao nhất trong quản trị</span>
+                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Liên thông Cử nhân QTKD quốc tế</span>
                             </div>
                         </div>
-                        <a href="<?php echo esc_url(home_url('/dual-dba-estiam-rb')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+                        <a href="<?php echo esc_url(home_url('/bba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
                     </article>
 
                 </div>
@@ -958,9 +966,9 @@ ob_start(function ($html) {
         <section class="partners-section">
             <div class="container text-center">
                 <span class="section-label">Đại học đối tác</span>
-                <h2 class="section-title">Các Trường kinh doanh <span class="gradient-text">đạt chuẩn kiểm định quốc tế</span></h2>
+                <h2 class="section-title">Trường Đại học <span class="gradient-text">đạt chuẩn kiểm định quốc tế</span></h2>
                 <p class="section-desc">
-                    IDEAS hợp tác tuyển sinh và hỗ trợ học thuật chính thức tại Việt Nam cho các trường Đại học đạt chứng nhận chất lượng giáo dục cao nhất tại quốc gia chủ quản và quốc tế.
+                    IDEAS hợp tác tuyển sinh và hỗ trợ học thuật chính thức tại Việt Nam cho trường Đại học Swiss UMEF đạt chứng nhận chất lượng giáo dục cao nhất tại quốc gia chủ quản và quốc tế.
                 </p>
 
                 <div class="partners-grid text-left">
@@ -984,53 +992,6 @@ ob_start(function ($html) {
                             <div class="partner-feature-item">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <span>Xếp hạng 5 sao QS Stars danh giá toàn cầu</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Partner 2: SBS -->
-                    <div class="partner-card">
-                        <div class="partner-logo-box">
-                            <!-- Fallback layout or generic style representing SBS Swiss Business School -->
-                            <span style="font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: 2px;">SBS SWISS</span>
-                        </div>
-                        <h3 class="partner-title">SBS Swiss Business School</h3>
-                        <div class="partner-loc"><i class="fa-solid fa-location-dot"></i> <span>Zurich, Thụy Sĩ</span></div>
-                        <div class="partner-features">
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Trường Kinh doanh được công nhận chính thức liên bang Thụy Sĩ</span>
-                            </div>
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Đạt kiểm định kép từ ACBSP (Mỹ) và IACBE</span>
-                            </div>
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Nằm trong nhóm xếp hạng hàng đầu của tạp chí CEO Magazine &amp; QS Rankings</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Partner 3: Ascencia -->
-                    <div class="partner-card">
-                        <div class="partner-logo-box">
-                            <span style="font-size: 1.5rem; font-weight: 900; color: #fff; letter-spacing: 2px;">ASCENCIA</span>
-                        </div>
-                        <h3 class="partner-title">Ascencia Business School</h3>
-                        <div class="partner-loc"><i class="fa-solid fa-location-dot"></i> <span>Paris, Pháp</span></div>
-                        <div class="partner-features">
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Thành viên sáng lập tập đoàn giáo dục Collège de Paris danh tiếng</span>
-                            </div>
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Cấp bằng Thạc sĩ được chính phủ Pháp công nhận ở cấp độ cao nhất (RNCP Level 7)</span>
-                            </div>
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Hệ thống mạng lưới đối tác doanh nghiệp lớn mạnh trên khắp Châu Âu</span>
                             </div>
                         </div>
                     </div>
@@ -1226,7 +1187,7 @@ ob_start(function ($html) {
                     <div class="reveal-up">
                         <span class="section-label">Đơn vị hỗ trợ học vụ uy tín</span>
                         <h2 class="section-title">Tại sao chọn <span class="gradient-text">IDEAS Education</span>?</h2>
-                        <p style="color: #9ca3af; line-height: 1.6;">
+                        <p style="color: #475569; line-height: 1.6;">
                             Với hơn 15 năm hình thành và phát triển, Viện Nghiên cứu Phát triển và Trao đổi Khoa học Áp dụng (IDEAS) tự hào là đối tác hỗ trợ giáo dục và quản lý đào tạo MBA Quốc tế hàng đầu tại Việt Nam.
                         </p>
                         <ul class="ideas-points">
@@ -1291,6 +1252,16 @@ ob_start(function ($html) {
             });
         });
     </script>
+
+    <!-- Script imports -->
+    <?php
+    $js_path = get_stylesheet_directory() . '/common-assets/js/script.min.js';
+    $js_version = file_exists($js_path) ? filemtime($js_path) : time();
+    $bk_js_path = get_stylesheet_directory() . '/common-assets/js/booking-modal.min.js';
+    $bk_js_version = file_exists($bk_js_path) ? filemtime($bk_js_path) : time();
+    ?>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>" defer></script>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/booking-modal.min.js?v=<?php echo $bk_js_version; ?>" defer></script>
 
     <!-- Shared Footer -->
     <?php get_footer(); ?>
