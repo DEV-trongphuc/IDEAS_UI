@@ -90,6 +90,11 @@ $pages = [
         'title' => 'Sơ đồ trang web',
         'template' => 'page-sitemap.php'
     ],
+    [
+        'slug' => 'lien-he',
+        'title' => 'Liên hệ',
+        'template' => 'page-lien-he.php'
+    ],
 ];
 
 echo "<div style='font-family:monospace;padding:20px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:8px;max-width:800px;margin:20px auto;'>";

@@ -131,7 +131,7 @@ ob_start(function ($html) {
             background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.75;
+            opacity: 0.45;
             will-change: transform;
             transform: scale(1.1);
         }
@@ -142,10 +142,10 @@ ob_start(function ($html) {
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.85) 0%,
-                    rgba(80, 6, 0, 0.35) 60%,
-                    transparent 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
+                    rgba(8, 4, 5, 0.9) 0%,
+                    rgba(80, 6, 0, 0.5) 60%,
+                    rgba(8, 4, 5, 0.95) 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.28) 0%, transparent 75%);
         }
 
         .lms-hero-container {

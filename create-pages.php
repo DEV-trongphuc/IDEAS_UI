@@ -91,6 +91,11 @@ $pages = [
         'template' => 'page-sitemap.php'
     ],
     [
+        'slug' => 'lien-he',
+        'title' => 'Liên hệ',
+        'template' => 'page-lien-he.php'
+    ],
+    [
         'slug' => 'bai-viet',
         'title' => 'Tin tức & Sự kiện',
         'template' => 'archive.php'
