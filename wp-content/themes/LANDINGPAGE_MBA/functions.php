@@ -1541,7 +1541,15 @@ function ideas_admin_column_styles()
                 background: #fff5f5 !important;
             }
 
-            /* Title typography styling */
+            /* Title typography styling and row layout */
+            .wp-list-table.posts tbody td.column-title strong {
+                font-size: 0 !important;
+                display: flex !important;
+                flex-direction: column-reverse !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+            }
+
             .wp-list-table.posts .row-title {
                 font-size: 14px !important;
                 font-weight: 700 !important;
@@ -1549,11 +1557,21 @@ function ideas_admin_column_styles()
                 text-decoration: none !important;
                 transition: color 0.15s ease !important;
                 display: block !important;
-                margin-bottom: 4px !important;
+                margin-bottom: 0 !important;
             }
 
             .wp-list-table.posts .row-title:hover {
                 color: #ab0e00 !important;
+            }
+
+            .wp-list-table.posts tbody td.column-title strong .post-state {
+                font-size: 11px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+            }
+
+            .wp-list-table.posts tbody td.column-title strong .post-state + .post-state {
+                margin-left: 6px !important;
             }
 
             /* Clean layout for WordPress core row actions */
@@ -1780,54 +1798,9 @@ function ideas_admin_column_styles()
                 padding: 16px 0 !important;
             }
 
-            .wp-list-table.posts td.column-cb input[type="checkbox"],
-            .wp-list-table.posts th.column-cb input[type="checkbox"],
-            .wp-list-table.posts td.check-column input[type="checkbox"],
-            .wp-list-table.posts th.check-column input[type="checkbox"],
             input[type="checkbox"] {
-                appearance: none !important;
-                -webkit-appearance: none !important;
-                width: 18px !important;
-                height: 18px !important;
-                border: 2px solid #cbd5e1 !important;
-                border-radius: 6px !important;
-                background: #ffffff !important;
-                outline: none !important;
+                accent-color: #ab0e00 !important;
                 cursor: pointer !important;
-                position: relative !important;
-                transition: all 0.15s ease-in-out !important;
-                display: inline-flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                margin: 0 auto !important;
-                float: none !important;
-                vertical-align: middle !important;
-            }
-
-            input[type="checkbox"]::before {
-                display: none !important;
-                content: none !important;
-            }
-
-            input[type="checkbox"]:checked {
-                background: #ab0e00 !important;
-                border-color: #ab0e00 !important;
-            }
-
-            input[type="checkbox"]:checked::after {
-                content: '' !important;
-                display: block !important;
-                width: 5px !important;
-                height: 9px !important;
-                border: solid #ffffff !important;
-                border-width: 0 2px 2px 0 !important;
-                transform: rotate(45deg) !important;
-                margin-bottom: 2px !important;
-            }
-
-            input[type="checkbox"]:focus {
-                border-color: #ab0e00 !important;
-                box-shadow: 0 0 0 2px rgba(171, 14, 0, 0.15) !important;
             }
 
             /* Style Select Dropdowns & Inputs */
@@ -3023,12 +2996,17 @@ function ideas_get_quarter_dates($quarter_offset = 0)
 }
 
 // Helper to get top 10 viewed posts (Rank Math Analytics GA or postmeta views count, fallback to comment simulation)
-function ideas_get_top_viewed_posts($limit = 10)
+function ideas_get_top_viewed_posts($limit = 10, $days = 0)
 {
     global $wpdb;
 
     $has_rank_math_ga = $wpdb->get_var("SHOW TABLES LIKE '{$wpdb->prefix}rank_math_analytics_ga'") ? true : false;
     $has_rank_math_obj = $wpdb->get_var("SHOW TABLES LIKE '{$wpdb->prefix}rank_math_analytics_objects'") ? true : false;
+
+    $date_cond = '';
+    if ($days > 0) {
+        $date_cond = $wpdb->prepare(" AND p.post_date >= DATE_SUB(NOW(), INTERVAL %d DAY) ", $days);
+    }
 
     if ($has_rank_math_ga && $has_rank_math_obj) {
         $sql = "
@@ -3037,6 +3015,7 @@ function ideas_get_top_viewed_posts($limit = 10)
             INNER JOIN {$wpdb->prefix}rank_math_analytics_objects o ON p.ID = o.object_id
             INNER JOIN {$wpdb->prefix}rank_math_analytics_ga ga ON o.page = ga.page
             WHERE p.post_type = 'post' AND p.post_status = 'publish' AND o.object_type = 'post'
+              {$date_cond}
             GROUP BY p.ID
             ORDER BY view_count DESC
             LIMIT %d
@@ -3063,19 +3042,29 @@ function ideas_get_top_viewed_posts($limit = 10)
             FROM {$wpdb->posts} p
             INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
             WHERE p.post_type = 'post' AND p.post_status = 'publish' AND pm.meta_key = %s
+              {$date_cond}
             ORDER BY view_count DESC
             LIMIT %d
         ";
         return $wpdb->get_results($wpdb->prepare($sql, $found_key, $limit));
     }
 
-    $posts = get_posts(array(
+    $args = array(
         'post_type' => 'post',
         'post_status' => 'publish',
         'posts_per_page' => $limit,
         'orderby' => 'comment_count',
         'order' => 'DESC'
-    ));
+    );
+    if ($days > 0) {
+        $args['date_query'] = array(
+            array(
+                'after' => "$days days ago",
+                'inclusive' => true,
+            ),
+        );
+    }
+    $posts = get_posts($args);
 
     $results = array();
     foreach ($posts as $p) {
@@ -3211,6 +3200,44 @@ function ideas_filter_post_list_by_dashboard_dates($query)
     }
 }
 
+/**
+ * Render author post count stats with avatar for stat cards
+ */
+function ideas_render_stat_card_authors($start_date, $end_date) {
+    global $wpdb;
+    
+    // Query published posts grouped by author in the given period
+    $sql = "
+        SELECT p.post_author as author_id, COUNT(p.ID) as post_count, u.display_name
+        FROM $wpdb->posts p
+        INNER JOIN $wpdb->users u ON p.post_author = u.ID
+        WHERE p.post_type = 'post' AND p.post_status = 'publish'
+          AND p.post_date >= %s AND p.post_date <= %s
+        GROUP BY p.post_author
+        ORDER BY post_count DESC
+    ";
+    $authors = $wpdb->get_results($wpdb->prepare($sql, $start_date, $end_date));
+    
+    if (empty($authors)) {
+        return;
+    }
+    
+    echo '<div class="ideas-stat-authors" style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #e2e8f0; padding-top: 10px; width: 100%;">';
+    foreach ($authors as $auth) {
+        $avatar = get_avatar($auth->author_id, 22, '', $auth->display_name, array(
+            'style' => 'border-radius: 50% !important; width: 22px !important; height: 22px !important; object-fit: cover !important; display: block !important;'
+        ));
+        echo '<div style="display: flex; align-items: center; justify-content: space-between; font-size: 11.5px; color: #475569; width: 100%;">';
+        echo '  <div style="display: flex; align-items: center; gap: 8px; min-width: 0; flex-grow: 1;">';
+        echo '    <div style="width: 22px; height: 22px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #e2e8f0;">' . $avatar . '</div>';
+        echo '    <span style="font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' . esc_html($auth->display_name) . '</span>';
+        echo '  </div>';
+        echo '  <span style="font-weight: 700; color: #0f172a; flex-shrink: 0; margin-left: 8px;">' . intval($auth->post_count) . ' bài</span>';
+        echo '</div>';
+    }
+    echo '</div>';
+}
+
 // Hook into admin_notices to render the dashboard above the post list table
 add_action('admin_notices', 'ideas_post_list_stats_dashboard');
 function ideas_post_list_stats_dashboard()
@@ -3340,6 +3367,7 @@ function ideas_post_list_stats_dashboard()
                     <span class="ideas-stat-value"><?php echo esc_html($week_count); ?> <span class="unit">bài</span></span>
                     <span
                         class="ideas-stat-range"><?php echo esc_html(date('d/m/Y', strtotime($week_start)) . ' - ' . date('d/m/Y', strtotime($week_end))); ?></span>
+                    <?php ideas_render_stat_card_authors($week_start, $week_end); ?>
                 </div>
             </div>
 
@@ -3360,6 +3388,7 @@ function ideas_post_list_stats_dashboard()
                             class="unit">bài</span></span>
                     <span
                         class="ideas-stat-range"><?php echo esc_html(date('d/m/Y', strtotime($month_start)) . ' - ' . date('d/m/Y', strtotime($month_end))); ?></span>
+                    <?php ideas_render_stat_card_authors($month_start, $month_end); ?>
                 </div>
             </div>
 
@@ -3395,6 +3424,7 @@ function ideas_post_list_stats_dashboard()
                     </span>
                     <span class="ideas-stat-value"><?php echo esc_html($filter_count); ?> <span
                             class="unit">bài</span></span>
+                    <?php ideas_render_stat_card_authors($filter_start, $filter_end); ?>
 
                     <form method="GET" action="" class="ideas-stat-filter-form" id="ideas-stat-filter-form"
                         style="<?php echo ($active_filter === 'custom') ? 'display: flex !important;' : 'display: none !important;'; ?>">
@@ -3683,6 +3713,7 @@ function ideas_render_custom_dashboard()
                                 class="unit">bài</span></span>
                         <span
                             class="ideas-stat-range"><?php echo esc_html(date('d/m/Y', strtotime($week_start)) . ' - ' . date('d/m/Y', strtotime($week_end))); ?></span>
+                        <?php ideas_render_stat_card_authors($week_start, $week_end); ?>
                     </div>
                 </div>
 
@@ -3703,6 +3734,7 @@ function ideas_render_custom_dashboard()
                                 class="unit">bài</span></span>
                         <span
                             class="ideas-stat-range"><?php echo esc_html(date('d/m/Y', strtotime($month_start)) . ' - ' . date('d/m/Y', strtotime($month_end))); ?></span>
+                        <?php ideas_render_stat_card_authors($month_start, $month_end); ?>
                     </div>
                 </div>
 
@@ -3737,6 +3769,7 @@ function ideas_render_custom_dashboard()
                         </span>
                         <span class="ideas-stat-value"><?php echo esc_html($filter_count); ?> <span
                                 class="unit">bài</span></span>
+                        <?php ideas_render_stat_card_authors($filter_start, $filter_end); ?>
 
                         <form method="GET" action="" class="ideas-stat-filter-form" id="ideas-stat-filter-form"
                             style="<?php echo ($active_filter === 'custom') ? 'display: flex !important;' : 'display: none !important;'; ?>">
@@ -4011,75 +4044,164 @@ function ideas_render_custom_dashboard()
 
         <!-- Row 3: Two-Column grid layout -->
         <div class="ideas-dashboard-row-columns">
-            <!-- Left Column: Top 10 bài viết xem nhiều nhất -->
+            <!-- Left Column: Top 10 bài viết xem nhiều nhất (Tabbed Switcher) -->
             <div class="ideas-dashboard-column left">
-                <div class="ideas-column-header">
-                    <h3>
+                <div class="ideas-column-header" style="display: flex !important; justify-content: space-between !important; align-items: center !important; flex-wrap: wrap !important; gap: 10px !important;">
+                    <h3 style="margin: 0 !important; display: flex !important; align-items: center !important; gap: 6px !important;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round"
-                            style="color: #ab0e00; margin-right: 4px; vertical-align: middle;">
+                            style="color: #ab0e00; vertical-align: middle;">
                             <line x1="18" y1="20" x2="18" y2="10"></line>
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
                         </svg>
                         Top 10 bài viết nhiều lượt xem nhất
                     </h3>
+                    <div class="ideas-dashboard-tabs" style="display: inline-flex !important; gap: 4px !important; background: #f1f5f9 !important; padding: 3px !important; border-radius: 8px !important; border: 1px solid #e2e8f0 !important;">
+                        <button type="button" class="ideas-tab-btn active" data-target="ideas-top-90days" style="border: none !important; background: #ffffff !important; color: #0f172a !important; padding: 4px 12px !important; border-radius: 6px !important; font-size: 11px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.15s ease !important; box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important; font-family: inherit !important; outline: none !important;">90 ngày qua</button>
+                        <button type="button" class="ideas-tab-btn" data-target="ideas-top-alltime" style="border: none !important; background: transparent !important; color: #64748b !important; padding: 4px 12px !important; border-radius: 6px !important; font-size: 11px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.15s ease !important; font-family: inherit !important; outline: none !important;">Tất cả thời gian</button>
+                    </div>
                 </div>
                 <div class="ideas-column-body">
                     <?php
-                    $top_posts = ideas_get_top_viewed_posts(10);
-                    if (!empty($top_posts)):
-                        ?>
-                        <ul class="ideas-top-views-list">
-                            <?php
-                            $rank = 1;
-                            foreach ($top_posts as $p):
-                                $post_img = get_the_post_thumbnail_url($p->ID, 'thumbnail');
-                                if (!$post_img) {
-                                    $post_content = get_post_field('post_content', $p->ID);
-                                    preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post_content, $matches);
-                                    $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
-                                }
-                                $rank_class = $rank <= 3 ? 'rank-' . $rank : '';
-                                ?>
-                                <li class="ideas-top-view-item">
-                                    <div class="ideas-top-view-rank <?php echo esc_attr($rank_class); ?>">
-                                        <?php echo esc_html($rank); ?>
-                                    </div>
-                                    <div class="ideas-top-view-thumb">
-                                        <img src="<?php echo esc_url($post_img); ?>" />
-                                    </div>
-                                    <div class="ideas-top-view-details">
-                                        <h4 class="ideas-post-title-link">
-                                            <a
-                                                href="<?php echo esc_url(get_edit_post_link($p->ID)); ?>"><?php echo esc_html($p->post_title ? $p->post_title : '...'); ?></a>
-                                        </h4>
-                                        <div class="ideas-post-meta">
-                                            <span class="date"><?php echo esc_html(get_the_date('d/m/Y H:i', $p->ID)); ?></span>
-                                            <?php echo ideas_get_rank_math_seo_badge($p->ID); ?>
-                                        </div>
-                                    </div>
-                                    <div class="ideas-top-view-metrics">
-                                        <span class="views-badge">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-                                                style="margin-right: 4px; vertical-align: middle;">
-                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                <circle cx="12" cy="12" r="3"></circle>
-                                            </svg>
-                                            <?php echo number_format($p->view_count); ?> <span
-                                                style="font-size: 10px; font-weight: 500; opacity: 0.85;">lượt xem</span>
-                                        </span>
-                                    </div>
-                                </li>
+                    $top_posts_90 = ideas_get_top_viewed_posts(10, 90);
+                    $top_posts_all = ideas_get_top_viewed_posts(10, 0);
+                    ?>
+                    
+                    <!-- 90 Days List -->
+                    <div id="ideas-top-90days">
+                        <?php if (!empty($top_posts_90)): ?>
+                            <ul class="ideas-top-views-list">
                                 <?php
-                                $rank++;
-                            endforeach;
-                            ?>
-                        </ul>
-                    <?php else: ?>
-                        <p style="color: #94a3b8; text-align: center; padding: 20px;">Không có dữ liệu bài viết xem nhiều.</p>
-                    <?php endif; ?>
+                                $rank = 1;
+                                foreach ($top_posts_90 as $p):
+                                    $post_img = get_the_post_thumbnail_url($p->ID, 'thumbnail');
+                                    if (!$post_img) {
+                                        $post_content = get_post_field('post_content', $p->ID);
+                                        preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post_content, $matches);
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                    }
+                                    $rank_class = $rank <= 3 ? 'rank-' . $rank : '';
+                                    ?>
+                                    <li class="ideas-top-view-item">
+                                        <div class="ideas-top-view-rank <?php echo esc_attr($rank_class); ?>">
+                                            <?php echo esc_html($rank); ?>
+                                        </div>
+                                        <div class="ideas-top-view-thumb">
+                                            <img src="<?php echo esc_url($post_img); ?>" />
+                                        </div>
+                                        <div class="ideas-top-view-details">
+                                            <h4 class="ideas-post-title-link">
+                                                <a href="<?php echo esc_url(get_edit_post_link($p->ID)); ?>"><?php echo esc_html($p->post_title ? $p->post_title : '...'); ?></a>
+                                            </h4>
+                                            <div class="ideas-post-meta">
+                                                <span class="date"><?php echo esc_html(get_the_date('d/m/Y H:i', $p->ID)); ?></span>
+                                                <?php echo ideas_get_rank_math_seo_badge($p->ID); ?>
+                                            </div>
+                                        </div>
+                                        <div class="ideas-top-view-metrics">
+                                            <span class="views-badge">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                                    style="margin-right: 4px; vertical-align: middle;">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>
+                                                <?php echo number_format($p->view_count); ?> <span
+                                                    style="font-size: 10px; font-weight: 500; opacity: 0.85;">lượt xem</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <?php
+                                    $rank++;
+                                endforeach;
+                                ?>
+                            </ul>
+                        <?php else: ?>
+                            <p style="color: #94a3b8; text-align: center; padding: 20px;">Không có dữ liệu bài viết xem nhiều trong 90 ngày qua.</p>
+                        <?php endif; ?>
+                    </div>
+
+                    <!-- All-Time List -->
+                    <div id="ideas-top-alltime" style="display: none;">
+                        <?php if (!empty($top_posts_all)): ?>
+                            <ul class="ideas-top-views-list">
+                                <?php
+                                $rank = 1;
+                                foreach ($top_posts_all as $p):
+                                    $post_img = get_the_post_thumbnail_url($p->ID, 'thumbnail');
+                                    if (!$post_img) {
+                                        $post_content = get_post_field('post_content', $p->ID);
+                                        preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post_content, $matches);
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                    }
+                                    $rank_class = $rank <= 3 ? 'rank-' . $rank : '';
+                                    ?>
+                                    <li class="ideas-top-view-item">
+                                        <div class="ideas-top-view-rank <?php echo esc_attr($rank_class); ?>">
+                                            <?php echo esc_html($rank); ?>
+                                        </div>
+                                        <div class="ideas-top-view-thumb">
+                                            <img src="<?php echo esc_url($post_img); ?>" />
+                                        </div>
+                                        <div class="ideas-top-view-details">
+                                            <h4 class="ideas-post-title-link">
+                                                <a href="<?php echo esc_url(get_edit_post_link($p->ID)); ?>"><?php echo esc_html($p->post_title ? $p->post_title : '...'); ?></a>
+                                            </h4>
+                                            <div class="ideas-post-meta">
+                                                <span class="date"><?php echo esc_html(get_the_date('d/m/Y H:i', $p->ID)); ?></span>
+                                                <?php echo ideas_get_rank_math_seo_badge($p->ID); ?>
+                                            </div>
+                                        </div>
+                                        <div class="ideas-top-view-metrics">
+                                            <span class="views-badge">
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                                                    style="margin-right: 4px; vertical-align: middle;">
+                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                </svg>
+                                                <?php echo number_format($p->view_count); ?> <span
+                                                    style="font-size: 10px; font-weight: 500; opacity: 0.85;">lượt xem</span>
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <?php
+                                    $rank++;
+                                endforeach;
+                                ?>
+                            </ul>
+                        <?php else: ?>
+                            <p style="color: #94a3b8; text-align: center; padding: 20px;">Không có dữ liệu bài viết xem nhiều.</p>
+                        <?php endif; ?>
+                    </div>
+
+                    <script type="text/javascript">
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var tabBtns = document.querySelectorAll('.ideas-tab-btn');
+                            tabBtns.forEach(function (btn) {
+                                btn.addEventListener('click', function (e) {
+                                    e.preventDefault();
+                                    var target = this.getAttribute('data-target');
+                                    
+                                    tabBtns.forEach(function (b) {
+                                        b.classList.remove('active');
+                                        b.style.setProperty('background', 'transparent', 'important');
+                                        b.style.setProperty('color', '#64748b', 'important');
+                                        b.style.setProperty('box-shadow', 'none', 'important');
+                                    });
+                                    
+                                    this.classList.add('active');
+                                    this.style.setProperty('background', '#ffffff', 'important');
+                                    this.style.setProperty('color', '#0f172a', 'important');
+                                    this.style.setProperty('box-shadow', '0 1px 3px rgba(0,0,0,0.08)', 'important');
+                                    
+                                    document.getElementById('ideas-top-90days').style.display = target === 'ideas-top-90days' ? 'block' : 'none';
+                                    document.getElementById('ideas-top-alltime').style.display = target === 'ideas-top-alltime' ? 'block' : 'none';
+                                });
+                            });
+                        });
+                    </script>
                 </div>
             </div>
 
@@ -4525,24 +4647,49 @@ function ideas_get_dashboard_analytics_data() {
 // --- END OF VISITOR TRACKING & ANALYTICS CODE ---
 
 /**
- * Track and increment post views count on single post load
+ * Output JS tracking script in single post footer to trigger AJAX view count after 5 seconds
  */
-add_action('template_redirect', 'ideas_increment_post_views');
-function ideas_increment_post_views() {
-    // Only track single posts and avoid REST/AJAX/Admin requests
+add_action('wp_footer', 'ideas_track_post_views_js');
+function ideas_track_post_views_js() {
     if (!is_single() || is_admin() || wp_doing_ajax() || (defined('REST_REQUEST') && REST_REQUEST)) {
         return;
     }
-
-    // Static flag to prevent double execution in the same request
-    static $already_run = false;
-    if ($already_run) {
+    $post_id = get_the_ID();
+    if (!$post_id) {
         return;
     }
-    $already_run = true;
+    ?>
+    <script type="text/javascript">
+        (function() {
+            setTimeout(function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "<?php echo esc_url(admin_url('admin-ajax.php')); ?>", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        try {
+                            var res = JSON.parse(xhr.responseText);
+                            if (res.success) {
+                                console.log("Post view counted. Total views: " + res.data.views);
+                            }
+                        } catch(e) {}
+                    }
+                };
+                xhr.send("action=ideas_increment_views&post_id=<?php echo $post_id; ?>");
+            }, 5000); // Wait 5 seconds
+        })();
+    </script>
+    <?php
+}
 
-    $post_id = get_the_ID();
-    if ($post_id) {
+/**
+ * Handle AJAX request to increment views count after 5s active view
+ */
+add_action('wp_ajax_ideas_increment_views', 'ideas_ajax_increment_post_views');
+add_action('wp_ajax_nopriv_ideas_increment_views', 'ideas_ajax_increment_post_views');
+function ideas_ajax_increment_post_views() {
+    $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+    if ($post_id > 0 && get_post_type($post_id) === 'post') {
         $current_views = ideas_get_post_views($post_id);
         $new_views = $current_views + 1;
         
@@ -4550,5 +4697,19 @@ function ideas_increment_post_views() {
         foreach ($view_meta_keys as $key) {
             update_post_meta($post_id, $key, $new_views);
         }
+        wp_send_json_success(array('views' => $new_views));
     }
+    wp_send_json_error();
+}
+
+/**
+ * Display the view count badge next to the post title in WP Admin lists
+ */
+add_filter('display_post_states', 'ideas_add_views_to_post_states', 10, 2);
+function ideas_add_views_to_post_states($post_states, $post) {
+    if ($post->post_type === 'post') {
+        $views = ideas_get_post_views($post->ID);
+        $post_states['views'] = '<span style="font-size: 11px; font-weight: 600; color: #475569; background: #f1f5f9; padding: 2px 6px; border-radius: 6px; display: inline-flex; align-items: center; vertical-align: middle;"><span class="dashicons dashicons-visibility" style="font-size: 14px; width: 14px; height: 14px; color: #ab0e00; line-height: 1; vertical-align: middle; margin-right: 4px;"></span>' . number_format($views) . ' lượt xem</span>';
+    }
+    return $post_states;
 }

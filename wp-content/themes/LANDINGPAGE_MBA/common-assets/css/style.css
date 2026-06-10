@@ -12860,19 +12860,58 @@ body .pain-card-desc {
 
 /* ─── MOBILE FIXES FOR LAYOUT ISSUES ─── */
 @media (max-width: 768px) {
-  /* Fix 1: Wrap social proof hero text and avatars */
+  /* Fix 1: Stack social proof elements vertically into 3 rows and center them */
   .hero-social-proof {
-    flex-wrap: wrap !important;
-  }
-  .hero-social-proof p {
+    display: flex !important;
     flex-direction: column !important;
+    align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
     gap: 8px !important;
   }
+  .hero-social-proof p {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
   .hero-social-proof p strong {
     color: #ab0e00 !important;
     font-size: 1.4rem !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .hero-social-proof p strong span {
+    display: inline-block !important;
+    min-width: auto !important;
+    text-align: center !important;
+  }
+  /* For testimonials section where avatars and number are inside a helper div */
+  .hero-social-proof > div:not(.avatars) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+  .hero-social-proof > div:not(.avatars) strong {
+    color: #ab0e00 !important;
+    font-size: 1.4rem !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .hero-social-proof > div:not(.avatars) strong span {
+    display: inline-block !important;
+    min-width: auto !important;
+    text-align: center !important;
   }
 
   /* Fix 2: Testimonial card shadow cut-off and mobile centering */
@@ -12963,6 +13002,18 @@ body .pain-card-desc {
     max-width: 90px !important;
     margin: 0 4px !important;
     transform: translateY(3px) !important; /* Shift connecting line down to match logos baseline/middle line */
+  }
+
+  /* Fix 7: Hide video carousel next/prev buttons and make it full width */
+  .umef-video-carousel-container {
+    padding: 0 16px !important;
+  }
+  .umef-video-carousel-btn {
+    display: none !important;
+  }
+  /* Hide hero scroll indicators on mobile to prevent clutter and overlapping */
+  .hero-scroll-indicator, .scroll-down-indicator {
+    display: none !important;
   }
 }
 

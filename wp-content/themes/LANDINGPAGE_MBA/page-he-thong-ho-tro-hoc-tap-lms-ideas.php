@@ -1019,9 +1019,8 @@ ob_start(function ($html) {
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('lms-register-form');
-            if (!form) return;
-
-            form.addEventListener('submit', async (e) => {
+            if (form) {
+                form.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
                 const nameInput = form.querySelector('input[placeholder*="Họ và tên"]') || form.querySelector('input[type="text"]');
@@ -1113,7 +1112,7 @@ ob_start(function ($html) {
                     }
                 }
             });
-        });
+            }
 
             // Ecosystem Card Slider Dots logic on Mobile
             const grid = document.querySelector('.ecosystem-grid-v2');

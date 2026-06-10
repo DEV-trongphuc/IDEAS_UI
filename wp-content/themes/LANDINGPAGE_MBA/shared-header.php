@@ -29,9 +29,7 @@
                         <a href="/he-thong-ho-tro-hoc-tap-lms-ideas" class="dropdown-item-simple">
                             <i class="fa-solid fa-layer-group"></i> <span>Hệ thống LMS</span>
                         </a>
-                        <a href="/so-do-to-chuc" class="dropdown-item-simple">
-                            <i class="fa-solid fa-sitemap"></i> <span>Cơ cấu tổ chức</span>
-                        </a>
+
                         <a href="/doi-ngu-giang-vien" class="dropdown-item-simple">
                             <i class="fa-solid fa-user-graduate"></i> <span>Hội đồng chuyên môn</span>
                         </a>
@@ -250,9 +248,7 @@
                 <a href="/he-thong-ho-tro-hoc-tap-lms-ideas" class="mobile-dropdown-item-simple">
                     <i class="fa-solid fa-layer-group"></i> <span>Hệ thống LMS</span>
                 </a>
-                <a href="/so-do-to-chuc" class="mobile-dropdown-item-simple">
-                    <i class="fa-solid fa-sitemap"></i> <span>Cơ cấu tổ chức</span>
-                </a>
+
                 <a href="/doi-ngu-giang-vien" class="mobile-dropdown-item-simple">
                     <i class="fa-solid fa-user-graduate"></i> <span>Hội đồng chuyên môn</span>
                 </a>
