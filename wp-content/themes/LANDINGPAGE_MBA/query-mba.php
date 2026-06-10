@@ -31,8 +31,17 @@ echo "TEMPLATE: " . get_post_meta($post->ID, '_wp_page_template', true) . "\n";
 $template_file = __DIR__ . '/page-thac-si-quan-tri-kinh-doanh-mba.php';
 echo "FILE_EXISTS (" . basename($template_file) . "): " . (file_exists($template_file) ? 'YES' : 'NO') . "\n";
 
+echo "ALL PAGE-*.PHP FILES IN THEME:\n";
+foreach (glob(__DIR__ . '/page-*.php') as $filename) {
+    echo "  " . basename($filename) . "\n";
+}
+
+echo "POST_CONTENT:\n" . $post->post_content . "\n";
+
 echo "METADATA:\n";
 $meta = get_post_meta($post->ID);
 foreach ($meta as $key => $values) {
     echo "  $key: " . implode(', ', $values) . "\n";
 }
+
+
