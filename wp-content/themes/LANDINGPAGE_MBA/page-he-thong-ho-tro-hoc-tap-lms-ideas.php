@@ -93,8 +93,8 @@ ob_start(function ($html) {
 
         body {
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            background-color: #0b0f19;
-            color: #e2e8f0;
+            background-color: #080405;
+            color: #f3f4f6;
         }
 
         body::before {
@@ -103,9 +103,9 @@ ob_start(function ($html) {
             inset: 0;
             z-index: -1;
             background-image:
-                radial-gradient(circle at 10% 20%, rgba(185, 14, 0, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 90% 70%, rgba(185, 14, 0, 0.05) 0%, transparent 45%),
-                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                radial-gradient(circle at 15% 20%, rgba(185, 14, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 65%, rgba(185, 14, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 28px 28px;
             pointer-events: none;
             will-change: transform;
@@ -117,7 +117,7 @@ ob_start(function ($html) {
             padding: 200px 20px 100px;
             text-align: center;
             overflow: hidden;
-            background: #07090e;
+            background: transparent;
             min-height: 55vh;
             display: flex;
             align-items: center;
@@ -131,7 +131,7 @@ ob_start(function ($html) {
             background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.28;
+            opacity: 0.75;
             will-change: transform;
             transform: scale(1.1);
         }
@@ -141,8 +141,11 @@ ob_start(function ($html) {
             inset: 0;
             z-index: 2;
             background:
-                linear-gradient(180deg, rgba(7, 9, 14, 0.65) 0%, rgba(7, 9, 14, 0.92) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.2) 0%, transparent 60%);
+                linear-gradient(180deg,
+                    rgba(8, 4, 5, 0.85) 0%,
+                    rgba(80, 6, 0, 0.35) 60%,
+                    transparent 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
         }
 
         .lms-hero-container {
