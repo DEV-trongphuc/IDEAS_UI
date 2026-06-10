@@ -13187,4 +13187,25 @@ body .cta-headline {
   .item-desc {
     font-size: 0.72rem !important;
   }
-}
+}
+
+/* Stats section & Competency cards grid optimizations for tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .solution-stats,
+  body .solution-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .competency-grid,
+  body .competency-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .competency-grid,
+  body .competency-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
