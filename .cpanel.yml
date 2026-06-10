@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    # Deploy landing pages
+    - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
+    # Deploy WordPress themes (PHP, CSS, JS)
+    - /bin/rsync -av --exclude='.git*' wp-content/themes/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/

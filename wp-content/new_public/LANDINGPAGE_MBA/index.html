@@ -5332,6 +5332,7 @@
             pointer-events: auto !important;
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
         }
 
         .floating-photo-card:hover {
@@ -5347,7 +5348,7 @@
             left: 3%;
             top: 15%;
             transform: rotate(-4deg);
-            animation: gentle-float-1 8s ease-in-out infinite;
+            animation: hero-image-fade-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards, gentle-float-1 8s ease-in-out infinite;
         }
 
         .floating-photo-2 {
@@ -5356,7 +5357,7 @@
             right: 3%;
             top: 12%;
             transform: rotate(4deg);
-            animation: gentle-float-2 9s ease-in-out infinite;
+            animation: hero-image-fade-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards, gentle-float-2 9s ease-in-out infinite;
         }
 
         .floating-photo-3 {
@@ -5365,7 +5366,7 @@
             left: 8%;
             top: 42%;
             transform: rotate(2deg);
-            animation: gentle-float-3 10s ease-in-out infinite, glass-pulse-clear 14s ease-in-out infinite !important;
+            animation: hero-image-fade-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards, gentle-float-3 10s ease-in-out infinite, glass-pulse-clear 14s ease-in-out infinite !important;
             filter: blur(6px) grayscale(15%) brightness(0.92);
         }
 
@@ -5375,7 +5376,7 @@
             right: 5%;
             top: 50%;
             transform: rotate(-3deg);
-            animation: gentle-float-4 11s ease-in-out infinite;
+            animation: hero-image-fade-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards, gentle-float-4 11s ease-in-out infinite;
         }
 
         .floating-photo-5 {
@@ -5384,7 +5385,17 @@
             left: 2%;
             top: 70%;
             transform: rotate(3deg);
-            animation: gentle-float-5 7s ease-in-out infinite;
+            animation: hero-image-fade-in 1.8s cubic-bezier(0.16, 1, 0.3, 1) 1.0s forwards, gentle-float-5 7s ease-in-out infinite;
+        }
+
+        @keyframes hero-image-fade-in {
+            0% {
+                opacity: 0;
+                filter: blur(15px) brightness(0.8);
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         @keyframes gentle-float-1 {
