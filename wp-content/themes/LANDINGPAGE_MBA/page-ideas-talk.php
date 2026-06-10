@@ -39,7 +39,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>IDEAS Talk – Webinar &amp; Chuyên đề AI | IDEAS</title>
     <?php endif; ?>
@@ -55,7 +55,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="IDEAS Talk – Webinar &amp; Chuyên đề AI" />
         <meta property="og:description"
             content="Cập nhật các buổi Monthly Workshop công nghệ, hướng dẫn ứng dụng AI thực chiến từ hội đồng chuyên gia IDEAS." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -601,7 +601,7 @@ ob_start(function ($html) {
     <main id="content">
         <!-- Hero Section -->
         <section class="talk-hero">
-            <div class="talk-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp');"></div>
+            <div class="talk-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');"></div>
             <div class="talk-hero-overlay"></div>
             <div class="talk-hero-container">
                 <span class="talk-hero-badge">

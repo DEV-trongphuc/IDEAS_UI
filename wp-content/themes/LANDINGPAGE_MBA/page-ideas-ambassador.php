@@ -39,7 +39,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/05/umef-tour52025-8.jpg.webp" />
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>IDEAS Ambassador – Chương trình Đại sứ Thương hiệu | IDEAS</title>
     <?php endif; ?>
@@ -55,7 +55,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="IDEAS Ambassador – Chương trình Đại sứ Thương hiệu" />
         <meta property="og:description"
             content="Đồng hành lan tỏa giáo dục chuẩn quốc tế cùng IDEAS. Tích lũy tín chỉ học thuật quy đổi quà tặng, học bổng và các chuyến đi Châu Âu giá trị." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/11/Co-di-hoc-ko-nguoi-dep-1.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -1041,7 +1041,7 @@ ob_start(function ($html) {
     <main class="ideas_main" style="gap:0; background:none;">
         <section class="amb-hero" id="amb-hero-top">
             <div class="amb-hero-bg" id="amb-parallax-bg"
-                style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/05/umef-tour52025-8.jpg.webp');">
+                style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');">
             </div>
             <div class="amb-hero-overlay"></div>
             <div class="amb-hero-container">

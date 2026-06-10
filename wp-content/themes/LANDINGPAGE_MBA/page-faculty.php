@@ -113,7 +113,6 @@ ob_start(function ($html) {
             height: calc(100% + 300px);
             background-size: cover;
             background-position: center top;
-            filter: blur(1px);
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.15);
             z-index: 1;

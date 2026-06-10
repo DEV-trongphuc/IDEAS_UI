@@ -593,6 +593,11 @@
         if (successName) successName.textContent = nameVal;
         if (successDate) successDate.textContent = dateStr;
         if (successTime) successTime.textContent = timeStr;
+
+        const successMsg = document.getElementById('bk-success-msg');
+        if (successMsg && nameVal) {
+            successMsg.innerHTML = `Cảm ơn bạn <strong>${nameVal}</strong> đã đặt lịch. Thông tin lịch hẹn của bạn đã được ghi nhận. Chuyên viên sẽ gọi cho bạn theo khung giờ đăng ký.`;
+        }
         goToStep('success');
     });
 

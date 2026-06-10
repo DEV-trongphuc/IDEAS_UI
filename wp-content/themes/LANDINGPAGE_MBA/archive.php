@@ -51,7 +51,7 @@ ob_start(function($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/01/ltn27122025.webp" />
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php
     // Preload LCP featured article image dynamically on page 1
     $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -145,7 +145,6 @@ ob_start(function($html) {
             height: calc(100% + 300px);
             background-size: cover;
             background-position: center;
-            filter: blur(1.5px);
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.15);
             z-index: 1;
@@ -645,7 +644,7 @@ ob_start(function($html) {
 
     <!-- Banner Hero Area -->
     <section class="blog-archive-hero">
-        <div class="counters-bg" style="background-image: linear-gradient(135deg, rgba(185, 14, 0, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%), url('https://ideas.edu.vn/wp-content/uploads/2026/01/ltn27122025.webp');"></div>
+        <div class="counters-bg" style="background-image: linear-gradient(135deg, rgba(185, 14, 0, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');"></div>
         <div class="container" style="position: relative; z-index: 3;">
             <h1>Tin Tức &amp; Sự Kiện</h1>
             <p>Cập nhật những thông tin tuyển sinh mới nhất, hoạt động của học viên và bài viết chia sẻ tri thức chuyên môn từ Hội đồng Học thuật IDEAS.</p>
@@ -799,10 +798,10 @@ ob_start(function($html) {
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Đăng ký tư vấn lộ trình</h3>
                     <form class="ideas-widget-form">
-                        <input type="text" placeholder="Họ và tên của bạn" required>
-                        <input type="email" placeholder="Địa chỉ Email" required>
-                        <input type="tel" placeholder="Số điện thoại" required>
-                        <select required>
+                        <input type="text" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
+                        <input type="email" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" required>
+                        <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
+                        <select aria-label="Chương trình quan tâm" required>
                             <option value="" disabled selected hidden>Chương trình quan tâm</option>
                             <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
                             <option value="Full BBA">Full BBA (Cử nhân QTKD 3 năm)</option>
@@ -812,7 +811,7 @@ ob_start(function($html) {
                             <option value="MSc AI">MSc AI (Thạc sĩ AI ứng dụng)</option>
                             <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
                         </select>
-                        <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..."></textarea>
+                        <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..." aria-label="Ghi chú thêm"></textarea>
                         <button type="submit"><i class="fa-solid fa-paper-plane"></i> Đăng ký ngay</button>
                     </form>
                 </div>
@@ -968,6 +967,13 @@ ob_start(function($html) {
                     sourceVal = "Landing_Dual_DBA";
                     chuongTrinhVal = "Online Dual DBA";
                 }
+                <?php
+                $archive_title = single_term_title('', false);
+                if (empty($archive_title)) {
+                    $archive_title = get_the_archive_title();
+                }
+                ?>
+                const archiveTitle = "<?php echo esc_js($archive_title); ?>";
 
                 // Core API Submission (Payload 1)
                 const payload = {
@@ -976,7 +982,7 @@ ob_start(function($html) {
                     firstName: name,
                     phoneNumber: phone,
                     time_dat_lich: "",
-                    note_dat_lich: note ? `${program} | ${note}` : program,
+                    note_dat_lich: note ? `Đăng ký từ danh mục "${archiveTitle}" - ${chuongTrinhVal} | Ghi chú: ${note}` : `Đăng ký từ danh mục "${archiveTitle}" - ${chuongTrinhVal}`,
                     chuong_trinh_dat_lich: chuongTrinhVal
                 };
                 
@@ -991,7 +997,7 @@ ob_start(function($html) {
                     hoc_van: "",
                     time_dat_lich: "",
                     chuong_trinh: chuongTrinhVal,
-                    nhu_cau: note ? `Đăng ký từ sidebar: ${program} - ${note}` : `Đăng ký từ sidebar: ${program}`
+                    nhu_cau: note ? `Đăng ký từ danh mục "${archiveTitle}" - ${chuongTrinhVal} | Ghi chú: ${note}` : `Đăng ký từ danh mục "${archiveTitle}" - ${chuongTrinhVal}`
                 };
                 
                 // Bind UTM parameters

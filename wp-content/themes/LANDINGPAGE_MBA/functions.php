@@ -119,6 +119,47 @@ function blankslate_pingback_header()
     }
 }
 
+add_action('wp_head', 'ideas_add_tracking_scripts', 1);
+function ideas_add_tracking_scripts()
+{
+    ?>
+    <link rel="preconnect" href="https://automation.ideas.edu.vn" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <!-- MailFlow Pro Tracker & AI Chat -->
+    <script>
+        window._mf_config = {
+            property_id: "ce71ea2e-d841-4e0f-b3ad-332297cde330",
+            ai_chat: true
+        };
+    </script>
+    <script src="https://automation.ideas.edu.vn/tracker.js" defer></script>
+
+    <!-- Event snippet for SUBMIT FORM conversion page -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () {
+                if (typeof (url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                    'value': 1.0,
+                    'currency': 'VND',
+                    'event_callback': callback
+                });
+            } else {
+                callback();
+            }
+            return false;
+        }
+    </script>
+    <?php
+}
+
 // Custom 301 Redirection Rules
 add_action('template_redirect', 'custom_page_redirections');
 function custom_page_redirections()
@@ -4301,9 +4342,29 @@ function ideas_maybe_create_visitor_stats_table() {
 // Track frontend visits in real time
 add_action('template_redirect', 'ideas_track_visitor_visit');
 function ideas_track_visitor_visit() {
-    if (is_admin() || is_feed() || is_trackback()) {
+    if (is_admin() || is_feed() || is_trackback() || is_robots()) {
         return;
     }
+
+    // Ignore common search engine bots, scrapers, and uptime monitors
+    $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? strtolower($_SERVER['HTTP_USER_AGENT']) : '';
+    if (empty($user_agent)) {
+        return;
+    }
+
+    $bots = array(
+        'googlebot', 'bingbot', 'slurp', 'duckduckgo', 'baiduspider', 'yandexbot', 
+        'sogou', 'exabot', 'facebot', 'facebookexternalhit', 'ia_archiver', 
+        'screaming frog', 'uptime', 'monitor', 'pingdom', 'gtmetrix', 'lighthouse',
+        'bot', 'crawler', 'spider', 'curl', 'wget', 'wordpress/'
+    );
+
+    foreach ($bots as $bot) {
+        if (strpos($user_agent, $bot) !== false) {
+            return;
+        }
+    }
+
     if (current_user_can('edit_posts')) {
         return;
     }
@@ -4462,3 +4523,32 @@ function ideas_get_dashboard_analytics_data() {
     );
 }
 // --- END OF VISITOR TRACKING & ANALYTICS CODE ---
+
+/**
+ * Track and increment post views count on single post load
+ */
+add_action('template_redirect', 'ideas_increment_post_views');
+function ideas_increment_post_views() {
+    // Only track single posts and avoid REST/AJAX/Admin requests
+    if (!is_single() || is_admin() || wp_doing_ajax() || (defined('REST_REQUEST') && REST_REQUEST)) {
+        return;
+    }
+
+    // Static flag to prevent double execution in the same request
+    static $already_run = false;
+    if ($already_run) {
+        return;
+    }
+    $already_run = true;
+
+    $post_id = get_the_ID();
+    if ($post_id) {
+        $current_views = ideas_get_post_views($post_id);
+        $new_views = $current_views + 1;
+        
+        $view_meta_keys = array('__post_views_count', 'views', 'post_views_count', '_views_count', 'post_views', 'views_count');
+        foreach ($view_meta_keys as $key) {
+            update_post_meta($post_id, $key, $new_views);
+        }
+    }
+}

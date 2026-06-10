@@ -193,7 +193,7 @@ if (is_page('so-do-to-chuc')) {
                     </svg>
                 </div>
                 <h3>Gửi thông tin thành công!</h3>
-                <p>Cảm ơn bạn đã quan tâm. Chuyên viên của IDEAS sẽ liên hệ trong thời gian sớm nhất.</p>
+                <p id="modal-success-msg">Cảm ơn bạn đã quan tâm. Chuyên viên của IDEAS sẽ liên hệ trong thời gian sớm nhất.</p>
                 <button type="button" class="btn btn-primary btn-full" style="margin-top: 32px;"
                     onclick="closeRegModal()">Quay lại trang</button>
             </div>
@@ -497,7 +497,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 </svg>
             </div>
             <h2 class="bk-success-title">Đặt lịch thành công!</h2>
-            <p class="bk-success-sub">Thông tin lịch hẹn của bạn đã được ghi nhận. Chuyên viên sẽ gọi cho bạn theo khung
+            <p class="bk-success-sub" id="bk-success-msg">Thông tin lịch hẹn của bạn đã được ghi nhận. Chuyên viên sẽ gọi cho bạn theo khung
                 giờ đăng ký.</p>
 
             <div class="bk-success-details">
@@ -657,6 +657,24 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 chuongTrinhVal = "Các khoản chi phí";
             }
 
+            // Override notePrefix dynamically with the page title and program name
+            const pageTitle = "<?php
+                $page_title = '';
+                if (is_search()) {
+                    $page_title = 'Tìm kiếm: ' . get_search_query();
+                } elseif (is_archive()) {
+                    $page_title = single_term_title('', false);
+                    if (empty($page_title)) {
+                        $page_title = get_the_archive_title();
+                    }
+                } else {
+                    $page_title = get_the_title();
+                }
+                echo esc_js($page_title);
+            ?>";
+            const isSingle = <?php echo is_single() ? 'true' : 'false'; ?>;
+            notePrefix = isSingle ? `Đăng ký từ bài viết "${pageTitle}" - ${chuongTrinhVal}` : `Đăng ký từ trang "${pageTitle}" - ${chuongTrinhVal}`;
+
             const eduText = eduSelect && eduSelect.selectedIndex >= 0 ? eduSelect.options[eduSelect.selectedIndex].text : eduVal;
             const engText = engSelect && engSelect.selectedIndex >= 0 ? engSelect.options[engSelect.selectedIndex].text : engVal;
 
@@ -690,7 +708,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 hoc_van: eduText,
                 time_dat_lich: "",
                 chuong_trinh: chuongTrinhVal,
-                nhu_cau: `Đăng ký từ ${notePrefix} | Note: ${combinedNote}`
+                nhu_cau: `${notePrefix} | Note: ${combinedNote}`
             };
 
             // Bind UTMs
@@ -703,9 +721,12 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
 
             // Trigger request
             const btn = form.querySelector('button[type="submit"]');
+            let originalBtnHtml = '';
             if (btn) {
                 btn.disabled = true;
                 btn.style.opacity = '0.7';
+                originalBtnHtml = btn.innerHTML;
+                btn.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...</span>';
             }
 
             try {
@@ -735,6 +756,10 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 // Handle success
                 const successContainer = document.getElementById('modal-form-success');
                 if (successContainer) {
+                    const successMsg = document.getElementById('modal-success-msg');
+                    if (successMsg && name) {
+                        successMsg.innerHTML = 'Cảm ơn bạn <strong>' + name + '</strong> đã quan tâm. Chuyên viên của IDEAS sẽ liên hệ trong thời gian sớm nhất.';
+                    }
                     successContainer.classList.add('visible');
                     form.style.display = 'none';
                 }
@@ -745,6 +770,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 if (btn) {
                     btn.disabled = false;
                     btn.style.opacity = '1';
+                    btn.innerHTML = originalBtnHtml;
                 }
             }
         });

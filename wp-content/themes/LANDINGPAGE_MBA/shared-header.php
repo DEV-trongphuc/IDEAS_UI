@@ -194,7 +194,7 @@
                     </div>
                 </div>
                 <div style="display:flex;align-items:center;gap:8px;">
-                    <a class="nav-cta" onclick="showform('header')">Nhận tư vấn</a>
+                    <button type="button" class="nav-cta" style="cursor: pointer; border: none; font-family: inherit;" onclick="showform('header')">Nhận tư vấn</button>
                     <button class="bk-open-btn" aria-label="Mở form đặt lịch tư vấn"
                         style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:transparent;color:#ab0e00;border:1.5px solid rgba(171,14,0,0.45);border-radius:100px;font-weight:700;font-size:0.88rem;cursor:pointer;transition:all 0.3s ease;white-space:nowrap;"
                         onmouseover="this.style.background='#ab0e00';this.style.color='#fff';this.style.borderColor='#ab0e00';"
@@ -392,7 +392,7 @@
             </div>
         </div>
         <div style="padding:20px; margin-top:20px;">
-            <a class="nav-cta" style="display:block; text-align:center; width:100%;" onclick="showform('header_mb')">Nhận tư vấn</a>
+            <button type="button" class="nav-cta" style="display:block; text-align:center; width:100%; cursor: pointer; border: none; font-family: inherit;" onclick="showform('header_mb')">Nhận tư vấn</button>
         </div>
     </div>
 

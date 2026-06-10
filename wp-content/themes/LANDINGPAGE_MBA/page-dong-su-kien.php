@@ -39,7 +39,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/10/en2810.webp" />
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/11/z7168028016898_a6b3673704a0f8fead78c7cde0d0c719.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Dòng Sự Kiện &amp; Hoạt Động | IDEAS</title>
     <?php endif; ?>
@@ -55,7 +55,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="Dòng Sự Kiện &amp; Hoạt Động – IDEAS" />
         <meta property="og:description"
             content="Xem lại các sự kiện đáng nhớ, cột mốc học thuật và các hoạt động thực tế quốc tế của học viên và giảng viên tại IDEAS." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/10/en2810.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/11/z7168028016898_a6b3673704a0f8fead78c7cde0d0c719.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -112,7 +112,7 @@ ob_start(function ($html) {
             width: 110%;
             height: calc(100% + 300px);
             background-size: cover;
-            background-position: center;
+            background-position: center 70%;
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.15);
             z-index: 1;
@@ -730,7 +730,7 @@ ob_start(function ($html) {
     <!-- Hero Area -->
     <section class="events-hero" id="events-hero-top">
         <div class="events-hero-bg" id="events-parallax-bg"
-            style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/10/en2810.webp');"></div>
+            style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/11/z7168028016898_a6b3673704a0f8fead78c7cde0d0c719.webp');"></div>
         <div class="events-hero-overlay"></div>
         <div class="container">
             <div class="events-hero-badge">

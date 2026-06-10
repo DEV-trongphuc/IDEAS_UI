@@ -823,9 +823,9 @@ ob_start(function($html) {
                 <div class="article-share-bar">
                     <span class="share-label">Chia sẻ bài viết:</span>
                     <div class="share-buttons">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn facebook" aria-label="Chia sẻ bài viết lên Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn linkedin" aria-label="Chia sẻ bài viết lên LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn twitter" aria-label="Chia sẻ bài viết lên Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
 
@@ -864,10 +864,10 @@ ob_start(function($html) {
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Đăng ký tư vấn lộ trình</h3>
                     <form class="ideas-widget-form">
-                        <input type="text" placeholder="Họ và tên của bạn" required>
-                        <input type="email" placeholder="Địa chỉ Email" required>
-                        <input type="tel" placeholder="Số điện thoại" required>
-                        <select required>
+                        <input type="text" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
+                        <input type="email" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" required>
+                        <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
+                        <select aria-label="Chương trình quan tâm" required>
                             <option value="" disabled selected hidden>Chương trình quan tâm</option>
                             <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
                             <option value="Full BBA">Full BBA (Cử nhân QTKD 3 năm)</option>
@@ -877,7 +877,7 @@ ob_start(function($html) {
                             <option value="MSc AI">MSc AI (Thạc sĩ AI ứng dụng)</option>
                             <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
                         </select>
-                        <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..."></textarea>
+                        <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..." aria-label="Ghi chú thêm"></textarea>
                         <button type="submit"><i class="fa-solid fa-paper-plane"></i> Đăng ký ngay</button>
                     </form>
                 </div>
@@ -1102,6 +1102,8 @@ ob_start(function($html) {
                     chuongTrinhVal = "Online Dual DBA";
                 }
 
+                const postTitle = "<?php echo esc_js(get_the_title()); ?>";
+
                 // Core API Submission (Payload 1)
                 const payload = {
                     form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
@@ -1109,7 +1111,7 @@ ob_start(function($html) {
                     firstName: name,
                     phoneNumber: phone,
                     time_dat_lich: "",
-                    note_dat_lich: note ? `${program} | ${note}` : program,
+                    note_dat_lich: note ? `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal} | Ghi chú: ${note}` : `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal}`,
                     chuong_trinh_dat_lich: chuongTrinhVal
                 };
                 
@@ -1124,7 +1126,7 @@ ob_start(function($html) {
                     hoc_van: "",
                     time_dat_lich: "",
                     chuong_trinh: chuongTrinhVal,
-                    nhu_cau: note ? `Đăng ký từ sidebar: ${program} - ${note}` : `Đăng ký từ sidebar: ${program}`
+                    nhu_cau: note ? `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal} | Ghi chú: ${note}` : `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal}`
                 };
                 
                 // Bind UTM parameters
