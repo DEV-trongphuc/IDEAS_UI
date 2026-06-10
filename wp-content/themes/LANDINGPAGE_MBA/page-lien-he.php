@@ -39,7 +39,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Liên hệ ban tuyển sinh – Viện IDEAS | IDEAS</title>
@@ -55,7 +55,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="Liên hệ ban tuyển sinh – Viện IDEAS | IDEAS" />
         <meta property="og:description"
             content="Gửi yêu cầu tư vấn học vụ 1:1 và nhận lộ trình học tập, thông tin học bổng chi tiết từ ban tuyển sinh." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -85,7 +85,7 @@ ob_start(function ($html) {
 
     <style>
         /* ══════════════════════════════════════
-           CONTACT PAGE – PREMIUM DARK THEME
+           CONTACT PAGE – PREMIUM LIGHT THEME
            ══════════════════════════════════════ */
         html,
         body {
@@ -94,8 +94,8 @@ ob_start(function ($html) {
 
         body {
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            background-color: #080405;
-            color: #f3f4f6;
+            background-color: #f4f6fb;
+            color: #1e293b;
         }
 
         body::before {
@@ -104,18 +104,18 @@ ob_start(function ($html) {
             inset: 0;
             z-index: -1;
             background-image:
-                radial-gradient(circle at 15% 20%, rgba(185, 14, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 85% 65%, rgba(185, 14, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 28px 28px;
+                radial-gradient(circle at 10% 20%, rgba(171, 14, 0, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 90% 70%, rgba(171, 14, 0, 0.03) 0%, transparent 45%),
+                radial-gradient(rgba(171, 14, 0, 0.04) 1.5px, transparent 1.5px);
+            background-size: 100% 100%, 100% 100%, 30px 30px;
             pointer-events: none;
             will-change: transform;
         }
 
-        /* ── Hero ──────────────────────────── */
+        /* ── Hero (Same dark red style as ideas-talk) ──────────────────────────── */
         .contact-hero {
             position: relative;
-            padding: 180px 20px 70px;
+            padding: 180px 20px 80px;
             overflow: hidden;
             background: transparent;
             min-height: 40vh;
@@ -137,7 +137,7 @@ ob_start(function ($html) {
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.75;
+            opacity: 0.15;
         }
 
         .contact-hero-overlay {
@@ -146,10 +146,10 @@ ob_start(function ($html) {
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.85) 0%,
-                    rgba(80, 6, 0, 0.35) 60%,
-                    transparent 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
+                    rgba(8, 4, 5, 0.95) 0%,
+                    rgba(80, 6, 0, 0.55) 60%,
+                    #f4f6fb 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.28) 0%, transparent 75%);
         }
 
         .contact-hero-container {
@@ -161,12 +161,12 @@ ob_start(function ($html) {
         }
 
         .contact-hero-badge {
-            background: rgba(171, 14, 0, 0.18);
-            border: 1px solid rgba(255, 77, 77, 0.3);
-            padding: 8px 20px;
+            background: rgba(171, 14, 0, 0.2);
+            border: 1px solid rgba(255, 77, 77, 0.35);
+            padding: 8px 22px;
             border-radius: 100px;
             color: #ffcccc;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.12em;
@@ -196,7 +196,7 @@ ob_start(function ($html) {
 
         .contact-hero p {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             max-width: 650px;
             margin: 0 auto;
             line-height: 1.6;
@@ -215,8 +215,8 @@ ob_start(function ($html) {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 45px;
             align-items: start;
         }
 
@@ -242,7 +242,7 @@ ob_start(function ($html) {
             }
         }
 
-        /* ── Info Column ───────────────────── */
+        /* ── Info Column (Light Theme) ──────── */
         .contact-info-column {
             display: flex;
             flex-direction: column;
@@ -250,26 +250,32 @@ ob_start(function ($html) {
         }
 
         .contact-info-card {
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 24px;
             padding: 30px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+            border-color: rgba(171, 14, 0, 0.15);
         }
 
         .contact-info-card h2 {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 24px;
+            color: #0f172a;
+            margin: 0 0 24px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .contact-info-card h2 i {
-            color: #ff3b30;
+            color: #ab0e00;
         }
 
         .info-details {
@@ -287,10 +293,10 @@ ob_start(function ($html) {
         .info-icon {
             width: 44px;
             height: 44px;
-            background: rgba(171, 14, 0, 0.18);
-            border: 1px solid rgba(255, 77, 77, 0.25);
+            background: rgba(171, 14, 0, 0.05);
+            border: 1px solid rgba(171, 14, 0, 0.12);
             border-radius: 12px;
-            color: #ffcccc;
+            color: #ab0e00;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -305,17 +311,17 @@ ob_start(function ($html) {
         }
 
         .info-label {
-            font-size: 0.76rem;
+            font-size: 0.74rem;
             font-weight: 800;
-            color: rgba(255, 255, 255, 0.4);
+            color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
 
         .info-value {
             font-size: 0.95rem;
-            color: #ffffff;
-            font-weight: 600;
+            color: #1e293b;
+            font-weight: 700;
             line-height: 1.5;
         }
 
@@ -326,7 +332,7 @@ ob_start(function ($html) {
         }
 
         .info-value a:hover {
-            color: #ff6b6b;
+            color: #ff3b30;
         }
 
         .contact-action-row {
@@ -348,10 +354,10 @@ ob_start(function ($html) {
             justify-content: center;
             gap: 10px;
             padding: 14px 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
             border-radius: 100px;
-            color: #ffffff;
+            color: #0f172a;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.88rem;
@@ -362,7 +368,8 @@ ob_start(function ($html) {
         .contact-zalo-btn:hover {
             background: #ab0e00;
             border-color: #ab0e00;
-            box-shadow: 0 10px 20px rgba(171, 14, 0, 0.25);
+            color: #ffffff;
+            box-shadow: 0 10px 20px rgba(171, 14, 0, 0.15);
             transform: translateY(-2px);
         }
 
@@ -383,7 +390,7 @@ ob_start(function ($html) {
             background: transparent;
             border: 1.5px solid rgba(171, 14, 0, 0.45);
             border-radius: 100px;
-            color: #ffcccc;
+            color: #ab0e00;
             font-weight: 700;
             font-size: 0.88rem;
             cursor: pointer;
@@ -394,26 +401,32 @@ ob_start(function ($html) {
             background: #ab0e00;
             color: #ffffff;
             border-color: #ab0e00;
-            box-shadow: 0 10px 20px rgba(171, 14, 0, 0.25);
+            box-shadow: 0 10px 20px rgba(171, 14, 0, 0.15);
             transform: translateY(-2px);
         }
 
-        /* ── Form Column (Card) ────────────── */
+        /* ── Form Column (Light Theme Card) ───────── */
         .contact-form-column {
             position: relative;
         }
 
         .contact-form-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 28px;
             padding: 40px;
-            backdrop-filter: blur(20px);
             box-shadow: 
-                0 25px 50px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(171, 14, 0, 0.1);
+                0 20px 45px rgba(15, 23, 42, 0.04),
+                0 4px 12px rgba(15, 23, 42, 0.01);
             position: relative;
             overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .contact-form-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 55px rgba(15, 23, 42, 0.08);
+            border-color: rgba(171, 14, 0, 0.15);
         }
 
         @media (max-width: 480px) {
@@ -437,11 +450,11 @@ ob_start(function ($html) {
         }
 
         .form-card-badge {
-            background: rgba(171, 14, 0, 0.2);
-            border: 1px solid rgba(255, 77, 77, 0.35);
+            background: rgba(171, 14, 0, 0.06);
+            border: 1px solid rgba(171, 14, 0, 0.2);
             padding: 6px 14px;
             border-radius: 100px;
-            color: #ffcccc;
+            color: #ab0e00;
             font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -451,15 +464,15 @@ ob_start(function ($html) {
         }
 
         .form-card-header h3 {
-            font-size: 1.6rem;
+            font-size: 1.55rem;
             font-weight: 850;
-            color: #ffffff;
+            color: #0f172a;
             margin: 0 0 10px;
             line-height: 1.3;
         }
 
         .form-card-header h3 span {
-            background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
+            background: linear-gradient(135deg, #ff4444 0%, #ab0e00 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
@@ -467,12 +480,12 @@ ob_start(function ($html) {
 
         .form-card-header p {
             font-size: 0.88rem;
-            color: rgba(255, 255, 255, 0.55);
+            color: #4b5563;
             margin: 0;
             line-height: 1.5;
         }
 
-        /* Form Controls styling to match modal */
+        /* Form Controls */
         .page-contact-form {
             display: flex;
             flex-direction: column;
@@ -489,16 +502,16 @@ ob_start(function ($html) {
         .form-group label {
             font-size: 0.82rem;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.85);
+            color: #334155;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
             border-radius: 12px;
-            color: #ffffff;
+            color: #0f172a;
             padding: 12px 16px;
             font-size: 0.92rem;
             outline: none;
@@ -508,15 +521,15 @@ ob_start(function ($html) {
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.3);
+            color: #94a3b8;
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 59, 48, 0.45);
-            box-shadow: 0 0 15px rgba(171, 14, 0, 0.15);
+            background: #ffffff;
+            border-color: #ff3b30;
+            box-shadow: 0 0 15px rgba(171, 14, 0, 0.08);
         }
 
         .form-row {
@@ -533,8 +546,8 @@ ob_start(function ($html) {
         }
 
         .form-group select option {
-            background: #140b0d;
-            color: #ffffff;
+            background: #ffffff;
+            color: #0f172a;
         }
 
         .form-error {
@@ -550,12 +563,12 @@ ob_start(function ($html) {
 
         .form-privacy {
             font-size: 0.74rem;
-            color: rgba(255, 255, 255, 0.35);
+            color: #64748b;
             text-align: center;
             margin: 10px 0 0;
         }
 
-        /* Success State Box */
+        /* Success State */
         .page-form-success {
             display: none;
             flex-direction: column;
@@ -618,13 +631,13 @@ ob_start(function ($html) {
         .page-form-success h3 {
             font-size: 1.4rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #0f172a;
             margin: 0 0 10px;
         }
 
         .page-form-success p {
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: #4b5563;
             line-height: 1.6;
             max-width: 360px;
             margin: 0 auto;
@@ -641,14 +654,14 @@ ob_start(function ($html) {
     <main id="content">
         <!-- Hero Section -->
         <section class="contact-hero">
-            <div class="contact-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg');"></div>
+            <div class="contact-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');"></div>
             <div class="contact-hero-overlay"></div>
             <div class="contact-hero-container">
                 <span class="contact-hero-badge">
                     <i class="fa-solid fa-envelope"></i> Liên hệ tuyển sinh
                 </span>
                 <h1><span>LIÊN HỆ TƯ VẤN</span> <br>Hỗ trợ học vụ 1:1</h1>
-                <p>Kết nối trực tiếp với Ban tuyển sinh & Chuyên viên học vụ của Viện IDEAS để nhận thông tin học học bổng, lộ trình học tập tối ưu.</p>
+                <p>Kết nối trực tiếp với Ban tuyển sinh & Chuyên viên học vụ của Viện IDEAS để nhận thông tin học bổng, lộ trình học tập tối ưu.</p>
             </div>
         </section>
 
@@ -694,7 +707,7 @@ ob_start(function ($html) {
 
                     <div class="contact-info-card">
                         <h2><i class="fa-solid fa-comments"></i> Liên hệ nhanh</h2>
-                        <p style="font-size:0.88rem; color:rgba(255,255,255,0.6); margin: -10px 0 20px; line-height: 1.5;">Nếu cần trao đổi trực tiếp ngay lập tức, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video qua Zoom.</p>
+                        <p style="font-size:0.88rem; color:#4b5563; margin: -10px 0 20px; line-height: 1.5;">Nếu cần trao đổi trực tiếp ngay lập tức, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video qua Zoom.</p>
                         <div class="contact-action-row">
                             <a href="https://zalo.me/3857867121882640296" target="_blank" class="contact-zalo-btn" rel="nofollow noopener noreferrer">
                                 <img src="https://cdn-1.webcatalog.io/catalog/zalo-oa/zalo-oa-icon-unplated.png?v=1780553812775" alt="Zalo Logo" loading="lazy">
