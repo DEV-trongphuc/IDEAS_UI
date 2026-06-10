@@ -123,7 +123,7 @@ ob_start(function ($html) {
 
     <style>
         /* ══════════════════════════════════════
-           MBA SEO PAGE – PREMIUM DARK THEME DESIGN
+           MBA SEO PAGE – ULTRA PREMIUM DARK REBUILD
            ══════════════════════════════════════ */
         html {
             scroll-snap-type: none !important;
@@ -132,7 +132,7 @@ ob_start(function ($html) {
         html,
         body {
             overflow-x: hidden !important;
-            background-color: #080405 !important;
+            background-color: #0b0607 !important;
             color: #cbd5e1 !important;
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
             margin: 0 !important;
@@ -141,11 +141,12 @@ ob_start(function ($html) {
             max-width: 100% !important;
         }
         body {
-            background-image:
-                radial-gradient(circle at 15% 20%, rgba(185, 14, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 85% 65%, rgba(185, 14, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) !important;
-            background-size: 100% 100%, 100% 100%, 28px 28px !important;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 10% 15%, rgba(194, 26, 9, 0.18) 0%, transparent 40%),
+                radial-gradient(circle at 90% 75%, rgba(212, 175, 55, 0.1) 0%, transparent 45%),
+                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px) !important;
+            background-size: 100% 100%, 100% 100%, 24px 24px !important;
             background-attachment: scroll, scroll, fixed !important;
         }
         body,
@@ -159,41 +160,73 @@ ob_start(function ($html) {
             overflow-x: hidden !important;
         }
 
+        /* ─── GLOWING SPHERES ─── */
+        .glowing-sphere-1 {
+            position: absolute;
+            top: 5%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(194, 26, 9, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .glowing-sphere-2 {
+            position: absolute;
+            top: 45%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+            filter: blur(100px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
         /* ─── GENERAL STYLES ─── */
         .container {
             width: 100% !important;
-            max-width: 1200px !important;
+            max-width: 1240px !important;
             margin: 0 auto !important;
-            padding: 0 20px !important;
+            padding: 0 24px !important;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 10;
         }
         .section-label {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(171, 14, 0, 0.2) !important;
-            border: 1px solid rgba(255, 77, 77, 0.3) !important;
-            color: #ffcccc !important;
-            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(194, 26, 9, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%) !important;
+            border: 1.5px solid rgba(212, 175, 55, 0.25) !important;
+            color: #ffdf7a !important;
+            padding: 8px 18px;
             border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
         .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 800;
-            line-height: 1.25;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            line-height: 1.2;
             color: #ffffff !important;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        .section-title span {
+            background: linear-gradient(135deg, #ffffff 40%, #ff8e8e 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
         }
         .section-desc {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: #94a3b8 !important;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto 50px;
+            line-height: 1.7;
+            max-width: 850px;
+            margin: 0 auto 60px;
+            font-weight: 450;
         }
         .gradient-text {
             background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
@@ -201,16 +234,22 @@ ob_start(function ($html) {
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
         }
+        .gold-text {
+            background: linear-gradient(135deg, #ffe58f 0%, #d4af37 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
         
-        /* ─── HERO (DARK THEME) ─── */
+        /* ─── HERO (DARK LUXURY) ─── */
         .mba-hero {
-            padding: 180px 0 100px;
+            padding: 200px 0 120px;
             position: relative;
             background-color: transparent !important;
             color: #ffffff !important;
             text-align: center;
             overflow: hidden;
-            min-height: 45vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
         }
@@ -225,7 +264,7 @@ ob_start(function ($html) {
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.25 !important;
+            opacity: 0.22 !important;
             pointer-events: none;
         }
         .mba-hero-overlay {
@@ -234,16 +273,16 @@ ob_start(function ($html) {
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.85) 0%,
-                    rgba(80, 6, 0, 0.35) 60%,
-                    #080405 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.2) 0%, transparent 75%) !important;
+                    rgba(11, 6, 7, 0.85) 0%,
+                    rgba(80, 6, 0, 0.3) 60%,
+                    #0b0607 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(194, 26, 9, 0.22) 0%, transparent 75%) !important;
             pointer-events: none;
         }
         .mba-hero-container {
             position: relative;
             z-index: 3;
-            max-width: 900px !important;
+            max-width: 950px !important;
             margin: 0 auto !important;
         }
         .mba-hero-content {
@@ -251,116 +290,120 @@ ob_start(function ($html) {
             z-index: 5;
         }
         .mba-hero-title {
-            font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+            font-size: clamp(2.4rem, 6vw, 4rem);
             font-weight: 900;
             color: #ffffff !important;
             line-height: 1.15;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            letter-spacing: -0.02em;
         }
         .mba-hero-title span {
-            background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
+            background: linear-gradient(135deg, #ffe58f 0%, #d4af37 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
         }
         .mba-hero-sub {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.95) !important;
-            line-height: 1.6;
-            margin-bottom: 35px;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9) !important;
+            line-height: 1.7;
+            margin-bottom: 40px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .mba-hero-badges {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 40px;
+            gap: 14px;
+            margin-bottom: 45px;
         }
         .mba-hero-badge-item {
-            background: rgba(255, 255, 255, 0.03) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid rgba(255, 255, 255, 0.06) !important;
+            padding: 12px 24px;
             border-radius: 100px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95) !important;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(12px);
         }
         .mba-hero-badge-item:hover {
-            border-color: rgba(255, 77, 77, 0.3) !important;
-            background: rgba(171, 14, 0, 0.15) !important;
-            transform: translateY(-2px);
+            border-color: rgba(212, 175, 55, 0.4) !important;
+            background: rgba(194, 26, 9, 0.15) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(194, 26, 9, 0.2);
         }
         .mba-hero-badge-item i {
-            color: #ff4f4f !important;
+            color: #ff523d !important;
         }
         .mba-hero-ctas {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 20px;
             margin-bottom: 50px;
             flex-wrap: wrap;
         }
         .btn-ideas-primary {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
+            gap: 10px;
+            background: linear-gradient(135deg, #c21a09, #ff523d) !important;
             color: #fff !important;
-            padding: 14px 28px;
+            padding: 16px 36px;
             border-radius: 100px;
-            font-weight: 700;
-            font-size: 0.95rem;
+            font-weight: 800;
+            font-size: 1rem;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.35) !important;
+            box-shadow: 0 10px 25px rgba(194, 26, 9, 0.4) !important;
         }
         .btn-ideas-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.5) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(194, 26, 9, 0.6) !important;
             filter: brightness(1.08);
         }
         .btn-ideas-outline {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.03) !important;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.02) !important;
             color: #ffffff !important;
-            padding: 14px 28px;
+            padding: 16px 36px;
             border-radius: 100px;
-            font-weight: 700;
-            font-size: 0.95rem;
+            font-weight: 800;
+            font-size: 1rem;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
             cursor: pointer;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
         }
         .btn-ideas-outline:hover {
             border-color: #ffffff !important;
             background: rgba(255, 255, 255, 0.08) !important;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* ─── PROGRAM CATALOG (DARK GLASSMORPHISM) ─── */
+        /* ─── PROGRAM CATALOG (LUXURY CARDS) ─── */
         .catalog-section {
-            padding: 80px 0;
+            padding: 120px 0;
             position: relative;
-            background: transparent !important;
         }
         .catalog-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
+            gap: 32px;
+            margin-top: 50px;
         }
         @media (max-width: 1024px) {
             .catalog-grid {
@@ -370,105 +413,121 @@ ob_start(function ($html) {
         @media (max-width: 768px) {
             .catalog-grid {
                 grid-template-columns: 1fr;
+                gap: 24px;
             }
         }
         .catalog-card {
-            background: rgba(255, 255, 255, 0.02) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 24px;
-            padding: 35px;
+            background: linear-gradient(#140b0d, #140b0d) padding-box, 
+                        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(212, 175, 55, 0.15) 50%, rgba(194, 26, 9, 0.2)) border-box !important;
+            border: 1.5px solid transparent !important;
+            border-radius: 28px;
+            padding: 40px 35px;
             display: flex;
             flex-direction: column;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             z-index: 1;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
-            color: #cbd5e1 !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
         }
-        .catalog-card::before {
+        .catalog-card::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top right, rgba(171, 14, 0, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle at top right, rgba(194, 26, 9, 0.2) 0%, transparent 60%);
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease;
+            border-radius: 26px;
         }
         .catalog-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 59, 48, 0.35) !important;
-            background: rgba(255, 255, 255, 0.03) !important;
-            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.25) !important;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px -15px rgba(194, 26, 9, 0.25) !important;
+            background: linear-gradient(#1a0e11, #1a0e11) padding-box, 
+                        linear-gradient(135deg, rgba(194, 26, 9, 0.4), rgba(212, 175, 55, 0.3)) border-box !important;
         }
-        .catalog-card:hover::before {
+        .catalog-card:hover::after {
             opacity: 1;
         }
         .catalog-card-icon {
-            font-size: 1.5rem;
-            color: #ff4d4d !important;
-            background: rgba(171, 14, 0, 0.2) !important;
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
+            font-size: 1.6rem;
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #c21a09 0%, #ff523d 100%) !important;
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 77, 77, 0.2) !important;
+            box-shadow: 0 8px 20px rgba(194, 26, 9, 0.35);
         }
         .catalog-card:hover .catalog-card-icon {
-            background: #ab0e00 !important;
-            color: #ffffff !important;
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.2);
+            transform: rotateY(180deg);
+            box-shadow: 0 10px 25px rgba(194, 26, 9, 0.5);
         }
         .catalog-card-title {
-            font-size: 1.45rem;
+            font-size: 1.55rem;
             font-weight: 800;
             color: #ffffff !important;
             margin-bottom: 8px;
             line-height: 1.3;
+            letter-spacing: -0.01em;
         }
         .catalog-card-school {
             font-size: 0.85rem;
-            font-weight: 700;
-            color: #ff4d4d !important;
-            letter-spacing: 0.05em;
+            font-weight: 800;
+            color: #ffdf7a !important;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        .catalog-card-desc {
-            font-size: 0.95rem;
-            color: #cbd5e1 !important;
-            line-height: 1.6;
             margin-bottom: 24px;
-            flex-grow: 1;
-        }
-        .catalog-card-badges {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-        .catalog-card-badge {
-            background: rgba(171, 14, 0, 0.2) !important;
-            border: 1px solid rgba(255, 77, 77, 0.2) !important;
-            color: #ffcccc !important;
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
+        .catalog-card-school::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: #ffdf7a;
+            border-radius: 50%;
+        }
+        .catalog-card-desc {
+            font-size: 0.95rem;
+            color: #cbd5e1 !important;
+            line-height: 1.65;
+            margin-bottom: 28px;
+            flex-grow: 1;
+            font-weight: 400;
+        }
+        .catalog-card-badges {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .catalog-card-badge {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            color: #cbd5e1 !important;
+            padding: 6px 14px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        .catalog-card:hover .catalog-card-badge {
+            background: rgba(194, 26, 9, 0.15) !important;
+            border-color: rgba(194, 26, 9, 0.25) !important;
+            color: #ffcccc !important;
+        }
         .catalog-card-highlights {
             list-style: none;
-            padding: 18px 0;
-            margin: 0 0 24px 0;
-            border-top: 1px dashed rgba(255, 255, 255, 0.08) !important;
+            padding: 20px 0;
+            margin: 0 0 28px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -482,7 +541,7 @@ ob_start(function ($html) {
             line-height: 1.5;
         }
         .catalog-card-highlight-item i {
-            color: #ff4d4d !important;
+            color: #ff523d !important;
             font-size: 0.95rem;
             margin-top: 3px;
             width: 16px;
@@ -494,116 +553,126 @@ ob_start(function ($html) {
         }
         .catalog-card-btn {
             width: 100%;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.04) !important;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.05)) !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
             color: #ffffff !important;
             font-weight: 700;
-            border-radius: 12px;
+            border-radius: 14px;
             text-align: center;
             text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             box-sizing: border-box;
         }
         .catalog-card-btn i {
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
         }
         .catalog-card:hover .catalog-card-btn {
-            background: #ab0e00 !important;
-            border-color: #ab0e00 !important;
-            color: #ffffff !important;
+            background: linear-gradient(135deg, #c21a09, #ff523d) !important;
+            border-color: transparent !important;
+            box-shadow: 0 8px 20px rgba(194, 26, 9, 0.3);
         }
         .catalog-card:hover .catalog-card-btn i {
-            transform: translateX(4px);
+            transform: translateX(6px);
         }
         
-        /* ─── PARTNERS (DARK THEME OVERRIDES) ─── */
+        /* ─── PARTNERS (ACADEMIC SHOWCASE) ─── */
         .partners-section {
-            padding: 80px 0;
-            background: transparent !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-        }
-        .partners-grid {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
+            padding: 120px 0;
+            position: relative;
         }
         .partner-card {
-            background: rgba(255, 255, 255, 0.02) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+            background: linear-gradient(#140b0d, #140b0d) padding-box, 
+                        linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(194, 26, 9, 0.1) 50%, rgba(255, 255, 255, 0.05)) border-box !important;
+            border: 2px solid transparent !important;
+            border-radius: 32px;
+            padding: 50px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6) !important;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             color: #cbd5e1 !important;
+            position: relative;
+            overflow: hidden;
         }
-        .partner-card:hover {
-            border-color: rgba(255, 59, 48, 0.35) !important;
-            background: rgba(255, 255, 255, 0.03) !important;
-            transform: translateY(-4px);
-            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.25) !important;
+        .partner-card::before {
+            content: 'SWISS ACCREDITED';
+            position: absolute;
+            top: 25px; right: -40px;
+            background: linear-gradient(135deg, #d4af37, #ffe58f);
+            color: #0b0607;
+            font-size: 0.65rem;
+            font-weight: 900;
+            padding: 8px 45px;
+            transform: rotate(45deg);
+            letter-spacing: 0.1em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .partner-card.split-layout {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
+            grid-template-columns: 1.15fr 1.35fr;
+            gap: 50px;
             align-items: center;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 868px) {
             .partner-card.split-layout {
                 grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 30px;
+                gap: 40px;
+                padding: 40px 30px;
             }
         }
         .partner-card-left {
             text-align: center;
-            border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-            padding-right: 40px;
+            border-right: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+            padding-right: 50px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 868px) {
             .partner-card-left {
                 border-right: none !important;
-                padding-right: 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-                padding-bottom: 20px;
+                padding-right: 0 !important;
+                border-bottom: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+                padding-bottom: 35px;
             }
         }
         .partner-logo-box {
-            height: 70px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            background: transparent !important;
+            margin-bottom: 28px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .partner-logo-box img {
             max-height: 100%;
             max-width: 90%;
             object-fit: contain;
-            filter: brightness(1.05) contrast(1.05);
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
         }
         .partner-title {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.6rem;
+            font-weight: 900;
             color: #ffffff !important;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
         }
         .partner-loc {
-            font-size: 0.9rem;
-            color: #94a3b8 !important;
+            font-size: 0.95rem;
+            color: #ffdf7a !important;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
+            font-weight: 700;
         }
         .partner-loc i {
-            color: #ff4d4d !important;
+            color: #ff523d !important;
         }
         .partner-card-right {
             display: flex;
@@ -612,384 +681,430 @@ ob_start(function ($html) {
         }
         .partner-features {
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
         .partner-feature-item {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #cbd5e1 !important;
-            margin-bottom: 16px;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            line-height: 1.5;
-        }
-        .partner-feature-item:last-child {
-            margin-bottom: 0;
+            gap: 16px;
+            line-height: 1.6;
         }
         .partner-feature-item i {
-            color: #ff4d4d !important;
-            font-size: 1.1rem;
+            color: #ffdf7a !important;
+            font-size: 1.15rem;
             margin-top: 3px;
+            background: rgba(212, 175, 55, 0.15);
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
         }
 
-        /* ─── PROS & CONS (DARK THEME OVERRIDES) ─── */
+        /* ─── PROS & CONS (DASHBOARD) ─── */
         .proscons-section {
-            padding: 80px 0;
-            background: transparent !important;
+            padding: 120px 0;
+            position: relative;
         }
         .proscons-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 868px) {
             .proscons-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
         .proscons-col {
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
-            transition: all 0.3s ease;
-            color: #cbd5e1 !important;
-        }
-        .proscons-col:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5) !important;
+            border-radius: 28px;
+            padding: 45px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5) !important;
+            position: relative;
+            z-index: 10;
         }
         .proscons-col.pros-col {
-            background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
-            border-top: 5px solid #10b981 !important;
+            background: linear-gradient(#140b0d, #140b0d) padding-box, 
+                        linear-gradient(180deg, rgba(16, 185, 129, 0.3), rgba(255, 255, 255, 0.03)) border-box !important;
+            border: 2px solid transparent !important;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.08) !important;
         }
         .proscons-col.cons-col {
-            background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
-            border-top: 5px solid #ef4444 !important;
+            background: linear-gradient(#140b0d, #140b0d) padding-box, 
+                        linear-gradient(180deg, rgba(244, 63, 94, 0.3), rgba(255, 255, 255, 0.03)) border-box !important;
+            border: 2px solid transparent !important;
+            box-shadow: 0 20px 40px rgba(244, 63, 94, 0.08) !important;
         }
         .proscons-col-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
         .pros-title { color: #10b981 !important; }
-        .cons-title { color: #ef4444 !important; }
+        .cons-title { color: #f43f5e !important; }
         .proscons-list {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
         .proscons-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 24px;
+            gap: 16px;
             line-height: 1.6;
         }
         .proscons-item i {
+            font-size: 1.15rem;
             margin-top: 4px;
-            font-size: 1.1rem;
+            flex-shrink: 0;
         }
         .pros-item i { color: #10b981 !important; }
-        .cons-item i { color: #ef4444 !important; }
+        .cons-item i { color: #f43f5e !important; }
         .proscons-item h5 {
-            font-size: 1rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            font-weight: 800;
             color: #ffffff !important;
-            margin: 0 0 6px 0;
+            margin: 0 0 8px 0;
         }
         .proscons-item p {
             font-size: 0.92rem;
-            color: #94a3b8 !important;
+            color: #cbd5e1 !important;
             margin: 0;
+            font-weight: 400;
         }
 
-        /* ─── CORE COMPETENCIES (DARK THEME OVERRIDES) ─── */
+        /* ─── CORE COMPETENCIES (CIRCULAR INTERACTIVE) ─── */
         .comp-section {
-            padding: 80px 0;
-            background: transparent !important;
+            padding: 120px 0;
+            position: relative;
         }
         .comp-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 40px;
+            gap: 28px;
+            margin-top: 50px;
         }
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             .comp-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        @media (max-width: 576px) {
+        @media (max-width: 640px) {
             .comp-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
         .comp-card {
-            background: rgba(255, 255, 255, 0.02) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 16px;
-            padding: 30px;
+            background: linear-gradient(#140b0d, #140b0d) padding-box, 
+                        linear-gradient(135deg, rgba(255,255,255,0.05), rgba(194, 26, 9, 0.15)) border-box !important;
+            border: 1.5px solid transparent !important;
+            border-radius: 24px;
+            padding: 40px 30px;
             position: relative;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
-            color: #cbd5e1 !important;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
         }
         .comp-card:hover {
-            background: rgba(255, 255, 255, 0.03) !important;
-            border-color: rgba(255, 59, 48, 0.3) !important;
-            transform: translateY(-4px);
-            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.2) !important;
+            transform: translateY(-8px);
+            background: linear-gradient(#1a0e11, #1a0e11) padding-box, 
+                        linear-gradient(135deg, rgba(212,175,55,0.35), rgba(194,26,9,0.3)) border-box !important;
+            box-shadow: 0 25px 50px rgba(194, 26, 9, 0.15) !important;
         }
         .comp-num {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.02) !important;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
             position: absolute;
-            top: 15px; right: 20px;
+            top: 20px; right: 25px;
             line-height: 1;
             transition: all 0.4s ease;
             user-select: none;
         }
         .comp-card:hover .comp-num {
-            color: rgba(171, 14, 0, 0.08) !important;
-            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(194, 26, 9, 0.15) 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            transform: scale(1.15);
         }
         .comp-card-icon {
             font-size: 1.4rem;
-            color: #ff4d4d !important;
-            background: rgba(171, 14, 0, 0.2) !important;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            color: #ff523d !important;
+            background: rgba(194, 26, 9, 0.15) !important;
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 77, 77, 0.2) !important;
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(194, 26, 9, 0.25) !important;
         }
         .comp-card:hover .comp-card-icon {
-            background: #ab0e00 !important;
+            background: #c21a09 !important;
             color: #ffffff !important;
-            transform: rotate(360deg);
+            transform: rotate(360deg) scale(1.05);
+            box-shadow: 0 8px 16px rgba(194, 26, 9, 0.4);
         }
         .comp-card-title {
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 800;
             color: #ffffff !important;
             margin-bottom: 12px;
+            letter-spacing: -0.01em;
         }
         .comp-card-desc {
-            font-size: 0.9rem;
-            color: #94a3b8 !important;
-            line-height: 1.5;
+            font-size: 0.92rem;
+            color: #cbd5e1 !important;
+            line-height: 1.6;
+            font-weight: 400;
         }
 
-        /* ─── FAQ / ACCORDION (DARK THEME OVERRIDES) ─── */
+        /* ─── FAQ / ACCORDION (SMOOTH GLASS) ─── */
         .faq-section {
-            padding: 80px 0;
-            background: transparent !important;
+            padding: 120px 0;
+            position: relative;
         }
         .faq-accordion {
-            max-width: 800px;
-            margin: 40px auto 0;
+            max-width: 850px;
+            margin: 50px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
         .faq-item {
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
             background: rgba(255, 255, 255, 0.02) !important;
-            border-radius: 12px;
-            margin-bottom: 16px;
+            border: 1.5px solid rgba(255, 255, 255, 0.06) !important;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease, border-left 0.15s ease;
-            border-left: 4px solid transparent;
-            color: #cbd5e1 !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 4px solid transparent !important;
         }
         .faq-item:hover {
-            border-color: rgba(255, 77, 77, 0.2) !important;
+            border-color: rgba(194, 26, 9, 0.25) !important;
             background: rgba(255, 255, 255, 0.03) !important;
-            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5) !important;
+            transform: translateX(4px);
         }
         .faq-item.active {
-            border-left: 4px solid #ab0e00 !important;
-            border-color: rgba(255, 77, 77, 0.3) !important;
+            border-left: 4px solid #c21a09 !important;
+            border-color: rgba(194, 26, 9, 0.3) !important;
             background: rgba(255, 255, 255, 0.04) !important;
-            box-shadow: 0 6px 16px -4px rgba(171, 14, 0, 0.2) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
         }
         .faq-header {
-            padding: 20px 24px;
+            padding: 24px 28px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 700;
+            font-weight: 800;
             color: #ffffff !important;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            gap: 20px;
         }
         .faq-arrow {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #94a3b8 !important;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .faq-item.active .faq-arrow {
             transform: rotate(180deg);
-            color: #ff4d4d !important;
+            color: #ff523d !important;
         }
         .faq-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
-            font-size: 0.95rem;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 0.98rem;
             color: #cbd5e1 !important;
-            line-height: 1.6;
-        }
-        .faq-item.active .faq-body {
-            max-height: 500px;
+            line-height: 1.7;
         }
         .faq-content {
-            padding: 0 24px 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-            padding-top: 16px;
+            padding: 0 28px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+            padding-top: 20px;
         }
 
-        /* ─── IDEAS SECTION (DARK THEME OVERRIDES) ─── */
+        /* ─── WHY CHOOSE IDEAS (SPLIT STAGGERED) ─── */
         .ideas-section {
-            padding: 80px 0;
-            background: transparent !important;
+            padding: 120px 0;
+            position: relative;
         }
         .ideas-layout {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1.1fr 1fr;
             gap: 60px;
             align-items: center;
         }
         @media (max-width: 992px) {
             .ideas-layout {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 50px;
             }
         }
         .ideas-img-box {
             position: relative;
-            border-radius: 24px;
+            border-radius: 32px;
             overflow: hidden;
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6) !important;
+            border: 2px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        .ideas-img-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(212, 175, 55, 0.25);
+            border-radius: 30px;
+            pointer-events: none;
         }
         .ideas-img-box img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.6s ease;
+        }
+        .ideas-img-box:hover img {
+            transform: scale(1.04);
         }
         .ideas-points {
             list-style: none;
             padding: 0;
-            margin: 30px 0 0 0;
+            margin: 35px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
         .ideas-point-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 20px;
-            font-size: 1rem;
+            gap: 16px;
+            font-size: 1.05rem;
             color: #cbd5e1 !important;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         .ideas-point-item i {
-            color: #ff4d4d !important;
-            margin-top: 4px;
-            width: 16px;
+            color: #ffdf7a !important;
+            background: rgba(212, 175, 55, 0.15);
+            width: 34px; height: 34px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+            margin-top: 3px;
         }
         .ideas-point-item strong {
             color: #ffffff !important;
+            font-weight: 700;
         }
 
-        /* ─── CTA BANNER (DARK & MOBILE OPTIMIZED) ─── */
+        /* ─── CTA BANNER (FLOATING GLASS) ─── */
         .cta-banner {
-            background: linear-gradient(135deg, #ab0e00 0%, #5c0700 100%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            border-radius: 32px;
-            padding: 70px 40px;
+            background: linear-gradient(135deg, #c21a09 0%, #5c0700 100%) !important;
+            border: 2px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 36px;
+            padding: 80px 50px;
             text-align: center;
             margin: 80px auto;
             position: relative;
             overflow: hidden;
-            max-width: 1000px;
-            box-shadow: 0 20px 40px -15px rgba(171, 14, 0, 0.3) !important;
+            max-width: 1040px;
+            box-shadow: 0 35px 70px rgba(194, 26, 9, 0.3) !important;
         }
         .cta-banner-glow {
             position: absolute;
-            width: 400px; height: 400px;
-            background: #ffffff;
-            filter: blur(160px);
-            opacity: 0.12;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            filter: blur(120px);
             top: -150px; left: -150px;
             pointer-events: none;
         }
         .cta-banner h2 {
-            font-size: clamp(1.8rem, 4vw, 2.3rem);
-            font-weight: 800;
+            font-size: clamp(2rem, 4.5vw, 2.6rem);
+            font-weight: 900;
             color: #ffffff;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 24px;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
         }
         .cta-banner p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: rgba(255, 255, 255, 0.9) !important;
-            margin-bottom: 35px;
-            max-width: 650px;
+            margin-bottom: 40px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.6;
+            line-height: 1.65;
         }
         .cta-banner .btn-ideas-primary {
             background: #ffffff !important;
-            color: #ab0e00 !important;
+            color: #c21a09 !important;
             font-weight: 800;
-            padding: 16px 36px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            padding: 18px 40px;
+            border-radius: 100px;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .cta-banner .btn-ideas-primary:hover {
-            background: #f8fafc !important;
-            color: #8c0b00 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25) !important;
+            background: #ffebeb !important;
+            color: #9c0f00 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.25) !important;
         }
         @media (max-width: 768px) {
             .cta-banner {
-                padding: 40px 20px !important;
+                padding: 50px 24px !important;
                 margin: 40px auto !important;
-                border-radius: 24px !important;
+                border-radius: 28px !important;
             }
             .cta-banner h2 {
-                font-size: 1.45rem !important;
+                font-size: 1.55rem !important;
                 line-height: 1.3 !important;
-                margin-bottom: 16px !important;
+                margin-bottom: 18px !important;
             }
             .cta-banner p {
-                font-size: 0.95rem !important;
-                line-height: 1.5 !important;
-                margin-bottom: 24px !important;
+                font-size: 1rem !important;
+                line-height: 1.55 !important;
+                margin-bottom: 30px !important;
             }
             .cta-banner .btn-ideas-primary {
                 width: 100% !important;
-                padding: 14px 20px !important;
+                padding: 16px 24px !important;
                 justify-content: center !important;
-                font-size: 0.9rem !important;
+                font-size: 0.95rem !important;
             }
         }
 
-        /* ── Header Width Fix ────────────────── */
+        /* ── Header Width & Offsets ────────────────── */
         .ideas_header .container {
             max-width: 1360px !important;
             width: 100% !important;
-            padding: 0 20px !important;
+            padding: 0 24px !important;
         }
-
-        /* Admin bar header offset for logged in users */
         body.admin-bar .ideas_header {
             top: 32px !important;
         }
@@ -1030,6 +1145,9 @@ ob_start(function ($html) {
     <?php get_template_part('shared-header'); ?>
 
     <main id="content">
+        <!-- BACKGROUND GLOW EFFECTS -->
+        <div class="glowing-sphere-1"></div>
+        <div class="glowing-sphere-2"></div>
 
         <!-- HERO SECTION -->
         <section class="mba-hero" id="trang-chu">
@@ -1041,7 +1159,7 @@ ob_start(function ($html) {
                         <i class="fa-solid fa-graduation-cap"></i> Cử nhân &amp; Thạc sĩ Thụy Sĩ
                     </span>
                     <h1 class="mba-hero-title">
-                        Học Cử nhân BBA &amp; Thạc sĩ <span class="gradient-text">MBA Online Thụy Sĩ</span> tại Việt Nam
+                        Học Cử nhân BBA &amp; Thạc sĩ <span>MBA Online Thụy Sĩ</span> tại Việt Nam
                     </h1>
                     <p class="mba-hero-sub">
                         Cổng kết nối các chương trình đào tạo Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Giải pháp học tập tinh hoa, linh hoạt tối đa dành riêng cho người bận rộn.
@@ -1093,7 +1211,7 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-briefcase"></i>
                         </div>
                         <h3 class="catalog-card-title">Online MBA</h3>
-                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
                         
                         <div class="catalog-card-badges">
                             <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 18 tháng</span>
@@ -1114,7 +1232,7 @@ ob_start(function ($html) {
                                 <span><strong>Mục tiêu:</strong> Nâng tầm quản lý tổng thể</span>
                             </li>
                         </ul>
-                        <a href="<?php echo esc_url(home_url('/mba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
+                        <a href="<?php echo esc_url(home_url('/mba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long"></i></a>
                     </article>
 
                     <!-- Card 2: Executive MBA -->
@@ -1123,7 +1241,7 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <h3 class="catalog-card-title">Executive MBA (EMBA)</h3>
-                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
                         
                         <div class="catalog-card-badges">
                             <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 14 - 16 tháng</span>
@@ -1144,7 +1262,7 @@ ob_start(function ($html) {
                                 <span><strong>Mục tiêu:</strong> Đột phá năng lực lãnh đạo</span>
                             </li>
                         </ul>
-                        <a href="<?php echo esc_url(home_url('/emba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
+                        <a href="<?php echo esc_url(home_url('/emba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long"></i></a>
                     </article>
 
                     <!-- Card 3: MSc AI -->
@@ -1153,7 +1271,7 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-brain"></i>
                         </div>
                         <h3 class="catalog-card-title">Master AI (MSc AI)</h3>
-                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
                         
                         <div class="catalog-card-badges">
                             <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 15 - 18 tháng</span>
@@ -1174,7 +1292,7 @@ ob_start(function ($html) {
                                 <span><strong>Mục tiêu:</strong> Làm chủ công nghệ và dữ liệu</span>
                             </li>
                         </ul>
-                        <a href="<?php echo esc_url(home_url('/mscai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
+                        <a href="<?php echo esc_url(home_url('/mscai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long"></i></a>
                     </article>
 
                     <!-- Card 4: MBA in AI -->
@@ -1183,7 +1301,7 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-robot"></i>
                         </div>
                         <h3 class="catalog-card-title">MBA in AI</h3>
-                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
                         
                         <div class="catalog-card-badges">
                             <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 16 - 18 tháng</span>
@@ -1204,7 +1322,7 @@ ob_start(function ($html) {
                                 <span><strong>Mục tiêu:</strong> Lãnh đạo kỷ nguyên AI toàn cầu</span>
                             </li>
                         </ul>
-                        <a href="<?php echo esc_url(home_url('/mbainai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
+                        <a href="<?php echo esc_url(home_url('/mbainai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long"></i></a>
                     </article>
 
                     <!-- Card 5: Top-up BBA -->
@@ -1213,7 +1331,7 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-user-graduate"></i>
                         </div>
                         <h3 class="catalog-card-title">Top-up BBA</h3>
-                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
                         
                         <div class="catalog-card-badges">
                             <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 12 tháng</span>
@@ -1234,7 +1352,7 @@ ob_start(function ($html) {
                                 <span><strong>Mục tiêu:</strong> Liên thông Cử nhân QTKD quốc tế</span>
                             </li>
                         </ul>
-                        <a href="<?php echo esc_url(home_url('/bba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
+                        <a href="<?php echo esc_url(home_url('/bba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long"></i></a>
                     </article>
 
                     <!-- Card 6: Full BBA -->
@@ -1243,7 +1361,7 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <h3 class="catalog-card-title">Full BBA</h3>
-                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
                         
                         <div class="catalog-card-badges">
                             <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 3 năm (36 tháng)</span>
@@ -1264,7 +1382,7 @@ ob_start(function ($html) {
                                 <span><strong>Mục tiêu:</strong> Kiến tạo sự nghiệp toàn cầu</span>
                             </li>
                         </ul>
-                        <a href="<?php echo esc_url(home_url('/fullbba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
+                        <a href="<?php echo esc_url(home_url('/fullbba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long"></i></a>
                     </article>
 
                 </div>
@@ -1272,10 +1390,10 @@ ob_start(function ($html) {
         </section>
 
         <!-- PARTNER UNIVERSITIES -->
-        <section class="partners-section section-dark">
+        <section class="partners-section">
             <div class="container text-center">
                 <span class="section-label">Đại học đối tác</span>
-                <h2 class="section-title">Trường Đại học <span class="gradient-text">đạt chuẩn kiểm định quốc tế</span></h2>
+                <h2 class="section-title">Trường Đại học <span class="gold-text">đạt chuẩn kiểm định quốc tế</span></h2>
                 <p class="section-desc">
                     IDEAS hợp tác tuyển sinh và hỗ trợ học thuật chính thức tại Việt Nam cho trường Đại học Swiss UMEF đạt chứng nhận chất lượng giáo dục cao nhất tại quốc gia chủ quản và quốc tế.
                 </p>
@@ -1389,7 +1507,7 @@ ob_start(function ($html) {
         </section>
 
         <!-- CORE COMPETENCIES -->
-        <section class="comp-section section-dark">
+        <section class="comp-section">
             <div class="container text-center">
                 <span class="section-label">Đầu ra năng lực</span>
                 <h2 class="section-title">4 Năng Lực Quản Trị Cốt Lõi <span class="gradient-text">Sau Khi Tốt Nghiệp</span></h2>
@@ -1491,7 +1609,7 @@ ob_start(function ($html) {
         </section>
 
         <!-- WHY CHOOSE IDEAS EDUCATION -->
-        <section class="ideas-section section-dark">
+        <section class="ideas-section">
             <div class="container">
                 <div class="ideas-layout">
                     <div class="ideas-img-box reveal-up">
@@ -1499,8 +1617,8 @@ ob_start(function ($html) {
                     </div>
                     <div class="reveal-up">
                         <span class="section-label">Đơn vị hỗ trợ học vụ uy tín</span>
-                        <h2 class="section-title">Tại sao chọn <span class="gradient-text">IDEAS Education</span>?</h2>
-                        <p style="line-height: 1.6;">
+                        <h2 class="section-title">Tại sao chọn <span class="gold-text">IDEAS Education</span>?</h2>
+                        <p style="line-height: 1.7; color: #cbd5e1;">
                             Với hơn 15 năm hình thành và phát triển, Viện Nghiên cứu Phát triển và Trao đổi Khoa học Áp dụng (IDEAS) tự hào là đối tác hỗ trợ giáo dục và quản lý đào tạo MBA Quốc tế hàng đầu tại Việt Nam.
                         </p>
                         <ul class="ideas-points">
@@ -1529,7 +1647,7 @@ ob_start(function ($html) {
                 <h2>Bắt đầu hành trình nâng tầm sự nghiệp ngay hôm nay</h2>
                 <p>Nhận ngay tài liệu chi tiết về điều kiện tuyển sinh, học bổng và lịch khai giảng mới nhất của các chương trình MBA quốc tế.</p>
                 <button type="button" class="btn-ideas-primary" onclick="if(typeof window.openRegModal === 'function') window.openRegModal('cta-banner-hub')">
-                    Đăng ký tư vấn lộ trình MBA
+                    <span>Đăng ký tư vấn lộ trình MBA</span>
                     <i class="fa-solid fa-circle-arrow-right"></i>
                 </button>
             </div>
