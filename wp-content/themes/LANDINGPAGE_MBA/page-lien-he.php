@@ -92,9 +92,12 @@ ob_start(function ($html) {
             overflow-x: clip !important;
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            background-color: #080405;
+        body,
+        main#content,
+        .contact-section {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+            background-color: #080405 !important;
+            background: #080405 !important;
             color: #f3f4f6;
         }
 
@@ -104,9 +107,9 @@ ob_start(function ($html) {
             inset: 0;
             z-index: -1;
             background-image:
-                radial-gradient(circle at 10% 20%, rgba(171, 14, 0, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 90% 70%, rgba(171, 14, 0, 0.08) 0%, transparent 45%),
-                radial-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px);
+                radial-gradient(circle at 10% 20%, rgba(171, 14, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 70%, rgba(171, 14, 0, 0.1) 0%, transparent 45%),
+                radial-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px) !important;
             background-size: 100% 100%, 100% 100%, 30px 30px;
             pointer-events: none;
             will-change: transform;
@@ -137,7 +140,7 @@ ob_start(function ($html) {
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.15;
+            opacity: 0.12;
         }
 
         .contact-hero-overlay {
@@ -146,10 +149,10 @@ ob_start(function ($html) {
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.98) 0%,
-                    rgba(40, 3, 0, 0.8) 60%,
+                    rgba(5, 2, 3, 0.99) 0%,
+                    rgba(15, 1, 0, 0.96) 60%,
                     #080405 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.35) 0%, transparent 75%);
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%) !important;
         }
 
         .contact-hero-container {
