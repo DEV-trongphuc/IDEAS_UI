@@ -2271,32 +2271,32 @@ ob_start(function ($html) {
             <!-- Other accreditations grid -->
             <div class="acc-grid">
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png"
-                        alt="CHEA" loading="lazy" decoding="async" />
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
+                         alt="CHEA" loading="lazy" decoding="async" />
                     <h4>CHEA – Hoa Kỳ</h4>
                     <p>Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png"
-                        alt="IACBE" loading="lazy" decoding="async" />
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
+                         alt="IACBE" loading="lazy" decoding="async" />
                     <h4>IACBE – Business Education</h4>
                     <p>Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png"
-                        alt="ACBSP" loading="lazy" decoding="async" />
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
+                         alt="ACBSP" loading="lazy" decoding="async" />
                     <h4>ACBSP – Business Schools</h4>
                     <p>Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/qsranking.webp"
-                        alt="QS Stars" loading="lazy" decoding="async" />
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2025/10/qs-1.webp"
+                         alt="QS Stars" loading="lazy" decoding="async" />
                     <h4>QS Stars ⭐ 5 Stars Overall</h4>
                     <p>Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png"
-                        alt="EduQua" loading="lazy" decoding="async" />
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
+                         alt="EduQua" loading="lazy" decoding="async" />
                     <h4>SGS – EduQua</h4>
                     <p>Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo dục
                     </p>

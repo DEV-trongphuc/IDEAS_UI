@@ -2191,7 +2191,7 @@ ob_start(function ($html) {
         }
         .pros-item i { color: var(--umef-primary) !important; }
         .cons-item i { color: #64748b !important; }
-        .proscons-item h5 {
+        .proscons-item h4 {
             font-size: 1rem;
             font-weight: 700;
             color: #0f172a !important;
@@ -2570,6 +2570,183 @@ ob_start(function ($html) {
             </div>
         </section>
 
+        <!-- EVALUATION PROS & CONS -->
+        <section class="proscons-section">
+            <div class="container text-center">
+                <span class="section-badge">Đánh giá khách quan</span>
+                <h2 class="section-title">Ưu &amp; Nhược điểm khi <span>học MBA Online Quốc tế</span></h2>
+                <p class="section-desc">
+                    Giúp học viên có góc nhìn chân thực, khách quan nhất trước khi quyết định đầu tư thời gian và ngân sách cho con đường học tập từ xa.
+                </p>
+
+                <div class="proscons-grid text-left">
+                    
+                    <!-- Pros Column -->
+                    <div class="proscons-col pros-col">
+                        <h3 class="proscons-col-title pros-title">
+                            <i class="fa-solid fa-circle-plus"></i> Ưu Điểm Nổi Bật
+                        </h3>
+                        <ul class="proscons-list">
+                            <li class="proscons-item pros-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <h4>Tự do sắp xếp thời gian</h4>
+                                    <p>Không bị gò bó bởi thời gian và khoảng cách địa lý. Học viên có thể vừa duy trì công việc toàn thời gian tại công sở vừa học vào buổi tối.</p>
+                                </div>
+                            </li>
+                            <li class="proscons-item pros-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <h4>Tối ưu hóa học phí (tiết kiệm đến 90%)</h4>
+                                    <p>Học viên nhận bằng cấp quốc tế "chính hãng" từ Thụy Sĩ nhưng với mức chi phí học tập tại Việt Nam, tiết kiệm tối đa so với du học trực tiếp.</p>
+                                </div>
+                            </li>
+                            <li class="proscons-item pros-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <h4>Nội dung đào tạo thực tiễn</h4>
+                                    <p>Chương trình được thiết kế theo tiêu chuẩn giáo dục Châu Âu, giảng dạy thông qua các case study thực tế và bài tập giải quyết vấn đề doanh nghiệp.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cons Column -->
+                    <div class="proscons-col cons-col">
+                        <h3 class="proscons-col-title cons-title">
+                            <i class="fa-solid fa-circle-minus"></i> Hạn Chế Cần Lưu Ý
+                        </h3>
+                        <ul class="proscons-list">
+                            <li class="proscons-item cons-item">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div>
+                                    <h4>Đòi hỏi sự tự giác và kỷ luật rất cao</h4>
+                                    <p>Học từ xa không có giảng viên đôn đốc trực tiếp trên lớp. Học viên cần thiết lập kế hoạch tự học nghiêm túc để hoàn thành các bài luận đúng hạn.</p>
+                                </div>
+                            </li>
+                            <li class="proscons-item cons-item">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div>
+                                    <h4>Hạn chế về tương tác vật lý trực tiếp</h4>
+                                    <p>Thiếu đi không khí thảo luận trực tiếp tại giảng đường. IDEAS khắc phục điều này bằng cách tổ chức các buổi Workshop bổ trợ trực tuyến và Offline networking.</p>
+                                </div>
+                            </li>
+                            <li class="proscons-item cons-item">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <div>
+                                    <h4>Rủi ro chọn nhầm trường thiếu uy tín</h4>
+                                    <p>Thị trường có nhiều trường không đạt kiểm định chính thức. Ứng viên cần kiểm tra kỹ thông tin kiểm định liên bang hoặc tổ chức kiểm định quốc tế uy tín trước khi đăng ký.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE COMPETENCIES -->
+        <section class="comp-section">
+            <div class="container text-center">
+                <span class="section-badge">Đầu ra năng lực</span>
+                <h2 class="section-title">4 Năng Lực Quản Trị Cốt Lõi <span>Sau Khi Tốt Nghiệp</span></h2>
+                <p class="section-desc">
+                    Chương trình MBA không chỉ cung cấp tấm bằng danh giá, mà trực tiếp tái cấu trúc hệ thống tư duy và kỹ năng để giúp bạn chuyển mình thành nhà quản trị thực thụ.
+                </p>
+
+                <div class="comp-grid text-left">
+                    <div class="comp-card">
+                        <span class="comp-num">01</span>
+                        <div class="comp-card-icon"><i class="fa-solid fa-globe"></i></div>
+                        <h3 class="comp-card-title">Tư duy quản trị tổng thể</h3>
+                        <p class="comp-card-desc">Hình thành bức tranh toàn cảnh về vận hành doanh nghiệp. Kết nối và tối ưu hóa sự phối hợp giữa các phòng ban: Tài chính, Nhân sự, Vận hành và Kinh doanh.</p>
+                    </div>
+
+                    <div class="comp-card">
+                        <span class="comp-num">02</span>
+                        <div class="comp-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                        <h3 class="comp-card-title">Ra quyết định bằng dữ liệu</h3>
+                        <p class="comp-card-desc">Nâng cao khả năng đọc hiểu báo cáo tài chính, phân tích chỉ số kinh doanh và kiểm soát ngân sách. Đưa ra các quyết định chiến lược dựa trên các con số thực tiễn.</p>
+                    </div>
+
+                    <div class="comp-card">
+                        <span class="comp-num">03</span>
+                        <div class="comp-card-icon"><i class="fa-solid fa-users-gear"></i></div>
+                        <h3 class="comp-card-title">Lãnh đạo và quản trị con người</h3>
+                        <p class="comp-card-desc">Trang bị năng lực quản lý đội nhóm đa chức năng, đàm phán thương mại và dẫn dắt tổ chức qua các giai đoạn chuyển đổi cơ cấu phức tạp.</p>
+                    </div>
+
+                    <div class="comp-card">
+                        <span class="comp-num">04</span>
+                        <div class="comp-card-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3 class="comp-card-title">Tư duy đổi mới sáng tạo</h3>
+                        <p class="comp-card-desc">Lồng ghép tư duy công nghệ số và trí tuệ nhân tạo (AI) vào quản trị kinh doanh hiện đại để tạo ra lợi thế cạnh tranh vượt trội cho doanh nghiệp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="text-center">
+                    <span class="section-badge">Giải đáp thắc mắc</span>
+                    <h2 class="section-title">Câu hỏi thường gặp về <span>MBA Online</span></h2>
+                    <p class="section-desc">Giải đáp các câu hỏi phổ biến nhất của học viên Việt Nam về tính pháp lý, ngôn ngữ và thủ tục nhập học.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>1. Bằng MBA trực tuyến có giá trị tương đương bằng học trực tiếp tại trường không?</span>
+                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                Có. Bằng cấp được cấp bởi trường Đại học Thụy Sĩ hoàn toàn giống nhau, trên văn bằng tốt nghiệp không ghi hình thức học trực tuyến (Online) và có giá trị pháp lý tương đương văn bằng học trực tiếp tại cơ sở chính ở Châu Âu.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>2. Yêu cầu đầu vào của chương trình MBA là gì?</span>
+                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                Các chương trình MBA quốc tế yêu cầu ứng viên tối thiểu tốt nghiệp Đại học (Cử nhân) ở mọi chuyên ngành, có tối thiểu 2 - 3 năm kinh nghiệm làm việc thực tế và đạt trình độ tiếng Anh IELTS 6.0 hoặc tương đương. Trường hợp chưa đủ chứng chỉ tiếng Anh, học viên sẽ được hỗ trợ các lớp bổ túc và kiểm tra năng lực đầu vào.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>3. Chi phí học MBA tại Việt Nam dao động khoảng bao nhiêu?</span>
+                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                Tại Việt Nam, chi phí học MBA rất đa dạng: Các chương trình trong nước dao động từ 50 - 70 triệu đồng; trong khi đó các chương trình MBA quốc tế online chất lượng cao dao động từ 120 - 250 triệu đồng cho toàn khóa học. Đây là mức chi phí tối ưu, tiết kiệm đến 90% chi phí ăn ở sinh hoạt so với du học trực tiếp tại Châu Âu.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <span>4. Viện IDEAS đóng vai trò gì trong quá trình học của tôi?</span>
+                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                Viện IDEAS là đơn vị hỗ trợ học thuật chính thức và duy nhất tại Việt Nam. Chúng tôi đồng hành cùng học viên từ khâu tư vấn định hướng, nộp hồ sơ nhập học, hỗ trợ dịch thuật tài liệu, tổ chức các lớp chuyên đề bổ trợ kiến thức bằng tiếng Việt, hỗ trợ kỹ thuật trên hệ thống LMS, cho đến khi học viên hoàn thành luận văn tốt nghiệp và nhận bằng.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ACCREDITATIONS & QUALITY VERIFICATION -->
         <section class="acc-section" id="kiem-dinh-quoc-te" aria-label="Kiểm định & Công nhận Quốc tế">
         <div class="acc-orb acc-orb-1"></div>
@@ -2677,31 +2854,31 @@ ob_start(function ($html) {
             <!-- Other accreditations grid -->
             <div class="acc-grid">
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
                         alt="CHEA" loading="lazy" decoding="async" />
                     <h4>CHEA – Hoa Kỳ</h4>
                     <p>Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
                         alt="IACBE" loading="lazy" decoding="async" />
                     <h4>IACBE – Business Education</h4>
                     <p>Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
                         alt="ACBSP" loading="lazy" decoding="async" />
                     <h4>ACBSP – Business Schools</h4>
                     <p>Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/qsranking.webp"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2025/10/qs-1.webp"
                         alt="QS Stars" loading="lazy" decoding="async" />
                     <h4>QS Stars ⭐ 5 Stars Overall</h4>
                     <p>Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
                         alt="EduQua" loading="lazy" decoding="async" />
                     <h4>SGS – EduQua</h4>
                     <p>Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo dục
@@ -2963,183 +3140,6 @@ ob_start(function ($html) {
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- EVALUATION PROS & CONS -->
-        <section class="proscons-section">
-            <div class="container text-center">
-                <span class="section-badge">Đánh giá khách quan</span>
-                <h2 class="section-title">Ưu &amp; Nhược điểm khi <span>học MBA Online Quốc tế</span></h2>
-                <p class="section-desc">
-                    Giúp học viên có góc nhìn chân thực, khách quan nhất trước khi quyết định đầu tư thời gian và ngân sách cho con đường học tập từ xa.
-                </p>
-
-                <div class="proscons-grid text-left">
-                    
-                    <!-- Pros Column -->
-                    <div class="proscons-col pros-col">
-                        <h3 class="proscons-col-title pros-title">
-                            <i class="fa-solid fa-circle-plus"></i> Ưu Điểm Nổi Bật
-                        </h3>
-                        <ul class="proscons-list">
-                            <li class="proscons-item pros-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <div>
-                                    <h5>Tự do sắp xếp thời gian</h5>
-                                    <p>Không bị gò bó bởi thời gian và khoảng cách địa lý. Học viên có thể vừa duy trì công việc toàn thời gian tại công sở vừa học vào buổi tối.</p>
-                                </div>
-                            </li>
-                            <li class="proscons-item pros-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <div>
-                                    <h5>Tối ưu hóa học phí (tiết kiệm đến 90%)</h5>
-                                    <p>Học viên nhận bằng cấp quốc tế "chính hãng" từ Thụy Sĩ nhưng với mức chi phí học tập tại Việt Nam, tiết kiệm tối đa so với du học trực tiếp.</p>
-                                </div>
-                            </li>
-                            <li class="proscons-item pros-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <div>
-                                    <h5>Nội dung đào tạo thực tiễn</h5>
-                                    <p>Chương trình được thiết kế theo tiêu chuẩn giáo dục Châu Âu, giảng dạy thông qua các case study thực tế và bài tập giải quyết vấn đề doanh nghiệp.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Cons Column -->
-                    <div class="proscons-col cons-col">
-                        <h3 class="proscons-col-title cons-title">
-                            <i class="fa-solid fa-circle-minus"></i> Hạn Chế Cần Lưu Ý
-                        </h3>
-                        <ul class="proscons-list">
-                            <li class="proscons-item cons-item">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div>
-                                    <h5>Đòi hỏi sự tự giác và kỷ luật rất cao</h5>
-                                    <p>Học từ xa không có giảng viên đôn đốc trực tiếp trên lớp. Học viên cần thiết lập kế hoạch tự học nghiêm túc để hoàn thành các bài luận đúng hạn.</p>
-                                </div>
-                            </li>
-                            <li class="proscons-item cons-item">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div>
-                                    <h5>Hạn chế về tương tác vật lý trực tiếp</h5>
-                                    <p>Thiếu đi không khí thảo luận trực tiếp tại giảng đường. IDEAS khắc phục điều này bằng cách tổ chức các buổi Workshop bổ trợ trực tuyến và Offline networking.</p>
-                                </div>
-                            </li>
-                            <li class="proscons-item cons-item">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                <div>
-                                    <h5>Rủi ro chọn nhầm trường thiếu uy tín</h5>
-                                    <p>Thị trường có nhiều trường không đạt kiểm định chính thức. Ứng viên cần kiểm tra kỹ thông tin kiểm định liên bang hoặc tổ chức kiểm định quốc tế uy tín trước khi đăng ký.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- CORE COMPETENCIES -->
-        <section class="comp-section">
-            <div class="container text-center">
-                <span class="section-badge">Đầu ra năng lực</span>
-                <h2 class="section-title">4 Năng Lực Quản Trị Cốt Lõi <span>Sau Khi Tốt Nghiệp</span></h2>
-                <p class="section-desc">
-                    Chương trình MBA không chỉ cung cấp tấm bằng danh giá, mà trực tiếp tái cấu trúc hệ thống tư duy và kỹ năng để giúp bạn chuyển mình thành nhà quản trị thực thụ.
-                </p>
-
-                <div class="comp-grid text-left">
-                    <div class="comp-card">
-                        <span class="comp-num">01</span>
-                        <div class="comp-card-icon"><i class="fa-solid fa-globe"></i></div>
-                        <h4 class="comp-card-title">Tư duy quản trị tổng thể</h4>
-                        <p class="comp-card-desc">Hình thành bức tranh toàn cảnh về vận hành doanh nghiệp. Kết nối và tối ưu hóa sự phối hợp giữa các phòng ban: Tài chính, Nhân sự, Vận hành và Kinh doanh.</p>
-                    </div>
-
-                    <div class="comp-card">
-                        <span class="comp-num">02</span>
-                        <div class="comp-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
-                        <h4 class="comp-card-title">Ra quyết định bằng dữ liệu</h4>
-                        <p class="comp-card-desc">Nâng cao khả năng đọc hiểu báo cáo tài chính, phân tích chỉ số kinh doanh và kiểm soát ngân sách. Đưa ra các quyết định chiến lược dựa trên các con số thực tiễn.</p>
-                    </div>
-
-                    <div class="comp-card">
-                        <span class="comp-num">03</span>
-                        <div class="comp-card-icon"><i class="fa-solid fa-users-gear"></i></div>
-                        <h4 class="comp-card-title">Lãnh đạo và quản trị con người</h4>
-                        <p class="comp-card-desc">Trang bị năng lực quản lý đội nhóm đa chức năng, đàm phán thương mại và dẫn dắt tổ chức qua các giai đoạn chuyển đổi cơ cấu phức tạp.</p>
-                    </div>
-
-                    <div class="comp-card">
-                        <span class="comp-num">04</span>
-                        <div class="comp-card-icon"><i class="fa-solid fa-bolt"></i></div>
-                        <h4 class="comp-card-title">Tư duy đổi mới sáng tạo</h4>
-                        <p class="comp-card-desc">Lồng ghép tư duy công nghệ số và trí tuệ nhân tạo (AI) vào quản trị kinh doanh hiện đại để tạo ra lợi thế cạnh tranh vượt trội cho doanh nghiệp.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ SECTION -->
-        <section class="faq-section">
-            <div class="container">
-                <div class="text-center">
-                    <span class="section-badge">Giải đáp thắc mắc</span>
-                    <h2 class="section-title">Câu hỏi thường gặp về <span>MBA Online</span></h2>
-                    <p class="section-desc">Giải đáp các câu hỏi phổ biến nhất của học viên Việt Nam về tính pháp lý, ngôn ngữ và thủ tục nhập học.</p>
-                </div>
-
-                <div class="faq-accordion">
-                    <div class="faq-item">
-                        <div class="faq-header">
-                            <span>1. Bằng MBA trực tuyến có giá trị tương đương bằng học trực tiếp tại trường không?</span>
-                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                Có. Bằng cấp được cấp bởi trường Đại học Thụy Sĩ hoàn toàn giống nhau, trên văn bằng tốt nghiệp không ghi hình thức học trực tuyến (Online) và có giá trị pháp lý tương đương văn bằng học trực tiếp tại cơ sở chính ở Châu Âu.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-header">
-                            <span>2. Yêu cầu đầu vào của chương trình MBA là gì?</span>
-                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                Các chương trình MBA quốc tế yêu cầu ứng viên tối thiểu tốt nghiệp Đại học (Cử nhân) ở mọi chuyên ngành, có tối thiểu 2 - 3 năm kinh nghiệm làm việc thực tế và đạt trình độ tiếng Anh IELTS 6.0 hoặc tương đương. Trường hợp chưa đủ chứng chỉ tiếng Anh, học viên sẽ được hỗ trợ các lớp bổ túc và kiểm tra năng lực đầu vào.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-header">
-                            <span>3. Chi phí học MBA tại Việt Nam dao động khoảng bao nhiêu?</span>
-                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                Tại Việt Nam, chi phí học MBA rất đa dạng: Các chương trình trong nước dao động từ 50 - 70 triệu đồng; trong khi đó các chương trình MBA quốc tế online chất lượng cao dao động từ 120 - 250 triệu đồng cho toàn khóa học. Đây là mức chi phí tối ưu, tiết kiệm đến 90% chi phí ăn ở sinh hoạt so với du học trực tiếp tại Châu Âu.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-header">
-                            <span>4. Viện IDEAS đóng vai trò gì trong quá trình học của tôi?</span>
-                            <i class="fa-solid fa-chevron-down faq-arrow"></i>
-                        </div>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                Viện IDEAS là đơn vị hỗ trợ học thuật chính thức và duy nhất tại Việt Nam. Chúng tôi đồng hành cùng học viên từ khâu tư vấn định hướng, nộp hồ sơ nhập học, hỗ trợ dịch thuật tài liệu, tổ chức các lớp chuyên đề bổ trợ kiến thức bằng tiếng Việt, hỗ trợ kỹ thuật trên hệ thống LMS, cho đến khi học viên hoàn thành luận văn tốt nghiệp và nhận bằng.
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 

@@ -48,7 +48,7 @@ define('IDEAS_FOOTER_RENDERED', true);
 
             <!-- Column 2: Danh mục chính -->
             <div class="footer-col-links">
-                <h4>Danh Mục Chính</h4>
+                <h3>Danh Mục Chính</h3>
                 <a href="/">Trang chủ</a>
                 <a href="/he-thong-ho-tro-hoc-tap-lms-ideas">Hệ thống LMS</a>
                 <a href="/doi-ngu-giang-vien">Hội đồng chuyên môn</a>
@@ -59,7 +59,7 @@ define('IDEAS_FOOTER_RENDERED', true);
 
             <!-- Column 3: Các chương trình -->
             <div class="footer-col-links">
-                <h4>Các Chương Trình</h4>
+                <h3>Các Chương Trình</h3>
                 <a href="/bba">Cử nhân Top-up BBA</a>
                 <a href="/fullbba">Cử nhân Full BBA</a>
                 <a href="/mba">Thạc sĩ Online MBA</a>
@@ -71,7 +71,7 @@ define('IDEAS_FOOTER_RENDERED', true);
 
             <!-- Column 4: Liên hệ -->
             <div class="footer-col-contact">
-                <h4>Liên hệ</h4>
+                <h3>Liên hệ</h3>
                 <p class="contact-item">
                     <i class="fa-solid fa-phone"></i>
                     <span>028 2244 2244</span>

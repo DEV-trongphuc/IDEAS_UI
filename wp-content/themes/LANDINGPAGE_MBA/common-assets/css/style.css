@@ -11284,7 +11284,8 @@ body .pain-card-desc {
 }
 
 .ideas_footer h5,
-.ideas_footer h4 {
+.ideas_footer h4,
+.ideas_footer h3 {
   font-size: 1.15rem;
   font-weight: 800;
   color: #ffffff;
@@ -11297,7 +11298,8 @@ body .pain-card-desc {
 }
 
 .ideas_footer h5::after,
-.ideas_footer h4::after {
+.ideas_footer h4::after,
+.ideas_footer h3::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -13208,4 +13210,4 @@ body .cta-headline {
     grid-template-columns: 1fr !important;
   }
 }
-
+
