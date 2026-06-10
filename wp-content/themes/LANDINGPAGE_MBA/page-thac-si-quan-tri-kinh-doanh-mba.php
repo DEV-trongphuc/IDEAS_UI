@@ -910,66 +910,6 @@ ob_start(function ($html) {
             line-height: 1.55;
         }
 
-        /* ── Geneva Campus Section ── */
-        .campus-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .campus-card {
-            background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.06);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
-        }
-
-        .campus-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(239, 68, 68, 0.25);
-            background: #ffffff;
-            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.06);
-        }
-
-        .campus-img {
-            position: relative;
-            aspect-ratio: 16 / 11;
-            overflow: hidden;
-        }
-
-        .campus-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .campus-card:hover .campus-img img {
-            transform: scale(1.08);
-        }
-
-        .campus-body {
-            padding: 24px;
-        }
-
-        .campus-card-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 8px;
-        }
-
-        .campus-card-desc {
-            font-size: 0.9rem;
-            color: #475569;
-            line-height: 1.5;
-        }
-
         /* ── Programs Section Redesign (Matches index.html Catalog style) ── */
         .programs-grid {
             display: flex;
@@ -1967,124 +1907,7 @@ ob_start(function ($html) {
             }
         }
     
-            /* ── UMEF Videos Slider (3D Carousel Loop) ── */
-            .umef-video-carousel-container {
-                position: relative;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 2;
-            }
-
-            .umef-video-carousel-track-wrapper {
-                overflow: hidden;
-                width: 100%;
-                padding: 30px 0 50px 0;
-                margin-bottom: -30px;
-            }
-
-            .umef-video-carousel-track {
-                display: flex;
-                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-                gap: 30px;
-                will-change: transform;
-            }
-
-            .umef-video-carousel-slide {
-                flex: 0 0 calc(33.333% - 20px) !important;
-                transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
-                opacity: 0.45 !important;
-                transform: scale(0.9) !important;
-                cursor: pointer !important;
-                width: auto !important;
-                scroll-snap-align: none !important;
-            }
-
-            .umef-video-carousel-slide.active {
-                opacity: 1 !important;
-                transform: scale(1.04) !important;
-                z-index: 10 !important;
-            }
-
-            @media (max-width: 992px) {
-                .umef-video-carousel-slide {
-                    flex: 0 0 calc(50% - 15px) !important;
-                }
-            }
-
-            @media (max-width: 600px) {
-                .umef-video-carousel-slide {
-                    flex: 0 0 100% !important;
-                }
-            }
-
-            /* Video Carousel Buttons */
-            .umef-video-carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.15);
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-                color: #ffffff;
-                z-index: 15;
-            }
-
-            .umef-video-carousel-btn:hover {
-                background: var(--umef-primary, #ab0e00);
-                color: #ffffff;
-                border-color: var(--umef-primary, #ab0e00);
-                box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
-            }
-
-            .umef-video-carousel-btn.prev {
-                left: -10px;
-            }
-
-            .umef-video-carousel-btn.next {
-                right: -10px;
-            }
-
-            /* Video Carousel Dots */
-            .umef-video-carousel-dots {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 24px;
-                position: relative;
-                z-index: 3;
-            }
-
-            .umef-video-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.25);
-                border: none;
-                cursor: pointer;
-                padding: 0;
-                transition: all 0.3s ease;
-            }
-
-            .umef-video-dot.active {
-                background: var(--umef-primary, #ab0e00);
-                width: 24px;
-                border-radius: 5px;
-            }
-
-  
-  /* Custom Mobile Overrides */
+            /* Custom Mobile Overrides */
   @media (max-width: 768px) {
     .hero-social-proof {
       display: flex !important;
@@ -2162,6 +1985,148 @@ ob_start(function ($html) {
     }
   }
 
+
+        /* ─── GLOBAL BUTTON STYLES ─── */
+        .btn-ideas-primary {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            background: var(--umef-primary) !important;
+            color: #ffffff !important;
+            padding: 14px 28px !important;
+            border-radius: 100px !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+            cursor: pointer !important;
+            box-shadow: 0 4px 12px rgba(179, 20, 0, 0.15) !important;
+            box-sizing: border-box !important;
+        }
+        .btn-ideas-primary:hover {
+            background: var(--umef-primary-hover) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 16px rgba(179, 20, 0, 0.25) !important;
+        }
+        .btn-ideas-outline {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            background: rgba(255, 255, 255, 0.02) !important;
+            color: #ffffff !important;
+            padding: 14px 28px !important;
+            border-radius: 100px !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            text-decoration: none !important;
+            transition: all 0.3s ease !important;
+            border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+            cursor: pointer !important;
+            backdrop-filter: blur(8px) !important;
+            box-sizing: border-box !important;
+        }
+        .btn-ideas-outline:hover {
+            border-color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        /* ─── HERO (IDEAS TALK STYLE) ─── */
+        .umef-hero {
+            position: relative;
+            padding: 180px 20px 100px;
+            overflow: hidden;
+            background: #080405 !important;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            border-bottom: none;
+        }
+        .umef-hero-bg {
+            position: absolute;
+            top: -150px;
+            left: -5%;
+            width: 110%;
+            height: calc(100% + 300px);
+            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp') !important;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            transform: translate3d(0, 0, 0) scale(1.1);
+            z-index: 1;
+            opacity: 0.25 !important;
+            pointer-events: none;
+        }
+        .umef-hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background:
+                linear-gradient(180deg,
+                    rgba(8, 4, 5, 0.85) 0%,
+                    rgba(80, 6, 0, 0.35) 60%,
+                    transparent 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%) !important;
+            pointer-events: none;
+        }
+        .umef-hero-container {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .umef-hero-badge {
+            background: rgba(171, 14, 0, 0.2) !important;
+            border: 1px solid rgba(255, 77, 77, 0.35) !important;
+            padding: 8px 22px;
+            border-radius: 100px;
+            color: #ffcccc !important;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(12px);
+        }
+        .umef-hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-weight: 900;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: #ffffff !important;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+        .umef-hero h1 span {
+            background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+        .umef-hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95) !important;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
 
         /* ─── PROS & CONS ─── */
         .proscons-section {
@@ -2532,6 +2497,14 @@ ob_start(function ($html) {
             opacity: 1;
         }
 
+        @media (max-width: 768px) {
+            .btn-ideas-primary,
+            .btn-ideas-outline {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+        }
+
 </style><?php wp_head(); ?>
     <style>
         /* Force override any enqueued parent theme styles outputted in wp_head() */
@@ -2560,15 +2533,9 @@ ob_start(function ($html) {
     <main id="content">
         <!-- HERO SECTION -->
         <section class="umef-hero" id="trang-chu">
-            <div class="umef-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/11/ltnumef10202501.webp');"></div>
+            <div class="umef-hero-bg"></div>
             <div class="umef-hero-overlay"></div>
             <div class="umef-hero-container">
-                <div class="umef-hero-logo-wrap">
-                    <a href="https://www.swiss-umef.ch/" target="_blank" rel="noopener" class="umef-hero-logo-link">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
-                            alt="Swiss UMEF Logo" class="umef-hero-circle-logo" fetchpriority="high" decoding="async" />
-                    </a>
-                </div>
                 <div class="umef-hero-badge">
                     <i class="fa-solid fa-graduation-cap"></i>
                     Cử nhân &amp; Thạc sĩ Thụy Sĩ
@@ -2590,7 +2557,7 @@ ob_start(function ($html) {
                     </div>
                 </div>
                 
-                <div style="margin-top: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <div style="margin-top: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; width: 100%;">
                     <button type="button" class="btn-ideas-primary" onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('hero-hub'); } else if(typeof window.showform === 'function') { window.showform('hero-hub'); }">
                         <span>Tư vấn chọn chương trình</span>
                         <i class="fa-solid fa-paper-plane"></i>
@@ -2999,151 +2966,6 @@ ob_start(function ($html) {
             </div>
         </section>
 
-        <!-- DI SẢN & UY TÍN GENEVA CAMPUS -->
-        <section class="umef-section umef-section-dark" style="background: #040508;">
-        <div class="section-header">
-            <span class="section-badge">DI SẢN &amp; UY TÍN</span>
-            <h2 class="section-title">Hơn 4 thập kỷ <span>đào tạo tinh hoa Thụy Sĩ</span></h2>
-            <p class="section-subtitle">Kế thừa chiều sâu di sản giáo dục từ năm 1984 tại Geneva, Swiss UMEF kết hợp uy
-                tín kiểm định liên bang cao nhất với kinh nghiệm đào tạo toàn cầu, kiến tạo tương lai trực tuyến vững
-                chắc cho các nhà quản lý.</p>
-        </div>
-
-        <div class="campus-grid">
-            <div class="campus-card">
-                <div class="campus-img">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/PIX_7701-Olivier-Gay-Perret-Pixipop.jpg"
-                        alt="Château d'Aï Campus" loading="lazy" />
-                </div>
-                <div class="campus-body">
-                    <h3 class="campus-card-title">Di sản học thuật lâu đời</h3>
-                    <p class="campus-card-desc">Bảo chứng bởi lịch sử lâu đời và trụ sở chính đặt tại lâu đài cổ kính
-                        Château d'Aï (Geneva, Thụy Sĩ), giữ vững các giá trị tri thức chuẩn mực qua nhiều thế hệ.</p>
-                </div>
-            </div>
-
-            <div class="campus-card">
-                <div class="campus-img">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/PIX_7485-Olivier-Gay-Perret-Pixipop-1.jpg"
-                        alt="UMEF Lecture Hall" loading="lazy" />
-                </div>
-                <div class="campus-body">
-                    <h3 class="campus-card-title">Kinh nghiệm đào tạo quốc tế</h3>
-                    <p class="campus-card-desc">Hơn 40 năm đồng hành cùng sự nghiệp học tập của học viên từ hơn 100 quốc
-                        gia, mang lại phương pháp giảng dạy giàu trải nghiệm và thực tiễn toàn cầu.</p>
-                </div>
-            </div>
-
-            <div class="campus-card">
-                <div class="campus-img">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/2023-12-15.jpg"
-                        alt="UMEF Graduation Event" loading="lazy" />
-                </div>
-                <div class="campus-body">
-                    <h3 class="campus-card-title">Uy tín quốc tế khẳng định</h3>
-                    <p class="campus-card-desc">Đạt kiểm định liên bang cao nhất (SAC), xếp hạng 5 sao QS Stars và được
-                        công nhận bởi Bộ GD&amp;ĐT Việt Nam, bảo đảm giá trị tấm bằng danh giá toàn cầu.</p>
-                </div>
-            </div>
-    </section>
-
-        <!-- YOUTUBE VIDEO REVIEWS CAROUSEL -->
-        <section class="umef-section umef-videos-section">
-        <!-- Localized Background Decor -->
-        <div class="section-bg-decor">
-            <i class="fa-solid fa-circle-play bg-decor-icon decor-white decor-lg" style="top: 25%; left: 8%; animation-duration: 30s;"></i>
-            <i class="fa-solid fa-comments bg-decor-icon decor-white decor-md" style="top: 60%; right: 9%; animation-duration: 26s;"></i>
-        </div>
-        <div class="section-header">
-            <span class="section-badge" style="color:#ff9e9e;">CHIA SẺ &amp; GÓC NHÌN</span>
-            <h2 class="section-title" style="color:#ffffff;">Lắng nghe chia sẻ về <span>Swiss UMEF</span></h2>
-            <p class="section-subtitle" style="color:#94a3b8;">Góc nhìn đa chiều từ các Giáo sư Thụy Sĩ và hành trình
-                học tập thực tế từ các
-                học viên của trường đồng hành cùng IDEAS.</p>
-        </div>
-
-        <div class="umef-video-carousel-container">
-            <button class="umef-video-carousel-btn prev" aria-label="Previous slide">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <div class="umef-video-carousel-track-wrapper">
-                <div class="umef-video-carousel-track">
-                    <!-- Video 1 -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/sqp1OsXihSg"
-                        title="IDEAS - UMEF: Switzerland and Vietnam partnership Potential benefits and future expectations"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-handshake"></i> Hợp Tác Chiến Lược</span>
-                    <h3 class="umef-video-title">IDEAS - UMEF: Switzerland and Vietnam partnership</h3>
-                    <p class="umef-video-desc">Potential benefits and future expectations – Đánh giá từ Giáo sư về tiềm
-                        năng hợp tác giáo dục bền vững giữa Thụy Sĩ và Việt Nam cùng những kỳ vọng phát triển trong
-                        tương lai.</p>
-                </div>
-            </div>
-
-            <!-- Video 2 -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/iacdK2Lx1X4"
-                        title="IDEAS - UMEF: In cooperation with IDEAS, what value do you hope to bring to Vietnamese students?"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Giá Trị Học Viên</span>
-                    <h3 class="umef-video-title">IDEAS - UMEF: Value for Vietnamese Students</h3>
-                    <p class="umef-video-desc">In cooperation with IDEAS, what value do you hope to bring to Vietnamese
-                        students? – Giáo sư chia sẻ về các giá trị học thuật thực tiễn và cơ hội thăng tiến sự nghiệp
-                        cho học viên.</p>
-                </div>
-            </div>
-
-            <!-- Video 3: Student Chu Hoàng Thái -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/uahEcE84M2s"
-                        title="Lắng nghe học viên chia sẻ | Chu Hoàng Thái - Executive MBA Swiss UMEF"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Học Viên Executive
-                        MBA</span>
-                    <h3 class="umef-video-title">Chu Hoàng Thái - Executive MBA Swiss UMEF</h3>
-                    <p class="umef-video-desc">Lắng nghe những chia sẻ thực tế từ học viên Chu Hoàng Thái về hành trình
-                        học tập chương trình Thạc sĩ điều hành tại Swiss UMEF.</p>
-                </div>
-            </div>
-
-            <!-- Video 4: Student Lê Ngọc Thương -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/z8PpCgGmBs8"
-                        title="Lắng nghe học viên chia sẻ | Lê Ngọc Thương - Executive MBA Swiss UMEF 2024"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Học Viên Executive
-                        MBA</span>
-                    <h3 class="umef-video-title">Lê Ngọc Thương - Executive MBA Swiss UMEF 2024</h3>
-                    <p class="umef-video-desc">Chia sẻ của học viên Lê Ngọc Thương về giá trị thực tiễn, tính linh hoạt
-                        và sự đồng hành đắc lực từ đội ngũ học vụ IDEAS.</p>
-                </div>
-            </div>
-                </div>
-            </div>
-            <button class="umef-video-carousel-btn next" aria-label="Next slide">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-        </div>
-        <div class="umef-video-carousel-dots"></div>
-        </section>
-
         <!-- EVALUATION PROS & CONS -->
         <section class="proscons-section">
             <div class="container text-center">
@@ -3451,7 +3273,6 @@ ob_start(function ($html) {
             };
 
             initMobileSlider('.acc-grid');
-            initMobileSlider('.campus-grid');
             initMobileSlider('.programs-grid');
         });
     </script>
@@ -3473,192 +3294,5 @@ ob_start(function ($html) {
 
     <!-- Shared Footer -->
     <?php get_footer(); ?>
-
-    <!-- 3D Videos Loop Carousel Controller -->
-    <!-- 3D Videos Loop Carousel Controller -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const track = document.querySelector(".umef-video-carousel-track");
-            if (!track) return;
-            const originalSlides = Array.from(track.querySelectorAll(".umef-video-carousel-slide"));
-            if (originalSlides.length === 0) return;
-            
-            const nextBtn = document.querySelector(".umef-video-carousel-btn.next");
-            const prevBtn = document.querySelector(".umef-video-carousel-btn.prev");
-            const dotsContainer = document.querySelector(".umef-video-carousel-dots");
-
-            const cloneCount = 3;
-            
-            const firstClones = originalSlides.slice(0, cloneCount).map(el => el.cloneNode(true));
-            const lastClones = originalSlides.slice(-cloneCount).map(el => el.cloneNode(true));
-            
-            firstClones.forEach(clone => clone.classList.add("cloned"));
-            lastClones.forEach(clone => clone.classList.add("cloned"));
-            
-            firstClones.forEach(clone => track.appendChild(clone));
-            lastClones.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
-            
-            const allSlides = Array.from(track.querySelectorAll(".umef-video-carousel-slide"));
-            
-            let currentIndex = 1; 
-            
-            dotsContainer.innerHTML = "";
-            originalSlides.forEach((_, idx) => {
-                const dot = document.createElement("button");
-                dot.classList.add("umef-video-dot");
-                dot.setAttribute("aria-label", "Xem video " + (idx + 1));
-                if (idx === currentIndex) dot.classList.add("active");
-                dotsContainer.appendChild(dot);
-                dot.addEventListener("click", (e) => {
-                    e.stopPropagation();
-                    goToSlide(idx);
-                });
-            });
-            const dots = Array.from(dotsContainer.querySelectorAll(".umef-video-dot"));
-            
-            allSlides.forEach((slide, idx) => {
-                slide.addEventListener("click", () => {
-                    let targetOriginalIdx = (idx - cloneCount + originalSlides.length) % originalSlides.length;
-                    goToSlide(targetOriginalIdx);
-                });
-            });
-
-            let isTransitioning = false;
-
-            function updateSlidePosition(useTransition = true) {
-                const slideWidth = originalSlides[0].offsetWidth;
-                const gap = 30;
-                const parentWidth = track.parentElement.offsetWidth;
-                const domIndex = currentIndex + cloneCount;
-                
-                const offset = - (domIndex * (slideWidth + gap)) + (parentWidth / 2) - (slideWidth / 2);
-                
-                if (useTransition) {
-                    track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
-                } else {
-                    track.style.transition = "none";
-                }
-                
-                track.style.transform = `translateX(${offset}px)`;
-                
-                allSlides.forEach((slide, idx) => {
-                    if (idx === domIndex) {
-                        slide.classList.add("active");
-                    } else {
-                        slide.classList.remove("active");
-                    }
-                });
-                
-                dots.forEach((dot, idx) => {
-                    if (idx === currentIndex) {
-                        dot.classList.add("active");
-                    } else {
-                        dot.classList.remove("active");
-                    }
-                });
-            }
-            
-            function goToSlide(index) {
-                if (isTransitioning) return;
-                currentIndex = index;
-                updateSlidePosition(true);
-            }
-
-            function handleNext() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                currentIndex++;
-                updateSlidePosition(true);
-            }
-
-            function handlePrev() {
-                if (isTransitioning) return;
-                isTransitioning = true;
-                currentIndex--;
-                updateSlidePosition(true);
-            }
-
-            if (nextBtn) nextBtn.addEventListener("click", handleNext);
-            if (prevBtn) prevBtn.addEventListener("click", handlePrev);
-
-            track.addEventListener("transitionend", () => {
-                isTransitioning = false;
-                
-                if (currentIndex >= originalSlides.length) {
-                    track.style.transition = "none";
-                    currentIndex = 0;
-                    updateSlidePosition(false);
-                }
-                else if (currentIndex < 0) {
-                    track.style.transition = "none";
-                    currentIndex = originalSlides.length - 1;
-                    updateSlidePosition(false);
-                }
-            });
-
-            window.addEventListener("resize", () => {
-                updateSlidePosition(false);
-            });
-
-            updateSlidePosition(false);
-
-            // Drag support
-            let isDragging = false;
-            let startPos = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
-            let startX = 0;
-
-            track.addEventListener("touchstart", dragStart);
-            track.addEventListener("touchend", dragEnd);
-            track.addEventListener("touchmove", dragAction);
-            track.addEventListener("mousedown", dragStart);
-            track.addEventListener("mouseup", dragEnd);
-            track.addEventListener("mouseleave", dragEnd);
-            track.addEventListener("mousemove", dragAction);
-
-            function dragStart(event) {
-                if (isTransitioning) return;
-                isDragging = true;
-                startX = getPositionX(event);
-                startPos = startX;
-                const matrix = new WebKitCSSMatrix(window.getComputedStyle(track).transform);
-                prevTranslate = matrix.m41;
-                track.style.transition = "none";
-            }
-
-            function dragAction(event) {
-                if (!isDragging) return;
-                const currentPosition = getPositionX(event);
-                const diff = currentPosition - startPos;
-                currentTranslate = prevTranslate + diff;
-                track.style.transform = `translateX(${currentTranslate}px)`;
-            }
-
-            function dragEnd(event) {
-                if (!isDragging) return;
-                isDragging = false;
-                const endX = getPositionX(event);
-                const diffX = endX - startX;
-                
-                const slideWidth = originalSlides[0].offsetWidth;
-                const threshold = slideWidth / 4;
-                
-                if (Math.abs(diffX) > threshold) {
-                    if (diffX > 0) {
-                        handlePrev();
-                    } else {
-                        handleNext();
-                    }
-                } else {
-                    updateSlidePosition(true);
-                }
-            }
-
-            function getPositionX(event) {
-                    return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
-                }
-        });
-    </script>
 </body>
 </html>
