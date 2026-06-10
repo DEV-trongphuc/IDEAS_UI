@@ -347,22 +347,31 @@ ob_start(function ($html) {
             }
         }
 
-        .contact-zalo-btn {
+        .contact-zalo-btn,
+        .contact-booking-btn {
             flex: 1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
+            gap: 8px;
+            height: 48px;
+            padding: 0 20px;
             border-radius: 100px;
-            color: #0f172a;
-            text-decoration: none;
             font-weight: 700;
             font-size: 0.88rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             cursor: pointer;
+            box-sizing: border-box;
+            margin: 0;
+            line-height: 1;
+            text-decoration: none;
+            outline: none;
+        }
+
+        .contact-zalo-btn {
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            color: #0f172a;
         }
 
         .contact-zalo-btn:hover {
@@ -378,23 +387,13 @@ ob_start(function ($html) {
             height: 20px;
             object-fit: contain;
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .contact-booking-btn {
-            flex: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 14px 20px;
             background: transparent;
             border: 1.5px solid rgba(171, 14, 0, 0.45);
-            border-radius: 100px;
             color: #ab0e00;
-            font-weight: 700;
-            font-size: 0.88rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
 
         .contact-booking-btn:hover {
@@ -517,6 +516,10 @@ ob_start(function ($html) {
             outline: none;
             font-family: inherit;
             transition: all 0.3s ease;
+        }
+
+        .page-contact-form select {
+            display: block !important;
         }
 
         .form-group input::placeholder,
@@ -695,33 +698,25 @@ ob_start(function ($html) {
                                     <span class="info-value"><a href="mailto:info@ideas.edu.vn">info@ideas.edu.vn</a></span>
                                 </div>
                             </div>
-                            <div class="info-item">
-                                <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
-                                <div class="info-content">
-                                    <span class="info-label">Giờ làm việc</span>
-                                    <span class="info-value">Thứ 2 – Thứ 6: 08:30 – 17:30 <br>Thứ Bảy: 08:30 – 12:00</span>
-                                </div>
-                            </div>
                         </div>
-                    </div>
 
-                    <div class="contact-info-card">
-                        <h2><i class="fa-solid fa-comments"></i> Liên hệ nhanh</h2>
-                        <p style="font-size:0.88rem; color:#4b5563; margin: -10px 0 20px; line-height: 1.5;">Nếu cần trao đổi trực tiếp ngay lập tức, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video qua Zoom.</p>
-                        <div class="contact-action-row">
-                            <a href="https://zalo.me/3857867121882640296" target="_blank" class="contact-zalo-btn" rel="nofollow noopener noreferrer">
-                                <img src="https://cdn-1.webcatalog.io/catalog/zalo-oa/zalo-oa-icon-unplated.png?v=1780553812775" alt="Zalo Logo" loading="lazy">
-                                <span>Chat Zalo</span>
-                            </a>
-                            <button type="button" class="contact-booking-btn bk-open-btn">
-                                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                <span>Đặt lịch hẹn</span>
-                            </button>
+                        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                            <h3 style="font-size:1.05rem; font-weight:800; color:#0f172a; margin: 0 0 10px; display:flex; align-items:center; gap:8px;">
+                                <i class="fa-solid fa-comments" style="color:#ab0e00;"></i> Liên hệ nhanh
+                            </h3>
+                            <p style="font-size:0.82rem; color:#4b5563; margin: 0 0 16px; line-height: 1.5;">Nếu cần trao đổi ngay, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video.</p>
+                            <div class="contact-action-row">
+                                <a href="https://zalo.me/3857867121882640296" target="_blank" class="contact-zalo-btn" rel="nofollow noopener noreferrer">
+                                    <img src="https://cdn-1.webcatalog.io/catalog/zalo-oa/zalo-oa-icon-unplated.png?v=1780553812775" alt="Zalo Logo" loading="lazy">
+                                    <span>Chat Zalo</span>
+                                </a>
+                                <button type="button" class="contact-booking-btn bk-open-btn">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="flex-shrink: 0;" aria-hidden="true">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>Đặt lịch hẹn</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -909,9 +904,9 @@ ob_start(function ($html) {
                 if (!isValid) return;
 
                 // Setup Payload
-                const eduText = eduSelect.options[eduSelect.selectedIndex].text;
-                const engText = engSelect.options[engSelect.selectedIndex].text;
-                const interestText = interestSelect.options[interestSelect.selectedIndex].text;
+                const eduText = eduSelect.selectedIndex >= 0 ? eduSelect.options[eduSelect.selectedIndex].text : '';
+                const engText = engSelect.selectedIndex >= 0 ? engSelect.options[engSelect.selectedIndex].text : '';
+                const interestText = interestSelect.selectedIndex >= 0 ? interestSelect.options[interestSelect.selectedIndex].text : '';
 
                 const noteParts = [];
                 if (eduText) noteParts.push('Học vấn: ' + eduText);

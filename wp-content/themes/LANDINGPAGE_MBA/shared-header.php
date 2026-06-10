@@ -40,21 +40,9 @@
                             <i class="fa-solid fa-landmark"></i> <span>Lịch sử phát triển</span>
                         </a>
                         <div class="dropdown-divider-simple"></div>
-                        <div class="dropdown-item-submenu">
-                            <span class="submenu-title">
-                                <span><i class="fa-solid fa-school"></i> Trường đối tác</span>
-                                <i class="fa-solid fa-chevron-right submenu-arrow"></i>
-                            </span>
-                            <div class="submenu-box">
-                                <a href="/swiss-umef" class="dropdown-item-simple">Swiss UMEF</a>
-                                <a href="https://www.ascencia-business-school.com/en/" target="_blank"
-                                    class="dropdown-item-simple">Ascencia Business School</a>
-                                <a href="https://www.collegedeparis.fr/" target="_blank"
-                                    class="dropdown-item-simple">College de Paris</a>
-                                <a href="https://www.estiam.education/" target="_blank"
-                                    class="dropdown-item-simple">Estiam</a>
-                            </div>
-                        </div>
+                        <a href="/swiss-umef" class="dropdown-item-simple">
+                            <i class="fa-solid fa-school"></i> <span>Swiss UMEF</span>
+                        </a>
                     </div>
                 </div>
 
@@ -260,11 +248,6 @@
                 </a>
                 <div class="mobile-dropdown-section-title">Trường đối tác</div>
                 <a href="/swiss-umef" class="mobile-dropdown-item-simple">Swiss UMEF</a>
-                <a href="https://www.ascencia-business-school.com/en/" target="_blank"
-                    class="mobile-dropdown-item-simple">Ascencia Business School</a>
-                <a href="https://www.collegedeparis.fr/" target="_blank" class="mobile-dropdown-item-simple">College de
-                    Paris</a>
-                <a href="https://www.estiam.education/" target="_blank" class="mobile-dropdown-item-simple">Estiam</a>
             </div>
         </div>
         <div class="mobile-dropdown expanded expanded-default">

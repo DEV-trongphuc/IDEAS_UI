@@ -50,9 +50,11 @@ define('IDEAS_FOOTER_RENDERED', true);
             <div class="footer-col-links">
                 <h4>Danh Mục Chính</h4>
                 <a href="/">Trang chủ</a>
+                <a href="/he-thong-ho-tro-hoc-tap-lms-ideas">Hệ thống LMS</a>
                 <a href="/doi-ngu-giang-vien">Hội đồng chuyên môn</a>
-                <a href="/so-do-to-chuc">Cơ cấu tổ chức</a>
                 <a href="/dong-su-kien">Dòng sự kiện</a>
+                <a href="/lich-su-hinh-thanh-va-phat-trien-vien-ideas">Lịch sử phát triển</a>
+                <a href="/lien-he">Liên hệ</a>
             </div>
 
             <!-- Column 3: Các chương trình -->
