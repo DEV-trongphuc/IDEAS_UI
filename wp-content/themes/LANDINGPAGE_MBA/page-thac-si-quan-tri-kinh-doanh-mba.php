@@ -859,6 +859,23 @@ ob_start(function ($html) {
         }
     </style>
     <?php wp_head(); ?>
+    <style>
+        /* Force override any enqueued parent theme styles outputted in wp_head() */
+        html, body {
+            scroll-snap-type: none !important;
+            scroll-behavior: auto !important;
+        }
+        .hero,
+        .pain-section,
+        .solution-section,
+        .pathfinder-section,
+        .ai-advisor-section,
+        .registration-section,
+        .faq-section {
+            scroll-snap-align: none !important;
+            scroll-snap-stop: normal !important;
+        }
+    </style>
 </head>
 
 <body <?php body_class(); ?>>
