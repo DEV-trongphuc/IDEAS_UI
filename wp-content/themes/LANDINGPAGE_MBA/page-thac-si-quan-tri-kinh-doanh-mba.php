@@ -123,7 +123,7 @@ ob_start(function ($html) {
 
     <style>
         /* ══════════════════════════════════════
-           MBA SEO PAGE – PREMIUM WHITE DIRECTORY DESIGN
+           MBA SEO PAGE – PREMIUM HYBRID DIRECTORY DESIGN
            ══════════════════════════════════════ */
         html {
             scroll-snap-type: none !important;
@@ -135,27 +135,25 @@ ob_start(function ($html) {
             background-color: #ffffff !important;
             color: #334155 !important; /* slate-700 */
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            margin: 0 !important;
+            padding: 0 !important;
         }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background-image:
-                radial-gradient(circle at 10% 15%, rgba(171, 14, 0, 0.03) 0%, transparent 45%),
-                radial-gradient(circle at 90% 80%, rgba(171, 14, 0, 0.02) 0%, transparent 40%),
-                radial-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 28px 28px;
-            pointer-events: none;
-            will-change: transform;
+        body,
+        #content,
+        main {
+            float: none !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
         }
 
         /* ─── GENERAL STYLES ─── */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            width: 100% !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 20px !important;
         }
         .section-label {
             display: inline-flex;
@@ -192,39 +190,71 @@ ob_start(function ($html) {
             -webkit-text-fill-color: transparent;
         }
         
-        /* ─── HERO ─── */
+        /* ─── HERO (DARK THEME) ─── */
         .mba-hero {
-            padding: 160px 0 80px;
+            padding: 180px 0 100px;
             position: relative;
+            background-color: #080405 !important;
+            color: #ffffff !important;
             text-align: center;
             overflow: hidden;
-            background: #ffffff;
         }
-        .mba-hero::after {
-            content: '';
+        .mba-hero-bg {
             position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 150px;
-            background: linear-gradient(180deg, transparent, #ffffff);
+            top: -150px;
+            left: -5%;
+            width: 110%;
+            height: calc(100% + 300px);
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            transform: translate3d(0, 0, 0) scale(1.1);
+            z-index: 1;
+            opacity: 0.18;
             pointer-events: none;
         }
-        .mba-hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
+        .mba-hero-overlay {
+            position: absolute;
+            inset: 0;
             z-index: 2;
+            background:
+                linear-gradient(180deg,
+                    rgba(8, 4, 5, 0.85) 0%,
+                    rgba(8, 4, 5, 0.95) 75%,
+                    #ffffff 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
+            pointer-events: none;
+        }
+        .mba-hero-container {
+            position: relative;
+            z-index: 3;
+            max-width: 900px !important;
+            margin: 0 auto !important;
+        }
+        .mba-hero-content {
+            position: relative;
+            z-index: 5;
         }
         .mba-hero-title {
-            font-size: clamp(2.2rem, 5vw, 3rem);
-            font-weight: 800;
-            color: #0f172a; /* slate-900 */
-            line-height: 1.2;
+            font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+            font-weight: 900;
+            color: #ffffff !important;
+            line-height: 1.15;
             margin-bottom: 24px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+        .mba-hero-title span {
+            background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
         }
         .mba-hero-sub {
             font-size: 1.15rem;
-            color: #334155; /* slate-700 */
+            color: rgba(255, 255, 255, 0.9) !important;
             line-height: 1.6;
             margin-bottom: 35px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
         }
         .mba-hero-badges {
             display: flex;
@@ -234,25 +264,26 @@ ob_start(function ($html) {
             margin-bottom: 40px;
         }
         .mba-hero-badge-item {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
             padding: 10px 20px;
             border-radius: 100px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #334155;
+            color: rgba(255, 255, 255, 0.9) !important;
             display: flex;
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
         }
         .mba-hero-badge-item:hover {
-            border-color: rgba(171, 14, 0, 0.3);
-            background: rgba(171, 14, 0, 0.03);
+            border-color: rgba(255, 77, 77, 0.3) !important;
+            background: rgba(171, 14, 0, 0.15) !important;
             transform: translateY(-2px);
         }
         .mba-hero-badge-item i {
-            color: #ab0e00;
+            color: #ff4f4f !important;
         }
         .mba-hero-ctas {
             display: flex;
@@ -265,8 +296,8 @@ ob_start(function ($html) {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #ab0e00;
-            color: #fff;
+            background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
+            color: #fff !important;
             padding: 14px 28px;
             border-radius: 100px;
             font-weight: 700;
@@ -275,31 +306,106 @@ ob_start(function ($html) {
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.35) !important;
         }
         .btn-ideas-primary:hover {
-            background: #cf1500;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.25);
+            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.5) !important;
+            filter: brightness(1.08);
         }
         .btn-ideas-outline {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: transparent;
-            color: #0f172a; /* slate-900 */
+            background: rgba(255, 255, 255, 0.03) !important;
+            color: #ffffff !important;
             padding: 14px 28px;
             border-radius: 100px;
             font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 1.5px solid #cbd5e1; /* slate-300 */
+            border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
             cursor: pointer;
+            backdrop-filter: blur(8px);
         }
         .btn-ideas-outline:hover {
-            border-color: #0f172a;
-            background: rgba(15, 23, 42, 0.03);
+            border-color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.08) !important;
             transform: translateY(-2px);
+        }
+
+        /* ─── ALTERNATING LIGHT/DARK SECTIONS ─── */
+        .section-dark {
+            background-color: #080405 !important;
+            color: #cbd5e1 !important;
+            position: relative;
+            background-image:
+                radial-gradient(circle at 15% 20%, rgba(185, 14, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 65%, rgba(185, 14, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 28px 28px;
+            background-attachment: scroll, scroll, fixed;
+            border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+        .section-dark .section-title {
+            color: #ffffff !important;
+        }
+        .section-dark .section-desc {
+            color: #94a3b8 !important;
+        }
+        .section-dark .section-label {
+            background: rgba(171, 14, 0, 0.2) !important;
+            border: 1px solid rgba(255, 77, 77, 0.3) !important;
+            color: #ffcccc !important;
+        }
+        .section-dark .partner-card,
+        .section-dark .comp-card {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+            color: #cbd5e1 !important;
+        }
+        .section-dark .partner-card:hover,
+        .section-dark .comp-card:hover {
+            border-color: rgba(255, 59, 48, 0.35) !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.25) !important;
+        }
+        .section-dark .partner-title,
+        .section-dark .comp-card-title {
+            color: #ffffff !important;
+        }
+        .section-dark .partner-loc {
+            color: #94a3b8 !important;
+        }
+        .section-dark .partner-feature-item {
+            color: #e2e8f0 !important;
+        }
+        .section-dark .partner-card-left {
+            border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+        @media (max-width: 768px) {
+            .section-dark .partner-card-left {
+                border-right: none !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            }
+        }
+        .section-dark .comp-num {
+            color: rgba(255, 255, 255, 0.02) !important;
+        }
+        .section-dark .comp-card:hover .comp-num {
+            color: rgba(171, 14, 0, 0.06) !important;
+        }
+        .section-dark .comp-card-desc {
+            color: #94a3b8 !important;
+        }
+        .section-dark .ideas-point-item {
+            color: #cbd5e1 !important;
+        }
+        .section-dark .ideas-point-item strong {
+            color: #ffffff !important;
         }
         
         /* ─── PROGRAM CATALOG ─── */
@@ -386,31 +492,51 @@ ob_start(function ($html) {
             margin-bottom: 24px;
             flex-grow: 1;
         }
-        .catalog-card-meta {
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 20px 0;
-            margin-bottom: 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px 12px;
-        }
-        @media (max-width: 480px) {
-            .catalog-card-meta {
-                grid-template-columns: 1fr;
-            }
-        }
-        .catalog-meta-item {
+        .catalog-card-badges {
             display: flex;
-            align-items: center;
             gap: 8px;
-            font-size: 0.88rem;
-            color: #334155; /* slate-700 */
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
-        .catalog-meta-item i {
+        .catalog-card-badge {
+            background: rgba(171, 14, 0, 0.04);
             color: #ab0e00;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(171, 14, 0, 0.08);
+        }
+        .catalog-card-highlights {
+            list-style: none;
+            padding: 18px 0;
+            margin: 0 0 24px 0;
+            border-top: 1px dashed #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .catalog-card-highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
             font-size: 0.9rem;
+            color: #475569; /* slate-600 */
+            line-height: 1.5;
+        }
+        .catalog-card-highlight-item i {
+            color: #ab0e00;
+            font-size: 0.95rem;
+            margin-top: 3px;
             width: 16px;
+            text-align: center;
+        }
+        .catalog-card-highlight-item strong {
+            color: #0f172a; /* slate-900 */
+            font-weight: 600;
         }
         .catalog-card-btn {
             width: 100%;
@@ -426,10 +552,16 @@ ob_start(function ($html) {
             display: inline-block;
             box-sizing: border-box;
         }
+        .catalog-card-btn i {
+            transition: transform 0.2s ease;
+        }
         .catalog-card:hover .catalog-card-btn {
             background: #ab0e00;
             border-color: #ab0e00;
             color: #ffffff;
+        }
+        .catalog-card:hover .catalog-card-btn i {
+            transform: translateX(4px);
         }
         
         /* ─── PARTNERS ─── */
@@ -888,7 +1020,9 @@ ob_start(function ($html) {
 
         <!-- HERO SECTION -->
         <section class="mba-hero" id="trang-chu">
-            <div class="container">
+            <div class="mba-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/11/ltnumef10202501.webp');"></div>
+            <div class="mba-hero-overlay"></div>
+            <div class="container mba-hero-container">
                 <div class="mba-hero-content reveal-up">
                     <span class="section-label">
                         <i class="fa-solid fa-graduation-cap"></i> Cử nhân &amp; Thạc sĩ Thụy Sĩ
@@ -946,25 +1080,28 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-briefcase"></i>
                         </div>
                         <h3 class="catalog-card-title">Online MBA</h3>
-                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        
+                        <div class="catalog-card-badges">
+                            <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 18 tháng</span>
+                            <span class="catalog-card-badge"><i class="fa-solid fa-graduation-cap"></i> 90 ECTS</span>
+                        </div>
+
                         <p class="catalog-card-desc">
                             Chương trình Thạc sĩ Quản trị Kinh doanh trực tuyến tổng hợp chuẩn Bologna Châu Âu, tập trung xây dựng tư duy quản trị toàn diện từ chiến lược đến thực thi.
                         </p>
-                        <div class="catalog-card-meta">
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 18 tháng</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: 12 môn học + Luận văn</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 90 ECTS</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Nâng tầm quản lý tổng thể</span>
-                            </div>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/mba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+
+                        <ul class="catalog-card-highlights">
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span><strong>Cấu trúc:</strong> 12 môn học + Luận văn</span>
+                            </li>
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <span><strong>Mục tiêu:</strong> Nâng tầm quản lý tổng thể</span>
+                            </li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/mba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
                     </article>
 
                     <!-- Card 2: Executive MBA -->
@@ -973,25 +1110,28 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <h3 class="catalog-card-title">Executive MBA (EMBA)</h3>
-                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        
+                        <div class="catalog-card-badges">
+                            <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 14 - 16 tháng</span>
+                            <span class="catalog-card-badge"><i class="fa-solid fa-graduation-cap"></i> 60 ECTS</span>
+                        </div>
+
                         <p class="catalog-card-desc">
                             Thiết kế riêng cho các nhà điều hành, quản lý cấp cao và chủ doanh nghiệp bận rộn. Tập trung vào năng lực lãnh đạo chiến lược toàn cầu và giải quyết xung đột vận hành.
                         </p>
-                        <div class="catalog-card-meta">
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 14 - 16 tháng</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: 10 môn học (Không luận văn)</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 60 ECTS</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Đột phá năng lực lãnh đạo</span>
-                            </div>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/emba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+
+                        <ul class="catalog-card-highlights">
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span><strong>Cấu trúc:</strong> 10 môn học (Không luận văn)</span>
+                            </li>
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <span><strong>Mục tiêu:</strong> Đột phá năng lực lãnh đạo</span>
+                            </li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/emba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
                     </article>
 
                     <!-- Card 3: MSc AI -->
@@ -1000,25 +1140,28 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-brain"></i>
                         </div>
                         <h3 class="catalog-card-title">Master AI (MSc AI)</h3>
-                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        
+                        <div class="catalog-card-badges">
+                            <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 15 - 18 tháng</span>
+                            <span class="catalog-card-badge"><i class="fa-solid fa-graduation-cap"></i> 90 ECTS</span>
+                        </div>
+
                         <p class="catalog-card-desc">
                             Thạc sĩ Trí tuệ Nhân tạo Ứng dụng. Chương trình tiên phong kết hợp giữa kỹ thuật AI ứng dụng, Machine Learning và khả năng ra quyết định dựa trên Big Data trong doanh nghiệp.
                         </p>
-                        <div class="catalog-card-meta">
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 15 - 18 tháng</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: 12 môn + Capstone Project</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 90 ECTS</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Làm chủ công nghệ và dữ liệu</span>
-                            </div>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/mscai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+
+                        <ul class="catalog-card-highlights">
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span><strong>Cấu trúc:</strong> 12 môn + Capstone Project</span>
+                            </li>
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <span><strong>Mục tiêu:</strong> Làm chủ công nghệ và dữ liệu</span>
+                            </li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/mscai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
                     </article>
 
                     <!-- Card 4: MBA in AI -->
@@ -1027,25 +1170,28 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-robot"></i>
                         </div>
                         <h3 class="catalog-card-title">MBA in AI</h3>
-                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        
+                        <div class="catalog-card-badges">
+                            <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 16 - 18 tháng</span>
+                            <span class="catalog-card-badge"><i class="fa-solid fa-graduation-cap"></i> 90 ECTS</span>
+                        </div>
+
                         <p class="catalog-card-desc">
                             Chương trình Thạc sĩ Quản trị kinh doanh Ứng dụng AI. Trang bị tư duy lãnh đạo doanh nghiệp số kết hợp năng lực ứng dụng công cụ AI thế hệ mới để tự động hóa và tối ưu vận hành.
                         </p>
-                        <div class="catalog-card-meta">
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 16 - 18 tháng</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: Chương trình tích hợp AI &amp; QTKD</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 90 ECTS</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Lãnh đạo kỷ nguyên AI toàn cầu</span>
-                            </div>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/mbainai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+
+                        <ul class="catalog-card-highlights">
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span><strong>Cấu trúc:</strong> Chương trình tích hợp AI &amp; QTKD</span>
+                            </li>
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <span><strong>Mục tiêu:</strong> Lãnh đạo kỷ nguyên AI toàn cầu</span>
+                            </li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/mbainai')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
                     </article>
 
                     <!-- Card 5: Top-up BBA -->
@@ -1054,25 +1200,28 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-user-graduate"></i>
                         </div>
                         <h3 class="catalog-card-title">Top-up BBA</h3>
-                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        
+                        <div class="catalog-card-badges">
+                            <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 12 tháng</span>
+                            <span class="catalog-card-badge"><i class="fa-solid fa-graduation-cap"></i> 60 ECTS</span>
+                        </div>
+
                         <p class="catalog-card-desc">
                             Chương trình liên thông cử nhân QTKD Thụy Sĩ nhanh chóng trong 12 tháng dành cho học viên đã tốt nghiệp Cao đẳng, Trung cấp hoặc hoàn thành năm 3 Đại học.
                         </p>
-                        <div class="catalog-card-meta">
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 12 tháng</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: 10 môn học &amp; Luận văn tốt nghiệp</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 60 ECTS</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Liên thông Cử nhân QTKD quốc tế</span>
-                            </div>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/bba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+
+                        <ul class="catalog-card-highlights">
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span><strong>Cấu trúc:</strong> 10 môn học &amp; Luận văn tốt nghiệp</span>
+                            </li>
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <span><strong>Mục tiêu:</strong> Liên thông Cử nhân QTKD quốc tế</span>
+                            </li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/bba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
                     </article>
 
                     <!-- Card 6: Full BBA -->
@@ -1081,25 +1230,28 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <h3 class="catalog-card-title">Full BBA</h3>
-                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
+                        <div class="catalog-card-school" style="margin-bottom: 12px;">Swiss UMEF (Thụy Sĩ)</div>
+                        
+                        <div class="catalog-card-badges">
+                            <span class="catalog-card-badge"><i class="fa-solid fa-hourglass-half"></i> 3 năm (36 tháng)</span>
+                            <span class="catalog-card-badge"><i class="fa-solid fa-graduation-cap"></i> 180 ECTS</span>
+                        </div>
+
                         <p class="catalog-card-desc">
                             Chương trình Cử nhân Quản trị Kinh doanh chính quy 3 năm chuẩn Châu Âu, mang lại nền tảng kiến thức quản trị kinh doanh hiện đại và năng lực hội nhập quốc tế vượt trội.
                         </p>
-                        <div class="catalog-card-meta">
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 3 năm (36 tháng)</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: 34 môn học &amp; Luận văn tốt nghiệp</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 180 ECTS</span>
-                            </div>
-                            <div class="catalog-meta-item">
-                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Kiến tạo sự nghiệp toàn cầu</span>
-                            </div>
-                        </div>
-                        <a href="<?php echo esc_url(home_url('/fullbba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+
+                        <ul class="catalog-card-highlights">
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span><strong>Cấu trúc:</strong> 34 môn học &amp; Luận văn tốt nghiệp</span>
+                            </li>
+                            <li class="catalog-card-highlight-item">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <span><strong>Mục tiêu:</strong> Kiến tạo sự nghiệp toàn cầu</span>
+                            </li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/fullbba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình <i class="fa-solid fa-arrow-right-long" style="margin-left: 6px; font-size: 0.85rem;"></i></a>
                     </article>
 
                 </div>
@@ -1107,7 +1259,7 @@ ob_start(function ($html) {
         </section>
 
         <!-- PARTNER UNIVERSITIES -->
-        <section class="partners-section">
+        <section class="partners-section section-dark">
             <div class="container text-center">
                 <span class="section-label">Đại học đối tác</span>
                 <h2 class="section-title">Trường Đại học <span class="gradient-text">đạt chuẩn kiểm định quốc tế</span></h2>
@@ -1121,7 +1273,7 @@ ob_start(function ($html) {
                     <div class="partner-card split-layout">
                         <div class="partner-card-left">
                             <div class="partner-logo-box">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Logo-Swiss-UMEF.png" alt="Swiss UMEF University" loading="lazy" />
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" alt="Swiss UMEF University" loading="lazy" />
                             </div>
                             <h3 class="partner-title">Swiss UMEF University</h3>
                             <div class="partner-loc"><i class="fa-solid fa-location-dot"></i> <span>Geneva, Thụy Sĩ</span></div>
@@ -1224,7 +1376,7 @@ ob_start(function ($html) {
         </section>
 
         <!-- CORE COMPETENCIES -->
-        <section class="comp-section">
+        <section class="comp-section section-dark">
             <div class="container text-center">
                 <span class="section-label">Đầu ra năng lực</span>
                 <h2 class="section-title">4 Năng Lực Quản Trị Cốt Lõi <span class="gradient-text">Sau Khi Tốt Nghiệp</span></h2>
@@ -1326,7 +1478,7 @@ ob_start(function ($html) {
         </section>
 
         <!-- WHY CHOOSE IDEAS EDUCATION -->
-        <section class="ideas-section">
+        <section class="ideas-section section-dark">
             <div class="container">
                 <div class="ideas-layout">
                     <div class="ideas-img-box reveal-up">
@@ -1335,7 +1487,7 @@ ob_start(function ($html) {
                     <div class="reveal-up">
                         <span class="section-label">Đơn vị hỗ trợ học vụ uy tín</span>
                         <h2 class="section-title">Tại sao chọn <span class="gradient-text">IDEAS Education</span>?</h2>
-                        <p style="color: #475569; line-height: 1.6;">
+                        <p style="line-height: 1.6;">
                             Với hơn 15 năm hình thành và phát triển, Viện Nghiên cứu Phát triển và Trao đổi Khoa học Áp dụng (IDEAS) tự hào là đối tác hỗ trợ giáo dục và quản lý đào tạo MBA Quốc tế hàng đầu tại Việt Nam.
                         </p>
                         <ul class="ideas-points">
