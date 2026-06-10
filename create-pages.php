@@ -100,6 +100,11 @@ $pages = [
         'title' => 'Tin tức & Sự kiện',
         'template' => 'archive.php'
     ],
+    [
+        'slug' => 'thac-si-quan-tri-kinh-doanh-mba',
+        'title' => 'Học MBA Online',
+        'template' => 'page-thac-si-quan-tri-kinh-doanh-mba.php'
+    ],
 ];
 
 echo "<div style='font-family:monospace;padding:20px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:8px;max-width:800px;margin:20px auto;'>";

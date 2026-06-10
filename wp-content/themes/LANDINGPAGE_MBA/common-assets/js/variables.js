@@ -321,93 +321,93 @@ const IDEAS_DATA = {
             ],
             this_subjects: [
                 {
-                    name: "MBA 400. Marketing Management",
+                    name: "Marketing Management",
                     description:
-                        "This course progressively builds on marketing issues by exploring more advanced topics and strategic planning in the marketing concept. Our attention will be drawn to laying the groundwork by strategically planning all the marketing approaches and analyzing the external and internal environment of the organization. <br/><br/> This course also examines the dynamic environment inhabited by today's marketers, helping students understand the marketplace and integrate the appropriate information into marketing decisions. The course focuses on an integrated approach and strategy-based actions, covering only those critical and advanced issues required to succeed in future professional work. <br/><br/> Additionally, our focus includes the concept of marketing, the marketing manager's job, the development of a marketing strategy, marketing research, consumer behavior and analysis, organizational buying behavior; market structure and competitor analysis; marketing mix decision-making; communications and advertising strategy; channels of distribution; the personal sales channel; pricing; sales promotion; strategies for service markets; strategies for technology-based markets; global marketing strategies; and new product development",
+                        "Tìm hiểu các chủ đề nâng cao, lập kế hoạch marketing chiến lược, phân tích môi trường bên ngoài và bên trong, hành vi người tiêu dùng, cấu trúc thị trường và phát triển sản phẩm mới.",
                     link: "https://youtu.be/KQ6NgVvctXc?feature=shared",
                     credit: 6,
                 },
                 {
-                    name: "MBA 401. Human Capital and Talent Management",
+                    name: "Human Capital and Talent Management",
                     description:
-                        "This course is designed to provide a fresh approach to management students, based on dynamic, real-life organizational events confronting both human resource managers and line managers who often implement personnel programs and policies. <br/><br/> Human Resource Management takes a managerial orientation and is viewed as being relevant to managers in every unit, project or team. Managers are constantly faced with human relation management issues, problems and decision making. <br/><br/>  This course will introduce management students to HR activities (recruitment and selection, training and development, reward management and performance appraisal) with the emphasis that it is the bundles of HR interventions and not single practices that develop effective human resources. Based on realistic, current trends confronting managers, this course will also expose the management students to contemporary issues, such as, employee engagement and organizational change, and how HR can work together with knowledge management, technology, internationalization - and talent management - to further develop the effectiveness of human resources and help create, develop and sustain a high-performing organization",
+                        "Định hướng quản trị các hoạt động nhân sự (tuyển dụng, lựa chọn, đào tạo, đãi ngộ và đánh giá hiệu suất) và các vấn đề đương đại trong quản trị nhân tài.",
                     link: "https://youtu.be/16dkyS-LVes?feature=shared",
                     credit: 6,
                 },
                 {
-                    name: "MBA 402. Entrepreneurship and Innovation",
+                    name: "Entrepreneurship and Innovation",
                     description:
-                        "This course explores the principles and practices of entrepreneurship and innovation. Students will learn how to identify and evaluate entrepreneurial opportunities, develop innovative ideas, and create viable business models. The course emphasizes critical thinking, creativity, and problem-solving skills necessary for successful entrepreneurship. Students will also gain an understanding of the challenges and strategies involved in launching and growing a new venture in a dynamic business environment",
+                        "Các nguyên lý và thực tiễn của khởi nghiệp, nhận diện cơ hội, xây dựng mô hình kinh doanh và chiến lược khởi sự doanh nghiệp mới.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "MBA 403. Corporate Finance",
+                    name: "Corporate Finance",
                     description:
-                        "This course systematically unfolds crucial issues in corporate finance management at graduate level. We review the introductory aspect of the course, and build from there toward approaches of investment appraisals, explaining details as regards the methods like compound interest, net present value decision rule and the internal rate of return. Additionally, methods such as the annuities and perpetuities, sinking fund and discounted cash flows and tax payments would be fully discussed. <br/><br/> Issues in capital rationing and risk analysis are discussed under certain market conditions, considering the constraint, sensitivity analysis. <br/><br/> Our study efforts will also consider portfolio theory and capital asset pricing model, which is an important aspect of corporate financial management, together with the capital budgeting model and the associated specific tools used in portfolio theory and pricing decision. <br/><br/> Other topics such as market share value and pricing would be examined to give students advanced knowledge of the company‘s worth. We further go on to dividend decision, which is the crux of cash management concern, as against retained earning for futures operations and the rule of safety thumps",
+                        "Thẩm định đầu tư, lãi kép, giá trị hiện tại ròng (NPV), tỷ suất sinh lời nội bộ (IRR), hoạch định ngân sách vốn, lý thuyết danh mục đầu tư và mô hình định giá tài sản vốn (CAPM).",
                     link: "https://youtu.be/wRYf2ZcaeJY?feature=shared",
                     credit: 6,
                 },
                 {
-                    name: "MBA 404. Accounting for Managers",
+                    name: "Accounting for Managers",
                     description:
-                        "This course is designed to provide students with an understanding of the interplay between politics, economics, and geography in shaping international relations. Students will learn about the key concepts and theories of geopolitics and geoeconomics, as well as their practical applications in contemporary world affairs",
+                        "Hiểu báo cáo tài chính, kế toán chi phí, các công cụ kế toán định hướng cho nhà quản lý và các công cụ phân tích để đưa ra quyết định chiến lược.",
                     link: "https://youtu.be/daYqOgjHw94?feature=shared",
                     credit: 6,
                 },
                 {
-                    name: "MBA 405. Digital Transformation",
+                    name: "Digital Transformation",
                     description:
-                        "The course will deepen the student’s comprehension of the digital transformation that is pervading society. The course will examine the process that contributes to the transitions to a digital society and economy. Therefore, digitalization is having an impact on different levels, affecting structures and the strategies of the organization, their ability to respond to external stimuli, the interactions with the stakeholders and the definition of the value proposition. Hence, the Digital transformation course aims also to support the students to understand the problems that the digital transformation might arise and, at the same time, to assess the new opportunities that the digitalization produces",
+                        "Quy trình số hóa, phản ứng chiến lược đối với công nghệ, thay đổi trong mô hình kinh doanh và đánh giá các cơ hội công nghệ mới.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "MBA 406. Strategy Management",
+                    name: "Strategy Management",
                     description:
-                        "This course introduces the key concepts, tools, and principles of strategy formulation and competitive analysis. It is concerned with managerial decisions and actions that affect the performance and survival of business enterprises. The course is focused on the information, analyses, organizational processes, and skills and business judgment managers must use to devise strategies, position their businesses, define firm boundaries and maximize long-term profits in the face of uncertainty and competition.  The course takes a general management perspective, viewing the firm as a whole, and examining how policies in each functional area are integrated into an overall competitive strategy. The key strategic business decisions of concern in this course involve choosing competitive strategies, creating competitive advantages, taking advantage of external opportunities, securing and defending sustainable market positions, and allocating critical resources over long periods. Decisions such as these can only be made effectively by viewing a firm holistically, and over the long term",
+                        "Phân tích cạnh tranh, hoạch định chiến lược, định vị doanh nghiệp, xác định ranh giới của tổ chức và tối đa hóa lợi nhuận dài hạn trong môi trường bất định.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "MBA 407. Project Management",
+                    name: "Project Management",
                     description:
-                        "Project management is a key contributor to organizational success and business results. This course teaches the fundamentals of project management. Students will learn how to select projects (portfolio management), lead and manage projects, build project teams, handle project risks, manage costs and schedules, control project progress, terminate projects, and integrate sustainability considerations throughout the project life cycle",
+                        "Các nguyên lý cơ bản của quản trị dự án, lựa chọn danh mục đầu tư, xử lý rủi ro dự án, kiểm soát chi phí và tiến độ, và kết thúc dự án.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "MBA 408. Organizational Behaviour",
+                    name: "Organizational Behaviour",
                     description:
-                        "This course provides a comprehensive understanding of supply chain management, covering the key concepts, strategies, and practices involved in managing the flow of goods and services from suppliers to end customers. Students will explore various aspects of supply chain management, including procurement, logistics, inventory management, demand forecasting, and supplier relationships. The course aims to develop students' skills in designing, optimizing, and coordinating supply chain activities to achieve competitive advantage and operational excellence",
+                        "Hành vi của con người trong tổ chức, văn hóa doanh nghiệp, động lực nhóm, tạo động lực, quyền lực và chính trị, và cấu trúc tổ chức.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "MBA 409. Leadership Development",
+                    name: "Leadership Development",
                     description:
-                        "This course approaches the Cross-Cultural Leadership from an organisational perspective, where individuals from different cultures, religions, and educational backgrounds interact on a daily basis. The organisation, where decisions are made collectively, promote people interactions and responsibilities incorporating the sense of importance of multiculturalism into its strategic vision. <br/><br/>  This course aims to develop an easily applied and solid rule to identify cross-cultural differences within the organisation that can create robust boundaries and link them to the effective attainment of group goals. At the same time, the course observes real-life cases where meaningful differences exist but address appropriately through leadership of cultural diversity",
+                        "Lãnh đạo đa văn hóa, sự đa dạng, tương tác trong tổ chức, tầm nhìn chiến lược và giải quyết xung đột trong môi trường đa văn hóa.",
                     link: "https://youtu.be/KK9lDNHYGo4",
                     credit: 6,
                 },
                 {
-                    name: "MBA 500. Thesis Methodology",
+                    name: "Thesis Methodology",
                     description:
-                        "This course aims to build the student’s critical ability to independently undertake and write a thesis which is comprehensive independent work. It explains how to choose a subject, to gather the documentation, to write the plan of work and the plan of writing, how to read books that student will use, how to quote, to write footnotes, the table of content, the bibliography and, in the end, how to prepare the defense. It also helps the student to examine written reports and investigations within the field of social science, from a critical and scientific point of view. ",
+                        "Phương pháp nghiên cứu khoa học, lập kế hoạch viết luận văn, cấu trúc bài viết, trích dẫn tài liệu tham khảo và chuẩn bị bảo vệ luận văn.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "MBA 501. Business Negotiation/AI in Business Decision Making",
+                    name: "Business Negotiation/AI in Business Decision Making",
                     description:
-                        "Standard: AI in Business Decision Making  <br/> High Quality: Business Negotiation",
+                        "Chương trình tiêu chuẩn: Ứng dụng AI trong Ra quyết định kinh doanh. <br/> Chương trình Chất lượng cao: Đàm phán Kinh doanh.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "MBA 505. MBA Thesis",
+                    name: "MBA Thesis",
                     description:
-                        "Complete an MBA thesis based on practical research and application of the knowledge learned",
+                        "Hoàn thành luận văn tốt nghiệp MBA dựa trên nghiên cứu thực tiễn và ứng dụng các kiến thức đã học vào thực tế doanh nghiệp.",
                     link: "",
                     credit: 18,
                 },
@@ -617,72 +617,72 @@ const IDEAS_DATA = {
             ],
             this_subjects: [
                 {
-                    name: "EMBA 400. Marketing Management",
+                    name: "Marketing Management",
                     description:
-                        "This course progressively builds on marketing issues by exploring more advanced topics and strategic planning in the marketing concept. Our attention will be drawn to laying the groundwork by strategically planning all the marketing approaches and analyzing the external and internal environment of the organization. <br/><br/> This course also examines the dynamic environment inhabited by today's marketers, helping students understand the marketplace and integrate the appropriate information into marketing decisions. The course focuses on an integrated approach and strategy-based actions, covering only those critical and advanced issues required to succeed in future professional work. <br/><br/> Additionally, our focus includes the concept of marketing, the marketing manager's job, the development of a marketing strategy, marketing research, consumer behavior and analysis, organizational buying behavior; market structure and competitor analysis; marketing mix decision-making; communications and advertising strategy; channels of distribution; the personal sales channel; pricing; sales promotion; strategies for service markets; strategies for technology-based markets; global marketing strategies; and new product development",
+                        "Tìm hiểu các chủ đề nâng cao, lập kế hoạch marketing chiến lược, phân tích môi trường bên ngoài và bên trong, hành vi người tiêu dùng, cấu trúc thị trường và phát triển sản phẩm mới.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: " EMBA 401. Human Capital and Talent Management",
+                    name: "Human Capital and Talent Management",
                     description:
-                        "This course is designed to provide a fresh approach to management students, based on dynamic, real-life organizational events confronting both human resource managers and line managers who often implement personnel programs and policies. <br/><br/> Human Resource Management takes a managerial orientation and is viewed as being relevant to managers in every unit, project or team. Managers are constantly faced with human relation management issues, problems and decision making. <br/><br/>  This course will introduce management students to HR activities (recruitment and selection, training and development, reward management and performance appraisal) with the emphasis that it is the bundles of HR interventions and not single practices that develop effective human resources. Based on realistic, current trends confronting managers, this course will also expose the management students to contemporary issues, such as, employee engagement and organizational change, and how HR can work together with knowledge management, technology, internationalization - and talent management - to further develop the effectiveness of human resources and help create, develop and sustain a high-performing organization",
+                        "Định hướng quản trị các hoạt động nhân sự (tuyển dụng, lựa chọn, đào tạo, đãi ngộ và đánh giá hiệu suất) và các vấn đề đương đại trong quản trị nhân tài.",
                     link: "https://youtu.be/CebD5PCML6w?si=qbXiR8r9eztjvUvM",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 402. Entrepreneurship and Innovation",
+                    name: "Entrepreneurship and Innovation",
                     description:
-                        "This course explores the principles and practices of entrepreneurship and innovation. Students will learn how to identify and evaluate entrepreneurial opportunities, develop innovative ideas, and create viable business models. The course emphasizes critical thinking, creativity, and problem-solving skills necessary for successful entrepreneurship. Students will also gain an understanding of the challenges and strategies involved in launching and growing a new venture in a dynamic business environment",
+                        "Các nguyên lý và thực tiễn của khởi nghiệp, nhận diện cơ hội, xây dựng mô hình kinh doanh và chiến lược khởi sự doanh nghiệp mới.",
                     link: "https://youtu.be/t1g7aCRoC-I?si=5luqjqunPivUr5wL",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 403. Corporate Finance",
+                    name: "Corporate Finance",
                     description:
-                        "This course systematically unfolds crucial issues in corporate finance management at graduate level. We review the introductory aspect of the course, and build from there toward approaches of investment appraisals, explaining details as regards the methods like compound interest, net present value decision rule and the internal rate of return. Additionally, methods such as the annuities and perpetuities, sinking fund and discounted cash flows and tax payments would be fully discussed. <br/><br/> Issues in capital rationing and risk analysis are discussed under certain market conditions, considering the constraint, sensitivity analysis. <br/><br/> Our study efforts will also consider portfolio theory and capital asset pricing model, which is an important aspect of corporate financial management, together with the capital budgeting model and the associated specific tools used in portfolio theory and pricing decision. <br/><br/> Other topics such as market share value and pricing would be examined to give students advanced knowledge of the company‘s worth. We further go on to dividend decision, which is the crux of cash management concern, as against retained earning for futures operations and the rule of safety thumps",
+                        "Thẩm định đầu tư, lãi kép, giá trị hiện tại ròng (NPV), tỷ suất sinh lời nội bộ (IRR), hoạch định ngân sách vốn, lý thuyết danh mục đầu tư và mô hình định giá tài sản vốn (CAPM).",
                     link: "https://youtu.be/zk1-2CERWHs?si=tT-pLAUoA5iI_b3h",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 404. Accounting for Managers",
+                    name: "Accounting for Managers",
                     description:
-                        "This course is designed to provide students with an understanding of the interplay between politics, economics, and geography in shaping international relations. Students will learn about the key concepts and theories of geopolitics and geoeconomics, as well as their practical applications in contemporary world affairs",
+                        "Hiểu báo cáo tài chính, kế toán chi phí, các công cụ kế toán định hướng cho nhà quản lý và các công cụ phân tích để đưa ra quyết định chiến lược.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 405. Digital Transformation",
+                    name: "Digital Transformation",
                     description:
-                        "The course will deepen the student’s comprehension of the digital transformation that is pervading society. The course will examine the process that contributes to the transitions to a digital society and economy. Therefore, digitalization is having an impact on different levels, affecting structures and the strategies of the organization, their ability to respond to external stimuli, the interactions with the stakeholders and the definition of the value proposition. Hence, the Digital transformation course aims also to support the students to understand the problems that the digital transformation might arise and, at the same time, to assess the new opportunities that the digitalization produces",
+                        "Quy trình số hóa, phản ứng chiến lược đối với công nghệ, thay đổi trong mô hình kinh doanh và đánh giá các cơ hội công nghệ mới.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 406. Strategy Management",
+                    name: "Strategy Management",
                     description:
-                        "This course introduces the key concepts, tools, and principles of strategy formulation and competitive analysis. It is concerned with managerial decisions and actions that affect the performance and survival of business enterprises. The course is focused on the information, analyses, organizational processes, and skills and business judgment managers must use to devise strategies, position their businesses, define firm boundaries and maximize long-term profits in the face of uncertainty and competition.  The course takes a general management perspective, viewing the firm as a whole, and examining how policies in each functional area are integrated into an overall competitive strategy. The key strategic business decisions of concern in this course involve choosing competitive strategies, creating competitive advantages, taking advantage of external opportunities, securing and defending sustainable market positions, and allocating critical resources over long periods. Decisions such as these can only be made effectively by viewing a firm holistically, and over the long term",
+                        "Phân tích cạnh tranh, hoạch định chiến lược, định vị doanh nghiệp, xác định ranh giới của tổ chức và tối đa hóa lợi nhuận dài hạn trong môi trường bất định.",
                     link: "https://youtu.be/wVY3uLMG-Fk?si=rTdwcjAk6-tEgbqS",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 407. Project Management",
+                    name: "Project Management",
                     description:
-                        "Project management is a key contributor to organizational success and business results. This course teaches the fundamentals of project management. Students will learn how to select projects (portfolio management), lead and manage projects, build project teams, handle project risks, manage costs and schedules, control project progress, terminate projects, and integrate sustainability considerations throughout the project life cycle",
+                        "Các nguyên lý cơ bản của quản trị dự án, lựa chọn danh mục đầu tư, xử lý rủi ro dự án, kiểm soát chi phí và tiến độ, và kết thúc dự án.",
                     link: "https://youtu.be/MMYVUtpiAPk?si=R1XbXLyILON4-yK6",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 408. Organizational Behaviour",
+                    name: "Organizational Behaviour",
                     description:
-                        "This course provides a comprehensive understanding of supply chain management, covering the key concepts, strategies, and practices involved in managing the flow of goods and services from suppliers to end customers. Students will explore various aspects of supply chain management, including procurement, logistics, inventory management, demand forecasting, and supplier relationships. The course aims to develop students' skills in designing, optimizing, and coordinating supply chain activities to achieve competitive advantage and operational excellence",
+                        "Hành vi của con người trong tổ chức, văn hóa doanh nghiệp, động lực nhóm, tạo động lực, quyền lực và chính trị, và cấu trúc tổ chức.",
                     link: "",
                     credit: 6,
                 },
                 {
-                    name: "EMBA 409. Leadership Development",
+                    name: "Leadership Development",
                     description:
-                        "This course approaches the Cross-Cultural Leadership from an organisational perspective, where individuals from different cultures, religions, and educational backgrounds interact on a daily basis. The organisation, where decisions are made collectively, promote people interactions and responsibilities incorporating the sense of importance of multiculturalism into its strategic vision. <br/><br/>  This course aims to develop an easily applied and solid rule to identify cross-cultural differences within the organisation that can create robust boundaries and link them to the effective attainment of group goals. At the same time, the course observes real-life cases where meaningful differences exist but address appropriately through leadership of cultural diversity",
+                        "Lãnh đạo đa văn hóa, sự đa dạng, tương tác trong tổ chức, tầm nhìn chiến lược và giải quyết xung đột trong môi trường đa văn hóa.",
                     link: "",
                     credit: 6,
                 },
@@ -1482,76 +1482,76 @@ const IDEAS_DATA = {
                 {
                     name: "Introduction to Management",
                     description:
-                        "This course progressively builds on marketing issues by exploring more advanced topics and strategic planning in the marketing concept. Our attention will be drawn to laying the groundwork by strategically planning all the marketing approaches and analyzing the external and internal environment of the organization. <br/><br/> This course also examines the dynamic environment inhabited by today's marketers, helping students understand the marketplace and integrate the appropriate information into marketing decisions. The course focuses on an integrated approach and strategy-based actions, covering only those critical and advanced issues required to succeed in future professional work. <br/><br/> Additionally, our focus includes the concept of marketing, the marketing manager's job, the development of a marketing strategy, marketing research, consumer behavior and analysis, organizational buying behavior; market structure and competitor analysis; marketing mix decision-making; communications and advertising strategy; channels of distribution; the personal sales channel; pricing; sales promotion; strategies for service markets; strategies for technology-based markets; global marketing strategies; and new product development",
+                        "Nhập môn khoa học quản trị hiện đại.",
                     link: "",
                     credit: 6,
                 },
                 {
                     name: "Introduction to Finance",
                     description:
-                        "This course is designed to provide a fresh approach to management students, based on dynamic, real-life organizational events confronting both human resource managers and line managers who often implement personnel programs and policies. <br/><br/> Human Resource Management takes a managerial orientation and is viewed as being relevant to managers in every unit, project or team. Managers are constantly faced with human relation management issues, problems and decision making. <br/><br/>  This course will introduce management students to HR activities (recruitment and selection, training and development, reward management and performance appraisal) with the emphasis that it is the bundles of HR interventions and not single practices that develop effective human resources. Based on realistic, current trends confronting managers, this course will also expose the management students to contemporary issues, such as, employee engagement and organizational change, and how HR can work together with knowledge management, technology, internationalization - and talent management - to further develop the effectiveness of human resources and help create, develop and sustain a high-performing organization",
+                        "Tài chính doanh nghiệp cơ bản và dòng tiền.",
                     link: "https://youtu.be/CebD5PCML6w?si=qbXiR8r9eztjvUvM",
                     credit: 6,
                 },
                 {
                     name: "Organisational Behaviour",
                     description:
-                        "This course explores the principles and practices of entrepreneurship and innovation. Students will learn how to identify and evaluate entrepreneurial opportunities, develop innovative ideas, and create viable business models. The course emphasizes critical thinking, creativity, and problem-solving skills necessary for successful entrepreneurship. Students will also gain an understanding of the challenges and strategies involved in launching and growing a new venture in a dynamic business environment",
+                        "Hành vi tổ chức và văn hóa doanh nghiệp.",
                     link: "https://youtu.be/t1g7aCRoC-I?si=5luqjqunPivUr5wL",
                     credit: 6,
                 },
                 {
                     name: "Global Marketing",
                     description:
-                        "This course systematically unfolds crucial issues in corporate finance management at graduate level. We review the introductory aspect of the course, and build from there toward approaches of investment appraisals, explaining details as regards the methods like compound interest, net present value decision rule and the internal rate of return. Additionally, methods such as the annuities and perpetuities, sinking fund and discounted cash flows and tax payments would be fully discussed. <br/><br/> Issues in capital rationing and risk analysis are discussed under certain market conditions, considering the constraint, sensitivity analysis. <br/><br/> Our study efforts will also consider portfolio theory and capital asset pricing model, which is an important aspect of corporate financial management, together with the capital budgeting model and the associated specific tools used in portfolio theory and pricing decision. <br/><br/> Other topics such as market share value and pricing would be examined to give students advanced knowledge of the company‘s worth. We further go on to dividend decision, which is the crux of cash management concern, as against retained earning for futures operations and the rule of safety thumps",
+                        "Marketing toàn cầu và thâm nhập thị trường quốc tế.",
                     link: "https://youtu.be/zk1-2CERWHs?si=tT-pLAUoA5iI_b3h",
                     credit: 6,
                 },
                 {
                     name: "AI in Business",
                     description:
-                        "This course is designed to provide students with an understanding of the interplay between politics, economics, and geography in shaping international relations. Students will learn about the key concepts and theories of geopolitics and geoeconomics, as well as their practical applications in contemporary world affairs",
+                        "Ứng dụng trí tuệ nhân tạo nâng cao năng suất kinh doanh.",
                     link: "",
                     credit: 6,
                 },
                 {
                     name: "Project Management",
                     description:
-                        "The course will deepen the student’s comprehension of the digital transformation that is pervading society. The course will examine the process that contributes to the transitions to a digital society and economy. Therefore, digitalization is having an impact on different levels, affecting structures and the strategies of the organization, their ability to respond to external stimuli, the interactions with the stakeholders and the definition of the value proposition. Hence, the Digital transformation course aims also to support the students to understand the problems that the digital transformation might arise and, at the same time, to assess the new opportunities that the digitalization produces",
+                        "Quản trị dự án và ra quyết định dựa trên dữ liệu.",
                     link: "",
                     credit: 6,
                 },
                 {
                     name: "Innovation & Design Thinking",
                     description:
-                        "This course introduces the key concepts, tools, and principles of strategy formulation and competitive analysis. It is concerned with managerial decisions and actions that affect the performance and survival of business enterprises. The course is focused on the information, analyses, organizational processes, and skills and business judgment managers must use to devise strategies, position their businesses, define firm boundaries and maximize long-term profits in the face of uncertainty and competition.  The course takes a general management perspective, viewing the firm as a whole, and examining how policies in each functional area are integrated into an overall competitive strategy. The key strategic business decisions of concern in this course involve choosing competitive strategies, creating competitive advantages, taking advantage of external opportunities, securing and defending sustainable market positions, and allocating critical resources over long periods. Decisions such as these can only be made effectively by viewing a firm holistically, and over the long term",
+                        "Quản trị đổi mới sáng tạo và tư duy thiết kế thúc đẩy tăng trưởng.",
                     link: "https://youtu.be/wVY3uLMG-Fk?si=rTdwcjAk6-tEgbqS",
                     credit: 6,
                 },
                 {
                     name: "Total Quality Management",
                     description:
-                        "Project management is a key contributor to organizational success and business results. This course teaches the fundamentals of project management. Students will learn how to select projects (portfolio management), lead and manage projects, build project teams, handle project risks, manage costs and schedules, control project progress, terminate projects, and integrate sustainability considerations throughout the project life cycle",
+                        "Quản trị chất lượng toàn diện trong doanh nghiệp.",
                     link: "https://youtu.be/MMYVUtpiAPk?si=R1XbXLyILON4-yK6",
                     credit: 6,
                 },
                 {
                     name: "Change Management",
                     description:
-                        "This course provides a comprehensive understanding of supply chain management, covering the key concepts, strategies, and practices involved in managing the flow of goods and services from suppliers to end customers. Students will explore various aspects of supply chain management, including procurement, logistics, inventory management, demand forecasting, and supplier relationships. The course aims to develop students' skills in designing, optimizing, and coordinating supply chain activities to achieve competitive advantage and operational excellence",
+                        "Quản trị sự thay đổi và tái cấu trúc doanh nghiệp.",
                     link: "",
                     credit: 6,
                 },
                 {
                     name: "Management Information Systems",
                     description:
-                        "This course approaches the Cross-Cultural Leadership from an organisational perspective, where individuals from different cultures, religions, and educational backgrounds interact on a daily basis. The organisation, where decisions are made collectively, promote people interactions and responsibilities incorporating the sense of importance of multiculturalism into its strategic vision. <br/><br/>  This course aims to develop an easily applied and solid rule to identify cross-cultural differences within the organisation that can create robust boundaries and link them to the effective attainment of group goals. At the same time, the course observes real-life cases where meaningful differences exist but address appropriately through leadership of cultural diversity",
+                        "Hệ thống thông tin quản lý tối ưu hóa quy trình số.",
                     link: "",
                     credit: 6,
                 },
                 {
                     name: "Capstone Project",
-                    description: "...",
+                    description: "Dự án tốt nghiệp tích lũy ứng dụng thực tiễn và kỹ năng quản lý.",
                     link: "",
                     credit: 6,
                 },
