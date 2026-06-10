@@ -125,6 +125,10 @@ ob_start(function ($html) {
         /* ══════════════════════════════════════
            MBA SEO PAGE – PREMIUM WHITE DIRECTORY DESIGN
            ══════════════════════════════════════ */
+        html {
+            scroll-snap-type: none !important;
+            scroll-behavior: auto !important;
+        }
         html,
         body {
             overflow-x: clip !important;
@@ -341,9 +345,24 @@ ob_start(function ($html) {
             opacity: 1;
         }
         .catalog-card-icon {
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             color: #ab0e00;
-            margin-bottom: 20px;
+            background: rgba(171, 14, 0, 0.06);
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(171, 14, 0, 0.12);
+        }
+        .catalog-card:hover .catalog-card-icon {
+            background: #ab0e00;
+            color: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.2);
         }
         .catalog-card-title {
             font-size: 1.45rem;
@@ -373,8 +392,13 @@ ob_start(function ($html) {
             padding: 20px 0;
             margin-bottom: 24px;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 12px;
+        }
+        @media (max-width: 480px) {
+            .catalog-card-meta {
+                grid-template-columns: 1fr;
+            }
         }
         .catalog-meta-item {
             display: flex;
@@ -423,44 +447,67 @@ ob_start(function ($html) {
         .partner-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
+            border-radius: 24px;
+            padding: 40px;
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
             width: 100%;
-            max-width: 500px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+            max-width: 900px;
+            margin: 0 auto;
         }
         .partner-card:hover {
             border-color: rgba(171, 14, 0, 0.2);
             background: #ffffff;
             transform: translateY(-4px);
-            box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.12);
+            box-shadow: 0 20px 40px -10px rgba(171, 14, 0, 0.12);
+        }
+        .partner-card.split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .partner-card.split-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px;
+            }
+        }
+        .partner-card-left {
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+            padding-right: 40px;
+        }
+        @media (max-width: 768px) {
+            .partner-card-left {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid #e2e8f0;
+                padding-bottom: 20px;
+            }
         }
         .partner-logo-box {
-            height: 60px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         .partner-logo-box img {
             max-height: 100%;
-            max-width: 80%;
+            max-width: 90%;
             object-fit: contain;
         }
         .partner-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: #0f172a;
             margin-bottom: 8px;
         }
         .partner-loc {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: #475569;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -469,25 +516,30 @@ ob_start(function ($html) {
         .partner-loc i {
             color: #ab0e00;
         }
+        .partner-card-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         .partner-features {
             text-align: left;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 20px;
-            flex-grow: 1;
         }
         .partner-feature-item {
-            font-size: 0.88rem;
-            color: #334155;
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 16px;
             display: flex;
             align-items: flex-start;
-            gap: 8px;
-            line-height: 1.4;
+            gap: 12px;
+            line-height: 1.5;
+        }
+        .partner-feature-item:last-child {
+            margin-bottom: 0;
         }
         .partner-feature-item i {
             color: #ab0e00;
+            font-size: 1.1rem;
             margin-top: 3px;
-            width: 14px;
         }
 
         /* ─── PROS & CONS ─── */
@@ -507,11 +559,23 @@ ob_start(function ($html) {
             }
         }
         .proscons-col {
-            background: #f8fafc;
             border: 1px solid #e2e8f0;
             border-radius: 24px;
             padding: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s ease;
+        }
+        .proscons-col:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+        }
+        .proscons-col.pros-col {
+            background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
+            border-top: 5px solid #10b981;
+        }
+        .proscons-col.cons-col {
+            background: linear-gradient(180deg, #fef2f2 0%, #ffffff 100%);
+            border-top: 5px solid #ef4444;
         }
         .proscons-col-title {
             font-size: 1.4rem;
@@ -580,21 +644,36 @@ ob_start(function ($html) {
             box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.08);
         }
         .comp-num {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 900;
-            color: rgba(15, 23, 42, 0.03);
+            color: rgba(15, 23, 42, 0.04);
             position: absolute;
             top: 15px; right: 20px;
             line-height: 1;
-            transition: color 0.3s ease;
+            transition: all 0.4s ease;
+            user-select: none;
         }
         .comp-card:hover .comp-num {
-            color: rgba(171, 14, 0, 0.06);
+            color: rgba(171, 14, 0, 0.08);
+            transform: translateY(-5px) scale(1.05);
         }
         .comp-card-icon {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             color: #ab0e00;
+            background: rgba(171, 14, 0, 0.05);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .comp-card:hover .comp-card-icon {
+            background: #ab0e00;
+            color: #ffffff;
+            transform: rotate(360deg);
         }
         .comp-card-title {
             font-size: 1.15rem;
@@ -623,12 +702,19 @@ ob_start(function ($html) {
             border-radius: 12px;
             margin-bottom: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, border-left 0.15s ease;
+            border-left: 4px solid transparent;
         }
         .faq-item:hover {
             border-color: rgba(171, 14, 0, 0.2);
             background: #ffffff;
             box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+        }
+        .faq-item.active {
+            border-left: 4px solid #ab0e00 !important;
+            border-color: rgba(171, 14, 0, 0.2);
+            background: #ffffff;
+            box-shadow: 0 6px 16px -4px rgba(171, 14, 0, 0.08);
         }
         .faq-header {
             padding: 20px 24px;
@@ -718,40 +804,54 @@ ob_start(function ($html) {
 
         /* ─── CTA BANNER ─── */
         .cta-banner {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffebeb 100%);
-            border: 1px solid rgba(171, 14, 0, 0.12);
-            border-radius: 30px;
-            padding: 60px 40px;
+            background: linear-gradient(135deg, #ab0e00 0%, #5c0700 100%);
+            border: none;
+            border-radius: 32px;
+            padding: 70px 40px;
             text-align: center;
             margin: 80px auto;
             position: relative;
             overflow: hidden;
             max-width: 1000px;
-            box-shadow: 0 10px 30px -10px rgba(171, 14, 0, 0.08);
+            box-shadow: 0 20px 40px -15px rgba(171, 14, 0, 0.3);
         }
         .cta-banner-glow {
             position: absolute;
-            width: 300px; height: 300px;
-            background: #ab0e00;
-            filter: blur(150px);
-            opacity: 0.05;
-            top: -100px; left: -100px;
+            width: 400px; height: 400px;
+            background: #ffffff;
+            filter: blur(160px);
+            opacity: 0.12;
+            top: -150px; left: -150px;
             pointer-events: none;
         }
         .cta-banner h2 {
-            font-size: 2rem;
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
             font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 15px;
+            color: #ffffff;
+            margin-bottom: 20px;
             line-height: 1.3;
         }
         .cta-banner p {
-            font-size: 1.05rem;
-            color: #475569;
-            margin-bottom: 30px;
-            max-width: 600px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
+        }
+        .cta-banner .btn-ideas-primary {
+            background: #ffffff;
+            color: #ab0e00;
+            font-weight: 800;
+            padding: 16px 36px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .cta-banner .btn-ideas-primary:hover {
+            background: #f8fafc;
+            color: #8c0b00;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
         }
 
         .reveal-up {
@@ -974,24 +1074,28 @@ ob_start(function ($html) {
                 <div class="partners-grid text-left">
                     
                     <!-- Partner 1: Swiss UMEF -->
-                    <div class="partner-card">
-                        <div class="partner-logo-box">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Logo-Swiss-UMEF.png" alt="Swiss UMEF University" loading="lazy" />
+                    <div class="partner-card split-layout">
+                        <div class="partner-card-left">
+                            <div class="partner-logo-box">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Logo-Swiss-UMEF.png" alt="Swiss UMEF University" loading="lazy" />
+                            </div>
+                            <h3 class="partner-title">Swiss UMEF University</h3>
+                            <div class="partner-loc"><i class="fa-solid fa-location-dot"></i> <span>Geneva, Thụy Sĩ</span></div>
                         </div>
-                        <h3 class="partner-title">Swiss UMEF University</h3>
-                        <div class="partner-loc"><i class="fa-solid fa-location-dot"></i> <span>Geneva, Thụy Sĩ</span></div>
-                        <div class="partner-features">
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Được kiểm định ở cấp độ cao nhất bởi Hội đồng Kiểm định Thụy Sĩ (SAC)</span>
-                            </div>
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Kiểm định quốc tế IACBE (Mỹ) &amp; EduQua (Thụy Sĩ)</span>
-                            </div>
-                            <div class="partner-feature-item">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Xếp hạng 5 sao QS Stars danh giá toàn cầu</span>
+                        <div class="partner-card-right">
+                            <div class="partner-features">
+                                <div class="partner-feature-item">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Được kiểm định ở cấp độ cao nhất bởi Hội đồng Kiểm định Thụy Sĩ (SAC) - Swiss Accreditation Council</span>
+                                </div>
+                                <div class="partner-feature-item">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Đạt chuẩn kiểm định quốc tế danh giá IACBE (Mỹ) &amp; EduQua (Thụy Sĩ)</span>
+                                </div>
+                                <div class="partner-feature-item">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <span>Được xếp hạng 5 sao QS Stars danh giá toàn cầu về đào tạo trực tuyến</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1012,7 +1116,7 @@ ob_start(function ($html) {
                 <div class="proscons-grid text-left">
                     
                     <!-- Pros Column -->
-                    <div class="proscons-col">
+                    <div class="proscons-col pros-col">
                         <h3 class="proscons-col-title pros-title">
                             <i class="fa-solid fa-circle-plus"></i> Ưu Điểm Nổi Bật
                         </h3>
@@ -1042,7 +1146,7 @@ ob_start(function ($html) {
                     </div>
 
                     <!-- Cons Column -->
-                    <div class="proscons-col">
+                    <div class="proscons-col cons-col">
                         <h3 class="proscons-col-title cons-title">
                             <i class="fa-solid fa-circle-minus"></i> Hạn Chế Cần Lưu Ý
                         </h3>
@@ -1089,28 +1193,28 @@ ob_start(function ($html) {
                         <span class="comp-num">01</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-globe"></i></div>
                         <h4 class="comp-card-title">Tư duy quản trị tổng thể</h4>
-                        <p class="comp-desc">Hình thành bức tranh toàn cảnh về vận hành doanh nghiệp. Kết nối và tối ưu hóa sự phối hợp giữa các phòng ban: Tài chính, Nhân sự, Vận hành và Kinh doanh.</p>
+                        <p class="comp-card-desc">Hình thành bức tranh toàn cảnh về vận hành doanh nghiệp. Kết nối và tối ưu hóa sự phối hợp giữa các phòng ban: Tài chính, Nhân sự, Vận hành và Kinh doanh.</p>
                     </div>
 
                     <div class="comp-card">
                         <span class="comp-num">02</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
                         <h4 class="comp-card-title">Ra quyết định bằng dữ liệu</h4>
-                        <p class="comp-desc">Nâng cao khả năng đọc hiểu báo cáo tài chính, phân tích chỉ số kinh doanh và kiểm soát ngân sách. Đưa ra các quyết định chiến lược dựa trên các con số thực tiễn.</p>
+                        <p class="comp-card-desc">Nâng cao khả năng đọc hiểu báo cáo tài chính, phân tích chỉ số kinh doanh và kiểm soát ngân sách. Đưa ra các quyết định chiến lược dựa trên các con số thực tiễn.</p>
                     </div>
 
                     <div class="comp-card">
                         <span class="comp-num">03</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-users-gear"></i></div>
                         <h4 class="comp-card-title">Lãnh đạo và quản trị con người</h4>
-                        <p class="comp-desc">Trang bị năng lực quản lý đội nhóm đa chức năng, đàm phán thương mại và dẫn dắt tổ chức qua các giai đoạn chuyển đổi cơ cấu phức tạp.</p>
+                        <p class="comp-card-desc">Trang bị năng lực quản lý đội nhóm đa chức năng, đàm phán thương mại và dẫn dắt tổ chức qua các giai đoạn chuyển đổi cơ cấu phức tạp.</p>
                     </div>
 
                     <div class="comp-card">
                         <span class="comp-num">04</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-bolt"></i></div>
                         <h4 class="comp-card-title">Tư duy đổi mới sáng tạo</h4>
-                        <p class="comp-desc">Lồng ghép tư duy công nghệ số và trí tuệ nhân tạo (AI) vào quản trị kinh doanh hiện đại để tạo ra lợi thế cạnh tranh vượt trội cho doanh nghiệp.</p>
+                        <p class="comp-card-desc">Lồng ghép tư duy công nghệ số và trí tuệ nhân tạo (AI) vào quản trị kinh doanh hiện đại để tạo ra lợi thế cạnh tranh vượt trội cho doanh nghiệp.</p>
                     </div>
                 </div>
             </div>
@@ -1259,6 +1363,11 @@ ob_start(function ($html) {
     $js_version = file_exists($js_path) ? filemtime($js_path) : time();
     $bk_js_path = get_stylesheet_directory() . '/common-assets/js/booking-modal.min.js';
     $bk_js_version = file_exists($bk_js_path) ? filemtime($bk_js_path) : time();
+    
+    // Prevent booking-modal.min.js from loading twice in shared-modals.php
+    if (!defined('BOOKING_MODAL_JS_LOADED')) {
+        define('BOOKING_MODAL_JS_LOADED', true);
+    }
     ?>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>" defer></script>
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/booking-modal.min.js?v=<?php echo $bk_js_version; ?>" defer></script>
