@@ -4713,3 +4713,304 @@ function ideas_add_views_to_post_states($post_states, $post) {
     }
     return $post_states;
 }
+
+/**
+ * AJAX Live Search Handler
+ */
+add_action('wp_ajax_ideas_live_search', 'ideas_live_search_handler');
+add_action('wp_ajax_nopriv_ideas_live_search', 'ideas_live_search_handler');
+
+function ideas_live_search_handler() {
+    $query_string = isset($_GET['q']) ? sanitize_text_field($_GET['q']) : '';
+    if (empty($query_string)) {
+        wp_send_json_success(array());
+    }
+
+    $args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        's' => $query_string,
+        'posts_per_page' => 5,
+    );
+
+    $query = new WP_Query($args);
+    $results = array();
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $post_id = get_the_ID();
+            
+            // Image
+            $img = get_the_post_thumbnail_url($post_id, 'medium');
+            if (!$img) {
+                $content = get_the_content();
+                preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
+                $img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+            }
+
+            // Category
+            $cats = get_the_category($post_id);
+            $cat_name = !empty($cats) ? $cats[0]->name : 'Tin tức';
+
+            $results[] = array(
+                'title' => html_entity_decode(get_the_title()),
+                'permalink' => get_permalink(),
+                'date' => get_the_date('d/m/Y'),
+                'category' => $cat_name,
+                'image' => $img
+            );
+        }
+        wp_reset_postdata();
+    }
+
+    wp_send_json_success($results);
+}
+
+/**
+ * Output Live Search CSS and JS globally in the footer
+ */
+add_action('wp_footer', 'ideas_live_search_footer_assets');
+function ideas_live_search_footer_assets() {
+    if (is_admin()) {
+        return;
+    }
+    ?>
+    <style>
+        .search-results-dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            z-index: 1000;
+            max-height: 450px;
+            overflow-y: auto;
+            padding: 8px;
+            display: none;
+            text-align: left;
+        }
+
+        /* For dark themes (like the hero section on archive and search page, where background is dark) */
+        .archive-search-form .search-results-dropdown {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            color: #ffffff;
+        }
+
+        /* For 404 page (light background) */
+        .error-search-form .search-results-dropdown {
+            background: #ffffff;
+            border-color: #e2e8f0;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            color: #1e293b;
+        }
+
+        .search-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(241, 245, 249, 0.08);
+        }
+
+        .archive-search-form .search-dropdown-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .archive-search-form .search-dropdown-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-1px);
+        }
+
+        .error-search-form .search-dropdown-item:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+
+        .search-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-dropdown-img {
+            width: 54px;
+            height: 54px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+            background: #f1f5f9;
+        }
+
+        .search-dropdown-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            min-width: 0;
+        }
+
+        .search-dropdown-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #ef4444;
+        }
+
+        .search-dropdown-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.35;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .archive-search-form .search-dropdown-title {
+            color: #ffffff;
+        }
+        .error-search-form .search-dropdown-title {
+            color: #0f172a;
+        }
+
+        .search-dropdown-date {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .search-dropdown-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            font-size: 0.9rem;
+            color: #64748b;
+            gap: 8px;
+        }
+
+        .search-dropdown-loading i {
+            color: #ef4444;
+        }
+
+        .search-dropdown-no-results {
+            padding: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInputs = document.querySelectorAll('input[name="s"]');
+            searchInputs.forEach(input => {
+                const form = input.closest('form');
+                if (!form) return;
+
+                // Make form relative so child dropdown is positioned correctly
+                form.style.position = 'relative';
+
+                // Prevent browser autocomplete popup from overlapping
+                input.setAttribute('autocomplete', 'off');
+
+                // Create dropdown container
+                const dropdown = document.createElement('div');
+                dropdown.className = 'search-results-dropdown';
+                form.appendChild(dropdown);
+
+                let debounceTimeout;
+                let abortController = null;
+
+                input.addEventListener('input', () => {
+                    clearTimeout(debounceTimeout);
+                    const query = input.value.trim();
+
+                    if (query.length < 2) {
+                        dropdown.innerHTML = '';
+                        dropdown.style.display = 'none';
+                        return;
+                    }
+
+                    debounceTimeout = setTimeout(() => {
+                        // Cancel any pending fetch request
+                        if (abortController) {
+                            abortController.abort();
+                        }
+                        abortController = new AbortController();
+
+                        // Show loader
+                        dropdown.innerHTML = `
+                            <div class="search-dropdown-loading">
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                                <span>Đang tìm kiếm...</span>
+                            </div>
+                        `;
+                        dropdown.style.display = 'block';
+
+                        // Request matching posts
+                        const ajaxUrl = `/wp-admin/admin-ajax.php?action=ideas_live_search&q=${encodeURIComponent(query)}`;
+                        fetch(ajaxUrl, { signal: abortController.signal })
+                            .then(response => response.json())
+                            .then(res => {
+                                if (res.success && res.data.length > 0) {
+                                    let html = '';
+                                    res.data.forEach(post => {
+                                        html += `
+                                            <a href="${post.permalink}" class="search-dropdown-item">
+                                                <img src="${post.image}" alt="${post.title}" class="search-dropdown-img" />
+                                                <div class="search-dropdown-info">
+                                                    <span class="search-dropdown-tag">${post.category}</span>
+                                                    <h4 class="search-dropdown-title" title="${post.title}">${post.title}</h4>
+                                                    <span class="search-dropdown-date">
+                                                        <i class="fa-regular fa-calendar-days" style="margin-right: 4px;"></i>${post.date}
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        `;
+                                    });
+                                    dropdown.innerHTML = html;
+                                } else {
+                                    dropdown.innerHTML = `
+                                        <div class="search-dropdown-no-results">
+                                            Không tìm thấy bài viết nào cho "${query}"
+                                        </div>
+                                    `;
+                                }
+                            })
+                            .catch(err => {
+                                if (err.name === 'AbortError') return; // Ignore aborted requests
+                                console.error('Live search error:', err);
+                                dropdown.innerHTML = `
+                                    <div class="search-dropdown-no-results">
+                                        Đã xảy ra lỗi khi tìm kiếm
+                                    </div>
+                                `;
+                            });
+                    }, 300);
+                });
+
+                // Close dropdown on click outside
+                document.addEventListener('click', (e) => {
+                    if (!form.contains(e.target)) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+
+                // Show dropdown on input focus if it has valid results
+                input.addEventListener('focus', () => {
+                    if (input.value.trim().length >= 2 && dropdown.children.length > 0) {
+                        dropdown.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+    <?php
+}
