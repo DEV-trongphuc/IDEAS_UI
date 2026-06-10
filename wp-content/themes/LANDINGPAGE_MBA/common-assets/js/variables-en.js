@@ -213,7 +213,7 @@ const IDEAS_DATA = {
                         "Includes Standard program and eAcademy learning system.",
                         "Technology application - AI Platform for learning developed by IDEAS.",
                         "Classes with foreign professors on weekday evenings (optional).",
-                        "Schedule: each course lasts 4 weeks, with 2 evening classes per week with foreign professors (expected Tue/Thu evenings, 2-3 hours each, 20:00 - 22:00).",
+                        "Schedule: 2 weekend sessions",
                         "Preliminary final exam evaluation: Evaluated and feedback given by the IDEAS academic council to ensure final assignments are on track, reducing fail rates."
                     ],
                 },
@@ -869,7 +869,7 @@ const IDEAS_DATA = {
                         "12-month installment support via Sacombank.",
                         "Technology application - AI Platform for learning developed by IDEAS.",
                         "Classes with foreign professors on weekday evenings (optional).",
-                        "Schedule: each course lasts 4 weeks, with 2 evening classes per week with foreign professors (expected Tue/Thu evenings, 2-3 hours each, 20:00 - 22:00).",
+                        "Schedule: 2 weekend sessions",
                         "Preliminary final exam evaluation: Evaluated and feedback given by the IDEAS academic council to ensure final assignments are on track, reducing fail rates."
                     ],
                 },

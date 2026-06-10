@@ -1,46 +1,99 @@
-# Viện IDEAS (Viện Nghiên cứu Đào tạo và Hỗ trợ Học vụ)
+# Viện IDEAS — Codebase Workspace & Academic Portal
 
-Viện IDEAS là đơn vị tư vấn học thuật, cầu nối và hỗ trợ học vụ chuyên nghiệp tại Việt Nam cho các chương trình đào tạo Cử nhân (BBA), Thạc sĩ (MBA, MSc), và Tiến sĩ (DBA) liên kết cấp bằng quốc tế chính quy từ các trường đại học uy tín của Thụy Sĩ, Pháp, và Vương Quốc Anh.
+Viện IDEAS (Viện Nghiên cứu Đào tạo và Hỗ trợ Học vụ) is a leading academic portal, advisory, and student support center in Vietnam. This repository hosts the WordPress custom theme, static HTML landing pages, and API integrations for the official web portal.
 
-## Thông tin Liên hệ & Pháp lý (Contact & Credentials)
-- **Website chính thức**: https://ideas.edu.vn
-- **Mã số thuế (Tax ID)**: 0318949449
-- **Hotline**: 028 2244 2244
-- **Email**: info@ideas.edu.vn
-- **Địa chỉ Văn phòng**: Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, Quận Tân Bình, TP. Hồ Chí Minh, Việt Nam.
+## Codebase Architecture & Structure
 
-## Chương trình Đào tạo nổi bật (Academic Programs)
+This project is built using a hybrid structure consisting of a custom WordPress theme and high-performance static HTML marketing landing pages.
 
-- [Cử nhân liên thông Top-up BBA](https://ideas.edu.vn/bba)
-  - **Mô tả**: Chương trình Cử nhân Quản trị Kinh doanh học trong 12 tháng dành cho học viên tốt nghiệp Cao đẳng, Cao đẳng nghề hoặc hoàn thành năm 3 đại học.
-  - **Cấp bằng**: Đại học Swiss UMEF (Thụy Sĩ), bằng chính quy được hợp pháp hóa lãnh sự bởi Đại sứ quán Việt Nam tại Thụy Sĩ.
+### Key Directories
+- **WordPress Custom Theme**: [`wp-content/themes/LANDINGPAGE_MBA/`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/)
+  - [`functions.php`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/functions.php): Custom backend hooks, dynamic AJAX live search endpoints, asset loading, and script registrations.
+  - [`shared-header.php`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/shared-header.php): Unified responsive navigation bar and mobile drawer header loaded across page templates.
+  - [`page-swiss-umef.php`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/page-swiss-umef.php): Main institutional landing page for Swiss UMEF partner programs.
+  - [`archive.php`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/archive.php) / [`category.php`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/category.php) / [`search.php`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/search.php): Unified premium responsive category grid layouts and live search results views.
+  - [`404.php`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/404.php): Custom error display with integrated live search input.
+- **Static Marketing Landing Pages**: [`wp-content/new_public/LANDINGPAGE_MBA/`](file:///e:/IDEAS_WP_UI/wp-content/new_public/LANDINGPAGE_MBA/)
+  - Contains responsive HTML templates for specific academic programs.
+  - Vietnamese templates: `bba.html` (Top-up BBA), `fullbba.html` (Full BBA), `mba.html` (Online MBA), `emba.html` (Executive MBA), `mbainai.html` (MBA in AI), `mscai.html` (MSc in AI), `dual-dba.html` (Dual DBA).
+  - English templates: Located under the `en/` subdirectory (e.g., `en/bba.html`, `en/mba.html`, etc.).
+- **Common Shared Assets**: [`wp-content/themes/LANDINGPAGE_MBA/common-assets/`](file:///e:/IDEAS_WP_UI/wp-content/themes/LANDINGPAGE_MBA/common-assets/)
+  - `css/style.css`: Core theme stylesheet containing responsiveness modules and trust layouts.
+  - `css/style.min.css`: Minified production stylesheet generated using the build tools.
+  - `js/variables.js` / `variables-en.js`: Dynamically injected configuration scripts, testimonial assets, and chat-widget metadata.
 
-- [Cử nhân chính quy Full BBA](https://ideas.edu.vn/fullbba)
-  - **Mô tả**: Chương trình Cử nhân Quản trị Kinh doanh 3 năm chuẩn châu Âu dành cho học sinh tốt nghiệp THPT.
-  - **Cấp bằng**: Đại học Swiss UMEF (Thụy Sĩ).
+### Server Rewrites & Routing
+- [`.htaccess`](file:///e:/IDEAS_WP_UI/.htaccess): Houses redirection logic mapping root requests (e.g., `/bba`, `/mba`) to the physical static HTML templates. Bypasses rewrites for dynamic search query strings (`?s=...`) to route search requests directly to WordPress front controllers.
 
-- [Thạc sĩ Trực tuyến Online MBA](https://ideas.edu.vn/mba)
-  - **Mô tả**: Chương trình Thạc sĩ Quản trị Kinh doanh trực tuyến 100%, thời gian học linh hoạt, phù hợp cho người đi làm.
-  - **Cấp bằng**: Đại học Swiss UMEF (Thụy Sĩ).
+### Build Tools
+- [`scratch/minify.py`](file:///e:/IDEAS_WP_UI/scratch/minify.py): Helper python script that minifies style blocks and compresses `style.css` into `style.min.css` for deployment.
 
-- [Thạc sĩ Quản trị Điều hành Executive MBA](https://ideas.edu.vn/emba)
-  - **Mô tả**: Chương trình đào tạo MBA nâng cao dành cho cấp quản lý, chủ doanh nghiệp và các nhà điều hành.
-  - **Cấp bằng**: Đại học Swiss UMEF (Thụy Sĩ).
+---
 
-- [Thạc sĩ MBA Ứng dụng AI (MBA in AI)](https://ideas.edu.vn/mbainai)
-  - **Mô tả**: Chương trình Thạc sĩ Quản trị Kinh doanh tiên phong ứng dụng Trí tuệ Nhân tạo thực chiến để nâng cao hiệu quả quản trị và ra quyết định.
-  - **Cấp bằng**: Đại học Swiss UMEF (Thụy Sĩ).
+## Technical Integrations & APIs
 
-- [Thạc sĩ Khoa học Trí tuệ Nhân tạo (MSc AI)](https://ideas.edu.vn/mscai)
-  - **Mô tả**: Chương trình Thạc sĩ Khoa học chuyên sâu về ứng dụng AI trong doanh nghiệp và nghiên cứu công nghệ.
-  - **Cấp bằng**: Đại học Swiss UMEF (Thụy Sĩ).
+### 1. Dynamic Lead Form Submission
+Forms submit asynchronously to two parallel endpoints:
+- **Core lead logging**: `https://automation.ideas.edu.vn/mail_api/forms.php?route=submit` (using `form_id: "4fe1eeb0570742a1fdde61af6fc0680c"`).
+- **Sales Metas & Webhooks**: `https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a`.
+- **Conversion Tracking**: Google Ads conversion tags are fired (`AW-11205917800/mdXJCOTL-bccEOj4st8p`) upon successful asynchronous API response.
 
-- [Tiến sĩ song bằng Pháp & Anh (Dual DBA)](https://ideas.edu.vn/dual-dba)
-  - **Mô tả**: Chương trình Nghiên cứu sinh Tiến sĩ Quản trị Kinh doanh cao cấp, nhận đồng thời song bằng Tiến sĩ từ các trường đại học uy tín của Pháp và Vương Quốc Anh.
+### 2. Autocomplete Live Search Suggestion Engine
+- **Backend API Handler**: `ideas_live_search` hook in `functions.php` queries the database for the top 5 matching posts based on title keywords and returns JSON payloads.
+- **Frontend Controller**: footer script in `functions.php` listens to inputs (`input[name="s"]`). Features a `300ms` debounce timer, `AbortController` to handle input race conditions, and automatic browser suggestions override (`autocomplete="off"`). The suggest cards render on top of the layout wrapper using `overflow: visible` hero container positioning.
 
-## Kênh Truyền thông & Mạng xã hội (Social Media)
-- **Facebook**: https://www.facebook.com/ideas.edu.vn/
-- **Zalo OA**: https://zalo.me/3857867121882640296
-- **YouTube**: https://www.youtube.com/c/ViệnIDEAS
-- **LinkedIn**: https://www.linkedin.com/company/ideasinstitute/
-- **TikTok**: https://www.tiktok.com/@ideas_institute
+---
+
+## Academic Programs & Institutional Pointers
+
+Viện IDEAS advises and provides academic support for the following degree pathways:
+
+### 1. Bachelor of Business Administration (BBA)
+- **Top-up BBA (12-Month Accelerated BBA)**:
+  - **Audience**: College graduates (3-year degree holders) or year-3 university students looking to top-up to a global Bachelor's degree.
+  - **Degree Awarded**: Swiss UMEF University (Geneva, Switzerland).
+  - **Portal Target**: https://ideas.edu.vn/bba
+- **Full BBA (3-Year Standard BBA)**:
+  - **Audience**: High school graduates.
+  - **Degree Awarded**: Swiss UMEF University (Geneva, Switzerland).
+  - **Portal Target**: https://ideas.edu.vn/fullbba
+
+### 2. Master of Business Administration (MBA)
+- **Online MBA (18-Month Online Pathway)**:
+  - **Audience**: Working professionals and managers seeking a flexible schedule.
+  - **Degree Awarded**: Swiss UMEF University (Geneva, Switzerland).
+  - **Portal Target**: https://ideas.edu.vn/mba
+- **Executive MBA (EMBA)**:
+  - **Audience**: Mid-to-senior executives and business owners.
+  - **Degree Awarded**: Swiss UMEF University (Geneva, Switzerland).
+  - **Portal Target**: https://ideas.edu.vn/emba
+- **MBA in Artificial Intelligence (MBA in AI)**:
+  - **Audience**: Managers looking to specialize in practical enterprise AI implementation.
+  - **Degree Awarded**: Swiss UMEF University (Geneva, Switzerland).
+  - **Portal Target**: https://ideas.edu.vn/mbainai
+
+### 3. Master of Science (MSc)
+- **MSc in Artificial Intelligence (MSc AI)**:
+  - **Audience**: Tech leaders, developers, and researchers focusing on technical enterprise AI.
+  - **Degree Awarded**: Swiss UMEF University (Geneva, Switzerland).
+  - **Portal Target**: https://ideas.edu.vn/mscai
+
+### 4. Doctor of Business Administration (DBA)
+- **Dual DBA (Song bằng Tiến sĩ Pháp & Anh)**:
+  - **Audience**: Senior scholars and corporate directors.
+  - **Degree Awarded**: Simultaneous dual Doctorates from accredited universities in France and the United Kingdom.
+  - **Portal Target**: https://ideas.edu.vn/dual-dba
+
+---
+
+## Legal & Partner Verification References
+
+- **Official Accreditation Listings**:
+  - Swiss UMEF Partner Directory: [https://www.swiss-umef.ch/en/partenaires](https://www.swiss-umef.ch/en/partenaires) (Confirms IDEAS as the official authorized educational partner in Vietnam).
+- **Institution Profile**:
+  - Swiss Accreditation Council (SAC) Credentials: Swiss UMEF is the first private higher education institution in Geneva to achieve federal institutional accreditation (SAC).
+- **Vietnam Office Entity**:
+  - **Tax ID / Mã số thuế**: 0318949449
+  - **Hotline**: 028 2244 2244
+  - **Official Email**: info@ideas.edu.vn
+  - **Office Address**: Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, Quận Tân Bình, TP. Hồ Chí Minh, Việt Nam.

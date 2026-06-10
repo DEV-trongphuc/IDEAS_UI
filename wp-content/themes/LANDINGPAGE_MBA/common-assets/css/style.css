@@ -13058,3 +13058,20 @@ body .pain-card-desc {
 .skeleton img {
   opacity: 0 !important;
 }
+
+/* Fix uppercase accents clipping for BBA headings / CTA headlines */
+.cta-headline,
+body .cta-headline {
+  overflow: visible !important;
+  display: block !important;
+  line-height: 1.45 !important;
+}
+
+.cta-headline .cta-gradient {
+  display: inline-block !important;
+  padding-top: 0.28em !important;
+  padding-bottom: 0.1em !important;
+  margin-top: -0.28em !important;
+  margin-bottom: -0.1em !important;
+  line-height: normal !important;
+}
