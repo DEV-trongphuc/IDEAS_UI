@@ -102,14 +102,14 @@ ob_start(function ($html) {
 
     <!-- Rank Math SEO Metadata Fallback (only outputs if Rank Math/Yoast is inactive) -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Học Thạc sĩ Quản trị Kinh doanh - MBA Online tại Việt Nam</title>
-        <meta name="description" content="Chương trình MBA quốc tế hay học thạc sĩ Quản trị kinh doanh, học MBA online quốc tế tại Việt Nam giúp người học nâng cao kiến thức quản trị."/>
+        <title>Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS</title>
+        <meta name="description" content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn."/>
         <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
         <link rel="canonical" href="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
         <meta property="og:locale" content="vi_VN" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Học Thạc sĩ Quản trị Kinh doanh - MBA Online tại Việt Nam" />
-        <meta property="og:description" content="Chương trình MBA quốc tế hay học thạc sĩ Quản trị kinh doanh, học MBA online quốc tế tại Việt Nam giúp người học nâng cao kiến thức quản trị." />
+        <meta property="og:title" content="Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS" />
+        <meta property="og:description" content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
         <meta property="og:url" content="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
         <meta property="og:site_name" content="IDEAS" />
         <meta property="og:updated_time" content="2026-03-30T09:51:56+07:00" />
@@ -117,7 +117,7 @@ ob_start(function ($html) {
         <meta property="og:image:secure_url" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
         <meta property="og:image:width" content="1920" />
         <meta property="og:image:height" content="1080" />
-        <meta property="og:image:alt" content="chương trình mba" />
+        <meta property="og:image:alt" content="chương trình bba mba online thụy sĩ" />
         <meta property="og:image:type" content="image/png" />
     <?php endif; ?>
 
@@ -891,13 +891,13 @@ ob_start(function ($html) {
             <div class="container">
                 <div class="mba-hero-content reveal-up">
                     <span class="section-label">
-                        <i class="fa-solid fa-graduation-cap"></i> Thạc sĩ &amp; MBA Quốc tế
+                        <i class="fa-solid fa-graduation-cap"></i> Cử nhân &amp; Thạc sĩ Thụy Sĩ
                     </span>
                     <h1 class="mba-hero-title">
-                        Học Thạc sĩ Quản trị Kinh doanh - <span class="gradient-text">MBA Online</span> tại Việt Nam
+                        Học Cử nhân BBA &amp; Thạc sĩ <span class="gradient-text">MBA Online Thụy Sĩ</span> tại Việt Nam
                     </h1>
                     <p class="mba-hero-sub">
-                        Cổng kết nối các chương trình đào tạo Thạc sĩ, MBA trực tuyến chuẩn quốc tế hợp tác cùng các trường Đại học danh tiếng từ Thụy Sĩ và Pháp. Giải pháp học tập tinh hoa, linh hoạt tối đa dành riêng cho người đi làm bận rộn.
+                        Cổng kết nối các chương trình đào tạo Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Giải pháp học tập tinh hoa, linh hoạt tối đa dành riêng cho người bận rộn.
                     </p>
 
                     <div class="mba-hero-badges">
@@ -905,10 +905,10 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-laptop"></i> <span>Học Online 100%</span>
                         </div>
                         <div class="mba-hero-badge-item">
-                            <i class="fa-solid fa-clock"></i> <span>Linh hoạt 14-18 Tháng</span>
+                            <i class="fa-solid fa-clock"></i> <span>Linh hoạt 12-36 Tháng</span>
                         </div>
                         <div class="mba-hero-badge-item">
-                            <i class="fa-solid fa-medal"></i> <span>Bằng cấp Thụy Sĩ &amp; Pháp</span>
+                            <i class="fa-solid fa-medal"></i> <span>Bằng cấp Thụy Sĩ</span>
                         </div>
                         <div class="mba-hero-badge-item">
                             <i class="fa-solid fa-shield-halved"></i> <span>Kiểm định Quốc tế</span>
@@ -933,9 +933,9 @@ ob_start(function ($html) {
         <section class="catalog-section" id="danh-sach">
             <div class="container text-center">
                 <span class="section-label">Danh mục đào tạo</span>
-                <h2 class="section-title">Các Chương trình <span class="gradient-text">Thạc sĩ &amp; MBA nổi bật</span></h2>
+                <h2 class="section-title">Các Chương trình <span class="gradient-text">Cử nhân &amp; Thạc sĩ nổi bật</span></h2>
                 <p class="section-desc">
-                    Tuyển chọn các khóa học Thạc sĩ Quản trị Kinh doanh trực tuyến và AI ứng dụng, đáp ứng mọi định hướng phát triển từ chuyên môn, lãnh đạo điều hành đến dẫn đầu xu hướng công nghệ số.
+                    Tuyển chọn các khóa học Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chất lượng cao từ Thụy Sĩ, đáp ứng mọi định hướng phát triển từ nền tảng kinh doanh, lãnh đạo điều hành đến dẫn đầu xu hướng công nghệ số.
                 </p>
 
                 <div class="catalog-grid text-left">
@@ -1075,6 +1075,33 @@ ob_start(function ($html) {
                         <a href="<?php echo esc_url(home_url('/bba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
                     </article>
 
+                    <!-- Card 6: Full BBA -->
+                    <article class="catalog-card">
+                        <div class="catalog-card-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="catalog-card-title">Full BBA</h3>
+                        <div class="catalog-card-school">Swiss UMEF (Thụy Sĩ)</div>
+                        <p class="catalog-card-desc">
+                            Chương trình Cử nhân Quản trị Kinh doanh chính quy 3 năm chuẩn Châu Âu, mang lại nền tảng kiến thức quản trị kinh doanh hiện đại và năng lực hội nhập quốc tế vượt trội.
+                        </p>
+                        <div class="catalog-card-meta">
+                            <div class="catalog-meta-item">
+                                <i class="fa-solid fa-hourglass-half"></i> <span>Thời gian: 3 năm (36 tháng)</span>
+                            </div>
+                            <div class="catalog-meta-item">
+                                <i class="fa-solid fa-book-open"></i> <span>Cấu trúc: 34 môn học &amp; Luận văn tốt nghiệp</span>
+                            </div>
+                            <div class="catalog-meta-item">
+                                <i class="fa-solid fa-graduation-cap"></i> <span>Tín chỉ: 180 ECTS</span>
+                            </div>
+                            <div class="catalog-meta-item">
+                                <i class="fa-solid fa-bullseye"></i> <span>Mục tiêu: Kiến tạo sự nghiệp toàn cầu</span>
+                            </div>
+                        </div>
+                        <a href="<?php echo esc_url(home_url('/fullbba')); ?>" class="catalog-card-btn">Xem chi tiết chương trình</a>
+                    </article>
+
                 </div>
             </div>
         </section>
@@ -1149,7 +1176,7 @@ ob_start(function ($html) {
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div>
                                     <h5>Tối ưu hóa học phí (tiết kiệm đến 90%)</h5>
-                                    <p>Học viên nhận bằng MBA quốc tế "chính hãng" từ Thụy Sĩ/Pháp nhưng với mức chi phí học tập tại Việt Nam, tiết kiệm tối đa so với du học trực tiếp.</p>
+                                    <p>Học viên nhận bằng cấp quốc tế "chính hãng" từ Thụy Sĩ nhưng với mức chi phí học tập tại Việt Nam, tiết kiệm tối đa so với du học trực tiếp.</p>
                                 </div>
                             </li>
                             <li class="proscons-item pros-item">
@@ -1254,7 +1281,7 @@ ob_start(function ($html) {
                         </div>
                         <div class="faq-body">
                             <div class="faq-content">
-                                Có. Bằng cấp được cấp bởi các trường Đại học Thụy Sĩ/Pháp hoàn toàn giống nhau, trên văn bằng tốt nghiệp không ghi hình thức học trực tuyến (Online) và có giá trị pháp lý tương đương văn bằng học trực tiếp tại cơ sở chính ở Châu Âu.
+                                Có. Bằng cấp được cấp bởi trường Đại học Thụy Sĩ hoàn toàn giống nhau, trên văn bằng tốt nghiệp không ghi hình thức học trực tuyến (Online) và có giá trị pháp lý tương đương văn bằng học trực tiếp tại cơ sở chính ở Châu Âu.
                             </div>
                         </div>
                     </div>
