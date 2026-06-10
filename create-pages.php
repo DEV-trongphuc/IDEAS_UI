@@ -103,7 +103,7 @@ $pages = [
     [
         'slug' => 'thac-si-quan-tri-kinh-doanh-mba',
         'title' => 'Học MBA Online',
-        'template' => 'page-thac-si-quan-tri-kinh-doanh-mba.php'
+        'template' => 'default'
     ],
 ];
 
