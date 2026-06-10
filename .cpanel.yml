@@ -10,5 +10,4 @@ deployment:
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)
     - /bin/rsync -av --exclude='.git*' wp-content/themes/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
-    # Delete unwanted template file that overrides general SEO page
-    - rm -f $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/page-thac-si-quan-tri-kinh-doanh-mba.php
+
