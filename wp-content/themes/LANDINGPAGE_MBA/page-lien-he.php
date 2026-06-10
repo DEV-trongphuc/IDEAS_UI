@@ -94,8 +94,8 @@ ob_start(function ($html) {
 
         body {
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            background-color: #f4f6fb;
-            color: #1e293b;
+            background-color: #080405;
+            color: #f3f4f6;
         }
 
         body::before {
@@ -104,9 +104,9 @@ ob_start(function ($html) {
             inset: 0;
             z-index: -1;
             background-image:
-                radial-gradient(circle at 10% 20%, rgba(171, 14, 0, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 90% 70%, rgba(171, 14, 0, 0.03) 0%, transparent 45%),
-                radial-gradient(rgba(171, 14, 0, 0.04) 1.5px, transparent 1.5px);
+                radial-gradient(circle at 10% 20%, rgba(171, 14, 0, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 90% 70%, rgba(171, 14, 0, 0.08) 0%, transparent 45%),
+                radial-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px);
             background-size: 100% 100%, 100% 100%, 30px 30px;
             pointer-events: none;
             will-change: transform;
@@ -146,10 +146,10 @@ ob_start(function ($html) {
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.95) 0%,
-                    rgba(80, 6, 0, 0.55) 60%,
-                    #f4f6fb 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.28) 0%, transparent 75%);
+                    rgba(8, 4, 5, 0.98) 0%,
+                    rgba(40, 3, 0, 0.8) 60%,
+                    #080405 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.35) 0%, transparent 75%);
         }
 
         .contact-hero-container {
@@ -256,6 +256,7 @@ ob_start(function ($html) {
             padding: 30px;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
             transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            color: #1e293b;
         }
 
         .contact-info-card:hover {
@@ -420,6 +421,7 @@ ob_start(function ($html) {
             position: relative;
             overflow: hidden;
             transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            color: #1e293b;
         }
 
         .contact-form-card:hover {
