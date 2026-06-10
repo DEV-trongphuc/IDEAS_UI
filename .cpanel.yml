@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/public_html
+    - export DEPLOYPATH=$HOME/ideas.edu.vn
     - mkdir -p $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     - mkdir -p $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
     # Deploy .htaccess
