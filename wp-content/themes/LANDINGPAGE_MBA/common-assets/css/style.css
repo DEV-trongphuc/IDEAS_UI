@@ -13075,3 +13075,116 @@ body .cta-headline {
   margin-bottom: -0.1em !important;
   line-height: normal !important;
 }
+
+/* ==========================================================================
+   TABLET & SMALL SCREEN OPTIMIZATIONS (901px - 1200px)
+   ========================================================================== */
+@media (min-width: 901px) and (max-width: 1200px) {
+  /* 1. Header Layout Spacing */
+  .ideas_header .header-inner {
+    padding: 0 16px !important;
+    gap: 8px !important;
+  }
+  
+  .header-nav {
+    gap: 4px !important;
+  }
+  
+  .nav-link, 
+  button.nav-link {
+    font-size: 0.82rem !important;
+    padding: 18px 6px !important;
+  }
+  
+  /* Reduce language switcher & CTA wrapper scale */
+  .ideas_header div[style*="display:flex;align-items:center;gap:8px;"],
+  .ideas_header div[style*="display: flex; align-items: center; gap: 8px;"],
+  .ideas_header div[style*="display:flex;align-items:center;gap:8px"] {
+    gap: 4px !important;
+  }
+  
+  .lang-toggle-btn {
+    padding: 6px 6px !important;
+    font-size: 0.8rem !important;
+    gap: 3px !important;
+  }
+  
+  .lang-toggle-btn .flag-icon {
+    width: 20px !important;
+    height: 13px !important;
+  }
+  
+  /* Make the buttons more compact */
+  .nav-cta {
+    height: 34px !important;
+    padding: 0 12px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .bk-open-btn,
+  button.bk-open-btn {
+    height: 34px !important;
+    padding: 0 12px !important;
+    font-size: 0.8rem !important;
+    gap: 4px !important;
+  }
+  
+  .bk-open-btn svg,
+  button.bk-open-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  
+  /* 2. Megamenu Dropdown Positioning (Full Width alignment relative to header) */
+  .header-nav > .nav-dropdown:nth-child(2) {
+    position: static !important;
+  }
+  
+  .header-nav > .nav-dropdown:nth-child(2) .dropdown-menu-box {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(16px) !important;
+    width: 95vw !important;
+    max-width: 1060px !important;
+    min-width: 0 !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+  
+  .header-nav > .nav-dropdown:nth-child(2):hover .dropdown-menu-box {
+    transform: translateX(-50%) translateY(4px) !important;
+  }
+  
+  /* Column styling inside megamenu for tablets */
+  .dropdown-column {
+    gap: 4px !important;
+  }
+  
+  .dropdown-column-title {
+    font-size: 0.75rem !important;
+    margin-bottom: 4px !important;
+    padding-bottom: 4px !important;
+  }
+  
+  .dropdown-item {
+    padding: 6px 8px !important;
+    gap: 8px !important;
+    border-radius: 8px !important;
+  }
+  
+  .dropdown-item .item-avatar {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 6px !important;
+  }
+  
+  .item-title {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+  }
+  
+  .item-desc {
+    font-size: 0.72rem !important;
+  }
+}
