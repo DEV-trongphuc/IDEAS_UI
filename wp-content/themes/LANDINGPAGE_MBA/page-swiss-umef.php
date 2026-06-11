@@ -39,7 +39,8 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://static.wixstatic.com/media/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg/v1/fill/w_1470,h_647,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg" />
+    <link rel="preload" fetchpriority="high" as="image"
+        href="https://static.wixstatic.com/media/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg/v1/fill/w_1470,h_647,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS</title>
@@ -1925,202 +1926,213 @@ ob_start(function ($html) {
                 width: calc(100% - 40px) !important;
             }
         }
-    
-            /* ── UMEF Videos Slider (3D Carousel Loop) ── */
-            .umef-video-carousel-container {
-                position: relative;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 2;
-            }
 
-            .umef-video-carousel-track-wrapper {
-                overflow: hidden;
-                width: 100%;
-                padding: 30px 0 50px 0;
-                margin-bottom: -30px;
-            }
+        /* ── UMEF Videos Slider (3D Carousel Loop) ── */
+        .umef-video-carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
 
-            .umef-video-carousel-track {
-                display: flex;
-                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-                gap: 30px;
-                will-change: transform;
-            }
+        .umef-video-carousel-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 30px 0 50px 0;
+            margin-bottom: -30px;
+        }
 
+        .umef-video-carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            gap: 30px;
+            will-change: transform;
+        }
+
+        .umef-video-carousel-slide {
+            flex: 0 0 calc(33.333% - 20px) !important;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+            opacity: 0.45 !important;
+            transform: scale(0.9) !important;
+            cursor: pointer !important;
+            width: auto !important;
+            scroll-snap-align: none !important;
+        }
+
+        .umef-video-carousel-slide.active {
+            opacity: 1 !important;
+            transform: scale(1.04) !important;
+            z-index: 10 !important;
+        }
+
+        @media (max-width: 992px) {
             .umef-video-carousel-slide {
-                flex: 0 0 calc(33.333% - 20px) !important;
-                transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
-                opacity: 0.45 !important;
-                transform: scale(0.9) !important;
-                cursor: pointer !important;
-                width: auto !important;
-                scroll-snap-align: none !important;
+                flex: 0 0 calc(50% - 15px) !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .umef-video-carousel-slide {
+                flex: 0 0 100% !important;
+            }
+        }
+
+        /* Video Carousel Buttons */
+        .umef-video-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            color: #ffffff;
+            z-index: 15;
+        }
+
+        .umef-video-carousel-btn:hover {
+            background: var(--umef-primary, #ab0e00);
+            color: #ffffff;
+            border-color: var(--umef-primary, #ab0e00);
+            box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
+        }
+
+        .umef-video-carousel-btn.prev {
+            left: -10px;
+        }
+
+        .umef-video-carousel-btn.next {
+            right: -10px;
+        }
+
+        /* Video Carousel Dots */
+        .umef-video-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .umef-video-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .umef-video-dot.active {
+            background: var(--umef-primary, #ab0e00);
+            width: 24px;
+            border-radius: 5px;
+        }
+
+
+        /* Custom Mobile Overrides */
+        @media (max-width: 768px) {
+            .hero-social-proof {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                gap: 8px !important;
             }
 
-            .umef-video-carousel-slide.active {
-                opacity: 1 !important;
-                transform: scale(1.04) !important;
-                z-index: 10 !important;
+            .hero-social-proof p {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 4px !important;
+                margin: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
             }
 
-            @media (max-width: 992px) {
-                .umef-video-carousel-slide {
-                    flex: 0 0 calc(50% - 15px) !important;
-                }
+            .hero-social-proof p strong {
+                color: #ab0e00 !important;
+                font-size: 1.4rem !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
             }
 
-            @media (max-width: 600px) {
-                .umef-video-carousel-slide {
-                    flex: 0 0 100% !important;
-                }
+            .hero-social-proof p strong span {
+                display: inline-block !important;
+                min-width: auto !important;
+                text-align: center !important;
             }
 
-            /* Video Carousel Buttons */
+            .hero-social-proof>div:not(.avatars) {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 4px !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) strong {
+                color: #ab0e00 !important;
+                font-size: 1.4rem !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) strong span {
+                display: inline-block !important;
+                min-width: auto !important;
+                text-align: center !important;
+            }
+
+            .umef-video-carousel-container {
+                padding: 0 16px !important;
+            }
+
             .umef-video-carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.15);
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-                color: #ffffff;
-                z-index: 15;
+                display: none !important;
             }
 
-            .umef-video-carousel-btn:hover {
-                background: var(--umef-primary, #ab0e00);
-                color: #ffffff;
-                border-color: var(--umef-primary, #ab0e00);
-                box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
+            .hero-scroll-indicator,
+            .scroll-down-indicator {
+                display: none !important;
+            }
+        }
+
+        /* Mobile checklist alignment fix */
+        @media (max-width: 768px) {
+            body .proof-card-checklist {
+                align-items: flex-start !important;
+                max-width: 100% !important;
+                margin: 24px auto 0 !important;
+                width: fit-content !important;
+                text-align: left !important;
             }
 
-            .umef-video-carousel-btn.prev {
-                left: -10px;
+            body .proof-check-item p {
+                text-align: left !important;
             }
-
-            .umef-video-carousel-btn.next {
-                right: -10px;
-            }
-
-            /* Video Carousel Dots */
-            .umef-video-carousel-dots {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 24px;
-                position: relative;
-                z-index: 3;
-            }
-
-            .umef-video-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.25);
-                border: none;
-                cursor: pointer;
-                padding: 0;
-                transition: all 0.3s ease;
-            }
-
-            .umef-video-dot.active {
-                background: var(--umef-primary, #ab0e00);
-                width: 24px;
-                border-radius: 5px;
-            }
-
-  
-  /* Custom Mobile Overrides */
-  @media (max-width: 768px) {
-    .hero-social-proof {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      text-align: center !important;
-      gap: 8px !important;
-    }
-    .hero-social-proof p {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-      gap: 4px !important;
-      margin: 0 !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-    .hero-social-proof p strong {
-      color: #ab0e00 !important;
-      font-size: 1.4rem !important;
-      display: inline-flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-    .hero-social-proof p strong span {
-      display: inline-block !important;
-      min-width: auto !important;
-      text-align: center !important;
-    }
-    .hero-social-proof > div:not(.avatars) {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      gap: 4px !important;
-    }
-    .hero-social-proof > div:not(.avatars) strong {
-      color: #ab0e00 !important;
-      font-size: 1.4rem !important;
-      display: inline-flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-    .hero-social-proof > div:not(.avatars) strong span {
-      display: inline-block !important;
-      min-width: auto !important;
-      text-align: center !important;
-    }
-    .umef-video-carousel-container {
-      padding: 0 16px !important;
-    }
-    .umef-video-carousel-btn {
-      display: none !important;
-    }
-    .hero-scroll-indicator, .scroll-down-indicator {
-      display: none !important;
-    }
-  }
-
-  /* Mobile checklist alignment fix */
-  @media (max-width: 768px) {
-    body .proof-card-checklist {
-      align-items: flex-start !important;
-      max-width: 100% !important;
-      margin: 24px auto 0 !important;
-      width: fit-content !important;
-      text-align: left !important;
-    }
-    body .proof-check-item p {
-      text-align: left !important;
-    }
-  }
-</style>
+        }
+    </style>
     <?php wp_head(); ?>
 </head>
 
@@ -2144,7 +2156,8 @@ ob_start(function ($html) {
                 <i class="fa-solid fa-graduation-cap"></i>
                 Trường Đối Tác Thụy Sĩ
             </div>
-            <h1>Đại học tư thục <span>đầu tiên tại Geneva</span> <br />được công nhận chính thức trong <span>hệ thống giáo dục Thụy Sĩ</span></h1>
+            <h1>Đại học tư thục <span>đầu tiên tại Geneva</span> <br />được công nhận chính thức trong <span>hệ thống
+                    giáo dục Thụy Sĩ</span></h1>
             <p>Swiss UMEF – thành lập 1984, được công nhận bởi Hội đồng Kiểm định Thụy Sĩ SAC (Swiss Accreditation
                 Council) và nằm trong danh sách các cơ sở giáo dục đại học chính thức thuộc Swissuniversities.</p>
             <div class="umef-hero-stats">
@@ -2246,7 +2259,8 @@ ob_start(function ($html) {
                         <li><i class="fa-solid fa-circle-check"></i><span>Chương trình đạt chuẩn châu Âu — ECTS tín chỉ
                                 quốc tế</span></li>
                         <li><i class="fa-solid fa-circle-check"></i><span>Swiss UMEF là trường đại học tư thục
-                                <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ</span></li>
+                                <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục
+                                Thụy Sĩ</span></li>
                     </ul>
                     <div class="acc-sac-cert-strip">
                         <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
@@ -2254,8 +2268,8 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-file-certificate"></i>
                             Chứng nhận kiểm định SAC
                         </a>
-                        <a href="https://www.swiss-umef.ch/en/partenaires" class="acc-cert-thumb"
-                            target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.swiss-umef.ch/en/partenaires" class="acc-cert-thumb" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fa-solid fa-globe"></i>
                             Xác thực đối tác từ Swiss UMEF
                         </a>
@@ -2271,31 +2285,31 @@ ob_start(function ($html) {
             <div class="acc-grid">
                 <div class="acc-card">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
-                         alt="CHEA" loading="lazy" decoding="async" />
+                        alt="CHEA" loading="lazy" decoding="async" />
                     <h4>CHEA – Hoa Kỳ</h4>
                     <p>Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế</p>
                 </div>
                 <div class="acc-card">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
-                         alt="IACBE" loading="lazy" decoding="async" />
+                        alt="IACBE" loading="lazy" decoding="async" />
                     <h4>IACBE – Business Education</h4>
                     <p>Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA</p>
                 </div>
                 <div class="acc-card">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
-                         alt="ACBSP" loading="lazy" decoding="async" />
+                        alt="ACBSP" loading="lazy" decoding="async" />
                     <h4>ACBSP – Business Schools</h4>
                     <p>Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức</p>
                 </div>
                 <div class="acc-card">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2025/10/qs-1.webp"
-                         alt="QS Stars" loading="lazy" decoding="async" />
+                        alt="QS Stars" loading="lazy" decoding="async" />
                     <h4>QS Stars ⭐ 5 Stars Overall</h4>
                     <p>Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới</p>
                 </div>
                 <div class="acc-card">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
-                         alt="EduQua" loading="lazy" decoding="async" />
+                        alt="EduQua" loading="lazy" decoding="async" />
                     <h4>SGS – EduQua</h4>
                     <p>Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo dục
                     </p>
@@ -2346,7 +2360,8 @@ ob_start(function ($html) {
                 </div>
                 <div class="campus-body">
                     <h3 class="campus-card-title">Uy tín quốc tế khẳng định</h3>
-                    <p class="campus-card-desc">Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars và được
+                    <p class="campus-card-desc">Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao
+                        QS Stars và được
                         công nhận bởi Bộ GD&amp;ĐT Việt Nam, bảo đảm giá trị tấm bằng danh giá toàn cầu.</p>
                 </div>
             </div>
@@ -2356,8 +2371,10 @@ ob_start(function ($html) {
     <section class="umef-section umef-news-section" id="tin-tuc-su-kien">
         <!-- Localized Background Decor -->
         <div class="section-bg-decor">
-            <i class="fa-solid fa-newspaper bg-decor-icon decor-lg" style="top: 25%; left: 6%; animation-duration: 32s;"></i>
-            <i class="fa-solid fa-handshake bg-decor-icon decor-md" style="top: 65%; right: 7%; animation-duration: 24s;"></i>
+            <i class="fa-solid fa-newspaper bg-decor-icon decor-lg"
+                style="top: 25%; left: 6%; animation-duration: 32s;"></i>
+            <i class="fa-solid fa-handshake bg-decor-icon decor-md"
+                style="top: 65%; right: 7%; animation-duration: 24s;"></i>
         </div>
         <div class="section-header">
             <span class="section-badge">TIN TỨC &amp; SỰ KIỆN NỔI BẬT</span>
@@ -2422,8 +2439,7 @@ ob_start(function ($html) {
                 href="https://ideas.edu.vn/tin-tuc-moi/toa-dam-xay-dung-va-van-hanh-trung-tam-tai-chinh-quoc-te-mo-ra-co-hoi-nghe-nghiep-voi-bang-cap-chuan-thuy-si.html"
                 target="_blank" data-wpel-link="internal">
                 <div class="umef_news_card_img umef_news_card_img--sm">
-                    <img loading="lazy" decoding="async"
-                        src="https://ideas.edu.vn/wp-content/uploads/2026/06/ctqh.webp"
+                    <img loading="lazy" decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/ctqh.webp"
                         alt="Chủ tịch Quốc hội Trần Thanh Mẫn dự Tọa đàm">
                 </div>
                 <div class="umef_news_card_body">
@@ -2659,8 +2675,10 @@ ob_start(function ($html) {
     <section class="umef-section umef-videos-section">
         <!-- Localized Background Decor -->
         <div class="section-bg-decor">
-            <i class="fa-solid fa-circle-play bg-decor-icon decor-white decor-lg" style="top: 25%; left: 8%; animation-duration: 30s;"></i>
-            <i class="fa-solid fa-comments bg-decor-icon decor-white decor-md" style="top: 60%; right: 9%; animation-duration: 26s;"></i>
+            <i class="fa-solid fa-circle-play bg-decor-icon decor-white decor-lg"
+                style="top: 25%; left: 8%; animation-duration: 30s;"></i>
+            <i class="fa-solid fa-comments bg-decor-icon decor-white decor-md"
+                style="top: 60%; right: 9%; animation-duration: 26s;"></i>
         </div>
         <div class="section-header">
             <span class="section-badge" style="color:#ff9e9e;">CHIA SẺ &amp; GÓC NHÌN</span>
@@ -2677,72 +2695,79 @@ ob_start(function ($html) {
             <div class="umef-video-carousel-track-wrapper">
                 <div class="umef-video-carousel-track">
                     <!-- Video 1 -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/sqp1OsXihSg"
-                        title="IDEAS - UMEF: Switzerland and Vietnam partnership Potential benefits and future expectations"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-handshake"></i> Hợp Tác Chiến Lược</span>
-                    <h3 class="umef-video-title">IDEAS - UMEF: Switzerland and Vietnam partnership</h3>
-                    <p class="umef-video-desc">Potential benefits and future expectations – Đánh giá từ Giáo sư về tiềm
-                        năng hợp tác giáo dục bền vững giữa Thụy Sĩ và Việt Nam cùng những kỳ vọng phát triển trong
-                        tương lai.</p>
-                </div>
-            </div>
+                    <div class="umef-video-card umef-video-carousel-slide">
+                        <div class="umef-video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/sqp1OsXihSg"
+                                title="IDEAS - UMEF: Switzerland and Vietnam partnership Potential benefits and future expectations"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="umef-video-body">
+                            <span class="umef-video-tag"><i class="fa-solid fa-handshake"></i> Hợp Tác Chiến Lược</span>
+                            <h3 class="umef-video-title">IDEAS - UMEF: Switzerland and Vietnam partnership</h3>
+                            <p class="umef-video-desc">Potential benefits and future expectations – Đánh giá từ Giáo sư
+                                về tiềm
+                                năng hợp tác giáo dục bền vững giữa Thụy Sĩ và Việt Nam cùng những kỳ vọng phát triển
+                                trong
+                                tương lai.</p>
+                        </div>
+                    </div>
 
-            <!-- Video 2 -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/iacdK2Lx1X4"
-                        title="IDEAS - UMEF: In cooperation with IDEAS, what value do you hope to bring to Vietnamese students?"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Giá Trị Học Viên</span>
-                    <h3 class="umef-video-title">IDEAS - UMEF: Value for Vietnamese Students</h3>
-                    <p class="umef-video-desc">In cooperation with IDEAS, what value do you hope to bring to Vietnamese
-                        students? – Giáo sư chia sẻ về các giá trị học thuật thực tiễn và cơ hội thăng tiến sự nghiệp
-                        cho học viên.</p>
-                </div>
-            </div>
+                    <!-- Video 2 -->
+                    <div class="umef-video-card umef-video-carousel-slide">
+                        <div class="umef-video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/iacdK2Lx1X4"
+                                title="IDEAS - UMEF: In cooperation with IDEAS, what value do you hope to bring to Vietnamese students?"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="umef-video-body">
+                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Giá Trị Học
+                                Viên</span>
+                            <h3 class="umef-video-title">IDEAS - UMEF: Value for Vietnamese Students</h3>
+                            <p class="umef-video-desc">In cooperation with IDEAS, what value do you hope to bring to
+                                Vietnamese
+                                students? – Giáo sư chia sẻ về các giá trị học thuật thực tiễn và cơ hội thăng tiến sự
+                                nghiệp
+                                cho học viên.</p>
+                        </div>
+                    </div>
 
-            <!-- Video 3: Student Chu Hoàng Thái -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/uahEcE84M2s"
-                        title="Lắng nghe học viên chia sẻ | Chu Hoàng Thái - Executive MBA Swiss UMEF"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Học Viên Executive
-                        MBA</span>
-                    <h3 class="umef-video-title">Chu Hoàng Thái - Executive MBA Swiss UMEF</h3>
-                    <p class="umef-video-desc">Lắng nghe những chia sẻ thực tế từ học viên Chu Hoàng Thái về hành trình
-                        học tập chương trình Thạc sĩ điều hành tại Swiss UMEF.</p>
-                </div>
-            </div>
+                    <!-- Video 3: Student Chu Hoàng Thái -->
+                    <div class="umef-video-card umef-video-carousel-slide">
+                        <div class="umef-video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/uahEcE84M2s"
+                                title="Lắng nghe học viên chia sẻ | Chu Hoàng Thái - Executive MBA Swiss UMEF"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="umef-video-body">
+                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Học Viên Executive
+                                MBA</span>
+                            <h3 class="umef-video-title">Chu Hoàng Thái - Executive MBA Swiss UMEF</h3>
+                            <p class="umef-video-desc">Lắng nghe những chia sẻ thực tế từ học viên Chu Hoàng Thái về
+                                hành trình
+                                học tập chương trình Thạc sĩ điều hành tại Swiss UMEF.</p>
+                        </div>
+                    </div>
 
-            <!-- Video 4: Student Lê Ngọc Thương -->
-            <div class="umef-video-card umef-video-carousel-slide">
-                <div class="umef-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/z8PpCgGmBs8"
-                        title="Lắng nghe học viên chia sẻ | Lê Ngọc Thương - Executive MBA Swiss UMEF 2024"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="umef-video-body">
-                    <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Học Viên Executive
-                        MBA</span>
-                    <h3 class="umef-video-title">Lê Ngọc Thương - Executive MBA Swiss UMEF 2024</h3>
-                    <p class="umef-video-desc">Chia sẻ của học viên Lê Ngọc Thương về giá trị thực tiễn, tính linh hoạt
-                        và sự đồng hành đắc lực từ đội ngũ học vụ IDEAS.</p>
-                </div>
-            </div>
+                    <!-- Video 4: Student Lê Ngọc Thương -->
+                    <div class="umef-video-card umef-video-carousel-slide">
+                        <div class="umef-video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/z8PpCgGmBs8"
+                                title="Lắng nghe học viên chia sẻ | Lê Ngọc Thương - Executive MBA Swiss UMEF 2024"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="umef-video-body">
+                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> Học Viên Executive
+                                MBA</span>
+                            <h3 class="umef-video-title">Lê Ngọc Thương - Executive MBA Swiss UMEF 2024</h3>
+                            <p class="umef-video-desc">Chia sẻ của học viên Lê Ngọc Thương về giá trị thực tiễn, tính
+                                linh hoạt
+                                và sự đồng hành đắc lực từ đội ngũ học vụ IDEAS.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="umef-video-carousel-btn next" aria-label="Next slide">
@@ -2750,7 +2775,7 @@ ob_start(function ($html) {
             </button>
         </div>
         <div class="umef-video-carousel-dots"></div>
-        </section>
+    </section>
 
     <!-- Student Testimonials Section -->
     <section class="umef-section testimonials-section">
@@ -2871,7 +2896,7 @@ ob_start(function ($html) {
             initMobileSlider('.campus-grid');
             initMobileSlider('.programs-grid');
             initMobileSlider('.umef_news_layout');
-            
+
         });
     </script>
 
@@ -2903,26 +2928,26 @@ ob_start(function ($html) {
             if (!track) return;
             const originalSlides = Array.from(track.querySelectorAll(".umef-video-carousel-slide"));
             if (originalSlides.length === 0) return;
-            
+
             const nextBtn = document.querySelector(".umef-video-carousel-btn.next");
             const prevBtn = document.querySelector(".umef-video-carousel-btn.prev");
             const dotsContainer = document.querySelector(".umef-video-carousel-dots");
 
             const cloneCount = 3;
-            
+
             const firstClones = originalSlides.slice(0, cloneCount).map(el => el.cloneNode(true));
             const lastClones = originalSlides.slice(-cloneCount).map(el => el.cloneNode(true));
-            
+
             firstClones.forEach(clone => clone.classList.add("cloned"));
             lastClones.forEach(clone => clone.classList.add("cloned"));
-            
+
             firstClones.forEach(clone => track.appendChild(clone));
             lastClones.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
-            
+
             const allSlides = Array.from(track.querySelectorAll(".umef-video-carousel-slide"));
-            
-            let currentIndex = 1; 
-            
+
+            let currentIndex = 1;
+
             dotsContainer.innerHTML = "";
             originalSlides.forEach((_, idx) => {
                 const dot = document.createElement("button");
@@ -2936,7 +2961,7 @@ ob_start(function ($html) {
                 });
             });
             const dots = Array.from(dotsContainer.querySelectorAll(".umef-video-dot"));
-            
+
             allSlides.forEach((slide, idx) => {
                 slide.addEventListener("click", () => {
                     let targetOriginalIdx = (idx - cloneCount + originalSlides.length) % originalSlides.length;
@@ -2951,17 +2976,17 @@ ob_start(function ($html) {
                 const gap = 30;
                 const parentWidth = track.parentElement.offsetWidth;
                 const domIndex = currentIndex + cloneCount;
-                
+
                 const offset = - (domIndex * (slideWidth + gap)) + (parentWidth / 2) - (slideWidth / 2);
-                
+
                 if (useTransition) {
                     track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
                 } else {
                     track.style.transition = "none";
                 }
-                
+
                 track.style.transform = `translateX(${offset}px)`;
-                
+
                 allSlides.forEach((slide, idx) => {
                     if (idx === domIndex) {
                         slide.classList.add("active");
@@ -2969,7 +2994,7 @@ ob_start(function ($html) {
                         slide.classList.remove("active");
                     }
                 });
-                
+
                 dots.forEach((dot, idx) => {
                     if (idx === currentIndex) {
                         dot.classList.add("active");
@@ -2978,7 +3003,7 @@ ob_start(function ($html) {
                     }
                 });
             }
-            
+
             function goToSlide(index) {
                 if (isTransitioning) return;
                 currentIndex = index;
@@ -3004,7 +3029,7 @@ ob_start(function ($html) {
 
             track.addEventListener("transitionend", () => {
                 isTransitioning = false;
-                
+
                 if (currentIndex >= originalSlides.length) {
                     track.style.transition = "none";
                     currentIndex = 0;
@@ -3061,10 +3086,10 @@ ob_start(function ($html) {
                 isDragging = false;
                 const endX = getPositionX(event);
                 const diffX = endX - startX;
-                
+
                 const slideWidth = originalSlides[0].offsetWidth;
                 const threshold = slideWidth / 4;
-                
+
                 if (Math.abs(diffX) > threshold) {
                     if (diffX > 0) {
                         handlePrev();
@@ -3077,8 +3102,8 @@ ob_start(function ($html) {
             }
 
             function getPositionX(event) {
-                    return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
-                }
+                return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
+            }
         });
     </script>
 
