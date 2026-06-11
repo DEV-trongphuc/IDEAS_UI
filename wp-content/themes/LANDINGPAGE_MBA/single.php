@@ -280,7 +280,7 @@ ob_start(function($html) {
         }
 
         .article-body-content a:hover {
-            color: #ff3600;
+            color: #ab0e00;
             text-decoration: underline;
         }
 
@@ -618,7 +618,7 @@ ob_start(function($html) {
         }
 
         .ideas-widget-form button {
-            background: var(--grad-primary, linear-gradient(135deg, #ab0e00, #ff3600));
+            background: var(--grad-primary, linear-gradient(135deg, #8c1000, #ab0e00));
             color: #ffffff;
             border: none;
             padding: 14px;
@@ -765,7 +765,7 @@ ob_start(function($html) {
             left: 0;
             width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, #ab0e00, #ff3600);
+            background: var(--clr-primary, #ab0e00);
         }
 
         .gemini-summary-box:hover {
@@ -809,12 +809,12 @@ ob_start(function($html) {
             height: 28px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1.5px solid #ff3600;
+            border: 1.5px solid var(--clr-primary, #ab0e00);
             flex-shrink: 0;
         }
 
         .summary-btn {
-            background: linear-gradient(135deg, #ab0e00, #ff3600);
+            background: var(--grad-primary, linear-gradient(135deg, #8c1000, #ab0e00));
             color: #ffffff !important;
             border: none;
             padding: 10px 20px;
@@ -839,6 +839,13 @@ ob_start(function($html) {
 
         .summary-btn:active {
             transform: translateY(0);
+        }
+
+        .summary-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.9;
+            box-shadow: none;
+            transform: none !important;
         }
 
         .summary-btn i {
@@ -889,8 +896,8 @@ ob_start(function($html) {
         }
 
         .summary-result-content a:hover {
-            color: #ff3600;
-            border-bottom-color: #ff3600;
+            color: var(--clr-primary, #ab0e00);
+            border-bottom-color: var(--clr-primary, #ab0e00);
         }
 
         /* Loading Shimmer Animation */
@@ -1477,6 +1484,7 @@ ob_start(function($html) {
                     summaryResult.style.display = 'block';
                     btnSummarize.innerHTML = '<span>Đã tóm tắt bằng AI</span><i class="fa-solid fa-check"></i>';
                     btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
+                    btnSummarize.disabled = true;
                 }
 
                 btnSummarize.addEventListener('click', function(e) {
@@ -1522,9 +1530,8 @@ ob_start(function($html) {
                             btnSummarize.innerHTML = '<span>Tóm tắt thành công!</span><i class="fa-solid fa-check"></i>';
                             btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
                             
-                            // Re-enable button after 2 seconds to allow re-summarizing if they click again
+                            // Change text to "Đã tóm tắt bằng AI" after 2 seconds but keep disabled
                             setTimeout(() => {
-                                btnSummarize.disabled = false;
                                 btnSummarize.innerHTML = '<span>Đã tóm tắt bằng AI</span><i class="fa-solid fa-check"></i>';
                             }, 2000);
                         } else {
