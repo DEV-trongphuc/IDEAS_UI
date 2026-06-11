@@ -82,7 +82,7 @@ define('IDEAS_FOOTER_RENDERED', true);
             </p>
             <p class="contact-item">
                 <i class="fa-solid fa-file-invoice"></i>
-                <span>MST: 0318949449</span>
+                <span>MST: 0318949449 - Do Phòng đăng ký kinh doanh - Sở tài chính Thành phố Hồ Chí Minh cấp lần đầu ngày 13/05/2025. Thay đổi lần 1 ngày 01/10/2025.</span>
             </p>
         </div>
     </div>
