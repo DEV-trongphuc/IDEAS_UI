@@ -53,7 +53,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="Các khoản chi phí & Lệ phí học vụ - IDEAS" />
         <meta property="og:description"
             content="Xem bảng lệ phí chi tiết các hoạt động học vụ (Recheck, Retake, Redo, Lễ tốt nghiệp...) dành cho học viên chương trình Swiss UMEF." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/new_public/data_imgs/swissumef_logo.png" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -396,7 +396,7 @@ ob_start(function ($html) {
                     <div class="fee-table-split">
                         <!-- Left Column: Partner Info -->
                         <div class="fee-table-visual">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/swissumef_logo.png"
                                 alt="Swiss UMEF Logo" class="fee-partner-logo" />
                             <h4 class="fee-partner-title">Swiss UMEF University</h4>
                             <p class="fee-partner-desc">Trường Đại học chuẩn quốc tế được công nhận bởi Hội đồng Kiểm

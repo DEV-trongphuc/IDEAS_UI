@@ -38,7 +38,7 @@ ob_start(function ($html) {
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    
+
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Sơ đồ trang web – Sitemap | IDEAS</title>
     <?php endif; ?>
@@ -53,7 +53,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="Sơ đồ trang web – Sitemap | IDEAS" />
         <meta property="og:description"
             content="Truy cập nhanh chóng và dễ dàng đến tất cả các bài viết, chuyên mục đào tạo và dịch vụ của Viện IDEAS." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -244,15 +244,19 @@ ob_start(function ($html) {
             .sitemap-hero {
                 padding: 130px 16px 40px !important;
             }
+
             .sitemap-hero h1 {
                 font-size: 2.2rem;
             }
+
             .sitemap-hero p {
                 font-size: 0.95rem;
             }
+
             .sitemap-search-container {
                 margin-bottom: 35px;
             }
+
             .sitemap-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -289,7 +293,7 @@ ob_start(function ($html) {
         .sitemap-card:hover {
             transform: translateY(-6px);
             border-color: rgba(255, 59, 48, 0.25);
-            box-shadow: 
+            box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.4),
                 0 0 25px rgba(171, 14, 0, 0.15);
         }
@@ -398,8 +402,15 @@ ob_start(function ($html) {
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
     <?php wp_head(); ?>
@@ -418,21 +429,23 @@ ob_start(function ($html) {
                     <i class="fa-solid fa-sitemap"></i> Sơ đồ trang web
                 </span>
                 <h1><span>SƠ ĐỒ TRANG WEB</span> <br>Website Sitemap</h1>
-                <p>Khám phá toàn bộ cấu trúc website, dễ dàng định hướng và truy cập nhanh các chương trình đào tạo, chính sách hỗ trợ & hoạt động của Viện IDEAS.</p>
+                <p>Khám phá toàn bộ cấu trúc website, dễ dàng định hướng và truy cập nhanh các chương trình đào tạo,
+                    chính sách hỗ trợ & hoạt động của Viện IDEAS.</p>
             </div>
         </section>
 
         <!-- Search Bar Section -->
         <section class="sitemap-search-container">
             <div class="sitemap-search-wrapper">
-                <input type="text" id="sitemap-search" class="sitemap-search-input" placeholder="Tìm kiếm trang học vụ, khóa học, chính sách..." autocomplete="off">
+                <input type="text" id="sitemap-search" class="sitemap-search-input"
+                    placeholder="Tìm kiếm trang học vụ, khóa học, chính sách..." autocomplete="off">
                 <i class="fa-solid fa-magnifying-glass sitemap-search-icon"></i>
             </div>
         </section>
 
         <!-- Sitemap Grid Section -->
         <section class="sitemap-grid" id="sitemap-grid">
-            
+
             <!-- Card 1: Giới thiệu & Định hướng -->
             <div class="sitemap-card">
                 <h3 class="sitemap-card-title"><i class="fa-solid fa-circle-info"></i> Giới thiệu &amp; Tin tức</h3>
@@ -512,7 +525,8 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-user-tie"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Executive MBA</span>
-                                <span class="sitemap-item-desc">Thạc sĩ Điều hành Quản trị Kinh doanh chất lượng cao</span>
+                                <span class="sitemap-item-desc">Thạc sĩ Điều hành Quản trị Kinh doanh chất lượng
+                                    cao</span>
                             </div>
                         </a>
                     </li>
@@ -573,7 +587,8 @@ ob_start(function ($html) {
 
             <!-- Card 4: Chính sách & Học phí -->
             <div class="sitemap-card">
-                <h3 class="sitemap-card-title"><i class="fa-solid fa-hand-holding-dollar"></i> Chính sách &amp; Học phí</h3>
+                <h3 class="sitemap-card-title"><i class="fa-solid fa-hand-holding-dollar"></i> Chính sách &amp; Học phí
+                </h3>
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
                         <a href="/ho-tro-tai-chinh-sacombank" class="sitemap-link">
@@ -614,7 +629,8 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-newspaper"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Bài viết</span>
-                                <span class="sitemap-item-desc">Tin hoạt động, thông tin khoa học & kiến thức hữu ích</span>
+                                <span class="sitemap-item-desc">Tin hoạt động, thông tin khoa học & kiến thức hữu
+                                    ích</span>
                             </div>
                         </a>
                     </li>
@@ -623,7 +639,8 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-plane-departure"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Chuyến đi học tập</span>
-                                <span class="sitemap-item-desc">Hành trình bảo vệ luận văn, tham quan thực tế nước ngoài</span>
+                                <span class="sitemap-item-desc">Hành trình bảo vệ luận văn, tham quan thực tế nước
+                                    ngoài</span>
                             </div>
                         </a>
                     </li>
@@ -632,7 +649,8 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-microphone-lines"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Webinar IDEAS Talk</span>
-                                <span class="sitemap-item-desc">Workshop Monthly AI thực chiến định kỳ cùng chuyên gia</span>
+                                <span class="sitemap-item-desc">Workshop Monthly AI thực chiến định kỳ cùng chuyên
+                                    gia</span>
                             </div>
                         </a>
                     </li>
@@ -641,7 +659,8 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-podcast"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">IDEAS Podcast</span>
-                                <span class="sitemap-item-desc">Chuỗi chia sẻ tư duy lãnh đạo, quản trị thời đại số</span>
+                                <span class="sitemap-item-desc">Chuỗi chia sẻ tư duy lãnh đạo, quản trị thời đại
+                                    số</span>
                             </div>
                         </a>
                     </li>
@@ -657,21 +676,25 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-school"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Swiss UMEF University</span>
-                                <span class="sitemap-item-desc">Trường Đại học uy tín hàng đầu tại Geneva, Thụy Sĩ</span>
+                                <span class="sitemap-item-desc">Trường Đại học uy tín hàng đầu tại Geneva, Thụy
+                                    Sĩ</span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="https://www.ascencia-business-school.com/en/" class="sitemap-link" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.ascencia-business-school.com/en/" class="sitemap-link" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Ascencia Business School</span>
-                                <span class="sitemap-item-desc">Trường Quản trị Kinh doanh thành viên College de Paris</span>
+                                <span class="sitemap-item-desc">Trường Quản trị Kinh doanh thành viên College de
+                                    Paris</span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="https://www.collegedeparis.fr/" class="sitemap-link" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.collegedeparis.fr/" class="sitemap-link" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">College de Paris</span>
@@ -680,11 +703,13 @@ ob_start(function ($html) {
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="https://www.estiam.education/" class="sitemap-link" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.estiam.education/" class="sitemap-link" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Estiam</span>
-                                <span class="sitemap-item-desc">Trường chuyên đào tạo Công nghệ thông tin cao cấp tại Pháp</span>
+                                <span class="sitemap-item-desc">Trường chuyên đào tạo Công nghệ thông tin cao cấp tại
+                                    Pháp</span>
                             </div>
                         </a>
                     </li>
@@ -756,4 +781,5 @@ ob_start(function ($html) {
     </script>
 
 </body>
+
 </html>

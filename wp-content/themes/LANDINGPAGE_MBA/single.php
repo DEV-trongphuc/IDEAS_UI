@@ -6,7 +6,7 @@
  */
 
 // Dequeue unwanted old CSS styles (via WordPress API - catches enqueued styles)
-add_action('wp_enqueue_scripts', function() {
+add_action('wp_enqueue_scripts', function () {
     global $wp_styles;
     if ($wp_styles && !empty($wp_styles->registered)) {
         foreach ($wp_styles->registered as $handle => $style) {
@@ -19,7 +19,7 @@ add_action('wp_enqueue_scripts', function() {
 }, 9999);
 
 // Also block via output buffering — removes the <link> tag even if hardcoded by a plugin/theme
-ob_start(function($html) {
+ob_start(function ($html) {
     // Remove any <link> tag loading LANDINGPAGE_MBA/main.css
     $html = preg_replace(
         '/<link[^>]+href=[\'"][^\'"]*LANDINGPAGE_MBA\/main\.css[^\'"]*[\'"][^>]*\/?>/i',
@@ -31,12 +31,13 @@ ob_start(function($html) {
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+
 <head>
     <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-QKV7LKNLLH');
         gtag('config', 'AW-11205917800');
@@ -51,10 +52,10 @@ ob_start(function($html) {
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
-<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
-<?php endif; ?>
-    
+    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+        <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
+    <?php endif; ?>
+
     <?php
     // Prepare SEO details dynamically
     $post_id = get_the_ID();
@@ -62,58 +63,62 @@ ob_start(function($html) {
     if (empty($excerpt)) {
         $excerpt = wp_strip_all_tags(wp_trim_words(get_the_content(), 30));
     }
-    
+
     // Extract first image in content as fallback featured image
     $featured_image = get_the_post_thumbnail_url($post_id, 'full');
     if (!$featured_image) {
         $content = get_the_content();
         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-        $featured_image = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+        $featured_image = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
     }
     ?>
-    <?php if ($featured_image) : ?>
+    <?php if ($featured_image): ?>
         <link rel="preload" fetchpriority="high" as="image" href="<?php echo esc_url($featured_image); ?>" />
     <?php endif; ?>
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
-<meta name="description" content="<?php echo esc_attr($excerpt); ?>">
-<?php endif; ?>
+    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+        <meta name="description" content="<?php echo esc_attr($excerpt); ?>">
+    <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
-    
+
     <!-- Open Graph / Facebook -->
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
-<meta property="og:type" content="article" />
-    <meta property="og:title" content="<?php echo esc_attr(get_the_title()); ?>" />
-    <meta property="og:description" content="<?php echo esc_attr($excerpt); ?>" />
-    <meta property="og:image" content="<?php echo esc_url($featured_image); ?>" />
-    <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>" />
-    <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
-<?php endif; ?>
-<meta property="article:published_time" content="<?php echo get_the_date('c'); ?>" />
+    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="<?php echo esc_attr(get_the_title()); ?>" />
+        <meta property="og:description" content="<?php echo esc_attr($excerpt); ?>" />
+        <meta property="og:image" content="<?php echo esc_url($featured_image); ?>" />
+        <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>" />
+        <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+    <?php endif; ?>
+    <meta property="article:published_time" content="<?php echo get_the_date('c'); ?>" />
     <meta property="article:modified_time" content="<?php echo get_the_modified_date('c'); ?>" />
-    
+
     <!-- Twitter Card -->
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
-<meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="<?php echo esc_attr(get_the_title()); ?>" />
-    <meta name="twitter:description" content="<?php echo esc_attr($excerpt); ?>" />
-    <meta name="twitter:image" content="<?php echo esc_url($featured_image); ?>" />
-<?php endif; ?>
-<!-- Google Fonts & FontAwesome -->
+    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="<?php echo esc_attr(get_the_title()); ?>" />
+        <meta name="twitter:description" content="<?php echo esc_attr($excerpt); ?>" />
+        <meta name="twitter:image" content="<?php echo esc_url($featured_image); ?>" />
+    <?php endif; ?>
+    <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    
+
     <!-- Link the main minified style.css -->
-    <?php 
+    <?php
     $css_path = get_stylesheet_directory() . '/common-assets/css/style.min.css';
     $css_version = file_exists($css_path) ? filemtime($css_path) : time();
     ?>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/style.min.css?v=<?php echo $css_version; ?>" />
-    
+    <link rel="stylesheet"
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/style.min.css?v=<?php echo $css_version; ?>" />
+
     <style>
         /* Prevent overflow-x from breaking sticky elements */
-        html, body {
+        html,
+        body {
             overflow-x: clip !important;
         }
 
@@ -212,6 +217,7 @@ ob_start(function($html) {
             letter-spacing: 0.05em;
             margin-bottom: 16px;
         }
+
         .article-category-badge a {
             color: #ab0e00;
             text-decoration: none;
@@ -316,7 +322,7 @@ ob_start(function($html) {
             margin: 30px 0 16px;
         }
 
-        .article-body-content ul, 
+        .article-body-content ul,
         .article-body-content ol {
             margin-bottom: 24px;
             padding-left: 24px;
@@ -361,7 +367,8 @@ ob_start(function($html) {
         .article-body-content figure.wp-block-table,
         .article-body-content .table-responsive-wrapper {
             width: 100%;
-            overflow: hidden;         /* clips border-radius corners on table */
+            overflow: hidden;
+            /* clips border-radius corners on table */
             overflow-x: auto;
             margin: 35px 0 !important;
             border-radius: 16px;
@@ -380,7 +387,8 @@ ob_start(function($html) {
             border-collapse: collapse;
             text-align: left;
             font-size: 0.95rem;
-            margin: 0 !important;     /* reset any wp margins */
+            margin: 0 !important;
+            /* reset any wp margins */
         }
 
         /* Header row <th> — from thead */
@@ -527,9 +535,17 @@ ob_start(function($html) {
             opacity: 0.9;
         }
 
-        .share-btn.facebook { background: #1877f2; }
-        .share-btn.linkedin { background: #0077b5; }
-        .share-btn.twitter { background: #1da1f2; }
+        .share-btn.facebook {
+            background: #1877f2;
+        }
+
+        .share-btn.linkedin {
+            background: #0077b5;
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
 
         /* Sidebar Sticky & Scrollable */
         aside {
@@ -538,8 +554,10 @@ ob_start(function($html) {
             align-self: start;
             max-height: calc(100vh - 120px);
             overflow-y: auto;
-            scrollbar-width: none !important; /* Firefox */
-            -ms-overflow-style: none !important;  /* IE and Edge */
+            scrollbar-width: none !important;
+            /* Firefox */
+            -ms-overflow-style: none !important;
+            /* IE and Edge */
             transition: top 0.3s ease, max-height 0.3s ease;
         }
 
@@ -860,8 +878,15 @@ ob_start(function($html) {
         }
 
         @keyframes fadeInSummary {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .summary-result-content ul {
@@ -914,14 +939,30 @@ ob_start(function($html) {
             border-radius: 4px;
         }
 
-        .shimmer-line:nth-child(1) { width: 90%; }
-        .shimmer-line:nth-child(2) { width: 75%; }
-        .shimmer-line:nth-child(3) { width: 85%; }
-        .shimmer-line:nth-child(4) { width: 60%; }
+        .shimmer-line:nth-child(1) {
+            width: 90%;
+        }
+
+        .shimmer-line:nth-child(2) {
+            width: 75%;
+        }
+
+        .shimmer-line:nth-child(3) {
+            width: 85%;
+        }
+
+        .shimmer-line:nth-child(4) {
+            width: 60%;
+        }
 
         @keyframes loading-shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
         }
 
         .summary-error-notice {
@@ -1062,313 +1103,343 @@ ob_start(function($html) {
     </style>
     <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
 
-        <!-- Shared Header & Mobile Menu -->
+    <!-- Shared Header & Mobile Menu -->
     <?php get_template_part('shared-header'); ?>
 
 
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    
-    <!-- Main Layout Container -->
-    <div class="post-layout-wrapper">
-        
-        <!-- Main Content Area -->
-        <main>
-            <!-- Hero Header Card -->
-            <article class="article-hero">
-                <div class="article-breadcrumbs">
-                    <a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> Trang chủ</a>
-                    <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
-                    <?php 
-                    $categories = get_the_category();
-                    if (!empty($categories)) {
-                        $cat = $categories[0];
-                        echo '<a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a>';
-                        echo '<i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>';
-                    }
-                    ?>
-                    <span><?php the_title(); ?></span>
-                </div>
-                
-                <span class="article-category-badge">
-                    <?php the_category(', '); ?>
-                </span>
-                
-                <h1 class="article-main-title"><?php the_title(); ?></h1>
-                
-                <div class="article-meta-row">
-                    <div class="meta-info-item">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        <span><?php echo get_the_date('d/m/Y'); ?></span>
-                    </div>
-                    
-                    <div class="meta-info-item">
-                        <i class="fa-solid fa-clock"></i>
-                        <?php
-                        $post_content = get_the_content();
-                        $word_count = str_word_count(strip_tags($post_content));
-                        $reading_time = ceil($word_count / 200);
-                        if ($reading_time < 1) $reading_time = 1;
-                        ?>
-                        <span><?php echo $reading_time; ?> phút đọc</span>
-                    </div>
-                </div>
+    <?php if (have_posts()):
+        while (have_posts()):
+            the_post(); ?>
 
-                <!-- Featured Cover Image / Ảnh bìa -->
-                <div class="article-featured-image skeleton">
-                    <img src="<?php echo esc_url($featured_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" onload="this.parentElement.classList.remove('skeleton')" />
-                </div>
-            </article>
+            <!-- Main Layout Container -->
+            <div class="post-layout-wrapper">
 
-            <!-- Main Content Card -->
-            <div class="article-content-card">
-                <!-- Gemini AI Summary & Table of Contents Area -->
-                <div class="article-interactive-tools">
-                    <!-- Dynamic Table of Contents -->
-                    <div class="toc-box" id="dynamic-toc-container" style="display: none;">
-                        <div class="toc-header" id="toc-header-toggle">
-                            <div class="toc-title-area">
-                                <i class="fa-solid fa-list-ul"></i>
-                                <span>Mục lục bài viết</span>
+                <!-- Main Content Area -->
+                <main>
+                    <!-- Hero Header Card -->
+                    <article class="article-hero">
+                        <div class="article-breadcrumbs">
+                            <a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                            <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
+                            <?php
+                            $categories = get_the_category();
+                            if (!empty($categories)) {
+                                $cat = $categories[0];
+                                echo '<a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a>';
+                                echo '<i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>';
+                            }
+                            ?>
+                            <span><?php the_title(); ?></span>
+                        </div>
+
+                        <span class="article-category-badge">
+                            <?php the_category(', '); ?>
+                        </span>
+
+                        <h1 class="article-main-title"><?php the_title(); ?></h1>
+
+                        <div class="article-meta-row">
+                            <div class="meta-info-item">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span><?php echo get_the_date('d/m/Y'); ?></span>
                             </div>
-                            <button class="toc-toggle-btn" aria-label="Toggle TOC">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </button>
-                        </div>
-                        <div class="toc-body">
-                            <ul id="toc-list"></ul>
-                        </div>
-                    </div>
 
-                    <!-- Gemini AI Summary Box -->
-                    <div class="gemini-summary-box">
-                        <div class="summary-header">
-                            <div class="summary-title-area">
-                                <div class="summary-title">
-                                    <img src="https://ideas-data.vercel.app/imgs/angry_icon.jpg" alt="AI Avatar" class="gemini-avatar" />
-                                    <span>Tóm tắt nhanh nội dung</span>
-                                </div>
-                                <div class="summary-subtitle">Bạn không có thời gian đọc hết? Hãy thử!</div>
-                            </div>
-                            <button id="btn-gemini-summarize" class="summary-btn" data-post-id="<?php the_ID(); ?>">
-                                <span>Tóm tắt bằng AI</span>
-                                <i class="fa-solid fa-bolt"></i>
-                            </button>
-                        </div>
-                        <div id="gemini-summary-result" class="summary-result-content" style="display: none;"></div>
-                    </div>
-                </div>
-
-                <div class="article-body-content">
-                    <?php 
-                    // Render content, and automatically strip duplicate of the first image inline if it matches featured image
-                    $content_html = apply_filters('the_content', get_the_content());
-                    
-                    // Simple regex replacement to omit the first duplicate image from the body layout
-                    if ($featured_image) {
-                        $escaped_img = preg_quote($featured_image, '/');
-                        // Remove figure or image block containing this exact url
-                        $content_html = preg_replace('/<figure[^>]*>\s*<img[^>]+src="' . $escaped_img . '"[^>]*>\s*<\/figure>/i', '', $content_html, 1);
-                        $content_html = preg_replace('/<img[^>]+src="' . $escaped_img . '"[^>]*>/i', '', $content_html, 1);
-                    }
-                    
-                    // Strip leftover raw ultimate post kit (ultp) plugin icon strings
-                    $content_html = preg_replace('/_ultp_aci_ic_[a-zA-Z0-9_]+?_ultp_aci_ic_end_/i', '', $content_html);
-                    
-                    echo $content_html; 
-                    ?>
-                </div>
-
-                <!-- Share Section -->
-                <div class="article-share-bar">
-                    <span class="share-label">Chia sẻ bài viết:</span>
-                    <div class="share-buttons">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn facebook" aria-label="Chia sẻ bài viết lên Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn linkedin" aria-label="Chia sẻ bài viết lên LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url(get_permalink()); ?>" target="_blank" class="share-btn twitter" aria-label="Chia sẻ bài viết lên Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                    </div>
-                </div>
-
-                <!-- Post Navigation Links -->
-                <div class="post-navigation">
-                    <?php
-                    $prev_post = get_previous_post();
-                    if (!empty($prev_post)) : ?>
-                        <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="nav-card">
-                            <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> Bài trước đó</span>
-                            <span class="nav-card-title"><?php echo esc_html(get_the_title($prev_post->ID)); ?></span>
-                        </a>
-                    <?php else : ?>
-                        <div></div>
-                    <?php endif; ?>
-
-                    <?php
-                    $next_post = get_next_post();
-                    if (!empty($next_post)) : ?>
-                        <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="nav-card" style="text-align: right; align-items: flex-end;">
-                            <span class="nav-card-label">Bài tiếp theo <i class="fa-solid fa-arrow-right"></i></span>
-                            <span class="nav-card-title"><?php echo esc_html(get_the_title($next_post->ID)); ?></span>
-                        </a>
-                    <?php else: ?>
-                        <div></div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </main>
-
-        <!-- Sidebar Widgets Area -->
-        <aside>
-            <div class="sidebar-wrapper">
-                
-                <!-- Quick Register Consultation Widget -->
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Đăng ký tư vấn lộ trình</h3>
-                    <form class="ideas-widget-form">
-                        <input type="text" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
-                        <input type="email" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" required>
-                        <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
-                        <select aria-label="Chương trình quan tâm" required>
-                            <option value="" disabled selected hidden>Chương trình quan tâm</option>
-                            <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
-                            <option value="Full BBA">Global Online BBA</option>
-                            <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
-                            <option value="Executive MBA">Executive MBA (Thạc sĩ điều hành)</option>
-                            <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
-                            <option value="MSc AI">MSc AI (Thạc sĩ AI ứng dụng)</option>
-                            <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
-                        </select>
-                        <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..." aria-label="Ghi chú thêm"></textarea>
-                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Đăng ký ngay</button>
-                    </form>
-                </div>
-
-                <!-- Recent Posts Widget -->
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Bài viết gần đây</h3>
-                    <div class="sidebar-course-list">
-                        <?php
-                        $recent_posts = new WP_Query(array(
-                            'posts_per_page' => 3,
-                            'post__not_in'   => array($post_id),
-                            'post_status'    => 'publish'
-                        ));
-                        
-                        if ($recent_posts->have_posts()) :
-                            while ($recent_posts->have_posts()) : $recent_posts->the_post();
-                                $recent_img = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
-                                if (!$recent_img) {
-                                    $recent_content = get_the_content();
-                                    preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $recent_content, $matches_r);
-                                    $recent_img = isset($matches_r[1][0]) ? $matches_r[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
-                                }
+                            <div class="meta-info-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <?php
+                                $post_content = get_the_content();
+                                $word_count = str_word_count(strip_tags($post_content));
+                                $reading_time = ceil($word_count / 200);
+                                if ($reading_time < 1)
+                                    $reading_time = 1;
                                 ?>
-                                <a href="<?php the_permalink(); ?>" class="sidebar-course-item">
-                                    <div class="sidebar-course-img-wrap skeleton" style="width: 60px; height: 60px; border-radius: 8px; overflow: hidden; flex-shrink: 0;">
-                                        <img src="<?php echo esc_url($recent_img); ?>" alt="<?php the_title_attribute(); ?>" class="sidebar-course-img" style="width: 100%; height: 100%;" onload="this.parentElement.classList.remove('skeleton')">
+                                <span><?php echo $reading_time; ?> phút đọc</span>
+                            </div>
+                        </div>
+
+                        <!-- Featured Cover Image / Ảnh bìa -->
+                        <div class="article-featured-image skeleton">
+                            <img src="<?php echo esc_url($featured_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>"
+                                onload="this.parentElement.classList.remove('skeleton')" />
+                        </div>
+                    </article>
+
+                    <!-- Main Content Card -->
+                    <div class="article-content-card">
+                        <!-- Gemini AI Summary & Table of Contents Area -->
+                        <div class="article-interactive-tools">
+                            <!-- Dynamic Table of Contents -->
+                            <div class="toc-box" id="dynamic-toc-container" style="display: none;">
+                                <div class="toc-header" id="toc-header-toggle">
+                                    <div class="toc-title-area">
+                                        <i class="fa-solid fa-list-ul"></i>
+                                        <span>Mục lục bài viết</span>
                                     </div>
+                                    <button class="toc-toggle-btn" aria-label="Toggle TOC">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <div class="toc-body">
+                                    <ul id="toc-list"></ul>
+                                </div>
+                            </div>
+
+                            <!-- Gemini AI Summary Box -->
+                            <div class="gemini-summary-box">
+                                <div class="summary-header">
+                                    <div class="summary-title-area">
+                                        <div class="summary-title">
+                                            <img src="https://ideas-data.vercel.app/imgs/angry_icon.jpg" alt="AI Avatar"
+                                                class="gemini-avatar" />
+                                            <span>Tóm tắt nhanh nội dung</span>
+                                        </div>
+                                        <div class="summary-subtitle">Bạn không có thời gian đọc hết? Hãy thử!</div>
+                                    </div>
+                                    <button id="btn-gemini-summarize" class="summary-btn" data-post-id="<?php the_ID(); ?>">
+                                        <span>Tóm tắt bằng AI</span>
+                                        <i class="fa-solid fa-bolt"></i>
+                                    </button>
+                                </div>
+                                <div id="gemini-summary-result" class="summary-result-content" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="article-body-content">
+                            <?php
+                            // Render content, and automatically strip duplicate of the first image inline if it matches featured image
+                            $content_html = apply_filters('the_content', get_the_content());
+
+                            // Simple regex replacement to omit the first duplicate image from the body layout
+                            if ($featured_image) {
+                                $escaped_img = preg_quote($featured_image, '/');
+                                // Remove figure or image block containing this exact url
+                                $content_html = preg_replace('/<figure[^>]*>\s*<img[^>]+src="' . $escaped_img . '"[^>]*>\s*<\/figure>/i', '', $content_html, 1);
+                                $content_html = preg_replace('/<img[^>]+src="' . $escaped_img . '"[^>]*>/i', '', $content_html, 1);
+                            }
+
+                            // Strip leftover raw ultimate post kit (ultp) plugin icon strings
+                            $content_html = preg_replace('/_ultp_aci_ic_[a-zA-Z0-9_]+?_ultp_aci_ic_end_/i', '', $content_html);
+
+                            echo $content_html;
+                            ?>
+                        </div>
+
+                        <!-- Share Section -->
+                        <div class="article-share-bar">
+                            <span class="share-label">Chia sẻ bài viết:</span>
+                            <div class="share-buttons">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>"
+                                    target="_blank" class="share-btn facebook" aria-label="Chia sẻ bài viết lên Facebook"><i
+                                        class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url(get_permalink()); ?>"
+                                    target="_blank" class="share-btn linkedin" aria-label="Chia sẻ bài viết lên LinkedIn"><i
+                                        class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url(get_permalink()); ?>"
+                                    target="_blank" class="share-btn twitter" aria-label="Chia sẻ bài viết lên Twitter"><i
+                                        class="fa-brands fa-x-twitter"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Post Navigation Links -->
+                        <div class="post-navigation">
+                            <?php
+                            $prev_post = get_previous_post();
+                            if (!empty($prev_post)): ?>
+                                <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="nav-card">
+                                    <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> Bài trước đó</span>
+                                    <span class="nav-card-title"><?php echo esc_html(get_the_title($prev_post->ID)); ?></span>
+                                </a>
+                            <?php else: ?>
+                                <div></div>
+                            <?php endif; ?>
+
+                            <?php
+                            $next_post = get_next_post();
+                            if (!empty($next_post)): ?>
+                                <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="nav-card"
+                                    style="text-align: right; align-items: flex-end;">
+                                    <span class="nav-card-label">Bài tiếp theo <i class="fa-solid fa-arrow-right"></i></span>
+                                    <span class="nav-card-title"><?php echo esc_html(get_the_title($next_post->ID)); ?></span>
+                                </a>
+                            <?php else: ?>
+                                <div></div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- Sidebar Widgets Area -->
+                <aside>
+                    <div class="sidebar-wrapper">
+
+                        <!-- Quick Register Consultation Widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">Đăng ký tư vấn lộ trình</h3>
+                            <form class="ideas-widget-form">
+                                <input type="text" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
+                                <input type="email" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" required>
+                                <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
+                                <select aria-label="Chương trình quan tâm" required>
+                                    <option value="" disabled selected hidden>Chương trình quan tâm</option>
+                                    <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
+                                    <option value="Full BBA">Global Online BBA</option>
+                                    <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
+                                    <option value="Executive MBA">Executive MBA (Thạc sĩ điều hành)</option>
+                                    <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
+                                    <option value="MSc AI">MSc AI (Thạc sĩ AI ứng dụng)</option>
+                                    <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
+                                </select>
+                                <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..."
+                                    aria-label="Ghi chú thêm"></textarea>
+                                <button type="submit"><i class="fa-solid fa-paper-plane"></i> Đăng ký ngay</button>
+                            </form>
+                        </div>
+
+                        <!-- Recent Posts Widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">Bài viết gần đây</h3>
+                            <div class="sidebar-course-list">
+                                <?php
+                                $recent_posts = new WP_Query(array(
+                                    'posts_per_page' => 3,
+                                    'post__not_in' => array($post_id),
+                                    'post_status' => 'publish'
+                                ));
+
+                                if ($recent_posts->have_posts()):
+                                    while ($recent_posts->have_posts()):
+                                        $recent_posts->the_post();
+                                        $recent_img = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+                                        if (!$recent_img) {
+                                            $recent_content = get_the_content();
+                                            preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $recent_content, $matches_r);
+                                            $recent_img = isset($matches_r[1][0]) ? $matches_r[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
+                                        }
+                                        ?>
+                                        <a href="<?php the_permalink(); ?>" class="sidebar-course-item">
+                                            <div class="sidebar-course-img-wrap skeleton"
+                                                style="width: 60px; height: 60px; border-radius: 8px; overflow: hidden; flex-shrink: 0;">
+                                                <img src="<?php echo esc_url($recent_img); ?>" alt="<?php the_title_attribute(); ?>"
+                                                    class="sidebar-course-img" style="width: 100%; height: 100%;"
+                                                    onload="this.parentElement.classList.remove('skeleton')">
+                                            </div>
+                                            <div>
+                                                <h4 class="sidebar-course-title" style="font-size: 0.88rem; line-height: 1.3;">
+                                                    <?php the_title(); ?></h4>
+                                                <p class="sidebar-course-desc"
+                                                    style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">
+                                                    <?php echo get_the_date('d/m/Y'); ?></p>
+                                            </div>
+                                        </a>
+                                        <?php
+                                    endwhile;
+                                    wp_reset_postdata();
+                                endif;
+                                ?>
+                            </div>
+                        </div>
+
+                        <!-- Suggested Programs Widget -->
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">Chương trình đào tạo</h3>
+                            <div class="sidebar-course-list">
+                                <a href="/bba" class="sidebar-course-item">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA"
+                                        class="sidebar-course-img">
                                     <div>
-                                        <h4 class="sidebar-course-title" style="font-size: 0.88rem; line-height: 1.3;"><?php the_title(); ?></h4>
-                                        <p class="sidebar-course-desc" style="font-size: 0.75rem; color: #64748b; margin-top: 2px;"><?php echo get_the_date('d/m/Y'); ?></p>
+                                        <h4 class="sidebar-course-title">Top-up BBA</h4>
+                                        <p class="sidebar-course-desc">Liên thông Cử nhân 12 tháng</p>
                                     </div>
                                 </a>
-                                <?php
-                            endwhile;
-                            wp_reset_postdata();
-                        endif;
-                        ?>
-                    </div>
-                </div>
+                                <a href="/fullbba" class="sidebar-course-item">
+                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
+                                        alt="Global Online BBA" class="sidebar-course-img">
+                                    <div>
+                                        <h4 class="sidebar-course-title">Global Online BBA</h4>
+                                        <p class="sidebar-course-desc">Cử nhân QTKD Quốc tế</p>
+                                    </div>
+                                </a>
+                                <a href="/mba" class="sidebar-course-item">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                                        alt="Online MBA" class="sidebar-course-img">
+                                    <div>
+                                        <h4 class="sidebar-course-title">Online MBA</h4>
+                                        <p class="sidebar-course-desc">Thạc sĩ QTKD Trực tuyến</p>
+                                    </div>
+                                </a>
+                                <a href="/emba" class="sidebar-course-item">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp" alt="Executive MBA"
+                                        class="sidebar-course-img">
+                                    <div>
+                                        <h4 class="sidebar-course-title">Executive MBA</h4>
+                                        <p class="sidebar-course-desc">Thạc sĩ điều hành QTKD</p>
+                                    </div>
+                                </a>
+                                <a href="/mbainai" class="sidebar-course-item">
+                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
+                                        alt="MBA in AI" class="sidebar-course-img">
+                                    <div>
+                                        <h4 class="sidebar-course-title">MBA in AI</h4>
+                                        <p class="sidebar-course-desc">Thạc sĩ QTKD Ứng dụng AI</p>
+                                    </div>
+                                </a>
+                                <a href="/mscai" class="sidebar-course-item">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="MSc AI"
+                                        class="sidebar-course-img">
+                                    <div>
+                                        <h4 class="sidebar-course-title">Master AI (MSc AI)</h4>
+                                        <p class="sidebar-course-desc">Thạc sĩ AI ứng dụng</p>
+                                    </div>
+                                </a>
+                                <a href="/dual-dba" class="sidebar-course-item">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp" alt="Dual DBA"
+                                        class="sidebar-course-img">
+                                    <div>
+                                        <h4 class="sidebar-course-title">Dual DBA</h4>
+                                        <p class="sidebar-course-desc">Tiến sĩ song bằng Pháp & Anh</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
-                <!-- Suggested Programs Widget -->
-                <div class="sidebar-widget">
-                    <h3 class="widget-title">Chương trình đào tạo</h3>
-                    <div class="sidebar-course-list">
-                        <a href="/bba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA" class="sidebar-course-img">
-                            <div>
-                                <h4 class="sidebar-course-title">Top-up BBA</h4>
-                                <p class="sidebar-course-desc">Liên thông Cử nhân 12 tháng</p>
-                            </div>
-                        </a>
-                        <a href="/fullbba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Global Online BBA" class="sidebar-course-img">
-                            <div>
-                                <h4 class="sidebar-course-title">Global Online BBA</h4>
-                                <p class="sidebar-course-desc">Cử nhân QTKD Quốc tế</p>
-                            </div>
-                        </a>
-                        <a href="/mba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp" alt="Online MBA" class="sidebar-course-img">
-                            <div>
-                                <h4 class="sidebar-course-title">Online MBA</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ QTKD Trực tuyến</p>
-                            </div>
-                        </a>
-                        <a href="/emba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp" alt="Executive MBA" class="sidebar-course-img">
-                            <div>
-                                <h4 class="sidebar-course-title">Executive MBA</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ điều hành QTKD</p>
-                            </div>
-                        </a>
-                        <a href="/mbainai" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp" alt="MBA in AI" class="sidebar-course-img">
-                            <div>
-                                <h4 class="sidebar-course-title">MBA in AI</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ QTKD Ứng dụng AI</p>
-                            </div>
-                        </a>
-                        <a href="/mscai" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="MSc AI" class="sidebar-course-img">
-                            <div>
-                                <h4 class="sidebar-course-title">Master AI (MSc AI)</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ AI ứng dụng</p>
-                            </div>
-                        </a>
-                        <a href="/dual-dba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp" alt="Dual DBA" class="sidebar-course-img">
-                            <div>
-                                <h4 class="sidebar-course-title">Dual DBA</h4>
-                                <p class="sidebar-course-desc">Tiến sĩ song bằng Pháp & Anh</p>
-                            </div>
-                        </a>
                     </div>
-                </div>
+                </aside>
 
             </div>
-        </aside>
 
-    </div>
-
-    <?php endwhile; endif; ?>
+        <?php endwhile; endif; ?>
 
     <!-- Site JS script (for mobile menu toggles and dropdown behaviors) -->
-    <?php 
+    <?php
     $js_path = get_stylesheet_directory() . '/common-assets/js/script.min.js';
     $js_version = file_exists($js_path) ? filemtime($js_path) : time();
     ?>
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>" defer></script>
-    
+    <script
+        src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>"
+        defer></script>
+
     <!-- FAQ Accordion Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const faqItems = document.querySelectorAll('.faq-accordion-item');
-            
+
             faqItems.forEach(item => {
                 const header = item.querySelector('.faq-header');
                 const body = item.querySelector('.faq-body');
                 const content = item.querySelector('.faq-content');
-                
+
                 header.addEventListener('click', () => {
                     const isActive = item.classList.contains('active');
-                    
+
                     // Close all active items
                     faqItems.forEach(el => {
                         el.classList.remove('active');
                         el.querySelector('.faq-body').style.maxHeight = null;
                     });
-                    
+
                     if (!isActive) {
                         item.classList.add('active');
                         body.style.maxHeight = content.offsetHeight + 'px';
@@ -1390,7 +1461,7 @@ ob_start(function($html) {
             if (articleBody && tocContainer && tocList) {
                 // Find all H2 and H3 elements inside the article body content
                 const headings = articleBody.querySelectorAll('h2, h3');
-                
+
                 if (headings.length > 0) {
                     let h2Count = 0;
                     let h3Count = 0;
@@ -1406,7 +1477,7 @@ ob_start(function($html) {
                                 .replace(/[^a-z0-9\s-]/g, '') // remove special chars
                                 .replace(/\s+/g, '-') // replace spaces with dashes
                                 .replace(/-+/g, '-'); // remove double dashes
-                            
+
                             heading.id = `heading-${cleanText || index}`;
                         }
 
@@ -1428,7 +1499,7 @@ ob_start(function($html) {
                         const a = document.createElement('a');
                         a.href = `#${heading.id}`;
                         a.textContent = prefix + heading.textContent;
-                        
+
                         // Add smooth scrolling behavior
                         a.addEventListener('click', (e) => {
                             e.preventDefault();
@@ -1483,9 +1554,9 @@ ob_start(function($html) {
                     btnSummarize.disabled = true;
                 }
 
-                btnSummarize.addEventListener('click', function(e) {
+                btnSummarize.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     if (!postId) return;
 
                     // Disable button and update UI state
@@ -1515,32 +1586,32 @@ ob_start(function($html) {
                         method: 'POST',
                         body: formData
                     })
-                    .then(response => response.json())
-                    .then(res => {
-                        if (res.success) {
-                            // Cache the result in localStorage
-                            localStorage.setItem(storageKey, res.data);
-                            
-                            // Render AI summary list
-                            summaryResult.innerHTML = res.data;
-                            btnSummarize.innerHTML = '<span>Tóm tắt thành công!</span><i class="fa-solid fa-check"></i>';
-                            btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
-                            
-                            // Change text to "Đã tóm tắt bằng AI" after 2 seconds but keep disabled
-                            setTimeout(() => {
-                                btnSummarize.innerHTML = '<span>Đã tóm tắt bằng AI</span><i class="fa-solid fa-check"></i>';
-                            }, 2000);
-                        } else {
-                            // Render API error message
-                            showError(res.data || 'Đã xảy ra lỗi không xác định.');
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.success) {
+                                // Cache the result in localStorage
+                                localStorage.setItem(storageKey, res.data);
+
+                                // Render AI summary list
+                                summaryResult.innerHTML = res.data;
+                                btnSummarize.innerHTML = '<span>Tóm tắt thành công!</span><i class="fa-solid fa-check"></i>';
+                                btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
+
+                                // Change text to "Đã tóm tắt bằng AI" after 2 seconds but keep disabled
+                                setTimeout(() => {
+                                    btnSummarize.innerHTML = '<span>Đã tóm tắt bằng AI</span><i class="fa-solid fa-check"></i>';
+                                }, 2000);
+                            } else {
+                                // Render API error message
+                                showError(res.data || 'Đã xảy ra lỗi không xác định.');
+                                resetButton();
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Gemini Summary Request Error:', err);
+                            showError('Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại kết nối.');
                             resetButton();
-                        }
-                    })
-                    .catch(err => {
-                        console.error('Gemini Summary Request Error:', err);
-                        showError('Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại kết nối.');
-                        resetButton();
-                    });
+                        });
 
                     function showError(message) {
                         summaryResult.innerHTML = `
@@ -1568,10 +1639,10 @@ ob_start(function($html) {
             const asideEl = document.querySelector('aside');
             const header = document.getElementById('site-header');
             if (!asideEl) return;
-            
+
             let st = window.pageYOffset || document.documentElement.scrollTop;
             let headerHidden = false;
-            
+
             if (header) {
                 if (header.classList.contains('nav-up') || header.classList.contains('hidden')) {
                     headerHidden = true;
@@ -1588,7 +1659,7 @@ ob_start(function($html) {
                     headerHidden = false;
                 }
             }
-            
+
             if (headerHidden) {
                 asideEl.style.top = '20px';
                 asideEl.style.maxHeight = 'calc(100vh - 40px)';
@@ -1596,7 +1667,7 @@ ob_start(function($html) {
                 asideEl.style.top = '90px';
                 asideEl.style.maxHeight = 'calc(100vh - 120px)';
             }
-            
+
             lastScrollTop = st <= 0 ? 0 : st;
         }, { passive: true });
 
@@ -1604,24 +1675,24 @@ ob_start(function($html) {
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.querySelector('.ideas-widget-form');
             if (!form) return;
-            
+
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
+
                 const name = form.querySelector('input[type="text"]').value.trim();
                 const email = form.querySelector('input[type="email"]').value.trim();
                 const phone = form.querySelector('input[type="tel"]').value.trim();
                 const program = form.querySelector('select').value;
                 const note = form.querySelector('textarea').value.trim();
-                
+
                 if (!name || !email || !phone || !program) {
                     alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
                     return;
                 }
-                
+
                 let sourceVal = "Landing_Blog_Single";
                 let chuongTrinhVal = program;
-                
+
                 // Prefill source mapping based on selected program
                 if (program.startsWith("Top-up BBA")) {
                     sourceVal = "Landing_BBA_Topup";
@@ -1658,7 +1729,7 @@ ob_start(function($html) {
                     note_dat_lich: note ? `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal} | Ghi chú: ${note}` : `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal}`,
                     chuong_trinh_dat_lich: chuongTrinhVal
                 };
-                
+
                 // Webhook Submission (Payload 2)
                 const webhookPayload = {
                     name: name,
@@ -1672,7 +1743,7 @@ ob_start(function($html) {
                     chuong_trinh: chuongTrinhVal,
                     nhu_cau: note ? `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal} | Ghi chú: ${note}` : `Đăng ký từ bài viết "${postTitle}" - ${chuongTrinhVal}`
                 };
-                
+
                 // Bind UTM parameters
                 const urlParams = new URLSearchParams(window.location.search);
                 const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
@@ -1680,27 +1751,27 @@ ob_start(function($html) {
                     const val = urlParams.get(param);
                     if (val) webhookPayload[param] = val;
                 });
-                
+
                 const btn = form.querySelector('button[type="submit"]');
                 const origText = btn.innerHTML;
                 btn.disabled = true;
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
-                
+
                 const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
-                
+
                 const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(webhookPayload)
                 });
-                
+
                 try {
                     await Promise.allSettled([p1, p2]);
-                    
+
                     // Trigger Google Ads Conversion event
                     if (typeof window.gtag === 'function') {
                         window.gtag('event', 'conversion', {
@@ -1710,7 +1781,7 @@ ob_start(function($html) {
                         });
                         console.log('Google Ads Conversion Event measured.');
                     }
-                    
+
                     alert('Đăng ký tư vấn thành công! IDEAS sẽ sớm liên hệ với bạn.');
                     form.reset();
                 } catch (err) {

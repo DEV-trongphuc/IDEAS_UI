@@ -124,9 +124,11 @@ function ideas_add_tracking_scripts()
 {
     ?>
     <link rel="preconnect" href="https://automation.ideas.edu.vn" />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin />
-    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2"
+        as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2"
+        as="font" type="font/woff2" crossorigin />
+
     <!-- MailFlow Pro Tracker & AI Chat -->
     <script>
         window._mf_config = {
@@ -202,7 +204,7 @@ function ideas_render_featured_image_column($column, $post_id)
             // Fallback: extract first image in content or use default logo
             $post = get_post($post_id);
             preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post->post_content, $matches);
-            $img_url = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+            $img_url = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
         }
 
         $edit_link = get_edit_post_link($post_id);
@@ -1570,7 +1572,7 @@ function ideas_admin_column_styles()
                 align-items: center !important;
             }
 
-            .wp-list-table.posts tbody td.column-title strong .post-state + .post-state {
+            .wp-list-table.posts tbody td.column-title strong .post-state+.post-state {
                 margin-left: 6px !important;
             }
 
@@ -1584,7 +1586,8 @@ function ideas_admin_column_styles()
                 display: inline-flex !important;
                 gap: 6px !important;
                 flex-wrap: wrap !important;
-                color: transparent !important; /* Hide separator pipes */
+                color: transparent !important;
+                /* Hide separator pipes */
             }
 
             .wp-list-table.posts .row-actions span {
@@ -1648,12 +1651,14 @@ function ideas_admin_column_styles()
             /* Adjust column widths in post list table */
             .wp-list-table.posts th.column-title,
             .wp-list-table.posts td.column-title {
-                width: 32% !important; /* Make title column slightly narrower */
+                width: 32% !important;
+                /* Make title column slightly narrower */
             }
 
             .wp-list-table.posts th.column-rank_math_seo_details,
             .wp-list-table.posts td.column-rank_math_seo_details {
-                width: 200px !important; /* Make SEO details column wider */
+                width: 200px !important;
+                /* Make SEO details column wider */
                 min-width: 200px !important;
                 max-width: 200px !important;
             }
@@ -1970,7 +1975,8 @@ function ideas_admin_column_styles()
                 display: inline-flex !important;
                 gap: 6px !important;
                 flex-wrap: wrap !important;
-                color: transparent !important; /* Hide separator pipes */
+                color: transparent !important;
+                /* Hide separator pipes */
             }
 
             .wp-list-table.plugins .row-actions span {
@@ -3203,9 +3209,10 @@ function ideas_filter_post_list_by_dashboard_dates($query)
 /**
  * Render author post count stats with avatar for stat cards
  */
-function ideas_render_stat_card_authors($start_date, $end_date) {
+function ideas_render_stat_card_authors($start_date, $end_date)
+{
     global $wpdb;
-    
+
     // Query published posts grouped by author in the given period
     $sql = "
         SELECT p.post_author as author_id, COUNT(p.ID) as post_count, u.display_name
@@ -3217,11 +3224,11 @@ function ideas_render_stat_card_authors($start_date, $end_date) {
         ORDER BY post_count DESC
     ";
     $authors = $wpdb->get_results($wpdb->prepare($sql, $start_date, $end_date));
-    
+
     if (empty($authors)) {
         return;
     }
-    
+
     echo '<div class="ideas-stat-authors" style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid #e2e8f0; padding-top: 10px; width: 100%;">';
     foreach ($authors as $auth) {
         $avatar = get_avatar($auth->author_id, 22, '', $auth->display_name, array(
@@ -3855,7 +3862,9 @@ function ideas_render_custom_dashboard()
                             stroke-linecap="round" stroke-linejoin="round"
                             style="color: #ab0e00; margin-right: 6px; vertical-align: middle;">
                             <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
                             <path d="M2 12h20"></path>
                         </svg>
                         Phân tích độc giả
@@ -3864,26 +3873,33 @@ function ideas_render_custom_dashboard()
                 <div class="ideas-audience-split">
                     <div class="ideas-device-chart-wrap">
                         <canvas id="ideasDeviceChart"></canvas>
-                        <div style="text-align: center; margin-top: 8px; font-size: 9px; font-weight: 700; color: #64748b; letter-spacing: 0.5px;">
+                        <div
+                            style="text-align: center; margin-top: 8px; font-size: 9px; font-weight: 700; color: #64748b; letter-spacing: 0.5px;">
                             THIẾT BỊ
                         </div>
                     </div>
                     <div class="ideas-geo-list-wrap">
                         <div class="ideas-geo-title">Top Quốc gia</div>
                         <ul class="ideas-geo-list">
-                            <?php 
+                            <?php
                             $geo_limit = 3;
                             $geo_count = 0;
                             if (!empty($analytics['countries'])):
                                 foreach ($analytics['countries'] as $c_data):
-                                    if ($geo_count >= $geo_limit) break;
+                                    if ($geo_count >= $geo_limit)
+                                        break;
                                     $c_name = isset($c_data['name']) ? $c_data['name'] : '';
                                     $flag = '🏳️';
-                                    if ($c_name === 'Việt Nam') $flag = '🇻🇳';
-                                    elseif ($c_name === 'Hoa Kỳ') $flag = '🇺🇸';
-                                    elseif ($c_name === 'Singapore') $flag = '🇸🇬';
-                                    elseif ($c_name === 'Nhật Bản') $flag = '🇯🇵';
-                                    elseif ($c_name === 'Hàn Quốc') $flag = '🇰🇷';
+                                    if ($c_name === 'Việt Nam')
+                                        $flag = '🇻🇳';
+                                    elseif ($c_name === 'Hoa Kỳ')
+                                        $flag = '🇺🇸';
+                                    elseif ($c_name === 'Singapore')
+                                        $flag = '🇸🇬';
+                                    elseif ($c_name === 'Nhật Bản')
+                                        $flag = '🇯🇵';
+                                    elseif ($c_name === 'Hàn Quốc')
+                                        $flag = '🇰🇷';
                                     $percentage = $total_geo_views > 0 ? round(($c_data['count'] / $total_geo_views) * 100) : 0;
                                     ?>
                                     <li class="ideas-geo-item">
@@ -3895,12 +3911,13 @@ function ideas_render_custom_dashboard()
                                             <span class="count-val"><?php echo esc_html($percentage); ?>%</span>
                                         </div>
                                         <div class="ideas-geo-bar-bg">
-                                            <div class="ideas-geo-bar-fill" style="width: <?php echo esc_attr($percentage); ?>%;"></div>
+                                            <div class="ideas-geo-bar-fill" style="width: <?php echo esc_attr($percentage); ?>%;">
+                                            </div>
                                         </div>
                                     </li>
-                                    <?php 
+                                    <?php
                                     $geo_count++;
-                                endforeach; 
+                                endforeach;
                             endif;
                             ?>
                         </ul>
@@ -3910,7 +3927,7 @@ function ideas_render_custom_dashboard()
         </div>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 if (typeof Chart === 'undefined') {
                     return;
                 }
@@ -4027,10 +4044,10 @@ function ideas_render_custom_dashboard()
                                 padding: 8,
                                 cornerRadius: 6,
                                 callbacks: {
-                                    label: function(context) {
+                                    label: function (context) {
                                         var label = context.label || '';
                                         var value = context.raw || 0;
-                                        var total = context.dataset.data.reduce(function(a, b) { return a + b; }, 0);
+                                        var total = context.dataset.data.reduce(function (a, b) { return a + b; }, 0);
                                         var percentage = Math.round((value / total) * 100);
                                         return label + ': ' + percentage + '% (' + value.toLocaleString() + ')';
                                     }
@@ -4046,20 +4063,26 @@ function ideas_render_custom_dashboard()
         <div class="ideas-dashboard-row-columns">
             <!-- Left Column: Top 10 bài viết xem nhiều nhất (Tabbed Switcher) -->
             <div class="ideas-dashboard-column left">
-                <div class="ideas-column-header" style="display: flex !important; justify-content: space-between !important; align-items: center !important; flex-wrap: wrap !important; gap: 10px !important;">
-                    <h3 style="margin: 0 !important; display: flex !important; align-items: center !important; gap: 6px !important;">
+                <div class="ideas-column-header"
+                    style="display: flex !important; justify-content: space-between !important; align-items: center !important; flex-wrap: wrap !important; gap: 10px !important;">
+                    <h3
+                        style="margin: 0 !important; display: flex !important; align-items: center !important; gap: 6px !important;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                            stroke-linecap="round" stroke-linejoin="round"
-                            style="color: #ab0e00; vertical-align: middle;">
+                            stroke-linecap="round" stroke-linejoin="round" style="color: #ab0e00; vertical-align: middle;">
                             <line x1="18" y1="20" x2="18" y2="10"></line>
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
                         </svg>
                         Top 10 bài viết nhiều lượt xem nhất
                     </h3>
-                    <div class="ideas-dashboard-tabs" style="display: inline-flex !important; gap: 4px !important; background: #f1f5f9 !important; padding: 3px !important; border-radius: 8px !important; border: 1px solid #e2e8f0 !important;">
-                        <button type="button" class="ideas-tab-btn active" data-target="ideas-top-90days" style="border: none !important; background: #ffffff !important; color: #0f172a !important; padding: 4px 12px !important; border-radius: 6px !important; font-size: 11px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.15s ease !important; box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important; font-family: inherit !important; outline: none !important;">90 ngày qua</button>
-                        <button type="button" class="ideas-tab-btn" data-target="ideas-top-alltime" style="border: none !important; background: transparent !important; color: #64748b !important; padding: 4px 12px !important; border-radius: 6px !important; font-size: 11px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.15s ease !important; font-family: inherit !important; outline: none !important;">Tất cả thời gian</button>
+                    <div class="ideas-dashboard-tabs"
+                        style="display: inline-flex !important; gap: 4px !important; background: #f1f5f9 !important; padding: 3px !important; border-radius: 8px !important; border: 1px solid #e2e8f0 !important;">
+                        <button type="button" class="ideas-tab-btn active" data-target="ideas-top-90days"
+                            style="border: none !important; background: #ffffff !important; color: #0f172a !important; padding: 4px 12px !important; border-radius: 6px !important; font-size: 11px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.15s ease !important; box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important; font-family: inherit !important; outline: none !important;">90
+                            ngày qua</button>
+                        <button type="button" class="ideas-tab-btn" data-target="ideas-top-alltime"
+                            style="border: none !important; background: transparent !important; color: #64748b !important; padding: 4px 12px !important; border-radius: 6px !important; font-size: 11px !important; font-weight: 700 !important; cursor: pointer !important; transition: all 0.15s ease !important; font-family: inherit !important; outline: none !important;">Tất
+                            cả thời gian</button>
                     </div>
                 </div>
                 <div class="ideas-column-body">
@@ -4067,7 +4090,7 @@ function ideas_render_custom_dashboard()
                     $top_posts_90 = ideas_get_top_viewed_posts(10, 90);
                     $top_posts_all = ideas_get_top_viewed_posts(10, 0);
                     ?>
-                    
+
                     <!-- 90 Days List -->
                     <div id="ideas-top-90days">
                         <?php if (!empty($top_posts_90)): ?>
@@ -4079,7 +4102,7 @@ function ideas_render_custom_dashboard()
                                     if (!$post_img) {
                                         $post_content = get_post_field('post_content', $p->ID);
                                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post_content, $matches);
-                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
                                     }
                                     $rank_class = $rank <= 3 ? 'rank-' . $rank : '';
                                     ?>
@@ -4092,7 +4115,8 @@ function ideas_render_custom_dashboard()
                                         </div>
                                         <div class="ideas-top-view-details">
                                             <h4 class="ideas-post-title-link">
-                                                <a href="<?php echo esc_url(get_edit_post_link($p->ID)); ?>"><?php echo esc_html($p->post_title ? $p->post_title : '...'); ?></a>
+                                                <a
+                                                    href="<?php echo esc_url(get_edit_post_link($p->ID)); ?>"><?php echo esc_html($p->post_title ? $p->post_title : '...'); ?></a>
                                             </h4>
                                             <div class="ideas-post-meta">
                                                 <span class="date"><?php echo esc_html(get_the_date('d/m/Y H:i', $p->ID)); ?></span>
@@ -4118,7 +4142,8 @@ function ideas_render_custom_dashboard()
                                 ?>
                             </ul>
                         <?php else: ?>
-                            <p style="color: #94a3b8; text-align: center; padding: 20px;">Không có dữ liệu bài viết xem nhiều trong 90 ngày qua.</p>
+                            <p style="color: #94a3b8; text-align: center; padding: 20px;">Không có dữ liệu bài viết xem nhiều
+                                trong 90 ngày qua.</p>
                         <?php endif; ?>
                     </div>
 
@@ -4133,7 +4158,7 @@ function ideas_render_custom_dashboard()
                                     if (!$post_img) {
                                         $post_content = get_post_field('post_content', $p->ID);
                                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post_content, $matches);
-                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
                                     }
                                     $rank_class = $rank <= 3 ? 'rank-' . $rank : '';
                                     ?>
@@ -4146,7 +4171,8 @@ function ideas_render_custom_dashboard()
                                         </div>
                                         <div class="ideas-top-view-details">
                                             <h4 class="ideas-post-title-link">
-                                                <a href="<?php echo esc_url(get_edit_post_link($p->ID)); ?>"><?php echo esc_html($p->post_title ? $p->post_title : '...'); ?></a>
+                                                <a
+                                                    href="<?php echo esc_url(get_edit_post_link($p->ID)); ?>"><?php echo esc_html($p->post_title ? $p->post_title : '...'); ?></a>
                                             </h4>
                                             <div class="ideas-post-meta">
                                                 <span class="date"><?php echo esc_html(get_the_date('d/m/Y H:i', $p->ID)); ?></span>
@@ -4172,7 +4198,8 @@ function ideas_render_custom_dashboard()
                                 ?>
                             </ul>
                         <?php else: ?>
-                            <p style="color: #94a3b8; text-align: center; padding: 20px;">Không có dữ liệu bài viết xem nhiều.</p>
+                            <p style="color: #94a3b8; text-align: center; padding: 20px;">Không có dữ liệu bài viết xem nhiều.
+                            </p>
                         <?php endif; ?>
                     </div>
 
@@ -4183,19 +4210,19 @@ function ideas_render_custom_dashboard()
                                 btn.addEventListener('click', function (e) {
                                     e.preventDefault();
                                     var target = this.getAttribute('data-target');
-                                    
+
                                     tabBtns.forEach(function (b) {
                                         b.classList.remove('active');
                                         b.style.setProperty('background', 'transparent', 'important');
                                         b.style.setProperty('color', '#64748b', 'important');
                                         b.style.setProperty('box-shadow', 'none', 'important');
                                     });
-                                    
+
                                     this.classList.add('active');
                                     this.style.setProperty('background', '#ffffff', 'important');
                                     this.style.setProperty('color', '#0f172a', 'important');
                                     this.style.setProperty('box-shadow', '0 1px 3px rgba(0,0,0,0.08)', 'important');
-                                    
+
                                     document.getElementById('ideas-top-90days').style.display = target === 'ideas-top-90days' ? 'block' : 'none';
                                     document.getElementById('ideas-top-alltime').style.display = target === 'ideas-top-alltime' ? 'block' : 'none';
                                 });
@@ -4230,7 +4257,7 @@ function ideas_render_custom_dashboard()
                                     $post_img = get_the_post_thumbnail_url($p->ID, 'thumbnail');
                                     if (!$post_img) {
                                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $p->post_content, $matches);
-                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
                                     }
                                     $status_lbl = $p->post_status === 'publish' ? 'Đã đăng' : ($p->post_status === 'future' ? 'Lên lịch' : 'Bản nháp');
                                     $status_cls = $p->post_status === 'publish' ? 'published' : ($p->post_status === 'future' ? 'scheduled' : 'draft');
@@ -4438,7 +4465,8 @@ function ideas_custom_user_avatars($args, $id_or_email)
 // --- START OF VISITOR TRACKING & ANALYTICS CODE ---
 // Create visitor stats table automatically
 add_action('admin_init', 'ideas_maybe_create_visitor_stats_table');
-function ideas_maybe_create_visitor_stats_table() {
+function ideas_maybe_create_visitor_stats_table()
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'ideas_visitor_stats';
     if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") !== $table_name) {
@@ -4456,14 +4484,15 @@ function ideas_maybe_create_visitor_stats_table() {
             KEY device_type (device_type),
             KEY country_code (country_code)
         ) $charset_collate;";
-        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-        dbDelta( $sql );
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
     }
 }
 
 // Track frontend visits in real time
 add_action('template_redirect', 'ideas_track_visitor_visit');
-function ideas_track_visitor_visit() {
+function ideas_track_visitor_visit()
+{
     if (is_admin() || is_feed() || is_trackback() || is_robots()) {
         return;
     }
@@ -4475,10 +4504,29 @@ function ideas_track_visitor_visit() {
     }
 
     $bots = array(
-        'googlebot', 'bingbot', 'slurp', 'duckduckgo', 'baiduspider', 'yandexbot', 
-        'sogou', 'exabot', 'facebot', 'facebookexternalhit', 'ia_archiver', 
-        'screaming frog', 'uptime', 'monitor', 'pingdom', 'gtmetrix', 'lighthouse',
-        'bot', 'crawler', 'spider', 'curl', 'wget', 'wordpress/'
+        'googlebot',
+        'bingbot',
+        'slurp',
+        'duckduckgo',
+        'baiduspider',
+        'yandexbot',
+        'sogou',
+        'exabot',
+        'facebot',
+        'facebookexternalhit',
+        'ia_archiver',
+        'screaming frog',
+        'uptime',
+        'monitor',
+        'pingdom',
+        'gtmetrix',
+        'lighthouse',
+        'bot',
+        'crawler',
+        'spider',
+        'curl',
+        'wget',
+        'wordpress/'
     );
 
     foreach ($bots as $bot) {
@@ -4496,7 +4544,7 @@ function ideas_track_visitor_visit() {
 
     $post_id = is_singular() ? get_the_ID() : 0;
     $visit_date = current_time('Y-m-d');
-    
+
     $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
     $device_type = 'Desktop';
     if (wp_is_mobile()) {
@@ -4563,17 +4611,18 @@ function ideas_track_visitor_visit() {
 }
 
 // Retrieve merged real + baseline analytics data
-function ideas_get_dashboard_analytics_data() {
+function ideas_get_dashboard_analytics_data()
+{
     global $wpdb;
     $table_name = $wpdb->prefix . 'ideas_visitor_stats';
-    
+
     $labels = array();
     $views = array();
-    
+
     for ($i = 6; $i >= 0; $i--) {
         $date = date('Y-m-d', strtotime("-$i days"));
         $labels[] = date('d/m', strtotime("-$i days"));
-        
+
         $real_count = 0;
         if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name) {
             $real_count = (int) $wpdb->get_var($wpdb->prepare(
@@ -4581,13 +4630,13 @@ function ideas_get_dashboard_analytics_data() {
                 $date
             ));
         }
-        
+
         $baseline_map = array(6 => 125, 5 => 148, 4 => 135, 3 => 192, 2 => 218, 1 => 205, 0 => 242);
         $baseline = isset($baseline_map[$i]) ? $baseline_map[$i] : 150;
-        
+
         $views[] = $baseline + $real_count;
     }
-    
+
     $devices = array('Mobile' => 0, 'Desktop' => 0, 'Tablet' => 0);
     if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name) {
         $device_stats = $wpdb->get_results("SELECT device_type, COUNT(id) as count FROM $table_name GROUP BY device_type");
@@ -4597,14 +4646,14 @@ function ideas_get_dashboard_analytics_data() {
             }
         }
     }
-    
+
     $total_real = array_sum($devices);
     if ($total_real < 50) {
         $devices['Mobile'] += 352;
         $devices['Desktop'] += 128;
         $devices['Tablet'] += 15;
     }
-    
+
     $countries = array();
     if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name) {
         $country_stats = $wpdb->get_results("SELECT country_code, country_name, COUNT(id) as count FROM $table_name GROUP BY country_code, country_name ORDER BY count DESC LIMIT 5");
@@ -4615,7 +4664,7 @@ function ideas_get_dashboard_analytics_data() {
             );
         }
     }
-    
+
     if (count($countries) < 2) {
         $baselines = array(
             'VN' => array('name' => 'Việt Nam', 'count' => 462),
@@ -4632,11 +4681,11 @@ function ideas_get_dashboard_analytics_data() {
             }
         }
     }
-    
-    uasort($countries, function($a, $b) {
+
+    uasort($countries, function ($a, $b) {
         return $b['count'] - $a['count'];
     });
-    
+
     return array(
         'labels' => $labels,
         'views' => $views,
@@ -4650,7 +4699,8 @@ function ideas_get_dashboard_analytics_data() {
  * Output JS tracking script in single post footer to trigger AJAX view count after 5 seconds
  */
 add_action('wp_footer', 'ideas_track_post_views_js');
-function ideas_track_post_views_js() {
+function ideas_track_post_views_js()
+{
     if (!is_single() || is_admin() || wp_doing_ajax() || (defined('REST_REQUEST') && REST_REQUEST)) {
         return;
     }
@@ -4660,19 +4710,19 @@ function ideas_track_post_views_js() {
     }
     ?>
     <script type="text/javascript">
-        (function() {
-            setTimeout(function() {
+        (function () {
+            setTimeout(function () {
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", "<?php echo esc_url(admin_url('admin-ajax.php')); ?>", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onload = function() {
+                xhr.onload = function () {
                     if (xhr.status === 200) {
                         try {
                             var res = JSON.parse(xhr.responseText);
                             if (res.success) {
                                 console.log("Post view counted. Total views: " + res.data.views);
                             }
-                        } catch(e) {}
+                        } catch (e) { }
                     }
                 };
                 xhr.send("action=ideas_increment_views&post_id=<?php echo $post_id; ?>");
@@ -4687,12 +4737,13 @@ function ideas_track_post_views_js() {
  */
 add_action('wp_ajax_ideas_increment_views', 'ideas_ajax_increment_post_views');
 add_action('wp_ajax_nopriv_ideas_increment_views', 'ideas_ajax_increment_post_views');
-function ideas_ajax_increment_post_views() {
+function ideas_ajax_increment_post_views()
+{
     $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
     if ($post_id > 0 && get_post_type($post_id) === 'post') {
         $current_views = ideas_get_post_views($post_id);
         $new_views = $current_views + 1;
-        
+
         $view_meta_keys = array('__post_views_count', 'views', 'post_views_count', '_views_count', 'post_views', 'views_count');
         foreach ($view_meta_keys as $key) {
             update_post_meta($post_id, $key, $new_views);
@@ -4706,7 +4757,8 @@ function ideas_ajax_increment_post_views() {
  * Display the view count badge next to the post title in WP Admin lists
  */
 add_filter('display_post_states', 'ideas_add_views_to_post_states', 10, 2);
-function ideas_add_views_to_post_states($post_states, $post) {
+function ideas_add_views_to_post_states($post_states, $post)
+{
     if ($post->post_type === 'post') {
         $views = ideas_get_post_views($post->ID);
         $post_states['views'] = '<span style="font-size: 11px; font-weight: 600; color: #475569; background: #f1f5f9; padding: 2px 6px; border-radius: 6px; display: inline-flex; align-items: center; vertical-align: middle;"><span class="dashicons dashicons-visibility" style="font-size: 14px; width: 14px; height: 14px; color: #ab0e00; line-height: 1; vertical-align: middle; margin-right: 4px;"></span>' . number_format($views) . ' lượt xem</span>';
@@ -4720,7 +4772,8 @@ function ideas_add_views_to_post_states($post_states, $post) {
 add_action('wp_ajax_ideas_live_search', 'ideas_live_search_handler');
 add_action('wp_ajax_nopriv_ideas_live_search', 'ideas_live_search_handler');
 
-function ideas_live_search_handler() {
+function ideas_live_search_handler()
+{
     $query_string = isset($_GET['q']) ? sanitize_text_field($_GET['q']) : '';
     if (empty($query_string)) {
         wp_send_json_success(array());
@@ -4740,13 +4793,13 @@ function ideas_live_search_handler() {
         while ($query->have_posts()) {
             $query->the_post();
             $post_id = get_the_ID();
-            
+
             // Image
             $img = get_the_post_thumbnail_url($post_id, 'medium');
             if (!$img) {
                 $content = get_the_content();
                 preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-                $img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                $img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
             }
 
             // Category
@@ -4771,7 +4824,8 @@ function ideas_live_search_handler() {
  * Output Live Search CSS and JS globally in the footer
  */
 add_action('wp_footer', 'ideas_live_search_footer_assets');
-function ideas_live_search_footer_assets() {
+function ideas_live_search_footer_assets()
+{
     if (is_admin()) {
         return;
     }
@@ -4877,6 +4931,7 @@ function ideas_live_search_footer_assets() {
         .archive-search-form .search-dropdown-title {
             color: #0f172a;
         }
+
         .error-search-form .search-dropdown-title {
             color: #0f172a;
         }
@@ -5021,7 +5076,8 @@ function ideas_live_search_footer_assets() {
 add_action('wp_ajax_ideas_summarize_post', 'ideas_ajax_summarize_post');
 add_action('wp_ajax_nopriv_ideas_summarize_post', 'ideas_ajax_summarize_post');
 
-function ideas_ajax_summarize_post() {
+function ideas_ajax_summarize_post()
+{
     // 1. Verify Request and Post ID
     $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
     if (!$post_id) {
@@ -5137,7 +5193,8 @@ Nội dung bài viết:
  * Disable the automatic redirect to the WordPress About/Welcome page after updates.
  */
 add_action('admin_init', 'ideas_disable_wp_about_page_redirect', 1);
-function ideas_disable_wp_about_page_redirect() {
+function ideas_disable_wp_about_page_redirect()
+{
     global $pagenow;
     if (is_admin() && 'about.php' === $pagenow) {
         wp_safe_redirect(admin_url('index.php'));

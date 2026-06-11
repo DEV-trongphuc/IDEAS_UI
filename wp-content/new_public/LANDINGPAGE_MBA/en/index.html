@@ -46,7 +46,7 @@
     <meta property="og:title" content="IDEAS - International Academic Support & Degree Programs" />
     <meta property="og:description"
         content="IDEAS supports academic studies for online Bachelor, Master (MBA, MSc AI), and Doctorate (DBA) programs from international universities." />
-    <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp" />
+    <meta property="og:image" content="https://ideas.edu.vn/wp-content/new_public/data_imgs/ltnumef10202501.webp" />
     <meta property="og:url" content="https://ideas.edu.vn/en/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="IDEAS" />
@@ -56,7 +56,7 @@
     <meta name="twitter:title" content="IDEAS - International Academic Support & Degree Programs" />
     <meta name="twitter:description"
         content="IDEAS supports academic studies for online Bachelor, Master (MBA, MSc AI), and Doctorate (DBA) programs from international universities." />
-    <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp" />
+    <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/new_public/data_imgs/ltnumef10202501.webp" />
 
 
 
@@ -83,7 +83,7 @@
           "url": "https://ideas.edu.vn/en/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp",
+            "url": "https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp",
             "caption": "IDEAS Logo"
           },
           "description": "IDEAS provides professional academic support and consulting for accredited international European Bachelor, Master, and Doctorate programs.",
@@ -3307,124 +3307,124 @@
                 display: none !important;
             }
         }
-    
-            /* ── IDEAS Talk Videos Slider (3D Carousel Loop) ── */
-            .talk-video-carousel-container {
-                position: relative;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 2;
-            }
 
-            .talk-video-carousel-track-wrapper {
-                overflow: hidden;
-                width: 100%;
-                padding: 30px 0 50px 0;
-                margin-bottom: -30px;
-            }
+        /* ── IDEAS Talk Videos Slider (3D Carousel Loop) ── */
+        .talk-video-carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
 
-            .talk-video-carousel-track {
-                display: flex;
-                flex-wrap: nowrap !important;
-                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-                gap: 30px;
-                will-change: transform;
-            }
+        .talk-video-carousel-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 30px 0 50px 0;
+            margin-bottom: -30px;
+        }
 
+        .talk-video-carousel-track {
+            display: flex;
+            flex-wrap: nowrap !important;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            gap: 30px;
+            will-change: transform;
+        }
+
+        .talk-video-carousel-slide {
+            flex: 0 0 calc(33.333% - 20px) !important;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+            opacity: 0.45 !important;
+            transform: scale(0.9) !important;
+            cursor: pointer !important;
+            width: auto !important;
+            scroll-snap-align: none !important;
+        }
+
+        .talk-video-carousel-slide.active {
+            opacity: 1 !important;
+            transform: scale(1.04) !important;
+            z-index: 10 !important;
+        }
+
+        @media (max-width: 992px) {
             .talk-video-carousel-slide {
-                flex: 0 0 calc(33.333% - 20px) !important;
-                transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
-                opacity: 0.45 !important;
-                transform: scale(0.9) !important;
-                cursor: pointer !important;
-                width: auto !important;
-                scroll-snap-align: none !important;
+                flex: 0 0 calc(50% - 15px) !important;
             }
+        }
 
-            .talk-video-carousel-slide.active {
-                opacity: 1 !important;
-                transform: scale(1.04) !important;
-                z-index: 10 !important;
+        @media (max-width: 600px) {
+            .talk-video-carousel-slide {
+                flex: 0 0 100% !important;
             }
+        }
 
-            @media (max-width: 992px) {
-                .talk-video-carousel-slide {
-                    flex: 0 0 calc(50% - 15px) !important;
-                }
-            }
+        /* Video Carousel Buttons */
+        .talk-video-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            color: #ffffff;
+            z-index: 15;
+        }
 
-            @media (max-width: 600px) {
-                .talk-video-carousel-slide {
-                    flex: 0 0 100% !important;
-                }
-            }
+        .talk-video-carousel-btn:hover {
+            background: var(--clr-primary, #ab0e00);
+            color: #ffffff;
+            border-color: var(--clr-primary, #ab0e00);
+            box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
+        }
 
-            /* Video Carousel Buttons */
-            .talk-video-carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.15);
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-                color: #ffffff;
-                z-index: 15;
-            }
+        .talk-video-carousel-btn.prev {
+            left: -10px;
+        }
 
-            .talk-video-carousel-btn:hover {
-                background: var(--clr-primary, #ab0e00);
-                color: #ffffff;
-                border-color: var(--clr-primary, #ab0e00);
-                box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
-            }
+        .talk-video-carousel-btn.next {
+            right: -10px;
+        }
 
-            .talk-video-carousel-btn.prev {
-                left: -10px;
-            }
+        /* Video Carousel Dots */
+        .talk-video-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 3;
+        }
 
-            .talk-video-carousel-btn.next {
-                right: -10px;
-            }
+        .talk-video-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
 
-            /* Video Carousel Dots */
-            .talk-video-carousel-dots {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 24px;
-                position: relative;
-                z-index: 3;
-            }
-
-            .talk-video-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.25);
-                border: none;
-                cursor: pointer;
-                padding: 0;
-                transition: all 0.3s ease;
-            }
-
-            .talk-video-dot.active {
-                background: var(--clr-primary, #ab0e00);
-                width: 24px;
-                border-radius: 5px;
-            }
-</style>
+        .talk-video-dot.active {
+            background: var(--clr-primary, #ab0e00);
+            width: 24px;
+            border-radius: 5px;
+        }
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" />
@@ -5233,6 +5233,7 @@
                 opacity: 0;
                 filter: blur(15px) brightness(0.8);
             }
+
             100% {
                 opacity: 1;
             }
@@ -5511,9 +5512,11 @@
                 border-bottom: none !important;
                 padding: 16px 0 !important;
             }
+
             .counters-section .stat-card div:first-child {
                 font-size: clamp(2.8rem, 8vw, 3.4rem) !important;
             }
+
             .counters-section .stat-card div:last-child {
                 font-size: 0.78rem !important;
                 margin-top: 4px !important;
@@ -5527,7 +5530,7 @@
     <header class="ideas_header" id="site-header">
         <div class="container header-inner">
             <a href="https://ideas.edu.vn/" class="logo" aria-label="IDEAS Homepage">
-                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
+                <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp"
                     alt="Logo IDEAS Education - 15th Anniversary" width="60" height="60" loading="eager"
                     fetchpriority="high">
             </a>
@@ -5616,8 +5619,8 @@
                             </a>
                             <a href="/en/mba-in-ai" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp" alt="MBA in AI"
-                                    loading="lazy" decoding="async" />
+                                    src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
+                                    alt="MBA in AI" loading="lazy" decoding="async" />
                                 <div class="item-content">
                                     <div class="item-title">MBA in AI</div>
                                     <div class="item-desc">MBA in AI</div>
@@ -5638,8 +5641,8 @@
                             </a>
                             <a href="/en/fullbba" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Global Online BBA"
-                                    loading="lazy" decoding="async" />
+                                    src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
+                                    alt="Global Online BBA" loading="lazy" decoding="async" />
                                 <div class="item-content">
                                     <div class="item-title">Global Online BBA</div>
                                     <div class="item-desc">Swiss BBA</div>
@@ -5806,7 +5809,7 @@
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true" data-lenis-prevent>
         <div class="mobile-menu-header">
             <a href="/en" class="mobile-menu-logo" aria-label="IDEAS Homepage">
-                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
+                <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp"
                     alt="Logo IDEAS Education - 15th Anniversary" width="45" height="45" loading="lazy">
             </a>
             <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
@@ -5886,8 +5889,9 @@
                         </div>
                     </a>
                     <a href="/en/mba-in-ai" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
-                            alt="MBA in AI" loading="lazy" decoding="async" />
+                        <img class="item-avatar"
+                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp" alt="MBA in AI"
+                            loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">MBA in AI</div>
                             <div class="item-desc">MBA in AI</div>
@@ -5905,7 +5909,8 @@
                         </div>
                     </a>
                     <a href="/en/fullbba" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                        <img class="item-avatar"
+                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
                             alt="Global Online BBA" loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">Global Online BBA</div>
@@ -6026,19 +6031,19 @@
                 <!-- Flying Avatars Background Layer -->
                 <div class="hero-flying-avatars"
                     style="position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible;">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/169.webp" alt="Flying Student 1"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/169.webp" alt="Flying Student 1"
                         class="flying-avatar fa-1" decoding="async" />
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg" alt="Flying Student 2"
                         class="flying-avatar fa-2" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/171.webp" alt="Flying Student 3"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/171.webp" alt="Flying Student 3"
                         class="flying-avatar fa-3" decoding="async" />
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg" alt="Flying Student 4"
                         class="flying-avatar fa-4" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/173.webp" alt="Flying Student 5"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/173.webp" alt="Flying Student 5"
                         class="flying-avatar fa-5" decoding="async" />
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg" alt="Flying Student 6"
                         class="flying-avatar fa-6" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/175.webp" alt="Flying Student 7"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/175.webp" alt="Flying Student 7"
                         class="flying-avatar fa-7" decoding="async" />
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg" alt="Flying Student 8"
                         class="flying-avatar fa-8" decoding="async" />
@@ -6046,7 +6051,7 @@
 
                 <!-- Floating Photo Cards on Left/Right Empty Spaces -->
                 <div class="floating-photos-container">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/ltnumef10202501.webp"
                         alt="Floating Card 1" class="floating-photo-card floating-photo-1" loading="lazy"
                         decoding="async" />
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg" alt="Floating Card 2"
@@ -6072,7 +6077,7 @@
                         <span>IDEAS - 15 YEARS OF ACADEMIC COMPANIONSHIP</span>
                     </div>
 
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/ltnumef10202501.webp"
                         alt="Swiss UMEF Graduation Ceremony" class="hero-mobile-only-img" loading="eager"
                         fetchpriority="high" decoding="async" />
 
@@ -6157,17 +6162,18 @@
                                 alt="Learner 5"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/177.webp"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/177.webp"
                                 alt="Learner 6"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/178.webp"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/178.webp"
                                 alt="Learner 7"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; z-index: 7; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
                         </div>
                         <p style="font-size: 0.9rem; color: #475569; margin: 0; font-weight: 500;">
-                            <strong>2572+</strong> Graduates have completed international programs with IDEAS</p>
+                            <strong>2572+</strong> Graduates have completed international programs with IDEAS
+                        </p>
                     </div>
 
                     <!-- Scroll Down Indicator -->
@@ -6193,7 +6199,8 @@
                         style="text-align: center; border-right: 1px solid rgba(255,255,255,0.1); padding: 10px 20px;">
                         <div
                             style="font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 900; color: #ffffff; line-height: 1;">
-                            <span class="counter-num" data-target="15">0</span>+</div>
+                            <span class="counter-num" data-target="15">0</span>+
+                        </div>
                         <div
                             style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 8px; font-weight: 600;">
                             Years of Academic Support</div>
@@ -6202,7 +6209,8 @@
                         style="text-align: center; border-right: 1px solid rgba(255,255,255,0.1); padding: 10px 20px;">
                         <div
                             style="font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 900; color: #ffffff; line-height: 1;">
-                            <span class="counter-num" data-target="2572">0</span>+</div>
+                            <span class="counter-num" data-target="2572">0</span>+
+                        </div>
                         <div
                             style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 8px; font-weight: 600;">
                             Master & PhD Graduates</div>
@@ -6211,7 +6219,8 @@
                         style="text-align: center; border-right: 1px solid rgba(255,255,255,0.1); padding: 10px 20px;">
                         <div
                             style="font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 900; color: #ffffff; line-height: 1;">
-                            <span class="counter-num" data-target="75">0</span>+</div>
+                            <span class="counter-num" data-target="75">0</span>+
+                        </div>
                         <div
                             style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 8px; font-weight: 600;">
                             Cohorts for Partner Schools</div>
@@ -6219,7 +6228,8 @@
                     <div class="stat-card" style="text-align: center; padding: 10px 20px;">
                         <div
                             style="font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 900; color: #ffffff; line-height: 1;">
-                            <span class="counter-num" data-target="30">0</span>+</div>
+                            <span class="counter-num" data-target="30">0</span>+
+                        </div>
                         <div
                             style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 8px; font-weight: 600;">
                             Faculty & High-Level Advisors</div>
@@ -6255,16 +6265,20 @@
                         <div class="ideas_follow_inner">
                             <div class="ideas_follow">
                                 <p>Follow</p>
-                                <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" aria-label="Facebook IDEAS">
+                                <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/"
+                                    aria-label="Facebook IDEAS">
                                     <i class="fa-brands fa-facebook"></i>
                                 </a>
-                                <a target="_blank" href="https://www.youtube.com/c/Vi%E1%BB%87nIDEAS" aria-label="YouTube IDEAS">
+                                <a target="_blank" href="https://www.youtube.com/c/Vi%E1%BB%87nIDEAS"
+                                    aria-label="YouTube IDEAS">
                                     <i class="fa-brands fa-youtube"></i>
                                 </a>
-                                <a target="_blank" href="https://www.linkedin.com/company/ideasinstitute/" aria-label="LinkedIn IDEAS">
+                                <a target="_blank" href="https://www.linkedin.com/company/ideasinstitute/"
+                                    aria-label="LinkedIn IDEAS">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
-                                <a target="_blank" href="https://www.tiktok.com/@ideas_institute" aria-label="TikTok IDEAS">
+                                <a target="_blank" href="https://www.tiktok.com/@ideas_institute"
+                                    aria-label="TikTok IDEAS">
                                     <i class="fa-brands fa-tiktok"></i>
                                 </a>
                                 <a target="_blank" href="https://zalo.me/3857867121882640296" aria-label="Zalo IDEAS">
@@ -6273,7 +6287,8 @@
                                             src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png">
                                     </i>
                                 </a>
-                                <a target="_blank" href="https://www.instagram.com/ideas.edu.vn/" aria-label="Instagram IDEAS">
+                                <a target="_blank" href="https://www.instagram.com/ideas.edu.vn/"
+                                    aria-label="Instagram IDEAS">
                                     <i class="fa-brands fa-square-instagram"></i>
                                 </a>
                             </div>
@@ -6621,8 +6636,9 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
-                                        alt="Bachelor of Business Administration (BBA) Avatar" loading="lazy" decoding="async" />
+                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
+                                        alt="Bachelor of Business Administration (BBA) Avatar" loading="lazy"
+                                        decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
                                     <h3 class="prog-card-title-new">Global Online BBA</h3>
@@ -6787,7 +6803,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
                                         alt="MBA in AI Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
@@ -6860,8 +6876,7 @@
                         </div>
 
                         <!-- Card 7: Dual DBA -->
-                        <div class="prog-card-new" id="catalog-card-IDEAS06"
-                            style="grid-column: span 1;">
+                        <div class="prog-card-new" id="catalog-card-IDEAS06" style="grid-column: span 1;">
                             <div>
                                 <div class="prog-card-header">
                                     <span class="prog-card-badge">DBA</span>
@@ -7387,7 +7402,10 @@
 
                     <p class="sol-v2-desc"
                         style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-bottom: 24px;">
-                        IDEAS provides a comprehensive academic support ecosystem helping students easily conquer 100% online programs from Switzerland, France, and the US. Our local tutor and academic advisor teams accompany you to overcome language and tech barriers, offering weekend assignment reviews to ensure an over 98% graduation rate.
+                        IDEAS provides a comprehensive academic support ecosystem helping students easily conquer 100%
+                        online programs from Switzerland, France, and the US. Our local tutor and academic advisor teams
+                        accompany you to overcome language and tech barriers, offering weekend assignment reviews to
+                        ensure an over 98% graduation rate.
                     </p>
 
                     <!-- Compact stat pills -->
@@ -7444,14 +7462,36 @@
                     </div>
 
                     <!-- Supported Platforms Logos -->
-                    <div class="sol-v2-platforms" style="margin-top: 32px; border-top: 1px dashed #e2e8f0; padding-top: 20px;">
-                        <span style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 12px;">Supported Learning Platforms:</span>
-                        <div class="platform-logos-grid" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/Buffet-AI-R.webp" alt="AI-Platform" style="height: 28px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas.png" alt="IDEAS LMS" style="height: 32px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Moodle-logo.svg.webp" alt="Moodle" style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Cengage-logo.svg.webp" alt="Cengage" style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/eacademy.webp" alt="eacademy" style="height: 26px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
+                    <div class="sol-v2-platforms"
+                        style="margin-top: 32px; border-top: 1px dashed #e2e8f0; padding-top: 20px;">
+                        <span
+                            style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 12px;">Supported
+                            Learning Platforms:</span>
+                        <div class="platform-logos-grid"
+                            style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/Buffet-AI-R.webp"
+                                alt="AI-Platform"
+                                style="height: 28px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                                onmouseover="this.style.filter='none'"
+                                onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas.png" alt="IDEAS LMS"
+                                style="height: 32px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                                onmouseover="this.style.filter='none'"
+                                onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Moodle-logo.svg.webp"
+                                alt="Moodle"
+                                style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                                onmouseover="this.style.filter='none'"
+                                onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Cengage-logo.svg.webp"
+                                alt="Cengage"
+                                style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                                onmouseover="this.style.filter='none'"
+                                onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/eacademy.webp" alt="eacademy"
+                                style="height: 26px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                                onmouseover="this.style.filter='none'"
+                                onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
                         </div>
                     </div>
                 </div>
@@ -7511,7 +7551,7 @@
                     <article class="activity-card"
                         onclick="if(typeof window.openRegModal === 'function') window.openRegModal('activity-graduation-europe')">
                         <div class="card-img-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/ltnumef10202501.webp"
                                 alt="Europe Graduation" loading="lazy" decoding="async" />
                             <span class="card-tag">International</span>
                         </div>
@@ -7577,7 +7617,7 @@
                         Overcoming English Barriers<br />
                         <span class="gradient-text">#By Applying AI In Learning</span>
                     </h2>
-                                        <div class="talk-video-carousel-container">
+                    <div class="talk-video-carousel-container">
                         <button class="talk-video-carousel-btn prev" aria-label="Previous slide">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
@@ -7588,7 +7628,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/CXCDUKsU-0I?si=EUDQfhO6gIZ517bY')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9.png"
-                                            alt="Vibe Coding - Build Your Own Apps Using AI" loading="lazy" decoding="async" />
+                                            alt="Vibe Coding - Build Your Own Apps Using AI" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7607,7 +7648,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/n0S6vGsilhs?si=qOu2_jTHYmvj5ppD')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/n0S6vGsilhs/maxresdefault.jpg"
-                                            alt="Decoding AI - Undisclosed Creative Methods" loading="lazy" decoding="async" />
+                                            alt="Decoding AI - Undisclosed Creative Methods" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7626,7 +7668,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/1wyT6IVUCpg?si=Dl66rshN8IoTRKuG')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/1wyT6IVUCpg/maxresdefault.jpg"
-                                            alt="Data Security in the AI Era: Challenges and Solutions" loading="lazy" decoding="async" />
+                                            alt="Data Security in the AI Era: Challenges and Solutions" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7645,7 +7688,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/mB0mDrgjVNs?si=8OciF14MwQh1w1AF')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/mB0mDrgjVNs/hqdefault.jpg"
-                                            alt="Omnichannel Customer Service with AI" loading="lazy" decoding="async" />
+                                            alt="Omnichannel Customer Service with AI" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7664,7 +7708,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/5cogIW22nFI?si=0YF_3H5NX1UTPtr2')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/5cogIW22nFI/maxresdefault.jpg"
-                                            alt="The Fusion of AI & Semiconductor - Future Trends" loading="lazy" decoding="async" />
+                                            alt="The Fusion of AI & Semiconductor - Future Trends" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7684,9 +7729,9 @@
                         </button>
                     </div>
                     <div class="talk-video-carousel-dots"></div>
-                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
         <!-- ══════════════════════════════════════════
          SECTION 7: NEWS & EVENTS (WORDPRESS BLOG)
         ══════════════════════════════════════════ -->
@@ -7730,7 +7775,7 @@
                 <div
                     style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; opacity: 0.85;">
                     <!-- Partners Academic -->
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" alt="Swiss UMEF"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/swissumef_logo.png" alt="Swiss UMEF"
                         style="height: 48px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
                     <img src="https://www.collegedeparis.fr/wp-content/uploads/2021/06/cdp-formation-continue.png"
                         alt="College de Paris" style="height: 40px; width: auto; object-fit: contain;" loading="lazy"
@@ -7772,6 +7817,7 @@
                 background-size: 24px 24px;
                 overflow: hidden;
             }
+
             .testimonials-title {
                 text-align: center;
                 font-size: 2rem;
@@ -7780,6 +7826,7 @@
                 margin-bottom: 40px;
                 letter-spacing: -0.02em;
             }
+
             .testi-carousel-container {
                 position: relative;
                 max-width: 1200px;
@@ -7789,17 +7836,22 @@
                 align-items: center;
                 justify-content: center;
             }
+
             .testi-carousel-track-wrapper {
                 overflow: hidden;
                 width: 100%;
-                padding: 40px 0 80px 0; /* Expanded bottom padding so active card shadow is not cut off */
-                margin-bottom: -40px; /* Compensate layout space */
+                padding: 40px 0 80px 0;
+                /* Expanded bottom padding so active card shadow is not cut off */
+                margin-bottom: -40px;
+                /* Compensate layout space */
             }
+
             .testi-carousel-track {
                 display: flex;
                 transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
                 gap: 30px;
             }
+
             .testi-carousel-slide {
                 flex: 0 0 calc(33.333% - 20px);
                 transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
@@ -7807,28 +7859,31 @@
                 transform: scale(0.9);
                 cursor: pointer;
             }
+
             .testi-carousel-slide.active {
                 opacity: 1;
                 transform: scale(1.05);
                 z-index: 10;
             }
+
             @media (max-width: 992px) {
                 .testi-carousel-slide {
                     flex: 0 0 calc(50% - 15px);
                 }
             }
+
             @media (max-width: 600px) {
                 .testi-carousel-slide {
                     flex: 0 0 100%;
                 }
             }
-            
+
             /* ideas_quote custom overrides */
             .ideas_quote_item {
                 background: #ffffff;
                 border: 1px solid #e2e8f0;
                 border-radius: 20px !important;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
                 padding: 30px;
                 display: flex;
                 flex-direction: column;
@@ -7837,6 +7892,7 @@
                 position: relative;
                 transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             }
+
             .testi-carousel-slide.active.ideas_quote_item {
                 box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08);
                 border-color: rgba(171, 14, 0, 0.15);
@@ -7849,21 +7905,24 @@
                 gap: 16px;
                 margin-bottom: 16px;
             }
+
             .ideas_quote_info img {
                 width: 70px;
                 height: 70px;
                 border-radius: 50% !important;
                 object-fit: cover;
                 border: 2px solid #fff;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
                 flex-shrink: 0;
             }
-            .ideas_quote_info > div {
+
+            .ideas_quote_info>div {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 text-align: left;
             }
+
             .ideas_quote_info p {
                 font-size: 1.05rem;
                 font-weight: 700;
@@ -7872,6 +7931,7 @@
                 line-height: 1.2;
                 text-align: left;
             }
+
             .ideas_quote_info span {
                 font-size: 0.72rem;
                 color: #64748b;
@@ -7883,6 +7943,7 @@
                 overflow: hidden;
                 text-align: left;
             }
+
             .ideas_star {
                 color: #f59e0b;
                 font-size: 0.75rem;
@@ -7891,6 +7952,7 @@
                 margin-top: 4px;
                 justify-content: flex-start;
             }
+
             .ideas_quote_detail {
                 font-size: 0.92rem;
                 color: #475569;
@@ -7902,6 +7964,7 @@
                 margin-top: auto;
                 text-align: left;
             }
+
             .ideas_quote_detail i.fa-quote-left {
                 position: absolute;
                 left: 0;
@@ -7924,28 +7987,33 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
                 transition: all 0.3s ease;
                 color: #475569;
                 z-index: 15;
             }
+
             .testi-carousel-btn:hover {
                 background: #ab0e00;
                 color: #ffffff;
                 border-color: #ab0e00;
             }
+
             .testi-carousel-btn.prev {
                 left: -10px;
             }
+
             .testi-carousel-btn.next {
                 right: -10px;
             }
+
             .testi-carousel-dots {
                 display: flex;
                 justify-content: center;
                 gap: 8px;
                 margin-top: 24px;
             }
+
             .testi-dot {
                 width: 10px;
                 height: 10px;
@@ -7956,6 +8024,7 @@
                 padding: 0;
                 transition: all 0.3s ease;
             }
+
             .testi-dot.active {
                 background: #ab0e00;
                 width: 24px;
@@ -7963,13 +8032,14 @@
             }
         </style>
 
-        <section class="testimonials-section" id="cam-nhan-hoc-vien" aria-label="Student Testimonials" style="display: block !important;">
+        <section class="testimonials-section" id="cam-nhan-hoc-vien" aria-label="Student Testimonials"
+            style="display: block !important;">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 16px;">
                     <span class="section-label">Student Testimonials</span>
                 </div>
                 <h2 class="testimonials-title">What Our Students Say</h2>
-                
+
                 <!-- Student Social Proof List & Counter -->
                 <div class="hero-social-proof"
                     style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 30px;">
@@ -7995,11 +8065,11 @@
                                 alt="Learner 5" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/177.webp"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/177.webp"
                                 alt="Learner 6" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 6; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/178.webp"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/178.webp"
                                 alt="Learner 7" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; z-index: 7; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
@@ -8014,149 +8084,189 @@
                         Graduates have completed international programs with IDEAS
                     </p>
                 </div>
-                
+
                 <div class="testi-carousel-container">
                     <button class="testi-carousel-btn prev" aria-label="Previous slide">
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
-                    
+
                     <div class="testi-carousel-track-wrapper">
                         <div class="ideas_quote_inner testi-carousel-track">
                             <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/175.webp" alt="Duong Thi Van Giang">
-                                <div>
-                                  <p>Duong Thi Van Giang</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>Executive MBA (Switzerland) – Executive MBA UMEF</span>
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/175.webp"
+                                        alt="Duong Thi Van Giang">
+                                    <div>
+                                        <p>Duong Thi Van Giang</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>Executive MBA (Switzerland) – Executive MBA UMEF</span>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> Studying for a Master's degree helps me systematize my thinking about business and entrepreneurship, not only daring to do but also knowing how to do it right and sustainably.
-                              </div>
-                            </div>
-                        
-                            <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/178.webp" alt="Nguyen Thai Chau">
-                                <div>
-                                  <p>Nguyen Thai Chau</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>Executive MBA (Switzerland) – Executive MBA UMEF</span>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> Studying for a Master's degree helps me
+                                    systematize my thinking about business and entrepreneurship, not only daring to do
+                                    but also knowing how to do it right and sustainably.
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> At this stage of my career, learning to me is a journey to improve capacity and update new knowledge, not just for a degree.
-                              </div>
                             </div>
 
                             <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg" alt="Nguyen Thanh Binh">
-                                <div>
-                                  <p>Nguyen Thanh Binh</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>DBA (France) – Director of IT &amp; Environment Institute</span>
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/178.webp"
+                                        alt="Nguyen Thai Chau">
+                                    <div>
+                                        <p>Nguyen Thai Chau</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>Executive MBA (Switzerland) – Executive MBA UMEF</span>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> Thank you for the enthusiastic support and day-and-night dedication of the IDEAS team, helping me successfully achieve my Doctoral degree - the highest academic level.
-                              </div>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> At this stage of my career, learning to me is
+                                    a journey to improve capacity and update new knowledge, not just for a degree.
+                                </div>
                             </div>
-                        
+
                             <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg" alt="Nguyen Huynh Phuong">
-                                <div>
-                                  <p>Nguyen Huynh Phuong</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>Global MBA (France) – Unit Manager, Hanwha Life Vietnam</span>
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg"
+                                        alt="Nguyen Thanh Binh">
+                                    <div>
+                                        <p>Nguyen Thanh Binh</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>DBA (France) – Director of IT &amp; Environment Institute</span>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> For online learning, choose a trusted partner like IDEAS. Be open to sharing challenges with instructors to receive the most practical suggestions and solutions.
-                              </div>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> Thank you for the enthusiastic support and
+                                    day-and-night dedication of the IDEAS team, helping me successfully achieve my
+                                    Doctoral degree - the highest academic level.
+                                </div>
                             </div>
-                        
+
                             <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg" alt="Nguyen Thi Ha Mien">
-                                <div>
-                                  <p>Nguyen Thi Ha Mien</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>Global MBA (France) – Deputy Project Manager</span>
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg"
+                                        alt="Nguyen Huynh Phuong">
+                                    <div>
+                                        <p>Nguyen Huynh Phuong</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>Global MBA (France) – Unit Manager, Hanwha Life Vietnam</span>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> The online program is highly flexible. The 24/7 academic support from IDEAS helped me submit assignments on time and balance my continuous schedule.
-                              </div>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> For online learning, choose a trusted partner
+                                    like IDEAS. Be open to sharing challenges with instructors to receive the most
+                                    practical suggestions and solutions.
+                                </div>
                             </div>
-                        
+
                             <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg" alt="Le Ngoc Thuong">
-                                <div>
-                                  <p>Le Ngoc Thuong</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>Executive MBA (Switzerland) – Commercial Operations Head, Boehringer Ingelheim</span>
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg"
+                                        alt="Nguyen Thi Ha Mien">
+                                    <div>
+                                        <p>Nguyen Thi Ha Mien</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>Global MBA (France) – Deputy Project Manager</span>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> The program connected me with classmates across industries to share valuable experiences. Thanks to IDEAS' 24/7 support, I successfully balanced my studies and career.
-                              </div>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> The online program is highly flexible. The
+                                    24/7 academic support from IDEAS helped me submit assignments on time and balance my
+                                    continuous schedule.
+                                </div>
                             </div>
-                        
+
                             <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2.jpg" alt="Le Chi Thanh">
-                                <div>
-                                  <p>Le Chi Thanh</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>DBA (France) – Channel Business Manager, Leica Biosystems Indochina</span>
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg"
+                                        alt="Le Ngoc Thuong">
+                                    <div>
+                                        <p>Le Ngoc Thuong</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>Executive MBA (Switzerland) – Commercial Operations Head, Boehringer
+                                            Ingelheim</span>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> My online journey from MBA to DBA was always accompanied by IDEAS. This was the perfect choice to balance work and family. Deepest thanks to the IDEAS support team.
-                              </div>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> The program connected me with classmates
+                                    across industries to share valuable experiences. Thanks to IDEAS' 24/7 support, I
+                                    successfully balanced my studies and career.
+                                </div>
                             </div>
-                        
+
                             <div class="ideas_quote_item testi-carousel-slide">
-                              <div class="ideas_quote_info">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/chu_hoang_thai.jpg" alt="Chu Hoang Thai">
-                                <div>
-                                  <p>Chu Hoang Thai</p>
-                                  <div class="ideas_star">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                  </div>
-                                  <span>Executive MBA (Switzerland) – Department Director, Regent Phu Quoc</span>
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2.jpg"
+                                        alt="Le Chi Thanh">
+                                    <div>
+                                        <p>Le Chi Thanh</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>DBA (France) – Channel Business Manager, Leica Biosystems Indochina</span>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="ideas_quote_detail">
-                                <i class="fa-solid fa-quote-left"></i> Studying EMBA Swiss UMEF through IDEAS was a great choice to work and study with reasonable costs. The greatest value is the high-quality networking.
-                              </div>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> My online journey from MBA to DBA was always
+                                    accompanied by IDEAS. This was the perfect choice to balance work and family.
+                                    Deepest thanks to the IDEAS support team.
+                                </div>
+                            </div>
+
+                            <div class="ideas_quote_item testi-carousel-slide">
+                                <div class="ideas_quote_info">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/chu_hoang_thai.jpg"
+                                        alt="Chu Hoang Thai">
+                                    <div>
+                                        <p>Chu Hoang Thai</p>
+                                        <div class="ideas_star">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                                class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span>Executive MBA (Switzerland) – Department Director, Regent Phu Quoc</span>
+                                    </div>
+                                </div>
+                                <div class="ideas_quote_detail">
+                                    <i class="fa-solid fa-quote-left"></i> Studying EMBA Swiss UMEF through IDEAS was a
+                                    great choice to work and study with reasonable costs. The greatest value is the
+                                    high-quality networking.
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <button class="testi-carousel-btn next" aria-label="Next slide">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
                 </div>
-                
+
                 <div class="testi-carousel-dots"></div>
             </div>
         </section>
@@ -8167,30 +8277,30 @@
                 if (!track) return;
                 const originalSlides = Array.from(track.querySelectorAll(".testi-carousel-slide"));
                 if (originalSlides.length === 0) return;
-                
+
                 const nextBtn = document.querySelector(".testi-carousel-btn.next");
                 const prevBtn = document.querySelector(".testi-carousel-btn.prev");
                 const dotsContainer = document.querySelector(".testi-carousel-dots");
 
                 // Clone count: 3 is ideal to cover the visible viewport width (showing 3 cards)
                 const cloneCount = 3;
-                
+
                 // Clone first 3 and last 3 slides
                 const firstClones = originalSlides.slice(0, cloneCount).map(el => el.cloneNode(true));
                 const lastClones = originalSlides.slice(-cloneCount).map(el => el.cloneNode(true));
-                
+
                 firstClones.forEach(clone => clone.classList.add("cloned"));
                 lastClones.forEach(clone => clone.classList.add("cloned"));
-                
+
                 // Append first clones and prepend last clones
                 firstClones.forEach(clone => track.appendChild(clone));
                 lastClones.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
-                
+
                 const allSlides = Array.from(track.querySelectorAll(".testi-carousel-slide"));
-                
+
                 // Center card active initially (index 1 of original slides)
-                let currentIndex = 1; 
-                
+                let currentIndex = 1;
+
                 // Clear and create dots
                 dotsContainer.innerHTML = "";
                 originalSlides.forEach((_, idx) => {
@@ -8205,7 +8315,7 @@
                     });
                 });
                 const dots = Array.from(dotsContainer.querySelectorAll(".testi-dot"));
-                
+
                 allSlides.forEach((slide, idx) => {
                     slide.addEventListener("click", () => {
                         let targetOriginalIdx = (idx - cloneCount + originalSlides.length) % originalSlides.length;
@@ -8220,17 +8330,17 @@
                     const gap = 30;
                     const parentWidth = track.parentElement.offsetWidth;
                     const domIndex = currentIndex + cloneCount;
-                    
+
                     const offset = - (domIndex * (slideWidth + gap)) + (parentWidth / 2) - (slideWidth / 2);
-                    
+
                     if (useTransition) {
                         track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
                     } else {
                         track.style.transition = "none";
                     }
-                    
+
                     track.style.transform = `translateX(${offset}px)`;
-                    
+
                     allSlides.forEach((slide, idx) => {
                         if (idx === domIndex) {
                             slide.classList.add("active");
@@ -8238,7 +8348,7 @@
                             slide.classList.remove("active");
                         }
                     });
-                    
+
                     dots.forEach((dot, idx) => {
                         if (idx === currentIndex) {
                             dot.classList.add("active");
@@ -8246,7 +8356,7 @@
                             dot.classList.remove("active");
                         }
                     });
-                    
+
                     if (prevBtn) {
                         prevBtn.style.opacity = "1";
                         prevBtn.style.pointerEvents = "auto";
@@ -8256,7 +8366,7 @@
                         nextBtn.style.pointerEvents = "auto";
                     }
                 }
-                
+
                 function goToSlide(index) {
                     if (isTransitioning) return;
                     currentIndex = index;
@@ -8285,7 +8395,7 @@
 
                 track.addEventListener("transitionend", () => {
                     isTransitioning = false;
-                    
+
                     if (currentIndex >= originalSlides.length) {
                         track.style.transition = "none";
                         currentIndex = 0;
@@ -8368,7 +8478,7 @@
                     sectionContainer.addEventListener("mouseenter", stopAutoSlide);
                     sectionContainer.addEventListener("mouseleave", startAutoSlide);
                 }
-                
+
                 // Testimonial Counter Animation
                 function startTestiCounter() {
                     const counter = document.getElementById("testimonial-student-counter");
@@ -8390,7 +8500,7 @@
                         }
                     }, stepTime);
                 }
-                
+
                 setTimeout(() => {
                     updateSlidePosition();
                     startTestiCounter();
@@ -8400,273 +8510,289 @@
             });
         </script>
 
-        <section
-
-
-
-        <!-- ══════════════════════════════════════════
-         SECTION 10: CTA FORM
-        ══════════════════════════════════════════ -->
-        <section class="cta-section" id="dang-ky" aria-labelledby="cta-headline">
-            <div class="cta-bg">
-                <div class="cta-orb cta-orb-1"></div>
-                <div class="cta-orb cta-orb-2"></div>
-            </div>
-            <div class="container cta-inner">
-
-                <div class="cta-left reveal-up">
-                    <h2 class="cta-headline" id="cta-headline" style="margin-top: 20px;">
-                        START YOUR GLOBAL<br />
-                        <span class="cta-gradient underline-highlight">ACADEMIC JOURNEY</span>
-                    </h2>
-
-                    <ul class="cta-checklist" aria-label="Key program highlights" style="margin-top: 32px;">
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </div>
-                            <p>Study Encouragement scholarship covering up to <strong>90% of first-year tuition</strong>
-                            </p>
-                        </li>
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </div>
-                            <p>Flexible online studies with a <strong>dedicated weekend academic ecosystem</strong></p>
-                        </li>
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </div>
-                            <p>Global networking community with a <strong>prestigious international degree</strong></p>
-                        </li>
-                    </ul>
-
-                    <!-- Nested FAQ Accordion -->
-                    <div class="faq-accordion">
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>Is this a joint training program between IDEAS and the universities?</span>
-                                <i class="fa-solid fa-chevron-down"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">No.<br><br>When you begin a program, you
-                                    will officially be a student of the university. IDEAS does not directly partner in
-                                    training with the schools but acts as a bridge, advising unit, and academic support
-                                    partner throughout your studies and graduation.<br><br>IDEAS helps students access
-                                    official programs from international universities while supporting them throughout
-                                    their academic journey and resolving any arising issues to ensure a smooth and
-                                    effective learning experience.<br><br>All programs, degrees, and certificates are
-                                    issued directly by the universities and can be consular legalized by the Vietnamese
-                                    Embassy in the country where the university is headquartered.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>Does IDEAS organize offline classes, or only support online learning?</span>
-                                <i class="fa-solid fa-chevron-down"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">The programs supported by IDEAS are
-                                    primarily implemented online, offering students flexibility in time and location.
-                                    However, IDEAS also regularly organizes in-person workshops, special seminars, and
-                                    networking events for students to connect and learn.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>How are IDEAS's special seminars structured, and are they mandatory?</span>
-                                <i class="fa-solid fa-chevron-down"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">IDEAS special seminars are organized
-                                    online and led by lecturers or industry experts. The content focuses on reinforcing
-                                    knowledge, addressing questions, and helping students understand the courses deeply
-                                    as well as apply them in practice. These seminars are optional and do not affect
-                                    program grades. However, IDEAS encourages students to participate to enhance their
-                                    knowledge and achieve better academic results. It is also a great opportunity for
-                                    students to exchange directly with experts, network with peers who are managers and
-                                    leaders in the same cohort, and receive valuable practical insights.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>Does the graduation degree of the online international program state
-                                    'Online'?</span>
-                                <i class="fa-solid fa-chevron-down"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">No. The graduation degree is completely
-                                    identical in form, content, and legal value to the program taught on campus in
-                                    Geneva, Switzerland by Swiss UMEF.</p>
-                            </div>
-                        </div>
-
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>Can the online international degree be consular legalized?</span>
-                                <i class="fa-solid fa-chevron-down"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">Absolutely. The degree is consular
-                                    legalized by the Swiss Ministry of Foreign Affairs / the Vietnamese Embassy in
-                                    Switzerland, ensuring full international legal validity.</p>
-                            </div>
-                        </div>
-                    </div>
+        <section <!-- ══════════════════════════════════════════ SECTION 10: CTA FORM
+            ══════════════════════════════════════════ -->
+            <section class="cta-section" id="dang-ky" aria-labelledby="cta-headline">
+                <div class="cta-bg">
+                    <div class="cta-orb cta-orb-1"></div>
+                    <div class="cta-orb cta-orb-2"></div>
                 </div>
+                <div class="container cta-inner">
 
-                <div class="cta-form-wrapper reveal-up" id="form-wrapper">
-                    <div class="form-header">
-                        <div class="form-header-badge">GET COUNSELING 1:1</div>
-                        <h3>Begin Your Journey<br><span class="gradient-text">To International Degrees</span></h3>
-                        <p>IDEAS advisors will contact you within 24 working hours to advise the most suitable pathway
-                            and scholarship.</p>
-                    </div>
+                    <div class="cta-left reveal-up">
+                        <h2 class="cta-headline" id="cta-headline" style="margin-top: 20px;">
+                            START YOUR GLOBAL<br />
+                            <span class="cta-gradient underline-highlight">ACADEMIC JOURNEY</span>
+                        </h2>
 
-                    <form class="cta-form" id="cta-form" novalidate aria-label="Counseling registration form">
-                        <div class="form-group">
-                            <label for="fullname">Full Name *</label>
-                            <input type="text" id="fullname" name="fullname" placeholder="Your full name" required
-                                autocomplete="name" aria-required="true" />
-                            <span class="form-error" id="fullname-error" role="alert"></span>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Phone number" required
-                                    autocomplete="tel" aria-required="true" />
-                                <span class="form-error" id="phone-error" role="alert"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" placeholder="Email address" required
-                                    autocomplete="email" aria-required="true" />
-                                <span class="form-error" id="email-error" role="alert"></span>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="education">Current Education</label>
-                                <select id="education" name="education">
-                                    <option value="">-- Select education --</option>
-                                    <option value="highschool">High School</option>
-                                    <option value="college">Diploma / College</option>
-                                    <option value="bachelor">Bachelor's Degree</option>
-                                    <option value="master">Master's Degree</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="english">English level</label>
-                                <select id="english" name="english">
-                                    <option value="">-- Select level --</option>
-                                    <option value="below-5.0">Below IELTS 5.0</option>
-                                    <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
-                                    <option value="6.0-plus">IELTS 6.0+</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="interest-program">Interested Program</label>
-                            <select id="interest-program" name="program">
-                                <option value="">-- Select program --</option>
-                                <option value="Suitable Roadmap">Suitable Roadmap</option>
-                                <option value="Full BBA">Bachelor of Business Administration (BBA) (Bachelor 3 years)</option>
-                                <option value="Top-up BBA">Top-up BBA (Bachelor 1 year)</option>
-                                <option value="Online MBA">Online MBA (Master's)</option>
-                                <option value="Executive MBA">Executive MBA (Executive Master's)</option>
-                                <option value="MBA in AI">MBA in AI (Applied AI Master's)</option>
-                                <option value="MSc AI">MSc AI (Applied AI Master of Science)</option>
-                                <option value="Dual DBA">Dual DBA (Dual Doctorate)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message"
-                                placeholder="E.g., I would like to check conditions for the 90% scholarship..."
-                                rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn"
-                            aria-label="Submit registration">
-                            <span id="btn-text">Submit Registration</span>
-                            <svg class="btn-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </button>
-
-                        <div class="modal-zalo-section">
-                            <div class="modal-zalo-divider">
-                                <span>Or choose to contact us</span>
-                            </div>
-                            <div class="modal-zalo-row">
-                                <a href="https://zalo.me/3857867121882640296" target="_blank" class="modal-zalo-btn"
-                                    aria-label="Chat Zalo with IDEAS">
-                                    <img decoding="async"
-                                        src="https://cdn-1.webcatalog.io/catalog/zalo-oa/zalo-oa-icon-unplated.png?v=1780553812775"
-                                        alt="Zalo Logo IDEAS" width="20" height="20" loading="lazy">
-                                    <span>Chat Zalo with IDEAS</span>
-                                </a>
-                                <button type="button" class="modal-booking-btn" id="cta-open-booking"
-                                    aria-label="Book a consultation">
-                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        <ul class="cta-checklist" aria-label="Key program highlights" style="margin-top: 32px;">
+                            <li>
+                                <div class="cta-check-v2">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
-                                    <span>Book Consultation</span>
+                                </div>
+                                <p>Study Encouragement scholarship covering up to <strong>90% of first-year
+                                        tuition</strong>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="cta-check-v2">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <p>Flexible online studies with a <strong>dedicated weekend academic ecosystem</strong>
+                                </p>
+                            </li>
+                            <li>
+                                <div class="cta-check-v2">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <p>Global networking community with a <strong>prestigious international degree</strong>
+                                </p>
+                            </li>
+                        </ul>
+
+                        <!-- Nested FAQ Accordion -->
+                        <div class="faq-accordion">
+                            <div class="faq-item">
+                                <button type="button" class="faq-trigger"
+                                    style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
+                                    <span>Is this a joint training program between IDEAS and the universities?</span>
+                                    <i class="fa-solid fa-chevron-down"
+                                        style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
                                 </button>
+                                <div class="faq-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 16px; margin-top: 0;">No.<br><br>When you begin a program,
+                                        you
+                                        will officially be a student of the university. IDEAS does not directly partner
+                                        in
+                                        training with the schools but acts as a bridge, advising unit, and academic
+                                        support
+                                        partner throughout your studies and graduation.<br><br>IDEAS helps students
+                                        access
+                                        official programs from international universities while supporting them
+                                        throughout
+                                        their academic journey and resolving any arising issues to ensure a smooth and
+                                        effective learning experience.<br><br>All programs, degrees, and certificates
+                                        are
+                                        issued directly by the universities and can be consular legalized by the
+                                        Vietnamese
+                                        Embassy in the country where the university is headquartered.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-trigger"
+                                    style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
+                                    <span>Does IDEAS organize offline classes, or only support online learning?</span>
+                                    <i class="fa-solid fa-chevron-down"
+                                        style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
+                                </button>
+                                <div class="faq-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 16px; margin-top: 0;">The programs supported by IDEAS are
+                                        primarily implemented online, offering students flexibility in time and
+                                        location.
+                                        However, IDEAS also regularly organizes in-person workshops, special seminars,
+                                        and
+                                        networking events for students to connect and learn.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-trigger"
+                                    style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
+                                    <span>How are IDEAS's special seminars structured, and are they mandatory?</span>
+                                    <i class="fa-solid fa-chevron-down"
+                                        style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
+                                </button>
+                                <div class="faq-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 16px; margin-top: 0;">IDEAS special seminars are organized
+                                        online and led by lecturers or industry experts. The content focuses on
+                                        reinforcing
+                                        knowledge, addressing questions, and helping students understand the courses
+                                        deeply
+                                        as well as apply them in practice. These seminars are optional and do not affect
+                                        program grades. However, IDEAS encourages students to participate to enhance
+                                        their
+                                        knowledge and achieve better academic results. It is also a great opportunity
+                                        for
+                                        students to exchange directly with experts, network with peers who are managers
+                                        and
+                                        leaders in the same cohort, and receive valuable practical insights.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-trigger"
+                                    style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
+                                    <span>Does the graduation degree of the online international program state
+                                        'Online'?</span>
+                                    <i class="fa-solid fa-chevron-down"
+                                        style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
+                                </button>
+                                <div class="faq-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 16px; margin-top: 0;">No. The graduation degree is
+                                        completely
+                                        identical in form, content, and legal value to the program taught on campus in
+                                        Geneva, Switzerland by Swiss UMEF.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button type="button" class="faq-trigger"
+                                    style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
+                                    <span>Can the online international degree be consular legalized?</span>
+                                    <i class="fa-solid fa-chevron-down"
+                                        style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"></i>
+                                </button>
+                                <div class="faq-content"
+                                    style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
+                                    <p style="margin-bottom: 16px; margin-top: 0;">Absolutely. The degree is consular
+                                        legalized by the Swiss Ministry of Foreign Affairs / the Vietnamese Embassy in
+                                        Switzerland, ensuring full international legal validity.</p>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <p class="form-privacy">We protect your privacy</p>
-                    </form>
+                    <div class="cta-form-wrapper reveal-up" id="form-wrapper">
+                        <div class="form-header">
+                            <div class="form-header-badge">GET COUNSELING 1:1</div>
+                            <h3>Begin Your Journey<br><span class="gradient-text">To International Degrees</span></h3>
+                            <p>IDEAS advisors will contact you within 24 working hours to advise the most suitable
+                                pathway
+                                and scholarship.</p>
+                        </div>
 
-                    <!-- Success State -->
-                    <div class="form-success" id="form-success" role="status" aria-live="polite" style="display:none;">
-                        <div class="success-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                aria-hidden="true">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                                <polyline points="22 4 12 14.01 9 11.01" />
-                            </svg></div>
-                        <h3>Registered Successfully!</h3>
-                        <p>An IDEAS advisor will contact you within <strong>24 working hours</strong>.</p>
-                        <p>In the meantime, feel free to explore details of our academic ecosystem.</p>
+                        <form class="cta-form" id="cta-form" novalidate aria-label="Counseling registration form">
+                            <div class="form-group">
+                                <label for="fullname">Full Name *</label>
+                                <input type="text" id="fullname" name="fullname" placeholder="Your full name" required
+                                    autocomplete="name" aria-required="true" />
+                                <span class="form-error" id="fullname-error" role="alert"></span>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Phone number" required
+                                        autocomplete="tel" aria-required="true" />
+                                    <span class="form-error" id="phone-error" role="alert"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" placeholder="Email address" required
+                                        autocomplete="email" aria-required="true" />
+                                    <span class="form-error" id="email-error" role="alert"></span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="education">Current Education</label>
+                                    <select id="education" name="education">
+                                        <option value="">-- Select education --</option>
+                                        <option value="highschool">High School</option>
+                                        <option value="college">Diploma / College</option>
+                                        <option value="bachelor">Bachelor's Degree</option>
+                                        <option value="master">Master's Degree</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="english">English level</label>
+                                    <select id="english" name="english">
+                                        <option value="">-- Select level --</option>
+                                        <option value="below-5.0">Below IELTS 5.0</option>
+                                        <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
+                                        <option value="6.0-plus">IELTS 6.0+</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="interest-program">Interested Program</label>
+                                <select id="interest-program" name="program">
+                                    <option value="">-- Select program --</option>
+                                    <option value="Suitable Roadmap">Suitable Roadmap</option>
+                                    <option value="Full BBA">Bachelor of Business Administration (BBA) (Bachelor 3
+                                        years)</option>
+                                    <option value="Top-up BBA">Top-up BBA (Bachelor 1 year)</option>
+                                    <option value="Online MBA">Online MBA (Master's)</option>
+                                    <option value="Executive MBA">Executive MBA (Executive Master's)</option>
+                                    <option value="MBA in AI">MBA in AI (Applied AI Master's)</option>
+                                    <option value="MSc AI">MSc AI (Applied AI Master of Science)</option>
+                                    <option value="Dual DBA">Dual DBA (Dual Doctorate)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message"
+                                    placeholder="E.g., I would like to check conditions for the 90% scholarship..."
+                                    rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn"
+                                aria-label="Submit registration">
+                                <span id="btn-text">Submit Registration</span>
+                                <svg class="btn-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <div class="modal-zalo-section">
+                                <div class="modal-zalo-divider">
+                                    <span>Or choose to contact us</span>
+                                </div>
+                                <div class="modal-zalo-row">
+                                    <a href="https://zalo.me/3857867121882640296" target="_blank" class="modal-zalo-btn"
+                                        aria-label="Chat Zalo with IDEAS">
+                                        <img decoding="async"
+                                            src="https://cdn-1.webcatalog.io/catalog/zalo-oa/zalo-oa-icon-unplated.png?v=1780553812775"
+                                            alt="Zalo Logo IDEAS" width="20" height="20" loading="lazy">
+                                        <span>Chat Zalo with IDEAS</span>
+                                    </a>
+                                    <button type="button" class="modal-booking-btn" id="cta-open-booking"
+                                        aria-label="Book a consultation">
+                                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        <span>Book Consultation</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <p class="form-privacy">We protect your privacy</p>
+                        </form>
+
+                        <!-- Success State -->
+                        <div class="form-success" id="form-success" role="status" aria-live="polite"
+                            style="display:none;">
+                            <div class="success-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                    <polyline points="22 4 12 14.01 9 11.01" />
+                                </svg></div>
+                            <h3>Registered Successfully!</h3>
+                            <p>An IDEAS advisor will contact you within <strong>24 working hours</strong>.</p>
+                            <p>In the meantime, feel free to explore details of our academic ecosystem.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
     </main>
 
@@ -8675,7 +8801,7 @@
         <div class="footer-columns-wrap">
             <!-- Column 1: Logo, description, social icons -->
             <div class="footer-col-about">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" alt="IDEAS Logo"
+                <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp" alt="IDEAS Logo"
                     class="footer-logo-ideas" loading="eager" fetchpriority="high" decoding="async" />
                 <p class="footer-desc-ideas">IDEAS – Professional academic support for international Bachelor's,
                     Master's, and Doctoral programs, empowering career growth and global integration.</p>
@@ -8788,7 +8914,8 @@
     </footer>
 
     <!-- Video Modal -->
-    <div id="video-modal" class="video-modal" role="dialog" aria-modal="true" aria-label="Introduction Video" style="display: none;">
+    <div id="video-modal" class="video-modal" role="dialog" aria-modal="true" aria-label="Introduction Video"
+        style="display: none;">
         <div class="video-modal-overlay" onclick="closeVideoModal()"></div>
         <div class="video-modal-container">
             <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video">✕</button>
@@ -9088,7 +9215,8 @@
                                 <div class="bk-program-inner">
                                     <div class="bk-program-icon"
                                         style="display:flex; align-items:center; justify-content:center; color:#ab0e00;">
-                                        <i class="fa-solid fa-book-open"></i></div>
+                                        <i class="fa-solid fa-book-open"></i>
+                                    </div>
                                     <div class="bk-program-name">Global Online BBA</div>
                                     <div class="bk-program-desc">Bachelor of Business Administration</div>
                                 </div>
@@ -9098,7 +9226,8 @@
                                 <div class="bk-program-inner">
                                     <div class="bk-program-icon"
                                         style="display:flex; align-items:center; justify-content:center; color:#ab0e00;">
-                                        <i class="fa-solid fa-graduation-cap"></i></div>
+                                        <i class="fa-solid fa-graduation-cap"></i>
+                                    </div>
                                     <div class="bk-program-name">Master's Programs</div>
                                     <div class="bk-program-desc">MBA / EMBA / MBA in AI / MSc AI</div>
                                 </div>
@@ -9108,7 +9237,8 @@
                                 <div class="bk-program-inner">
                                     <div class="bk-program-icon"
                                         style="display:flex; align-items:center; justify-content:center; color:#ab0e00;">
-                                        <i class="fa-solid fa-lightbulb"></i></div>
+                                        <i class="fa-solid fa-lightbulb"></i>
+                                    </div>
                                     <div class="bk-program-name">Undecided</div>
                                     <div class="bk-program-desc">Need consultation to choose</div>
                                 </div>
@@ -9365,7 +9495,7 @@
         </div>
     </div>
 
-    <script src="../common-assets/js/script.min.js?v=1781075600000" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1781152874" defer></script>
     <script src="../common-assets/js/booking-modal.min.js?v=1781075600000" defer></script>
 
     <!-- ═══════════════════════════════════════
@@ -9761,72 +9891,82 @@
                 font-size: 0.88rem;
             }
         }
-    
-  
-  /* Custom Mobile Overrides */
-  @media (max-width: 768px) {
-    .hero-social-proof {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      text-align: center !important;
-      gap: 8px !important;
-    }
-    .hero-social-proof p {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-      gap: 4px !important;
-      margin: 0 !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-    .hero-social-proof p strong {
-      color: #ab0e00 !important;
-      font-size: 1.4rem !important;
-      display: inline-flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-    .hero-social-proof p strong span {
-      display: inline-block !important;
-      min-width: auto !important;
-      text-align: center !important;
-    }
-    .hero-social-proof > div:not(.avatars) {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      gap: 4px !important;
-    }
-    .hero-social-proof > div:not(.avatars) strong {
-      color: #ab0e00 !important;
-      font-size: 1.4rem !important;
-      display: inline-flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-    .hero-social-proof > div:not(.avatars) strong span {
-      display: inline-block !important;
-      min-width: auto !important;
-      text-align: center !important;
-    }
-    .umef-video-carousel-container {
-      padding: 0 16px !important;
-    }
-    .umef-video-carousel-btn {
-      display: none !important;
-    }
-    .hero-scroll-indicator, .scroll-down-indicator {
-      display: none !important;
-    }
-  }
-</style>
+
+
+        /* Custom Mobile Overrides */
+        @media (max-width: 768px) {
+            .hero-social-proof {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                gap: 8px !important;
+            }
+
+            .hero-social-proof p {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 4px !important;
+                margin: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .hero-social-proof p strong {
+                color: #ab0e00 !important;
+                font-size: 1.4rem !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .hero-social-proof p strong span {
+                display: inline-block !important;
+                min-width: auto !important;
+                text-align: center !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 4px !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) strong {
+                color: #ab0e00 !important;
+                font-size: 1.4rem !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) strong span {
+                display: inline-block !important;
+                min-width: auto !important;
+                text-align: center !important;
+            }
+
+            .umef-video-carousel-container {
+                padding: 0 16px !important;
+            }
+
+            .umef-video-carousel-btn {
+                display: none !important;
+            }
+
+            .hero-scroll-indicator,
+            .scroll-down-indicator {
+                display: none !important;
+            }
+        }
+    </style>
 
     <!-- Quiz Popup HTML -->
     <div class="qz-overlay" id="qz-overlay" role="dialog" aria-modal="true" aria-labelledby="qz-modal-title">
@@ -10275,7 +10415,7 @@
             <div class="tour-modal-content" id="tour-modal-scrollable" data-lenis-prevent>
                 <!-- Hero Header -->
                 <div class="tour-modal-hero">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
+                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/ltnumef10202501.webp"
                         class="tour-hero-img" alt="Hero" decoding="async" loading="lazy" />
                     <div class="tour-hero-overlay"></div>
                     <div class="tour-hero-text">
@@ -10296,7 +10436,7 @@
                         </div>
                         <div class="tour-narrative-media">
                             <div class="tour-media-frame"><img
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/hcmc.webp" alt=""
+                                    src="https://ideas.edu.vn/wp-content/new_public/data_imgs/hcmc.webp" alt=""
                                     loading="lazy" decoding="async" /></div>
                         </div>
                     </div>
@@ -10562,7 +10702,7 @@
                         </div>
 
                         <div class="tour-footer-logos">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/swissumef_logo.png"
                                 alt="Swiss UMEF" decoding="async" loading="lazy" />
                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas.png" alt="IDEAS"
                                 loading="lazy" decoding="async" />
@@ -10786,11 +10926,11 @@
             const isEnglish = window.location.pathname.indexOf('/en/') !== -1;
 
             const progImages = {
-                'IDEAS01': 'https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp',
+                'IDEAS01': 'https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp',
                 'IDEAS07': 'https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp',
                 'IDEAS02': 'https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp',
                 'IDEAS03': 'https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp',
-                'IDEAS05': 'https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp',
+                'IDEAS05': 'https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp',
                 'IDEAS04': 'https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp',
                 'IDEAS06': 'https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp'
             };
@@ -11143,26 +11283,26 @@
             if (!track) return;
             const originalSlides = Array.from(track.querySelectorAll(".talk-video-carousel-slide"));
             if (originalSlides.length === 0) return;
-            
+
             const nextBtn = document.querySelector(".talk-video-carousel-btn.next");
             const prevBtn = document.querySelector(".talk-video-carousel-btn.prev");
             const dotsContainer = document.querySelector(".talk-video-carousel-dots");
 
             const cloneCount = 3;
-            
+
             const firstClones = originalSlides.slice(0, cloneCount).map(el => el.cloneNode(true));
             const lastClones = originalSlides.slice(-cloneCount).map(el => el.cloneNode(true));
-            
+
             firstClones.forEach(clone => clone.classList.add("cloned"));
             lastClones.forEach(clone => clone.classList.add("cloned"));
-            
+
             firstClones.forEach(clone => track.appendChild(clone));
             lastClones.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
-            
+
             const allSlides = Array.from(track.querySelectorAll(".talk-video-carousel-slide"));
-            
-            let currentIndex = 1; 
-            
+
+            let currentIndex = 1;
+
             dotsContainer.innerHTML = "";
             originalSlides.forEach((_, idx) => {
                 const dot = document.createElement("button");
@@ -11176,7 +11316,7 @@
                 });
             });
             const dots = Array.from(dotsContainer.querySelectorAll(".talk-video-dot"));
-            
+
             allSlides.forEach((slide, idx) => {
                 slide.addEventListener("click", () => {
                     let targetOriginalIdx = (idx - cloneCount + originalSlides.length) % originalSlides.length;
@@ -11191,17 +11331,17 @@
                 const gap = 30;
                 const parentWidth = track.parentElement.offsetWidth;
                 const domIndex = currentIndex + cloneCount;
-                
+
                 const offset = - (domIndex * (slideWidth + gap)) + (parentWidth / 2) - (slideWidth / 2);
-                
+
                 if (useTransition) {
                     track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
                 } else {
                     track.style.transition = "none";
                 }
-                
+
                 track.style.transform = `translateX(${offset}px)`;
-                
+
                 allSlides.forEach((slide, idx) => {
                     if (idx === domIndex) {
                         slide.classList.add("active");
@@ -11209,7 +11349,7 @@
                         slide.classList.remove("active");
                     }
                 });
-                
+
                 dots.forEach((dot, idx) => {
                     if (idx === currentIndex) {
                         dot.classList.add("active");
@@ -11218,7 +11358,7 @@
                     }
                 });
             }
-            
+
             function goToSlide(index) {
                 if (isTransitioning) return;
                 currentIndex = index;
@@ -11244,7 +11384,7 @@
 
             track.addEventListener("transitionend", () => {
                 isTransitioning = false;
-                
+
                 if (currentIndex >= originalSlides.length) {
                     track.style.transition = "none";
                     currentIndex = 0;
@@ -11301,10 +11441,10 @@
                 isDragging = false;
                 const endX = getPositionX(event);
                 const diffX = endX - startX;
-                
+
                 const slideWidth = originalSlides[0].offsetWidth;
                 const threshold = slideWidth / 4;
-                
+
                 if (Math.abs(diffX) > threshold) {
                     if (diffX > 0) {
                         handlePrev();
@@ -11317,8 +11457,8 @@
             }
 
             function getPositionX(event) {
-                    return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
-                }
+                return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
+            }
         });
     </script>
 

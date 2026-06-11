@@ -52,7 +52,8 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+    <link rel="preload" fetchpriority="high" as="image"
+        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Lịch sử hình thành và phát triển IDEAS | <?php bloginfo('name'); ?></title>
     <?php endif; ?>
@@ -611,7 +612,7 @@ ob_start(function ($html) {
                         </li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
+                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/swissumef_logo.png"
                             alt="Swiss UMEF" />
                         <img class="wlogo"
                             src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.png"

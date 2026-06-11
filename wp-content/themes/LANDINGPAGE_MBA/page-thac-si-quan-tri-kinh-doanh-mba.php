@@ -2911,13 +2911,7 @@ ob_start(function ($html) {
                             <span class="acc-sac-badge-dot"></span>
                             Công nhận chính thức từ Hội đồng Giáo dục
                         </div>
-                        <h3 class="acc-sac-name">Swiss Accreditation Council <a
-                                href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html"
-                                target="_blank"
-                                style="color: inherit; font-size: 0.75em; margin-left: 8px; display: inline-flex; align-items: center; transition: color 0.3s;"
-                                onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
-                                title="Xem bài viết về Kiểm định SAC"><i
-                                    class="fa-solid fa-up-right-from-square"></i></a></h3>
+                        <h3 class="acc-sac-name"><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html" target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="Xem bài viết về Kiểm định SAC">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></h3>
                         <p class="acc-sac-tagline">Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư
                             thục
                             <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy
@@ -2947,23 +2941,17 @@ ob_start(function ($html) {
                     </div>
                     <div class="acc-sac-right">
                         <div class="acc-sac-logo-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.png"
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/SAC_LOGO.png"
                                 class="acc-sac-logo-img" alt="Logo SAC - Swiss Accreditation Council" loading="lazy"
                                 decoding="async" />
-                            <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp" target="_blank"
+                            <a href="https://ideas.edu.vn/wp-content/new_public/data_imgs/sac.webp" target="_blank"
                                 rel="noopener noreferrer" class="acc-sac-cert-link">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
+                                <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/sac.webp"
                                     class="acc-sac-cert-img" alt="Chứng nhận SAC - Swiss Accreditation Council"
                                     loading="lazy" decoding="async" />
                             </a>
                             <div class="acc-sac-logo-text">
-                                <h4>Swiss Accreditation Council <a
-                                        href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html"
-                                        target="_blank"
-                                        style="color: inherit; font-size: 0.75em; margin-left: 8px; display: inline-flex; align-items: center; transition: color 0.3s;"
-                                        onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
-                                        title="Xem bài viết về Kiểm định SAC"><i
-                                            class="fa-solid fa-up-right-from-square"></i></a></h4>
+                                <h4><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html" target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="Xem bài viết về Kiểm định SAC">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></h4>
                                 <p>Cơ quan kiểm định liên bang Thụy Sĩ<br>Công nhận chính thức từ Hội đồng Giáo dục Thụy
                                     Sĩ
                                 </p>
@@ -2981,7 +2969,7 @@ ob_start(function ($html) {
                                     dục Thụy Sĩ</span></li>
                         </ul>
                         <div class="acc-sac-cert-strip">
-                            <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
+                            <a href="https://ideas.edu.vn/wp-content/new_public/data_imgs/sac.webp"
                                 class="acc-cert-thumb lightbox-trigger" target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-file-certificate"></i>
                                 Chứng nhận kiểm định SAC
@@ -3002,20 +2990,23 @@ ob_start(function ($html) {
                 <!-- Other accreditations grid -->
                 <div class="acc-grid">
                     <div class="acc-card">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
-                            alt="CHEA" loading="lazy" decoding="async" />
+                        <img class="acc-card-logo"
+                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png" alt="CHEA"
+                            loading="lazy" decoding="async" />
                         <h4>CHEA – Hoa Kỳ</h4>
                         <p>Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế</p>
                     </div>
                     <div class="acc-card">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
-                            alt="IACBE" loading="lazy" decoding="async" />
+                        <img class="acc-card-logo"
+                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png" alt="IACBE"
+                            loading="lazy" decoding="async" />
                         <h4>IACBE – Business Education</h4>
                         <p>Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA</p>
                     </div>
                     <div class="acc-card">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
-                            alt="ACBSP" loading="lazy" decoding="async" />
+                        <img class="acc-card-logo"
+                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png" alt="ACBSP"
+                            loading="lazy" decoding="async" />
                         <h4>ACBSP – Business Schools</h4>
                         <p>Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức</p>
                     </div>
@@ -3027,8 +3018,9 @@ ob_start(function ($html) {
                         </p>
                     </div>
                     <div class="acc-card">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
-                            alt="EduQua" loading="lazy" decoding="async" />
+                        <img class="acc-card-logo"
+                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png" alt="EduQua"
+                            loading="lazy" decoding="async" />
                         <h4>SGS – EduQua</h4>
                         <p>Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo
                             dục
@@ -3192,8 +3184,8 @@ ob_start(function ($html) {
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp" alt="MBA in AI"
-                                loading="lazy" decoding="async" />
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
+                                alt="MBA in AI" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
                             <h3 class="prog-card-title-new">MBA in AI</h3>
@@ -3278,7 +3270,7 @@ ob_start(function ($html) {
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
                                 alt="Global Online BBA" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">

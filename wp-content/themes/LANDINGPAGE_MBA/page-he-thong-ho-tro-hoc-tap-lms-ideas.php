@@ -39,7 +39,8 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
+    <link rel="preload" fetchpriority="high" as="image"
+        href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS</title>
     <?php endif; ?>
@@ -719,7 +720,7 @@ ob_start(function ($html) {
             gap: 16px;
             margin-bottom: 30px;
         }
-        
+
         .btn-video-watch {
             background: rgba(255, 255, 255, 0.06);
             border: 2.5px solid rgba(255, 255, 255, 0.25);
@@ -734,13 +735,13 @@ ob_start(function ($html) {
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .btn-video-watch i {
             color: #ef4444;
             font-size: 1.15rem;
             transition: transform 0.3s ease;
         }
-        
+
         .btn-video-watch:hover {
             background: rgba(255, 255, 255, 0.12);
             border-color: rgba(255, 255, 255, 0.65);
@@ -761,6 +762,7 @@ ob_start(function ($html) {
                 margin-right: auto;
                 gap: 12px;
             }
+
             .btn-video-watch {
                 justify-content: center;
             }
@@ -959,7 +961,7 @@ ob_start(function ($html) {
                 </ul>
             </div>
             <div class="platform-visual">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/maxresdefault.webp"
+                <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/maxresdefault.webp"
                     alt="Cengage library access" loading="lazy" />
             </div>
         </div>
@@ -1024,97 +1026,97 @@ ob_start(function ($html) {
             const form = document.getElementById('lms-register-form');
             if (form) {
                 form.addEventListener('submit', async (e) => {
-                e.preventDefault();
+                    e.preventDefault();
 
-                const nameInput = form.querySelector('input[placeholder*="Họ và tên"]') || form.querySelector('input[type="text"]');
-                const phoneInput = form.querySelector('input[placeholder*="Số điện thoại"]') || form.querySelector('input[type="tel"]');
-                const emailInput = form.querySelector('input[placeholder*="email"]') || form.querySelector('input[type="email"]');
+                    const nameInput = form.querySelector('input[placeholder*="Họ và tên"]') || form.querySelector('input[type="text"]');
+                    const phoneInput = form.querySelector('input[placeholder*="Số điện thoại"]') || form.querySelector('input[type="tel"]');
+                    const emailInput = form.querySelector('input[placeholder*="email"]') || form.querySelector('input[type="email"]');
 
-                const name = nameInput ? nameInput.value.trim() : '';
-                const phone = phoneInput ? phoneInput.value.trim() : '';
-                const email = emailInput ? emailInput.value.trim() : '';
+                    const name = nameInput ? nameInput.value.trim() : '';
+                    const phone = phoneInput ? phoneInput.value.trim() : '';
+                    const email = emailInput ? emailInput.value.trim() : '';
 
-                if (!name || !phone || !email) {
-                    alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
-                    return;
-                }
-
-                // Prepare submission payloads
-                const payload = {
-                    form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
-                    email: email,
-                    firstName: name,
-                    phoneNumber: phone,
-                    time_dat_lich: "",
-                    note_dat_lich: "Đăng ký từ trang LMS",
-                    chuong_trinh_dat_lich: "LMS Moodle và Hệ sinh thái"
-                };
-
-                const webhookPayload = {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    source: "Landing_LMS_Ecosystem",
-                    type: "lms_page_registration",
-                    tieng_anh: "",
-                    hoc_van: "",
-                    time_dat_lich: "",
-                    chuong_trinh: "LMS Moodle và Hệ sinh thái",
-                    nhu_cau: "Đăng ký tư vấn và cấp tài khoản LMS Moodle / Trợ lý AI"
-                };
-
-                // Bind UTMs
-                const urlParams = new URLSearchParams(window.location.search);
-                const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
-                utmParams.forEach(param => {
-                    const val = urlParams.get(param);
-                    if (val) webhookPayload[param] = val;
-                });
-
-                // Trigger request
-                const btn = form.querySelector('button[type="submit"]');
-                if (btn) {
-                    btn.disabled = true;
-                    btn.style.opacity = '0.7';
-                }
-
-                try {
-                    const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(payload)
-                    });
-
-                    const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(webhookPayload)
-                    });
-
-                    await Promise.allSettled([p1, p2]);
-
-                    // Google Ads Conversion tracking
-                    if (typeof window.gtag === 'function') {
-                        window.gtag('event', 'conversion', {
-                            'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
-                            'value': 1.0,
-                            'currency': 'USD'
-                        });
+                    if (!name || !phone || !email) {
+                        alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
+                        return;
                     }
 
-                    // Handle success
-                    alert('Đăng ký thành công! Chuyên viên học vụ sẽ liên hệ hỗ trợ bạn trong vòng 24h làm việc.');
-                    form.reset();
-                } catch (error) {
-                    console.error('Submission error:', error);
-                    alert('Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
-                } finally {
+                    // Prepare submission payloads
+                    const payload = {
+                        form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
+                        email: email,
+                        firstName: name,
+                        phoneNumber: phone,
+                        time_dat_lich: "",
+                        note_dat_lich: "Đăng ký từ trang LMS",
+                        chuong_trinh_dat_lich: "LMS Moodle và Hệ sinh thái"
+                    };
+
+                    const webhookPayload = {
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        source: "Landing_LMS_Ecosystem",
+                        type: "lms_page_registration",
+                        tieng_anh: "",
+                        hoc_van: "",
+                        time_dat_lich: "",
+                        chuong_trinh: "LMS Moodle và Hệ sinh thái",
+                        nhu_cau: "Đăng ký tư vấn và cấp tài khoản LMS Moodle / Trợ lý AI"
+                    };
+
+                    // Bind UTMs
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
+                    utmParams.forEach(param => {
+                        const val = urlParams.get(param);
+                        if (val) webhookPayload[param] = val;
+                    });
+
+                    // Trigger request
+                    const btn = form.querySelector('button[type="submit"]');
                     if (btn) {
-                        btn.disabled = false;
-                        btn.style.opacity = '1';
+                        btn.disabled = true;
+                        btn.style.opacity = '0.7';
                     }
-                }
-            });
+
+                    try {
+                        const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(webhookPayload)
+                        });
+
+                        await Promise.allSettled([p1, p2]);
+
+                        // Google Ads Conversion tracking
+                        if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'conversion', {
+                                'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                                'value': 1.0,
+                                'currency': 'USD'
+                            });
+                        }
+
+                        // Handle success
+                        alert('Đăng ký thành công! Chuyên viên học vụ sẽ liên hệ hỗ trợ bạn trong vòng 24h làm việc.');
+                        form.reset();
+                    } catch (error) {
+                        console.error('Submission error:', error);
+                        alert('Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
+                    } finally {
+                        if (btn) {
+                            btn.disabled = false;
+                            btn.style.opacity = '1';
+                        }
+                    }
+                });
             }
 
             // Ecosystem Card Slider Dots logic on Mobile
@@ -1171,7 +1173,8 @@ ob_start(function ($html) {
         defer></script>
 
     <!-- Video Modal -->
-    <div id="video-modal" class="video-modal" role="dialog" aria-modal="true" aria-label="Video hướng dẫn" style="display: none;">
+    <div id="video-modal" class="video-modal" role="dialog" aria-modal="true" aria-label="Video hướng dẫn"
+        style="display: none;">
         <div class="video-modal-overlay"></div>
         <div class="video-modal-container">
             <button class="video-modal-close" aria-label="Đóng video">✕</button>
