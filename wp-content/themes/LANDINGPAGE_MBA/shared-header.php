@@ -110,10 +110,10 @@
                             </a>
                             <a href="/fullbba" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Full BBA"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Cử nhân quản trị kinh doanh Quốc tế"
                                     loading="lazy" decoding="async" />
                                 <div class="item-content">
-                                    <div class="item-title">Full BBA</div>
+                                    <div class="item-title">Cử nhân quản trị kinh doanh Quốc tế</div>
                                     <div class="item-desc">Cử nhân QTKD Thụy Sĩ</div>
                                 </div>
                             </a>
@@ -308,9 +308,9 @@
                     </a>
                     <a href="/fullbba" class="mobile-dropdown-item">
                         <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
-                            alt="Full BBA" loading="lazy" decoding="async" />
+                            alt="Cử nhân quản trị kinh doanh Quốc tế" loading="lazy" decoding="async" />
                         <div class="item-content">
-                            <div class="item-title">Full BBA</div>
+                            <div class="item-title">Cử nhân quản trị kinh doanh Quốc tế</div>
                             <div class="item-desc">Cử nhân QTKD Thụy Sĩ</div>
                         </div>
                     </a>

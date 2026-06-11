@@ -34,7 +34,7 @@ const IDEAS_DATA = {
             ],
             level: "BBA",
             avatar: "https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png",
-            name: "Full BBA",
+            name: "Bachelor of Business Administration (BBA)",
             highlight: [
                 "100% Online",
                 "BBA",
@@ -64,7 +64,7 @@ const IDEAS_DATA = {
                     ]
                 }
             ],
-            description: "The 3-year Bachelor of Business Administration (Full BBA) program from Swiss UMEF provides students with a comprehensive foundation of international business knowledge, expanding career opportunities and laying a solid foundation for higher studies.",
+            description: "The 3-year Bachelor of Business Administration program from Swiss UMEF provides students with a comprehensive foundation of international business knowledge, expanding career opportunities and laying a solid foundation for higher studies.",
             degree: {
                 front: "https://ideas.edu.vn/wp-content/uploads/2026/06/bba-degree.webp",
                 back: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0002.webp"
@@ -221,7 +221,7 @@ const IDEAS_DATA = {
             accreditation: [
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef1.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png", link: "#" },
             ],
@@ -370,7 +370,7 @@ const IDEAS_DATA = {
             accreditation: [
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef1.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png", link: "#" },
             ],
@@ -510,7 +510,7 @@ const IDEAS_DATA = {
             accreditation: [
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef1.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png", link: "#" },
             ],
@@ -877,7 +877,7 @@ const IDEAS_DATA = {
             accreditation: [
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef1.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png", link: "#" },
             ],

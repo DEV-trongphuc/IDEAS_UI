@@ -2779,7 +2779,7 @@ ob_start(function ($html) {
                 <div class="acc-sac-left">
                     <div class="acc-sac-badge">
                         <span class="acc-sac-badge-dot"></span>
-                        Kiểm định chính thức Thụy Sĩ
+                        Công nhận chính thức từ Hội đồng Giáo dục
                     </div>
                     <h3 class="acc-sac-name">Swiss Accreditation Council</h3>
                     <p class="acc-sac-tagline">Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục
@@ -3112,10 +3112,10 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-avatar-container">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
-                                alt="Full BBA" loading="lazy" decoding="async" />
+                                alt="Cử nhân quản trị kinh doanh Quốc tế" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
-                            <h3 class="prog-card-title-new">Full BBA</h3>
+                            <h3 class="prog-card-title-new">Cử nhân quản trị kinh doanh Quốc tế</h3>
                             <div class="prog-card-subtitle-new">Cử nhân Quản trị Kinh doanh</div>
                         </div>
                         <p class="prog-card-desc-new">

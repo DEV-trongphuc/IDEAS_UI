@@ -791,7 +791,7 @@ ob_start(function ($html) {
                                     <option value="Master AI">Master AI (Thạc sĩ Khoa học AI)</option>
                                     <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
                                     <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
-                                    <option value="Full BBA">Full BBA (Cử nhân chính quy Thụy Sĩ)</option>
+                                    <option value="Full BBA">Cử nhân quản trị kinh doanh Quốc tế</option>
                                     <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
                                     <option value="Cần tư vấn chung">Cần tư vấn chung (Học bổng & Tuyển sinh)</option>
                                 </select>

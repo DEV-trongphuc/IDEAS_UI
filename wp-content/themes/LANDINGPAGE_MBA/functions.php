@@ -5071,7 +5071,7 @@ Lưu ý quan trọng:
 
 Danh sách chương trình đào tạo của Viện IDEAS và URL tương ứng:
 - Top-up BBA (Liên thông Cử nhân 12 tháng) - URL: /bba
-- Full BBA (Cử nhân QTKD Thụy Sĩ) - URL: /fullbba
+- Cử nhân quản trị kinh doanh Quốc tế - URL: /fullbba
 - Online MBA (Thạc sĩ QTKD Trực tuyến) - URL: /mba
 - Executive MBA (Thạc sĩ điều hành QTKD) - URL: /emba
 - MBA in AI (Thạc sĩ QTKD Ứng dụng AI) - URL: /mbainai

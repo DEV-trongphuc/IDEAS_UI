@@ -61,7 +61,7 @@ define('IDEAS_FOOTER_RENDERED', true);
             <div class="footer-col-links">
                 <h3>Các Chương Trình</h3>
                 <a href="/bba">Cử nhân Top-up BBA</a>
-                <a href="/fullbba">Cử nhân Full BBA</a>
+                <a href="/fullbba">Cử nhân quản trị kinh doanh Quốc tế</a>
                 <a href="/mba">Thạc sĩ Online MBA</a>
                 <a href="/emba">Thạc sĩ Executive MBA</a>
                 <a href="/mbainai">Thạc sĩ MBA in AI</a>

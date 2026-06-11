@@ -554,7 +554,7 @@ ob_start(function ($html) {
                         <a href="/fullbba" class="sitemap-link">
                             <i class="fa-solid fa-award"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Full BBA</span>
+                                <span class="sitemap-item-title">Cử nhân quản trị kinh doanh Quốc tế</span>
                                 <span class="sitemap-item-desc">Cử nhân Quản trị Kinh doanh chính quy Thụy Sĩ</span>
                             </div>
                         </a>

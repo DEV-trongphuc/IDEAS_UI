@@ -34,7 +34,7 @@ const IDEAS_DATA = {
             ],
             level: "BBA",
             avatar: "https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png",
-            name: "Full BBA",
+            name: "Cử nhân quản trị kinh doanh Quốc tế",
             highlight: [
                 "Trực tuyến 100%",
                 "BBA ",
@@ -45,7 +45,7 @@ const IDEAS_DATA = {
             country: "Thụy Sĩ",
             subjects: "<b>180</b> ECTS - <b>34</b> môn học và Luận văn tốt nghiệp",
             duration: "36 tháng",
-            tagline: "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva đạt Kiểm định Liên bang cao nhất Thụy Sĩ (SAC) - công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ",
+            tagline: "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - Công nhận chính thức bởi hội đồng giáo dục Thụy Sĩ",
             link: "/fullbba",
             experience: [
                 "Tốt nghiệp THPT hoặc tương đương",
@@ -64,7 +64,7 @@ const IDEAS_DATA = {
                     ]
                 }
             ],
-            description: "Chương trình Cử nhân Quản trị Kinh doanh (Full BBA) 3 năm từ Swiss UMEF mang đến cho người học nền tảng kiến thức kinh doanh toàn diện chuẩn quốc tế, giúp mở rộng cơ hội sự nghiệp và chuẩn bị vững chắc cho bậc học cao hơn.",
+            description: "Chương trình Cử nhân quản trị kinh doanh Quốc tế 3 năm từ Swiss UMEF mang đến cho người học nền tảng kiến thức kinh doanh toàn diện chuẩn quốc tế, giúp mở rộng cơ hội sự nghiệp và chuẩn bị vững chắc cho bậc học cao hơn.",
             degree: {
                 front: "https://ideas.edu.vn/wp-content/uploads/2026/06/bba-degree.webp",
                 back: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0002.webp"
@@ -181,7 +181,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva đạt Kiểm định Liên bang cao nhất Thụy Sĩ (SAC) - công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ",
+                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - Công nhận chính thức bởi hội đồng giáo dục Thụy Sĩ",
             link: "/mba",
             description:
                 "Chương trình MBA Online phù hợp cho người bận rộn. Bằng cấp được công nhận bởi Hội đồng Kiểm định Liên bang Thụy Sĩ, đảm bảo giá trị quốc tế, mang đến kiến thức thực tiễn và cập nhật theo xu hướng kinh doanh toàn cầu.",
@@ -282,7 +282,7 @@ const IDEAS_DATA = {
                 },
                 {
                     name: "Kiểm định trường UMEF",
-                    logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png",
+                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp",
                     link: "#",
                 },
                 {
@@ -478,7 +478,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva đạt Kiểm định Liên bang cao nhất Thụy Sĩ (SAC) - công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ",
+                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - Công nhận chính thức bởi hội đồng giáo dục Thụy Sĩ",
             link: "/emba",
             description:
                 "Chương trình EMBA Online phù hợp cho người bận rộn. Bằng cấp được công nhận bởi Hội đồng Kiểm định Liên bang Thụy Sĩ, đảm bảo giá trị quốc tế, mang đến kiến thức thực tiễn và cập nhật theo xu hướng kinh doanh toàn cầu.",
@@ -578,7 +578,7 @@ const IDEAS_DATA = {
                 },
                 {
                     name: "Công nhận và Kiểm định",
-                    logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png",
+                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp",
                     link: "#",
                 },
                 {
@@ -747,7 +747,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva đạt Kiểm định Liên bang cao nhất Thụy Sĩ (SAC) - công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ",
+                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - Công nhận chính thức bởi hội đồng giáo dục Thụy Sĩ",
             link: "/mscai",
             description:
                 "Chương trình AI được thiết kế đặc biệt cho những nhà quản trị kinh doanh, những người muốn khám phá và khai thác tiềm năng của trí tuệ nhân tạo trong quản lý doanh nghiệp",
@@ -838,7 +838,7 @@ const IDEAS_DATA = {
                 },
                 {
                     name: "Công nhận và Kiểm định",
-                    logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png",
+                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp",
                     link: "#",
                 },
                 {
@@ -1001,7 +1001,7 @@ const IDEAS_DATA = {
             country: "Thụy Sĩ",
             subjects: "<b>90</b> ECTS - <b>12</b> môn học và Luận văn tốt nghiệp",
             duration: "16-18 tháng",
-            tagline: "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva đạt Kiểm định Liên bang cao nhất Thụy Sĩ (SAC) - công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ",
+            tagline: "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - Công nhận chính thức bởi hội đồng giáo dục Thụy Sĩ",
             link: "/mbainai",
             experience: [
                 "Tốt nghiệp Đại học",
@@ -1343,7 +1343,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva đạt Kiểm định Liên bang cao nhất Thụy Sĩ (SAC) - công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ",
+                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - Công nhận chính thức bởi hội đồng giáo dục Thụy Sĩ",
             link: "/bba",
             description:
                 "Chương trình liên thông lên Cử nhân trong 1 năm đào tạo liên thông trực tuyến Cử nhân Quản trị Kinh doanh, đừng để tấm bằng Cử nhân là rào cản trước mọi con đường thăng tiến của bạn!",
@@ -1441,7 +1441,7 @@ const IDEAS_DATA = {
                 },
                 {
                     name: "Công nhận và Kiểm định",
-                    logo: "https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png",
+                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp",
                     link: "#",
                 },
                 {

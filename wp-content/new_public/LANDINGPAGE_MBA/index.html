@@ -126,8 +126,8 @@
         },
         {
           "@type": "Course",
-          "name": "Chương trình Cử nhân Quản trị Kinh doanh (Full BBA) – Swiss UMEF",
-          "description": "Chương trình đào tạo Cử nhân Quản trị Kinh doanh (Full BBA) trực tuyến 100% do Swiss UMEF Thụy Sĩ cấp bằng, thời gian 36 tháng, 180 ECTS.",
+          "name": "Chương trình Cử nhân Quản trị Kinh doanh (Cử nhân quản trị kinh doanh Quốc tế) – Swiss UMEF",
+          "description": "Chương trình đào tạo Cử nhân Quản trị Kinh doanh (Cử nhân quản trị kinh doanh Quốc tế) trực tuyến 100% do Swiss UMEF Thụy Sĩ cấp bằng, thời gian 36 tháng, 180 ECTS.",
           "courseCode": "Full-BBA",
           "educationalLevel": "Undergraduate",
           "inLanguage": "vi",
@@ -3325,124 +3325,124 @@
                 display: none !important;
             }
         }
-    
-            /* ── IDEAS Talk Videos Slider (3D Carousel Loop) ── */
-            .talk-video-carousel-container {
-                position: relative;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 2;
-            }
 
-            .talk-video-carousel-track-wrapper {
-                overflow: hidden;
-                width: 100%;
-                padding: 30px 0 50px 0;
-                margin-bottom: -30px;
-            }
+        /* ── IDEAS Talk Videos Slider (3D Carousel Loop) ── */
+        .talk-video-carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
 
-            .talk-video-carousel-track {
-                display: flex;
-                flex-wrap: nowrap !important;
-                transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-                gap: 30px;
-                will-change: transform;
-            }
+        .talk-video-carousel-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 30px 0 50px 0;
+            margin-bottom: -30px;
+        }
 
+        .talk-video-carousel-track {
+            display: flex;
+            flex-wrap: nowrap !important;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            gap: 30px;
+            will-change: transform;
+        }
+
+        .talk-video-carousel-slide {
+            flex: 0 0 calc(33.333% - 20px) !important;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+            opacity: 0.45 !important;
+            transform: scale(0.9) !important;
+            cursor: pointer !important;
+            width: auto !important;
+            scroll-snap-align: none !important;
+        }
+
+        .talk-video-carousel-slide.active {
+            opacity: 1 !important;
+            transform: scale(1.04) !important;
+            z-index: 10 !important;
+        }
+
+        @media (max-width: 992px) {
             .talk-video-carousel-slide {
-                flex: 0 0 calc(33.333% - 20px) !important;
-                transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
-                opacity: 0.45 !important;
-                transform: scale(0.9) !important;
-                cursor: pointer !important;
-                width: auto !important;
-                scroll-snap-align: none !important;
+                flex: 0 0 calc(50% - 15px) !important;
             }
+        }
 
-            .talk-video-carousel-slide.active {
-                opacity: 1 !important;
-                transform: scale(1.04) !important;
-                z-index: 10 !important;
+        @media (max-width: 600px) {
+            .talk-video-carousel-slide {
+                flex: 0 0 100% !important;
             }
+        }
 
-            @media (max-width: 992px) {
-                .talk-video-carousel-slide {
-                    flex: 0 0 calc(50% - 15px) !important;
-                }
-            }
+        /* Video Carousel Buttons */
+        .talk-video-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            color: #ffffff;
+            z-index: 15;
+        }
 
-            @media (max-width: 600px) {
-                .talk-video-carousel-slide {
-                    flex: 0 0 100% !important;
-                }
-            }
+        .talk-video-carousel-btn:hover {
+            background: var(--clr-primary, #ab0e00);
+            color: #ffffff;
+            border-color: var(--clr-primary, #ab0e00);
+            box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
+        }
 
-            /* Video Carousel Buttons */
-            .talk-video-carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.15);
-                width: 48px;
-                height: 48px;
-                border-radius: 50%;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-                color: #ffffff;
-                z-index: 15;
-            }
+        .talk-video-carousel-btn.prev {
+            left: -10px;
+        }
 
-            .talk-video-carousel-btn:hover {
-                background: var(--clr-primary, #ab0e00);
-                color: #ffffff;
-                border-color: var(--clr-primary, #ab0e00);
-                box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
-            }
+        .talk-video-carousel-btn.next {
+            right: -10px;
+        }
 
-            .talk-video-carousel-btn.prev {
-                left: -10px;
-            }
+        /* Video Carousel Dots */
+        .talk-video-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            position: relative;
+            z-index: 3;
+        }
 
-            .talk-video-carousel-btn.next {
-                right: -10px;
-            }
+        .talk-video-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
 
-            /* Video Carousel Dots */
-            .talk-video-carousel-dots {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: 24px;
-                position: relative;
-                z-index: 3;
-            }
-
-            .talk-video-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.25);
-                border: none;
-                cursor: pointer;
-                padding: 0;
-                transition: all 0.3s ease;
-            }
-
-            .talk-video-dot.active {
-                background: var(--clr-primary, #ab0e00);
-                width: 24px;
-                border-radius: 5px;
-            }
-</style>
+        .talk-video-dot.active {
+            background: var(--clr-primary, #ab0e00);
+            width: 24px;
+            border-radius: 5px;
+        }
+    </style>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" />
@@ -5398,6 +5398,7 @@
                 opacity: 0;
                 filter: blur(15px) brightness(0.8);
             }
+
             100% {
                 opacity: 1;
             }
@@ -5809,10 +5810,10 @@
                             </a>
                             <a href="/fullbba" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Full BBA"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Cử nhân quản trị kinh doanh Quốc tế"
                                     loading="lazy" decoding="async" />
                                 <div class="item-content">
-                                    <div class="item-title">Full BBA</div>
+                                    <div class="item-title">Cử nhân quản trị kinh doanh Quốc tế</div>
                                     <div class="item-desc">Cử nhân QTKD Thụy Sĩ</div>
                                 </div>
                             </a>
@@ -6062,9 +6063,9 @@
                     </a>
                     <a href="/fullbba" class="mobile-dropdown-item">
                         <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
-                            alt="Full BBA" loading="lazy" decoding="async" />
+                            alt="Cử nhân quản trị kinh doanh Quốc tế" loading="lazy" decoding="async" />
                         <div class="item-content">
-                            <div class="item-title">Full BBA</div>
+                            <div class="item-title">Cử nhân quản trị kinh doanh Quốc tế</div>
                             <div class="item-desc">Cử nhân QTKD Thụy Sĩ</div>
                         </div>
                     </a>
@@ -6187,57 +6188,56 @@
                 <div class="hero-orb hero-orb-2"></div>
                 <div class="hero-grid"></div>
             </div>
-                <!-- Flying Avatars Background Layer -->
-                <div class="hero-flying-avatars"
-                    style="position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible;">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/169.webp" alt="Flying Student 1"
-                        class="flying-avatar fa-1" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg" alt="Flying Student 2"
-                        class="flying-avatar fa-2" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/171.webp" alt="Flying Student 3"
-                        class="flying-avatar fa-3" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg" alt="Flying Student 4"
-                        class="flying-avatar fa-4" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/173.webp" alt="Flying Student 5"
-                        class="flying-avatar fa-5" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg" alt="Flying Student 6"
-                        class="flying-avatar fa-6" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/175.webp" alt="Flying Student 7"
-                        class="flying-avatar fa-7" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg" alt="Flying Student 8"
-                        class="flying-avatar fa-8" decoding="async" />
-                </div>
+            <!-- Flying Avatars Background Layer -->
+            <div class="hero-flying-avatars"
+                style="position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible;">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/169.webp" alt="Flying Student 1"
+                    class="flying-avatar fa-1" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg" alt="Flying Student 2"
+                    class="flying-avatar fa-2" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/171.webp" alt="Flying Student 3"
+                    class="flying-avatar fa-3" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg" alt="Flying Student 4"
+                    class="flying-avatar fa-4" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/173.webp" alt="Flying Student 5"
+                    class="flying-avatar fa-5" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg" alt="Flying Student 6"
+                    class="flying-avatar fa-6" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/175.webp" alt="Flying Student 7"
+                    class="flying-avatar fa-7" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg" alt="Flying Student 8"
+                    class="flying-avatar fa-8" decoding="async" />
+            </div>
 
-                <!-- Floating Photo Cards on Left/Right Empty Spaces -->
-                <div class="floating-photos-container">
-                    <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
-                        class="lightbox-trigger" style="display: contents;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
-                            alt="Floating Card 1" class="floating-photo-card floating-photo-1" loading="lazy"
-                            decoding="async" />
-                    </a>
-                    <a href="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg" class="lightbox-trigger"
-                        style="display: contents;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg" alt="Floating Card 2"
-                            class="floating-photo-card floating-photo-2" loading="lazy" decoding="async" />
-                    </a>
-                    <a href="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.png" class="lightbox-trigger"
-                        style="display: contents;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.png" alt="Floating Card 3"
-                            class="floating-photo-card floating-photo-3" loading="lazy" decoding="async" />
-                    </a>
-                    <a href="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg" class="lightbox-trigger"
-                        style="display: contents;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg"
-                            alt="Floating Card 4" class="floating-photo-card floating-photo-4" loading="lazy"
-                            decoding="async" />
-                    </a>
-                    <a href="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg" class="lightbox-trigger"
-                        style="display: contents;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg" alt="Floating Card 5"
-                            class="floating-photo-card floating-photo-5" loading="lazy" decoding="async" />
-                    </a>
-                </div>
+            <!-- Floating Photo Cards on Left/Right Empty Spaces -->
+            <div class="floating-photos-container">
+                <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp" class="lightbox-trigger"
+                    style="display: contents;">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
+                        alt="Floating Card 1" class="floating-photo-card floating-photo-1" loading="lazy"
+                        decoding="async" />
+                </a>
+                <a href="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg" class="lightbox-trigger"
+                    style="display: contents;">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg" alt="Floating Card 2"
+                        class="floating-photo-card floating-photo-2" loading="lazy" decoding="async" />
+                </a>
+                <a href="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.png" class="lightbox-trigger"
+                    style="display: contents;">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.png" alt="Floating Card 3"
+                        class="floating-photo-card floating-photo-3" loading="lazy" decoding="async" />
+                </a>
+                <a href="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg" class="lightbox-trigger"
+                    style="display: contents;">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg" alt="Floating Card 4"
+                        class="floating-photo-card floating-photo-4" loading="lazy" decoding="async" />
+                </a>
+                <a href="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg" class="lightbox-trigger"
+                    style="display: contents;">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg" alt="Floating Card 5"
+                        class="floating-photo-card floating-photo-5" loading="lazy" decoding="async" />
+                </a>
+            </div>
 
             <div class="container hero-layout-new"
                 style="max-width: 900px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 2; text-align: center;">
@@ -6487,16 +6487,20 @@
                         <div class="ideas_follow_inner">
                             <div class="ideas_follow">
                                 <p>Follow</p>
-                                <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" aria-label="Facebook IDEAS">
+                                <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/"
+                                    aria-label="Facebook IDEAS">
                                     <i class="fa-brands fa-facebook"></i>
                                 </a>
-                                <a target="_blank" href="https://www.youtube.com/c/Vi%E1%BB%87nIDEAS" aria-label="YouTube IDEAS">
+                                <a target="_blank" href="https://www.youtube.com/c/Vi%E1%BB%87nIDEAS"
+                                    aria-label="YouTube IDEAS">
                                     <i class="fa-brands fa-youtube"></i>
                                 </a>
-                                <a target="_blank" href="https://www.linkedin.com/company/ideasinstitute/" aria-label="LinkedIn IDEAS">
+                                <a target="_blank" href="https://www.linkedin.com/company/ideasinstitute/"
+                                    aria-label="LinkedIn IDEAS">
                                     <i class="fa-brands fa-linkedin"></i>
                                 </a>
-                                <a target="_blank" href="https://www.tiktok.com/@ideas_institute" aria-label="TikTok IDEAS">
+                                <a target="_blank" href="https://www.tiktok.com/@ideas_institute"
+                                    aria-label="TikTok IDEAS">
                                     <i class="fa-brands fa-tiktok"></i>
                                 </a>
                                 <a target="_blank" href="https://zalo.me/3857867121882640296" aria-label="Zalo IDEAS">
@@ -6505,7 +6509,8 @@
                                             src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png">
                                     </i>
                                 </a>
-                                <a target="_blank" href="https://www.instagram.com/ideas.edu.vn/" aria-label="Instagram IDEAS">
+                                <a target="_blank" href="https://www.instagram.com/ideas.edu.vn/"
+                                    aria-label="Instagram IDEAS">
                                     <i class="fa-brands fa-square-instagram"></i>
                                 </a>
                             </div>
@@ -6867,7 +6872,7 @@
 
                 <div id="all-programs-container" style="display: none;">
                     <div class="catalog-grid-new" style="margin-top: 36px;">
-                        <!-- Card 1: Full BBA -->
+                        <!-- Card 1: Cử nhân quản trị kinh doanh Quốc tế -->
                         <div class="prog-card-new" id="catalog-card-IDEAS01">
                             <div>
                                 <div class="prog-card-header">
@@ -6879,10 +6884,10 @@
                                 </div>
                                 <div class="prog-avatar-container">
                                     <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
-                                        alt="Full BBA Avatar" loading="lazy" decoding="async" />
+                                        alt="Cử nhân quản trị kinh doanh Quốc tế Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
-                                    <h3 class="prog-card-title-new">Full BBA</h3>
+                                    <h3 class="prog-card-title-new">Cử nhân quản trị kinh doanh Quốc tế</h3>
                                     <div class="prog-card-subtitle-new">Cử nhân Quản trị Kinh doanh</div>
                                 </div>
                                 <p class="prog-card-desc-new">Chương trình đào tạo Cử nhân Quản trị Kinh doanh 3 năm
@@ -7131,8 +7136,7 @@
                         </div>
 
                         <!-- Card 7: Dual DBA -->
-                        <div class="prog-card-new" id="catalog-card-IDEAS06"
-                            style="grid-column: span 1;">
+                        <div class="prog-card-new" id="catalog-card-IDEAS06" style="grid-column: span 1;">
                             <div>
                                 <div class="prog-card-header">
                                     <span class="prog-card-badge">DBA</span>
@@ -7908,7 +7912,7 @@
                         Vượt Rào Cản Quốc Tế<br />
                         <span class="gradient-text">Ứng Dụng AI Trong Học Tập</span>
                     </h2>
-                                        <div class="talk-video-carousel-container">
+                    <div class="talk-video-carousel-container">
                         <button class="talk-video-carousel-btn prev" aria-label="Previous slide">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
@@ -7919,7 +7923,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/CXCDUKsU-0I?si=EUDQfhO6gIZ517bY')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9.png"
-                                            alt="VIBE CODING - Tự tạo ứng dụng bằng AI" loading="lazy" decoding="async" />
+                                            alt="VIBE CODING - Tự tạo ứng dụng bằng AI" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7938,7 +7943,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/n0S6vGsilhs?si=qOu2_jTHYmvj5ppD')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/n0S6vGsilhs/maxresdefault.jpg"
-                                            alt="Giải mã AI - Những phương thức sáng tạo chưa từng được tiết lộ" loading="lazy" decoding="async" />
+                                            alt="Giải mã AI - Những phương thức sáng tạo chưa từng được tiết lộ"
+                                            loading="lazy" decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7957,7 +7963,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/1wyT6IVUCpg?si=Dl66rshN8IoTRKuG')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/1wyT6IVUCpg/maxresdefault.jpg"
-                                            alt="Bảo mật dữ liệu trong thời đại AI: Thách thức và giải pháp" loading="lazy" decoding="async" />
+                                            alt="Bảo mật dữ liệu trong thời đại AI: Thách thức và giải pháp"
+                                            loading="lazy" decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7976,7 +7983,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/mB0mDrgjVNs?si=8OciF14MwQh1w1AF')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/mB0mDrgjVNs/hqdefault.jpg"
-                                            alt="Ứng dụng AI chăm sóc khách hàng đa kênh" loading="lazy" decoding="async" />
+                                            alt="Ứng dụng AI chăm sóc khách hàng đa kênh" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -7995,7 +8003,8 @@
                                     onclick="openVideoModal('https://www.youtube.com/embed/5cogIW22nFI?si=0YF_3H5NX1UTPtr2')">
                                     <div class="video-thumb-wrap">
                                         <img src="https://img.youtube.com/vi/5cogIW22nFI/maxresdefault.jpg"
-                                            alt="Sự Kết Hợp AI & Semiconductor - Xu hướng tương lai" loading="lazy" decoding="async" />
+                                            alt="Sự Kết Hợp AI & Semiconductor - Xu hướng tương lai" loading="lazy"
+                                            decoding="async" />
                                         <div class="play-btn-overlay">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
@@ -8015,9 +8024,9 @@
                         </button>
                     </div>
                     <div class="talk-video-carousel-dots"></div>
-                    </div>
                 </div>
-            </section>
+            </div>
+        </section>
         <!-- ══════════════════════════════════════════
          SECTION 7: TIN TỨC - SỰ KIỆN (WORDPRESS BLOG)
         ══════════════════════════════════════════ -->
@@ -8880,9 +8889,8 @@
                         <p>Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế</p>
                     </div>
                     <div class="acc-card">
-                        <img class="acc-card-logo"
-                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png" alt="IACBE"
-                            loading="lazy" decoding="async" />
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp"
+                            alt="IACBE" loading="lazy" decoding="async" />
                         <h4>IACBE – Business Education</h4>
                         <p>Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA</p>
                     </div>
@@ -9217,7 +9225,8 @@
                                     </div>
                                 </div>
                                 <div class="ideas_quote_detail">
-                                    <i class="fa-solid fa-quote-left"></i> Học Thạc sĩ giúp tôi hệ thống lại tư duy về kinh doanh và khởi nghiệp, không chỉ dám làm mà còn biết làm đúng và bền vững.
+                                    <i class="fa-solid fa-quote-left"></i> Học Thạc sĩ giúp tôi hệ thống lại tư duy về
+                                    kinh doanh và khởi nghiệp, không chỉ dám làm mà còn biết làm đúng và bền vững.
                                 </div>
                             </div>
 
@@ -9236,7 +9245,8 @@
                                     </div>
                                 </div>
                                 <div class="ideas_quote_detail">
-                                    <i class="fa-solid fa-quote-left"></i> Ở giai đoạn này của sự nghiệp, học với tôi là hành trình nâng cao năng lực, cập nhật tri thức mới chứ không vì bằng cấp.
+                                    <i class="fa-solid fa-quote-left"></i> Ở giai đoạn này của sự nghiệp, học với tôi là
+                                    hành trình nâng cao năng lực, cập nhật tri thức mới chứ không vì bằng cấp.
                                 </div>
                             </div>
 
@@ -9383,30 +9393,30 @@
                 if (!track) return;
                 const originalSlides = Array.from(track.querySelectorAll(".testi-carousel-slide"));
                 if (originalSlides.length === 0) return;
-                
+
                 const nextBtn = document.querySelector(".testi-carousel-btn.next");
                 const prevBtn = document.querySelector(".testi-carousel-btn.prev");
                 const dotsContainer = document.querySelector(".testi-carousel-dots");
 
                 // Clone count: 3 is ideal to cover the visible viewport width (showing 3 cards)
                 const cloneCount = 3;
-                
+
                 // Clone first 3 and last 3 slides
                 const firstClones = originalSlides.slice(0, cloneCount).map(el => el.cloneNode(true));
                 const lastClones = originalSlides.slice(-cloneCount).map(el => el.cloneNode(true));
-                
+
                 firstClones.forEach(clone => clone.classList.add("cloned"));
                 lastClones.forEach(clone => clone.classList.add("cloned"));
-                
+
                 // Append first clones and prepend last clones
                 firstClones.forEach(clone => track.appendChild(clone));
                 lastClones.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
-                
+
                 const allSlides = Array.from(track.querySelectorAll(".testi-carousel-slide"));
-                
+
                 // Center card active initially (index 1 of original slides)
-                let currentIndex = 1; 
-                
+                let currentIndex = 1;
+
                 // Clear and create dots
                 dotsContainer.innerHTML = "";
                 originalSlides.forEach((_, idx) => {
@@ -9421,7 +9431,7 @@
                     });
                 });
                 const dots = Array.from(dotsContainer.querySelectorAll(".testi-dot"));
-                
+
                 allSlides.forEach((slide, idx) => {
                     slide.addEventListener("click", () => {
                         let targetOriginalIdx = (idx - cloneCount + originalSlides.length) % originalSlides.length;
@@ -9436,17 +9446,17 @@
                     const gap = 30;
                     const parentWidth = track.parentElement.offsetWidth;
                     const domIndex = currentIndex + cloneCount;
-                    
+
                     const offset = - (domIndex * (slideWidth + gap)) + (parentWidth / 2) - (slideWidth / 2);
-                    
+
                     if (useTransition) {
                         track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
                     } else {
                         track.style.transition = "none";
                     }
-                    
+
                     track.style.transform = `translateX(${offset}px)`;
-                    
+
                     allSlides.forEach((slide, idx) => {
                         if (idx === domIndex) {
                             slide.classList.add("active");
@@ -9454,7 +9464,7 @@
                             slide.classList.remove("active");
                         }
                     });
-                    
+
                     dots.forEach((dot, idx) => {
                         if (idx === currentIndex) {
                             dot.classList.add("active");
@@ -9462,7 +9472,7 @@
                             dot.classList.remove("active");
                         }
                     });
-                    
+
                     if (prevBtn) {
                         prevBtn.style.opacity = "1";
                         prevBtn.style.pointerEvents = "auto";
@@ -9472,7 +9482,7 @@
                         nextBtn.style.pointerEvents = "auto";
                     }
                 }
-                
+
                 function goToSlide(index) {
                     if (isTransitioning) return;
                     currentIndex = index;
@@ -9501,7 +9511,7 @@
 
                 track.addEventListener("transitionend", () => {
                     isTransitioning = false;
-                    
+
                     if (currentIndex >= originalSlides.length) {
                         track.style.transition = "none";
                         currentIndex = 0;
@@ -9891,7 +9901,7 @@
                             <select id="interest-program" name="program">
                                 <option value="">-- Chọn chương trình --</option>
                                 <option value="Lộ trình phù hợp">Lộ trình phù hợp</option>
-                                <option value="Full BBA">Full BBA (Cử nhân 3 năm)</option>
+                                <option value="Full BBA">Cử nhân quản trị kinh doanh Quốc tế (Cử nhân 3 năm)</option>
                                 <option value="Top-up BBA">Top-up BBA (Cử nhân 1 năm)</option>
                                 <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
                                 <option value="Executive MBA">Executive MBA (Thạc sĩ điều hành)</option>
@@ -10011,7 +10021,7 @@
             <div class="footer-col-links">
                 <h4>Các Chương Trình</h4>
                 <a href="/bba" data-wpel-link="internal">Cử nhân Top-up BBA</a>
-                <a href="/fullbba" data-wpel-link="internal">Cử nhân Full BBA</a>
+                <a href="/fullbba" data-wpel-link="internal">Cử nhân quản trị kinh doanh Quốc tế</a>
                 <a href="/mba" data-wpel-link="internal">Thạc sĩ Online MBA</a>
                 <a href="/emba" data-wpel-link="internal">Thạc sĩ Executive MBA</a>
                 <a href="/mbainai" data-wpel-link="internal">Thạc sĩ MBA in AI</a>
@@ -10080,7 +10090,8 @@
     </footer>
 
     <!-- Video Modal -->
-    <div id="video-modal" class="video-modal" role="dialog" aria-modal="true" aria-label="Video giới thiệu" style="display: none;">
+    <div id="video-modal" class="video-modal" role="dialog" aria-modal="true" aria-label="Video giới thiệu"
+        style="display: none;">
         <div class="video-modal-overlay" onclick="closeVideoModal()"></div>
         <div class="video-modal-container">
             <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Đóng video">✕</button>
@@ -10387,7 +10398,7 @@
                                         style="display:flex; align-items:center; justify-content:center; color:#ab0e00;">
                                         <i class="fa-solid fa-book-open"></i>
                                     </div>
-                                    <div class="bk-program-name">Full BBA (3 năm)</div>
+                                    <div class="bk-program-name">Cử nhân quản trị kinh doanh Quốc tế</div>
                                     <div class="bk-program-desc">Cử nhân Quản trị Kinh doanh</div>
                                 </div>
                             </label>
@@ -11060,72 +11071,82 @@
                 font-size: 0.88rem;
             }
         }
-    
-  
-  /* Custom Mobile Overrides */
-  @media (max-width: 768px) {
-    .hero-social-proof {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      text-align: center !important;
-      gap: 8px !important;
-    }
-    .hero-social-proof p {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-      gap: 4px !important;
-      margin: 0 !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-    .hero-social-proof p strong {
-      color: #ab0e00 !important;
-      font-size: 1.4rem !important;
-      display: inline-flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-    .hero-social-proof p strong span {
-      display: inline-block !important;
-      min-width: auto !important;
-      text-align: center !important;
-    }
-    .hero-social-proof > div:not(.avatars) {
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      gap: 4px !important;
-    }
-    .hero-social-proof > div:not(.avatars) strong {
-      color: #ab0e00 !important;
-      font-size: 1.4rem !important;
-      display: inline-flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center !important;
-    }
-    .hero-social-proof > div:not(.avatars) strong span {
-      display: inline-block !important;
-      min-width: auto !important;
-      text-align: center !important;
-    }
-    .umef-video-carousel-container {
-      padding: 0 16px !important;
-    }
-    .umef-video-carousel-btn {
-      display: none !important;
-    }
-    .hero-scroll-indicator, .scroll-down-indicator {
-      display: none !important;
-    }
-  }
-</style>
+
+
+        /* Custom Mobile Overrides */
+        @media (max-width: 768px) {
+            .hero-social-proof {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                gap: 8px !important;
+            }
+
+            .hero-social-proof p {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 4px !important;
+                margin: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .hero-social-proof p strong {
+                color: #ab0e00 !important;
+                font-size: 1.4rem !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .hero-social-proof p strong span {
+                display: inline-block !important;
+                min-width: auto !important;
+                text-align: center !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 4px !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) strong {
+                color: #ab0e00 !important;
+                font-size: 1.4rem !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .hero-social-proof>div:not(.avatars) strong span {
+                display: inline-block !important;
+                min-width: auto !important;
+                text-align: center !important;
+            }
+
+            .umef-video-carousel-container {
+                padding: 0 16px !important;
+            }
+
+            .umef-video-carousel-btn {
+                display: none !important;
+            }
+
+            .hero-scroll-indicator,
+            .scroll-down-indicator {
+                display: none !important;
+            }
+        }
+    </style>
 
     <!-- Quiz Popup HTML -->
     <div class="qz-overlay" id="qz-overlay" role="dialog" aria-modal="true" aria-labelledby="qz-modal-title">
@@ -12502,26 +12523,26 @@
             if (!track) return;
             const originalSlides = Array.from(track.querySelectorAll(".talk-video-carousel-slide"));
             if (originalSlides.length === 0) return;
-            
+
             const nextBtn = document.querySelector(".talk-video-carousel-btn.next");
             const prevBtn = document.querySelector(".talk-video-carousel-btn.prev");
             const dotsContainer = document.querySelector(".talk-video-carousel-dots");
 
             const cloneCount = 3;
-            
+
             const firstClones = originalSlides.slice(0, cloneCount).map(el => el.cloneNode(true));
             const lastClones = originalSlides.slice(-cloneCount).map(el => el.cloneNode(true));
-            
+
             firstClones.forEach(clone => clone.classList.add("cloned"));
             lastClones.forEach(clone => clone.classList.add("cloned"));
-            
+
             firstClones.forEach(clone => track.appendChild(clone));
             lastClones.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
-            
+
             const allSlides = Array.from(track.querySelectorAll(".talk-video-carousel-slide"));
-            
-            let currentIndex = 1; 
-            
+
+            let currentIndex = 1;
+
             dotsContainer.innerHTML = "";
             originalSlides.forEach((_, idx) => {
                 const dot = document.createElement("button");
@@ -12535,7 +12556,7 @@
                 });
             });
             const dots = Array.from(dotsContainer.querySelectorAll(".talk-video-dot"));
-            
+
             allSlides.forEach((slide, idx) => {
                 slide.addEventListener("click", () => {
                     let targetOriginalIdx = (idx - cloneCount + originalSlides.length) % originalSlides.length;
@@ -12550,17 +12571,17 @@
                 const gap = 30;
                 const parentWidth = track.parentElement.offsetWidth;
                 const domIndex = currentIndex + cloneCount;
-                
+
                 const offset = - (domIndex * (slideWidth + gap)) + (parentWidth / 2) - (slideWidth / 2);
-                
+
                 if (useTransition) {
                     track.style.transition = "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
                 } else {
                     track.style.transition = "none";
                 }
-                
+
                 track.style.transform = `translateX(${offset}px)`;
-                
+
                 allSlides.forEach((slide, idx) => {
                     if (idx === domIndex) {
                         slide.classList.add("active");
@@ -12568,7 +12589,7 @@
                         slide.classList.remove("active");
                     }
                 });
-                
+
                 dots.forEach((dot, idx) => {
                     if (idx === currentIndex) {
                         dot.classList.add("active");
@@ -12577,7 +12598,7 @@
                     }
                 });
             }
-            
+
             function goToSlide(index) {
                 if (isTransitioning) return;
                 currentIndex = index;
@@ -12603,7 +12624,7 @@
 
             track.addEventListener("transitionend", () => {
                 isTransitioning = false;
-                
+
                 if (currentIndex >= originalSlides.length) {
                     track.style.transition = "none";
                     currentIndex = 0;
@@ -12660,10 +12681,10 @@
                 isDragging = false;
                 const endX = getPositionX(event);
                 const diffX = endX - startX;
-                
+
                 const slideWidth = originalSlides[0].offsetWidth;
                 const threshold = slideWidth / 4;
-                
+
                 if (Math.abs(diffX) > threshold) {
                     if (diffX > 0) {
                         handlePrev();
@@ -12676,8 +12697,8 @@
             }
 
             function getPositionX(event) {
-                    return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
-                }
+                return event.type.includes('mouse') ? event.pageX : (event.touches && event.touches.length > 0 ? event.touches[0].clientX : (event.changedTouches && event.changedTouches.length > 0 ? event.changedTouches[0].clientX : 0));
+            }
         });
     </script>
 

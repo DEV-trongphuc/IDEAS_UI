@@ -2505,7 +2505,7 @@ function initMobileTopSheet() {
         programSub = isEn ? "Executive Master of Business Administration" : "Thạc sĩ Điều hành QTKD";
         avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp";
     } else if (path.includes("fullbba")) {
-        programName = "Full BBA";
+        programName = isEn ? "Full BBA" : "Cử nhân quản trị kinh doanh Quốc tế";
         programSub = isEn ? "Bachelor of Business Administration" : "Cử nhân Quản trị Kinh doanh";
         avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp";
     } else if (path.includes("bba")) {

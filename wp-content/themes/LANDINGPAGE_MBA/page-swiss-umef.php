@@ -44,7 +44,7 @@ ob_start(function ($html) {
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS</title>
         <meta name="description"
-            content="Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Đạt kiểm định liên bang cao nhất (SAC), xếp hạng 5 sao QS Stars và được công nhận bởi Bộ GD&ĐT Việt Nam." />
+            content="Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars và được công nhận bởi Bộ GD&ĐT Việt Nam." />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS" />
         <meta property="og:description"
@@ -2196,7 +2196,7 @@ ob_start(function ($html) {
                 <div class="acc-sac-left">
                     <div class="acc-sac-badge">
                         <span class="acc-sac-badge-dot"></span>
-                        Kiểm định chính thức Thụy Sĩ
+                        Công nhận chính thức từ Hội đồng Giáo dục
                     </div>
                     <h3 class="acc-sac-name">Swiss Accreditation Council</h3>
                     <p class="acc-sac-tagline">Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục
@@ -2347,7 +2347,7 @@ ob_start(function ($html) {
                 </div>
                 <div class="campus-body">
                     <h3 class="campus-card-title">Uy tín quốc tế khẳng định</h3>
-                    <p class="campus-card-desc">Đạt kiểm định liên bang cao nhất (SAC), xếp hạng 5 sao QS Stars và được
+                    <p class="campus-card-desc">Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars và được
                         công nhận bởi Bộ GD&amp;ĐT Việt Nam, bảo đảm giá trị tấm bằng danh giá toàn cầu.</p>
                 </div>
             </div>
