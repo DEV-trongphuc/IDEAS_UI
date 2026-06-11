@@ -5014,3 +5014,100 @@ function ideas_live_search_footer_assets() {
     </script>
     <?php
 }
+
+/**
+ * AJAX handler to generate content summary using Google Gemini 2.5 Flash Lite API
+ */
+add_action('wp_ajax_ideas_summarize_post', 'ideas_ajax_summarize_post');
+add_action('wp_ajax_nopriv_ideas_summarize_post', 'ideas_ajax_summarize_post');
+
+function ideas_ajax_summarize_post() {
+    // 1. Verify Request and Post ID
+    $post_id = isset($_POST['post_id']) ? intval($_POST['post_id']) : 0;
+    if (!$post_id) {
+        wp_send_json_error('ID bài viết không hợp lệ.');
+    }
+
+    // 2. Fetch Post content
+    $post = get_post($post_id);
+    if (!$post) {
+        wp_send_json_error('Không tìm thấy bài viết.');
+    }
+
+    // 3. Check for API key
+    $api_key = defined('GEMINI_API_KEY') ? GEMINI_API_KEY : get_option('gemini_api_key');
+    if (empty($api_key)) {
+        $api_key = getenv('GEMINI_API_KEY');
+    }
+
+    if (empty($api_key)) {
+        wp_send_json_error('Chưa cấu hình API Key cho Gemini. Vui lòng thêm define(\'GEMINI_API_KEY\', \'your_key\') vào file wp-config.php.');
+    }
+
+    // 4. Prepare post content (strip tags, remove excessive spaces)
+    $content = strip_tags(apply_filters('the_content', $post->post_content));
+    $content = preg_replace('/\s+/', ' ', $content);
+    $content = mb_substr($content, 0, 4000); // Limit size for model context efficiency
+
+    // 5. Call Gemini API
+    $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=' . rawurlencode($api_key);
+
+    $prompt = "Bạn là trợ lý học thuật thông minh của Viện IDEAS. Hãy tóm tắt ngắn gọn và súc tích nội dung chính bài viết sau đây bằng tiếng Việt.
+Định dạng câu trả lời hoàn toàn bằng mã HTML đơn giản (sử dụng duy nhất các thẻ <ul> và <li> cho danh sách gạch đầu dòng, thẻ <strong> để nhấn mạnh từ khóa chính quan trọng).
+KHÔNG thêm bất kỳ mã CSS inline nào, KHÔNG dùng các khối mã codeblock markdown (như ```html ... ```).
+Nội dung tóm tắt phải cực kỳ trực quan, chuyên nghiệp, gồm 3 đến 4 gạch đầu dòng chính, mỗi dòng tóm tắt súc tích, đi thẳng vào giá trị cốt lõi.
+
+Nội dung bài viết:
+" . $content;
+
+    $body = array(
+        'contents' => array(
+            array(
+                'parts' => array(
+                    array(
+                        'text' => $prompt
+                    )
+                )
+            )
+        ),
+        'generationConfig' => array(
+            'temperature' => 0.3,
+            'maxOutputTokens' => 800
+        )
+    );
+
+    $response = wp_remote_post($url, array(
+        'headers' => array(
+            'Content-Type' => 'application/json',
+        ),
+        'body' => json_encode($body),
+        'timeout' => 45,
+    ));
+
+    if (is_wp_error($response)) {
+        wp_send_json_error('Lỗi kết nối API Gemini: ' . $response->get_error_message());
+    }
+
+    $response_code = wp_remote_retrieve_response_code($response);
+    $response_body = wp_remote_retrieve_body($response);
+
+    if ($response_code !== 200) {
+        $err_data = json_decode($response_body, true);
+        $err_msg = isset($err_data['error']['message']) ? $err_data['error']['message'] : 'Mã lỗi HTTP ' . $response_code;
+        wp_send_json_error('Lỗi từ Google Gemini: ' . $err_msg);
+    }
+
+    $data = json_decode($response_body, true);
+    $summary = $data['candidates'][0]['content']['parts'][0]['text'] ?? '';
+
+    if (empty($summary)) {
+        wp_send_json_error('Không thể trích xuất nội dung tóm tắt từ API.');
+    }
+
+    // Strip markdown wrappers if Gemini still returned them despite system instruction
+    $summary = preg_replace('/^```html\s*/i', '', $summary);
+    $summary = preg_replace('/```\s*$/', '', $summary);
+    $summary = trim($summary);
+
+    wp_send_json_success($summary);
+}

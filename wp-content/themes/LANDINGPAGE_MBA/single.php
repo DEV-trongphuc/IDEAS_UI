@@ -735,6 +735,317 @@ ob_start(function($html) {
                 margin-top: 90px !important;
             }
         }
+
+        /* Dynamic Table of Contents & Gemini Summary Box Premium Styles */
+        .article-interactive-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 35px;
+            padding-bottom: 24px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        /* Gemini AI Summary Box */
+        .gemini-summary-box {
+            background: linear-gradient(135deg, #f5f3ff, #eff6ff);
+            border: 1px solid #ddd6fe;
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .gemini-summary-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #8b5cf6, #3b82f6);
+        }
+
+        .gemini-summary-box:hover {
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .summary-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .summary-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #4c1d95;
+        }
+
+        .gemini-sparkle {
+            color: #8b5cf6;
+            animation: pulse-sparkle 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+        }
+
+        .summary-btn {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: #ffffff !important;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 99px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.2);
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+        }
+
+        .summary-btn:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(139, 92, 246, 0.3);
+        }
+
+        .summary-btn:active {
+            transform: translateY(0);
+        }
+
+        .summary-btn i {
+            font-size: 0.85rem;
+        }
+
+        /* Result container styling */
+        .summary-result-content {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #1e1b4b;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(221, 214, 254, 0.5);
+            animation: fadeInSummary 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInSummary {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .summary-result-content ul {
+            margin: 0;
+            padding-left: 20px;
+            list-style-type: disc !important;
+        }
+
+        .summary-result-content li {
+            margin-bottom: 8px;
+            display: list-item !important;
+        }
+
+        .summary-result-content li::marker {
+            color: #8b5cf6;
+        }
+
+        .summary-result-content strong {
+            color: #4c1d95;
+        }
+
+        /* Loading Shimmer Animation */
+        .summary-shimmer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(221, 214, 254, 0.5);
+        }
+
+        .shimmer-line {
+            height: 14px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: loading-shimmer 1.5s infinite linear;
+            border-radius: 4px;
+        }
+
+        .shimmer-line:nth-child(1) { width: 90%; }
+        .shimmer-line:nth-child(2) { width: 75%; }
+        .shimmer-line:nth-child(3) { width: 85%; }
+        .shimmer-line:nth-child(4) { width: 60%; }
+
+        @keyframes loading-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .summary-error-notice {
+            background: #fef2f2;
+            border: 1px solid #fee2e2;
+            color: #991b1b;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Dynamic Table of Contents Box */
+        .toc-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #ab0e00;
+            border-radius: 12px;
+            padding: 20px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .toc-box:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border-color: #cbd5e1;
+            border-left-color: #ab0e00;
+        }
+
+        .toc-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toc-title-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 1.05rem;
+        }
+
+        .toc-title-area i {
+            color: #ab0e00;
+        }
+
+        .toc-toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #64748b;
+            padding: 4px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toc-box.collapsed .toc-toggle-btn {
+            transform: rotate(-90deg);
+        }
+
+        .toc-body {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+            transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+            max-height: 1000px;
+            opacity: 1;
+            overflow: hidden;
+        }
+
+        .toc-box.collapsed .toc-body {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            margin-top: 0;
+            border-top: none;
+        }
+
+        #toc-list {
+            margin: 0;
+            padding: 0;
+            list-style: none !important;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #toc-list li {
+            margin: 0;
+            padding: 0;
+            display: block !important;
+        }
+
+        #toc-list a {
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        #toc-list a:hover {
+            color: #ab0e00;
+            transform: translateX(4px);
+        }
+
+        /* Hierarchy indentation styling */
+        #toc-list .toc-h2 {
+            font-weight: 600;
+        }
+
+        #toc-list .toc-h3 {
+            padding-left: 20px;
+            font-size: 0.88rem;
+        }
+
+        #toc-list .toc-h3 a {
+            font-size: 0.88rem;
+            color: #64748b;
+        }
+
+        #toc-list .toc-h3 a:hover {
+            color: #ab0e00;
+        }
+
+        /* Bullet style for TOC links */
+        #toc-list a::before {
+            content: "\f105";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            margin-top: 2px;
+            transition: color 0.2s ease;
+        }
+
+        #toc-list a:hover::before {
+            color: #ab0e00;
+        }
     </style>
     <?php wp_head(); ?>
 </head>
@@ -799,6 +1110,40 @@ ob_start(function($html) {
 
             <!-- Main Content Card -->
             <div class="article-content-card">
+                <!-- Gemini AI Summary & Table of Contents Area -->
+                <div class="article-interactive-tools">
+                    <!-- Gemini AI Summary Box -->
+                    <div class="gemini-summary-box">
+                        <div class="summary-header">
+                            <div class="summary-title">
+                                <i class="fa-solid fa-wand-magic-sparkles gemini-sparkle"></i>
+                                <span>Tóm tắt nhanh nội dung</span>
+                            </div>
+                            <button id="btn-gemini-summarize" class="summary-btn" data-post-id="<?php the_ID(); ?>">
+                                <span>Tóm tắt bằng AI</span>
+                                <i class="fa-solid fa-bolt"></i>
+                            </button>
+                        </div>
+                        <div id="gemini-summary-result" class="summary-result-content" style="display: none;"></div>
+                    </div>
+
+                    <!-- Dynamic Table of Contents -->
+                    <div class="toc-box" id="dynamic-toc-container" style="display: none;">
+                        <div class="toc-header" id="toc-header-toggle">
+                            <div class="toc-title-area">
+                                <i class="fa-solid fa-list-ul"></i>
+                                <span>Mục lục bài viết</span>
+                            </div>
+                            <button class="toc-toggle-btn" aria-label="Toggle TOC">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="toc-body">
+                            <ul id="toc-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="article-body-content">
                     <?php 
                     // Render content, and automatically strip duplicate of the first image inline if it matches featured image
@@ -1014,6 +1359,155 @@ ob_start(function($html) {
                     }
                 });
             });
+        });
+    </script>
+
+    <!-- Dynamic Table of Contents & Gemini AI Summary Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- 1. Dynamic Table of Contents (TOC) ---
+            const articleBody = document.querySelector('.article-body-content');
+            const tocContainer = document.getElementById('dynamic-toc-container');
+            const tocList = document.getElementById('toc-list');
+            const tocHeaderToggle = document.getElementById('toc-header-toggle');
+
+            if (articleBody && tocContainer && tocList) {
+                // Find all H2 and H3 elements inside the article body content
+                const headings = articleBody.querySelectorAll('h2, h3');
+                
+                if (headings.length > 0) {
+                    headings.forEach((heading, index) => {
+                        // Generate a clean ID for the heading if it doesn't have one
+                        if (!heading.id) {
+                            const cleanText = heading.textContent
+                                .toLowerCase()
+                                .trim()
+                                .normalize('NFD') // Remove Vietnamese diacritics
+                                .replace(/[\u0300-\u036f]/g, '')
+                                .replace(/[đĐ]/g, 'd')
+                                .replace(/[^a-z0-9\s-]/g, '') // remove special chars
+                                .replace(/\s+/g, '-') // replace spaces with dashes
+                                .replace(/-+/g, '-'); // remove double dashes
+                            
+                            heading.id = `heading-${cleanText || index}`;
+                        }
+
+                        // Create list item and link
+                        const li = document.createElement('li');
+                        li.className = heading.tagName.toLowerCase() === 'h2' ? 'toc-h2' : 'toc-h3';
+
+                        const a = document.createElement('a');
+                        a.href = `#${heading.id}`;
+                        a.textContent = heading.textContent;
+                        
+                        // Add smooth scrolling behavior
+                        a.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const targetElement = document.getElementById(heading.id);
+                            if (targetElement) {
+                                const headerOffset = 100; // Offset for sticky website header
+                                const elementPosition = targetElement.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+
+                                // Push hash history quietly without jumps
+                                history.pushState(null, null, `#${heading.id}`);
+                            }
+                        });
+
+                        li.appendChild(a);
+                        tocList.appendChild(li);
+                    });
+
+                    // Reveal TOC container since we have headings
+                    tocContainer.style.display = 'block';
+
+                    // Implement collapse/expand toggle
+                    if (tocHeaderToggle) {
+                        const tocBox = tocContainer;
+                        tocHeaderToggle.addEventListener('click', () => {
+                            tocBox.classList.toggle('collapsed');
+                        });
+                    }
+                }
+            }
+
+            // --- 2. Gemini AI Summary Button Handler ---
+            const btnSummarize = document.getElementById('btn-gemini-summarize');
+            const summaryResult = document.getElementById('gemini-summary-result');
+
+            if (btnSummarize && summaryResult) {
+                btnSummarize.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const postId = this.getAttribute('data-post-id');
+                    if (!postId) return;
+
+                    // Disable button and update UI state
+                    btnSummarize.disabled = true;
+                    const originalBtnContent = btnSummarize.innerHTML;
+                    btnSummarize.innerHTML = '<span>Đang phân tích...</span><i class="fa-solid fa-spinner fa-spin"></i>';
+
+                    // Inject loading shimmer animation
+                    summaryResult.innerHTML = `
+                        <div class="summary-shimmer">
+                            <div class="shimmer-line"></div>
+                            <div class="shimmer-line"></div>
+                            <div class="shimmer-line"></div>
+                            <div class="shimmer-line"></div>
+                        </div>
+                    `;
+                    summaryResult.style.display = 'block';
+
+                    // Build form data
+                    const formData = new FormData();
+                    formData.append('action', 'ideas_summarize_post');
+                    formData.append('post_id', postId);
+
+                    // Fetch request to WordPress admin-ajax.php
+                    fetch('/wp-admin/admin-ajax.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(res => {
+                        if (res.success) {
+                            // Render AI summary list
+                            summaryResult.innerHTML = res.data;
+                            btnSummarize.innerHTML = '<span>Tóm tắt thành công!</span><i class="fa-solid fa-check"></i>';
+                            btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
+                        } else {
+                            // Render API error message
+                            showError(res.data || 'Đã xảy ra lỗi không xác định.');
+                            resetButton();
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Gemini Summary Request Error:', err);
+                        showError('Không thể kết nối tới máy chủ. Vui lòng kiểm tra lại kết nối.');
+                        resetButton();
+                    });
+
+                    function showError(message) {
+                        summaryResult.innerHTML = `
+                            <div class="summary-error-notice">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                                <span>${message}</span>
+                            </div>
+                        `;
+                    }
+
+                    function resetButton() {
+                        btnSummarize.disabled = false;
+                        btnSummarize.innerHTML = originalBtnContent;
+                        btnSummarize.style.background = ''; // Revert to stylesheet default
+                    }
+                });
+            }
         });
     </script>
 
