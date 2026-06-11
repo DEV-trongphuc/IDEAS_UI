@@ -165,6 +165,9 @@
                     <a href="/bai-viet" class="dropdown-item-simple">
                         <i class="fa-solid fa-newspaper"></i> <span>Bài viết</span>
                     </a>
+                    <a href="/kiem-dinh-2" class="dropdown-item-simple">
+                        <i class="fa-solid fa-certificate"></i> <span>Kiểm định</span>
+                    </a>
                     <a href="/dong-su-kien#chuyen-di" class="dropdown-item-simple">
                         <i class="fa-solid fa-plane-departure"></i> <span>Chuyến đi</span>
                     </a>
@@ -355,6 +358,9 @@
         <div class="mobile-dropdown-content">
             <a href="/bai-viet" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-newspaper"></i> <span>Bài viết</span>
+            </a>
+            <a href="/kiem-dinh-2" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-certificate"></i> <span>Kiểm định</span>
             </a>
             <a href="/dong-su-kien#chuyen-di" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-plane-departure"></i> <span>Chuyến đi</span>
