@@ -140,7 +140,7 @@ ob_start(function ($html) {
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.12;
+            opacity: 0.3;
         }
 
         .contact-hero-overlay {
@@ -149,10 +149,10 @@ ob_start(function ($html) {
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(5, 2, 3, 0.99) 0%,
-                    rgba(15, 1, 0, 0.96) 60%,
+                    rgba(8, 4, 5, 0.85) 0%,
+                    rgba(100, 10, 5, 0.5) 60%,
                     #080405 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%) !important;
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.35) 0%, transparent 75%) !important;
         }
 
         .contact-hero-container {
