@@ -2211,7 +2211,13 @@ ob_start(function ($html) {
                         <span class="acc-sac-badge-dot"></span>
                         Công nhận chính thức từ Hội đồng Giáo dục
                     </div>
-                    <h3 class="acc-sac-name">Swiss Accreditation Council</h3>
+                    <h3 class="acc-sac-name">Swiss Accreditation Council <a
+                            href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html"
+                            target="_blank"
+                            style="color: inherit; font-size: 0.75em; margin-left: 8px; display: inline-flex; align-items: center; transition: color 0.3s;"
+                            onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
+                            title="Xem bài viết về Kiểm định SAC"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </h3>
                     <p class="acc-sac-tagline">Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục
                         <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ.
                     </p>
@@ -2239,16 +2245,21 @@ ob_start(function ($html) {
                 </div>
                 <div class="acc-sac-right">
                     <div class="acc-sac-logo-wrap">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.webp"
-                            class="acc-sac-logo-img" alt="Logo SAC - Swiss Accreditation Council" loading="lazy"
-                            decoding="async" />
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.png" class="acc-sac-logo-img"
+                            alt="Logo SAC - Swiss Accreditation Council" loading="lazy" decoding="async" />
                         <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp" target="_blank"
                             rel="noopener noreferrer" class="acc-sac-cert-link">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp" class="acc-sac-cert-img"
                                 alt="Chứng nhận SAC - Swiss Accreditation Council" loading="lazy" decoding="async" />
                         </a>
                         <div class="acc-sac-logo-text">
-                            <h4>Swiss Accreditation Council</h4>
+                            <h4>Swiss Accreditation Council <a
+                                    href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html"
+                                    target="_blank"
+                                    style="color: inherit; font-size: 0.75em; margin-left: 8px; display: inline-flex; align-items: center; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
+                                    title="Xem bài viết về Kiểm định SAC"><i
+                                        class="fa-solid fa-up-right-from-square"></i></a></h4>
                             <p>Cơ quan kiểm định liên bang Thụy Sĩ<br>Công nhận chính thức từ Hội đồng Giáo dục Thụy Sĩ
                             </p>
                         </div>
