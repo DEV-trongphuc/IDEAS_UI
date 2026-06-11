@@ -45,7 +45,7 @@ const IDEAS_DATA = {
             country: "Switzerland",
             subjects: "<b>180</b> ECTS - <b>34</b> courses and Graduation Thesis",
             duration: "36 months",
-            tagline: "Swiss UMEF: First private university in Geneva to achieve the highest Swiss Federal Accreditation (SAC) - officially recognized by the Swiss Higher Education Council",
+            tagline: "Swiss UMEF: First private university in Geneva - officially recognized within the Swiss education system",
             link: "/en/fullbba",
             experience: [
                 "High school graduate or equivalent",
@@ -178,7 +178,7 @@ const IDEAS_DATA = {
                 "20:00 - 23:00 (Vietnam)",
                 "2 sessions/course (Sunday)",
             ],
-            tagline: "Swiss UMEF: First private university in Geneva to achieve the highest Swiss Federal Accreditation (SAC) - officially recognized by the Swiss Higher Education Council",
+            tagline: "Swiss UMEF: First private university in Geneva - officially recognized within the Swiss education system",
             link: "/en/mba",
             description: "The Online MBA program is tailored for busy professionals. The degree is accredited by the Swiss Federal Council, guaranteeing international value, providing practical knowledge, and matching global business trends.",
             demographic: {
@@ -327,7 +327,7 @@ const IDEAS_DATA = {
                 "20:00 - 23:00 (Vietnam)",
                 "2 sessions/course (Sunday)",
             ],
-            tagline: "Swiss UMEF: First private university in Geneva to achieve the highest Swiss Federal Accreditation (SAC) - officially recognized by the Swiss Higher Education Council",
+            tagline: "Swiss UMEF: First private university in Geneva - officially recognized within the Swiss education system",
             link: "/en/emba",
             description: "The Online EMBA program is designed for busy professionals. The degree is accredited by the Swiss Federal Council, guaranteeing international value, providing practical knowledge, and matching global business trends.",
             demographic: {
@@ -465,7 +465,7 @@ const IDEAS_DATA = {
                 "20:00 Tue - Thu (2-3h/session)",
                 "2 sessions/course (Sunday)",
             ],
-            tagline: "Swiss UMEF: First private university in Geneva to achieve the highest Swiss Federal Accreditation (SAC) - officially recognized by the Swiss Higher Education Council",
+            tagline: "Swiss UMEF: First private university in Geneva - officially recognized within the Swiss education system",
             link: "/en/mscai",
             description: "The MSc AI program is specially designed for business managers and leaders who want to explore and harness the potential of artificial intelligence in corporate management.",
             demographic: {
@@ -585,7 +585,7 @@ const IDEAS_DATA = {
             country: "Switzerland",
             subjects: "<b>90</b> ECTS - <b>12</b> courses and Graduation Thesis",
             duration: "16-18 months",
-            tagline: "Swiss UMEF: First private university in Geneva to achieve the highest Swiss Federal Accreditation (SAC) - officially recognized by the Swiss Higher Education Council",
+            tagline: "Swiss UMEF: First private university in Geneva - officially recognized within the Swiss education system",
             link: "/en/mbainai",
             experience: [
                 "Bachelor's degree graduate",
@@ -836,7 +836,7 @@ const IDEAS_DATA = {
                 "20:00 - 23:00 (Vietnam)",
                 "2 sessions/course (Sunday)",
             ],
-            tagline: "Swiss UMEF: First private university in Geneva to achieve the highest Swiss Federal Accreditation (SAC) - officially recognized by the Swiss Higher Education Council",
+            tagline: "Swiss UMEF: First private university in Geneva - officially recognized within the Swiss education system",
             link: "/en/bba",
             description: "A BBA Top-up pathway in 1 year of online study to get a Bachelor of Business Administration, don't let a bachelor's degree limit your strategic career path!",
             demographic: {
