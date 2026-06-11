@@ -1258,7 +1258,7 @@ ob_start(function ($html) {
                     <!-- Step 1 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon4.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon4.png"
                                 alt="Bước 1 Tiếp nhận hồ sơ" />
                         </div>
                         <h4>1. Tiếp nhận hồ sơ</h4>
@@ -1268,7 +1268,7 @@ ob_start(function ($html) {
                     <!-- Step 2 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon3.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon3.png"
                                 alt="Bước 2 Xác nhận ngân hàng" />
                         </div>
                         <h4>2. Ngân hàng xác nhận</h4>
@@ -1279,7 +1279,7 @@ ob_start(function ($html) {
                     <!-- Step 3 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon1.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon1.png"
                                 alt="Bước 3 Xử lý hồ sơ" />
                         </div>
                         <h4>3. Xử lý &amp; Phát hành</h4>
@@ -1290,7 +1290,7 @@ ob_start(function ($html) {
                     <!-- Step 4 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon2.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon2.png"
                                 alt="Bước 4 Thanh toán học phí" />
                         </div>
                         <h4>4. Thanh toán học phí</h4>
