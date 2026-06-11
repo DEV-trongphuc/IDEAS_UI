@@ -5132,3 +5132,15 @@ Nội dung bài viết:
 
     wp_send_json_success($summary);
 }
+
+/**
+ * Disable the automatic redirect to the WordPress About/Welcome page after updates.
+ */
+add_action('admin_init', 'ideas_disable_wp_about_page_redirect', 1);
+function ideas_disable_wp_about_page_redirect() {
+    global $pagenow;
+    if (is_admin() && 'about.php' === $pagenow) {
+        wp_safe_redirect(admin_url('index.php'));
+        exit;
+    }
+}
