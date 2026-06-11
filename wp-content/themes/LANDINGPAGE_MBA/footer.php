@@ -80,9 +80,12 @@ define('IDEAS_FOOTER_RENDERED', true);
                 <i class="fa-solid fa-envelope"></i>
                 <span>info@ideas.edu.vn</span>
             </p>
-            <p class="contact-item">
-                <i class="fa-solid fa-file-invoice"></i>
-                <span>MST: 0318949449 - Do Phòng đăng ký kinh doanh - Sở tài chính Thành phố Hồ Chí Minh cấp lần đầu ngày 13/05/2025. Thay đổi lần 1 ngày 01/10/2025.</span>
+            <p class="contact-item" style="display: block !important;">
+                <span style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>MST: 0318949449</span>
+                </span>
+                <span style="display: block; font-size: 0.8rem; opacity: 0.75; padding-left: 26px; line-height: 1.4;">Do Phòng đăng ký kinh doanh - Sở tài chính Thành phố Hồ Chí Minh cấp lần đầu ngày 13/05/2025. Thay đổi lần 1 ngày 01/10/2025.</span>
             </p>
         </div>
     </div>
