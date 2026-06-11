@@ -1272,7 +1272,7 @@ ob_start(function ($html) {
                         </main>
 
                         <!-- Sidebar Widgets Area -->
-                        <aside>
+                        <aside data-lenis-prevent>
                             <div class="sidebar-wrapper">
 
                                 <!-- Quick Register Consultation Widget -->

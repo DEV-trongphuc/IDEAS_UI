@@ -854,7 +854,7 @@ ob_start(function ($html) {
         </main>
 
         <!-- Sidebar Section -->
-        <aside>
+        <aside data-lenis-prevent>
             <div class="sidebar-wrapper">
 
                 <!-- Quick Register Consultation Widget (Parity with single.php) -->
