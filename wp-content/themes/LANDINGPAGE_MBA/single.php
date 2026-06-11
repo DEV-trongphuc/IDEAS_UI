@@ -782,6 +782,12 @@ ob_start(function($html) {
             margin-bottom: 12px;
         }
 
+        .summary-title-area {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
         .summary-title {
             display: flex;
             align-items: center;
@@ -789,6 +795,13 @@ ob_start(function($html) {
             font-size: 1.1rem;
             font-weight: 700;
             color: #ab0e00;
+        }
+
+        .summary-subtitle {
+            font-size: 0.85rem;
+            color: #7f1d1d;
+            opacity: 0.85;
+            font-weight: 500;
         }
 
         .gemini-sparkle {
@@ -1044,21 +1057,6 @@ ob_start(function($html) {
         #toc-list .toc-h3 a:hover {
             color: #ab0e00;
         }
-
-        /* Bullet style for TOC links */
-        #toc-list a::before {
-            content: "\f105";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: #94a3b8;
-            font-size: 0.8rem;
-            margin-top: 2px;
-            transition: color 0.2s ease;
-        }
-
-        #toc-list a:hover::before {
-            color: #ab0e00;
-        }
     </style>
     <?php wp_head(); ?>
 </head>
@@ -1128,9 +1126,12 @@ ob_start(function($html) {
                     <!-- Gemini AI Summary Box -->
                     <div class="gemini-summary-box">
                         <div class="summary-header">
-                            <div class="summary-title">
-                                <i class="fa-solid fa-wand-magic-sparkles gemini-sparkle"></i>
-                                <span>Tóm tắt nhanh nội dung</span>
+                            <div class="summary-title-area">
+                                <div class="summary-title">
+                                    <i class="fa-solid fa-wand-magic-sparkles gemini-sparkle"></i>
+                                    <span>Tóm tắt nhanh nội dung</span>
+                                </div>
+                                <div class="summary-subtitle">Bạn không có thời gian đọc hết? Hãy thử!</div>
                             </div>
                             <button id="btn-gemini-summarize" class="summary-btn" data-post-id="<?php the_ID(); ?>">
                                 <span>Tóm tắt bằng AI</span>
@@ -1389,6 +1390,8 @@ ob_start(function($html) {
                 const headings = articleBody.querySelectorAll('h2, h3');
                 
                 if (headings.length > 0) {
+                    let h2Count = 0;
+                    let h3Count = 0;
                     headings.forEach((heading, index) => {
                         // Generate a clean ID for the heading if it doesn't have one
                         if (!heading.id) {
@@ -1405,13 +1408,24 @@ ob_start(function($html) {
                             heading.id = `heading-${cleanText || index}`;
                         }
 
+                        // Determine the prefix number (e.g. 1. or 1.1)
+                        let prefix = '';
+                        if (heading.tagName.toLowerCase() === 'h2') {
+                            h2Count++;
+                            h3Count = 0;
+                            prefix = `${h2Count}. `;
+                        } else if (heading.tagName.toLowerCase() === 'h3') {
+                            h3Count++;
+                            prefix = `${h2Count}.${h3Count}. `;
+                        }
+
                         // Create list item and link
                         const li = document.createElement('li');
                         li.className = heading.tagName.toLowerCase() === 'h2' ? 'toc-h2' : 'toc-h3';
 
                         const a = document.createElement('a');
                         a.href = `#${heading.id}`;
-                        a.textContent = heading.textContent;
+                        a.textContent = prefix + heading.textContent;
                         
                         // Add smooth scrolling behavior
                         a.addEventListener('click', (e) => {
@@ -1454,16 +1468,28 @@ ob_start(function($html) {
             const summaryResult = document.getElementById('gemini-summary-result');
 
             if (btnSummarize && summaryResult) {
+                const postId = btnSummarize.getAttribute('data-post-id');
+                const storageKey = `ideas_post_summary_${postId}`;
+
+                // Check if summary is cached in localStorage
+                const cachedSummary = localStorage.getItem(storageKey);
+                if (cachedSummary) {
+                    summaryResult.innerHTML = cachedSummary;
+                    summaryResult.style.display = 'block';
+                    btnSummarize.innerHTML = '<span>Đã tóm tắt bằng AI</span><i class="fa-solid fa-check"></i>';
+                    btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
+                }
+
                 btnSummarize.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    const postId = this.getAttribute('data-post-id');
                     if (!postId) return;
 
                     // Disable button and update UI state
                     btnSummarize.disabled = true;
-                    const originalBtnContent = btnSummarize.innerHTML;
+                    const originalBtnContent = '<span>Tóm tắt bằng AI</span><i class="fa-solid fa-bolt"></i>';
                     btnSummarize.innerHTML = '<span>Đang phân tích...</span><i class="fa-solid fa-spinner fa-spin"></i>';
+                    btnSummarize.style.background = ''; // reset to default red gradient while loading
 
                     // Inject loading shimmer animation
                     summaryResult.innerHTML = `
@@ -1489,10 +1515,19 @@ ob_start(function($html) {
                     .then(response => response.json())
                     .then(res => {
                         if (res.success) {
+                            // Cache the result in localStorage
+                            localStorage.setItem(storageKey, res.data);
+                            
                             // Render AI summary list
                             summaryResult.innerHTML = res.data;
                             btnSummarize.innerHTML = '<span>Tóm tắt thành công!</span><i class="fa-solid fa-check"></i>';
                             btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
+                            
+                            // Re-enable button after 2 seconds to allow re-summarizing if they click again
+                            setTimeout(() => {
+                                btnSummarize.disabled = false;
+                                btnSummarize.innerHTML = '<span>Đã tóm tắt bằng AI</span><i class="fa-solid fa-check"></i>';
+                            }, 2000);
                         } else {
                             // Render API error message
                             showError(res.data || 'Đã xảy ra lỗi không xác định.');
