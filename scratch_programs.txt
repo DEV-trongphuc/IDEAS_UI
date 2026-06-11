@@ -1,0 +1,20 @@
+Line 11: '/<link[^>]+href=[\'"][^\'"]*LANDINGPAGE_MBA\/main\.css[^\'"]*[\'"][^>]*\/?>/i',
+Line 2461: <span class="prog-card-badge">MBA</span>
+Line 2472: <h3 class="prog-card-title-new">Online MBA</h3>
+Line 2490: <a href="/mba" class="prog-btn-detail">Xem chi tiết</a>
+Line 2501: <span class="prog-card-badge">MBA</span>
+Line 2512: <h3 class="prog-card-title-new">MBA in AI</h3>
+Line 2530: <a href="/mbainai" class="prog-btn-detail">Xem chi tiết</a>
+Line 2541: <span class="prog-card-badge">MSc</span>
+Line 2552: <h3 class="prog-card-title-new">MSc AI</h3>
+Line 2570: <a href="/mscai" class="prog-btn-detail">Xem chi tiết</a>
+Line 2581: <span class="prog-card-badge">MBA</span>
+Line 2592: <h3 class="prog-card-title-new">Executive MBA</h3>
+Line 2610: <a href="/emba" class="prog-btn-detail">Xem chi tiết</a>
+Line 2621: <span class="prog-card-badge">BBA</span>
+Line 2632: <h3 class="prog-card-title-new">Top-up BBA</h3>
+Line 2650: <a href="/bba" class="prog-btn-detail">Xem chi tiết</a>
+Line 2718: title="Lắng nghe học viên chia sẻ | Chu Hoàng Thái - Executive MBA Swiss UMEF"
+Line 2725: <h3 class="umef-video-title">Chu Hoàng Thái - Executive MBA Swiss UMEF</h3>
+Line 2735: title="Lắng nghe học viên chia sẻ | Lê Ngọc Thương - Executive MBA Swiss UMEF 2024"
+Line 2742: <h3 class="umef-video-title">Lê Ngọc Thương - Executive MBA Swiss UMEF 2024</h3>

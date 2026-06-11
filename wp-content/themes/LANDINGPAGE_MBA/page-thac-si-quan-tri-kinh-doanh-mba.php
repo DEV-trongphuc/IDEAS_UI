@@ -3267,10 +3267,10 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-avatar-container">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
-                                alt="Cử nhân quản trị kinh doanh Quốc tế" loading="lazy" decoding="async" />
+                                alt="Global Online BBA" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
-                            <h3 class="prog-card-title-new">Cử nhân quản trị kinh doanh Quốc tế</h3>
+                            <h3 class="prog-card-title-new">Global Online BBA</h3>
                             <div class="prog-card-subtitle-new">Cử nhân Quản trị Kinh doanh</div>
                         </div>
                         <p class="prog-card-desc-new">

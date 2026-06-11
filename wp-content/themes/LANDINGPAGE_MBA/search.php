@@ -735,7 +735,7 @@ ob_start(function($html) {
                         <select aria-label="Chương trình quan tâm" required>
                             <option value="" disabled selected hidden>Chương trình quan tâm</option>
                             <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
-                            <option value="Full BBA">Cử nhân quản trị kinh doanh Quốc tế</option>
+                            <option value="Full BBA">Global Online BBA</option>
                             <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
                             <option value="Executive MBA">Executive MBA (Thạc sĩ điều hành)</option>
                             <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
@@ -759,10 +759,10 @@ ob_start(function($html) {
                             </div>
                         </a>
                         <a href="/fullbba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Cử nhân quản trị kinh doanh Quốc tế" class="sidebar-course-img">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp" alt="Global Online BBA" class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Cử nhân quản trị kinh doanh Quốc tế</h4>
-                                <p class="sidebar-course-desc">Cử nhân QTKD Thụy Sĩ</p>
+                                <h4 class="sidebar-course-title">Global Online BBA</h4>
+                                <p class="sidebar-course-desc">Cử nhân QTKD Quốc tế</p>
                             </div>
                         </a>
                         <a href="/mba" class="sidebar-course-item">
