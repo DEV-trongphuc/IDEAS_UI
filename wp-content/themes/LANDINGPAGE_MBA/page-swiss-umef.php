@@ -2144,7 +2144,7 @@ ob_start(function ($html) {
                 <i class="fa-solid fa-graduation-cap"></i>
                 Trường Đối Tác Thụy Sĩ
             </div>
-            <h1>Đại học tư thục <span>đầu tiên tại Geneva</span> <br />đạt kiểm định <span>Liên Bang Thụy Sĩ</span></h1>
+            <h1>Đại học tư thục <span>đầu tiên tại Geneva</span> <br />được công nhận chính thức trong <span>hệ thống giáo dục Thụy Sĩ</span></h1>
             <p>Swiss UMEF – thành lập 1984, được công nhận bởi Hội đồng Kiểm định Thụy Sĩ SAC (Swiss Accreditation
                 Council) và nằm trong danh sách các cơ sở giáo dục đại học chính thức thuộc Swissuniversities.</p>
             <div class="umef-hero-stats">
@@ -2200,8 +2200,7 @@ ob_start(function ($html) {
                     </div>
                     <h3 class="acc-sac-name">Swiss Accreditation Council</h3>
                     <p class="acc-sac-tagline">Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục
-                        <strong>đầu tiên tại Geneva</strong> đạt kiểm định SAC — tiêu chuẩn liên bang chính thức trong
-                        hệ thống giáo dục Thụy Sĩ.
+                        <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ.
                     </p>
                     <div class="acc-sac-stats">
                         <div class="acc-sac-stat">
@@ -2247,7 +2246,7 @@ ob_start(function ($html) {
                         <li><i class="fa-solid fa-circle-check"></i><span>Chương trình đạt chuẩn châu Âu — ECTS tín chỉ
                                 quốc tế</span></li>
                         <li><i class="fa-solid fa-circle-check"></i><span>Swiss UMEF là trường đại học tư thục
-                                <strong>đầu tiên tại Geneva</strong> đạt kiểm định SAC chính thức</span></li>
+                                <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ</span></li>
                     </ul>
                     <div class="acc-sac-cert-strip">
                         <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
