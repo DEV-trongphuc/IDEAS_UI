@@ -390,6 +390,7 @@ ob_start(function($html) {
             color: #0f172a;
             font-weight: 700;
             padding: 16px 20px;
+            border: 1px solid #e2e8f0;
             border-bottom: 2px solid #e2e8f0;
         }
 
@@ -397,7 +398,7 @@ ob_start(function($html) {
         .article-body-content td,
         .article-body-content figure.wp-block-table td {
             padding: 16px 20px;
-            border-bottom: 1px solid #f1f5f9;
+            border: 1px solid #e2e8f0;
             color: #475569;
             vertical-align: top;
         }
@@ -408,13 +409,8 @@ ob_start(function($html) {
             background: #f8fafc;
             color: #0f172a;
             font-weight: 700;
+            border: 1px solid #e2e8f0;
             border-bottom: 2px solid #e2e8f0;
-        }
-
-        /* Last row — no bottom border */
-        .article-body-content tbody tr:last-child td,
-        .article-body-content figure.wp-block-table tbody tr:last-child td {
-            border-bottom: none;
         }
 
         /* Row hover */
