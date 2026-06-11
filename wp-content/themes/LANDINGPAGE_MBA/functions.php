@@ -5052,10 +5052,31 @@ function ideas_ajax_summarize_post() {
     // 5. Call Gemini API
     $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=' . rawurlencode($api_key);
 
-    $prompt = "Bạn là trợ lý học thuật thông minh của Viện IDEAS. Hãy tóm tắt ngắn gọn và súc tích nội dung chính bài viết sau đây bằng tiếng Việt.
-Định dạng câu trả lời hoàn toàn bằng mã HTML đơn giản (sử dụng duy nhất các thẻ <ul> và <li> cho danh sách gạch đầu dòng, thẻ <strong> để nhấn mạnh từ khóa chính quan trọng).
-KHÔNG thêm bất kỳ mã CSS inline nào, KHÔNG dùng các khối mã codeblock markdown (như ```html ... ```).
-Nội dung tóm tắt phải cực kỳ trực quan, chuyên nghiệp, gồm 3 đến 4 gạch đầu dòng chính, mỗi dòng tóm tắt súc tích, đi thẳng vào giá trị cốt lõi.
+    $prompt = "Bạn là trợ lý học thuật thông minh của Viện IDEAS. Hãy thực hiện hai việc sau:
+
+1. TÓM TẮT BÀI VIẾT:
+Tóm tắt ngắn gọn và súc tích nội dung chính bài viết sau đây bằng tiếng Việt.
+Định dạng phần tóm tắt bằng mã HTML đơn giản (sử dụng duy nhất các thẻ <ul> và <li> cho danh sách gạch đầu dòng, thẻ <strong> để nhấn mạnh từ khóa chính quan trọng).
+Nội dung tóm tắt gồm 3 đến 4 gạch đầu dòng chính, mỗi dòng tóm tắt súc tích, đi thẳng vào giá trị cốt lõi.
+
+2. GỢI Ý CHƯƠNG TRÌNH ĐÀO TẠO PHÙ HỢP:
+Phân tích nội dung bài viết và chọn ra tối đa 1 đến 2 chương trình đào tạo liên quan nhất của Viện IDEAS từ danh sách bên dưới để gợi ý cho người đọc.
+Định dạng phần gợi ý này ngay sau phần tóm tắt dưới dạng một danh sách HTML riêng, sử dụng thẻ <a> dạng:
+`<a href='[URL_chương_trình]' target='_blank'><strong>[Tên chương trình]</strong></a>: [Mô tả ngắn gọn lý do chương trình này liên quan đến nội dung bài viết]`
+
+Lưu ý quan trọng:
+- KHÔNG thêm bất kỳ mã CSS inline nào.
+- KHÔNG dùng các khối mã codeblock markdown (như ```html ... ```).
+- KHÔNG tự bịa ra chương trình hay liên kết khác nằm ngoài danh sách được cung cấp dưới đây.
+
+Danh sách chương trình đào tạo của Viện IDEAS và URL tương ứng:
+- Top-up BBA (Liên thông Cử nhân 12 tháng) - URL: /bba
+- Full BBA (Cử nhân QTKD Thụy Sĩ) - URL: /fullbba
+- Online MBA (Thạc sĩ QTKD Trực tuyến) - URL: /mba
+- Executive MBA (Thạc sĩ điều hành QTKD) - URL: /emba
+- MBA in AI (Thạc sĩ QTKD Ứng dụng AI) - URL: /mbainai
+- MSc AI (Thạc sĩ AI ứng dụng) - URL: /mscai
+- Dual DBA (Tiến sĩ song bằng Pháp & Anh) - URL: /dual-dba
 
 Nội dung bài viết:
 " . $content;

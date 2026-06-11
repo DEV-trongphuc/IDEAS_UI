@@ -748,13 +748,13 @@ ob_start(function($html) {
 
         /* Gemini AI Summary Box */
         .gemini-summary-box {
-            background: linear-gradient(135deg, #f5f3ff, #eff6ff);
-            border: 1px solid #ddd6fe;
+            background: linear-gradient(135deg, #fff5f5, #fffcfc);
+            border: 1px solid #fee2e2;
             border-radius: 16px;
             padding: 24px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.05);
+            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.03);
             transition: all 0.3s ease;
         }
 
@@ -765,11 +765,11 @@ ob_start(function($html) {
             left: 0;
             width: 4px;
             height: 100%;
-            background: linear-gradient(to bottom, #8b5cf6, #3b82f6);
+            background: linear-gradient(to bottom, #ab0e00, #ff3600);
         }
 
         .gemini-summary-box:hover {
-            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.08);
+            box-shadow: 0 6px 20px rgba(171, 14, 0, 0.05);
             transform: translateY(-1px);
         }
 
@@ -788,11 +788,11 @@ ob_start(function($html) {
             gap: 8px;
             font-size: 1.1rem;
             font-weight: 700;
-            color: #4c1d95;
+            color: #ab0e00;
         }
 
         .gemini-sparkle {
-            color: #8b5cf6;
+            color: #ff3600;
             animation: pulse-sparkle 2s infinite ease-in-out;
         }
 
@@ -802,7 +802,7 @@ ob_start(function($html) {
         }
 
         .summary-btn {
-            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            background: linear-gradient(135deg, #ab0e00, #ff3600);
             color: #ffffff !important;
             border: none;
             padding: 10px 20px;
@@ -814,7 +814,7 @@ ob_start(function($html) {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.2);
+            box-shadow: 0 4px 10px rgba(171, 14, 0, 0.15);
             transition: all 0.2s ease;
             text-decoration: none !important;
         }
@@ -822,7 +822,7 @@ ob_start(function($html) {
         .summary-btn:hover {
             opacity: 0.95;
             transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 6px 14px rgba(171, 14, 0, 0.25);
         }
 
         .summary-btn:active {
@@ -837,10 +837,10 @@ ob_start(function($html) {
         .summary-result-content {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #1e1b4b;
+            color: #334155;
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px solid rgba(221, 214, 254, 0.5);
+            border-top: 1px solid rgba(254, 226, 226, 0.8);
             animation: fadeInSummary 0.5s ease-out forwards;
         }
 
@@ -861,11 +861,24 @@ ob_start(function($html) {
         }
 
         .summary-result-content li::marker {
-            color: #8b5cf6;
+            color: #ab0e00;
         }
 
         .summary-result-content strong {
-            color: #4c1d95;
+            color: #0f172a;
+        }
+
+        .summary-result-content a {
+            color: #ab0e00;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1.5px dashed rgba(171, 14, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .summary-result-content a:hover {
+            color: #ff3600;
+            border-bottom-color: #ff3600;
         }
 
         /* Loading Shimmer Animation */
@@ -875,7 +888,7 @@ ob_start(function($html) {
             gap: 10px;
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px solid rgba(221, 214, 254, 0.5);
+            border-top: 1px solid rgba(254, 226, 226, 0.8);
         }
 
         .shimmer-line {
