@@ -804,14 +804,13 @@ ob_start(function($html) {
             font-weight: 500;
         }
 
-        .gemini-sparkle {
-            color: #ff3600;
-            animation: pulse-sparkle 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse-sparkle {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
-            50% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+        .gemini-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid #ff3600;
+            flex-shrink: 0;
         }
 
         .summary-btn {
@@ -1128,7 +1127,7 @@ ob_start(function($html) {
                         <div class="summary-header">
                             <div class="summary-title-area">
                                 <div class="summary-title">
-                                    <i class="fa-solid fa-wand-magic-sparkles gemini-sparkle"></i>
+                                    <img src="https://ideas-data.vercel.app/imgs/angry_icon.jpg" alt="AI Avatar" class="gemini-avatar" />
                                     <span>Tóm tắt nhanh nội dung</span>
                                 </div>
                                 <div class="summary-subtitle">Bạn không có thời gian đọc hết? Hãy thử!</div>
