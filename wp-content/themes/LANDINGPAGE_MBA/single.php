@@ -1129,6 +1129,22 @@ ob_start(function($html) {
             <div class="article-content-card">
                 <!-- Gemini AI Summary & Table of Contents Area -->
                 <div class="article-interactive-tools">
+                    <!-- Dynamic Table of Contents -->
+                    <div class="toc-box" id="dynamic-toc-container" style="display: none;">
+                        <div class="toc-header" id="toc-header-toggle">
+                            <div class="toc-title-area">
+                                <i class="fa-solid fa-list-ul"></i>
+                                <span>Mục lục bài viết</span>
+                            </div>
+                            <button class="toc-toggle-btn" aria-label="Toggle TOC">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="toc-body">
+                            <ul id="toc-list"></ul>
+                        </div>
+                    </div>
+
                     <!-- Gemini AI Summary Box -->
                     <div class="gemini-summary-box">
                         <div class="summary-header">
@@ -1145,22 +1161,6 @@ ob_start(function($html) {
                             </button>
                         </div>
                         <div id="gemini-summary-result" class="summary-result-content" style="display: none;"></div>
-                    </div>
-
-                    <!-- Dynamic Table of Contents -->
-                    <div class="toc-box" id="dynamic-toc-container" style="display: none;">
-                        <div class="toc-header" id="toc-header-toggle">
-                            <div class="toc-title-area">
-                                <i class="fa-solid fa-list-ul"></i>
-                                <span>Mục lục bài viết</span>
-                            </div>
-                            <button class="toc-toggle-btn" aria-label="Toggle TOC">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </button>
-                        </div>
-                        <div class="toc-body">
-                            <ul id="toc-list"></ul>
-                        </div>
                     </div>
                 </div>
 
