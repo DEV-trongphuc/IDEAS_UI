@@ -7,7 +7,7 @@
 <header class="ideas_header" id="site-header">
     <div class="container header-inner">
         <a href="https://ideas.edu.vn/" class="logo" aria-label="Trang chủ IDEAS">
-            <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp"
+            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
                 alt="Logo IDEAS Education - 15 năm thành lập" width="60" height="60" loading="eager"
                 fetchpriority="high">
         </a>
@@ -87,7 +87,7 @@
                         </a>
                         <a href="/mbainai" class="dropdown-item">
                             <img class="item-avatar"
-                                src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
+                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
                                 alt="MBA in AI" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">MBA in AI</div>
@@ -108,7 +108,7 @@
                         </a>
                         <a href="/fullbba" class="dropdown-item">
                             <img class="item-avatar"
-                                src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
+                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
                                 alt="Global Online BBA" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Global Online BBA</div>
@@ -207,7 +207,7 @@
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true" data-lenis-prevent>
     <div class="mobile-menu-header">
         <a href="/" class="mobile-menu-logo" aria-label="Trang chủ IDEAS">
-            <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp"
+            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
                 alt="Logo IDEAS Education - 15 năm thành lập" width="45" height="45" loading="lazy">
         </a>
         <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">
@@ -285,7 +285,7 @@
                     </div>
                 </a>
                 <a href="/mbainai" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
                         alt="MBA in AI" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">MBA in AI</div>
@@ -304,7 +304,7 @@
                     </div>
                 </a>
                 <a href="/fullbba" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
                         alt="Global Online BBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Global Online BBA</div>

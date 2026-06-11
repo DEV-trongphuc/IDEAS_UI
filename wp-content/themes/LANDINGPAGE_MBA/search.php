@@ -55,31 +55,31 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Kết quả tìm kiếm cho: <?php echo esc_attr(get_search_query()); ?> | <?php bloginfo('name'); ?></title>
+            <title>Kết quả tìm kiếm cho: <?php echo esc_attr(get_search_query()); ?> | <?php bloginfo('name'); ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta name="description"
-            content="Kết quả tìm kiếm cho từ khóa <?php echo esc_attr(get_search_query()); ?> tại website IDEAS.">
+            <meta name="description"
+                content="Kết quả tìm kiếm cho từ khóa <?php echo esc_attr(get_search_query()); ?> tại website IDEAS.">
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <!-- Open Graph / Facebook -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Kết quả tìm kiếm: <?php echo esc_attr(get_search_query()); ?> | IDEAS" />
-        <meta property="og:description"
-            content="Kết quả tìm kiếm cho từ khóa <?php echo esc_attr(get_search_query()); ?> tại website IDEAS." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp" />
-        <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Kết quả tìm kiếm: <?php echo esc_attr(get_search_query()); ?> | IDEAS" />
+            <meta property="og:description"
+                content="Kết quả tìm kiếm cho từ khóa <?php echo esc_attr(get_search_query()); ?> tại website IDEAS." />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" />
+            <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Twitter Card -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Kết quả tìm kiếm: <?php echo esc_attr(get_search_query()); ?> | IDEAS" />
-        <meta name="twitter:description"
-            content="Kết quả tìm kiếm cho từ khóa <?php echo esc_attr(get_search_query()); ?> tại website IDEAS." />
-        <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Kết quả tìm kiếm: <?php echo esc_attr(get_search_query()); ?> | IDEAS" />
+            <meta name="twitter:description"
+                content="Kết quả tìm kiếm cho từ khóa <?php echo esc_attr(get_search_query()); ?> tại website IDEAS." />
+            <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -713,7 +713,7 @@ ob_start(function ($html) {
                     if (!$post_img) {
                         $content = get_the_content();
                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
+                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
                     }
 
                     $excerpt = get_the_excerpt();
@@ -721,28 +721,28 @@ ob_start(function ($html) {
                         $excerpt = wp_strip_all_tags(wp_trim_words(get_the_content(), 22));
                     }
                     ?>
-                    <a href="<?php the_permalink(); ?>" class="blog-card">
-                        <div class="card-img-wrap skeleton">
-                            <img src="<?php echo esc_url($post_img); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"
-                                onload="this.parentElement.classList.remove('skeleton')">
-                        </div>
-                        <div class="card-body">
+                            <a href="<?php the_permalink(); ?>" class="blog-card">
+                                <div class="card-img-wrap skeleton">
+                                    <img src="<?php echo esc_url($post_img); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy"
+                                        onload="this.parentElement.classList.remove('skeleton')">
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                    $categories = get_the_category();
+                                    if (!empty($categories)) {
+                                        echo '<span class="card-tag">' . esc_html($categories[0]->name) . '</span>';
+                                    }
+                                    ?>
+                                    <h3><?php the_title(); ?></h3>
+                                    <p><?php echo esc_html($excerpt); ?></p>
+                                    <div class="card-meta">
+                                        <span><i class="fa-regular fa-calendar-days" style="color:#ab0e00; margin-right:4px;"></i>
+                                            <?php echo get_the_date('d/m/Y'); ?></span>
+                                        <span class="read-more">Đọc tiếp <i class="fa-solid fa-arrow-right"></i></span>
+                                    </div>
+                                </div>
+                            </a>
                             <?php
-                            $categories = get_the_category();
-                            if (!empty($categories)) {
-                                echo '<span class="card-tag">' . esc_html($categories[0]->name) . '</span>';
-                            }
-                            ?>
-                            <h3><?php the_title(); ?></h3>
-                            <p><?php echo esc_html($excerpt); ?></p>
-                            <div class="card-meta">
-                                <span><i class="fa-regular fa-calendar-days" style="color:#ab0e00; margin-right:4px;"></i>
-                                    <?php echo get_the_date('d/m/Y'); ?></span>
-                                <span class="read-more">Đọc tiếp <i class="fa-solid fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                    <?php
                 endwhile;
                 echo '</div>'; // End Grid
             
@@ -762,9 +762,9 @@ ob_start(function ($html) {
                 }
             } else {
                 ?>
-                <p style="text-align: center; padding: 60px 0; color: #64748b; font-weight: 500;">Không tìm thấy bài viết
-                    phù hợp với từ khóa của bạn.</p>
-                <?php
+                    <p style="text-align: center; padding: 60px 0; color: #64748b; font-weight: 500;">Không tìm thấy bài viết
+                        phù hợp với từ khóa của bạn.</p>
+                    <?php
             }
             ?>
         </main>
@@ -809,7 +809,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/fullbba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
                                 alt="Global Online BBA" class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Global Online BBA</h4>
@@ -833,7 +833,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/mbainai" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
                                 alt="MBA in AI" class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">MBA in AI</h4>

@@ -42,21 +42,21 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS</title>
+            <title>Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS</title>
     <?php endif; ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta name="description"
-            content="Hệ thống hỗ trợ học tập LMS Moodle, IDEAS AI, và thư viện học thuật Cengage. Hỗ trợ học vụ chuyên nghiệp trọn vẹn dành cho học viên của IDEAS." />
+            <meta name="description"
+                content="Hệ thống hỗ trợ học tập LMS Moodle, IDEAS AI, và thư viện học thuật Cengage. Hỗ trợ học vụ chuyên nghiệp trọn vẹn dành cho học viên của IDEAS." />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS" />
-        <meta property="og:description"
-            content="Trải nghiệm học tập hiện đại 4.0 với hệ thống Moodle LMS, trợ lý AI thông minh và thư viện học tập toàn diện 24/7." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
-        <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS" />
+            <meta property="og:description"
+                content="Trải nghiệm học tập hiện đại 4.0 với hệ thống Moodle LMS, trợ lý AI thông minh và thư viện học tập toàn diện 24/7." />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
+            <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -961,7 +961,7 @@ ob_start(function ($html) {
                 </ul>
             </div>
             <div class="platform-visual">
-                <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/maxresdefault.webp"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/maxresdefault.webp"
                     alt="Cengage library access" loading="lazy" />
             </div>
         </div>

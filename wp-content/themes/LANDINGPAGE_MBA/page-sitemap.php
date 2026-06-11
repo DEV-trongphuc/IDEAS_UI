@@ -53,7 +53,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="Sơ đồ trang web – Sitemap | IDEAS" />
         <meta property="og:description"
             content="Truy cập nhanh chóng và dễ dàng đến tất cả các bài viết, chuyên mục đào tạo và dịch vụ của Viện IDEAS." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->

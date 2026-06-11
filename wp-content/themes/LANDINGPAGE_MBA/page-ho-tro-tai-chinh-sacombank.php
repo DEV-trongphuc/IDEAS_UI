@@ -39,7 +39,8 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/04/recap_growverth.webp" />
+    <link rel="preload" fetchpriority="high" as="image"
+        href="https://ideas.edu.vn/wp-content/uploads/2026/04/recap_growverth.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Hỗ Trợ Tài Chính Sacombank – Trả Góp Học Phí 0% | IDEAS</title>
     <?php endif; ?>
@@ -1257,7 +1258,7 @@ ob_start(function ($html) {
                     <!-- Step 1 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/icon4.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon4.png"
                                 alt="Bước 1 Tiếp nhận hồ sơ" />
                         </div>
                         <h4>1. Tiếp nhận hồ sơ</h4>
@@ -1267,7 +1268,7 @@ ob_start(function ($html) {
                     <!-- Step 2 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/icon3.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon3.png"
                                 alt="Bước 2 Xác nhận ngân hàng" />
                         </div>
                         <h4>2. Ngân hàng xác nhận</h4>
@@ -1278,7 +1279,7 @@ ob_start(function ($html) {
                     <!-- Step 3 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/icon1.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon1.png"
                                 alt="Bước 3 Xử lý hồ sơ" />
                         </div>
                         <h4>3. Xử lý &amp; Phát hành</h4>
@@ -1289,7 +1290,7 @@ ob_start(function ($html) {
                     <!-- Step 4 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/icon2.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon2.png"
                                 alt="Bước 4 Thanh toán học phí" />
                         </div>
                         <h4>4. Thanh toán học phí</h4>

@@ -39,7 +39,8 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+    <link rel="preload" fetchpriority="high" as="image"
+        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>IDEAS Talk – Webinar &amp; Chuyên đề AI | IDEAS</title>
     <?php endif; ?>
@@ -601,7 +602,9 @@ ob_start(function ($html) {
     <main id="content">
         <!-- Hero Section -->
         <section class="talk-hero">
-            <div class="talk-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');"></div>
+            <div class="talk-hero-bg"
+                style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');">
+            </div>
             <div class="talk-hero-overlay"></div>
             <div class="talk-hero-container">
                 <span class="talk-hero-badge">
@@ -669,7 +672,7 @@ ob_start(function ($html) {
                     </a>
                     <a class="coop-card" href="https://ideas.edu.vn/" target="_blank"
                         rel="nofollow noopener noreferrer">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/ideas-02.png"
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/ideas-02.png"
                             alt="IDEAS Logo" />
                     </a>
                 </div>

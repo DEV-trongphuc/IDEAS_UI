@@ -69,35 +69,35 @@ ob_start(function ($html) {
     if (!$featured_image) {
         $content = get_the_content();
         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-        $featured_image = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
+        $featured_image = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
     }
     ?>
     <?php if ($featured_image): ?>
-        <link rel="preload" fetchpriority="high" as="image" href="<?php echo esc_url($featured_image); ?>" />
+            <link rel="preload" fetchpriority="high" as="image" href="<?php echo esc_url($featured_image); ?>" />
     <?php endif; ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta name="description" content="<?php echo esc_attr($excerpt); ?>">
+            <meta name="description" content="<?php echo esc_attr($excerpt); ?>">
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <!-- Open Graph / Facebook -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="<?php echo esc_attr(get_the_title()); ?>" />
-        <meta property="og:description" content="<?php echo esc_attr($excerpt); ?>" />
-        <meta property="og:image" content="<?php echo esc_url($featured_image); ?>" />
-        <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>" />
-        <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="<?php echo esc_attr(get_the_title()); ?>" />
+            <meta property="og:description" content="<?php echo esc_attr($excerpt); ?>" />
+            <meta property="og:image" content="<?php echo esc_url($featured_image); ?>" />
+            <meta property="og:url" content="<?php echo esc_url(get_permalink()); ?>" />
+            <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
     <?php endif; ?>
     <meta property="article:published_time" content="<?php echo get_the_date('c'); ?>" />
     <meta property="article:modified_time" content="<?php echo get_the_modified_date('c'); ?>" />
 
     <!-- Twitter Card -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="<?php echo esc_attr(get_the_title()); ?>" />
-        <meta name="twitter:description" content="<?php echo esc_attr($excerpt); ?>" />
-        <meta name="twitter:image" content="<?php echo esc_url($featured_image); ?>" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="<?php echo esc_attr(get_the_title()); ?>" />
+            <meta name="twitter:description" content="<?php echo esc_attr($excerpt); ?>" />
+            <meta name="twitter:image" content="<?php echo esc_url($featured_image); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1114,303 +1114,303 @@ ob_start(function ($html) {
         while (have_posts()):
             the_post(); ?>
 
-            <!-- Main Layout Container -->
-            <div class="post-layout-wrapper">
+                    <!-- Main Layout Container -->
+                    <div class="post-layout-wrapper">
 
-                <!-- Main Content Area -->
-                <main>
-                    <!-- Hero Header Card -->
-                    <article class="article-hero">
-                        <div class="article-breadcrumbs">
-                            <a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> Trang chủ</a>
-                            <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
-                            <?php
-                            $categories = get_the_category();
-                            if (!empty($categories)) {
-                                $cat = $categories[0];
-                                echo '<a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a>';
-                                echo '<i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>';
-                            }
-                            ?>
-                            <span><?php the_title(); ?></span>
-                        </div>
+                        <!-- Main Content Area -->
+                        <main>
+                            <!-- Hero Header Card -->
+                            <article class="article-hero">
+                                <div class="article-breadcrumbs">
+                                    <a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                                    <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
+                                    <?php
+                                    $categories = get_the_category();
+                                    if (!empty($categories)) {
+                                        $cat = $categories[0];
+                                        echo '<a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a>';
+                                        echo '<i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>';
+                                    }
+                                    ?>
+                                    <span><?php the_title(); ?></span>
+                                </div>
 
-                        <span class="article-category-badge">
-                            <?php the_category(', '); ?>
-                        </span>
+                                <span class="article-category-badge">
+                                    <?php the_category(', '); ?>
+                                </span>
 
-                        <h1 class="article-main-title"><?php the_title(); ?></h1>
+                                <h1 class="article-main-title"><?php the_title(); ?></h1>
 
-                        <div class="article-meta-row">
-                            <div class="meta-info-item">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <span><?php echo get_the_date('d/m/Y'); ?></span>
-                            </div>
-
-                            <div class="meta-info-item">
-                                <i class="fa-solid fa-clock"></i>
-                                <?php
-                                $post_content = get_the_content();
-                                $word_count = str_word_count(strip_tags($post_content));
-                                $reading_time = ceil($word_count / 200);
-                                if ($reading_time < 1)
-                                    $reading_time = 1;
-                                ?>
-                                <span><?php echo $reading_time; ?> phút đọc</span>
-                            </div>
-                        </div>
-
-                        <!-- Featured Cover Image / Ảnh bìa -->
-                        <div class="article-featured-image skeleton">
-                            <img src="<?php echo esc_url($featured_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>"
-                                onload="this.parentElement.classList.remove('skeleton')" />
-                        </div>
-                    </article>
-
-                    <!-- Main Content Card -->
-                    <div class="article-content-card">
-                        <!-- Gemini AI Summary & Table of Contents Area -->
-                        <div class="article-interactive-tools">
-                            <!-- Dynamic Table of Contents -->
-                            <div class="toc-box" id="dynamic-toc-container" style="display: none;">
-                                <div class="toc-header" id="toc-header-toggle">
-                                    <div class="toc-title-area">
-                                        <i class="fa-solid fa-list-ul"></i>
-                                        <span>Mục lục bài viết</span>
+                                <div class="article-meta-row">
+                                    <div class="meta-info-item">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <span><?php echo get_the_date('d/m/Y'); ?></span>
                                     </div>
-                                    <button class="toc-toggle-btn" aria-label="Toggle TOC">
-                                        <i class="fa-solid fa-chevron-down"></i>
-                                    </button>
-                                </div>
-                                <div class="toc-body">
-                                    <ul id="toc-list"></ul>
-                                </div>
-                            </div>
 
-                            <!-- Gemini AI Summary Box -->
-                            <div class="gemini-summary-box">
-                                <div class="summary-header">
-                                    <div class="summary-title-area">
-                                        <div class="summary-title">
-                                            <img src="https://ideas-data.vercel.app/imgs/angry_icon.jpg" alt="AI Avatar"
-                                                class="gemini-avatar" />
-                                            <span>Tóm tắt nhanh nội dung</span>
-                                        </div>
-                                        <div class="summary-subtitle">Bạn không có thời gian đọc hết? Hãy thử!</div>
-                                    </div>
-                                    <button id="btn-gemini-summarize" class="summary-btn" data-post-id="<?php the_ID(); ?>">
-                                        <span>Tóm tắt bằng AI</span>
-                                        <i class="fa-solid fa-bolt"></i>
-                                    </button>
-                                </div>
-                                <div id="gemini-summary-result" class="summary-result-content" style="display: none;"></div>
-                            </div>
-                        </div>
-
-                        <div class="article-body-content">
-                            <?php
-                            // Render content, and automatically strip duplicate of the first image inline if it matches featured image
-                            $content_html = apply_filters('the_content', get_the_content());
-
-                            // Simple regex replacement to omit the first duplicate image from the body layout
-                            if ($featured_image) {
-                                $escaped_img = preg_quote($featured_image, '/');
-                                // Remove figure or image block containing this exact url
-                                $content_html = preg_replace('/<figure[^>]*>\s*<img[^>]+src="' . $escaped_img . '"[^>]*>\s*<\/figure>/i', '', $content_html, 1);
-                                $content_html = preg_replace('/<img[^>]+src="' . $escaped_img . '"[^>]*>/i', '', $content_html, 1);
-                            }
-
-                            // Strip leftover raw ultimate post kit (ultp) plugin icon strings
-                            $content_html = preg_replace('/_ultp_aci_ic_[a-zA-Z0-9_]+?_ultp_aci_ic_end_/i', '', $content_html);
-
-                            echo $content_html;
-                            ?>
-                        </div>
-
-                        <!-- Share Section -->
-                        <div class="article-share-bar">
-                            <span class="share-label">Chia sẻ bài viết:</span>
-                            <div class="share-buttons">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>"
-                                    target="_blank" class="share-btn facebook" aria-label="Chia sẻ bài viết lên Facebook"><i
-                                        class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url(get_permalink()); ?>"
-                                    target="_blank" class="share-btn linkedin" aria-label="Chia sẻ bài viết lên LinkedIn"><i
-                                        class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url(get_permalink()); ?>"
-                                    target="_blank" class="share-btn twitter" aria-label="Chia sẻ bài viết lên Twitter"><i
-                                        class="fa-brands fa-x-twitter"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Post Navigation Links -->
-                        <div class="post-navigation">
-                            <?php
-                            $prev_post = get_previous_post();
-                            if (!empty($prev_post)): ?>
-                                <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="nav-card">
-                                    <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> Bài trước đó</span>
-                                    <span class="nav-card-title"><?php echo esc_html(get_the_title($prev_post->ID)); ?></span>
-                                </a>
-                            <?php else: ?>
-                                <div></div>
-                            <?php endif; ?>
-
-                            <?php
-                            $next_post = get_next_post();
-                            if (!empty($next_post)): ?>
-                                <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="nav-card"
-                                    style="text-align: right; align-items: flex-end;">
-                                    <span class="nav-card-label">Bài tiếp theo <i class="fa-solid fa-arrow-right"></i></span>
-                                    <span class="nav-card-title"><?php echo esc_html(get_the_title($next_post->ID)); ?></span>
-                                </a>
-                            <?php else: ?>
-                                <div></div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </main>
-
-                <!-- Sidebar Widgets Area -->
-                <aside>
-                    <div class="sidebar-wrapper">
-
-                        <!-- Quick Register Consultation Widget -->
-                        <div class="sidebar-widget">
-                            <h3 class="widget-title">Đăng ký tư vấn lộ trình</h3>
-                            <form class="ideas-widget-form">
-                                <input type="text" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
-                                <input type="email" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" required>
-                                <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
-                                <select aria-label="Chương trình quan tâm" required>
-                                    <option value="" disabled selected hidden>Chương trình quan tâm</option>
-                                    <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
-                                    <option value="Full BBA">Global Online BBA</option>
-                                    <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
-                                    <option value="Executive MBA">Executive MBA (Thạc sĩ điều hành)</option>
-                                    <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
-                                    <option value="MSc AI">MSc AI (Thạc sĩ AI ứng dụng)</option>
-                                    <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
-                                </select>
-                                <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..."
-                                    aria-label="Ghi chú thêm"></textarea>
-                                <button type="submit"><i class="fa-solid fa-paper-plane"></i> Đăng ký ngay</button>
-                            </form>
-                        </div>
-
-                        <!-- Recent Posts Widget -->
-                        <div class="sidebar-widget">
-                            <h3 class="widget-title">Bài viết gần đây</h3>
-                            <div class="sidebar-course-list">
-                                <?php
-                                $recent_posts = new WP_Query(array(
-                                    'posts_per_page' => 3,
-                                    'post__not_in' => array($post_id),
-                                    'post_status' => 'publish'
-                                ));
-
-                                if ($recent_posts->have_posts()):
-                                    while ($recent_posts->have_posts()):
-                                        $recent_posts->the_post();
-                                        $recent_img = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
-                                        if (!$recent_img) {
-                                            $recent_content = get_the_content();
-                                            preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $recent_content, $matches_r);
-                                            $recent_img = isset($matches_r[1][0]) ? $matches_r[1][0] : 'https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp';
-                                        }
+                                    <div class="meta-info-item">
+                                        <i class="fa-solid fa-clock"></i>
+                                        <?php
+                                        $post_content = get_the_content();
+                                        $word_count = str_word_count(strip_tags($post_content));
+                                        $reading_time = ceil($word_count / 200);
+                                        if ($reading_time < 1)
+                                            $reading_time = 1;
                                         ?>
-                                        <a href="<?php the_permalink(); ?>" class="sidebar-course-item">
-                                            <div class="sidebar-course-img-wrap skeleton"
-                                                style="width: 60px; height: 60px; border-radius: 8px; overflow: hidden; flex-shrink: 0;">
-                                                <img src="<?php echo esc_url($recent_img); ?>" alt="<?php the_title_attribute(); ?>"
-                                                    class="sidebar-course-img" style="width: 100%; height: 100%;"
-                                                    onload="this.parentElement.classList.remove('skeleton')">
+                                        <span><?php echo $reading_time; ?> phút đọc</span>
+                                    </div>
+                                </div>
+
+                                <!-- Featured Cover Image / Ảnh bìa -->
+                                <div class="article-featured-image skeleton">
+                                    <img src="<?php echo esc_url($featured_image); ?>" alt="<?php echo esc_attr(get_the_title()); ?>"
+                                        onload="this.parentElement.classList.remove('skeleton')" />
+                                </div>
+                            </article>
+
+                            <!-- Main Content Card -->
+                            <div class="article-content-card">
+                                <!-- Gemini AI Summary & Table of Contents Area -->
+                                <div class="article-interactive-tools">
+                                    <!-- Dynamic Table of Contents -->
+                                    <div class="toc-box" id="dynamic-toc-container" style="display: none;">
+                                        <div class="toc-header" id="toc-header-toggle">
+                                            <div class="toc-title-area">
+                                                <i class="fa-solid fa-list-ul"></i>
+                                                <span>Mục lục bài viết</span>
                                             </div>
+                                            <button class="toc-toggle-btn" aria-label="Toggle TOC">
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                            </button>
+                                        </div>
+                                        <div class="toc-body">
+                                            <ul id="toc-list"></ul>
+                                        </div>
+                                    </div>
+
+                                    <!-- Gemini AI Summary Box -->
+                                    <div class="gemini-summary-box">
+                                        <div class="summary-header">
+                                            <div class="summary-title-area">
+                                                <div class="summary-title">
+                                                    <img src="https://ideas-data.vercel.app/imgs/angry_icon.jpg" alt="AI Avatar"
+                                                        class="gemini-avatar" />
+                                                    <span>Tóm tắt nhanh nội dung</span>
+                                                </div>
+                                                <div class="summary-subtitle">Bạn không có thời gian đọc hết? Hãy thử!</div>
+                                            </div>
+                                            <button id="btn-gemini-summarize" class="summary-btn" data-post-id="<?php the_ID(); ?>">
+                                                <span>Tóm tắt bằng AI</span>
+                                                <i class="fa-solid fa-bolt"></i>
+                                            </button>
+                                        </div>
+                                        <div id="gemini-summary-result" class="summary-result-content" style="display: none;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="article-body-content">
+                                    <?php
+                                    // Render content, and automatically strip duplicate of the first image inline if it matches featured image
+                                    $content_html = apply_filters('the_content', get_the_content());
+
+                                    // Simple regex replacement to omit the first duplicate image from the body layout
+                                    if ($featured_image) {
+                                        $escaped_img = preg_quote($featured_image, '/');
+                                        // Remove figure or image block containing this exact url
+                                        $content_html = preg_replace('/<figure[^>]*>\s*<img[^>]+src="' . $escaped_img . '"[^>]*>\s*<\/figure>/i', '', $content_html, 1);
+                                        $content_html = preg_replace('/<img[^>]+src="' . $escaped_img . '"[^>]*>/i', '', $content_html, 1);
+                                    }
+
+                                    // Strip leftover raw ultimate post kit (ultp) plugin icon strings
+                                    $content_html = preg_replace('/_ultp_aci_ic_[a-zA-Z0-9_]+?_ultp_aci_ic_end_/i', '', $content_html);
+
+                                    echo $content_html;
+                                    ?>
+                                </div>
+
+                                <!-- Share Section -->
+                                <div class="article-share-bar">
+                                    <span class="share-label">Chia sẻ bài viết:</span>
+                                    <div class="share-buttons">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>"
+                                            target="_blank" class="share-btn facebook" aria-label="Chia sẻ bài viết lên Facebook"><i
+                                                class="fa-brands fa-facebook-f"></i></a>
+                                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url(get_permalink()); ?>"
+                                            target="_blank" class="share-btn linkedin" aria-label="Chia sẻ bài viết lên LinkedIn"><i
+                                                class="fa-brands fa-linkedin-in"></i></a>
+                                        <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url(get_permalink()); ?>"
+                                            target="_blank" class="share-btn twitter" aria-label="Chia sẻ bài viết lên Twitter"><i
+                                                class="fa-brands fa-x-twitter"></i></a>
+                                    </div>
+                                </div>
+
+                                <!-- Post Navigation Links -->
+                                <div class="post-navigation">
+                                    <?php
+                                    $prev_post = get_previous_post();
+                                    if (!empty($prev_post)): ?>
+                                            <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="nav-card">
+                                                <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> Bài trước đó</span>
+                                                <span class="nav-card-title"><?php echo esc_html(get_the_title($prev_post->ID)); ?></span>
+                                            </a>
+                                    <?php else: ?>
+                                            <div></div>
+                                    <?php endif; ?>
+
+                                    <?php
+                                    $next_post = get_next_post();
+                                    if (!empty($next_post)): ?>
+                                            <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="nav-card"
+                                                style="text-align: right; align-items: flex-end;">
+                                                <span class="nav-card-label">Bài tiếp theo <i class="fa-solid fa-arrow-right"></i></span>
+                                                <span class="nav-card-title"><?php echo esc_html(get_the_title($next_post->ID)); ?></span>
+                                            </a>
+                                    <?php else: ?>
+                                            <div></div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </main>
+
+                        <!-- Sidebar Widgets Area -->
+                        <aside>
+                            <div class="sidebar-wrapper">
+
+                                <!-- Quick Register Consultation Widget -->
+                                <div class="sidebar-widget">
+                                    <h3 class="widget-title">Đăng ký tư vấn lộ trình</h3>
+                                    <form class="ideas-widget-form">
+                                        <input type="text" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
+                                        <input type="email" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" required>
+                                        <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
+                                        <select aria-label="Chương trình quan tâm" required>
+                                            <option value="" disabled selected hidden>Chương trình quan tâm</option>
+                                            <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
+                                            <option value="Full BBA">Global Online BBA</option>
+                                            <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
+                                            <option value="Executive MBA">Executive MBA (Thạc sĩ điều hành)</option>
+                                            <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
+                                            <option value="MSc AI">MSc AI (Thạc sĩ AI ứng dụng)</option>
+                                            <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
+                                        </select>
+                                        <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..."
+                                            aria-label="Ghi chú thêm"></textarea>
+                                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Đăng ký ngay</button>
+                                    </form>
+                                </div>
+
+                                <!-- Recent Posts Widget -->
+                                <div class="sidebar-widget">
+                                    <h3 class="widget-title">Bài viết gần đây</h3>
+                                    <div class="sidebar-course-list">
+                                        <?php
+                                        $recent_posts = new WP_Query(array(
+                                            'posts_per_page' => 3,
+                                            'post__not_in' => array($post_id),
+                                            'post_status' => 'publish'
+                                        ));
+
+                                        if ($recent_posts->have_posts()):
+                                            while ($recent_posts->have_posts()):
+                                                $recent_posts->the_post();
+                                                $recent_img = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+                                                if (!$recent_img) {
+                                                    $recent_content = get_the_content();
+                                                    preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $recent_content, $matches_r);
+                                                    $recent_img = isset($matches_r[1][0]) ? $matches_r[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                                }
+                                                ?>
+                                                        <a href="<?php the_permalink(); ?>" class="sidebar-course-item">
+                                                            <div class="sidebar-course-img-wrap skeleton"
+                                                                style="width: 60px; height: 60px; border-radius: 8px; overflow: hidden; flex-shrink: 0;">
+                                                                <img src="<?php echo esc_url($recent_img); ?>" alt="<?php the_title_attribute(); ?>"
+                                                                    class="sidebar-course-img" style="width: 100%; height: 100%;"
+                                                                    onload="this.parentElement.classList.remove('skeleton')">
+                                                            </div>
+                                                            <div>
+                                                                <h4 class="sidebar-course-title" style="font-size: 0.88rem; line-height: 1.3;">
+                                                                    <?php the_title(); ?></h4>
+                                                                <p class="sidebar-course-desc"
+                                                                    style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">
+                                                                    <?php echo get_the_date('d/m/Y'); ?></p>
+                                                            </div>
+                                                        </a>
+                                                        <?php
+                                            endwhile;
+                                            wp_reset_postdata();
+                                        endif;
+                                        ?>
+                                    </div>
+                                </div>
+
+                                <!-- Suggested Programs Widget -->
+                                <div class="sidebar-widget">
+                                    <h3 class="widget-title">Chương trình đào tạo</h3>
+                                    <div class="sidebar-course-list">
+                                        <a href="/bba" class="sidebar-course-item">
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA"
+                                                class="sidebar-course-img">
                                             <div>
-                                                <h4 class="sidebar-course-title" style="font-size: 0.88rem; line-height: 1.3;">
-                                                    <?php the_title(); ?></h4>
-                                                <p class="sidebar-course-desc"
-                                                    style="font-size: 0.75rem; color: #64748b; margin-top: 2px;">
-                                                    <?php echo get_the_date('d/m/Y'); ?></p>
+                                                <h4 class="sidebar-course-title">Top-up BBA</h4>
+                                                <p class="sidebar-course-desc">Liên thông Cử nhân 12 tháng</p>
                                             </div>
                                         </a>
-                                        <?php
-                                    endwhile;
-                                    wp_reset_postdata();
-                                endif;
-                                ?>
-                            </div>
-                        </div>
+                                        <a href="/fullbba" class="sidebar-course-item">
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                                                alt="Global Online BBA" class="sidebar-course-img">
+                                            <div>
+                                                <h4 class="sidebar-course-title">Global Online BBA</h4>
+                                                <p class="sidebar-course-desc">Cử nhân QTKD Quốc tế</p>
+                                            </div>
+                                        </a>
+                                        <a href="/mba" class="sidebar-course-item">
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                                                alt="Online MBA" class="sidebar-course-img">
+                                            <div>
+                                                <h4 class="sidebar-course-title">Online MBA</h4>
+                                                <p class="sidebar-course-desc">Thạc sĩ QTKD Trực tuyến</p>
+                                            </div>
+                                        </a>
+                                        <a href="/emba" class="sidebar-course-item">
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp" alt="Executive MBA"
+                                                class="sidebar-course-img">
+                                            <div>
+                                                <h4 class="sidebar-course-title">Executive MBA</h4>
+                                                <p class="sidebar-course-desc">Thạc sĩ điều hành QTKD</p>
+                                            </div>
+                                        </a>
+                                        <a href="/mbainai" class="sidebar-course-item">
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                                                alt="MBA in AI" class="sidebar-course-img">
+                                            <div>
+                                                <h4 class="sidebar-course-title">MBA in AI</h4>
+                                                <p class="sidebar-course-desc">Thạc sĩ QTKD Ứng dụng AI</p>
+                                            </div>
+                                        </a>
+                                        <a href="/mscai" class="sidebar-course-item">
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="MSc AI"
+                                                class="sidebar-course-img">
+                                            <div>
+                                                <h4 class="sidebar-course-title">Master AI (MSc AI)</h4>
+                                                <p class="sidebar-course-desc">Thạc sĩ AI ứng dụng</p>
+                                            </div>
+                                        </a>
+                                        <a href="/dual-dba" class="sidebar-course-item">
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp" alt="Dual DBA"
+                                                class="sidebar-course-img">
+                                            <div>
+                                                <h4 class="sidebar-course-title">Dual DBA</h4>
+                                                <p class="sidebar-course-desc">Tiến sĩ song bằng Pháp & Anh</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
 
-                        <!-- Suggested Programs Widget -->
-                        <div class="sidebar-widget">
-                            <h3 class="widget-title">Chương trình đào tạo</h3>
-                            <div class="sidebar-course-list">
-                                <a href="/bba" class="sidebar-course-item">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA"
-                                        class="sidebar-course-img">
-                                    <div>
-                                        <h4 class="sidebar-course-title">Top-up BBA</h4>
-                                        <p class="sidebar-course-desc">Liên thông Cử nhân 12 tháng</p>
-                                    </div>
-                                </a>
-                                <a href="/fullbba" class="sidebar-course-item">
-                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
-                                        alt="Global Online BBA" class="sidebar-course-img">
-                                    <div>
-                                        <h4 class="sidebar-course-title">Global Online BBA</h4>
-                                        <p class="sidebar-course-desc">Cử nhân QTKD Quốc tế</p>
-                                    </div>
-                                </a>
-                                <a href="/mba" class="sidebar-course-item">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
-                                        alt="Online MBA" class="sidebar-course-img">
-                                    <div>
-                                        <h4 class="sidebar-course-title">Online MBA</h4>
-                                        <p class="sidebar-course-desc">Thạc sĩ QTKD Trực tuyến</p>
-                                    </div>
-                                </a>
-                                <a href="/emba" class="sidebar-course-item">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp" alt="Executive MBA"
-                                        class="sidebar-course-img">
-                                    <div>
-                                        <h4 class="sidebar-course-title">Executive MBA</h4>
-                                        <p class="sidebar-course-desc">Thạc sĩ điều hành QTKD</p>
-                                    </div>
-                                </a>
-                                <a href="/mbainai" class="sidebar-course-item">
-                                    <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
-                                        alt="MBA in AI" class="sidebar-course-img">
-                                    <div>
-                                        <h4 class="sidebar-course-title">MBA in AI</h4>
-                                        <p class="sidebar-course-desc">Thạc sĩ QTKD Ứng dụng AI</p>
-                                    </div>
-                                </a>
-                                <a href="/mscai" class="sidebar-course-item">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="MSc AI"
-                                        class="sidebar-course-img">
-                                    <div>
-                                        <h4 class="sidebar-course-title">Master AI (MSc AI)</h4>
-                                        <p class="sidebar-course-desc">Thạc sĩ AI ứng dụng</p>
-                                    </div>
-                                </a>
-                                <a href="/dual-dba" class="sidebar-course-item">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp" alt="Dual DBA"
-                                        class="sidebar-course-img">
-                                    <div>
-                                        <h4 class="sidebar-course-title">Dual DBA</h4>
-                                        <p class="sidebar-course-desc">Tiến sĩ song bằng Pháp & Anh</p>
-                                    </div>
-                                </a>
                             </div>
-                        </div>
+                        </aside>
 
                     </div>
-                </aside>
 
-            </div>
-
-        <?php endwhile; endif; ?>
+            <?php endwhile; endif; ?>
 
     <!-- Site JS script (for mobile menu toggles and dropdown behaviors) -->
     <?php

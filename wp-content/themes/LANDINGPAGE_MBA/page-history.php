@@ -55,31 +55,31 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Lịch sử hình thành và phát triển IDEAS | <?php bloginfo('name'); ?></title>
+            <title>Lịch sử hình thành và phát triển IDEAS | <?php bloginfo('name'); ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta name="description"
-            content="Lịch sử phát triển của IDEAS từ tiền thân Viện IBM (2010), UBIS partner (2013), đến sự chuyển đổi tái định vị thương hiệu năm 2023 với mục tiêu 'Sáng tạo và đổi mới'.">
+            <meta name="description"
+                content="Lịch sử phát triển của IDEAS từ tiền thân Viện IBM (2010), UBIS partner (2013), đến sự chuyển đổi tái định vị thương hiệu năm 2023 với mục tiêu 'Sáng tạo và đổi mới'.">
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <!-- Open Graph / Facebook -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Lịch sử hình thành và phát triển IDEAS" />
-        <meta property="og:description"
-            content="Khám phá hành trình 15 năm kiến tạo và phát triển giáo dục sau đại học quốc tế chất lượng cao của IDEAS." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
-        <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="Lịch sử hình thành và phát triển IDEAS" />
+            <meta property="og:description"
+                content="Khám phá hành trình 15 năm kiến tạo và phát triển giáo dục sau đại học quốc tế chất lượng cao của IDEAS." />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+            <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Twitter Card -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Lịch sử hình thành và phát triển IDEAS" />
-        <meta name="twitter:description"
-            content="Hành trình phát triển vượt bậc của IDEAS trong hỗ trợ các chương trình Cử nhân, Thạc sĩ, Tiến sĩ chuẩn quốc tế." />
-        <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content="Lịch sử hình thành và phát triển IDEAS" />
+            <meta name="twitter:description"
+                content="Hành trình phát triển vượt bậc của IDEAS trong hỗ trợ các chương trình Cử nhân, Thạc sĩ, Tiến sĩ chuẩn quốc tế." />
+            <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -585,7 +585,7 @@ ob_start(function ($html) {
                         </li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/ideas-02.png"
+                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/ideas-02.png"
                             alt="Logo IDEAS" />
                     </div>
                     <div class="timeline-images" style="margin-top: 15px;">
@@ -612,7 +612,7 @@ ob_start(function ($html) {
                         </li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/new_public/data_imgs/swissumef_logo.png"
+                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
                             alt="Swiss UMEF" />
                         <img class="wlogo"
                             src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.png"

@@ -109,25 +109,25 @@ ob_start(function ($html) {
 
     <!-- Rank Math SEO Metadata Fallback (only outputs if Rank Math/Yoast is inactive) -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS</title>
-        <meta name="description"
-            content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
-        <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-        <link rel="canonical" href="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
-        <meta property="og:locale" content="vi_VN" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS" />
-        <meta property="og:description"
-            content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
-        <meta property="og:url" content="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
-        <meta property="og:site_name" content="IDEAS" />
-        <meta property="og:updated_time" content="2026-03-30T09:51:56+07:00" />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
-        <meta property="og:image:secure_url" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
-        <meta property="og:image:width" content="1920" />
-        <meta property="og:image:height" content="1080" />
-        <meta property="og:image:alt" content="chương trình bba mba online thụy sĩ" />
-        <meta property="og:image:type" content="image/png" />
+            <title>Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS</title>
+            <meta name="description"
+                content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
+            <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+            <link rel="canonical" href="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
+            <meta property="og:locale" content="vi_VN" />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS" />
+            <meta property="og:description"
+                content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
+            <meta property="og:url" content="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
+            <meta property="og:site_name" content="IDEAS" />
+            <meta property="og:updated_time" content="2026-03-30T09:51:56+07:00" />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
+            <meta property="og:image:secure_url" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
+            <meta property="og:image:width" content="1920" />
+            <meta property="og:image:height" content="1080" />
+            <meta property="og:image:alt" content="chương trình bba mba online thụy sĩ" />
+            <meta property="og:image:type" content="image/png" />
     <?php endif; ?>
 
     <style>
@@ -2941,12 +2941,12 @@ ob_start(function ($html) {
                     </div>
                     <div class="acc-sac-right">
                         <div class="acc-sac-logo-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/SAC_LOGO.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.png"
                                 class="acc-sac-logo-img" alt="Logo SAC - Swiss Accreditation Council" loading="lazy"
                                 decoding="async" />
-                            <a href="https://ideas.edu.vn/wp-content/new_public/data_imgs/sac.webp" target="_blank"
+                            <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp" target="_blank"
                                 rel="noopener noreferrer" class="acc-sac-cert-link">
-                                <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/sac.webp"
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
                                     class="acc-sac-cert-img" alt="Chứng nhận SAC - Swiss Accreditation Council"
                                     loading="lazy" decoding="async" />
                             </a>
@@ -2969,7 +2969,7 @@ ob_start(function ($html) {
                                     dục Thụy Sĩ</span></li>
                         </ul>
                         <div class="acc-sac-cert-strip">
-                            <a href="https://ideas.edu.vn/wp-content/new_public/data_imgs/sac.webp"
+                            <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
                                 class="acc-cert-thumb lightbox-trigger" target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-file-certificate"></i>
                                 Chứng nhận kiểm định SAC
@@ -2991,21 +2991,21 @@ ob_start(function ($html) {
                 <div class="acc-grid">
                     <div class="acc-card">
                         <img class="acc-card-logo"
-                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef5.png" alt="CHEA"
+                            src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png" alt="CHEA"
                             loading="lazy" decoding="async" />
                         <h4>CHEA – Hoa Kỳ</h4>
                         <p>Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế</p>
                     </div>
                     <div class="acc-card">
                         <img class="acc-card-logo"
-                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef4.png" alt="IACBE"
+                            src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png" alt="IACBE"
                             loading="lazy" decoding="async" />
                         <h4>IACBE – Business Education</h4>
                         <p>Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA</p>
                     </div>
                     <div class="acc-card">
                         <img class="acc-card-logo"
-                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef2.png" alt="ACBSP"
+                            src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png" alt="ACBSP"
                             loading="lazy" decoding="async" />
                         <h4>ACBSP – Business Schools</h4>
                         <p>Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức</p>
@@ -3019,7 +3019,7 @@ ob_start(function ($html) {
                     </div>
                     <div class="acc-card">
                         <img class="acc-card-logo"
-                            src="https://ideas.edu.vn/wp-content/new_public/data_imgs/kdumef3.png" alt="EduQua"
+                            src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png" alt="EduQua"
                             loading="lazy" decoding="async" />
                         <h4>SGS – EduQua</h4>
                         <p>Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo
@@ -3184,7 +3184,7 @@ ob_start(function ($html) {
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/mba_in_ai.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
                                 alt="MBA in AI" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
@@ -3270,7 +3270,7 @@ ob_start(function ($html) {
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/online_bba.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
                                 alt="Global Online BBA" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">

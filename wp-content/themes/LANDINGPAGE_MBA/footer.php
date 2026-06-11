@@ -17,7 +17,7 @@ define('IDEAS_FOOTER_RENDERED', true);
     <div class="footer-columns-wrap">
         <!-- Column 1: Logo, description, social icons -->
         <div class="footer-col-about">
-            <img src="https://ideas.edu.vn/wp-content/new_public/data_imgs/Logo_IDEAS_Slg.webp" alt="IDEAS Logo"
+            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" alt="IDEAS Logo"
                 class="footer-logo-ideas" loading="lazy" decoding="async" />
             <p class="footer-desc-ideas">IDEAS – Đồng hành hỗ trợ học vụ chuyên nghiệp cho các chương trình Cử nhân,
                 Thạc sĩ, Tiến sĩ chuẩn Quốc tế, mở ra cơ hội thăng tiến và hội nhập toàn cầu.</p>
