@@ -585,7 +585,7 @@ ob_start(function ($html) {
                         </li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/ideas-02.png"
+                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.png"
                             alt="Logo IDEAS" />
                     </div>
                     <div class="timeline-images" style="margin-top: 15px;">

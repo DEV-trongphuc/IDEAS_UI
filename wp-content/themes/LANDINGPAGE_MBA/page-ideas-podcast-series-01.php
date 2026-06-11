@@ -664,7 +664,7 @@ ob_start(function ($html) {
                     </a>
                     <a class="coop-card" href="https://ideas.edu.vn/" target="_blank"
                         rel="nofollow noopener noreferrer">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/ideas-02.png"
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.png"
                             alt="IDEAS Logo" />
                     </a>
                 </div>
