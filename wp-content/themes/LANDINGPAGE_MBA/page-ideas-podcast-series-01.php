@@ -471,19 +471,19 @@ ob_start(function ($html) {
             margin: 0;
             font-size: 0.88rem;
             font-weight: 700;
-            color: #e5e7eb;
+            color: #e5e7eb !important;
             line-height: 1.4;
             transition: color 0.2s ease;
         }
 
         .playlist-items li.active p.title {
-            color: #ff6b6b;
+            color: #ff6b6b !important;
         }
 
         .playlist-items li p.details {
             margin: 0;
             font-size: 0.78rem;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 0.6) !important;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -493,10 +493,11 @@ ob_start(function ($html) {
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            color: rgba(255, 255, 255, 0.6) !important;
         }
 
         .playlist-items li p.details i {
-            color: #ff3b30;
+            color: #ff3b30 !important;
         }
 
         /* ── Cooperation Section ────────────── */
