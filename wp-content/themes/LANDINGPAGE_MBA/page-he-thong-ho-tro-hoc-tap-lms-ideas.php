@@ -26,16 +26,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-            <title>Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS</title>
+            <title><?php echo $is_en ? 'LMS System & Comprehensive Learning Ecosystem | IDEAS' : 'Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS'; ?></title>
     <?php endif; ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta name="description"
-                content="Hệ thống hỗ trợ học tập LMS Moodle, IDEAS AI, và thư viện học thuật Cengage. Hỗ trợ học vụ chuyên nghiệp trọn vẹn dành cho học viên của IDEAS." />
+                content="<?php echo $is_en ? 'LMS Moodle learning support system, IDEAS AI, and Cengage academic library. Full professional academic support for international program students.' : 'Hệ thống hỗ trợ học tập LMS Moodle, IDEAS AI, và thư viện học thuật Cengage. Hỗ trợ học vụ chuyên nghiệp trọn vẹn dành cho học viên của IDEAS.'; ?>" />
     <?php endif; ?><?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta property="og:type" content="article" />
-            <meta property="og:title" content="Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS" />
+            <meta property="og:title" content="<?php echo $is_en ? 'LMS System & Comprehensive Learning Ecosystem | IDEAS' : 'Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS'; ?>" />
             <meta property="og:description"
-                content="Trải nghiệm học tập hiện đại 4.0 với hệ thống Moodle LMS, trợ lý AI thông minh và thư viện học tập toàn diện 24/7." />
+                content="<?php echo $is_en ? 'Experience modern 4.0 learning with Moodle LMS, smart AI assistant, and a comprehensive 24/7 academic library.' : 'Trải nghiệm học tập hiện đại 4.0 với hệ thống Moodle LMS, trợ lý AI thông minh và thư viện học tập toàn diện 24/7.'; ?>" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?><!-- Main stylesheet --><!-- Booking Modal stylesheet -->
@@ -903,8 +903,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <?php echo $is_en ? 'Training Technology 4.0' : 'Công Nghệ Đào Tạo 4.0'; ?>
             </div>
             <h1><?php echo $is_en ? 'LMS System <br /> Along with a <span>Learning Ecosystem.</span>' : 'Hệ thống LMS <br /> Cùng <span>hệ sinh thái học tập.</span>'; ?></h1>
-            <p>Đồng hành hỗ trợ học vụ chuyên nghiệp, giải pháp học tập số toàn diện giúp tối ưu hóa thời gian và nâng
-                cao hiệu quả tiếp thu kiến thức cho học viên.</p>
+            <p><?php echo $is_en ? 'Accompanying professional academic support, a comprehensive digital learning solution optimizing time and enhancing knowledge absorption efficiency for students.' : 'Đồng hành hỗ trợ học vụ chuyên nghiệp, giải pháp học tập số toàn diện giúp tối ưu hóa thời gian và nâng cao hiệu quả tiếp thu kiến thức cho học viên.'; ?></p>
             <div class="lms-hero-actions">
                 <button type="button" class="btn btn-primary" onclick="showform('lms-hero')">
                     <?php echo $is_en ? 'Experience the System Now' : 'Trải nghiệm hệ thống ngay'; ?>
@@ -943,8 +942,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="eco-inner">
             <div class="eco-header">
                 <div class="eco-label-light"><?php echo $is_en ? 'LEARNING ECOSYSTEM' : 'HỆ SINH THÁI HỌC TẬP'; ?></div>
-                <h3 class="ecosystem-title">Hệ sinh thái học tập toàn diện<br /><span class="eco-title-accent">luôn đồng
-                        hành cùng bạn</span></h3>
+                <h3 class="ecosystem-title"><?php echo $is_en ? 'Comprehensive Learning Ecosystem<br /><span class="eco-title-accent">always accompanying you</span>' : 'Hệ sinh thái học tập toàn diện<br /><span class="eco-title-accent">luôn đồng hành cùng bạn</span>'; ?></h3>
                 <p class="ecosystem-sub"><?php echo $is_en ? 'IDEAS is the official admissions partner of Swiss UMEF, building a comprehensive learning ecosystem for Vietnamese learners.' : 'IDEAS là đối tác tuyển sinh chính thức của Swiss UMEF, xây dựng hệ sinh thái\n                    học tập toàn diện cho người học Việt Nam.'; ?></p>
             </div>
 
@@ -1013,14 +1011,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3>LMS Powered by Moodle</h3>
                 <p><?php echo $is_en ? 'Moodle is the world\'s leading popular learning management system (LMS) used by prestigious universities. At IDEAS, Moodle is smartly configured and maximized visually to accompany students throughout their learning journey:' : 'Moodle là hệ thống quản lý học tập (LMS) phổ biến hàng đầu thế giới được sử dụng bởi các trường đại\n                    học danh tiếng. Tại IDEAS, hệ thống Moodle được cấu hình thông minh và trực quan hóa tối đa để đồng\n                    hành cùng học viên trong suốt chặng đường học tập:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Xem video bài giảng ghi hình chất lượng cao mọi lúc mọi
-                        nơi.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Tải tài liệu học tập, giáo trình, slide bài giảng trực
-                        tiếp.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Nộp bài tập, theo dõi điểm số và nhận feedback trực
-                        tiếp từ giảng viên.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Diễn đàn trao đổi thảo luận giữa các học viên trong lớp
-                        học.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Watch high-quality recorded lecture videos anytime, anywhere.' : 'Xem video bài giảng ghi hình chất lượng cao mọi lúc mọi nơi.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Download study materials, curriculum, and lecture slides directly.' : 'Tải tài liệu học tập, giáo trình, slide bài giảng trực tiếp.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Submit assignments, track grades, and receive feedback directly from lecturers.' : 'Nộp bài tập, theo dõi điểm số và nhận feedback trực tiếp từ giảng viên.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Discussion forums among students in the classroom.' : 'Diễn đàn trao đổi thảo luận giữa các học viên trong lớp học.'; ?></li>
                 </ul>
             </div>
             <div class="platform-visual">
@@ -1036,14 +1030,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3>IDEAS AI Platform</h3>
                 <p><?php echo $is_en ? 'An academic support platform integrated with smart Large Language Models (LLM) trained specifically for graduate study environments, helping students resolve academic challenges quickly:' : 'Nền tảng hỗ trợ học vụ tích hợp mô hình ngôn ngữ lớn (LLM) thông minh được huấn luyện chuyên sâu cho\n                    môi trường học tập sau đại học, giúp học viên giải quyết nhanh chóng các khó khăn học thuật:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Giải thích các thuật ngữ chuyên ngành kinh tế, tài
-                        chính bằng tiếng Việt.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Tóm tắt nội dung tài liệu tham khảo dài hàng trăm trang
-                        nhanh chóng.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Gợi ý hướng nghiên cứu và cấu trúc đề án luận văn tốt
-                        nghiệp.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Operating 24/7 with instant responses to relieve self-study pressure.' : 'Hoạt động 24/7 phản hồi tức thì giải tỏa áp lực tự học.'; ?>
-                    </li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Explain specialized economic and financial terminology in English/Vietnamese.' : 'Giải thích các thuật ngữ chuyên ngành kinh tế, tài chính bằng tiếng Việt.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Summarize reference materials hundreds of pages long quickly.' : 'Tóm tắt nội dung tài liệu tham khảo dài hàng trăm trang nhanh chóng.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Suggest research directions and structures for graduation theses.' : 'Gợi ý hướng nghiên cứu và cấu trúc đề án luận văn tốt nghiệp.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Operating 24/7 with instant responses to relieve self-study pressure.' : 'Hoạt động 24/7 phản hồi tức thì giải tỏa áp lực tự học.'; ?></li>
                 </ul>
             </div>
             <div class="platform-visual">
@@ -1059,12 +1049,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3><?php echo $is_en ? 'Cengage Digital Library' : 'Thư viện số Cengage'; ?></h3>
                 <p><?php echo $is_en ? 'Cengage Learning is one of the world\'s largest educational publishers. Students at IDEAS are granted free access to a massive digital library:' : 'Cengage Learning là một trong những nhà xuất bản giáo dục lớn nhất thế giới. Học viên tại IDEAS được\n                    cấp quyền truy cập miễn phí vào kho tàng tri thức số khổng lồ:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> Hơn 1.000+ đầu sách học thuật nguyên bản tiếng Anh
-                        chuyên ngành Kinh tế.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Các giáo trình cập nhật mới nhất phục vụ cho các môn
-                        học MBA/DBA.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Đọc sách trực tuyến dễ dàng trên máy tính, máy tính
-                        bảng và điện thoại di động.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Over 1,000+ original English academic books specialized in Economics.' : 'Hơn 1.000+ đầu sách học thuật nguyên bản tiếng Anh chuyên ngành Kinh tế.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'The latest updated textbooks serving MBA/DBA courses.' : 'Các giáo trình cập nhật mới nhất phục vụ cho các môn học MBA/DBA.'; ?></li>
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Read books online easily on computers, tablets, and mobile phones.' : 'Đọc sách trực tuyến dễ dàng trên máy tính, máy tính bảng và điện thoại di động.'; ?></li>
                 </ul>
 
                 <!-- Blog Post Card Link -->
@@ -1090,8 +1077,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="lms-form-section">
         <div class="lms-form-wrapper">
             <h3><?php echo $is_en ? 'Register to Learn & Experience the System' : 'Đăng ký tìm hiểu &amp; Trải nghiệm hệ thống'; ?></h3>
-            <p>Nhận tài khoản dùng thử hệ thống LMS Moodle và nhận tư vấn lộ trình học tập miễn phí từ chuyên viên học
-                vụ IDEAS.</p>
+            <p><?php echo $is_en ? 'Get a trial account for LMS Moodle and receive a free academic path consultation from IDEAS specialists.' : 'Nhận tài khoản dùng thử hệ thống LMS Moodle và nhận tư vấn lộ trình học tập miễn phí từ chuyên viên học vụ IDEAS.'; ?></p>
             <form class="cta-form" id="lms-register-form">
                 <div class="form-group" style="margin-bottom: 20px; text-align: left;">
                     <input type="text" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" required
