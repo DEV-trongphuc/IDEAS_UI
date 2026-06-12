@@ -784,13 +784,14 @@ ob_start(function ($html) {
 
             .search-section {
                 margin-top: -30px;
-                padding: 0 16px;
+                padding: 0 16px !important;
             }
 
             .search-container {
-                width: 100%;
-                padding: 24px 16px;
+                width: auto !important;
+                padding: 24px 16px !important;
                 border-radius: 20px;
+                margin: 0 auto;
             }
 
             .search-label {
@@ -798,10 +799,22 @@ ob_start(function ($html) {
                 margin-bottom: 10px;
             }
 
+            .search-input-wrap {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .search-input-box {
+                width: 100%;
+            }
+
             .search-input-field {
                 padding: 14px 16px 14px 44px;
                 font-size: 0.95rem;
                 border-radius: 12px;
+                width: 100% !important;
+                box-sizing: border-box;
             }
 
             .search-icon-decor {
@@ -810,11 +823,12 @@ ob_start(function ($html) {
             }
 
             .btn-search-verify {
-                width: 100%;
+                width: 100% !important;
                 justify-content: center;
                 padding: 14px 24px;
                 font-size: 0.95rem;
                 border-radius: 12px;
+                box-sizing: border-box;
             }
 
             .matched-consultant-card {
@@ -843,7 +857,7 @@ ob_start(function ($html) {
                 padding: 20px 16px;
                 margin: 30px auto 0;
                 border-radius: 16px;
-                width: 100%;
+                width: auto !important;
             }
 
             .warning-notice-bar i {
@@ -862,7 +876,8 @@ ob_start(function ($html) {
 
             .list-section {
                 margin: 50px auto;
-                padding: 0 16px;
+                padding: 0 16px !important;
+                width: 100%;
             }
 
             .list-header {
@@ -911,7 +926,12 @@ ob_start(function ($html) {
             }
 
             .payment-guidelines-section {
-                padding: 50px 16px;
+                padding: 50px 16px !important;
+            }
+
+            .guidelines-container {
+                width: auto !important;
+                max-width: 100% !important;
             }
 
             .guidelines-content h3 {
@@ -965,11 +985,11 @@ ob_start(function ($html) {
 
             .search-section {
                 margin-top: -20px;
-                padding: 0 12px;
+                padding: 0 12px !important;
             }
 
             .search-container {
-                padding: 20px 14px;
+                padding: 20px 14px !important;
                 border-radius: 16px;
             }
 
@@ -989,13 +1009,13 @@ ob_start(function ($html) {
             }
 
             .warning-notice-bar {
-                padding: 16px 14px;
+                padding: 16px 14px !important;
                 border-radius: 14px;
                 margin-top: 20px;
             }
 
             .list-section {
-                padding: 0 12px;
+                padding: 0 12px !important;
                 margin: 40px auto;
             }
 
@@ -1018,7 +1038,7 @@ ob_start(function ($html) {
             }
 
             .payment-guidelines-section {
-                padding: 40px 12px;
+                padding: 40px 12px !important;
             }
 
             .guidelines-content h3 {
