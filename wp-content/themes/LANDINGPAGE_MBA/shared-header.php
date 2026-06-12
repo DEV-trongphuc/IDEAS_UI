@@ -319,13 +319,83 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                 </button>
 
                 <!-- Language Switcher Toggle -->
-                <a href="<?php echo esc_url(get_language_toggle_url($is_en ? 'vi' : 'en')); ?>" class="lang-switch-btn" 
-                   aria-label="<?php echo $is_en ? 'Chuyển sang Tiếng Việt' : 'Switch to English'; ?>" 
-                   style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.15);font-weight:700;font-size:0.8rem;text-decoration:none;transition:all 0.3s ease;box-shadow:0 4px 12px rgba(0,0,0,0.15);"
-                   onmouseover="this.style.background='rgba(171,14,0,0.2)';this.style.borderColor='#ab0e00';this.style.color='#ffcccc';"
-                   onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#fff';">
-                    <?php echo $is_en ? 'VI' : 'EN'; ?>
-                </a>
+                <div class="lang-switcher-wrapper">
+                    <button class="lang-toggle-btn" aria-label="<?php echo $is_en ? 'Select Language' : 'Chọn ngôn ngữ'; ?>" type="button">
+                        <?php if ($is_en): ?>
+                            <svg class="flag-icon" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="20" fill="#ffffff" />
+                                <rect width="30" height="1.54" fill="#b22234" />
+                                <rect y="3.08" width="30" height="1.54" fill="#b22234" />
+                                <rect y="6.16" width="30" height="1.54" fill="#b22234" />
+                                <rect y="9.24" width="30" height="1.54" fill="#b22234" />
+                                <rect y="12.32" width="30" height="1.54" fill="#b22234" />
+                                <rect y="15.4" width="30" height="1.54" fill="#b22234" />
+                                <rect y="18.48" width="30" height="1.54" fill="#b22234" />
+                                <rect width="12" height="10.78" fill="#3c3b6e" />
+                                <circle cx="2" cy="1.8" r="0.45" fill="#ffffff" />
+                                <circle cx="6" cy="1.8" r="0.45" fill="#ffffff" />
+                                <circle cx="10" cy="1.8" r="0.45" fill="#ffffff" />
+                                <circle cx="4" cy="3.6" r="0.45" fill="#ffffff" />
+                                <circle cx="8" cy="3.6" r="0.45" fill="#ffffff" />
+                                <circle cx="2" cy="5.4" r="0.45" fill="#ffffff" />
+                                <circle cx="6" cy="5.4" r="0.45" fill="#ffffff" />
+                                <circle cx="10" cy="5.4" r="0.45" fill="#ffffff" />
+                                <circle cx="4" cy="7.2" r="0.45" fill="#ffffff" />
+                                <circle cx="8" cy="7.2" r="0.45" fill="#ffffff" />
+                                <circle cx="2" cy="9" r="0.45" fill="#ffffff" />
+                                <circle cx="6" cy="9" r="0.45" fill="#ffffff" />
+                                <circle cx="10" cy="9" r="0.45" fill="#ffffff" />
+                            </svg>
+                            <span>EN</span>
+                        <?php else: ?>
+                            <svg class="flag-icon" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="20" fill="#da251d" />
+                                <polygon points="15,4 11.5,14.5 20.5,8 9.5,8 18.5,14.5" fill="#ffff00" />
+                            </svg>
+                            <span>VI</span>
+                        <?php endif; ?>
+                        <svg class="chevron-icon" width="10" height="6" viewBox="0 0 10 6" fill="none"
+                            stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L5 5L9 1" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown-menu">
+                        <a class="lang-dropdown-item <?php echo !$is_en ? 'active' : ''; ?>" href="<?php echo esc_url(get_language_toggle_url('vi')); ?>">
+                            <svg class="flag-icon" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="20" fill="#da251d" />
+                                <polygon points="15,4 11.5,14.5 20.5,8 9.5,8 18.5,14.5" fill="#ffff00" />
+                            </svg>
+                            Tiếng Việt
+                        </a>
+                        <a class="lang-dropdown-item <?php echo $is_en ? 'active' : ''; ?>" href="<?php echo esc_url(get_language_toggle_url('en')); ?>">
+                            <svg class="flag-icon" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="20" fill="#ffffff" />
+                                <rect width="30" height="1.54" fill="#b22234" />
+                                <rect y="3.08" width="30" height="1.54" fill="#b22234" />
+                                <rect y="6.16" width="30" height="1.54" fill="#b22234" />
+                                <rect y="9.24" width="30" height="1.54" fill="#b22234" />
+                                <rect y="12.32" width="30" height="1.54" fill="#b22234" />
+                                <rect y="15.4" width="30" height="1.54" fill="#b22234" />
+                                <rect y="18.48" width="30" height="1.54" fill="#b22234" />
+                                <rect width="12" height="10.78" fill="#3c3b6e" />
+                                <circle cx="2" cy="1.8" r="0.45" fill="#ffffff" />
+                                <circle cx="6" cy="1.8" r="0.45" fill="#ffffff" />
+                                <circle cx="10" cy="1.8" r="0.45" fill="#ffffff" />
+                                <circle cx="4" cy="3.6" r="0.45" fill="#ffffff" />
+                                <circle cx="8" cy="3.6" r="0.45" fill="#ffffff" />
+                                <circle cx="2" cy="5.4" r="0.45" fill="#ffffff" />
+                                <circle cx="6" cy="5.4" r="0.45" fill="#ffffff" />
+                                <circle cx="10" cy="5.4" r="0.45" fill="#ffffff" />
+                                <circle cx="4" cy="7.2" r="0.45" fill="#ffffff" />
+                                <circle cx="8" cy="7.2" r="0.45" fill="#ffffff" />
+                                <circle cx="2" cy="9" r="0.45" fill="#ffffff" />
+                                <circle cx="6" cy="9" r="0.45" fill="#ffffff" />
+                                <circle cx="10" cy="9" r="0.45" fill="#ffffff" />
+                            </svg>
+                            English
+                        </a>
+                    </div>
+                </div>
             </div>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -344,21 +414,13 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                 alt="Logo IDEAS Education - 15 năm thành lập" width="45" height="45" loading="lazy">
         </a>
         
-        <div style="display:flex;align-items:center;gap:12px;">
-            <!-- Language Switcher in Mobile Menu -->
-            <a href="<?php echo esc_url(get_language_toggle_url($is_en ? 'vi' : 'en')); ?>" class="lang-switch-btn" 
-               style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.15);font-weight:700;font-size:0.75rem;text-decoration:none;transition:all 0.3s ease;">
-                <?php echo $is_en ? 'VI' : 'EN'; ?>
-            </a>
-
-            <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
+        <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+                xmlns="http://www.w3.org/2000/svg">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
     </div>
     
     <div class="mobile-dropdown">
@@ -519,10 +581,50 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
         </div>
     </div>
     
-    <div style="padding:20px; margin-top:20px;">
+    <div style="padding:20px; margin-top:20px; width: 100%; box-sizing: border-box;">
         <button type="button" class="nav-cta"
             style="display:block; text-align:center; width:100%; cursor: pointer; border: none; font-family: inherit;"
             onclick="showform('header_mb')"><?php echo $is_en ? 'Apply Now' : 'Nhận tư vấn'; ?></button>
+    </div>
+    
+    <div class="mobile-lang-selector">
+        <div class="mobile-lang-title">Ngôn ngữ / Language</div>
+        <div class="mobile-lang-options">
+            <a class="mobile-lang-btn <?php echo !$is_en ? 'active' : ''; ?>" href="<?php echo esc_url(get_language_toggle_url('vi')); ?>">
+                <svg class="flag-icon" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="30" height="20" fill="#da251d" />
+                    <polygon points="15,4 11.5,14.5 20.5,8 9.5,8 18.5,14.5" fill="#ffff00" />
+                </svg>
+                Tiếng Việt
+            </a>
+            <a class="mobile-lang-btn <?php echo $is_en ? 'active' : ''; ?>" href="<?php echo esc_url(get_language_toggle_url('en')); ?>">
+                <svg class="flag-icon" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="30" height="20" fill="#ffffff" />
+                    <rect width="30" height="1.54" fill="#b22234" />
+                    <rect y="3.08" width="30" height="1.54" fill="#b22234" />
+                    <rect y="6.16" width="30" height="1.54" fill="#b22234" />
+                    <rect y="9.24" width="30" height="1.54" fill="#b22234" />
+                    <rect y="12.32" width="30" height="1.54" fill="#b22234" />
+                    <rect y="15.4" width="30" height="1.54" fill="#b22234" />
+                    <rect y="18.48" width="30" height="1.54" fill="#b22234" />
+                    <rect width="12" height="10.78" fill="#3c3b6e" />
+                    <circle cx="2" cy="1.8" r="0.45" fill="#ffffff" />
+                    <circle cx="6" cy="1.8" r="0.45" fill="#ffffff" />
+                    <circle cx="10" cy="1.8" r="0.45" fill="#ffffff" />
+                    <circle cx="4" cy="3.6" r="0.45" fill="#ffffff" />
+                    <circle cx="8" cy="3.6" r="0.45" fill="#ffffff" />
+                    <circle cx="2" cy="5.4" r="0.45" fill="#ffffff" />
+                    <circle cx="6" cy="5.4" r="0.45" fill="#ffffff" />
+                    <circle cx="10" cy="5.4" r="0.45" fill="#ffffff" />
+                    <circle cx="4" cy="7.2" r="0.45" fill="#ffffff" />
+                    <circle cx="8" cy="7.2" r="0.45" fill="#ffffff" />
+                    <circle cx="2" cy="9" r="0.45" fill="#ffffff" />
+                    <circle cx="6" cy="9" r="0.45" fill="#ffffff" />
+                    <circle cx="10" cy="9" r="0.45" fill="#ffffff" />
+                </svg>
+                English
+            </a>
+        </div>
     </div>
 </div>
 
