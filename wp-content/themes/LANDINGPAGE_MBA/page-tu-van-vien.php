@@ -46,7 +46,7 @@ ob_start(function ($html) {
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Xác thực tư vấn viên tuyển sinh | IDEAS" />
-        <meta property="og:description" content="Hệ thống tra cứu số điện thoại và xác định danh tính tư vấn viên tuyển sinh chính thức của Viện IDEAS." />
+        <meta property="og:description" content="Hệ thống tra cứu số điện thoại và xác định danh tính tư vấn viên tuyển sinh chính thức của IDEAS." />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
 
@@ -214,8 +214,16 @@ ob_start(function ($html) {
             position: relative;
         }
 
-        .search-input-field {
+        .search-input-box {
+            position: relative;
             flex: 1;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-field {
+            width: 100%;
             padding: 16px 20px 16px 48px;
             font-size: 1.05rem;
             border: 2px solid #e2e8f0;
@@ -224,6 +232,7 @@ ob_start(function ($html) {
             transition: all 0.3s ease;
             font-family: inherit;
             color: #1e293b;
+            box-sizing: border-box;
         }
 
         .search-input-field:focus {
@@ -791,7 +800,7 @@ ob_start(function ($html) {
                 Bảo Mật &amp; Minh Bạch
             </span>
             <h1>Xác Thực <span>Tư Vấn Viên Tuyển Sinh</span></h1>
-            <p>Kiểm tra nhanh danh tính chuyên viên tư vấn chính thức của Viện IDEAS nhằm bảo vệ quyền lợi học tập và phòng ngừa các hình thức giả mạo hoặc lừa đảo.</p>
+            <p>Kiểm tra nhanh danh tính chuyên viên tư vấn chính thức của IDEAS nhằm bảo vệ quyền lợi học tập và phòng ngừa các hình thức giả mạo hoặc lừa đảo.</p>
         </div>
     </section>
 
@@ -800,8 +809,10 @@ ob_start(function ($html) {
         <div class="search-container">
             <label for="advisor-search" class="search-label">Nhập đầy đủ số điện thoại tư vấn viên cần kiểm tra:</label>
             <div class="search-input-wrap">
-                <i class="fa-solid fa-phone search-icon-decor"></i>
-                <input type="text" id="advisor-search" class="search-input-field" placeholder="Ví dụ: 0901234017 hoặc chỉ nhập 3 số đuôi như 017">
+                <div class="search-input-box">
+                    <i class="fa-solid fa-phone search-icon-decor"></i>
+                    <input type="text" id="advisor-search" class="search-input-field" placeholder="Ví dụ: 0901234017 hoặc chỉ nhập 3 số đuôi như 017">
+                </div>
                 <button type="button" id="btn-verify" class="btn-search-verify">
                     <i class="fa-solid fa-user-check"></i>
                     Kiểm tra ngay
@@ -819,7 +830,7 @@ ob_start(function ($html) {
             <i class="fa-solid fa-triangle-exclamation"></i>
             <div>
                 <h4>Cảnh báo phòng tránh mạo danh</h4>
-                <p>Hiện nay có tình trạng mạo danh nhân viên Viện IDEAS để tiếp cận và cung cấp thông tin sai lệch đến học viên. Quý học viên hãy hết sức cảnh giác trước các cuộc gọi, tin nhắn hoặc liên hệ từ các số điện thoại lạ không nằm trong danh sách tư vấn viên chính thức của Viện.</p>
+                <p>Hiện nay có tình trạng mạo danh nhân viên IDEAS để tiếp cận và cung cấp thông tin sai lệch đến học viên. Quý học viên hãy hết sức cảnh giác trước các cuộc gọi, tin nhắn hoặc liên hệ từ các số điện thoại lạ không nằm trong danh sách tư vấn viên chính thức.</p>
             </div>
         </div>
     </section>
@@ -900,7 +911,7 @@ ob_start(function ($html) {
                     <ul class="guidelines-list">
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>Tất cả các tài khoản nhận đóng học phí đều phải trực thuộc pháp nhân của <strong>VIỆN IDEAS</strong>.</span>
+                            <span>Tất cả các tài khoản nhận đóng học phí đều phải trực thuộc pháp nhân của <strong>IDEAS</strong>.</span>
                         </li>
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
@@ -908,7 +919,7 @@ ob_start(function ($html) {
                         </li>
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>Mọi biên nhận đóng học phí đều được gửi trực tiếp từ hệ thống email chính thức của Viện (có đuôi <strong>@ideas.edu.vn</strong>).</span>
+                            <span>Mọi biên nhận đóng học phí đều được gửi trực tiếp từ hệ thống email chính thức của IDEAS (có đuôi <strong>@ideas.edu.vn</strong>).</span>
                         </li>
                     </ul>
                 </div>
@@ -923,12 +934,12 @@ ob_start(function ($html) {
                     </div>
                     <div class="bank-info-item">
                         <span class="bank-label">Tên tài khoản thụ hưởng:</span>
-                        <span class="bank-value highlight">VIỆN IDEAS</span>
+                        <span class="bank-value highlight">IDEAS</span>
                     </div>
                     <div class="bank-info-item" style="flex-direction: column; align-items: flex-start; gap: 4px; border-bottom: 1px solid #f1f5f9; padding: 10px 0;">
                         <span class="bank-label">Số tài khoản &amp; Cổng thanh toán:</span>
                         <span class="bank-value" style="text-align: left; font-size: 0.88rem; color: #475569; font-weight: 500; margin-top: 4px; line-height: 1.4;">
-                            Thông tin số tài khoản chính thức được ghi chi tiết trong <strong>Hợp đồng tư vấn học tập</strong> hoặc qua đường link thanh toán bảo mật <strong>Payoo</strong> được cung cấp trực tiếp từ email của Viện (<code>@ideas.edu.vn</code>).
+                            Thông tin số tài khoản chính thức được ghi chi tiết trong <strong>Hợp đồng tư vấn học tập</strong> hoặc qua đường link thanh toán bảo mật <strong>Payoo</strong> được cung cấp trực tiếp từ email của IDEAS (<code>@ideas.edu.vn</code>).
                         </span>
                     </div>
                     <div class="bank-info-item">
@@ -1017,7 +1028,7 @@ ob_start(function ($html) {
                                     <span>Xác thực thành công</span>
                                 </div>
                                 <div class="result-desc">
-                                    Số điện thoại khớp với thông tin của chuyên viên tư vấn chính thức thuộc Viện IDEAS. Quý học viên hoàn toàn có thể yên tâm trao đổi học tập.
+                                    Số điện thoại khớp với thông tin của chuyên viên tư vấn chính thức thuộc IDEAS. Quý học viên hoàn toàn có thể yên tâm trao đổi học tập.
                                 </div>
                                 <div class="matched-consultant-card">
                                     <img src="${matchedAdvisor.avatar}" class="matched-avatar" alt="${matchedAdvisor.name}">
@@ -1047,7 +1058,7 @@ ob_start(function ($html) {
                                     <span>Cảnh báo mạo danh</span>
                                 </div>
                                 <div class="result-desc">
-                                    Số điện thoại hoặc số đuôi <strong>"${searchInput.value}"</strong> mà Quý học viên vừa nhập <strong>KHÔNG</strong> nằm trong danh sách các tư vấn viên chính thức của Viện IDEAS.
+                                    Số điện thoại hoặc số đuôi <strong>"${searchInput.value}"</strong> mà Quý học viên vừa nhập <strong>KHÔNG</strong> nằm trong danh sách các tư vấn viên chính thức của IDEAS.
                                 </div>
                                 <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
                                     Nhằm tránh bị lợi dụng thông tin hoặc mạo danh tư vấn viên, Quý học viên vui lòng hết sức cảnh giác, không làm việc trực tiếp hoặc cung cấp thông tin cá nhân cho số điện thoại này. Hãy liên hệ ngay với chúng tôi qua số Hotline chính thức: <strong>028 2244 2244</strong> hoặc gửi phản hồi về địa chỉ email <strong>info@ideas.edu.vn</strong> để được xác minh và hỗ trợ kịp thời.
@@ -1072,6 +1083,25 @@ ob_start(function ($html) {
             });
         });
     </script>
+
+    <!-- Main scripts minified imports -->
+    <?php
+    $js_path = get_stylesheet_directory() . '/common-assets/js/script.min.js';
+    $js_version = file_exists($js_path) ? filemtime($js_path) : time();
+    ?>
+    <script
+        src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>"
+        defer></script>
+
+    <!-- Booking Modal script import -->
+    <?php
+    define('BOOKING_MODAL_JS_LOADED', true);
+    $bk_js_path = get_stylesheet_directory() . '/common-assets/js/booking-modal.min.js';
+    $bk_js_version = file_exists($bk_js_path) ? filemtime($bk_js_path) : time();
+    ?>
+    <script
+        src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/booking-modal.min.js?v=<?php echo $bk_js_version; ?>"
+        defer></script>
 
     <?php get_footer(); ?>
 </body>
