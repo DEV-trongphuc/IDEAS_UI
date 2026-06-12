@@ -2,7 +2,7 @@ import os
 import re
 
 directory = r"e:\IDEAS_WP_UI\wp-content\new_public\LANDINGPAGE_MBA"
-new_version = "1781275700"  # Fresh cache buster version after Kien-tao change
+new_version = "1781287500"  # Fresh cache buster version after card hover improvements
 regex = re.compile(r'script\.min\.js\?v=\d+')
 
 updated_files = []
