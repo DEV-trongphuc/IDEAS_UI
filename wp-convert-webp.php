@@ -217,8 +217,9 @@ if (isset($_GET['action'])) {
                  "<IfModule mod_rewrite.c>\n" .
                  "  RewriteEngine On\n" .
                  "  RewriteCond %{HTTP_ACCEPT} image/webp\n" .
-                 "  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f\n" .
-                 "  RewriteRule ^(wp-content/uploads/.*)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1,L]\n" .
+                 "  RewriteCond %{REQUEST_FILENAME} ^(.*)\.(jpe?g|png)$ [NC]\n" .
+                 "  RewriteCond %1.webp -f\n" .
+                 "  RewriteRule ^(.*)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1,L]\n" .
                  "</IfModule>\n" .
                  "Header append Vary Accept env=REDIRECT_accept\n" .
                  "# END WebP Redirection Rules\n\n";
