@@ -120,7 +120,7 @@ ob_start(function ($html) {
             <meta property="og:description"
                 content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
             <meta property="og:url" content="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
-            <meta property="og:site_name" content="IDEAS" />
+            <meta property="og:site_name" content="IDEAS Education" />
             <meta property="og:updated_time" content="2026-03-30T09:51:56+07:00" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
             <meta property="og:image:secure_url" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />

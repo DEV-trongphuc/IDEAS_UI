@@ -5210,56 +5210,61 @@ add_filter('rank_math/json_ld', 'ideas_customize_rank_math_schema', 99, 2);
 add_action('wp_head', 'ideas_add_seo_schemas_fallback', 10);
 
 function ideas_customize_rank_math_schema($data, $jsonld) {
-    // Debug logging
-    $log_file = WP_CONTENT_DIR . '/debug_rank_math.log';
-    $log_entry = date('[Y-m-d H:i:s] ') . 'URL: ' . ($_SERVER['REQUEST_URI'] ?? '') . "\n" .
-                 'WebSite: ' . json_encode($data['WebSite'] ?? null, JSON_UNESCAPED_UNICODE) . "\n" .
-                 'Breadcrumb: ' . json_encode($data['BreadcrumbList'] ?? null, JSON_UNESCAPED_UNICODE) . "\n";
-    file_put_contents($log_file, $log_entry, FILE_APPEND);
-
-    if (isset($data['graph']) && is_array($data['graph'])) {
-        foreach ($data['graph'] as &$snippet) {
-            // 1. Customize WebSite schema (Site Name) globally
-            if (isset($snippet['@type']) && $snippet['@type'] === 'WebSite') {
-                $snippet['name'] = 'IDEAS Education';
-                $snippet['alternateName'] = array('IDEAS', 'Viện IDEAS', 'IDEAS MBA');
-                $snippet['url'] = home_url('/');
-            }
-            
-            // 2. Customize BreadcrumbList schema
-            if (isset($snippet['@type']) && $snippet['@type'] === 'BreadcrumbList') {
-                if (isset($snippet['itemListElement']) && is_array($snippet['itemListElement'])) {
-                    foreach ($snippet['itemListElement'] as &$item) {
-                        if (isset($item['position']) && $item['position'] == 2) {
-                            $page_slug = get_post_field('post_name', get_the_ID());
-                            if (empty($page_slug)) {
-                                $page_slug = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-                            }
-                            $new_name = '';
-                            
-                            if (strpos($page_slug, 'thac-si-quan-tri-kinh-doanh-mba') !== false) {
-                                $new_name = 'Online MBA';
-                            } elseif (strpos($page_slug, 'swiss-umef') !== false) {
-                                $new_name = 'Swiss UMEF';
-                            } elseif (strpos($page_slug, 'doi-ngu-giang-vien') !== false) {
-                                $new_name = 'Hội đồng chuyên môn';
-                            } elseif (strpos($page_slug, 'he-thong-ho-tro-hoc-tap-lms-ideas') !== false) {
-                                $new_name = 'Hệ thống LMS';
-                            }
-                            
-                            if (!empty($new_name)) {
-                                if (isset($item['item']) && is_array($item['item']) && isset($item['item']['name'])) {
-                                    $item['item']['name'] = $new_name;
-                                } else {
-                                    $item['name'] = $new_name;
-                                }
+    // Helper function to modify a single snippet
+    $modify_snippet = function(&$snippet) {
+        // 1. Customize WebSite schema (Site Name) globally
+        if (isset($snippet['@type']) && $snippet['@type'] === 'WebSite') {
+            $snippet['name'] = 'IDEAS Education';
+            $snippet['alternateName'] = array('IDEAS', 'Viện IDEAS', 'IDEAS MBA');
+            $snippet['url'] = home_url('/');
+        }
+        
+        // 2. Customize BreadcrumbList schema
+        if (isset($snippet['@type']) && $snippet['@type'] === 'BreadcrumbList') {
+            if (isset($snippet['itemListElement']) && is_array($snippet['itemListElement'])) {
+                foreach ($snippet['itemListElement'] as &$item) {
+                    if (isset($item['position']) && $item['position'] == 2) {
+                        $page_slug = get_post_field('post_name', get_the_ID());
+                        if (empty($page_slug)) {
+                            $page_slug = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+                        }
+                        $new_name = '';
+                        
+                        if (strpos($page_slug, 'thac-si-quan-tri-kinh-doanh-mba') !== false) {
+                            $new_name = 'Online MBA';
+                        } elseif (strpos($page_slug, 'swiss-umef') !== false) {
+                            $new_name = 'Swiss UMEF';
+                        } elseif (strpos($page_slug, 'doi-ngu-giang-vien') !== false) {
+                            $new_name = 'Hội đồng chuyên môn';
+                        } elseif (strpos($page_slug, 'he-thong-ho-tro-hoc-tap-lms-ideas') !== false) {
+                            $new_name = 'Hệ thống LMS';
+                        }
+                        
+                        if (!empty($new_name)) {
+                            if (isset($item['item']) && is_array($item['item']) && isset($item['item']['name'])) {
+                                $item['item']['name'] = $new_name;
+                            } else {
+                                $item['name'] = $new_name;
                             }
                         }
                     }
                 }
             }
         }
+    };
+
+    if (isset($data['graph']) && is_array($data['graph'])) {
+        foreach ($data['graph'] as &$snippet) {
+            $modify_snippet($snippet);
+        }
+    } else {
+        foreach ($data as $key => &$snippet) {
+            if (is_array($snippet)) {
+                $modify_snippet($snippet);
+            }
+        }
     }
+
     return $data;
 }
 
