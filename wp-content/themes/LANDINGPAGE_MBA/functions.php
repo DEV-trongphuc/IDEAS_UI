@@ -5207,6 +5207,9 @@ function ideas_disable_wp_about_page_redirect()
  * Integrates with Rank Math if active, falls back to manual injection otherwise.
  */
 add_filter('rank_math/json_ld', 'ideas_customize_rank_math_schema', 99, 2);
+add_filter('rank_math/opengraph/facebook/og_site_name', function($content) {
+    return 'IDEAS Education';
+});
 add_action('wp_head', 'ideas_add_seo_schemas_fallback', 10);
 
 function ideas_customize_rank_math_schema($data, $jsonld) {
