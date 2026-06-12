@@ -13331,10 +13331,16 @@ body .cta-headline {
     max-height: 90vh;
     overflow-y: auto;
   }
-  .accred-modal-container.video-expanded .accred-modal-video-pane {
-    width: 100%;
-    height: 520px;
+  .accred-modal-video-pane {
+    width: 100% !important;
+    height: 0;
+    opacity: 0;
     border-radius: 0 0 24px 24px;
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+  .accred-modal-container.video-expanded .accred-modal-video-pane {
+    height: 520px;
+    opacity: 1;
   }
   .accred-modal-slide-trigger {
     right: 50%;
