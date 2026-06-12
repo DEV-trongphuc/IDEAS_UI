@@ -62,7 +62,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Main stylesheet -->
@@ -80,7 +80,7 @@ ob_start(function ($html) {
     $bk_css_version = file_exists($bk_css_path) ? filemtime($bk_css_path) : time();
     ?>
     <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" />
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" />
 
     <style>
         :root {
@@ -2488,7 +2488,7 @@ ob_start(function ($html) {
                         </div>
                     </div>
                     <div class="prog-avatar-container">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                             alt="Online MBA Avatar" loading="lazy" decoding="async" />
                     </div>
                     <div class="prog-card-title-group">
@@ -2528,7 +2528,7 @@ ob_start(function ($html) {
                         </div>
                     </div>
                     <div class="prog-avatar-container">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                             alt="MBA in AI Avatar" loading="lazy" decoding="async" />
                     </div>
                     <div class="prog-card-title-group">
@@ -2568,7 +2568,7 @@ ob_start(function ($html) {
                         </div>
                     </div>
                     <div class="prog-avatar-container">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="MSc AI Avatar"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI Avatar"
                             loading="lazy" decoding="async" />
                     </div>
                     <div class="prog-card-title-group">
@@ -2608,7 +2608,7 @@ ob_start(function ($html) {
                         </div>
                     </div>
                     <div class="prog-avatar-container">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                             alt="Executive MBA Avatar" loading="lazy" decoding="async" />
                     </div>
                     <div class="prog-card-title-group">
@@ -2648,7 +2648,7 @@ ob_start(function ($html) {
                         </div>
                     </div>
                     <div class="prog-avatar-container">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA Avatar"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="Top-up BBA Avatar"
                             loading="lazy" decoding="async" />
                     </div>
                     <div class="prog-card-title-group">

@@ -63,7 +63,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Main minified stylesheet -->
@@ -994,7 +994,7 @@ ob_start(function ($html) {
             gv: [
                 {
                     name: "Phạm Quang Vinh",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp",
                     tag: "Tiến sĩ QTKD Hoa Kỳ",
                     job: "Viện trưởng IDEAS",
                     des: [
@@ -1008,7 +1008,7 @@ ob_start(function ($html) {
                 },
                 {
                     name: "Dương Văn Thịnh",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp",
                     tag: "Tiến sĩ QTKD Pháp",
                     job: "VERON Group - Vice President, AI Technology",
                     des: [
@@ -1020,7 +1020,7 @@ ob_start(function ($html) {
                 },
                 {
                     name: "Sơn Điền Trung",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/NHP_1769-removebg-preview.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/NHP_1769-removebg-preview-optimized.webp",
                     tag: "Tiến sĩ QTKD Pháp",
                     job: "Chủ tịch cty Sonha pharma, Q pharma. Đồng sáng lập và thành viên IDEAS.",
                     des: [
@@ -1030,7 +1030,7 @@ ob_start(function ($html) {
                 },
                 {
                     name: "Trần Tâm Anh",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/a-tam-anh-1.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/a-tam-anh-1-optimized.webp",
                     tag: "Tiến sĩ QTKD Hoa Kỳ",
                     job: "Chịu trách nhiệm về chiến lược phát triển quốc tế, marketing và các hoạt động học thuật tại IDEAS.",
                     des: [
@@ -1051,7 +1051,7 @@ ob_start(function ($html) {
                 },
                 {
                     name: "Nguyễn Thị Minh Đoan",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Doan.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp",
                     tag: "Tiến sĩ QTKD",
                     job: "Giảng viên IDEAS",
                     des: [
@@ -1061,7 +1061,7 @@ ob_start(function ($html) {
                 },
                 {
                     name: "Mang Viên Hoàng Nhật",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp",
                     tag: "Tiến sĩ QTKD",
                     job: "Giảng viên IDEAS",
                     des: [
@@ -1162,7 +1162,7 @@ ob_start(function ($html) {
             cv: [
                 {
                     name: "Phạm Quang Vinh",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp",
                     tag: "DBA at Apollos University",
                     job: "Viện trưởng IDEAS",
                     des: [

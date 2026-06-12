@@ -7,7 +7,7 @@
 <header class="ideas_header" id="site-header">
     <div class="container header-inner">
         <a href="https://ideas.edu.vn/" class="logo" aria-label="Trang chủ IDEAS">
-            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
+            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
                 alt="Logo IDEAS Education - 15 năm thành lập" width="60" height="60" loading="eager"
                 fetchpriority="high">
         </a>
@@ -64,7 +64,7 @@
                         <div class="dropdown-column-title">Thạc sĩ</div>
                         <a href="/mba" class="dropdown-item">
                             <img class="item-avatar"
-                                src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                                src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                                 alt="Online MBA" decoding="async" loading="lazy" />
                             <div class="item-content">
                                 <div class="item-title">Online MBA</div>
@@ -72,7 +72,7 @@
                             </div>
                         </a>
                         <a href="/emba" class="dropdown-item">
-                            <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp"
+                            <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                                 alt="Executive MBA" decoding="async" loading="lazy" />
                             <div class="item-content">
                                 <div class="item-title">Executive MBA</div>
@@ -81,7 +81,7 @@
                         </a>
                         <a href="/mscai" class="dropdown-item">
                             <img class="item-avatar"
-                                src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="Master AI"
+                                src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="Master AI"
                                 loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Master AI (MSc AI)</div>
@@ -90,7 +90,7 @@
                         </a>
                         <a href="/mbainai" class="dropdown-item">
                             <img class="item-avatar"
-                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                                 alt="MBA in AI" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">MBA in AI</div>
@@ -102,7 +102,7 @@
                     <div class="dropdown-column">
                         <div class="dropdown-column-title">Cử nhân</div>
                         <a href="/bba" class="dropdown-item">
-                            <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp"
+                            <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp"
                                 alt="Top-up BBA" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Top-up BBA</div>
@@ -111,7 +111,7 @@
                         </a>
                         <a href="/fullbba" class="dropdown-item">
                             <img class="item-avatar"
-                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                                 alt="Global Online BBA" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Global Online BBA</div>
@@ -120,7 +120,7 @@
                         </a>
                         <div class="dropdown-column-title" style="margin-top: 16px;">Tiến sĩ</div>
                         <a href="/dual-dba-estiam-rb" class="dropdown-item">
-                            <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp"
+                            <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp"
                                 alt="Dual DBA" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Dual DBA</div>
@@ -213,7 +213,7 @@
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true" data-lenis-prevent>
     <div class="mobile-menu-header">
         <a href="/" class="mobile-menu-logo" aria-label="Trang chủ IDEAS">
-            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
+            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
                 alt="Logo IDEAS Education - 15 năm thành lập" width="45" height="45" loading="lazy">
         </a>
         <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">
@@ -270,7 +270,7 @@
             <div class="mobile-dropdown-section">
                 <div class="mobile-section-title">Thạc sĩ</div>
                 <a href="/mba" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                         alt="Online MBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Online MBA</div>
@@ -278,7 +278,7 @@
                     </div>
                 </a>
                 <a href="/emba" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                         alt="Executive MBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Executive MBA</div>
@@ -286,7 +286,7 @@
                     </div>
                 </a>
                 <a href="/mscai" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp"
                         alt="Master AI" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Master AI (MSc AI)</div>
@@ -294,7 +294,7 @@
                     </div>
                 </a>
                 <a href="/mbainai" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                         alt="MBA in AI" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">MBA in AI</div>
@@ -305,7 +305,7 @@
             <div class="mobile-dropdown-section">
                 <div class="mobile-section-title">Cử nhân &amp; Tiến sĩ</div>
                 <a href="/bba" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp"
                         alt="Top-up BBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Top-up BBA</div>
@@ -313,7 +313,7 @@
                     </div>
                 </a>
                 <a href="/fullbba" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                         alt="Global Online BBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Global Online BBA</div>
@@ -321,7 +321,7 @@
                     </div>
                 </a>
                 <a href="/dual-dba-estiam-rb" class="mobile-dropdown-item">
-                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp"
+                    <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp"
                         alt="Dual DBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Dual DBA</div>

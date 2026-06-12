@@ -69,7 +69,7 @@ ob_start(function ($html) {
     if (!$featured_image) {
         $content = get_the_content();
         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-        $featured_image = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+        $featured_image = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
     }
     ?>
     <?php if ($featured_image): ?>
@@ -104,7 +104,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Link the main minified style.css -->
@@ -1298,7 +1298,7 @@ ob_start(function ($html) {
                                         if (!$prev_img) {
                                             $prev_content = get_post_field('post_content', $prev_post->ID);
                                             preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $prev_content, $matches_prev);
-                                            $prev_img = isset($matches_prev[1][0]) ? $matches_prev[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                            $prev_img = isset($matches_prev[1][0]) ? $matches_prev[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                                         }
                                         ?>
                                             <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="nav-card nav-card-prev">
@@ -1321,7 +1321,7 @@ ob_start(function ($html) {
                                         if (!$next_img) {
                                             $next_content = get_post_field('post_content', $next_post->ID);
                                             preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $next_content, $matches_next);
-                                            $next_img = isset($matches_next[1][0]) ? $matches_next[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                            $next_img = isset($matches_next[1][0]) ? $matches_next[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                                         }
                                         ?>
                                             <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="nav-card nav-card-next">
@@ -1385,7 +1385,7 @@ ob_start(function ($html) {
                                                 if (!$recent_img) {
                                                     $recent_content = get_the_content();
                                                     preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $recent_content, $matches_r);
-                                                    $recent_img = isset($matches_r[1][0]) ? $matches_r[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                                    $recent_img = isset($matches_r[1][0]) ? $matches_r[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                                                 }
                                                 ?>
                                                         <a href="<?php the_permalink(); ?>" class="sidebar-course-item">
@@ -1416,7 +1416,7 @@ ob_start(function ($html) {
                                     <h3 class="widget-title">Chương trình đào tạo</h3>
                                     <div class="sidebar-course-list">
                                         <a href="/bba" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="Top-up BBA"
                                                 class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">Top-up BBA</h4>
@@ -1424,7 +1424,7 @@ ob_start(function ($html) {
                                             </div>
                                         </a>
                                         <a href="/fullbba" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                                                 alt="Global Online BBA" class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">Global Online BBA</h4>
@@ -1432,7 +1432,7 @@ ob_start(function ($html) {
                                             </div>
                                         </a>
                                         <a href="/mba" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                                                 alt="Online MBA" class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">Online MBA</h4>
@@ -1440,7 +1440,7 @@ ob_start(function ($html) {
                                             </div>
                                         </a>
                                         <a href="/emba" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp" alt="Executive MBA"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp" alt="Executive MBA"
                                                 class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">Executive MBA</h4>
@@ -1448,7 +1448,7 @@ ob_start(function ($html) {
                                             </div>
                                         </a>
                                         <a href="/mbainai" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                                                 alt="MBA in AI" class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">MBA in AI</h4>
@@ -1456,7 +1456,7 @@ ob_start(function ($html) {
                                             </div>
                                         </a>
                                         <a href="/mscai" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="MSc AI"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI"
                                                 class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">Master AI (MSc AI)</h4>
@@ -1464,7 +1464,7 @@ ob_start(function ($html) {
                                             </div>
                                         </a>
                                         <a href="/dual-dba" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp" alt="Dual DBA"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp" alt="Dual DBA"
                                                 class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">Dual DBA</h4>

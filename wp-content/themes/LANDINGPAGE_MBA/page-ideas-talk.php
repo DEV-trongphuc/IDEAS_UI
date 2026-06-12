@@ -40,7 +40,7 @@ ob_start(function ($html) {
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image"
-        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>IDEAS Talk – Webinar &amp; Chuyên đề AI | IDEAS</title>
     <?php endif; ?>
@@ -56,7 +56,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="IDEAS Talk – Webinar &amp; Chuyên đề AI" />
         <meta property="og:description"
             content="Cập nhật các buổi Monthly Workshop công nghệ, hướng dẫn ứng dụng AI thực chiến từ hội đồng chuyên gia IDEAS." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -64,7 +64,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Main minified stylesheet -->
@@ -82,7 +82,7 @@ ob_start(function ($html) {
     $bk_css_version = file_exists($bk_css_path) ? filemtime($bk_css_path) : time();
     ?>
     <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" />
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" />
 
     <style>
         /* ══════════════════════════════════════
@@ -603,7 +603,7 @@ ob_start(function ($html) {
         <!-- Hero Section -->
         <section class="talk-hero">
             <div class="talk-hero-bg"
-                style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');">
+                style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');">
             </div>
             <div class="talk-hero-overlay"></div>
             <div class="talk-hero-container">

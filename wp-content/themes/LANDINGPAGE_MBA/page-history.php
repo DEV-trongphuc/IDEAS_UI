@@ -53,7 +53,7 @@ ob_start(function ($html) {
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image"
-        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <title>Lịch sử hình thành và phát triển IDEAS | <?php bloginfo('name'); ?></title>
     <?php endif; ?>
@@ -70,7 +70,7 @@ ob_start(function ($html) {
             <meta property="og:title" content="Lịch sử hình thành và phát triển IDEAS" />
             <meta property="og:description"
                 content="Khám phá hành trình 15 năm kiến tạo và phát triển giáo dục sau đại học quốc tế chất lượng cao của IDEAS." />
-            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Twitter Card -->
@@ -79,14 +79,14 @@ ob_start(function ($html) {
             <meta name="twitter:title" content="Lịch sử hình thành và phát triển IDEAS" />
             <meta name="twitter:description"
                 content="Hành trình phát triển vượt bậc của IDEAS trong hỗ trợ các chương trình Cử nhân, Thạc sĩ, Tiến sĩ chuẩn quốc tế." />
-            <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+            <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Link the main minified style.css -->
@@ -467,7 +467,7 @@ ob_start(function ($html) {
     <!-- Hero Area -->
     <section class="history-hero" id="history-hero-top">
         <div class="history-hero-bg" id="history-parallax-bg"
-            style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');"></div>
+            style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');"></div>
         <div class="history-hero-overlay"></div>
         <div class="container">
             <div class="history-hero-badge">
@@ -624,7 +624,7 @@ ob_start(function ($html) {
                     <div class="timeline-images" style="margin-top: 15px;">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2024/11/8X1A9328-1-1.jpg"
                             alt="Sự kiện ký kết" />
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp"
                             alt="Lễ tốt nghiệp UMEF" />
                     </div>
                 </div>

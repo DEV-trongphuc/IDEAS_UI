@@ -84,7 +84,7 @@
           "url": "https://ideas.edu.vn",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp",
+            "url": "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp",
             "caption": "Logo IDEAS"
           },
           "description": "IDEAS cung cấp dịch vụ tư vấn và hỗ trợ học thuật chuyên nghiệp cho các chương trình liên kết quốc tế bậc Cử nhân, Thạc sĩ, Tiến sĩ chuẩn châu Âu.",
@@ -264,12 +264,12 @@
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700;800;900&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
     <link rel="preload" href="common-assets/css/style.min.css?v=1781075600000" as="style" />
     <link rel="stylesheet" href="common-assets/css/style.min.css?v=1781075600000" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1781075600000" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1781075600000" media="print" onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
             .BBA-grid {
@@ -3443,6 +3443,15 @@
             cursor: pointer;
             padding: 0;
             transition: all 0.3s ease;
+            position: relative;
+        }
+        .talk-video-dot::after {
+            content: '';
+            position: absolute;
+            top: -18px;
+            left: -18px;
+            right: -18px;
+            bottom: -18px;
         }
 
         .talk-video-dot.active {
@@ -3500,7 +3509,7 @@
             left: -10%;
             width: 120%;
             height: calc(100% + 300px);
-            background-image: linear-gradient(135deg, rgba(130, 10, 0, 0.82) 0%, rgba(15, 23, 42, 0.88) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');
+            background-image: linear-gradient(135deg, rgba(130, 10, 0, 0.82) 0%, rgba(15, 23, 42, 0.88) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');
             background-size: cover;
             background-position: center 75%;
             will-change: transform;
@@ -5703,7 +5712,7 @@
     <header class="ideas_header" id="site-header">
         <div class="container header-inner">
             <a href="https://ideas.edu.vn/" class="logo" aria-label="Trang chủ IDEAS">
-                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
+                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
                     alt="Logo IDEAS Education - 15 năm thành lập" width="60" height="60" loading="eager"
                     fetchpriority="high">
             </a>
@@ -5772,7 +5781,7 @@
                             <div class="dropdown-column-title">Thạc sĩ</div>
                             <a href="/mba" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                                     alt="Online MBA" decoding="async" loading="lazy" />
                                 <div class="item-content">
                                     <div class="item-title">Online MBA</div>
@@ -5781,7 +5790,7 @@
                             </a>
                             <a href="/emba" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                                     alt="Executive MBA" decoding="async" loading="lazy" />
                                 <div class="item-content">
                                     <div class="item-title">Executive MBA</div>
@@ -5790,7 +5799,7 @@
                             </a>
                             <a href="/mscai" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="Master AI"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="Master AI"
                                     loading="lazy" decoding="async" />
                                 <div class="item-content">
                                     <div class="item-title">Master AI (MSc AI)</div>
@@ -5799,7 +5808,7 @@
                             </a>
                             <a href="/mbainai" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp" alt="MBA in AI"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp" alt="MBA in AI"
                                     loading="lazy" decoding="async" />
                                 <div class="item-content">
                                     <div class="item-title">MBA in AI</div>
@@ -5812,7 +5821,7 @@
                             <div class="dropdown-column-title">Cử nhân</div>
                             <a href="/bba" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="Top-up BBA"
                                     loading="lazy" decoding="async" />
                                 <div class="item-content">
                                     <div class="item-title">Top-up BBA</div>
@@ -5821,7 +5830,7 @@
                             </a>
                             <a href="/fullbba" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                                     alt="Global Online BBA" loading="lazy" decoding="async" />
                                 <div class="item-content">
                                     <div class="item-title">Global Online BBA</div>
@@ -5831,7 +5840,7 @@
                             <div class="dropdown-column-title" style="margin-top: 16px;">Tiến sĩ</div>
                             <a href="/dual-dba-estiam-rb" class="dropdown-item">
                                 <img class="item-avatar"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp" alt="Dual DBA"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp" alt="Dual DBA"
                                     loading="lazy" decoding="async" />
                                 <div class="item-content">
                                     <div class="item-title">Dual DBA</div>
@@ -5973,7 +5982,7 @@
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true" data-lenis-prevent>
         <div class="mobile-menu-header">
             <a href="/" class="mobile-menu-logo" aria-label="Trang chủ IDEAS">
-                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
+                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
                     alt="Logo IDEAS Education - 15 năm thành lập" width="45" height="45" loading="lazy">
             </a>
             <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">
@@ -6036,7 +6045,7 @@
                     <div class="mobile-section-title">Thạc sĩ</div>
                     <a href="/mba" class="mobile-dropdown-item">
                         <img class="item-avatar"
-                            src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp" alt="Online MBA"
+                            src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp" alt="Online MBA"
                             loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">Online MBA</div>
@@ -6044,7 +6053,7 @@
                         </div>
                     </a>
                     <a href="/emba" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp"
+                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                             alt="Executive MBA" loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">Executive MBA</div>
@@ -6052,7 +6061,7 @@
                         </div>
                     </a>
                     <a href="/mscai" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp"
+                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp"
                             alt="Master AI" loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">Master AI (MSc AI)</div>
@@ -6060,7 +6069,7 @@
                         </div>
                     </a>
                     <a href="/mbainai" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                             alt="MBA in AI" loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">MBA in AI</div>
@@ -6071,7 +6080,7 @@
                 <div class="mobile-dropdown-section">
                     <div class="mobile-section-title">Cử nhân &amp; Tiến sĩ</div>
                     <a href="/bba" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp"
+                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp"
                             alt="Top-up BBA" loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">Top-up BBA</div>
@@ -6079,7 +6088,7 @@
                         </div>
                     </a>
                     <a href="/fullbba" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                             alt="Global Online BBA" loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">Global Online BBA</div>
@@ -6087,7 +6096,7 @@
                         </div>
                     </a>
                     <a href="/dual-dba-estiam-rb" class="mobile-dropdown-item">
-                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp"
+                        <img class="item-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp"
                             alt="Dual DBA" loading="lazy" decoding="async" />
                         <div class="item-content">
                             <div class="item-title">Dual DBA</div>
@@ -6211,21 +6220,21 @@
             <!-- Flying Avatars Background Layer -->
             <div class="hero-flying-avatars"
                 style="position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible;">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/169.webp" alt="Flying Student 1"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="Flying Student 1"
                     class="flying-avatar fa-1" decoding="async" />
-                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg" alt="Flying Student 2"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp" alt="Flying Student 2"
                     class="flying-avatar fa-2" decoding="async" />
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/171.webp" alt="Flying Student 3"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp" alt="Flying Student 3"
                     class="flying-avatar fa-3" decoding="async" />
-                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg" alt="Flying Student 4"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp" alt="Flying Student 4"
                     class="flying-avatar fa-4" decoding="async" />
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/173.jpg" alt="Flying Student 5"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp" alt="Flying Student 5"
                     class="flying-avatar fa-5" decoding="async" />
-                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg" alt="Flying Student 6"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="Flying Student 6"
                     class="flying-avatar fa-6" decoding="async" />
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/175.webp" alt="Flying Student 7"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp" alt="Flying Student 7"
                     class="flying-avatar fa-7" decoding="async" />
-                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg" alt="Flying Student 8"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp" alt="Flying Student 8"
                     class="flying-avatar fa-8" decoding="async" />
             </div>
 
@@ -6247,9 +6256,9 @@
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.png" alt="Floating Card 3"
                         class="floating-photo-card floating-photo-3" loading="lazy" decoding="async" />
                 </a>
-                <a href="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg" class="lightbox-trigger"
+                <a href="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp" class="lightbox-trigger"
                     style="display: contents;">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg" alt="Floating Card 4"
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp" alt="Floating Card 4"
                         class="floating-photo-card floating-photo-4" loading="lazy" decoding="async" />
                 </a>
                 <a href="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg" class="lightbox-trigger"
@@ -6340,23 +6349,23 @@
                     <div class="hero-social-proof"
                         style="display: flex; align-items: center; justify-content: center; gap: 16px;">
                         <div class="avatars" style="display: flex; margin-right: -4px;">
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp"
                                 alt="Học viên 1" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); animation-delay: 0.8s;"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp"
                                 alt="Học viên 2" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.05); animation-delay: 0.95s;"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp"
                                 alt="Học viên 3" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 3; box-shadow: 0 4px 10px rgba(0,0,0,0.05); animation-delay: 1.1s;"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
                                 alt="Học viên 4" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 4; box-shadow: 0 4px 10px rgba(0,0,0,0.05); animation-delay: 1.25s;"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2-optimized.webp"
                                 alt="Học viên 5" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.05); animation-delay: 1.4s;"
                                 loading="lazy" />
@@ -6525,7 +6534,7 @@
                                 </a>
                                 <a target="_blank" href="https://zalo.me/3857867121882640296" aria-label="Zalo IDEAS">
                                     <i>
-                                        <img loading="lazy" decoding="async" alt="Zalo"
+                                        <img loading="lazy" decoding="async" alt="Zalo" width="32" height="32"
                                             src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png">
                                     </i>
                                 </a>
@@ -6547,9 +6556,9 @@
                         </div>
                     </div>
                     <div class="reveal-up" style="position: relative;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan.jpg"
-                            alt="Buổi hướng dẫn học viên IDEAS"
-                            style="width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp"
+                            alt="Buổi hướng dẫn học viên IDEAS" width="1024" height="774"
+                            style="width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);"
                             loading="lazy" decoding="async" />
                         <div class="about-badge"
                             style="position: absolute; bottom: -20px; left: -20px; background: var(--clr-primary); color: #fff; padding: 20px 24px; border-radius: 16px; box-shadow: 0 10px 25px rgba(171,14,0,0.3); font-weight: 700; width: 170px; text-align: center;">
@@ -6759,25 +6768,25 @@
                             style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 20px;">
                             <div class="avatars" style="display: flex; padding-left: 0;">
                                 <img decoding="async"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt.jpg"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp"
                                     alt="Chuyên gia 1" class="avatar" loading="lazy"
                                     style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #090e1a; margin-right: -12px; object-fit: cover; display: block; background-color: #ffffff; flex-shrink: 0; aspect-ratio: 1/1;" />
                                 <img decoding="async"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh.png"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp"
                                     alt="Chuyên gia 2" class="avatar" loading="lazy"
                                     style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #090e1a; margin-right: -12px; object-fit: cover; display: block; background-color: #ffffff; flex-shrink: 0; aspect-ratio: 1/1;" />
                                 <img decoding="async"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2024/04/NHP_1769-removebg-preview.png"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2024/04/NHP_1769-removebg-preview-optimized.webp"
                                     alt="Chuyên gia 3" class="avatar" loading="lazy"
                                     style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #090e1a; margin-right: -12px; object-fit: cover; display: block; background-color: #ffffff; flex-shrink: 0; aspect-ratio: 1/1;" />
                                 <img decoding="async"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2024/04/a-tam-anh-1.png"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2024/04/a-tam-anh-1-optimized.webp"
                                     alt="Chuyên gia 4" class="avatar" loading="lazy"
                                     style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #090e1a; margin-right: -12px; object-fit: cover; display: block; background-color: #ffffff; flex-shrink: 0; aspect-ratio: 1/1;" />
-                                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2024/04/Doan.png"
+                                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp"
                                     alt="Chuyên gia 5" class="avatar" loading="lazy"
                                     style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #090e1a; margin-right: -12px; object-fit: cover; display: block; background-color: #ffffff; flex-shrink: 0; aspect-ratio: 1/1;" />
-                                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat.png"
+                                <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp"
                                     alt="Chuyên gia 6" class="avatar" loading="lazy"
                                     style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #090e1a; margin-right: -12px; object-fit: cover; display: block; background-color: #ffffff; flex-shrink: 0; aspect-ratio: 1/1;" />
                                 <img decoding="async"
@@ -6903,7 +6912,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                                         alt="Cử nhân quản trị kinh doanh Quốc tế Avatar" loading="lazy"
                                         decoding="async" />
                                 </div>
@@ -6948,7 +6957,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp"
                                         alt="TOP-UP BBA Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
@@ -6991,7 +7000,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                                         alt="Online MBA Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
@@ -7035,7 +7044,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                                         alt="Executive MBA Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
@@ -7079,7 +7088,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                                         alt="MBA in AI Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
@@ -7123,7 +7132,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp"
                                         alt="MSc AI Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
@@ -7167,7 +7176,7 @@
                                     </div>
                                 </div>
                                 <div class="prog-avatar-container">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp"
                                         alt="Dual DBA Avatar" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="prog-card-title-group">
@@ -7785,27 +7794,19 @@
                             nền tảng hỗ trợ học tập:</span>
                         <div class="platform-logos-grid"
                             style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas.png" alt="IDEAS LMS"
-                                style="height: 32px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas-optimized.webp" alt="IDEAS LMS" width="84" height="32" style="height: 32px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
                                 onmouseover="this.style.filter='none'"
                                 onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/Buffet-AI-R.webp"
-                                alt="AI-Platform"
-                                style="height: 28px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/Buffet-AI-R.webp" alt="AI-Platform" width="53" height="28" style="height: 28px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
                                 onmouseover="this.style.filter='none'"
                                 onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moodle-logo.svg/1280px-Moodle-logo.svg.png"
-                                alt="Moodle"
-                                style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moodle-logo.svg/1280px-Moodle-logo.svg.png" alt="Moodle" width="93" height="24" style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
                                 onmouseover="this.style.filter='none'"
                                 onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Cengage-logo.svg.webp"
-                                alt="Cengage"
-                                style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Cengage_Logo.svg" alt="Cengage" width="67" height="24" style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
                                 onmouseover="this.style.filter='none'"
                                 onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/eacademy.webp" alt="eacademy"
-                                style="height: 26px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/eacademy.webp" alt="eacademy" width="85" height="26" style="height: 26px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
                                 onmouseover="this.style.filter='none'"
                                 onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
                         </div>
@@ -7834,7 +7835,7 @@
                             </div>
                             <div class="sol-photo-sm sol-photo-sm-accent">
                                 <img decoding="async"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan.jpg"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp"
                                     alt="Buổi hướng dẫn học thuật trực tiếp" loading="lazy" width="240" height="180" />
                                 <div class="sol-photo-badge sol-badge-br"
                                     style="display: flex; align-items: center; gap: 6px;">
@@ -7882,7 +7883,7 @@
                     <article class="activity-card"
                         onclick="if(typeof window.openRegModal === 'function') window.openRegModal('activity-graduation-vietnam')">
                         <div class="card-img-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp"
                                 alt="Lễ tốt nghiệp tại Việt Nam" loading="lazy" decoding="async" />
                             <span class="card-tag">Trong nước</span>
                         </div>
@@ -7944,7 +7945,7 @@
                                 <article class="video-talk-card talk-video-carousel-slide"
                                     onclick="openVideoModal('https://www.youtube.com/embed/CXCDUKsU-0I?si=EUDQfhO6gIZ517bY')">
                                     <div class="video-thumb-wrap">
-                                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9.png"
+                                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9-870x570.webp"
                                             alt="VIBE CODING - Tự tạo ứng dụng bằng AI" loading="lazy"
                                             decoding="async" />
                                         <div class="play-btn-overlay">
@@ -9173,6 +9174,15 @@
                 cursor: pointer;
                 padding: 0;
                 transition: all 0.3s ease;
+                position: relative;
+            }
+            .testi-dot::after {
+                content: '';
+                position: absolute;
+                top: -18px;
+                left: -18px;
+                right: -18px;
+                bottom: -18px;
             }
 
             .testi-dot.active {
@@ -9334,23 +9344,23 @@
                     style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 30px;">
                     <div style="display: flex; align-items: center; gap: 12px;">
                         <div class="avatars" style="display: flex; margin-right: -4px;">
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp"
                                 alt="Học viên 1" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 1; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp"
                                 alt="Học viên 2" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp"
                                 alt="Học viên 3" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 3; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
                                 alt="Học viên 4" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 4; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
-                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2.jpg"
+                            <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2-optimized.webp"
                                 alt="Học viên 5" class="hero-avatar-reveal"
                                 style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #fff; margin-right: -10px; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.05);"
                                 loading="lazy" />
@@ -9383,7 +9393,7 @@
                         <div class="ideas_quote_inner testi-carousel-track">
                             <div class="ideas_quote_item testi-carousel-slide">
                                 <div class="ideas_quote_info">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/175.webp"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
                                         alt="Dương Thị Vân Giang">
                                     <div>
                                         <p>Dương Thị Vân Giang</p>
@@ -9423,7 +9433,7 @@
 
                             <div class="ideas_quote_item testi-carousel-slide">
                                 <div class="ideas_quote_info">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp"
                                         alt="Nguyễn Thanh Bình">
                                     <div>
                                         <p>Nguyễn Thanh Bình</p>
@@ -9444,7 +9454,7 @@
 
                             <div class="ideas_quote_item testi-carousel-slide">
                                 <div class="ideas_quote_info">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp"
                                         alt="Nguyễn Huỳnh Phương">
                                     <div>
                                         <p>Nguyễn Huỳnh Phương</p>
@@ -9465,7 +9475,7 @@
 
                             <div class="ideas_quote_item testi-carousel-slide">
                                 <div class="ideas_quote_info">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp"
                                         alt="Nguyễn Thị Hà Miên">
                                     <div>
                                         <p>Nguyễn Thị Hà Miên</p>
@@ -9486,7 +9496,7 @@
 
                             <div class="ideas_quote_item testi-carousel-slide">
                                 <div class="ideas_quote_info">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
                                         alt="Lê Ngọc Thương">
                                     <div>
                                         <p>Lê Ngọc Thương</p>
@@ -9507,7 +9517,7 @@
 
                             <div class="ideas_quote_item testi-carousel-slide">
                                 <div class="ideas_quote_info">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2.jpg"
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc2-optimized.webp"
                                         alt="Lê Chí Thành">
                                     <div>
                                         <p>Lê Chí Thành</p>
@@ -9812,8 +9822,8 @@
                         TÁC CHIẾN LƯỢC TOÀN DIỆN</span>
                     <div
                         style="display: flex; align-items: center; justify-content: center; gap: 32px; position: relative; width: 100%;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp"
-                            alt="IDEAS Education" style="height: 56px; width: auto; object-fit: contain;" />
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
+                            alt="IDEAS Education" width="56" height="56" style="height: 56px; width: auto; object-fit: contain;" />
                         <div
                             style="position: relative; flex-grow: 1; max-width: 150px; margin: 0 12px; display: flex; align-items: center; justify-content: center; height: 16px;">
                             <!-- Left anchor dot -->
@@ -9827,8 +9837,7 @@
                                 <div class="connect-glowing-dot"></div>
                             </div>
                         </div>
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" alt="Swiss UMEF"
-                            style="height: 56px; width: auto; object-fit: contain;" />
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" alt="Swiss UMEF" width="56" height="56" style="height: 56px; width: auto; object-fit: contain;" />
                     </div>
                     <p
                         style="font-size: 0.95rem; font-weight: 700; color: #334155; margin: 4px 0 0 0; line-height: 1.4; text-align: center;">
@@ -9844,31 +9853,18 @@
                 <div
                     style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px; opacity: 0.85;">
                     <!-- Partners Academic -->
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" alt="Swiss UMEF"
-                        style="height: 48px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
-                    <img src="https://www.collegedeparis.fr/wp-content/uploads/2021/06/cdp-formation-continue.png"
-                        alt="College de Paris" style="height: 40px; width: auto; object-fit: contain;" loading="lazy"
-                        decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.png"
-                        alt="Ascencia" style="height: 44px; width: auto; object-fit: contain;" loading="lazy"
-                        decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.png" alt="Estiam"
-                        style="height: 44px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" alt="Swiss UMEF" width="48" height="48" style="height: 48px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+                    <img src="https://www.collegedeparis.fr/wp-content/uploads/2021/06/cdp-formation-continue.png" alt="College de Paris" width="141" height="40" style="height: 40px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.png" alt="Ascencia" width="110" height="44" style="height: 44px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.png" alt="Estiam" width="110" height="44" style="height: 44px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
 
                     <div style="width: 100%; height: 1px; background: rgba(0,0,0,0.06); margin: 10px 0;"></div>
 
                     <!-- Partners Ecosystem -->
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cao-logo-1.png.webp"
-                        alt="Chief AI Officer" style="height: 46px; width: auto; object-fit: contain;" loading="lazy"
-                        decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2023/07/tssac-2.webp" alt="TSSAC"
-                        style="height: 46px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
-                    <img src="https://pilotnguyen.com.vn/wp-content/uploads/2024/12/cropped-Logo-Tach-Nen-1.png"
-                        alt="Pilot Nguyen" style="height: 46px; width: auto; object-fit: contain;" loading="lazy"
-                        decoding="async" />
-                    <img src="https://hcmusta.org.vn/wp-content/uploads/2022/10/Logo-LHH-300x300-1-324x235.jpeg"
-                        alt="HCMUSTA" style="height: 46px; width: auto; object-fit: contain;" loading="lazy"
-                        decoding="async" />
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cao-logo-1.png.webp" alt="Chief AI Officer" width="111" height="46" style="height: 46px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2023/07/tssac-2.webp" alt="TSSAC" width="115" height="46" style="height: 46px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+                    <img src="https://pilotnguyen.com.vn/wp-content/uploads/2024/12/cropped-Logo-Tach-Nen-1.png" alt="Pilot Nguyen" width="138" height="46" style="height: 46px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+                    <img src="https://hcmusta.org.vn/wp-content/uploads/2022/10/Logo-LHH-300x300-1-324x235.jpeg" alt="HCMUSTA" width="63" height="46" style="height: 46px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
                 </div>
             </div>
         </section>
@@ -10148,15 +10144,13 @@
         <div class="footer-columns-wrap">
             <!-- Column 1: Logo, description, social icons -->
             <div class="footer-col-about">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" alt="IDEAS Logo"
-                    class="footer-logo-ideas" loading="eager" fetchpriority="high" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" alt="IDEAS Logo" width="162" height="91" class="footer-logo-ideas" loading="eager" fetchpriority="high" decoding="async" />
                 <p class="footer-desc-ideas">IDEAS – Đồng hành hỗ trợ học vụ chuyên nghiệp cho các chương trình Cử nhân,
                     Thạc sĩ, Tiến sĩ chuẩn Quốc tế, mở ra cơ hội thăng tiến và hội nhập toàn cầu.</p>
                 <div class="ideas_follow_new">
                     <a target="_blank" href="https://zalo.me/3857867121882640296" class="social-icon zalo"
                         rel="nofollow noopener noreferrer" title="Zalo">
-                        <img loading="lazy" src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png"
-                            alt="Zalo" decoding="async" />
+                        <img loading="lazy" src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png" alt="Zalo" width="32" height="32" decoding="async" />
                     </a>
                     <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" class="social-icon facebook"
                         rel="nofollow noopener noreferrer" title="Facebook">
@@ -12061,7 +12055,7 @@
                         <div class="tour-footer-logos">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
                                 alt="Swiss UMEF" decoding="async" loading="lazy" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas.png" alt="IDEAS"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas-optimized.webp" alt="IDEAS"
                                 loading="lazy" decoding="async" />
                         </div>
                     </div>
@@ -12125,7 +12119,7 @@
                         <div class="vn-card">
                             <div class="vn-card-img-wrap">
                                 <img decoding="async"
-                                    src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg"
+                                    src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp"
                                     alt="Lễ tốt nghiệp 26/10/2024" loading="lazy">
                             </div>
                             <div class="vn-card-info">
@@ -12267,13 +12261,13 @@
             }
 
             const progImages = {
-                'IDEAS01': 'https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp',
-                'IDEAS07': 'https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp',
-                'IDEAS02': 'https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp',
-                'IDEAS03': 'https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp',
-                'IDEAS05': 'https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp',
-                'IDEAS04': 'https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp',
-                'IDEAS06': 'https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp'
+                'IDEAS01': 'https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp',
+                'IDEAS07': 'https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp',
+                'IDEAS02': 'https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp',
+                'IDEAS03': 'https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp',
+                'IDEAS05': 'https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp',
+                'IDEAS04': 'https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp',
+                'IDEAS06': 'https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp'
             };
 
             const progSubtitles = {

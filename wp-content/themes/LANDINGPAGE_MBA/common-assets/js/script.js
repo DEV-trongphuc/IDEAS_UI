@@ -2766,6 +2766,22 @@ function initHomepageToastPopup() {
             transition: all 0.2s ease;
             z-index: 10001;
         }
+        .ideas-toast-close::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+        }
+        .ideas-toast-close::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+        }
         .ideas-toast-close:hover {
             background: rgba(171, 14, 0, 0.1);
             color: #ab0e00;

@@ -60,7 +60,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Main stylesheet -->
@@ -78,7 +78,7 @@ ob_start(function ($html) {
     $bk_css_version = file_exists($bk_css_path) ? filemtime($bk_css_path) : time();
     ?>
     <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" />
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" />
 
     <style>
         :root {
@@ -1024,7 +1024,7 @@ ob_start(function ($html) {
 
                     <!-- LEVEL 1: Viện Trưởng -->
                     <div class="org-node">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt.jpg"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp"
                             class="org-node-avatar" alt="Viện trưởng IDEAS - TS. Phạm Quang Vinh">
                         <div class="org-node-body">
                             <div class="org-node-role">Viện Trưởng</div>

@@ -17,15 +17,13 @@ define('IDEAS_FOOTER_RENDERED', true);
     <div class="footer-columns-wrap">
         <!-- Column 1: Logo, description, social icons -->
         <div class="footer-col-about">
-            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" alt="IDEAS Logo"
-                class="footer-logo-ideas" loading="lazy" decoding="async" />
+            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" alt="IDEAS Logo" width="162" height="91" class="footer-logo-ideas" loading="lazy" decoding="async" />
             <p class="footer-desc-ideas">IDEAS – Đồng hành hỗ trợ học vụ chuyên nghiệp cho các chương trình Cử nhân,
                 Thạc sĩ, Tiến sĩ chuẩn Quốc tế, mở ra cơ hội thăng tiến và hội nhập toàn cầu.</p>
             <div class="ideas_follow_new">
                 <a target="_blank" href="https://zalo.me/3857867121882640296" class="social-icon zalo"
                     rel="nofollow noopener noreferrer" title="Zalo" aria-label="Zalo IDEAS">
-                    <img loading="lazy" src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png" alt="Zalo"
-                        decoding="async" />
+                    <img loading="lazy" src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png" alt="Zalo" width="32" height="32" decoding="async" />
                 </a>
                 <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" class="social-icon facebook"
                     rel="nofollow noopener noreferrer" title="Facebook" aria-label="Facebook IDEAS">

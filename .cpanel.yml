@@ -7,6 +7,7 @@ deployment:
     # Deploy .htaccess and root scripts
     - cp .htaccess $DEPLOYPATH/.htaccess
     - cp create-pages.php $DEPLOYPATH/create-pages.php
+    - cp wp-convert-webp.php $DEPLOYPATH/wp-convert-webp.php
     # Deploy landing pages
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)

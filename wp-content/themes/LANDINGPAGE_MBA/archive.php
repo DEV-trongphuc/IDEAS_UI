@@ -53,7 +53,7 @@ ob_start(function ($html) {
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image"
-        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp" />
+        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php
     // Preload LCP featured article image dynamically on page 1
     $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -69,7 +69,7 @@ ob_start(function ($html) {
             if (!$featured_img) {
                 $content = $latest_posts[0]->post_content;
                 preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-                $featured_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                $featured_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
             }
             if ($featured_img) {
                 echo "\n    <!-- Preload LCP featured post image -->\n";
@@ -94,7 +94,7 @@ ob_start(function ($html) {
         <meta property="og:title" content="Tin tức & Sự kiện | IDEAS" />
         <meta property="og:description"
             content="Cập nhật tin tức giáo dục, hoạt động thực tế và học vụ chuyên nghiệp cùng các chương trình cử nhân, thạc sĩ, tiến sĩ quốc tế." />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Twitter Card -->
@@ -103,14 +103,14 @@ ob_start(function ($html) {
         <meta name="twitter:title" content="Tin tức & Sự kiện | IDEAS" />
         <meta name="twitter:description"
             content="Cập nhật tin tức giáo dục, hoạt động thực tế và học vụ chuyên nghiệp cùng các chương trình cử nhân, thạc sĩ, tiến sĩ quốc tế." />
-        <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp" />
+        <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Link the main minified style.css -->
@@ -696,7 +696,7 @@ ob_start(function ($html) {
     <section class="blog-archive-hero">
         <div class="hero-bg-wrapper">
             <div class="counters-bg"
-                style="background-image: linear-gradient(135deg, rgba(185, 14, 0, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');">
+                style="background-image: linear-gradient(135deg, rgba(185, 14, 0, 0.92) 0%, rgba(15, 23, 42, 0.9) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');">
             </div>
         </div>
         <div class="container" style="position: relative; z-index: 3;">
@@ -746,7 +746,7 @@ ob_start(function ($html) {
                     if (!$featured_img) {
                         $content = get_the_content();
                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-                        $featured_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                        $featured_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                     }
 
                     $excerpt = get_the_excerpt();
@@ -791,7 +791,7 @@ ob_start(function ($html) {
                     if (!$post_img) {
                         $content = get_the_content();
                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                     }
 
                     $excerpt = get_the_excerpt();
@@ -885,7 +885,7 @@ ob_start(function ($html) {
                     <h3 class="widget-title">Chương trình đào tạo</h3>
                     <div class="sidebar-course-list">
                         <a href="/bba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp" alt="Top-up BBA"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="Top-up BBA"
                                 class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Top-up BBA</h4>
@@ -893,7 +893,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/fullbba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                                 alt="Global Online BBA" class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Global Online BBA</h4>
@@ -901,7 +901,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/mba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                                 alt="Online MBA" class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Online MBA</h4>
@@ -909,7 +909,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/emba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp" alt="Executive MBA"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp" alt="Executive MBA"
                                 class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Executive MBA</h4>
@@ -917,7 +917,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/mbainai" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                                 alt="MBA in AI" class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">MBA in AI</h4>
@@ -925,7 +925,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/mscai" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp" alt="MSc AI"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI"
                                 class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Master AI (MSc AI)</h4>
@@ -933,7 +933,7 @@ ob_start(function ($html) {
                             </div>
                         </a>
                         <a href="/dual-dba" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp" alt="Dual DBA"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp" alt="Dual DBA"
                                 class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Dual DBA</h4>

@@ -204,7 +204,7 @@ function ideas_render_featured_image_column($column, $post_id)
             // Fallback: extract first image in content or use default logo
             $post = get_post($post_id);
             preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post->post_content, $matches);
-            $img_url = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+            $img_url = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
         }
 
         $edit_link = get_edit_post_link($post_id);
@@ -4102,7 +4102,7 @@ function ideas_render_custom_dashboard()
                                     if (!$post_img) {
                                         $post_content = get_post_field('post_content', $p->ID);
                                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post_content, $matches);
-                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                                     }
                                     $rank_class = $rank <= 3 ? 'rank-' . $rank : '';
                                     ?>
@@ -4158,7 +4158,7 @@ function ideas_render_custom_dashboard()
                                     if (!$post_img) {
                                         $post_content = get_post_field('post_content', $p->ID);
                                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post_content, $matches);
-                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                                     }
                                     $rank_class = $rank <= 3 ? 'rank-' . $rank : '';
                                     ?>
@@ -4257,7 +4257,7 @@ function ideas_render_custom_dashboard()
                                     $post_img = get_the_post_thumbnail_url($p->ID, 'thumbnail');
                                     if (!$post_img) {
                                         preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $p->post_content, $matches);
-                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                                     }
                                     $status_lbl = $p->post_status === 'publish' ? 'Đã đăng' : ($p->post_status === 'future' ? 'Lên lịch' : 'Bản nháp');
                                     $status_cls = $p->post_status === 'publish' ? 'published' : ($p->post_status === 'future' ? 'scheduled' : 'draft');
@@ -4799,7 +4799,7 @@ function ideas_live_search_handler()
             if (!$img) {
                 $content = get_the_content();
                 preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $content, $matches);
-                $img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                $img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
             }
 
             // Category

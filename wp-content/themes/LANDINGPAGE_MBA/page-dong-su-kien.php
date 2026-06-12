@@ -63,7 +63,7 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
     <!-- Main minified stylesheet -->
@@ -895,7 +895,7 @@ ob_start(function ($html) {
                 name: "Global MBA - DBA",
                 for: "Ascencia Business School",
                 place: "Paris - Pháp",
-                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp",
                 data: "02/07/2025",
                 link: "https://www.linkedin.com/posts/college-de-paris-internationall_graduationceremony-collegedeparis-internationalstudents-activity-7351534584573902848-Aohn?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAE2CO4QB8War1r8xRIr7DEuSqFi_aID5Gv8",
             },
@@ -913,7 +913,7 @@ ob_start(function ($html) {
                 name: "VIBE CODING - Tự tạo ứng dụng bằng AI",
                 for: "IDEAS Talk",
                 place: "Online Zoom",
-                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9.png",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9-870x570.webp",
                 data: "29/06/2025",
                 link: "https://www.youtube.com/watch?v=CXCDUKsU-0I",
             },
@@ -1012,7 +1012,7 @@ ob_start(function ($html) {
                 name: "Buổi hướng dẫn hệ thống học tập UMEF",
                 for: "IDEAS - Swiss UMEF",
                 place: "IDEAS",
-                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan.jpg",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp",
                 data: "11/11/2024",
                 link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid02N7ZWkS7oXbCyta7gBob3mrtUUyftQWY9DiHxi7r3iXG9TuAQda8P41s1gx3ZbVx8l",
             },
@@ -1021,7 +1021,7 @@ ob_start(function ($html) {
                 name: "Swiss UMEF",
                 for: "MBA/EMBA",
                 place: "IDEAS",
-                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp",
                 data: "26/10/2024",
                 link: "https://www.youtube.com/watch?si=eJDfqKWc4HxT_TmS&v=fBf5YcaMxDY&feature=youtu.be",
             },
