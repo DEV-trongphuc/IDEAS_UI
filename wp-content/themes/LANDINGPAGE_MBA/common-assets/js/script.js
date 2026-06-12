@@ -2828,6 +2828,204 @@ function initHomepageToastPopup() {
     }, 3000);
 }
 
+function initCustomDropdowns() {
+    // Inject Custom Select CSS
+    if (!document.getElementById('custom-select-styles')) {
+        const style = document.createElement('style');
+        style.id = 'custom-select-styles';
+        style.textContent = `
+            .custom-select-wrapper {
+                position: relative;
+                width: 100%;
+                user-select: none;
+            }
+            .custom-select-trigger {
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid #e2e8f0;
+                border-radius: 10px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: #1e293b;
+                background: #f8fafc;
+                outline: none;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                box-sizing: border-box;
+                height: 46px; /* consistent height */
+            }
+            .custom-select-wrapper.open .custom-select-trigger {
+                border-color: #ab0e00;
+                background: #ffffff;
+                box-shadow: 0 0 0 3px rgba(171, 14, 0, 0.08);
+            }
+            .custom-select-trigger span {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-right: 8px;
+            }
+            .custom-select-trigger i {
+                font-size: 0.8rem;
+                color: #64748b;
+                transition: transform 0.2s ease;
+                flex-shrink: 0;
+            }
+            .custom-select-wrapper.open .custom-select-trigger i {
+                transform: rotate(180deg);
+                color: #ab0e00;
+            }
+            .custom-select-options {
+                position: absolute;
+                top: calc(100% + 8px);
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 16px;
+                box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+                z-index: 9999;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px) scale(0.95);
+                transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+                max-height: 280px;
+                overflow-y: auto;
+                padding: 6px;
+                box-sizing: border-box;
+            }
+            .custom-select-wrapper.open .custom-select-options {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0) scale(1);
+            }
+            .custom-select-option {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+                color: #334155;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: all 0.15s ease;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .custom-select-option:hover {
+                background: #fdf2f2;
+                color: #ab0e00;
+            }
+            .custom-select-option.selected {
+                background: #ab0e00;
+                color: #ffffff;
+                font-weight: 600;
+            }
+            .custom-select-option.placeholder-option {
+                color: #94a3b8;
+                font-style: italic;
+            }
+            .custom-select-option.placeholder-option:hover {
+                background: #f1f5f9;
+                color: #475569;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    const selects = document.querySelectorAll(
+        '.ideas-widget-form select, .ideas-contact-form select, .form-group select, .ideas-booking-form select, .ideas-registration-form select, .sidebar-widget select'
+    );
+
+    selects.forEach(select => {
+        if (select.nextElementSibling && select.nextElementSibling.classList.contains('custom-select-wrapper')) {
+            return;
+        }
+        if (select.parentElement.classList.contains('custom-select-wrapper')) {
+            return;
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'custom-select-wrapper';
+
+        const trigger = document.createElement('div');
+        trigger.className = 'custom-select-trigger';
+        
+        const selectedOpt = select.querySelector('option[selected]') || select.querySelector('option');
+        const triggerText = document.createElement('span');
+        triggerText.textContent = selectedOpt ? selectedOpt.textContent : '-- Chọn --';
+        if (selectedOpt && !selectedOpt.value) {
+            triggerText.style.color = '#94a3b8';
+        }
+        
+        const triggerIcon = document.createElement('i');
+        triggerIcon.className = 'fa-solid fa-chevron-down';
+
+        trigger.appendChild(triggerText);
+        trigger.appendChild(triggerIcon);
+        wrapper.appendChild(trigger);
+
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'custom-select-options';
+
+        const options = select.querySelectorAll('option');
+        options.forEach(opt => {
+            const optDiv = document.createElement('div');
+            optDiv.className = 'custom-select-option';
+            optDiv.textContent = opt.textContent;
+            optDiv.setAttribute('data-value', opt.value);
+
+            if (opt.selected) {
+                optDiv.classList.add('selected');
+            }
+            if (!opt.value) {
+                optDiv.classList.add('placeholder-option');
+            }
+
+            optDiv.addEventListener('click', (e) => {
+                e.stopPropagation();
+                select.value = opt.value;
+                select.dispatchEvent(new Event('change', { bubbles: true }));
+
+                optionsContainer.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+                optDiv.classList.add('selected');
+
+                triggerText.textContent = opt.textContent;
+                if (!opt.value) {
+                    triggerText.style.color = '#94a3b8';
+                } else {
+                    triggerText.style.color = '';
+                }
+
+                wrapper.classList.remove('open');
+            });
+
+            optionsContainer.appendChild(optDiv);
+        });
+
+        wrapper.appendChild(optionsContainer);
+        select.style.display = 'none';
+        select.parentNode.insertBefore(wrapper, select.nextSibling);
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.custom-select-wrapper').forEach(w => {
+                if (w !== wrapper) {
+                    w.classList.remove('open');
+                }
+            });
+            wrapper.classList.toggle('open');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.custom-select-wrapper').forEach(w => {
+            w.classList.remove('open');
+        });
+    });
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initCopyrightYear();
@@ -2842,6 +3040,7 @@ if (document.readyState === 'loading') {
         initReadingProgressAndSideNav();
         initMobileTopSheet();
         initHomepageToastPopup();
+        initCustomDropdowns();
     });
 } else {
     initCopyrightYear();
@@ -2856,6 +3055,7 @@ if (document.readyState === 'loading') {
     initReadingProgressAndSideNav();
     initMobileTopSheet();
     initHomepageToastPopup();
+    initCustomDropdowns();
 }
 
 
