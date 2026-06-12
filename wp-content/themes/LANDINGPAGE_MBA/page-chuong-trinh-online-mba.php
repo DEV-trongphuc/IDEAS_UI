@@ -32,6 +32,16 @@ ob_start(function ($html) {
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+        <title>Chương trình đào tạo Thạc sĩ Quản trị Kinh doanh Online (MBA) | IDEAS</title>
+        <meta name="description" content="Thông tin chi tiết các chương trình đào tạo Thạc sĩ Quản trị Kinh doanh (Online MBA) chất lượng cao tại Viện IDEAS liên kết với các trường đại học Thụy Sĩ." />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Chương trình đào tạo Thạc sĩ Quản trị Kinh doanh Online (MBA) | IDEAS" />
+        <meta property="og:description" content="Thông tin chi tiết các chương trình đào tạo Thạc sĩ Quản trị Kinh doanh (Online MBA) chất lượng cao tại Viện IDEAS liên kết với các trường đại học Thụy Sĩ." />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" />
+        <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
+    <?php endif; ?>
+
     <!-- Preconnect to external domains for faster resource loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -923,7 +933,7 @@ ob_start(function ($html) {
         <section class="dir-section">
             <div class="accred-banner">
                 <div class="accred-badge-logo">
-                    <img src="https://static.wixstatic.com/media/fc7eeb_aa9c51a7000d4375b47a95058c44c5c2~mv2.png/v1/fill/w_134,h_134,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logovnnaric.png" alt="VN-NARIC Logo" loading="lazy" />
+                    <img src="/wp-content/uploads/external-migrated/vnnaric_official_logo.webp" alt="VN-NARIC Logo" width="110" height="19" loading="lazy" />
                 </div>
                 <div class="accred-text">
                     <div class="accred-tag">

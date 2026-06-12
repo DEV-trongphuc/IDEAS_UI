@@ -301,10 +301,29 @@ if (isset($_GET['action'])) {
         $all_allowed_dirs = array_merge($asset_dirs, [$upload_dir]);
         if (is_path_safe($filepath, $all_allowed_dirs)) {
             $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
-            if (in_array($ext, ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif']) && @unlink($filepath)) {
-                echo json_encode(['success' => true, 'message' => 'Đã xóa file thành công!']);
+            if (in_array($ext, ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif'])) {
+                // Delete the original file
+                $deleted = @unlink($filepath);
+                
+                // If original was jpg/png, also delete its webp version if exists
+                if (in_array($ext, ['png', 'jpg', 'jpeg'])) {
+                    $webp_path = preg_replace('/\.(png|jpe?g)$/i', '.webp', $filepath);
+                    if (file_exists($webp_path)) {
+                        @unlink($webp_path);
+                    }
+                    $webp_path_alt = $filepath . '.webp';
+                    if (file_exists($webp_path_alt)) {
+                        @unlink($webp_path_alt);
+                    }
+                }
+                
+                if ($deleted) {
+                    echo json_encode(['success' => true, 'message' => 'Đã xóa file và các bản WebP liên quan thành công!']);
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'Không thể xóa tệp tin này.']);
+                }
             } else {
-                echo json_encode(['success' => false, 'message' => 'Không thể xóa tệp tin này.']);
+                echo json_encode(['success' => false, 'message' => 'Định dạng tệp không được phép xóa.']);
             }
         } else {
             echo json_encode(['success' => false, 'message' => 'Cảnh báo bảo mật: Đường dẫn tệp tin không được phép xóa!']);
@@ -400,10 +419,43 @@ if (isset($_GET['action'])) {
         $attachment_id = intval($data['id']);
         
         if ($attachment_id > 0) {
+            // Get the attached file path to find WebP version before deletion
+            $attached_file = get_post_meta($attachment_id, '_wp_attached_file', true);
+            $full_filepath = WP_CONTENT_DIR . '/uploads/' . $attached_file;
+            
+            // Delete main WebP if it exists
+            $webp_main = preg_replace('/\.(png|jpe?g)$/i', '.webp', $full_filepath);
+            if (file_exists($webp_main)) {
+                @unlink($webp_main);
+            }
+            $webp_main_alt = $full_filepath . '.webp';
+            if (file_exists($webp_main_alt)) {
+                @unlink($webp_main_alt);
+            }
+            
+            // Delete thumbnail WebPs if they exist
+            $meta = wp_get_attachment_metadata($attachment_id);
+            if (!empty($meta['sizes'])) {
+                $dir = dirname($full_filepath);
+                foreach ($meta['sizes'] as $size => $size_info) {
+                    if (!empty($size_info['file'])) {
+                        $thumb_path = $dir . '/' . $size_info['file'];
+                        $webp_thumb = preg_replace('/\.(png|jpe?g)$/i', '.webp', $thumb_path);
+                        if (file_exists($webp_thumb)) {
+                            @unlink($webp_thumb);
+                        }
+                        $webp_thumb_alt = $thumb_path . '.webp';
+                        if (file_exists($webp_thumb_alt)) {
+                            @unlink($webp_thumb_alt);
+                        }
+                    }
+                }
+            }
+            
             // wp_delete_attachment deletes physical files (including thumbnail sizes) and DB meta!
             $deleted = wp_delete_attachment($attachment_id, true);
             if ($deleted) {
-                echo json_encode(['success' => true, 'message' => 'Đã xóa ảnh khỏi database và ổ đĩa thành công!']);
+                echo json_encode(['success' => true, 'message' => 'Đã xóa ảnh, các kích thước thu nhỏ và các bản WebP liên quan thành công!']);
             } else {
                 echo json_encode(['success' => false, 'message' => 'Không thể xóa đính kèm media này.']);
             }
@@ -421,6 +473,7 @@ if (isset($_GET['action'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Công cụ Tối ưu hóa & Dọn dẹp Media - IDEAS</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -575,7 +628,12 @@ if (isset($_GET['action'])) {
                 </div>
 
                 <div id="cleaner-results" style="display: none;">
-                    <h4 id="cleaner-results-title" style="margin-bottom: 10px; color: #fb7185;">Danh sách ảnh không sử dụng</h4>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                        <h4 id="cleaner-results-title" style="margin: 0; color: #fb7185;">Danh sách ảnh không sử dụng</h4>
+                        <button class="btn btn-danger" id="btn-delete-all" style="padding: 8px 16px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+                            <i class="fa-solid fa-trash-can"></i> Xóa toàn bộ hàng loạt
+                        </button>
+                    </div>
                     <div class="table-container">
                         <table id="results-table">
                             <thead>
@@ -804,11 +862,17 @@ if (isset($_GET['action'])) {
         const btnScanDB = document.getElementById('btn-scan-db');
         const cleanerResults = document.getElementById('cleaner-results');
         const cleanerResultsTitle = document.getElementById('cleaner-results-title');
+        const btnDeleteAll = document.getElementById('btn-delete-all');
         const cleanerEmpty = document.getElementById('cleaner-empty');
         const resultsBody = document.getElementById('results-body');
 
+        let currentUnusedItems = [];
+        let currentType = '';
+
         // Render scanner results
         function renderResults(items, type) {
+            currentUnusedItems = items;
+            currentType = type;
             resultsBody.innerHTML = '';
             
             if (items.length === 0) {
@@ -901,6 +965,59 @@ if (isset($_GET['action'])) {
                 resultsBody.appendChild(tr);
             });
         }
+
+        // Bulk Delete Action
+        btnDeleteAll.addEventListener('click', async () => {
+            if (currentUnusedItems.length === 0) return;
+            if (!confirm(`Bạn có chắc chắn muốn XÓA VĨNH VIỄN TOÀN BỘ ${currentUnusedItems.length} ảnh không sử dụng này?\nHành động này không thể hoàn tác!`)) {
+                return;
+            }
+            
+            btnDeleteAll.disabled = true;
+            const originalText = btnDeleteAll.innerHTML;
+            btnDeleteAll.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang xóa hàng loạt...';
+            
+            let successCount = 0;
+            let failCount = 0;
+            
+            for (let item of currentUnusedItems) {
+                try {
+                    let res, data;
+                    if (currentType === 'assets') {
+                        res = await fetch('?action=delete_asset', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ filepath: item.filepath })
+                        });
+                    } else {
+                        res = await fetch('?action=delete_attachment', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id: item.id })
+                        });
+                    }
+                    data = await res.json();
+                    if (data.success) {
+                        successCount++;
+                    } else {
+                        failCount++;
+                    }
+                } catch (err) {
+                    failCount++;
+                }
+            }
+            
+            alert(`Hoàn thành xóa hàng loạt!\n- Thành công: ${successCount}\n- Thất bại: ${failCount}`);
+            btnDeleteAll.disabled = false;
+            btnDeleteAll.innerHTML = originalText;
+            
+            // Re-trigger scanning to refresh the list
+            if (currentType === 'assets') {
+                btnScanAssets.click();
+            } else {
+                btnScanDB.click();
+            }
+        });
 
         // Scan local theme assets
         btnScanAssets.addEventListener('click', async () => {

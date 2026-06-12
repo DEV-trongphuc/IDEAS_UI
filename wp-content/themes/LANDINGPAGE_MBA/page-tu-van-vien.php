@@ -48,7 +48,25 @@ ob_start(function ($html) {
         <meta property="og:title" content="Xác thực tư vấn viên tuyển sinh | IDEAS" />
         <meta property="og:description" content="Hệ thống tra cứu số điện thoại và xác định danh tính tư vấn viên tuyển sinh chính thức của IDEAS." />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php endif; ?>
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Xác thực tư vấn viên tuyển sinh | IDEAS",
+      "description": "Trang xác thực danh tính tư vấn viên tuyển sinh chính thức của IDEAS. Kiểm tra nhanh số điện thoại tránh mạo danh và lừa đảo học viên.",
+      "url": "<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>",
+      "publisher": {
+        "@type": "Organization",
+        "name": "IDEAS",
+        "url": "https://ideas.edu.vn",
+        "logo": "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
+      }
+    }
+    </script>
 
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -644,7 +662,7 @@ ob_start(function ($html) {
             align-items: center;
         }
 
-        .guidelines-content h3 {
+        .guidelines-content h2 {
             font-size: 1.8rem;
             font-weight: 800;
             color: #0f172a;
@@ -934,7 +952,7 @@ ob_start(function ($html) {
                 max-width: 100% !important;
             }
 
-            .guidelines-content h3 {
+            .guidelines-content h2 {
                 font-size: 1.5rem;
                 margin-bottom: 12px;
             }
@@ -1041,7 +1059,7 @@ ob_start(function ($html) {
                 padding: 40px 20px !important;
             }
 
-            .guidelines-content h3 {
+            .guidelines-content h2 {
                 font-size: 1.35rem;
             }
 
@@ -1102,7 +1120,7 @@ ob_start(function ($html) {
         <div class="warning-notice-bar">
             <i class="fa-solid fa-triangle-exclamation"></i>
             <div>
-                <h4>Cảnh báo phòng tránh mạo danh</h4>
+                <h2>Cảnh báo phòng tránh mạo danh</h2>
                 <p>Hiện nay có tình trạng mạo danh nhân viên IDEAS để tiếp cận và cung cấp thông tin sai lệch đến học viên. Quý học viên hãy hết sức cảnh giác trước các cuộc gọi, tin nhắn hoặc liên hệ từ các số điện thoại lạ không nằm trong danh sách tư vấn viên chính thức.</p>
             </div>
         </div>
@@ -1119,7 +1137,7 @@ ob_start(function ($html) {
             <!-- Advisor 1 -->
             <article class="consultant-card" data-suffix="017">
                 <div class="consultant-avatar-wrap">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cphuc.webp" class="consultant-avatar" alt="Lưu Phan Hoàng Phúc" loading="lazy">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cphuc.webp" class="consultant-avatar" alt="Lưu Phan Hoàng Phúc" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Lưu Phan Hoàng Phúc</h3>
                 <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
@@ -1137,7 +1155,7 @@ ob_start(function ($html) {
             <!-- Advisor 2 -->
             <article class="consultant-card" data-suffix="953,427">
                 <div class="consultant-avatar-wrap">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/z7928563815344_f88e1ecb4aba7b343936df712559c960-1.jpg" class="consultant-avatar" alt="Nguyễn Thị Linh Đan" loading="lazy">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/z7928563815344_f88e1ecb4aba7b343936df712559c960-1.jpg" class="consultant-avatar" alt="Nguyễn Thị Linh Đan" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Nguyễn Thị Linh Đan</h3>
                 <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
@@ -1161,7 +1179,7 @@ ob_start(function ($html) {
             <!-- Advisor 3 -->
             <article class="consultant-card" data-suffix="486">
                 <div class="consultant-avatar-wrap">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg" class="consultant-avatar" alt="Lê Đinh Ý Nhi" loading="lazy">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg" class="consultant-avatar" alt="Lê Đinh Ý Nhi" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Lê Đinh Ý Nhi</h3>
                 <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
@@ -1179,7 +1197,7 @@ ob_start(function ($html) {
             <!-- Advisor 4 -->
             <article class="consultant-card" data-suffix="935">
                 <div class="consultant-avatar-wrap">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/uyen.webp" class="consultant-avatar" alt="Nguyễn Phương Uyên" loading="lazy">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/uyen.webp" class="consultant-avatar" alt="Nguyễn Phương Uyên" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Nguyễn Phương Uyên</h3>
                 <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
@@ -1201,7 +1219,7 @@ ob_start(function ($html) {
         <div class="guidelines-container">
             <div class="guidelines-grid">
                 <div class="guidelines-content">
-                    <h3>Hướng Dẫn Đóng Phí An Toàn</h3>
+                    <h2>Hướng Dẫn Đóng Phí An Toàn</h2>
                     <p>IDEAS áp dụng quy trình kiểm soát tài chính minh bạch và chặt chẽ nhằm bảo mật thông tin và bảo vệ quyền lợi hợp pháp tối đa cho học viên:</p>
                     <ul class="guidelines-list">
                         <li>
@@ -1359,7 +1377,7 @@ ob_start(function ($html) {
                                     Số điện thoại khớp với thông tin của chuyên viên tư vấn chính thức thuộc IDEAS. Quý học viên hoàn toàn có thể yên tâm trao đổi học tập.
                                 </div>
                                 <div class="matched-consultant-card">
-                                    <img src="${matchedAdvisor.avatar}" class="matched-avatar" alt="${matchedAdvisor.name}">
+                                    <img src="${matchedAdvisor.avatar}" class="matched-avatar" alt="${matchedAdvisor.name}" width="80" height="80">
                                     <div class="matched-info">
                                         <h4 class="matched-name">${matchedAdvisor.name}</h4>
                                         <span class="matched-role">${matchedAdvisor.role}</span>
