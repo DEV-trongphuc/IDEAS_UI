@@ -163,9 +163,11 @@ foreach ($pages as $p) {
             echo "<div style='color:#721c24;background:#f8d7da;padding:8px;margin-bottom:8px;border-radius:4px;'>";
             echo "✗ Lỗi tạo trang: <b>" . esc_html($title) . "</b> - " . esc_html($post_id->get_error_message());
             echo "</div>";
-        }
     }
 }
+
+flush_rewrite_rules();
+echo "<div style='color:#155724;background:#d4edda;padding:8px;margin-bottom:8px;border-radius:4px;'><b>✓ Đã cập nhật đường dẫn hệ thống (Flush Rewrite Rules).</b></div>";
 
 echo "<br><span style='color:red;'>Lưu ý: Hãy XÓA file này (<code>create-pages.php</code>) sau khi chạy xong để bảo mật!</span>";
 echo "</div>";
