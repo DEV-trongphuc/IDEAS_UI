@@ -112,6 +112,24 @@ RewriteRule ^en/(mba-in-ai|mbainai)/?$ /wp-content/new_public/LANDINGPAGE_MBA/en
 RewriteRule ^en/dual-dba(-estiam-rb)?/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/dual-dba.html [L,NC]
 RewriteRule ^en/dat-lich/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/dat-lich.html [L]
 
+# Fallback redirect: If the requested URL starts with /en/, and it does not map to a physical file or directory, and is not one of our defined static English landing pages, redirect it to the corresponding Vietnamese version.
+RewriteCond %{REQUEST_URI} ^/en/(.*)$ [NC]
+# Exclude defined English landing pages
+RewriteCond %{REQUEST_URI} !^/en/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/mba/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/msc-?ai/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/emba/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/bba/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/fullbba/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/(mba-in-ai|mbainai)/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/dual-dba(-estiam-rb)?/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/en/dat-lich/?$ [NC]
+# Exclude actual physical files on server
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# Redirect to the corresponding Vietnamese page path
+RewriteRule ^en/(.*)$ /$1 [R=301,L]
+
 # Route riêng cho landing xét duyệt (giữ nguyên rule cũ)
 RewriteRule ^xet-duyet-ho-so-truc-tuyen/?$ /wp-content/index.html [L]
 
