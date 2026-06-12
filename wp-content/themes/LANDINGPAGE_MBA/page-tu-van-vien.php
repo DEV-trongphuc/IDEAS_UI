@@ -944,17 +944,13 @@ ob_start(function ($html) {
                     </div>
                     <div class="bank-info-item">
                         <span class="bank-label">Số tài khoản:</span>
-                        <span class="bank-value highlight" style="font-size: 1.2rem; letter-spacing: 0.03em;">8979798686</span>
+                        <span class="bank-value highlight" style="font-size: 1.25rem; letter-spacing: 0.03em;">8979798686</span>
                     </div>
-                    <div class="bank-info-item" style="flex-direction: column; align-items: flex-start; gap: 4px; border-bottom: 1px solid #f1f5f9; padding: 10px 0;">
-                        <span class="bank-label">Nội dung (Ví dụ):</span>
-                        <span class="bank-value highlight" style="text-align: left; font-size: 0.88rem; font-weight: 700; margin-top: 4px; text-transform: uppercase;">
-                            VO THI THUY TRANG thanh toan hoc phi dot 1 BBA UMEF
+                    <div class="bank-info-item" style="flex-direction: column; align-items: flex-start; gap: 4px; border-bottom: none; padding: 10px 0 0;">
+                        <span class="bank-label">Nội dung chuyển khoản (Mẫu):</span>
+                        <span class="bank-value highlight" style="text-align: left; font-size: 0.88rem; font-weight: 700; margin-top: 4px; text-transform: uppercase; line-height: 1.4; word-break: break-word;">
+                            [HO VA TEN] THANH TOAN HOC PHI DOT [SO DOT] [TEN CHUONG TRINH]
                         </span>
-                    </div>
-                    <div class="bank-info-item">
-                        <span class="bank-label">Học phí đợt 01:</span>
-                        <span class="bank-value" style="color: #2563eb; font-weight: 700;">775 CHF * 33.000 = 25.575.000 VND</span>
                     </div>
                 </div>
             </div>
