@@ -294,41 +294,62 @@ if (isset($_GET['action'])) {
         exit;
     }
     
-    // E. Delete local theme asset file securely
+    // E. Delete local theme asset file securely (supports single filepath or array of filepaths)
     if ($_GET['action'] === 'delete_asset') {
         $data = json_decode(file_get_contents('php://input'), true);
-        $filepath = $data['filepath'];
+        
+        $filepaths = [];
+        if (isset($data['filepaths']) && is_array($data['filepaths'])) {
+            $filepaths = $data['filepaths'];
+        } elseif (isset($data['filepath'])) {
+            $filepaths = [$data['filepath']];
+        }
+        
+        if (empty($filepaths)) {
+            echo json_encode(['success' => false, 'message' => 'Không tìm thấy tệp để xóa.']);
+            exit;
+        }
         
         $all_allowed_dirs = array_merge($asset_dirs, [$upload_dir]);
-        if (is_path_safe($filepath, $all_allowed_dirs)) {
-            $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
-            if (in_array($ext, ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif'])) {
-                // Delete the original file
-                $deleted = @unlink($filepath);
-                
-                // If original was jpg/png, also delete its webp version if exists
-                if (in_array($ext, ['png', 'jpg', 'jpeg'])) {
-                    $webp_path = preg_replace('/\.(png|jpe?g)$/i', '.webp', $filepath);
-                    if (file_exists($webp_path)) {
-                        @unlink($webp_path);
+        $success_count = 0;
+        $fail_count = 0;
+        
+        foreach ($filepaths as $filepath) {
+            if (is_path_safe($filepath, $all_allowed_dirs)) {
+                $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
+                if (in_array($ext, ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif'])) {
+                    // Delete the original file
+                    $deleted = @unlink($filepath);
+                    
+                    // If original was jpg/png, also delete its webp version if exists
+                    if (in_array($ext, ['png', 'jpg', 'jpeg'])) {
+                        $webp_path = preg_replace('/\.(png|jpe?g)$/i', '.webp', $filepath);
+                        if (file_exists($webp_path)) {
+                            @unlink($webp_path);
+                        }
+                        $webp_path_alt = $filepath . '.webp';
+                        if (file_exists($webp_path_alt)) {
+                            @unlink($webp_path_alt);
+                        }
                     }
-                    $webp_path_alt = $filepath . '.webp';
-                    if (file_exists($webp_path_alt)) {
-                        @unlink($webp_path_alt);
+                    
+                    if ($deleted) {
+                        $success_count++;
+                    } else {
+                        $fail_count++;
                     }
-                }
-                
-                if ($deleted) {
-                    echo json_encode(['success' => true, 'message' => 'Đã xóa file và các bản WebP liên quan thành công!']);
                 } else {
-                    echo json_encode(['success' => false, 'message' => 'Không thể xóa tệp tin này.']);
+                    $fail_count++;
                 }
             } else {
-                echo json_encode(['success' => false, 'message' => 'Định dạng tệp không được phép xóa.']);
+                $fail_count++;
             }
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Cảnh báo bảo mật: Đường dẫn tệp tin không được phép xóa!']);
         }
+        
+        echo json_encode([
+            'success' => $success_count > 0,
+            'message' => "Đã xử lý xóa: thành công {$success_count}, thất bại {$fail_count}."
+        ]);
         exit;
     }
     
@@ -409,7 +430,7 @@ if (isset($_GET['action'])) {
         exit;
     }
     
-    // G. Delete WordPress Database Attachment (safe WP delete)
+    // G. Delete WordPress Database Attachment (safe WP delete - supports single ID or array of IDs)
     if ($_GET['action'] === 'delete_attachment') {
         if (!$is_wp) {
             echo json_encode(['success' => false, 'message' => 'WordPress is not booted.']);
@@ -417,52 +438,73 @@ if (isset($_GET['action'])) {
         }
         
         $data = json_decode(file_get_contents('php://input'), true);
-        $attachment_id = intval($data['id']);
         
-        if ($attachment_id > 0) {
-            // Get the attached file path to find WebP version before deletion
-            $attached_file = get_post_meta($attachment_id, '_wp_attached_file', true);
-            $full_filepath = WP_CONTENT_DIR . '/uploads/' . $attached_file;
-            
-            // Delete main WebP if it exists
-            $webp_main = preg_replace('/\.(png|jpe?g)$/i', '.webp', $full_filepath);
-            if (file_exists($webp_main)) {
-                @unlink($webp_main);
-            }
-            $webp_main_alt = $full_filepath . '.webp';
-            if (file_exists($webp_main_alt)) {
-                @unlink($webp_main_alt);
-            }
-            
-            // Delete thumbnail WebPs if they exist
-            $meta = wp_get_attachment_metadata($attachment_id);
-            if (!empty($meta['sizes'])) {
-                $dir = dirname($full_filepath);
-                foreach ($meta['sizes'] as $size => $size_info) {
-                    if (!empty($size_info['file'])) {
-                        $thumb_path = $dir . '/' . $size_info['file'];
-                        $webp_thumb = preg_replace('/\.(png|jpe?g)$/i', '.webp', $thumb_path);
-                        if (file_exists($webp_thumb)) {
-                            @unlink($webp_thumb);
-                        }
-                        $webp_thumb_alt = $thumb_path . '.webp';
-                        if (file_exists($webp_thumb_alt)) {
-                            @unlink($webp_thumb_alt);
+        $attachment_ids = [];
+        if (isset($data['ids']) && is_array($data['ids'])) {
+            $attachment_ids = array_map('intval', $data['ids']);
+        } elseif (isset($data['id'])) {
+            $attachment_ids = [intval($data['id'])];
+        }
+        
+        if (empty($attachment_ids)) {
+            echo json_encode(['success' => false, 'message' => 'ID không hợp lệ.']);
+            exit;
+        }
+        
+        $success_count = 0;
+        $fail_count = 0;
+        
+        foreach ($attachment_ids as $attachment_id) {
+            if ($attachment_id > 0) {
+                // Get the attached file path to find WebP version before deletion
+                $attached_file = get_post_meta($attachment_id, '_wp_attached_file', true);
+                $full_filepath = WP_CONTENT_DIR . '/uploads/' . $attached_file;
+                
+                // Delete main WebP if it exists
+                $webp_main = preg_replace('/\.(png|jpe?g)$/i', '.webp', $full_filepath);
+                if (file_exists($webp_main)) {
+                    @unlink($webp_main);
+                }
+                $webp_main_alt = $full_filepath . '.webp';
+                if (file_exists($webp_main_alt)) {
+                    @unlink($webp_main_alt);
+                }
+                
+                // Delete thumbnail WebPs if they exist
+                $meta = wp_get_attachment_metadata($attachment_id);
+                if (!empty($meta['sizes'])) {
+                    $dir = dirname($full_filepath);
+                    foreach ($meta['sizes'] as $size => $size_info) {
+                        if (!empty($size_info['file'])) {
+                            $thumb_path = $dir . '/' . $size_info['file'];
+                            $webp_thumb = preg_replace('/\.(png|jpe?g)$/i', '.webp', $thumb_path);
+                            if (file_exists($webp_thumb)) {
+                                @unlink($webp_thumb);
+                            }
+                            $webp_thumb_alt = $thumb_path . '.webp';
+                            if (file_exists($webp_thumb_alt)) {
+                                @unlink($webp_thumb_alt);
+                            }
                         }
                     }
                 }
-            }
-            
-            // wp_delete_attachment deletes physical files (including thumbnail sizes) and DB meta!
-            $deleted = wp_delete_attachment($attachment_id, true);
-            if ($deleted) {
-                echo json_encode(['success' => true, 'message' => 'Đã xóa ảnh, các kích thước thu nhỏ và các bản WebP liên quan thành công!']);
+                
+                // wp_delete_attachment deletes physical files (including thumbnail sizes) and DB meta!
+                $deleted = wp_delete_attachment($attachment_id, true);
+                if ($deleted) {
+                    $success_count++;
+                } else {
+                    $fail_count++;
+                }
             } else {
-                echo json_encode(['success' => false, 'message' => 'Không thể xóa đính kèm media này.']);
+                $fail_count++;
             }
-        } else {
-            echo json_encode(['success' => false, 'message' => 'ID không hợp lệ.']);
         }
+        
+        echo json_encode([
+            'success' => $success_count > 0,
+            'message' => "Đã xử lý xóa: thành công {$success_count}, thất bại {$fail_count}."
+        ]);
         exit;
     }
 }
@@ -967,7 +1009,7 @@ if (isset($_GET['action'])) {
             });
         }
 
-        // Bulk Delete Action
+        // Bulk Delete Action (Chunked batches for maximum speed and safety)
         btnDeleteAll.addEventListener('click', async () => {
             if (currentUnusedItems.length === 0) return;
             if (!confirm(`Bạn có chắc chắn muốn XÓA VĨNH VIỄN TOÀN BỘ ${currentUnusedItems.length} ảnh không sử dụng này?\nHành động này không thể hoàn tác!`)) {
@@ -976,35 +1018,53 @@ if (isset($_GET['action'])) {
             
             btnDeleteAll.disabled = true;
             const originalText = btnDeleteAll.innerHTML;
-            btnDeleteAll.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang xóa hàng loạt...';
+            btnDeleteAll.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang chuẩn bị...';
             
+            const batchSize = 30;
             let successCount = 0;
             let failCount = 0;
             
-            for (let item of currentUnusedItems) {
+            for (let i = 0; i < currentUnusedItems.length; i += batchSize) {
+                const batch = currentUnusedItems.slice(i, i + batchSize);
+                const processed = Math.min(i + batchSize, currentUnusedItems.length);
+                btnDeleteAll.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Đang xóa... (${processed}/${currentUnusedItems.length})`;
+                
                 try {
                     let res, data;
                     if (currentType === 'assets') {
+                        const filepaths = batch.map(item => item.filepath);
                         res = await fetch('?action=delete_asset', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ filepath: item.filepath })
+                            body: JSON.stringify({ filepaths: filepaths })
                         });
                     } else {
+                        const ids = batch.map(item => item.id);
                         res = await fetch('?action=delete_attachment', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ id: item.id })
+                            body: JSON.stringify({ ids: ids })
                         });
                     }
+                    
+                    if (!res.ok) {
+                        throw new Error(`HTTP ${res.status}`);
+                    }
+                    
                     data = await res.json();
                     if (data.success) {
-                        successCount++;
+                        const matches = data.message.match(/thành công (\d+), thất bại (\d+)/);
+                        if (matches) {
+                            successCount += parseInt(matches[1]);
+                            failCount += parseInt(matches[2]);
+                        } else {
+                            successCount += batch.length;
+                        }
                     } else {
-                        failCount++;
+                        failCount += batch.length;
                     }
                 } catch (err) {
-                    failCount++;
+                    failCount += batch.length;
                 }
             }
             
