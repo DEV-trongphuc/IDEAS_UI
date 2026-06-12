@@ -299,7 +299,7 @@ ob_start(function ($html) {
         .blog-featured-card .featured-img-wrap {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 16 / 10;
+            height: 100%;
         }
 
         .blog-featured-card .featured-img-wrap img {
