@@ -143,7 +143,15 @@ if (isset($_GET['action'])) {
         $destination = $dir . '/' . $filename . '.webp';
         
         if (file_exists($destination)) {
-            echo json_encode(['success' => true, 'status' => 'exists', 'destination' => $destination]);
+            $orig_size = @filesize($image);
+            $saved_size = @filesize($destination);
+            echo json_encode([
+                'success' => true, 
+                'status' => 'exists', 
+                'destination' => $destination,
+                'orig_size' => $orig_size ? $orig_size : 0,
+                'saved_size' => $saved_size ? $saved_size : 0
+            ]);
             exit;
         }
         
@@ -182,7 +190,15 @@ if (isset($_GET['action'])) {
         imagedestroy($img);
         
         if ($saved) {
-            echo json_encode(['success' => true, 'status' => 'success', 'destination' => $destination, 'saved_size' => filesize($destination)]);
+            $orig_size = @filesize($image);
+            $saved_size = @filesize($destination);
+            echo json_encode([
+                'success' => true, 
+                'status' => 'success', 
+                'destination' => $destination, 
+                'orig_size' => $orig_size ? $orig_size : 0,
+                'saved_size' => $saved_size ? $saved_size : 0
+            ]);
         } else {
             echo json_encode(['success' => false, 'message' => 'Failed to save WebP file.']);
         }
@@ -647,6 +663,14 @@ if (isset($_GET['action'])) {
             addLog("Hành động: Đang dừng, chờ tệp tin hiện tại...", 'warn');
         });
 
+        function formatBytes(bytes) {
+            if (bytes <= 0) return '0 KB';
+            if (bytes < 1024 * 1024) {
+                return Math.round(bytes / 1024) + ' KB';
+            }
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
         async function processNext() {
             if (!isProcessing) {
                 btnScan.disabled = false;
@@ -696,6 +720,14 @@ if (isset($_GET['action'])) {
 
                 const data = await res.json();
                 if (data.success) {
+                    const origSize = data.orig_size || 0;
+                    const savedSize = data.saved_size || 0;
+                    const diff = origSize - savedSize;
+                    if (diff > 0) {
+                        totalSavings += diff;
+                        statSaving.textContent = formatBytes(totalSavings);
+                    }
+
                     if (data.status === 'exists') {
                         addLog(`Bỏ qua: ${img.split('/').pop()} (Đã có bản WebP)`, 'info');
                     } else {
