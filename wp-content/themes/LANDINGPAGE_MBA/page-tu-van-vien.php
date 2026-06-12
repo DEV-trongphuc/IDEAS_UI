@@ -784,12 +784,12 @@ ob_start(function ($html) {
 
             .search-section {
                 margin-top: -30px;
-                padding: 0 16px !important;
+                padding: 0 24px !important;
             }
 
             .search-container {
                 width: auto !important;
-                padding: 24px 16px !important;
+                padding: 24px 20px !important;
                 border-radius: 20px;
                 margin: 0 auto;
             }
@@ -854,7 +854,7 @@ ob_start(function ($html) {
             .warning-notice-bar {
                 flex-direction: column;
                 gap: 10px;
-                padding: 20px 16px;
+                padding: 20px 20px;
                 margin: 30px auto 0;
                 border-radius: 16px;
                 width: auto !important;
@@ -876,7 +876,7 @@ ob_start(function ($html) {
 
             .list-section {
                 margin: 50px auto;
-                padding: 0 16px !important;
+                padding: 0 24px !important;
                 width: 100%;
             }
 
@@ -926,7 +926,7 @@ ob_start(function ($html) {
             }
 
             .payment-guidelines-section {
-                padding: 50px 16px !important;
+                padding: 50px 24px !important;
             }
 
             .guidelines-container {
@@ -985,11 +985,11 @@ ob_start(function ($html) {
 
             .search-section {
                 margin-top: -20px;
-                padding: 0 12px !important;
+                padding: 0 20px !important;
             }
 
             .search-container {
-                padding: 20px 14px !important;
+                padding: 20px 16px !important;
                 border-radius: 16px;
             }
 
@@ -1009,13 +1009,13 @@ ob_start(function ($html) {
             }
 
             .warning-notice-bar {
-                padding: 16px 14px !important;
+                padding: 16px 16px !important;
                 border-radius: 14px;
                 margin-top: 20px;
             }
 
             .list-section {
-                padding: 0 12px !important;
+                padding: 0 20px !important;
                 margin: 40px auto;
             }
 
@@ -1038,7 +1038,7 @@ ob_start(function ($html) {
             }
 
             .payment-guidelines-section {
-                padding: 40px 12px !important;
+                padding: 40px 20px !important;
             }
 
             .guidelines-content h3 {
