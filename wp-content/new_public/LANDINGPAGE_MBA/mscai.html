@@ -7086,12 +7086,16 @@
                                     style="margin: 0; font-size: 1.35rem; color: #0f172a; font-weight: 900; margin-bottom: 8px;">
                                     ~181.500.000đ
                                 </p>
-                                <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">
-                                    Đóng 1 lần (Giảm 10%): <strong id="card-price-discounted-val"
-                                        style="color: #ab0e00; font-weight: 800; font-size: 1.05rem;">163.350.000đ</strong>
-                                </p>
+                                <div style="margin-top: 10px; padding: 12px; background: rgba(171, 14, 0, 0.03); border: 1px dashed rgba(171, 14, 0, 0.15); border-radius: 12px; text-align: right; margin-bottom: 8px;">
+                                    <p style="margin: 0; font-size: 0.85rem; color: #475569; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+                                        Đóng 1 lần (Giảm 10%)
+                                    </p>
+                                    <p style="margin: 4px 0 0 0; line-height: 1.1;">
+                                        <strong id="card-price-discounted-val" style="color: #ab0e00; font-weight: 900; font-size: 1.25rem;">163.350.000đ</strong>
+                                    </p>
+                                </div>
                                 <p id="card-price-original-val"
-                                    style="margin: 4px 0 0 0; font-size: 0.85rem; color: #94a3b8; text-decoration: line-through; font-weight: 500;">
+                                    style="margin: 4px 0 0 0; font-size: 0.95rem; color: #475569; text-decoration: line-through; font-weight: 600;">
                                     Học phí gốc: 8.720 CHF
                                 </p>
                             </div>
@@ -7115,21 +7119,9 @@
                         </div>
                     </div>
 
-                    <!-- Toggle Show More -->
-                    <div style="margin-bottom: 24px; margin-top: 24px;">
-                        <button class="toggle-details-btn" onclick="toggleTuitionDetails()"
-                            style="background: none; border: none; color: #ab0e00; font-size: 0.92rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-decoration: underline; padding: 4px 8px;">
-                            <span id="toggle-details-text">Xem chi tiết lộ trình đóng phí</span>
-                            <svg id="toggle-details-icon" style="transition: transform 0.3s;" width="14" height="14"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9" />
-                            </svg>
-                        </button>
-
-                        <!-- Expandable Details -->
-                        <div id="tuition-details-container"
-                            style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; text-align: left; margin-top: 24px; border-top: 1px dashed #cbd5e1; padding-top: 24px;">
+                    <!-- Detailed Tuition Info (Always Visible) -->
+                    <div id="tuition-details-container"
+                        style="text-align: left; margin-top: 32px; border-top: 1.5px dashed #cbd5e1; padding-top: 32px; width: 100%;">
 
                             <!-- Options Grid -->
                             <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 24px;">
@@ -7365,21 +7357,7 @@
                         }
                     });
 
-                    function toggleTuitionDetails() {
-                        const container = document.getElementById("tuition-details-container");
-                        const btnText = document.getElementById("toggle-details-text");
-                        const btnIcon = document.getElementById("toggle-details-icon");
 
-                        if (container.style.maxHeight === "0px" || !container.style.maxHeight) {
-                            container.style.maxHeight = "1200px";
-                            btnText.innerText = "Thu gọn lộ trình đóng phí";
-                            btnIcon.style.transform = "rotate(180deg)";
-                        } else {
-                            container.style.maxHeight = "0px";
-                            btnText.innerText = "Xem chi tiết lộ trình đóng phí";
-                            btnIcon.style.transform = "rotate(0deg)";
-                        }
-                    }
                 </script>
                 <style>
                     #premium-cta {
