@@ -334,7 +334,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     <div class="bk-program-grid" id="bk-program-grid">
                         <?php foreach ($program_options as $index => $opt): ?>
                             <label class="bk-program-card">
-                                <input type="radio" name="bk-program" value="<?php echo esc_attr($opt['value']); ?>" <?php echo $index === 0 ? 'checked' : ''; ?> />
+                                <input type="radio" name="bk-program" aria-label="<?php echo esc_attr($opt['label']); ?>" value="<?php echo esc_attr($opt['value']); ?>" <?php echo $index === 0 ? 'checked' : ''; ?> />
                                 <div class="bk-program-inner">
                                     <div class="bk-program-icon"><?php echo esc_html($opt['icon']); ?></div>
                                     <div class="bk-program-name"><?php echo esc_html($opt['label']); ?></div>

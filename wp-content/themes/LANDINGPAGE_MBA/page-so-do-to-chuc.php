@@ -61,7 +61,7 @@ ob_start(function ($html) {
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" / media="print" onload="this.media='all'">
 
     <!-- Main stylesheet -->
     <?php
@@ -1013,9 +1013,9 @@ ob_start(function ($html) {
         <div class="canvas-viewport" id="org-canvas-viewport">
             <!-- Floating Canvas Controls -->
             <div class="canvas-controls">
-                <button type="button" id="btn-zoom-in" title="Phóng to"><i class="fa-solid fa-plus"></i></button>
-                <button type="button" id="btn-zoom-out" title="Thu nhỏ"><i class="fa-solid fa-minus"></i></button>
-                <button type="button" id="btn-zoom-reset" title="Đặt lại góc nhìn"><i
+                <button type="button" id="btn-zoom-in" title="Phóng to" aria-label="Phóng to" aria-label="Phóng to"><i class="fa-solid fa-plus"></i></button>
+                <button type="button" id="btn-zoom-out" title="Thu nhỏ" aria-label="Thu nhỏ" aria-label="Thu nhỏ"><i class="fa-solid fa-minus"></i></button>
+                <button type="button" id="btn-zoom-reset" title="Đặt lại góc nhìn" aria-label="Đặt lại góc nhìn" aria-label="Đặt lại góc nhìn"><i
                         class="fa-solid fa-arrows-to-eye"></i></button>
             </div>
 

@@ -87,7 +87,7 @@ ob_start(function ($html) {
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" / media="print" onload="this.media='all'">
 
     <!-- Link the main minified style.css -->
     <?php
@@ -693,7 +693,7 @@ ob_start(function ($html) {
                 action="<?php echo esc_url(home_url('/index.php')); ?>">
                 <div class="search-input-wrap">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="search" class="search-input" placeholder="Tìm kiếm bài viết..."
+                    <input type="search" class="search-input" placeholder="Tìm kiếm bài viết..." aria-label="Tìm kiếm bài viết" aria-label="Tìm kiếm bài viết"
                         value="<?php echo get_search_query(); ?>" name="s" required />
                     <button type="submit" class="search-btn">Tìm kiếm</button>
                 </div>

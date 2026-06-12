@@ -444,6 +444,20 @@
       }]
     }
     </script>
+
+    <style>
+        .umef-video-dot, .dot {
+            position: relative;
+        }
+        .umef-video-dot::after, .dot::after {
+            content: '';
+            position: absolute;
+            top: -18px;
+            left: -18px;
+            right: -18px;
+            bottom: -18px;
+        }
+    </style>
 </head>
 
 <body>
@@ -623,7 +637,7 @@
                             <label>Chương trình quan tâm <span class="bk-required">*</span></label>
                             <div class="bk-program-grid" id="bk-program-grid">
                                 <label class="bk-program-card">
-                                    <input type="radio" name="bk-program" value="MBA" />
+                                    <input type="radio" name="bk-program" aria-label="MBA" value="MBA" />
                                     <div class="bk-program-inner">
                                         <div class="bk-program-icon">🎓</div>
                                         <div class="bk-program-name">MBA</div>
@@ -631,7 +645,7 @@
                                     </div>
                                 </label>
                                 <label class="bk-program-card">
-                                    <input type="radio" name="bk-program" value="EMBA" />
+                                    <input type="radio" name="bk-program" aria-label="EMBA" value="EMBA" />
                                     <div class="bk-program-inner">
                                         <div class="bk-program-icon">👔</div>
                                         <div class="bk-program-name">EMBA</div>
@@ -639,7 +653,7 @@
                                     </div>
                                 </label>
                                 <label class="bk-program-card">
-                                    <input type="radio" name="bk-program" value="MBA in AI" />
+                                    <input type="radio" name="bk-program" aria-label="MBA in AI" value="MBA in AI" />
                                     <div class="bk-program-inner">
                                         <div class="bk-program-icon">📘</div>
                                         <div class="bk-program-name">MBA in AI</div>
@@ -647,7 +661,7 @@
                                     </div>
                                 </label>
                                 <label class="bk-program-card">
-                                    <input type="radio" name="bk-program" value="MScAI" />
+                                    <input type="radio" name="bk-program" aria-label="MScAI" value="MScAI" />
                                     <div class="bk-program-inner">
                                         <div class="bk-program-icon">🤖</div>
                                         <div class="bk-program-name">MSc AI</div>
@@ -655,7 +669,7 @@
                                     </div>
                                 </label>
                                 <label class="bk-program-card">
-                                    <input type="radio" name="bk-program" value="TOPUP BBA" />
+                                    <input type="radio" name="bk-program" aria-label="TOPUP BBA" value="TOPUP BBA" />
                                     <div class="bk-program-inner">
                                         <div class="bk-program-icon">📚</div>
                                         <div class="bk-program-name">TOPUP BBA</div>

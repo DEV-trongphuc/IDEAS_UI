@@ -2030,7 +2030,7 @@ function ideas_admin_column_styles()
         <?php
     } elseif ($screen && $screen->id === 'dashboard') {
         ?>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" / media="print" onload="this.media='all'">
         <style>
             /* Load premium font and style dashboard screen */
             @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
