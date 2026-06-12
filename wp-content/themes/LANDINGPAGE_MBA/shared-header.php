@@ -39,6 +39,9 @@
                     <a href="/lich-su-hinh-thanh-va-phat-trien-vien-ideas" class="dropdown-item-simple">
                         <i class="fa-solid fa-landmark"></i> <span>Lịch sử phát triển</span>
                     </a>
+                    <a href="/tu-van-vien" class="dropdown-item-simple">
+                        <i class="fa-solid fa-user-check"></i> <span>Tư vấn viên</span>
+                    </a>
                     <div class="dropdown-divider-simple"></div>
                     <a href="/swiss-umef" class="dropdown-item-simple">
                         <i class="fa-solid fa-school"></i> <span>Swiss UMEF</span>
@@ -246,6 +249,9 @@
             </a>
             <a href="/lich-su-hinh-thanh-va-phat-trien-vien-ideas" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-landmark"></i> <span>Lịch sử phát triển</span>
+            </a>
+            <a href="/tu-van-vien" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-user-check"></i> <span>Tư vấn viên</span>
             </a>
             <div class="mobile-dropdown-section-title">Trường đối tác</div>
             <a href="/swiss-umef" class="mobile-dropdown-item-simple">Swiss UMEF</a>

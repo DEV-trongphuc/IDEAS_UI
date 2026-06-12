@@ -46,6 +46,11 @@ $pages = [
         'template' => 'page-so-do-to-chuc.php'
     ],
     [
+        'slug' => 'tu-van-vien',
+        'title' => 'Tư vấn viên',
+        'template' => 'page-tu-van-vien.php'
+    ],
+    [
         'slug' => 'doi-ngu-giang-vien',
         'title' => 'Hội đồng chuyên môn',
         'template' => 'page-faculty.php'
