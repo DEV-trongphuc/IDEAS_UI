@@ -5,7 +5,15 @@
  * Preserves all attributes, styling, and inner HTML tags.
  */
 
-require_once('wp-load.php');
+// Find wp-load.php by walking up the directory tree
+$wp_load_path = __DIR__;
+while (!file_exists($wp_load_path . '/wp-load.php')) {
+    $wp_load_path = dirname($wp_load_path);
+    if ($wp_load_path === '/' || $wp_load_path === '\\' || strlen($wp_load_path) < 3) {
+        die("Could not find wp-load.php. Please make sure this file is inside a WordPress installation.");
+    }
+}
+require_once $wp_load_path . '/wp-load.php';
 
 // Security check: Only allow CLI execution or admin users
 $is_cli = (php_sapi_name() === 'cli');
