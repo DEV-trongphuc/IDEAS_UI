@@ -1,3 +1,13 @@
+# BEGIN WebP Redirection Rules
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+  RewriteRule ^(wp-content/uploads/.*)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1,L]
+</IfModule>
+Header append Vary Accept env=REDIRECT_accept
+# END WebP Redirection Rules
+
 # ── Custom rewrites (phải đặt TRƯỚC block WordPress) ──────────────
 <IfModule mod_rewrite.c>
 RewriteEngine On
