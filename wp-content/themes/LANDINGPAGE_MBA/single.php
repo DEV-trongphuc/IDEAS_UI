@@ -709,14 +709,52 @@ ob_start(function ($html) {
 
         .nav-card {
             display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding: 20px;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 16px;
             text-decoration: none;
             transition: all 0.3s ease;
+        }
+
+        .nav-card-prev {
+            flex-direction: row;
+            text-align: left;
+        }
+
+        .nav-card-next {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .nav-card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .nav-card-avatar-wrap {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid #f1f5f9;
+        }
+
+        .nav-card-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-card:hover .nav-card-avatar {
+            transform: scale(1.08);
         }
 
         .nav-card:hover {
@@ -726,7 +764,7 @@ ob_start(function ($html) {
         }
 
         .nav-card-label {
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: #64748b;
             text-transform: uppercase;
@@ -736,11 +774,19 @@ ob_start(function ($html) {
             gap: 6px;
         }
 
+        .nav-card-next .nav-card-label {
+            justify-content: flex-end;
+        }
+
         .nav-card-title {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #0f172a;
             line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         @media (max-width: 768px) {
@@ -1247,10 +1293,22 @@ ob_start(function ($html) {
                                 <div class="post-navigation">
                                     <?php
                                     $prev_post = get_previous_post();
-                                    if (!empty($prev_post)): ?>
-                                            <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="nav-card">
-                                                <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> Bài trước đó</span>
-                                                <span class="nav-card-title"><?php echo esc_html(get_the_title($prev_post->ID)); ?></span>
+                                    if (!empty($prev_post)):
+                                        $prev_img = get_the_post_thumbnail_url($prev_post->ID, 'thumbnail');
+                                        if (!$prev_img) {
+                                            $prev_content = get_post_field('post_content', $prev_post->ID);
+                                            preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $prev_content, $matches_prev);
+                                            $prev_img = isset($matches_prev[1][0]) ? $matches_prev[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        }
+                                        ?>
+                                            <a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="nav-card nav-card-prev">
+                                                <div class="nav-card-avatar-wrap skeleton">
+                                                    <img src="<?php echo esc_url($prev_img); ?>" alt="" class="nav-card-avatar" onload="this.parentElement.classList.remove('skeleton')">
+                                                </div>
+                                                <div class="nav-card-info">
+                                                    <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> Bài trước đó</span>
+                                                    <span class="nav-card-title"><?php echo esc_html(get_the_title($prev_post->ID)); ?></span>
+                                                </div>
                                             </a>
                                     <?php else: ?>
                                             <div></div>
@@ -1258,11 +1316,22 @@ ob_start(function ($html) {
 
                                     <?php
                                     $next_post = get_next_post();
-                                    if (!empty($next_post)): ?>
-                                            <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="nav-card"
-                                                style="text-align: right; align-items: flex-end;">
-                                                <span class="nav-card-label">Bài tiếp theo <i class="fa-solid fa-arrow-right"></i></span>
-                                                <span class="nav-card-title"><?php echo esc_html(get_the_title($next_post->ID)); ?></span>
+                                    if (!empty($next_post)):
+                                        $next_img = get_the_post_thumbnail_url($next_post->ID, 'thumbnail');
+                                        if (!$next_img) {
+                                            $next_content = get_post_field('post_content', $next_post->ID);
+                                            preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $next_content, $matches_next);
+                                            $next_img = isset($matches_next[1][0]) ? $matches_next[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp';
+                                        }
+                                        ?>
+                                            <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="nav-card nav-card-next">
+                                                <div class="nav-card-avatar-wrap skeleton">
+                                                    <img src="<?php echo esc_url($next_img); ?>" alt="" class="nav-card-avatar" onload="this.parentElement.classList.remove('skeleton')">
+                                                </div>
+                                                <div class="nav-card-info">
+                                                    <span class="nav-card-label">Bài tiếp theo <i class="fa-solid fa-arrow-right"></i></span>
+                                                    <span class="nav-card-title"><?php echo esc_html(get_the_title($next_post->ID)); ?></span>
+                                                </div>
                                             </a>
                                     <?php else: ?>
                                             <div></div>
