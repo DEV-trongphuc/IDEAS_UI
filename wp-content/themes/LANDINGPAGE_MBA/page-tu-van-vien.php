@@ -887,7 +887,7 @@ ob_start(function ($html) {
             <!-- Advisor 2 -->
             <article class="consultant-card" data-suffix="953,427">
                 <div class="consultant-avatar-wrap">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cdan.webp" class="consultant-avatar" alt="Nguyễn Thị Linh Đan" loading="lazy">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/z7928563815344_f88e1ecb4aba7b343936df712559c960-1.jpg" class="consultant-avatar" alt="Nguyễn Thị Linh Đan" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Nguyễn Thị Linh Đan</h3>
                 <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
@@ -1018,7 +1018,7 @@ ob_start(function ($html) {
                     phones: ["0916661953", "0393049427"],
                     suffixes: ["953", "427"],
                     email: "danntl@ideas.edu.vn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/cdan.webp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2026/06/z7928563815344_f88e1ecb4aba7b343936df712559c960-1.jpg",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 },
                 {
