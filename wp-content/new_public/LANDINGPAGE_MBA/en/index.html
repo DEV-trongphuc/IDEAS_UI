@@ -7805,6 +7805,861 @@
         </section>
 
         <!-- ══════════════════════════════════════════
+         SECTION 7.2: INTERNATIONAL ACCREDITATIONS
+        ══════════════════════════════════════════ -->
+        <style>
+            /*  ACCREDITATION SECTION  */
+            .acc-section {
+                background: linear-gradient(145deg, #0a0f1e 0%, #0f0505 40%, #1a0305 70%, #0a0f1e 100%);
+                position: relative;
+                overflow: hidden;
+                padding: 100px 0;
+            }
+
+            .acc-section::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background:
+                    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ab0e00' fill-opacity='0.03'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            /* ambient orbs */
+            .acc-orb {
+                position: absolute;
+                border-radius: 50%;
+                pointer-events: none;
+                filter: blur(100px);
+                z-index: 0;
+            }
+
+            .acc-orb-1 {
+                width: 600px;
+                height: 600px;
+                top: -150px;
+                left: -150px;
+                background: radial-gradient(circle, rgba(171, 14, 0, 0.18) 0%, transparent 65%);
+            }
+
+            .acc-orb-2 {
+                width: 500px;
+                height: 500px;
+                bottom: -100px;
+                right: -100px;
+                background: radial-gradient(circle, rgba(30, 20, 80, 0.25) 0%, transparent 65%);
+            }
+
+            .acc-orb-3 {
+                width: 350px;
+                height: 350px;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: radial-gradient(circle, rgba(171, 14, 0, 0.08) 0%, transparent 70%);
+            }
+
+            .acc-inner {
+                max-width: 1220px;
+                margin: 0 auto;
+                padding: 0 32px;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Header */
+            .acc-header {
+                text-align: center;
+                margin-bottom: 64px;
+            }
+
+            .acc-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(171, 14, 0, 0.18);
+                color: #fca5a5;
+                border: 1px solid rgba(171, 14, 0, 0.4);
+                padding: 6px 20px;
+                border-radius: 999px;
+                font-size: 0.72rem;
+                font-weight: 800;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+
+            .acc-title {
+                font-size: clamp(2rem, 4.5vw, 3.2rem);
+                font-weight: 900;
+                color: #f8fafc;
+                line-height: 1.15;
+                margin: 0 0 16px;
+            }
+
+            .acc-title span {
+                background: linear-gradient(90deg, #fca5a5, #ef4444, #ab0e00);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .acc-desc {
+                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.65);
+                max-width: 640px;
+                margin: 0 auto;
+                line-height: 1.75;
+            }
+
+            /* ── SAC HERO CARD ── */
+            .acc-sac-hero {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+                border-radius: 24px;
+                overflow: hidden;
+                margin-bottom: 40px;
+                border: 1.5px solid rgba(171, 14, 0, 0.4);
+                box-shadow: 0 0 60px rgba(171, 14, 0, 0.2), 0 24px 64px rgba(0, 0, 0, 0.5);
+                position: relative;
+            }
+
+            .acc-sac-left {
+                background: linear-gradient(135deg, #ab0e00 0%, #7f0800 60%, #5c0500 100%);
+                padding: 56px 48px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .acc-sac-left::before {
+                content: '';
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.05);
+                top: -80px;
+                right: -80px;
+            }
+
+            .acc-sac-left::after {
+                content: '';
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.04);
+                bottom: -60px;
+                left: -40px;
+            }
+
+            .acc-sac-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                color: #fff;
+                padding: 6px 16px;
+                border-radius: 999px;
+                font-size: 0.7rem;
+                font-weight: 800;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                margin-bottom: 24px;
+                width: fit-content;
+                position: relative;
+                z-index: 1;
+            }
+
+            .acc-sac-badge-dot {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: #fff;
+                box-shadow: 0 0 8px #fff;
+                animation: accPulse 1.8s infinite;
+                flex-shrink: 0;
+            }
+
+            @keyframes accPulse {
+                0%, 100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 0.5;
+                    transform: scale(1.4);
+                }
+            }
+
+            .acc-sac-name {
+                font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+                font-weight: 900;
+                color: #fff;
+                line-height: 1.2;
+                margin: 0 0 12px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .acc-sac-tagline {
+                font-size: 0.88rem;
+                color: rgba(255, 255, 255, 0.82);
+                line-height: 1.7;
+                margin: 0 0 28px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .acc-sac-stats {
+                display: flex;
+                gap: 24px;
+                flex-wrap: wrap;
+                position: relative;
+                z-index: 1;
+            }
+
+            .acc-sac-stat {
+                text-align: center;
+            }
+
+            .acc-sac-stat-val {
+                font-size: 1.6rem;
+                font-weight: 900;
+                color: #fff;
+                display: block;
+                line-height: 1;
+                margin-bottom: 4px;
+            }
+
+            .acc-sac-stat-label {
+                font-size: 0.7rem;
+                color: rgba(255, 255, 255, 0.72);
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
+            .acc-sac-right {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(12px);
+                padding: 56px 48px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 28px;
+                border-left: 1px solid rgba(171, 14, 0, 0.25);
+            }
+
+            .acc-sac-logo-wrap {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .acc-sac-cert-link {
+                display: none;
+            }
+
+            .acc-sac-logo-wrap img {
+                height: 80px;
+                width: auto;
+                object-fit: contain;
+                filter: brightness(1.05);
+                background: white;
+                border-radius: 12px;
+                padding: 10px 14px;
+            }
+
+            .acc-sac-logo-text .acc-sac-logo-title {
+                font-size: 1rem;
+                font-weight: 800;
+                color: #f8fafc;
+                margin: 0 0 4px;
+            }
+
+            .acc-sac-logo-text p {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.55);
+                margin: 0;
+                line-height: 1.5;
+            }
+
+            .acc-sac-points {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .acc-sac-points li {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                font-size: 0.85rem;
+                color: rgba(255, 255, 255, 0.75);
+                line-height: 1.55;
+            }
+
+            .acc-sac-points li i {
+                color: #f87171;
+                font-size: 0.78rem;
+                margin-top: 4px;
+                flex-shrink: 0;
+            }
+
+            .acc-sac-cert-strip {
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .acc-cert-thumb {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                border: 1px solid rgba(171, 14, 0, 0.3);
+                cursor: pointer;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 10px 16px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.78rem;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            .acc-cert-thumb:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 24px rgba(171, 14, 0, 0.25);
+                border-color: rgba(171, 14, 0, 0.6);
+                color: #fff;
+            }
+
+            .acc-cert-thumb i {
+                color: #f87171;
+            }
+
+            /* ── OTHER ACCREDITATIONS GRID ── */
+            .acc-others-title {
+                text-align: center;
+                font-size: 0.8rem;
+                font-weight: 800;
+                color: rgba(255, 255, 255, 0.45);
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                margin: 48px 0 32px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .acc-others-title::before,
+            .acc-others-title::after {
+                content: '';
+                flex: 1;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .acc-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+
+            .acc-card,
+            .acc-card * {
+                cursor: pointer;
+            }
+
+            .acc-card {
+                background: rgba(255, 255, 255, 0.04);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 16px;
+                padding: 28px 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 14px;
+                transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .acc-card:hover {
+                background: rgba(171, 14, 0, 0.12);
+                border-color: rgba(171, 14, 0, 0.6);
+                transform: translateY(-6px);
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(171, 14, 0, 0.25);
+            }
+
+            .acc-card-logo {
+                height: 52px;
+                width: auto;
+                max-width: 110px;
+                object-fit: contain;
+                filter: brightness(0) invert(1);
+                opacity: 0.8;
+                transition: opacity 0.3s, filter 0.3s;
+            }
+
+            .acc-card:hover .acc-card-logo {
+                filter: none;
+                opacity: 1;
+            }
+
+            .acc-card h4 {
+                font-size: 0.78rem;
+                font-weight: 800;
+                color: rgba(255, 255, 255, 0.85);
+                margin: 0;
+                line-height: 1.4;
+            }
+
+            .acc-card p {
+                font-size: 0.72rem;
+                color: rgba(255, 255, 255, 0.45);
+                margin: 0;
+                line-height: 1.55;
+            }
+
+            /* ── PARTNER STRIP ── */
+            .acc-partner-strip {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+                flex-wrap: wrap;
+                margin-top: 48px;
+                padding-top: 40px;
+                border-top: 1px solid rgba(255, 255, 255, 0.07);
+            }
+
+            .acc-partner-item {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 12px;
+                padding: 14px 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+            }
+
+            .acc-partner-item:hover {
+                background: rgba(255, 255, 255, 0.09);
+                border-color: rgba(255, 255, 255, 0.18);
+            }
+
+            .acc-partner-item img {
+                height: 36px;
+                width: auto;
+                max-width: 120px;
+                object-fit: contain;
+                filter: brightness(0) invert(1);
+                opacity: 0.6;
+                transition: opacity 0.3s;
+            }
+
+            .acc-partner-item:hover img {
+                opacity: 0.9;
+            }
+
+            .acc-sac-stat-svg-wrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 28px;
+            }
+
+            /* Boost text contrast specifically to override global templates */
+            .acc-section .acc-desc {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+
+            .acc-section .acc-sac-tagline {
+                color: rgba(255, 255, 255, 0.85) !important;
+            }
+
+            .acc-section .acc-sac-stat-label {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+
+            .acc-section .acc-sac-stat-val {
+                color: #ffffff !important;
+            }
+
+            .acc-section .acc-sac-points li {
+                color: rgba(255, 255, 255, 0.85) !important;
+            }
+
+            .acc-section .acc-card h4 {
+                color: #ffffff !important;
+            }
+
+            .acc-section .acc-card p {
+                color: rgba(255, 255, 255, 0.7) !important;
+            }
+
+            .acc-section .acc-sac-logo-text .acc-sac-logo-title {
+                color: #ffffff !important;
+            }
+
+            .acc-section .acc-sac-logo-text p {
+                color: rgba(255, 255, 255, 0.85) !important;
+            }
+
+            /* ── RESPONSIVE ── */
+            @media (max-width: 1100px) {
+                .acc-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            @media (max-width: 860px) {
+                .acc-sac-hero {
+                    grid-template-columns: 1fr;
+                }
+
+                .acc-sac-right {
+                    border-left: none;
+                    border-top: 1px solid rgba(171, 14, 0, 0.2);
+                    padding: 40px 32px;
+                }
+
+                .acc-sac-left {
+                    padding: 40px 32px;
+                }
+
+                .acc-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 560px) {
+                .acc-section {
+                    padding: 40px 0 20px !important;
+                }
+
+                .acc-inner {
+                    padding: 0 16px !important;
+                }
+
+                .acc-header {
+                    margin-bottom: 24px !important;
+                }
+
+                .acc-sac-hero {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    box-sizing: border-box !important;
+                    width: 100% !important;
+                }
+
+                .acc-sac-left,
+                .acc-sac-right {
+                    padding: 24px 16px !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+
+                .acc-sac-points {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: stretch !important;
+                    width: 100% !important;
+                    padding: 0 !important;
+                    margin: 0 0 20px 0 !important;
+                    gap: 12px !important;
+                }
+
+                .acc-sac-points li {
+                    display: block !important;
+                    position: relative !important;
+                    padding-left: 24px !important;
+                    text-align: left !important;
+                    width: 100% !important;
+                    font-size: 0.85rem !important;
+                    line-height: 1.45 !important;
+                }
+
+                .acc-sac-points li i {
+                    position: absolute !important;
+                    left: 0 !important;
+                    top: 4px !important;
+                    margin: 0 !important;
+                    display: inline-block !important;
+                }
+
+                .acc-sac-points li span {
+                    display: inline !important;
+                    width: auto !important;
+                }
+
+                .acc-sac-points li strong {
+                    display: inline !important;
+                    font-weight: 800 !important;
+                }
+
+                .acc-sac-stats {
+                    display: grid !important;
+                    grid-template-columns: repeat(3, 1fr) !important;
+                    gap: 8px !important;
+                }
+
+                .acc-sac-stat-val {
+                    font-size: 1.25rem !important;
+                    margin-bottom: 2px !important;
+                }
+
+                .acc-sac-stat-svg-wrap {
+                    height: 20px !important;
+                }
+
+                .acc-sac-stat-svg-wrap svg {
+                    width: 20px !important;
+                    height: 20px !important;
+                }
+
+                .acc-sac-stat-label {
+                    font-size: 0.58rem !important;
+                    line-height: 1.3 !important;
+                }
+
+                .acc-sac-cert-strip {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
+                    gap: 8px !important;
+                }
+
+                .acc-sac-cert-strip .acc-cert-thumb {
+                    flex: 1 !important;
+                    justify-content: center !important;
+                    padding: 10px 4px !important;
+                    font-size: 0.7rem !important;
+                    white-space: nowrap !important;
+                }
+
+                .acc-sac-logo-wrap {
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    text-align: center !important;
+                    gap: 16px !important;
+                    margin-bottom: 24px !important;
+                }
+
+                .acc-sac-logo-img {
+                    display: none !important;
+                }
+
+                .acc-sac-cert-link {
+                    display: block !important;
+                    width: 100% !important;
+                    max-width: 240px !important;
+                    margin: 0 auto !important;
+                }
+
+                .acc-sac-cert-img {
+                    width: 100% !important;
+                    height: auto !important;
+                    border-radius: 8px !important;
+                    border: 1px solid rgba(171, 14, 0, 0.2) !important;
+                    display: block !important;
+                    padding: 0 !important;
+                    background: transparent !important;
+                }
+
+                .acc-sac-logo-text {
+                    text-align: center !important;
+                    width: 100% !important;
+                }
+
+                .acc-grid {
+                    display: flex !important;
+                    overflow-x: auto !important;
+                    scroll-snap-type: x mandatory !important;
+                    gap: 16px !important;
+                    padding: 10px 4px 10px !important;
+                    margin: 0 !important;
+                    -ms-overflow-style: none !important;
+                    scrollbar-width: none !important;
+                }
+
+                .acc-grid::-webkit-scrollbar {
+                    display: none !important;
+                }
+
+                .acc-card {
+                    flex: 0 0 85% !important;
+                    scroll-snap-align: center !important;
+                    box-sizing: border-box !important;
+                    margin: 0 !important;
+                }
+
+                .acc-dots {
+                    margin-top: 10px !important;
+                    margin-bottom: 5px !important;
+                }
+            }
+        </style>
+
+        <section class="acc-section" id="kiem-dinh-quoc-te" aria-label="International Accreditation">
+            <div class="acc-orb acc-orb-1"></div>
+            <div class="acc-orb acc-orb-2"></div>
+            <div class="acc-orb acc-orb-3"></div>
+            <!-- Localized Background Decor -->
+            <div class="section-bg-decor">
+                <i class="fa-solid fa-award bg-decor-icon decor-lg"
+                    style="top: 20%; left: 6%; animation-duration: 26s;"></i>
+                <i class="fa-solid fa-globe bg-decor-icon decor-white decor-sm"
+                    style="top: 60%; right: 8%; animation-duration: 34s;"></i>
+            </div>
+
+            <div class="acc-inner">
+                <!-- Header -->
+                <div class="acc-header">
+                    <div class="acc-label">
+                        <i class="fa-solid fa-stamp"></i>
+                        International Accreditation
+                    </div>
+                    <h2 class="acc-title">
+                        Prestigious <span>International</span> Accreditations
+                    </h2>
+                    <p class="acc-desc">Our partner schools are accredited and recognized by prestigious international organizations, ensuring global degree recognition.</p>
+                </div>
+
+                <!-- SAC Hero Card -->
+                <div class="acc-sac-hero">
+                    <div class="acc-sac-left">
+                        <div class="acc-sac-badge">
+                            <span class="acc-sac-badge-dot"></span>
+                            Official Swiss Accreditation
+                        </div>
+                        <h3 class="acc-sac-name"><a
+                                href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html"
+                                target="_blank"
+                                style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;"
+                                onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
+                                title="View SAC Accreditation article">Swiss Accreditation Council <i
+                                    class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></h3>
+                        <p class="acc-sac-tagline">Swiss federal accreditation body. Swiss UMEF is the first private higher education institution in Geneva to be officially accredited in the Swiss higher education system.</p>
+                        <div class="acc-sac-stats">
+                            <div class="acc-sac-stat">
+                                <span class="acc-sac-stat-val">Gov</span>
+                                <span class="acc-sac-stat-label">Federal Authority</span>
+                            </div>
+                            <div class="acc-sac-stat">
+                                <span class="acc-sac-stat-val acc-sac-stat-svg-wrap">
+                                    <svg class="flag-icon" width="28" height="28" viewBox="0 0 18 18">
+                                        <circle cx="9" cy="9" r="9" fill="#d52b1e" stroke="#ffffff" stroke-width="1.2">
+                                        </circle>
+                                        <rect x="7.5" y="4" width="3" height="10" fill="#ffffff"></rect>
+                                        <rect x="4" y="7.5" width="10" height="3" fill="#ffffff"></rect>
+                                    </svg>
+                                </span>
+                                <span class="acc-sac-stat-label">Education Council</span>
+                            </div>
+                            <div class="acc-sac-stat">
+                                <span class="acc-sac-stat-val">ECTS</span>
+                                <span class="acc-sac-stat-label">European Standards</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-sac-right">
+                        <div class="acc-sac-logo-wrap">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.png"
+                                class="acc-sac-logo-img" alt="Logo SAC - Swiss Accreditation Council" loading="lazy"
+                                decoding="async" />
+                            <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp" target="_blank"
+                                rel="noopener noreferrer" class="acc-sac-cert-link">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
+                                    class="acc-sac-cert-img" alt="Chứng nhận SAC - Swiss Accreditation Council"
+                                    loading="lazy" decoding="async" />
+                            </a>
+                            <div class="acc-sac-logo-text">
+                                <div class="acc-sac-logo-title"><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html"
+                                        target="_blank"
+                                        style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;"
+                                        onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
+                                        title="View SAC Accreditation article">Swiss Accreditation Council <i
+                                            class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></div>
+                                <p>Swiss federal accreditation body<br>Official recognition from the Swiss Higher Education Council</p>
+                            </div>
+                        </div>
+                        <ul class="acc-sac-points">
+                            <li><i class="fa-solid fa-circle-check"></i><span>Degrees are consular legalized at the Vietnamese Embassy in Switzerland</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span>Programs meet European standards — ECTS international credits</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span>Swiss UMEF is the first private university in Geneva officially accredited in the Swiss higher education system</span></li>
+                        </ul>
+                        <div class="acc-sac-cert-strip">
+                            <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
+                                class="acc-cert-thumb lightbox-trigger" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-file-certificate"></i>
+                                SAC Accreditation Certificate
+                            </a>
+                            <a href="https://www.swiss-umef.ch/en/accreditations-et-reconnaissances"
+                                class="acc-cert-thumb" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-globe"></i>
+                                Verification from Swiss UMEF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="acc-others-title">Other International Accreditations</div>
+
+                <!-- Other accreditations grid -->
+                <div class="acc-grid">
+                    <div class="acc-card" data-accred="chea">
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
+                            alt="CHEA" loading="lazy" decoding="async" />
+                        <h4>CHEA – USA</h4>
+                        <p>The leading higher education accreditation council in the United States, ensuring international recognition standards</p>
+                    </div>
+                    <div class="acc-card" data-accred="iacbe">
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp"
+                            alt="IACBE" loading="lazy" decoding="async" />
+                        <h4>IACBE – Business Education</h4>
+                        <p>An accreditation organization specializing in international business education quality for BBA, MBA, and DBA</p>
+                    </div>
+                    <div class="acc-card" data-accred="acbsp">
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
+                            alt="ACBSP" loading="lazy" decoding="async" />
+                        <h4>ACBSP – Business Schools</h4>
+                        <p>Business school quality accreditation officially recognized by the United States Department of Education</p>
+                    </div>
+                    <div class="acc-card" data-accred="qs">
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/qsranking.png"
+                            alt="QS Stars" loading="lazy" decoding="async" />
+                        <h4>QS Stars ⭐ 5 Stars Overall</h4>
+                        <p>Rated 5 stars overall by Quacquarelli Symonds — the world's prestigious university evaluation system</p>
+                    </div>
+                    <div class="acc-card" data-accred="eduqua">
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
+                            alt="EduQua" loading="lazy" decoding="async" />
+                        <h4>SGS – EduQua</h4>
+                        <p>Swiss quality label recognized by the government, evaluated according to 6 education quality standards</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════
          SECTION 7.5: TESTIMONIALS (3D HORIZONTAL SLIDER)
         ══════════════════════════════════════════ -->
         <style>

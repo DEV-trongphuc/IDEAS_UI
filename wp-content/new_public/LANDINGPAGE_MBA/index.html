@@ -8470,6 +8470,11 @@
                 gap: 16px;
             }
 
+            .acc-card,
+            .acc-card * {
+                cursor: pointer;
+            }
+
             .acc-card {
                 background: rgba(255, 255, 255, 0.04);
                 border: 1px solid rgba(255, 255, 255, 0.08);
@@ -8481,14 +8486,13 @@
                 text-align: center;
                 gap: 14px;
                 transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-                cursor: pointer;
             }
 
             .acc-card:hover {
-                background: rgba(171, 14, 0, 0.08);
-                border-color: rgba(171, 14, 0, 0.3);
+                background: rgba(171, 14, 0, 0.12);
+                border-color: rgba(171, 14, 0, 0.6);
                 transform: translateY(-6px);
-                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(171, 14, 0, 0.12);
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(171, 14, 0, 0.25);
             }
 
             .acc-card-logo {

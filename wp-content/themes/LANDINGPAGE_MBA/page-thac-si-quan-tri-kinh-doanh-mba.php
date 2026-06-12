@@ -828,6 +828,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 16px;
         }
 
+        .acc-card,
+        .acc-card * {
+            cursor: pointer;
+        }
+
         .acc-card {
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.06);
@@ -839,7 +844,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-align: center;
             gap: 14px;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: pointer;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01);
         }
 
