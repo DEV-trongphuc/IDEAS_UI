@@ -199,8 +199,8 @@ $reels = [
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 30px 24px 40px;
-            background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+            padding: 20px 24px calc(env(safe-area-inset-bottom) + 24px);
+            background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, transparent 100%);
             z-index: 15;
             color: #fff;
             box-sizing: border-box;
@@ -211,11 +211,7 @@ $reels = [
             text-align: left !important;
         }
 
-        .reel-info-overlay * {
-            pointer-events: none;
-        }
-
-        .reel-info-overlay .reel-info-cta {
+        .reel-info-cta {
             pointer-events: all !important;
         }
 
@@ -371,104 +367,7 @@ $reels = [
             }
         }
 
-        /* ─── Custom Cover Placeholder & Play Button ─── */
-        .reel-cover-placeholder {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            z-index: 5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: opacity 0.4s ease;
-        }
 
-        .reel-cover-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.45) !important;
-            transition: background 0.3s ease !important;
-            z-index: 1 !important;
-        }
-
-        .reel-cover-placeholder:hover .reel-cover-overlay {
-            background: rgba(15, 23, 42, 0.6) !important;
-        }
-
-        .reel-play-button-wrapper {
-            position: relative;
-            z-index: 6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            pointer-events: none;
-        }
-
-        .reel-play-button {
-            width: 72px;
-            height: 72px;
-            background: #ab0e00 !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            color: #fff !important;
-            font-size: 28px !important;
-            box-shadow: 0 8px 30px rgba(171, 14, 0, 0.6) !important;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-            position: relative !important;
-        }
-
-        .reel-play-button::before,
-        .reel-play-button::after {
-            content: '' !important;
-            position: absolute !important;
-            width: 100% !important;
-            height: 100% !important;
-            border: 3px solid #ab0e00 !important;
-            border-radius: 50% !important;
-            top: 0 !important;
-            left: 0 !important;
-            box-sizing: border-box !important;
-        }
-
-        .reel-play-button::before {
-            animation: playRipple 2s infinite ease-out !important;
-        }
-
-        .reel-play-button::after {
-            animation: playRipple 2s infinite ease-out !important;
-            animation-delay: 1s !important;
-        }
-
-        .reel-cover-placeholder:hover .reel-play-button {
-            transform: scale(1.1) !important;
-            background: #ff2a1a !important;
-            box-shadow: 0 12px 40px rgba(255, 42, 26, 0.8) !important;
-        }
-
-        .reel-play-text {
-            color: #ffffff !important;
-            font-size: 0.9rem !important;
-            font-weight: 700 !important;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
-            letter-spacing: 0.05em !important;
-            text-transform: uppercase !important;
-        }
-
-        @keyframes playRipple {
-            0% {
-                transform: scale(1);
-                opacity: 0.9;
-            }
-            100% {
-                transform: scale(1.8);
-                opacity: 0;
-            }
-        }
     </style>
     <?php wp_head(); ?>
 </head>
@@ -487,27 +386,13 @@ $reels = [
         <div class="reel-container">
             <?php foreach ($reels as $index => $r): ?>
                 <div class="reel-slide" data-index="<?php echo $index; ?>" data-reel-id="<?php echo esc_attr($r['id']); ?>">
-                    <!-- cover placeholder -->
-                    <div class="reel-cover-placeholder" onclick="playReel(<?php echo $index; ?>)" style="background-image: url('<?php echo esc_url($r['cover']); ?>');">
-                        <div class="reel-cover-overlay"></div>
-                        <div class="reel-play-button-wrapper">
-                            <div class="reel-play-button">
-                                <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
-                            </div>
-                            <span class="reel-play-text"><?php echo $is_en ? 'Explore Reel' : 'Khám phá'; ?></span>
-                        </div>
-                    </div>
-
-                    <div class="reel-video-loading" style="display: none;">
+                    <div class="reel-video-loading">
                         <i class="fa-solid fa-spinner fa-spin"></i>
                     </div>
                     <div class="fb-reel-wrapper">
                         <!-- Dynamically loaded iframe goes here -->
                     </div>
                     <div class="reel-info-overlay">
-                        <span class="reel-info-tag"><i class="fa-solid fa-circle-play"></i> Reel</span>
-                        <h3><?php echo esc_html($r['title']); ?></h3>
-                        <p><?php echo esc_html($r['desc']); ?></p>
                         <button class="reel-info-cta" onclick="showform('Reel Page - <?php echo esc_js($r['title']); ?>')">
                             <span><?php echo $is_en ? 'Free Counseling' : 'Nhận tư vấn ngay'; ?></span>
                             <i class="fa-solid fa-chevron-right"></i>
@@ -541,35 +426,46 @@ $reels = [
         function activateSlide(index) {
             if (index === currentActiveIndex) return;
 
-            // Deactivate previous slide to stop audio and restore cover placeholder
+            // Deactivate previous slide to stop audio
             if (currentActiveIndex !== -1) {
                 var oldSlide = document.querySelector('.reel-slide[data-index="' + currentActiveIndex + '"]');
                 if (oldSlide) {
                     var wrapper = oldSlide.querySelector('.fb-reel-wrapper');
                     if (wrapper) wrapper.innerHTML = '';
                     var loading = oldSlide.querySelector('.reel-video-loading');
-                    if (loading) loading.style.display = 'none';
-                    var placeholder = oldSlide.querySelector('.reel-cover-placeholder');
-                    if (placeholder) {
-                        placeholder.style.display = 'flex';
-                        placeholder.style.opacity = '1';
-                    }
+                    if (loading) loading.style.display = 'block';
                 }
             }
 
             currentActiveIndex = index;
 
-            // Reset current slide state to cover placeholder showing
+            // Load and play new slide video immediately
             var newSlide = document.querySelector('.reel-slide[data-index="' + index + '"]');
             if (newSlide) {
                 var wrapper = newSlide.querySelector('.fb-reel-wrapper');
-                if (wrapper) wrapper.innerHTML = '';
+                var reelId = newSlide.getAttribute('data-reel-id');
                 var loading = newSlide.querySelector('.reel-video-loading');
-                if (loading) loading.style.display = 'none';
-                var placeholder = newSlide.querySelector('.reel-cover-placeholder');
-                if (placeholder) {
-                    placeholder.style.display = 'flex';
-                    placeholder.style.opacity = '1';
+                if (wrapper && reelId) {
+                    if (loading) loading.style.display = 'block';
+
+                    var iframe = document.createElement('iframe');
+                    iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500&autoplay=true';
+                    iframe.style.width = '100%';
+                    iframe.style.height = '100%';
+                    iframe.style.border = 'none';
+                    iframe.style.opacity = '0';
+                    iframe.style.transition = 'opacity 0.3s';
+                    iframe.scrolling = 'no';
+                    iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+                    iframe.allowFullscreen = true;
+
+                    iframe.onload = function() {
+                        if (loading) loading.style.display = 'none';
+                        iframe.style.opacity = '1';
+                    };
+
+                    wrapper.innerHTML = '';
+                    wrapper.appendChild(iframe);
                 }
             }
 
@@ -578,46 +474,6 @@ $reels = [
             var nextBtn = document.getElementById('reel-btn-next');
             if (prevBtn) prevBtn.disabled = (index === 0);
             if (nextBtn) nextBtn.disabled = (index === reels.length - 1);
-        }
-
-        function playReel(index) {
-            var slide = document.querySelector('.reel-slide[data-index="' + index + '"]');
-            if (!slide) return;
-
-            var wrapper = slide.querySelector('.fb-reel-wrapper');
-            var reelId = slide.getAttribute('data-reel-id');
-            var loading = slide.querySelector('.reel-video-loading');
-            var placeholder = slide.querySelector('.reel-cover-placeholder');
-
-            if (wrapper && reelId) {
-                if (loading) loading.style.display = 'block';
-
-                if (placeholder) {
-                    placeholder.style.opacity = '0';
-                    setTimeout(function() {
-                        placeholder.style.display = 'none';
-                    }, 400);
-                }
-
-                var iframe = document.createElement('iframe');
-                iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500&autoplay=true';
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-                iframe.style.border = 'none';
-                iframe.style.opacity = '0';
-                iframe.style.transition = 'opacity 0.3s';
-                iframe.scrolling = 'no';
-                iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
-                iframe.allowFullscreen = true;
-
-                iframe.onload = function() {
-                    if (loading) loading.style.display = 'none';
-                    iframe.style.opacity = '1';
-                };
-
-                wrapper.innerHTML = '';
-                wrapper.appendChild(iframe);
-            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
