@@ -1,4 +1,8 @@
 <?php
+// Tăng giới hạn bộ nhớ và thời gian chạy tối đa để xử lý ảnh lớn
+@ini_set('memory_limit', '512M');
+@set_time_limit(180);
+
 /**
  * Standalone Utility: Batch WebP Converter & Media Database Cleaner
  * Path: /wp-convert-webp.php
@@ -141,6 +145,17 @@ if (isset($_GET['action'])) {
         if (file_exists($destination)) {
             echo json_encode(['success' => true, 'status' => 'exists', 'destination' => $destination]);
             exit;
+        }
+        
+        // Kiểm tra kích thước ảnh trước khi nạp vào bộ nhớ để tránh quá tải/treo PHP
+        $img_info = @getimagesize($image);
+        if ($img_info) {
+            $width = $img_info[0];
+            $height = $img_info[1];
+            if (($width * $height) > 25000000) { // Lớn hơn 25 Megapixels
+                echo json_encode(['success' => false, 'message' => "Kích thước ảnh quá lớn ({$width}x{$height}). Vui lòng giảm kích thước thủ công."]);
+                exit;
+            }
         }
         
         $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
@@ -568,6 +583,7 @@ if (isset($_GET['action'])) {
         let currentIndex = 0;
         let isProcessing = false;
         let totalSavings = 0;
+        let consecutiveErrors = 0; // Đếm số lỗi liên tiếp để dừng nếu hệ thống sập hoàn toàn
 
         const btnScan = document.getElementById('btn-scan');
         const btnStart = document.getElementById('btn-start');
@@ -660,12 +676,24 @@ if (isset($_GET['action'])) {
             progressPercent.textContent = `${percent}%`;
             progressLabel.textContent = `Đang xử lý (${currentIndex + 1}/${imageList.length}): ${img.split('/').pop()}`;
 
+            // Thiết lập timeout 25 giây cho mỗi yêu cầu để tránh bị treo vô hạn
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 25000);
+
             try {
                 const res = await fetch('?action=convert', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ image: img, quality: 82 })
+                    body: JSON.stringify({ image: img, quality: 82 }),
+                    signal: controller.signal
                 });
+                
+                clearTimeout(timeoutId);
+
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}`);
+                }
+
                 const data = await res.json();
                 if (data.success) {
                     if (data.status === 'exists') {
@@ -674,17 +702,32 @@ if (isset($_GET['action'])) {
                         const savedKB = data.saved_size ? Math.round(data.saved_size / 1024) : 0;
                         addLog(`Thành công: Chuyển đổi ${img.split('/').pop()} sang WebP (${savedKB} KB)`, 'success');
                     }
+                    consecutiveErrors = 0; // Reset số lỗi liên tiếp khi thành công
                     currentIndex++;
                     statProcessed.textContent = currentIndex;
                 } else {
                     addLog(`Lỗi xử lý ${img.split('/').pop()}: ${data.message}`, 'error');
+                    consecutiveErrors = 0; // Server vẫn phản hồi JSON hợp lệ, không tính là lỗi sập
                     currentIndex++;
+                    statProcessed.textContent = currentIndex;
                 }
             } catch (err) {
-                addLog(`Lỗi kết nối khi xử lý tệp: ${err.message}`, 'error');
-                isProcessing = false;
+                clearTimeout(timeoutId);
+                const isTimeout = err.name === 'AbortError';
+                const errMsg = isTimeout ? 'Yêu cầu bị quá thời gian (Timeout 25s)' : err.message;
+                addLog(`Lỗi khi xử lý ${img.split('/').pop()}: ${errMsg}`, 'error');
+                
+                consecutiveErrors++;
+                currentIndex++; // BỎ QUA ảnh bị lỗi để tiếp tục hàng đợi!
+                statProcessed.textContent = currentIndex;
+
+                if (consecutiveErrors >= 5) {
+                    isProcessing = false;
+                    addLog("Hàng đợi bị dừng do gặp 5 lỗi kết nối/server liên tiếp. Vui lòng tải lại trang hoặc kiểm tra log server.", 'error');
+                }
             }
 
+            // Tiếp tục xử lý ảnh tiếp theo
             setTimeout(processNext, 50);
         }
 
