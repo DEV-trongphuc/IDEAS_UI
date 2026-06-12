@@ -526,14 +526,14 @@ ob_start(function ($html) {
         .consultant-card-phone {
             background: #f8fafc;
             border: 1.5px dashed #cbd5e1;
-            padding: 12px 20px;
-            border-radius: 14px;
-            font-size: 1.05rem;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
             color: #334155;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 10px;
             transition: all 0.3s ease;
         }
 
@@ -554,7 +554,30 @@ ob_start(function ($html) {
 
         .consultant-card-phone strong {
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
+        }
+
+        .consultant-card-email {
+            font-size: 0.85rem;
+            color: #64748b;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .consultant-card:hover .consultant-card-email {
+            color: #1e293b;
+        }
+
+        .consultant-card-email i {
+            color: #94a3b8;
+            transition: all 0.3s ease;
+        }
+
+        .consultant-card:hover .consultant-card-email i {
+            color: #ab0e00;
         }
 
         .btn-card-action {
@@ -854,6 +877,10 @@ ob_start(function ($html) {
                     <i class="fa-solid fa-phone"></i>
                     <span>*********<strong>017</strong></span>
                 </div>
+                <div class="consultant-card-email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>phuclph@ideas.edu.vn</span>
+                </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_phuc')">Nhận tư vấn</button>
             </article>
 
@@ -864,7 +891,7 @@ ob_start(function ($html) {
                 </div>
                 <h3 class="consultant-card-name">Nguyễn Thị Linh Đan</h3>
                 <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
-                <div class="consultant-card-phone" style="display: inline-flex; flex-direction: column; gap: 6px; align-items: flex-start; padding: 10px 16px;">
+                <div class="consultant-card-phone" style="display: inline-flex; flex-direction: column; gap: 6px; align-items: flex-start; padding: 8px 16px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <i class="fa-solid fa-phone"></i>
                         <span>*********<strong>953</strong></span>
@@ -873,6 +900,10 @@ ob_start(function ($html) {
                         <i class="fa-solid fa-phone"></i>
                         <span>*********<strong>427</strong></span>
                     </div>
+                </div>
+                <div class="consultant-card-email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>danntl@ideas.edu.vn</span>
                 </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_dan')">Nhận tư vấn</button>
             </article>
@@ -888,6 +919,10 @@ ob_start(function ($html) {
                     <i class="fa-solid fa-phone"></i>
                     <span>*********<strong>486</strong></span>
                 </div>
+                <div class="consultant-card-email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>nhildy@ideas.edu.vn</span>
+                </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_nhi')">Nhận tư vấn</button>
             </article>
 
@@ -901,6 +936,10 @@ ob_start(function ($html) {
                 <div class="consultant-card-phone">
                     <i class="fa-solid fa-phone"></i>
                     <span>*********<strong>935</strong></span>
+                </div>
+                <div class="consultant-card-email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>uyennp@ideas.edu.vn</span>
                 </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_uyen')">Nhận tư vấn</button>
             </article>
@@ -970,6 +1009,7 @@ ob_start(function ($html) {
                     name: "Lưu Phan Hoàng Phúc",
                     phones: ["0945767017"],
                     suffixes: ["017"],
+                    email: "phuclph@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/cphuc.webp",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 },
@@ -977,6 +1017,7 @@ ob_start(function ($html) {
                     name: "Nguyễn Thị Linh Đan",
                     phones: ["0916661953", "0393049427"],
                     suffixes: ["953", "427"],
+                    email: "danntl@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/cdan.webp",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 },
@@ -984,6 +1025,7 @@ ob_start(function ($html) {
                     name: "Lê Đinh Ý Nhi",
                     phones: ["0916580486"],
                     suffixes: ["486"],
+                    email: "nhildy@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 },
@@ -991,6 +1033,7 @@ ob_start(function ($html) {
                     name: "Nguyễn Phương Uyên",
                     phones: ["84911106935", "0911106935"],
                     suffixes: ["935"],
+                    email: "uyennp@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/uyen.webp",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 }
@@ -1074,7 +1117,11 @@ ob_start(function ($html) {
                                             <i class="fa-solid fa-phone"></i>
                                             <span>Số điện thoại: <strong>${maskedNum}</strong></span>
                                         </div>
-                                        <div>
+                                        <div class="matched-email" style="display: flex; align-items: center; gap: 6px; font-size: 0.9rem; color: #475569; margin-top: 6px;">
+                                            <i class="fa-solid fa-envelope" style="color: #ab0e00;"></i>
+                                            <span>Email: <strong>${matchedAdvisor.email}</strong></span>
+                                        </div>
+                                        <div style="margin-top: 8px;">
                                             <span class="verified-badge-pill">
                                                 <i class="fa-solid fa-shield-halved"></i>
                                                 Official Staff Verified
