@@ -31,7 +31,7 @@ new_inner_html = """
                                     </div>
                                     <div class="accred-stack-card pos-3">
                                         <img decoding="async"
-                                            src="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
+                                            src="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
                                             alt="SAC Certificate" loading="lazy">
                                     </div>
                                     <div class="accred-stack-card pos-2">
