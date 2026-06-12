@@ -858,15 +858,21 @@ ob_start(function ($html) {
             </article>
 
             <!-- Advisor 2 -->
-            <article class="consultant-card" data-suffix="953">
+            <article class="consultant-card" data-suffix="953,427">
                 <div class="consultant-avatar-wrap">
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cdan.webp" class="consultant-avatar" alt="Nguyễn Thị Linh Đan" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Nguyễn Thị Linh Đan</h3>
                 <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
-                <div class="consultant-card-phone">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>*********<strong>953</strong></span>
+                <div class="consultant-card-phone" style="display: inline-flex; flex-direction: column; gap: 6px; align-items: flex-start; padding: 10px 16px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>*********<strong>953</strong></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; border-top: 1px dashed rgba(203, 213, 225, 0.6); padding-top: 4px; width: 100%;">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>*********<strong>427</strong></span>
+                    </div>
                 </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_dan')">Nhận tư vấn</button>
             </article>
@@ -901,17 +907,17 @@ ob_start(function ($html) {
         </div>
     </section>
 
-    <!-- Payment Guidelines & Safety Section (Commented out temporarily)
+    <!-- Payment Guidelines & Safety Section -->
     <section class="payment-guidelines-section">
         <div class="guidelines-container">
             <div class="guidelines-grid">
                 <div class="guidelines-content">
                     <h3>Hướng Dẫn Đóng Phí An Toàn</h3>
-                    <p>Viện IDEAS áp dụng quy trình kiểm soát tài chính minh bạch và chặt chẽ nhằm bảo mật thông tin và bảo vệ quyền lợi hợp pháp tối đa cho học viên:</p>
+                    <p>IDEAS áp dụng quy trình kiểm soát tài chính minh bạch và chặt chẽ nhằm bảo mật thông tin và bảo vệ quyền lợi hợp pháp tối đa cho học viên:</p>
                     <ul class="guidelines-list">
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>Tất cả các tài khoản nhận đóng học phí đều phải trực thuộc pháp nhân của <strong>IDEAS</strong>.</span>
+                            <span>Tất cả các tài khoản nhận đóng học phí đều phải trực thuộc pháp nhân của <strong>Công ty Cổ phần Học viện Kinh doanh Quốc Tế IDEAS</strong>.</span>
                         </li>
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
@@ -928,29 +934,32 @@ ob_start(function ($html) {
                     <div class="bank-header">
                         <i class="fa-solid fa-building-columns bank-logo"></i>
                         <div>
-                            <div class="bank-name">Sacombank &amp; Cổng Payoo</div>
-                            <div style="font-size:0.85rem; color:#64748b; font-weight:600;">Kênh giao dịch chính thức của IDEAS</div>
+                            <div class="bank-name">HD Bank</div>
+                            <div style="font-size:0.85rem; color:#64748b; font-weight:600;">Chi nhánh Nhơn Trạch</div>
                         </div>
                     </div>
                     <div class="bank-info-item">
-                        <span class="bank-label">Tên tài khoản thụ hưởng:</span>
-                        <span class="bank-value highlight">IDEAS</span>
+                        <span class="bank-label">Chủ tài khoản:</span>
+                        <span class="bank-value" style="font-size: 0.9rem; font-weight: 700; color: #0f172a; text-align: right;">Công ty Cổ phần Học viện Kinh doanh Quốc Tế IDEAS</span>
+                    </div>
+                    <div class="bank-info-item">
+                        <span class="bank-label">Số tài khoản:</span>
+                        <span class="bank-value highlight" style="font-size: 1.2rem; letter-spacing: 0.03em;">8979798686</span>
                     </div>
                     <div class="bank-info-item" style="flex-direction: column; align-items: flex-start; gap: 4px; border-bottom: 1px solid #f1f5f9; padding: 10px 0;">
-                        <span class="bank-label">Số tài khoản &amp; Cổng thanh toán:</span>
-                        <span class="bank-value" style="text-align: left; font-size: 0.88rem; color: #475569; font-weight: 500; margin-top: 4px; line-height: 1.4;">
-                            Thông tin số tài khoản chính thức được ghi chi tiết trong <strong>Hợp đồng tư vấn học tập</strong> hoặc qua đường link thanh toán bảo mật <strong>Payoo</strong> được cung cấp trực tiếp từ email của IDEAS (<code>@ideas.edu.vn</code>).
+                        <span class="bank-label">Nội dung (Ví dụ):</span>
+                        <span class="bank-value highlight" style="text-align: left; font-size: 0.88rem; font-weight: 700; margin-top: 4px; text-transform: uppercase;">
+                            VO THI THUY TRANG thanh toan hoc phi dot 1 BBA UMEF
                         </span>
                     </div>
                     <div class="bank-info-item">
-                        <span class="bank-label">Nội dung chuyển khoản:</span>
-                        <span class="bank-value highlight">[Họ tên] - [Chương trình học] - [Số điện thoại]</span>
+                        <span class="bank-label">Học phí đợt 01:</span>
+                        <span class="bank-value" style="color: #2563eb; font-weight: 700;">775 CHF * 33.000 = 25.575.000 VND</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    -->
 
     <!-- Search Verification Script -->
     <script>
@@ -963,25 +972,29 @@ ob_start(function ($html) {
             const advisors = [
                 {
                     name: "Lưu Phan Hoàng Phúc",
-                    suffix: "017",
+                    phones: ["0945767017"],
+                    suffixes: ["017"],
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/cphuc.webp",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 },
                 {
                     name: "Nguyễn Thị Linh Đan",
-                    suffix: "953",
+                    phones: ["0916661953", "0393049427"],
+                    suffixes: ["953", "427"],
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/cdan.webp",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 },
                 {
                     name: "Lê Đinh Ý Nhi",
-                    suffix: "486",
+                    phones: ["0916580486"],
+                    suffixes: ["486"],
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 },
                 {
                     name: "Nguyễn Phương Uyên",
-                    suffix: "935",
+                    phones: ["84911106935", "0911106935"],
+                    suffixes: ["935"],
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/uyen.webp",
                     role: "Tư vấn viên tuyển sinh chính thức"
                 }
@@ -996,14 +1009,33 @@ ob_start(function ($html) {
                     return;
                 }
 
-                // Check if match any advisor suffix
+                // Check if match any advisor
                 let matchedAdvisor = null;
+                let matchedPhone = "";
+                let matchedSuffix = "";
+
                 for (let advisor of advisors) {
-                    // Match if query is the 3-digit suffix, or if the full number ends with the suffix
-                    if (query === advisor.suffix || query.endsWith(advisor.suffix)) {
+                    // Match if query is one of the suffixes
+                    if (advisor.suffixes.includes(query)) {
                         matchedAdvisor = advisor;
+                        matchedSuffix = query;
                         break;
                     }
+                    // Match if query is one of the full numbers
+                    if (advisor.phones.includes(query)) {
+                        matchedAdvisor = advisor;
+                        matchedPhone = query;
+                        break;
+                    }
+                    // Match if query ends with one of the suffixes
+                    for (let suffix of advisor.suffixes) {
+                        if (query.endsWith(suffix)) {
+                            matchedAdvisor = advisor;
+                            matchedSuffix = suffix;
+                            break;
+                        }
+                    }
+                    if (matchedAdvisor) break;
                 }
 
                 // Clean old result states
@@ -1017,7 +1049,14 @@ ob_start(function ($html) {
                         if (query.length >= 7) {
                             maskedNum = query.substring(0, 3) + '****' + query.substring(query.length - 3);
                         } else {
-                            maskedNum = '*********' + matchedAdvisor.suffix;
+                            let basePhone = matchedAdvisor.phones[0];
+                            if (matchedSuffix) {
+                                let idx = matchedAdvisor.suffixes.indexOf(matchedSuffix);
+                                if (idx !== -1 && matchedAdvisor.phones[idx]) {
+                                    basePhone = matchedAdvisor.phones[idx];
+                                }
+                            }
+                            maskedNum = basePhone.substring(0, 3) + '****' + basePhone.substring(basePhone.length - 3);
                         }
 
                         // SUCCESS MATCH
