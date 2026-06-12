@@ -13,6 +13,15 @@ Header append Vary Accept env=REDIRECT_accept
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
+# Redirect WWW to Non-WWW
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
 # Route search queries on homepage (Vietnamese & English) to WordPress index.php immediately
 RewriteCond %{THE_REQUEST} [?&]s=
 RewriteRule ^/?(en/?)?$ /index.php [L]

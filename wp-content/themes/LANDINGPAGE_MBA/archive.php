@@ -709,7 +709,7 @@ ob_start(function ($html) {
                 action="<?php echo esc_url(home_url('/index.php')); ?>">
                 <div class="search-input-wrap">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="search" class="search-input" placeholder="Tìm kiếm bài viết..." aria-label="Tìm kiếm bài viết" aria-label="Tìm kiếm bài viết"
+                    <input type="search" class="search-input" placeholder="Tìm kiếm bài viết..." aria-label="Tìm kiếm bài viết"
                         value="<?php echo get_search_query(); ?>" name="s" required />
                     <button type="submit" class="search-btn">Tìm kiếm</button>
                 </div>

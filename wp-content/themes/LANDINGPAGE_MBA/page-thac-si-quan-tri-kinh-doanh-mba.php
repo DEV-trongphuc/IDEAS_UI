@@ -762,7 +762,7 @@ ob_start(function ($html) {
             border: 1px solid rgba(15, 23, 42, 0.08);
         }
 
-        .acc-section .acc-sac-logo-text h4 {
+        .acc-section .acc-sac-logo-text .acc-sac-logo-title {
             font-size: 1rem;
             font-weight: 800;
             color: #0f172a !important;
@@ -2951,7 +2951,7 @@ ob_start(function ($html) {
                                     loading="lazy" decoding="async" />
                             </a>
                             <div class="acc-sac-logo-text">
-                                <h4><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html" target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="Xem bài viết về Kiểm định SAC">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></h4>
+                                <div class="acc-sac-logo-title"><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html" target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="Xem bài viết về Kiểm định SAC">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></div>
                                 <p>Cơ quan kiểm định liên bang Thụy Sĩ<br>Công nhận chính thức từ Hội đồng Giáo dục Thụy
                                     Sĩ
                                 </p>
