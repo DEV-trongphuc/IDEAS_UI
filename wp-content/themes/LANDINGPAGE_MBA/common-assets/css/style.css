@@ -4627,6 +4627,13 @@ button.nav-link {
   opacity: 0.5;
 }
 
+.accred-stack-card.pos-5 {
+  /* Deepest Back */
+  z-index: 0;
+  transform: translateZ(-320px) translateY(140px) rotate(32deg) translateX(60px);
+  opacity: 0.3;
+}
+
 /* Exit/Flip Animation */
 
 .accred-stack-controls {
