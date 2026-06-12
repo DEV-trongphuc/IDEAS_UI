@@ -1060,20 +1060,20 @@ const isEn = document.documentElement.lang === 'en';
         accredTitle.textContent = data.title;
         accredDesc.innerHTML = data.desc;
 
-        // Reset slide-out container and iframe
-        if (accredModalContainer) {
-            accredModalContainer.classList.remove('video-expanded');
-        }
-        if (accredVideoIframe) {
-            accredVideoIframe.src = '';
-        }
-
-        // Show/hide right-arrow trigger depending on key === 'sac'
-        if (accredSlideTrigger) {
-            if (key === 'sac') {
-                accredSlideTrigger.classList.add('active');
-            } else {
-                accredSlideTrigger.classList.remove('active');
+        // Auto-expand and load video if key is 'sac'
+        if (key === 'sac') {
+            if (accredModalContainer) {
+                accredModalContainer.classList.add('video-expanded');
+            }
+            if (accredVideoIframe) {
+                accredVideoIframe.src = 'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F963927505403412%2F&show_text=false&width=267&t=0';
+            }
+        } else {
+            if (accredModalContainer) {
+                accredModalContainer.classList.remove('video-expanded');
+            }
+            if (accredVideoIframe) {
+                accredVideoIframe.src = '';
             }
         }
 

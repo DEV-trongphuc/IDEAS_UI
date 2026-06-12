@@ -885,9 +885,6 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
     <div class="accred-modal-overlay" id="accred-modal-overlay"></div>
     <div class="accred-modal-container" data-lenis-prevent>
         <div class="accred-modal-content">
-            <button class="accred-modal-slide-trigger" id="accred-slide-trigger" aria-label="<?php echo $is_en ? 'Watch Video' : 'Xem video'; ?>">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
             <button class="accred-modal-close" id="accred-modal-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
             <div class="accred-modal-body">
                 <div class="accred-modal-info">
