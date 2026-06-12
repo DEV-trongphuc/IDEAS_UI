@@ -73,7 +73,20 @@ ob_start(function ($html) {
 
     <style>
         html, body {
-            overflow-x: clip !important;
+            overflow-x: hidden !important;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span, div, button, input {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         body {
@@ -94,18 +107,19 @@ ob_start(function ($html) {
             justify-content: center;
             text-align: center;
             border-bottom: none;
+            width: 100%;
         }
 
         .verify-hero-bg {
             position: absolute;
-            top: -150px;
-            left: -5%;
-            width: 110%;
-            height: calc(100% + 300px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
             will-change: transform;
-            transform: translate3d(0, 0, 0) scale(1.1);
+            transform: scale(1.1);
             z-index: 1;
             opacity: 0.25;
             background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');
@@ -197,6 +211,7 @@ ob_start(function ($html) {
             padding: 36px 30px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
             border: 1px solid rgba(148, 163, 184, 0.15);
+            width: 100%;
         }
 
         .search-label {
@@ -412,6 +427,7 @@ ob_start(function ($html) {
             gap: 16px;
             align-items: flex-start;
             color: #92400e;
+            width: 100%;
         }
 
         .warning-notice-bar i {
@@ -437,6 +453,7 @@ ob_start(function ($html) {
             max-width: 1400px;
             margin: 80px auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         .list-header {
@@ -611,11 +628,13 @@ ob_start(function ($html) {
             background: #ffffff;
             border-top: 1px solid rgba(148, 163, 184, 0.15);
             padding: 80px 20px;
+            width: 100%;
         }
 
         .guidelines-container {
             max-width: 1000px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .guidelines-grid {
@@ -745,63 +764,274 @@ ob_start(function ($html) {
                 min-height: auto;
             }
 
+            .verify-badge {
+                padding: 6px 16px;
+                font-size: 0.75rem;
+                margin-bottom: 16px;
+            }
+
             .verify-hero h1 {
-                font-size: 2.2rem;
-                line-height: 1.2;
+                font-size: 1.8rem !important;
+                line-height: 1.25;
+                margin-bottom: 16px;
             }
 
             .verify-hero p {
-                font-size: 1rem;
+                font-size: 0.95rem !important;
                 color: rgba(255, 255, 255, 0.9) !important;
+                line-height: 1.5;
+            }
+
+            .search-section {
+                margin-top: -30px;
+                padding: 0 16px;
             }
 
             .search-container {
-                padding: 24px 20px;
+                width: 100%;
+                padding: 24px 16px;
                 border-radius: 20px;
             }
 
-            .search-input-wrap {
-                flex-direction: column;
-                gap: 12px;
+            .search-label {
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
+
+            .search-input-field {
+                padding: 14px 16px 14px 44px;
+                font-size: 0.95rem;
+                border-radius: 12px;
+            }
+
+            .search-icon-decor {
+                left: 16px;
+                font-size: 1.1rem;
             }
 
             .btn-search-verify {
                 width: 100%;
                 justify-content: center;
+                padding: 14px 24px;
+                font-size: 0.95rem;
+                border-radius: 12px;
             }
 
             .matched-consultant-card {
                 flex-direction: column;
                 text-align: center;
-                padding: 24px;
+                padding: 20px;
+                gap: 16px;
             }
 
             .matched-info {
                 text-align: center;
+                width: 100%;
+            }
+
+            .matched-email {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 4px !important;
+                text-align: center !important;
             }
 
             .warning-notice-bar {
                 flex-direction: column;
                 gap: 10px;
+                padding: 20px 16px;
+                margin: 30px auto 0;
+                border-radius: 16px;
+                width: 100%;
+            }
+
+            .warning-notice-bar i {
+                font-size: 1.4rem;
+            }
+
+            .warning-notice-bar h4 {
+                font-size: 1rem;
+                margin-bottom: 4px;
+            }
+
+            .warning-notice-bar p {
+                font-size: 0.88rem;
+                line-height: 1.5;
             }
 
             .list-section {
                 margin: 50px auto;
+                padding: 0 16px;
             }
 
             .list-header {
                 margin-bottom: 30px;
             }
 
+            .list-header h2 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+
+            .list-header p {
+                font-size: 0.95rem;
+            }
+
             .consultants-grid {
                 grid-template-columns: 1fr;
-                max-width: 440px;
+                max-width: 400px;
                 margin-left: auto;
                 margin-right: auto;
+                width: 100%;
+                gap: 20px;
+            }
+
+            .consultant-card {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .consultant-avatar-wrap {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 16px;
+            }
+
+            .consultant-card-name {
+                font-size: 1.2rem;
+            }
+
+            .consultant-card-role {
+                margin-bottom: 12px;
+            }
+
+            .btn-card-action {
+                max-width: 100%;
             }
 
             .payment-guidelines-section {
-                padding: 50px 20px;
+                padding: 50px 16px;
+            }
+
+            .guidelines-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 12px;
+            }
+
+            .guidelines-content p {
+                font-size: 0.95rem;
+                margin-bottom: 16px;
+            }
+
+            .guidelines-list li {
+                font-size: 0.9rem;
+            }
+
+            .bank-details-card {
+                padding: 24px 20px;
+                border-radius: 20px;
+            }
+
+            .bank-info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                padding: 8px 0;
+            }
+
+            .bank-value {
+                text-align: left !important;
+                width: 100%;
+            }
+
+            .bank-value.highlight {
+                font-size: 1.15rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .verify-hero {
+                padding: 110px 16px 40px !important;
+            }
+
+            .verify-hero h1 {
+                font-size: 1.6rem !important;
+            }
+
+            .verify-hero p {
+                font-size: 0.88rem !important;
+            }
+
+            .search-section {
+                margin-top: -20px;
+                padding: 0 12px;
+            }
+
+            .search-container {
+                padding: 20px 14px;
+                border-radius: 16px;
+            }
+
+            .search-input-field {
+                padding: 12px 14px 12px 38px;
+                font-size: 0.9rem;
+            }
+
+            .search-icon-decor {
+                left: 14px;
+                font-size: 1rem;
+            }
+
+            .btn-search-verify {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .warning-notice-bar {
+                padding: 16px 14px;
+                border-radius: 14px;
+                margin-top: 20px;
+            }
+
+            .list-section {
+                padding: 0 12px;
+                margin: 40px auto;
+            }
+
+            .list-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .list-header p {
+                font-size: 0.88rem;
+            }
+
+            .consultants-grid {
+                max-width: 100%;
+                gap: 16px;
+            }
+
+            .consultant-card {
+                padding: 24px 16px;
+                border-radius: 16px;
+            }
+
+            .payment-guidelines-section {
+                padding: 40px 12px;
+            }
+
+            .guidelines-content h3 {
+                font-size: 1.35rem;
+            }
+
+            .guidelines-content p {
+                font-size: 0.88rem;
+            }
+
+            .bank-details-card {
+                padding: 16px;
+                border-radius: 16px;
             }
         }
     </style>
