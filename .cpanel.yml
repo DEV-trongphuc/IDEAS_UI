@@ -4,8 +4,9 @@ deployment:
     - export DEPLOYPATH=$HOME/ideas.edu.vn
     - mkdir -p $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     - mkdir -p $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
-    # Deploy .htaccess
+    # Deploy .htaccess and root scripts
     - cp .htaccess $DEPLOYPATH/.htaccess
+    - cp create-pages.php $DEPLOYPATH/create-pages.php
     # Deploy landing pages
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)
