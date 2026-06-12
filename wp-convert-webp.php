@@ -296,32 +296,36 @@ if (isset($_GET['action'])) {
             ARRAY_A
         );
         
-        // 2. Get all published posts/pages content
+        // 2. Get all posts content (any status, any type - including drafts and custom post types)
         $posts_content = $wpdb->get_col(
-            "SELECT post_content FROM {$wpdb->posts} WHERE post_status = 'publish' AND post_type IN ('post', 'page', 'product')"
+            "SELECT post_content FROM {$wpdb->posts}"
         );
-        $all_post_contents = implode(' ', $posts_content);
         
-        // 3. Get all featured images meta
-        $featured_img_ids = $wpdb->get_col(
-            "SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key = '_thumbnail_id'"
+        // 3. Get all metadata containing uploads references or numbers (for custom fields, galleries, page builders)
+        $meta_values = $wpdb->get_col(
+            "SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_value LIKE '%wp-content/uploads/%' OR meta_key = '_thumbnail_id' OR meta_value REGEXP '^[0-9]+$'"
         );
-        $featured_img_ids = array_map('intval', $featured_img_ids);
+        
+        // 4. Get all options containing uploads references (for theme options, widgets)
+        $option_values = $wpdb->get_col(
+            "SELECT option_value FROM {$wpdb->options} WHERE option_value LIKE '%wp-content/uploads/%' OR option_value LIKE '%ideas.edu.vn%'"
+        );
+        
+        // Combine all references into one search text
+        $all_references_text = implode(' ', $posts_content) . ' ' . implode(' ', $meta_values) . ' ' . implode(' ', $option_values);
         
         $unused = [];
         foreach ($attachments as $att) {
             $id = intval($att['ID']);
-            
-            // Check if it is featured image
-            if (in_array($id, $featured_img_ids)) {
-                continue;
-            }
-            
-            // Extract basename
             $filename = basename($att['guid']);
             
-            // Search filename in post contents
-            if (strpos($all_post_contents, $filename) === false) {
+            // Safeguard: Check if filename, URL, or raw attachment ID is referenced in posts, options or postmeta
+            $is_used = (strpos($all_references_text, $filename) !== false) || 
+                        (strpos($all_references_text, '"' . $id . '"') !== false) ||
+                        (strpos($all_references_text, ':' . $id . ';') !== false) ||
+                        (strpos($all_references_text, '>' . $id . '<') !== false);
+            
+            if (!$is_used) {
                 // Get local file path
                 $attached_file = get_post_meta($id, '_wp_attached_file', true);
                 $full_filepath = WP_CONTENT_DIR . '/uploads/' . $attached_file;
