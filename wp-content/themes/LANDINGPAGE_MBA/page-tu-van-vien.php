@@ -161,7 +161,7 @@ ob_start(function ($html) {
             line-height: 1.15;
             color: #ffffff !important;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            white-space: nowrap;
+            white-space: normal;
         }
 
         .verify-hero h1 span {
