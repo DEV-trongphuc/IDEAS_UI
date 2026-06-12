@@ -890,7 +890,7 @@ ob_start(function ($html) {
         </div>
     </section>
 
-    <!-- Payment Guidelines & Safety Section -->
+    <!-- Payment Guidelines & Safety Section (Commented out temporarily)
     <section class="payment-guidelines-section">
         <div class="guidelines-container">
             <div class="guidelines-grid">
@@ -939,6 +939,7 @@ ob_start(function ($html) {
             </div>
         </div>
     </section>
+    -->
 
     <!-- Search Verification Script -->
     <script>
