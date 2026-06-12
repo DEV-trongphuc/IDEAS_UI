@@ -20,59 +20,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 <html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-QKV7LKNLLH');
-        gtag('config', 'AW-11205917800');
-    </script>
+    <?php get_template_part('shared-head'); ?>
 
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Preconnect to external domains for faster resource loading -->
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-
-    <!-- Preload LCP background image -->
+    <!-- Preconnect to external domains for faster resource loading --><!-- Preload LCP background image -->
     <link rel="preload" fetchpriority="high" as="image"
-        href="https://ideas.edu.vn/wp-content/uploads/2025/11/ltnumef10202501.webp" />
-    <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
-
-    <!-- Google Fonts & FontAwesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" / media="print" onload="this.media='all'">
-
-    <!-- Link the main minified style.css -->
-    <?php
-    $css_path = get_stylesheet_directory() . '/common-assets/css/style.min.css';
-    $css_version = file_exists($css_path) ? filemtime($css_path) : time();
-    ?>
-    <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/style.min.css?v=<?php echo $css_version; ?>" />
-
-    <!-- Booking Modal stylesheet -->
+        href="https://ideas.edu.vn/wp-content/uploads/2025/11/ltnumef10202501.webp" /><!-- Booking Modal stylesheet -->
     <?php
     define('BOOKING_MODAL_CSS_LOADED', true);
     $bk_css_path = get_stylesheet_directory() . '/common-assets/css/booking-modal.min.css';
     $bk_css_version = file_exists($bk_css_path) ? filemtime($bk_css_path) : time();
     ?>
     <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" />
-
-    <link rel="preconnect" href="https://automation.ideas.edu.vn" />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2"
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" /><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2"
         as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2"
         as="font" type="font/woff2" crossorigin />

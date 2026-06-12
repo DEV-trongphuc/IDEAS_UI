@@ -31,45 +31,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 <!DOCTYPE html>
 <html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 <head>
-    <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-QKV7LKNLLH');
-        gtag('config', 'AW-11205917800');
-    </script>
+    <?php get_template_part('shared-head'); ?>
 
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Preconnect to external domains for faster resource loading -->
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
+    <!-- Preconnect to external domains for faster resource loading --><?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
 <title><?php echo $is_en ? '404 - Page Not Found | ' . get_bloginfo('name') : '404 - Không tìm thấy trang | ' . get_bloginfo('name'); ?></title>
-<?php endif; ?>
-    
-    <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
-
-    <!-- Google Fonts & FontAwesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" / media="print" onload="this.media='all'">
-    
-    <!-- Link the main minified style.css -->
-    <?php 
-    $css_path = get_stylesheet_directory() . '/common-assets/css/style.min.css';
-    $css_version = file_exists($css_path) ? filemtime($css_path) : time();
-    ?>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/style.min.css?v=<?php echo $css_version; ?>" />
-    
-    <style>
+<?php endif; ?><style>
         /* Prevent overflow-x from breaking sticky elements */
         html, body {
             overflow-x: clip !important;

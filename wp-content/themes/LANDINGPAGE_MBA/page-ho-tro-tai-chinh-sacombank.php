@@ -20,26 +20,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 <html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-QKV7LKNLLH');
-        gtag('config', 'AW-11205917800');
-    </script>
+    <?php get_template_part('shared-head'); ?>
 
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Preconnect to external domains for faster resource loading -->
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-    <!-- Preload LCP hero background image -->
+    <!-- Preconnect to external domains for faster resource loading --><!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2026/04/recap_growverth.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
@@ -49,34 +32,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
             content="<?php echo $is_en ? 'Sacombank Financial Support program linked with IDEAS. 0% interest rate tuition fee installment from 12 to 24 months for MBA program.' : 'Chương trình hỗ trợ tài chính liên kết giữa IDEAS và Sacombank. Trả góp học phí lãi suất 0% từ 12 - 24 tháng cho chương trình MBA.'; ?>" />
-    <?php endif; ?>
-    <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
-
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+    <?php endif; ?><?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
         <meta property="og:title" content="<?php echo $is_en ? 'Sacombank Financial Support – 0% Tuition Installment' : 'Hỗ Trợ Tài Chính Sacombank – Trả Góp Học Phí 0%'; ?>" />
         <meta property="og:description"
             content="<?php echo $is_en ? 'Accompanying students on their academic path. Financial support for flexible and worry-free MBA tuition payment.' : 'Đồng hành cùng học viên vững bước học thuật. Hỗ trợ tài chính trước để thanh toán học phí MBA linh hoạt và an tâm.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2024/09/tra_gop_scb.png" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
-    <?php endif; ?>
-    <!-- Google Fonts & FontAwesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" / media="print" onload="this.media='all'">
-
-    <!-- Main minified stylesheet -->
-    <?php
-    $css_path = get_stylesheet_directory() . '/common-assets/css/style.min.css';
-    $css_version = file_exists($css_path) ? filemtime($css_path) : time();
-    ?>
-    <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/style.min.css?v=<?php echo $css_version; ?>" />
-
-    <!-- Booking Modal stylesheet -->
+    <?php endif; ?><!-- Booking Modal stylesheet -->
     <?php
     define('BOOKING_MODAL_CSS_LOADED', true);
     $bk_css_path = get_stylesheet_directory() . '/common-assets/css/booking-modal.min.css';
