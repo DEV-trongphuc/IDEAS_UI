@@ -5235,6 +5235,8 @@ function ideas_customize_rank_math_schema($data, $jsonld) {
                         
                         if (strpos($page_slug, 'thac-si-quan-tri-kinh-doanh-mba') !== false) {
                             $new_name = 'Online MBA';
+                        } elseif (strpos($page_slug, 'chuong-trinh-online-mba') !== false) {
+                            $new_name = 'Chương trình MBA';
                         } elseif (strpos($page_slug, 'swiss-umef') !== false) {
                             $new_name = 'Swiss UMEF';
                         } elseif (strpos($page_slug, 'doi-ngu-giang-vien') !== false) {
