@@ -449,7 +449,7 @@ $reels = [
                     if (loading) loading.style.display = 'block';
 
                     var iframe = document.createElement('iframe');
-                    iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500&autoplay=true';
+                    iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500&autoplay=true&show_captions=true';
                     iframe.style.width = '100%';
                     iframe.style.height = '100%';
                     iframe.style.border = 'none';

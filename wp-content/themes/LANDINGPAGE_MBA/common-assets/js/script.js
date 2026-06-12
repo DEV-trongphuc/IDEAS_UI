@@ -1433,6 +1433,7 @@ const isEn = document.documentElement.lang === 'en';
 
     /* ─── Back to Top Button ─── */
     function initBackToTop() {
+        if (document.querySelector('.reel-app-frame')) return;
         if (document.querySelector('.back-to-top-floating')) return;
 
         // Force hide any static back-to-top buttons in footer to prevent duplicates when JS is loaded
