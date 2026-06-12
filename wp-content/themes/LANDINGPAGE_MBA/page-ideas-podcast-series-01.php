@@ -660,7 +660,7 @@ ob_start(function ($html) {
                 <div class="coop-grid">
                     <a class="coop-card" href="https://chiefaiofficer.vn/" target="_blank"
                         rel="nofollow noopener noreferrer">
-                        <img decoding="async" src="https://chiefaiofficer.vn/wp-content/uploads/2025/05/cao-logo-1.png"
+                        <img decoding="async" src="/wp-content/uploads/external-migrated/cao-logo-1_4e7ed2a0.webp"
                             alt="Chief AI Officer Logo" />
                     </a>
                     <a class="coop-card" href="https://ideas.edu.vn/" target="_blank"

@@ -2853,7 +2853,7 @@ function ideas_admin_sidebar_profile_script()
     $logo_html = '<div class="ideas-sidebar-logo">';
     $logo_html .= '  <a href="' . esc_url(admin_url()) . '" class="ideas-header-link">';
     $logo_html .= '    <div class="ideas-header-avatar">';
-    $logo_html .= '      <img src="https://ideas-data.vercel.app/imgs/angry_icon.jpg" alt="IDEAS Icon" />';
+    $logo_html .= '      <img src="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" alt="IDEAS Icon" />';
     $logo_html .= '    </div>';
     $logo_html .= '    <div class="ideas-header-text">';
     $logo_html .= '      <div class="ideas-header-title">IDEAS WP</div>';
@@ -2887,7 +2887,7 @@ add_filter('update_footer', 'ideas_customize_admin_footer_right', 11);
 function ideas_customize_admin_footer_right($content)
 {
     $wp_version = get_bloginfo('version');
-    $avatar_url = 'https://open.domation.net/sale_data/uploads/avatars/avatar_6a13f99900ad7.jpg';
+    $avatar_url = '/wp-content/uploads/external-migrated/avatar_6a13f99900ad7_80b7cfd7.webp';
     $fb_link = 'https://fb.com/turni0';
 
     $html = '<div style="display: inline-flex; align-items: center; gap: 8px; font-family: \'Plus Jakarta Sans\', sans-serif; font-size: 11px; color: #64748b; font-weight: 500; vertical-align: middle;">';
@@ -4451,11 +4451,11 @@ function ideas_custom_user_avatars($args, $id_or_email)
     if (!empty($email)) {
         $email = strtolower(trim($email));
         if ($email === 'duongtnt@ideas.edu.vn') {
-            $args['url'] = 'https://open.domation.net/sale_data/uploads/avatars/avatar_6a1e83d9b4447.jpg';
+            $args['url'] = '/wp-content/uploads/external-migrated/avatar_6a1e83d9b4447_8ee10547.webp';
         } elseif ($email === 'ngantk@ideas.edu.vn') {
-            $args['url'] = 'https://open.domation.net/sale_data/uploads/avatars/avatar_6a1e83deeebac.jpg';
+            $args['url'] = '/wp-content/uploads/external-migrated/avatar_6a1e83deeebac_7caf9784.webp';
         } elseif ($email === 'uyenntk@ibm.edu.vn' || $email === 'uyenntk') {
-            $args['url'] = 'https://open.domation.net/sale_data/uploads/avatars/avatar_6a13f99900ad7.jpg';
+            $args['url'] = '/wp-content/uploads/external-migrated/avatar_6a13f99900ad7_80b7cfd7.webp';
         }
     }
 

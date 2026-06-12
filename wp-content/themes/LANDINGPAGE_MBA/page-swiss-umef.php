@@ -40,7 +40,7 @@ ob_start(function ($html) {
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image"
-        href="https://static.wixstatic.com/media/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg/v1/fill/w_1470,h_647,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg" />
+        href="/wp-content/uploads/external-migrated/fc7eeb_82548a7721e6472b9c5f4813e39e94b9_mv2_ea5d6ab4.webp" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS</title>
@@ -51,7 +51,7 @@ ob_start(function ($html) {
         <meta property="og:description"
             content="Trải nghiệm giáo dục tinh hoa Thụy Sĩ với bằng cấp quốc tế danh giá, được kiểm định bởi SAC, ACBSP, EduQua." />
         <meta property="og:image"
-            content="https://static.wixstatic.com/media/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg/v1/fill/w_1470,h_647,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg" />
+            content="/wp-content/uploads/external-migrated/fc7eeb_82548a7721e6472b9c5f4813e39e94b9_mv2_ea5d6ab4.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
 
@@ -137,7 +137,7 @@ ob_start(function ($html) {
             position: absolute;
             inset: 0;
             z-index: 1;
-            background-image: url('https://static.wixstatic.com/media/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg/v1/fill/w_1470,h_647,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg');
+            background-image: url('/wp-content/uploads/external-migrated/fc7eeb_82548a7721e6472b9c5f4813e39e94b9_mv2_ea5d6ab4.webp');
             background-size: cover;
             background-position: center 60%;
             opacity: 0.38;
@@ -2148,7 +2148,7 @@ ob_start(function ($html) {
         <div class="umef-hero-container">
             <div class="umef-hero-logo-wrap">
                 <a href="https://www.swiss-umef.ch/" target="_blank" rel="noopener" class="umef-hero-logo-link">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShSoIjIIW_XlfCq3nbCxt--s3zt2lxrO74_A&s"
+                    <img src="/wp-content/uploads/external-migrated/images_b4d597a4.webp"
                         alt="Swiss UMEF Logo" class="umef-hero-circle-logo" fetchpriority="high" decoding="async" />
                 </a>
             </div>

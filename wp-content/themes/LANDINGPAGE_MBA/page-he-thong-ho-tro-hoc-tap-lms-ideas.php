@@ -990,7 +990,7 @@ ob_start(function ($html) {
                     <div class="eco-card-v2-icon eco-card-v2-icon--logo"
                         style="--icon-clr:#ef4444;--icon-bg:rgba(255,255,255,0.95)">
                         <img decoding="async"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Moodle-logo.svg/1280px-Moodle-logo.svg.png"
+                            src="/wp-content/uploads/external-migrated/1280px-Moodle-logo_svg_005cb3ce.webp"
                             alt="Moodle logo" style="width:68px;height:auto;object-fit:contain;" loading="lazy" />
                     </div>
                     <div class="eco-card-v2-body">
@@ -1019,7 +1019,7 @@ ob_start(function ($html) {
                     <div class="eco-card-v2-icon eco-card-v2-icon--logo"
                         style="--icon-clr:#34d399;--icon-bg:rgba(255,255,255,0.95)">
                         <img decoding="async"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Cengage-logo.svg/1280px-Cengage-logo.svg.png"
+                            src="/wp-content/uploads/external-migrated/1280px-Cengage-logo_svg_8308995d.webp"
                             alt="Cengage logo" style="width:68px;height:auto;object-fit:contain;" loading="lazy" />
                     </div>
                     <div class="eco-card-v2-body">

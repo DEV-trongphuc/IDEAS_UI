@@ -1019,7 +1019,7 @@ ob_start(function ($html) {
             <div class="scb-container-width">
                 <div class="scb-benefits-split">
                     <div class="scb-benefits-visual">
-                        <img src="https://www.sacombank.com.vn/content/dam/sacombank/images/homepage-dn---the-dn/Homepage%20DN_Sp%20noi%20bat_New_13.04.png"
+                        <img src="/wp-content/uploads/external-migrated/Homepage_20DN_Sp_20noi_20bat_New_13_04_469353da.webp"
                             alt="Thẻ tín dụng doanh nghiệp cá nhân Sacombank" />
                     </div>
                     <div class="scb-benefits-content">
@@ -1134,7 +1134,7 @@ ob_start(function ($html) {
                     <div class="scb-card-item">
                         <div class="scb-card-header">
                             <div class="scb-card-img-box">
-                                <img src="https://www.sacombank.com.vn/content/dam/sacombank/images/the-new/the-tin-dung/Visa%20Credit%20Plantinum%20Cashback_contactless-01.png"
+                                <img src="/wp-content/uploads/external-migrated/Visa_20Credit_20Plantinum_20Cashback_contactless-01_8ced97f8.webp"
                                     alt="Sacombank Visa Platinum Cashback" />
                             </div>
                             <div class="scb-card-title-wrap">
@@ -1189,7 +1189,7 @@ ob_start(function ($html) {
                     <div class="scb-card-item">
                         <div class="scb-card-header">
                             <div class="scb-card-img-box">
-                                <img src="https://www.sacombank.com.vn/content/dam/sacombank/images/the-new/the-tin-dung/Visa%20Credit%20Signature_contactless-01.png"
+                                <img src="/wp-content/uploads/external-migrated/Visa_20Credit_20Signature_contactless-01_bf260dc0.webp"
                                     alt="Sacombank Visa Signature" />
                             </div>
                             <div class="scb-card-title-wrap">

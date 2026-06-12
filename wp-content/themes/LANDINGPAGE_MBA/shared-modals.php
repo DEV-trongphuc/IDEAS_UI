@@ -166,7 +166,7 @@ if (is_page('so-do-to-chuc')) {
                         <a href="https://zalo.me/3857867121882640296" target="_blank" class="modal-zalo-btn"
                             aria-label="Chat Zalo với IDEAS">
                             <img decoding="async"
-                                src="https://cdn-1.webcatalog.io/catalog/zalo-oa/zalo-oa-icon-unplated.png?v=1780553812775"
+                                src="/wp-content/uploads/external-migrated/zalo-oa-icon-unplated_82aad094.webp"
                                 alt="Zalo Logo IDEAS" width="20" height="20" loading="lazy">
                             <span>Chat Zalo với IDEAS</span>
                         </a>

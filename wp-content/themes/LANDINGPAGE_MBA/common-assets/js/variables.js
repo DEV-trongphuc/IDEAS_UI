@@ -1089,12 +1089,12 @@ const IDEAS_DATA = {
             link_iframe:
                 "https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp",
             listImgs: [
-                "https://i.ytimg.com/vi/2FtdKP2bf00/maxresdefault.jpg",
+                "/wp-content/uploads/external-migrated/maxresdefault_da8b7d95.webp",
                 "https://ideas.edu.vn/wp-content/uploads/2025/03/ShareImage-1.jpg",
-                "https://i.ytimg.com/vi/vJNu-g2vBg4/maxresdefault.jpg",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5c9vyalfHcxNNvOrudO4IQ9qGHz8PC0GhVw&s",
-                "https://i.ytimg.com/vi/hOC3ISbaQdQ/maxresdefault.jpg",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCqFyt8JNQRbNF3Ut_mX_AVxvNgcviFQyxsQ&s",
+                "/wp-content/uploads/external-migrated/maxresdefault_46db1d97.webp",
+                "/wp-content/uploads/external-migrated/images_5f697f7c.webp",
+                "/wp-content/uploads/external-migrated/maxresdefault_73e8f548.webp",
+                "/wp-content/uploads/external-migrated/images_22c5eeb5.webp",
             ],
             level: "DBA",
             avatar: "https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp",
@@ -1694,7 +1694,7 @@ const IDEAS_DATA = {
             link: "https://www.swiss-umef.ch/en",
             logo: "https://ideas.edu.vn/wp-content/uploads/2025/07/2-MBA-European-Online-Ranking-1.webp",
             small_logo:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShSoIjIIW_XlfCq3nbCxt--s3zt2lxrO74_A&amp;s",
+                "/wp-content/uploads/external-migrated/images_4a679724.webp",
         },
         "Ascencia Business School": {
             link: "https://www.ascencia-business-school.com/en/",
@@ -1704,7 +1704,7 @@ const IDEAS_DATA = {
         },
         "College de Paris": {
             link: "https://www.collegedeparis.fr/",
-            logo: "https://www.collegedeparis.fr/wp-content/uploads/2021/06/cdp-formation-continue.png",
+            logo: "/wp-content/uploads/external-migrated/cdp-formation-continue_f4be5cc5.webp",
             small_logo:
                 "https://ideas.edu.vn/wp-content/uploads/2026/06/Ascencia-Favicon.png",
         },

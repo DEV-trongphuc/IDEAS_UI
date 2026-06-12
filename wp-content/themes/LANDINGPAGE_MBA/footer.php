@@ -23,7 +23,7 @@ define('IDEAS_FOOTER_RENDERED', true);
             <div class="ideas_follow_new">
                 <a target="_blank" href="https://zalo.me/3857867121882640296" class="social-icon zalo"
                     rel="nofollow noopener noreferrer" title="Zalo" aria-label="Zalo IDEAS">
-                    <img loading="lazy" src="https://hidosport.vn/wp-content/uploads/2023/09/zalo-icon.png" alt="Zalo" width="32" height="32" decoding="async" />
+                    <img loading="lazy" src="/wp-content/uploads/external-migrated/zalo-icon_3f4c0a22.webp" alt="Zalo" width="32" height="32" decoding="async" />
                 </a>
                 <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" class="social-icon facebook"
                     rel="nofollow noopener noreferrer" title="Facebook" aria-label="Facebook IDEAS">
@@ -104,7 +104,7 @@ define('IDEAS_FOOTER_RENDERED', true);
             <a href="https://www.dmca.com/Protection/Status.aspx?ID=dc41cd4b-8163-4a8c-aee1-e3b1b7ad5643&refurl=https://ideas.edu.vn/"
                 title="DMCA.com Protection Status" class="dmca-badge-new" rel="nofollow noopener noreferrer">
                 <img loading="lazy"
-                    src="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=dc41cd4b-8163-4a8c-aee1-e3b1b7ad5643"
+                    src="/wp-content/uploads/external-migrated/dmca_protected_sml_120n_681b96ce.webp"
                     alt="DMCA.com Protection Status" decoding="async" />
             </a>
         </div>

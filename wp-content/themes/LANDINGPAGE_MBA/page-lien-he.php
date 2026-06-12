@@ -712,7 +712,7 @@ ob_start(function ($html) {
                             <p style="font-size:0.82rem; color:#4b5563; margin: 0 0 16px; line-height: 1.5;">Nếu cần trao đổi ngay, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video.</p>
                             <div class="contact-action-row">
                                 <a href="https://zalo.me/3857867121882640296" target="_blank" class="contact-zalo-btn" rel="nofollow noopener noreferrer">
-                                    <img src="https://cdn-1.webcatalog.io/catalog/zalo-oa/zalo-oa-icon-unplated.png?v=1780553812775" alt="Zalo Logo" loading="lazy">
+                                    <img src="/wp-content/uploads/external-migrated/zalo-oa-icon-unplated_82aad094.webp" alt="Zalo Logo" loading="lazy">
                                     <span>Chat Zalo</span>
                                 </a>
                                 <button type="button" class="contact-booking-btn bk-open-btn">

@@ -500,7 +500,7 @@ ob_start(function ($html) {
                         <li><i class="fa-solid fa-check"></i> Mở rộng hợp tác đào tạo quốc tế</li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="https://static.ybox.vn/2015/12/IBM.png" alt="Viện IBM" />
+                        <img class="wlogo" src="/wp-content/uploads/external-migrated/IBM_da6cdc09.webp" alt="Viện IBM" />
                     </div>
                 </div>
             </div>
@@ -520,7 +520,7 @@ ob_start(function ($html) {
                         </li>
                     </ul>
                     <div class="timeline-images">
-                        <img src="https://images2.thanhnien.vn/528068263637045248/2023/4/19/hinh-1-1681901533615728171371.jpg"
+                        <img src="/wp-content/uploads/external-migrated/hinh-1-1681901533615728171371_f7674a7c.webp"
                             alt="Hợp tác UBIS" />
                     </div>
                 </div>
@@ -618,7 +618,7 @@ ob_start(function ($html) {
                             src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.png"
                             alt="Ascencia BS" />
                         <img class="wlogo"
-                            src="https://www.collegedeparis.fr/wp-content/uploads/2021/06/cdp-formation-continue.png"
+                            src="/wp-content/uploads/external-migrated/cdp-formation-continue_f4be5cc5.webp"
                             alt="College de Paris" />
                     </div>
                     <div class="timeline-images" style="margin-top: 15px;">

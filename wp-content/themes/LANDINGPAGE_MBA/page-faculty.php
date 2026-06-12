@@ -1173,7 +1173,7 @@ ob_start(function ($html) {
                 },
                 {
                     name: "Viola Krebs",
-                    avatar: "https://static.wixstatic.com/media/ad92c7_b5271804f0454b11a7c7a08850a42adc~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                    avatar: "/wp-content/uploads/external-migrated/Image-empty-state_671165e0.webp",
                     tag: "PhD in Sciences of Information and Communications – University of Strasbourg",
                     job: "Professor and lecturer in Technology",
                     linkedin: "https://www.linkedin.com/in/violakrebs/",
@@ -1186,7 +1186,7 @@ ob_start(function ($html) {
                 },
                 {
                     name: "Dr. Khang Ngoc TRAN",
-                    avatar: "https://static.wixstatic.com/media/fc7eeb_78c808fa9f0e4105bc10d97b1e056067~mv2.png/v1/crop/x_0,y_13,w_670,h_670/fill/w_394,h_394,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Khang.png",
+                    avatar: "/wp-content/uploads/external-migrated/Khang_129ea841.webp",
                     tag: "DBA at Cambridge Corporate University",
                     job: "Business Development Director for Asia Pacific Region",
                     linkedin: "https://www.linkedin.com/in/dr-khang-tran-23b0a315/",
@@ -1328,7 +1328,7 @@ ob_start(function ($html) {
             umef: [
                 {
                                 "name": "Alex Jalalian",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_4bd81366ef9e4a5b8909bb938930c890~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_2bf24294.webp",
                                 "tag": "Docteur en Sciences de Gestion",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/alex-jalalian",
@@ -1345,7 +1345,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Alexandra B Schlesinger",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_aaa7d4acf4d54fc19ef9e07ce29cc4dd~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_7b903668.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/alexandra-b-schlesinger",
@@ -1364,7 +1364,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Alexandre Melnik",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_d64d46f77ccd483db8cf7e72408aed6a~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_a52df80a.webp",
                                 "tag": "Visiting Faculty",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/alexandre-melnik",
@@ -1377,7 +1377,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Ann-Katrin Voit",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_8974174218274e71b709d7a3f4bb3741~mv2.png/v1/fill/w_277,h_277,al_c,lg_1,q_85,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_a9bda193.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/ann-katrin-voit",
@@ -1392,7 +1392,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Arnaud Vallin",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_ba70a1ab87924032bd0e58a8295ddd4f~mv2.jpg/v1/fill/w_277,h_277,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_3488555b.webp",
                                 "tag": "Docteur en Sociologie",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/arnaud-vallin",
@@ -1414,7 +1414,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Bruce Hearn",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_e6efaded006e4b36ad6aef95b89aa0f1~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_ee741a87.webp",
                                 "tag": "Il a occupé des postes à responsabilité",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/bruce-hearn",
@@ -1429,7 +1429,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Carole Abi Saad Haddad",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_c52bdabffdd14ae7bc168f553201f109~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_21cb510c.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/carole-abi-saad-haddad",
@@ -1446,7 +1446,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Catherine Maia",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_fae003c7d8e34f26aa1273d32db2aa35~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_ba8debee.webp",
                                 "tag": "Docteur en Sciences de gestion",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/catherine-maia",
@@ -1457,7 +1457,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Charrez Eleonore",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_e7f131712c8841e4978cc0d4ae2867eb~mv2.jpeg/v1/fill/w_140,h_140,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_fc3fbd1d.webp",
                                 "tag": "Master",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/charrez-eleonore",
@@ -1468,7 +1468,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Christophe Boya Musitelli",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_c186e8c564d948419edf1f44bf7e1af8~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_56a39a2f.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/christophe-boya-musitelli",
@@ -1481,7 +1481,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Dalith Steiger-Gablinger",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_70ce0e76572d4c14b4f49bac7e3f7363~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_0a415a33.webp",
                                 "tag": "Visiting Faculty",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/dalith-steiger-gablinger",
@@ -1498,7 +1498,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Daniel Herren",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_53d9da02237a41a6a7bcda785a3a43e7~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_8fbfefbd.webp",
                                 "tag": "Maîtrise fédérale en comptabilité",
                                 "job": "Faculty member and accountant",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/daniel-herren",
@@ -1517,7 +1517,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Dimitrios Koukourdinos",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_44ac94b2bae14b3bb192c1058b75c823~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_d6068063.webp",
                                 "tag": "Head of Student Affairs",
                                 "job": "Head of Student Affairs",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/dimitrios-koukourdinos",
@@ -1540,7 +1540,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Djawed Sangdel",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_74f9bbecaa2742c39ee1c9bc6c6123f6~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_f3d7955b.webp",
                                 "tag": "Managing Director",
                                 "job": "Managing Director",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/djawed-sangdel",
@@ -1557,7 +1557,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Dmytro Kylymnyuk",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_2fd7d447487a4d83b3f6a70d310611db~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_f986e288.webp",
                                 "tag": "Post-doctoral en Economie",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/dmytro-kylymnyuk",
@@ -1572,7 +1572,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Edlira Martiri",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_52c79b5d17a64781a30602d9bdba07a1~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_78865726.webp",
                                 "tag": "Visiting Faculty",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/edlira-martiri",
@@ -1587,7 +1587,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Elangy Ituku Botoy",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_4ae01991a94747d3a7011f0fbdcbd59c~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_529e3959.webp",
                                 "tag": "Docteur en droit",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/elangy-ituku-botoy",
@@ -1608,7 +1608,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Eric Serra",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_cabd09fe835141e38209ca1840ced0b5~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_fc11acea.webp",
                                 "tag": "Master en Gestion Internationale",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/eric-serra",
@@ -1625,7 +1625,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Eskil Ullberg",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_abbdff5d42514b11b1289b1df4538dee~mv2.png/v1/fill/w_210,h_210,al_c,lg_1,q_85,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_663c6ccf.webp",
                                 "tag": "Post-doctoral en économie expérimentale",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/eskil-ullberg",
@@ -1648,7 +1648,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Gervais Rufyikiri",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_1ecec3661f2b434c8c7458dd85c0e229~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_1572bec9.webp",
                                 "tag": "Docteur en Sciences de gestion",
                                 "job": "Adjunct faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/gervais-rufyikiri",
@@ -1659,7 +1659,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Gilles-Emmanuel Jacquet",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_65e3835244494168b426f51a93fc5031~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_d9213134.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/gilles-emmanuel-jacquet",
@@ -1682,7 +1682,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Gregory Mugnier",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_511d72f3017f4d92925ad7a2525b7fee~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_9aeb9be7.webp",
                                 "tag": "Visiting Faculty",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/gregory-mugnier",
@@ -1699,7 +1699,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Guillaume Tusseau",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_9ab844fb0cb7467697d2238311ebd692~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_54cbf050.webp",
                                 "tag": "Doctorat en droit public",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/guillaume-tusseau",
@@ -1720,7 +1720,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Herve Salkin",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_b65cdf5d79524f6da20fb5b947641206~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_80a53ebf.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/herve-salkin",
@@ -1735,7 +1735,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Hicheme Lehmici",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_cea9ca07e26a4d20bc67199cf868c8b1~mv2.jpeg/v1/fill/w_210,h_210,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_d55f8ab9.webp",
                                 "tag": "Master",
                                 "job": "Adjunct faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/hicheme-lehmici",
@@ -1746,7 +1746,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Jean Binyet",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_57849f3b954843ec9e53caefcce6eb4d~mv2.jpeg/v1/fill/w_277,h_277,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_1da49807.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/jean-binyet",
@@ -1768,7 +1768,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Jean Daniel Ruch",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_f38b9b29195b4327971823f76b5d3547~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_703206f2.webp",
                                 "tag": "Le professeur Jean Daniel Ruch",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/jean-daniel-ruch",
@@ -1781,7 +1781,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Jean Marc Bejjani",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_c2e570a4a0fd433b921584f4db5902b0~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_e8f4f067.webp",
                                 "tag": "Visiting Faculty",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/jean-marc-bejjani",
@@ -1826,7 +1826,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Jean-Philippe Mohamed Sangare",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_0b2a09dfc2924c108deded78023f1f53~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_6ff64a1f.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/jean-philippe-mohamed-sangare",
@@ -1845,7 +1845,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Jelena Lagger",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_ae9e0aac7165425bb57559a015526a9d~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_3203a68c.webp",
                                 "tag": "Jelena Lagger est une consultante",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/jelena-lagger",
@@ -1860,7 +1860,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Jerome Duberry",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_88f31b88adcc4cafa06c7d0d27af979d~mv2.jpeg/v1/fill/w_277,h_277,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_5d20d4ea.webp",
                                 "tag": "Visiting Faculty",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/jerome-duberry",
@@ -1881,7 +1881,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Konstantin Starchev",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_4fa5e0c5800941a8aeae03aaeafecbfe~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_c13b0a0d.webp",
                                 "tag": "Konstantin Startchev",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/konstantin-starchev",
@@ -1898,7 +1898,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Liza Castro-Christiansen",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_789650b6dea1405195fbc84f9a1e68f0~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_d4ff3628.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/liza-castro-christiansen",
@@ -1915,7 +1915,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Marc Bonnet",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_c64025b1ec8b4b818d014b9abcc54091~mv2.jpg/v1/fill/w_277,h_277,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_ad64e58e.webp",
                                 "tag": "Docteur en Sciences de Gestion",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/marc-bonnet",
@@ -1926,7 +1926,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Marc Finaud",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_a81b260a92bc44d79c68182e7d3ebc25~mv2.jpeg/v1/fill/w_277,h_277,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_7cadf4b6.webp",
                                 "tag": "Master",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/marc-finaud",
@@ -1937,7 +1937,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Maria Del Rosario Castro",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_346209e4cf2b4698a239d5af777df291~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_f8802de6.webp",
                                 "tag": "Doctorat en Economie et Finance",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/maria-del-rosario-castro",
@@ -1958,7 +1958,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Marina Papadopoulou",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_1a7ba368330c4958be7b52013ce64f4c~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_72434a3d.webp",
                                 "tag": "Master en Business Managerial Economics",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/marina-papadopoulou",
@@ -1973,7 +1973,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Monique Morrow",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_0581858f21b1458480d12ed468cc8f62~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_cd9f4d5c.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/monique-morrow",
@@ -1986,7 +1986,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Mourad Chabbi",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_7d7726c6f5ad4fa5bfcb69d674469905~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_e3bac4c2.webp",
                                 "tag": "Docteur en Science Politique",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/mourad-chabbi",
@@ -2001,7 +2001,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Nataly Raksha",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_ba5100d07ae64afd8b999cd490f88f06~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_c1dd630a.webp",
                                 "tag": "Docteur en Sciences de gestion",
                                 "job": "Adjunct faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/nataly-raksha",
@@ -2012,7 +2012,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Océane Zubeldia",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_711a6c3428bd4f45bddff1e39d4e2286~mv2.jpeg/v1/fill/w_217,h_217,al_c,lg_1,q_80,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_a304d1d7.webp",
                                 "tag": "Docteur en Sciences de gestion",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/oc%C3%A9ane-zubeldia",
@@ -2023,7 +2023,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Olivier Naray",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_bea0cc07be164b6a8dbfd6c65b5e5878~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_dfc1d8a5.webp",
                                 "tag": "Docteur en Sciences de gestion",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/olivier-naray",
@@ -2040,7 +2040,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Petre Roman",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_4fbababd518b40949e310a32ee686022~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_288f2efc.webp",
                                 "tag": "Pr",
                                 "job": "President",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/petre-roman",
@@ -2055,7 +2055,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Philippe Lagrange",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_753293d0309a4d519a33ff5bf07af8b6~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_cbef2177.webp",
                                 "tag": "Docteur en droit",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/philippe-lagrange",
@@ -2072,7 +2072,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Richard Mukundji",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_cdc1ae7509c14939a1b620af3439a37d~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_a4c68fa6.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/richard-mukundji",
@@ -2084,7 +2084,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Rui De Sousa Borges",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_46c390dacb6a4cca83a54741480412ea~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_b6a9919f.webp",
                                 "tag": "Master",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/rui-de-sousa-borges",
@@ -2095,7 +2095,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Stanislas d'Eyrames",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_0703872de1484877a44ea64167981775~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_f820e793.webp",
                                 "tag": "Academic and Research Director",
                                 "job": "Academic and Research Director",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/stanislas-d'eyrames",
@@ -2110,7 +2110,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Svetlana Serdyukov",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_f3849ecbbf9b40d98504272b599f7862~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_092d37a2.webp",
                                 "tag": "Docteur en Sciences de Gestion",
                                 "job": "Visiting Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/svetlana-serdyukov",
@@ -2121,7 +2121,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Sylvaine Mercuri Chapuis",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_7c9d4a032a7143cf84bc888ed6ec21a4~mv2.jpeg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpeg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_096126d5.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/sylvaine-mercuri-chapuis",
@@ -2132,7 +2132,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Vera Lalchevska",
-                                "avatar": "https://static.wixstatic.com/media/fc7eeb_7bbab308bef047859b3bbd997fdf5d21~mv2.png/v1/fill/w_277,h_277,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.png",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_7c81c3f3.webp",
                                 "tag": "Adjunct Faculty",
                                 "job": "Adjunct Faculty",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/vera-lalchevska",
@@ -2145,7 +2145,7 @@ ob_start(function ($html) {
                 },
                 {
                                 "name": "Viola Krebs",
-                                "avatar": "https://static.wixstatic.com/media/ad92c7_b5271804f0454b11a7c7a08850a42adc~mv2.jpg/v1/fill/w_277,h_277,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg",
+                                "avatar": "/wp-content/uploads/external-migrated/Image-empty-state_671165e0.webp",
                                 "tag": "Head of Development",
                                 "job": "Head of Development",
                                 "website": "https://www.swiss-umef.ch/en/corps-professoral/viola-krebs",
@@ -2225,7 +2225,7 @@ ob_start(function ($html) {
                             : ''
                         }
                         ${person.website
-                            ? `<a href="${person.website}" target="_blank" rel="noopener noreferrer" class="faculty-card-website" onclick="event.stopPropagation();" aria-label="Swiss UMEF Profile"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShSoIjIIW_XlfCq3nbCxt--s3zt2lxrO74_A&s" alt="Swiss UMEF" class="faculty-card-website-icon"></a>`
+                            ? `<a href="${person.website}" target="_blank" rel="noopener noreferrer" class="faculty-card-website" onclick="event.stopPropagation();" aria-label="Swiss UMEF Profile"><img src="/wp-content/uploads/external-migrated/images_b4d597a4.webp" alt="Swiss UMEF" class="faculty-card-website-icon"></a>`
                             : ''
                         }
                     </div>
@@ -2330,7 +2330,7 @@ ob_start(function ($html) {
                     : ''
                 }
                 ${person.website
-                    ? `<a href="${person.website}" target="_blank" rel="noopener noreferrer" class="faculty-modal-website" aria-label="Swiss UMEF Profile"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShSoIjIIW_XlfCq3nbCxt--s3zt2lxrO74_A&s" alt="Swiss UMEF" class="faculty-modal-website-icon"></a>`
+                    ? `<a href="${person.website}" target="_blank" rel="noopener noreferrer" class="faculty-modal-website" aria-label="Swiss UMEF Profile"><img src="/wp-content/uploads/external-migrated/images_b4d597a4.webp" alt="Swiss UMEF" class="faculty-modal-website-icon"></a>`
                     : ''
                 }
             `;

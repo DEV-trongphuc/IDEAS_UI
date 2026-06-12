@@ -1243,7 +1243,7 @@ ob_start(function ($html) {
                                         <div class="summary-header">
                                             <div class="summary-title-area">
                                                 <div class="summary-title">
-                                                    <img src="https://ideas-data.vercel.app/imgs/angry_icon.jpg" alt="AI Avatar"
+                                                    <img src="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" alt="AI Avatar"
                                                         class="gemini-avatar" />
                                                     <span>Tóm tắt nhanh nội dung</span>
                                                 </div>

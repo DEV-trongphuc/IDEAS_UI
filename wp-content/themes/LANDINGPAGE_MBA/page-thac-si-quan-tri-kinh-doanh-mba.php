@@ -185,7 +185,7 @@ ob_start(function ($html) {
             position: absolute;
             inset: 0;
             z-index: 1;
-            background-image: url('https://static.wixstatic.com/media/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg/v1/fill/w_1470,h_647,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fc7eeb_82548a7721e6472b9c5f4813e39e94b9~mv2.jpg');
+            background-image: url('/wp-content/uploads/external-migrated/fc7eeb_82548a7721e6472b9c5f4813e39e94b9_mv2_ea5d6ab4.webp');
             background-size: cover;
             background-position: center 60%;
             opacity: 0.38;
