@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -38,15 +39,15 @@ ob_start(function ($html) {
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Xác thực tư vấn viên tuyển sinh | IDEAS</title>
-        <meta name="description" content="Trang xác thực danh tính tư vấn viên tuyển sinh chính thức của IDEAS. Kiểm tra nhanh số điện thoại tránh mạo danh và lừa đảo học viên." />
+        <title><?php echo $is_en ? 'Advisor Identity Verification | IDEAS' : 'Xác thực tư vấn viên tuyển sinh | IDEAS'; ?></title>
+        <meta name="description" content="<?php echo $is_en ? 'Official identity verification page for IDEAS admissions advisors. Check phone numbers quickly to prevent spoofing and fraud.' : 'Trang xác thực danh tính tư vấn viên tuyển sinh chính thức của IDEAS. Kiểm tra nhanh số điện thoại tránh mạo danh và lừa đảo học viên.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Xác thực tư vấn viên tuyển sinh | IDEAS" />
-        <meta property="og:description" content="Hệ thống tra cứu số điện thoại và xác định danh tính tư vấn viên tuyển sinh chính thức của IDEAS." />
+        <meta property="og:title" content="<?php echo $is_en ? 'Advisor Identity Verification | IDEAS' : 'Xác thực tư vấn viên tuyển sinh | IDEAS'; ?>" />
+        <meta property="og:description" content="<?php echo $is_en ? 'Official identity verification page for IDEAS admissions advisors. Check phone numbers quickly to prevent spoofing and fraud.' : 'Hệ thống tra cứu số điện thoại và xác định danh tính tư vấn viên tuyển sinh chính thức của IDEAS.'; ?>" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php endif; ?>
@@ -1088,25 +1089,25 @@ ob_start(function ($html) {
         <div class="verify-hero-container">
             <span class="verify-badge">
                 <i class="fa-solid fa-user-shield"></i>
-                Bảo Mật &amp; Minh Bạch
+                <?php echo $is_en ? 'Security & Transparency' : 'Bảo Mật &amp; Minh Bạch'; ?>
             </span>
-            <h1>Xác Thực <span>Tư Vấn Viên Tuyển Sinh</span></h1>
-            <p>Kiểm tra nhanh danh tính chuyên viên tư vấn chính thức của IDEAS nhằm bảo vệ quyền lợi học tập và phòng ngừa các hình thức giả mạo hoặc lừa đảo.</p>
+            <h1><?php echo $is_en ? 'Verify <span>Admissions Advisors</span>' : 'Xác Thực <span>Tư Vấn Viên Tuyển Sinh</span>'; ?></h1>
+            <p><?php echo $is_en ? 'Quickly verify the identity of official IDEAS admissions counselors to protect your academic interests and prevent spoofing or fraud.' : 'Kiểm tra nhanh danh tính chuyên viên tư vấn chính thức của IDEAS nhằm bảo vệ quyền lợi học tập và phòng ngừa các hình thức giả mạo hoặc lừa đảo.'; ?></p>
         </div>
     </section>
 
     <!-- Search Tool Section -->
     <section class="search-section">
         <div class="search-container">
-            <label for="advisor-search" class="search-label">Nhập đầy đủ số điện thoại tư vấn viên cần kiểm tra:</label>
+            <label for="advisor-search" class="search-label"><?php echo $is_en ? 'Enter the full phone number of the advisor to verify:' : 'Nhập đầy đủ số điện thoại tư vấn viên cần kiểm tra:'; ?></label>
             <div class="search-input-wrap">
                 <div class="search-input-box">
                     <i class="fa-solid fa-phone search-icon-decor"></i>
-                    <input type="text" id="advisor-search" class="search-input-field" placeholder="Ví dụ: 0901234017 hoặc chỉ nhập 3 số đuôi như 017">
+                    <input type="text" id="advisor-search" class="search-input-field" placeholder="<?php echo $is_en ? 'e.g. 0901234017 or enter only the last 3 digits like 017' : 'Ví dụ: 0901234017 hoặc chỉ nhập 3 số đuôi như 017'; ?>">
                 </div>
                 <button type="button" id="btn-verify" class="btn-search-verify">
                     <i class="fa-solid fa-user-check"></i>
-                    Kiểm tra ngay
+                    <?php echo $is_en ? 'Verify Now' : 'Kiểm tra ngay'; ?>
                 </button>
             </div>
 
@@ -1120,8 +1121,8 @@ ob_start(function ($html) {
         <div class="warning-notice-bar">
             <i class="fa-solid fa-triangle-exclamation"></i>
             <div>
-                <h2>Cảnh báo phòng tránh mạo danh</h2>
-                <p>Hiện nay có tình trạng mạo danh nhân viên IDEAS để tiếp cận và cung cấp thông tin sai lệch đến học viên. Quý học viên hãy hết sức cảnh giác trước các cuộc gọi, tin nhắn hoặc liên hệ từ các số điện thoại lạ không nằm trong danh sách tư vấn viên chính thức.</p>
+                <h2><?php echo $is_en ? 'Fraud Prevention Alert' : 'Cảnh báo phòng tránh mạo danh'; ?></h2>
+                <p><?php echo $is_en ? 'There are cases of fraudsters pretending to be IDEAS staff to contact students and provide misleading information. Please remain highly vigilant against calls, messages, or contacts from unrecognized numbers not listed below.' : 'Hiện nay có tình trạng mạo danh nhân viên IDEAS để tiếp cận và cung cấp thông tin sai lệch đến học viên. Quý học viên hãy hết sức cảnh giác trước các cuộc gọi, tin nhắn hoặc liên hệ từ các số điện thoại lạ không nằm trong danh sách tư vấn viên chính thức.'; ?></p>
             </div>
         </div>
     </section>
@@ -1129,8 +1130,8 @@ ob_start(function ($html) {
     <!-- Official Advisors Grid - 2 TVV 1 Hàng -->
     <section class="list-section">
         <div class="list-header">
-            <h2>Đội Ngũ Tư Vấn Viên Chính Thức</h2>
-            <p>Dưới đây là các chuyên viên tư vấn chính thức trực thuộc Khối Tuyển sinh và Trải nghiệm Học viên của IDEAS.</p>
+            <h2><?php echo $is_en ? 'Official Admissions Advisors' : 'Đội Ngũ Tư Vấn Viên Chính Thức'; ?></h2>
+            <p><?php echo $is_en ? 'Below are the official admissions and student experience specialists at IDEAS.' : 'Dưới đây là các chuyên viên tư vấn chính thức trực thuộc Khối Tuyển sinh và Trải nghiệm Học viên của IDEAS.'; ?></p>
         </div>
 
         <div class="consultants-grid">
@@ -1140,7 +1141,7 @@ ob_start(function ($html) {
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cphuc.webp" class="consultant-avatar" alt="Lưu Phan Hoàng Phúc" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Lưu Phan Hoàng Phúc</h3>
-                <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
+                <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone">
                     <i class="fa-solid fa-phone"></i>
                     <span>*********<strong>017</strong></span>
@@ -1149,7 +1150,7 @@ ob_start(function ($html) {
                     <i class="fa-solid fa-envelope"></i>
                     <span>phuclph@ideas.edu.vn</span>
                 </div>
-                <button type="button" class="btn-card-action" onclick="showform('tu_van_phuc')">Nhận tư vấn</button>
+                <button type="button" class="btn-card-action" onclick="showform('tu_van_phuc')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
             </article>
 
             <!-- Advisor 2 -->
@@ -1158,7 +1159,7 @@ ob_start(function ($html) {
                     <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/z7928563815344_f88e1ecb4aba7b343936df712559c960-1.jpg" class="consultant-avatar" alt="Nguyễn Thị Linh Đan" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Nguyễn Thị Linh Đan</h3>
-                <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
+                <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone" style="display: inline-flex; flex-direction: column; gap: 6px; align-items: flex-start; padding: 8px 16px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <i class="fa-solid fa-phone"></i>
@@ -1173,7 +1174,7 @@ ob_start(function ($html) {
                     <i class="fa-solid fa-envelope"></i>
                     <span>danntl@ideas.edu.vn</span>
                 </div>
-                <button type="button" class="btn-card-action" onclick="showform('tu_van_dan')">Nhận tư vấn</button>
+                <button type="button" class="btn-card-action" onclick="showform('tu_van_dan')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
             </article>
 
             <!-- Advisor 3 -->
@@ -1182,7 +1183,7 @@ ob_start(function ($html) {
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg" class="consultant-avatar" alt="Lê Đinh Ý Nhi" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Lê Đinh Ý Nhi</h3>
-                <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
+                <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone">
                     <i class="fa-solid fa-phone"></i>
                     <span>*********<strong>486</strong></span>
@@ -1191,7 +1192,7 @@ ob_start(function ($html) {
                     <i class="fa-solid fa-envelope"></i>
                     <span>nhildy@ideas.edu.vn</span>
                 </div>
-                <button type="button" class="btn-card-action" onclick="showform('tu_van_nhi')">Nhận tư vấn</button>
+                <button type="button" class="btn-card-action" onclick="showform('tu_van_nhi')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
             </article>
 
             <!-- Advisor 4 -->
@@ -1200,7 +1201,7 @@ ob_start(function ($html) {
                     <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/uyen.webp" class="consultant-avatar" alt="Nguyễn Phương Uyên" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Nguyễn Phương Uyên</h3>
-                <span class="consultant-card-role">Tư vấn viên tuyển sinh</span>
+                <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone">
                     <i class="fa-solid fa-phone"></i>
                     <span>*********<strong>935</strong></span>
@@ -1209,7 +1210,7 @@ ob_start(function ($html) {
                     <i class="fa-solid fa-envelope"></i>
                     <span>uyennp@ideas.edu.vn</span>
                 </div>
-                <button type="button" class="btn-card-action" onclick="showform('tu_van_uyen')">Nhận tư vấn</button>
+                <button type="button" class="btn-card-action" onclick="showform('tu_van_uyen')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
             </article>
         </div>
     </section>
@@ -1219,20 +1220,20 @@ ob_start(function ($html) {
         <div class="guidelines-container">
             <div class="guidelines-grid">
                 <div class="guidelines-content">
-                    <h2>Hướng Dẫn Đóng Phí An Toàn</h2>
-                    <p>IDEAS áp dụng quy trình kiểm soát tài chính minh bạch và chặt chẽ nhằm bảo mật thông tin và bảo vệ quyền lợi hợp pháp tối đa cho học viên:</p>
+                    <h2><?php echo $is_en ? 'Safe Tuition Payment Guide' : 'Hướng Dẫn Đóng Phí An Toàn'; ?></h2>
+                    <p><?php echo $is_en ? 'IDEAS implements transparent and strict financial controls to secure information and maximize the legal rights of students:' : 'IDEAS áp dụng quy trình kiểm soát tài chính minh bạch và chặt chẽ nhằm bảo mật thông tin và bảo vệ quyền lợi hợp pháp tối đa cho học viên:'; ?></p>
                     <ul class="guidelines-list">
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>Tất cả các tài khoản nhận đóng học phí đều phải trực thuộc pháp nhân của <strong>Công ty Cổ phần Học viện Kinh doanh Quốc Tế IDEAS</strong>.</span>
+                            <span><?php echo $is_en ? 'All tuition collection accounts must belong to the corporate entity: <strong>IDEAS International Business Academy Joint Stock Company</strong>.' : 'Tất cả các tài khoản nhận đóng học phí đều phải trực thuộc pháp nhân của <strong>Công ty Cổ phần Học viện Kinh doanh Quốc Tế IDEAS</strong>.'; ?></span>
                         </li>
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>Khi đóng phí qua trả góp liên kết Sacombank, các thủ tục được hướng dẫn cụ thể qua văn bản hoặc hợp đồng chính thức.</span>
+                            <span><?php echo $is_en ? 'When paying tuition via Sacombank installments, procedures are officially detailed in writing or contract.' : 'Khi đóng phí qua trả góp liên kết Sacombank, các thủ tục được hướng dẫn cụ thể qua văn bản hoặc hợp đồng chính thức.'; ?></span>
                         </li>
                         <li>
                             <i class="fa-solid fa-circle-check"></i>
-                            <span>Mọi biên nhận đóng học phí đều được gửi trực tiếp từ hệ thống email chính thức của IDEAS (có đuôi <strong>@ideas.edu.vn</strong>).</span>
+                            <span><?php echo $is_en ? 'All tuition receipts are sent directly from the official IDEAS email domain (ending with <strong>@ideas.edu.vn</strong>).' : 'Mọi biên nhận đóng học phí đều được gửi trực tiếp từ hệ thống email chính thức của IDEAS (có đuôi <strong>@ideas.edu.vn</strong>).'; ?></span>
                         </li>
                     </ul>
                 </div>
@@ -1242,21 +1243,21 @@ ob_start(function ($html) {
                         <i class="fa-solid fa-building-columns bank-logo"></i>
                         <div>
                             <div class="bank-name">HD Bank</div>
-                            <div style="font-size:0.85rem; color:#64748b; font-weight:600;">Chi nhánh Nhơn Trạch</div>
+                            <div style="font-size:0.85rem; color:#64748b; font-weight:600;"><?php echo $is_en ? 'Nhon Trach Branch' : 'Chi nhánh Nhơn Trạch'; ?></div>
                         </div>
                     </div>
                     <div class="bank-info-item">
-                        <span class="bank-label">Chủ tài khoản:</span>
-                        <span class="bank-value" style="font-size: 0.9rem; font-weight: 700; color: #0f172a; text-align: right;">Công ty Cổ phần Học viện Kinh doanh Quốc Tế IDEAS</span>
+                        <span class="bank-label"><?php echo $is_en ? 'Account Holder:' : 'Chủ tài khoản:'; ?></span>
+                        <span class="bank-value" style="font-size: 0.9rem; font-weight: 700; color: #0f172a; text-align: right;"><?php echo $is_en ? 'IDEAS International Business Academy Joint Stock Company' : 'Công ty Cổ phần Học viện Kinh doanh Quốc Tế IDEAS'; ?></span>
                     </div>
                     <div class="bank-info-item">
-                        <span class="bank-label">Số tài khoản:</span>
+                        <span class="bank-label"><?php echo $is_en ? 'Account Number:' : 'Số tài khoản:'; ?></span>
                         <span class="bank-value highlight" style="font-size: 1.25rem; letter-spacing: 0.03em;">8979798686</span>
                     </div>
                     <div class="bank-info-item" style="flex-direction: column; align-items: flex-start; gap: 4px; border-bottom: none; padding: 10px 0 0;">
-                        <span class="bank-label">Nội dung chuyển khoản (Mẫu):</span>
+                        <span class="bank-label"><?php echo $is_en ? 'Transfer Content (Template):' : 'Nội dung chuyển khoản (Mẫu):'; ?></span>
                         <span class="bank-value highlight" style="text-align: left; font-size: 0.88rem; font-weight: 700; margin-top: 4px; text-transform: uppercase; line-height: 1.4; word-break: break-word;">
-                            [HO VA TEN] THANH TOAN HOC PHI DOT [SO DOT] [TEN CHUONG TRINH]
+                            <?php echo $is_en ? '[YOUR FULL NAME] THANH TOAN HOC PHI DOT [INST NO] [PROGRAM NAME]' : '[HO VA TEN] THANH TOAN HOC PHI DOT [SO DOT] [TEN CHUONG TRINH]'; ?>
                         </span>
                     </div>
                 </div>
@@ -1270,6 +1271,7 @@ ob_start(function ($html) {
             const searchInput = document.getElementById('advisor-search');
             const btnVerify = document.getElementById('btn-verify');
             const resultsContainer = document.getElementById('search-results');
+            if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
 
             // Data of official advisors
             const advisors = [
@@ -1279,7 +1281,7 @@ ob_start(function ($html) {
                     suffixes: ["017"],
                     email: "phuclph@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/cphuc.webp",
-                    role: "Tư vấn viên tuyển sinh chính thức"
+                    role: "<?php echo $is_en ? 'Official Admissions Advisor' : 'Tư vấn viên tuyển sinh chính thức'; ?>"
                 },
                 {
                     name: "Nguyễn Thị Linh Đan",
@@ -1287,7 +1289,7 @@ ob_start(function ($html) {
                     suffixes: ["953", "427"],
                     email: "danntl@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2026/06/z7928563815344_f88e1ecb4aba7b343936df712559c960-1.jpg",
-                    role: "Tư vấn viên tuyển sinh chính thức"
+                    role: "<?php echo $is_en ? 'Official Admissions Advisor' : 'Tư vấn viên tuyển sinh chính thức'; ?>"
                 },
                 {
                     name: "Lê Đinh Ý Nhi",
@@ -1295,7 +1297,7 @@ ob_start(function ($html) {
                     suffixes: ["486"],
                     email: "nhildy@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg",
-                    role: "Tư vấn viên tuyển sinh chính thức"
+                    role: "<?php echo $is_en ? 'Official Admissions Advisor' : 'Tư vấn viên tuyển sinh chính thức'; ?>"
                 },
                 {
                     name: "Nguyễn Phương Uyên",
@@ -1303,7 +1305,7 @@ ob_start(function ($html) {
                     suffixes: ["935"],
                     email: "uyennp@ideas.edu.vn",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/uyen.webp",
-                    role: "Tư vấn viên tuyển sinh chính thức"
+                    role: "<?php echo $is_en ? 'Official Admissions Advisor' : 'Tư vấn viên tuyển sinh chính thức'; ?>"
                 }
             ];
 
@@ -1312,7 +1314,7 @@ ob_start(function ($html) {
                 let query = searchInput.value.replace(/[^0-9]/g, '').trim();
                 
                 if (query.length < 3) {
-                    alert('Vui lòng nhập đầy đủ số điện thoại hoặc ít nhất 3 số đuôi để kiểm tra.');
+                    alert(isEnMode ? 'Please enter the full phone number or at least the last 3 digits to check.' : 'Vui lòng nhập đầy đủ số điện thoại hoặc ít nhất 3 số đuôi để kiểm tra.');
                     return;
                 }
 
@@ -1371,10 +1373,10 @@ ob_start(function ($html) {
                             <div class="result-card success">
                                 <div class="result-status-header">
                                     <i class="fa-solid fa-circle-check"></i>
-                                    <span>Xác thực thành công</span>
+                                    <span>${isEnMode ? 'Verification Successful' : 'Xác thực thành công'}</span>
                                 </div>
                                 <div class="result-desc">
-                                    Số điện thoại khớp với thông tin của chuyên viên tư vấn chính thức thuộc IDEAS. Quý học viên hoàn toàn có thể yên tâm trao đổi học tập.
+                                    ${isEnMode ? 'The phone number matches an official IDEAS counselor. You can safely proceed with your consultation.' : 'Số điện thoại khớp với thông tin của chuyên viên tư vấn chính thức thuộc IDEAS. Quý học viên hoàn toàn có thể yên tâm trao đổi học tập.'}
                                 </div>
                                 <div class="matched-consultant-card">
                                     <img src="${matchedAdvisor.avatar}" class="matched-avatar" alt="${matchedAdvisor.name}" width="80" height="80">
@@ -1383,7 +1385,7 @@ ob_start(function ($html) {
                                         <span class="matched-role">${matchedAdvisor.role}</span>
                                         <div class="matched-phone">
                                             <i class="fa-solid fa-phone"></i>
-                                            <span>Số điện thoại: <strong>${maskedNum}</strong></span>
+                                            <span>${isEnMode ? 'Phone Number:' : 'Số điện thoại:'} <strong>${maskedNum}</strong></span>
                                         </div>
                                         <div class="matched-email" style="display: flex; align-items: center; gap: 6px; font-size: 0.9rem; color: #475569; margin-top: 6px;">
                                             <i class="fa-solid fa-envelope" style="color: #ab0e00;"></i>
@@ -1405,13 +1407,13 @@ ob_start(function ($html) {
                             <div class="result-card error">
                                 <div class="result-status-header">
                                     <i class="fa-solid fa-triangle-exclamation"></i>
-                                    <span>Cảnh báo mạo danh</span>
+                                    <span>${isEnMode ? 'Impersonation Alert' : 'Cảnh báo mạo danh'}</span>
                                 </div>
                                 <div class="result-desc">
-                                    Số điện thoại hoặc số đuôi <strong>"${searchInput.value}"</strong> mà Quý học viên vừa nhập <strong>KHÔNG</strong> nằm trong danh sách các tư vấn viên chính thức của IDEAS.
+                                    ${isEnMode ? `The phone number or suffix <strong>"${searchInput.value}"</strong> you entered is <strong>NOT</strong> in the official list of IDEAS advisors.` : `Số điện thoại hoặc số đuôi <strong>"${searchInput.value}"</strong> mà Quý học viên vừa nhập <strong>KHÔNG</strong> nằm trong danh sách các tư vấn viên chính thức của IDEAS.`}
                                 </div>
                                 <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    Nhằm tránh bị lợi dụng thông tin hoặc mạo danh tư vấn viên, Quý học viên vui lòng hết sức cảnh giác, không làm việc trực tiếp hoặc cung cấp thông tin cá nhân cho số điện thoại này. Hãy liên hệ ngay với chúng tôi qua số Hotline chính thức: <strong>028 2244 2244</strong> hoặc gửi phản hồi về địa chỉ email <strong>info@ideas.edu.vn</strong> để được xác minh và hỗ trợ kịp thời.
+                                    ${isEnMode ? 'To prevent information misuse, please be extremely cautious and do not share personal details or work with this number. Contact our official Hotline: <strong>028 2244 2244</strong> immediately or email <strong>info@ideas.edu.vn</strong> for support.' : 'Nhằm tránh bị lợi dụng thông tin hoặc mạo danh tư vấn viên, Quý học viên vui lòng hết sức cảnh giác, không làm việc trực tiếp hoặc cung cấp thông tin cá nhân cho số điện thoại này. Hãy liên hệ ngay với chúng tôi qua số Hotline chính thức: <strong>028 2244 2244</strong> hoặc gửi phản hồi về địa chỉ email <strong>info@ideas.edu.vn</strong> để được xác minh và hỗ trợ kịp thời.'}
                                 </p>
                             </div>
                         `;

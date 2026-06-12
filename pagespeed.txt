@@ -1,0 +1,377 @@
+CLS
++25
+SI
++5
+Hiệu suất
+Các giá trị chỉ là ước tính và có thể thay đổi. Điểm hiệu quả được tính trực tiếp từ những chỉ số này.Xem máy tính.
+0–49
+50–89
+90–100
+Final Screenshot
+
+Các chỉ số
+Chế độ xem mở rộng
+First Contentful Paint
+3,6 giây
+Largest Contentful Paint
+15,8 giây
+Total Blocking Time
+320 mili giây
+Cumulative Layout Shift
+0
+Speed Index
+5,8 giây
+Captured at 21:21 GMT+7 12 thg 6, 2026
+Moto G Power mô phỏng with Lighthouse 13.3.0
+Phiên trang đơn
+Lượt tải trang đầu tiên
+Chế độ điều tiết mạng 4G chậm
+Using HeadlessChromium 146.0.7680.177 with lr
+Xem Biểu đồ dạng cây
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Hiển thị các lượt kiểm tra liên quan đến:
+
+All
+
+FCP
+
+LCP
+
+TBT
+
+CLS
+Thông tin chi tiết
+Hiển thị phông chữ Mức tiết kiệm ước tính: 30 mili giây
+Hãy cân nhắc đặt font-display thành swap hoặc optional để đảm bảo văn bản hiển thị nhất quán. Có thể tối ưu hoá swap hơn nữa để giảm thiểu thay đổi bố cục bằng thuộc tính ghi đè chỉ số phông chữ.FCPKhông được tính
+URL
+Mức tiết kiệm ước tính
+Cloudflare CDN cdn 
+…webfonts/fa-brands-400.woff2(cdnjs.cloudflare.com)
+30 mili giây
+…webfonts/fa-solid-900.woff2(cdnjs.cloudflare.com)
+20 mili giây
+…webfonts/fa-regular-400.woff2(cdnjs.cloudflare.com)
+20 mili giây
+Cải thiện việc phân phối hình ảnh Mức tiết kiệm ước tính: 1.000 KiB
+Việc giảm thời gian tải hình ảnh xuống có thể cải thiện thời gian tải trang và LCP được cảm nhận. Tìm hiểu thêm về cách tối ưu hoá kích thước hình ảnhLCPFCPKhông được tính
+URL
+Kích thước tài nguyên
+Mức tiết kiệm ước tính
+ideas.edu.vn Bên thứ nhất
+1.386,1 KiB	999,5 KiB
+Lễ tốt nghiệp Swiss UMEF
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp" alt="Lễ tốt nghiệp Swiss UMEF" class="hero-mobile-only-img" loading="eager" fetchpriority="high" decoding="async">
+…06/ltnumef10202501.webp(ideas.edu.vn)
+206,4 KiB
+161,0 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1513x849) so với kích thước hiển thị (651x434). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+161,0 KiB
+Avatar
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao.webp" alt="Avatar" class="ideas-toast-avatar">
+…05/Kien-tao.webp(ideas.edu.vn)
+159,0 KiB
+156,3 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1087x1080) so với kích thước hiển thị (187x105). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+156,3 KiB
+Sự Kết Hợp AI & Semiconductor - Xu hướng tương lai
+<img src="/wp-content/uploads/external-migrated/maxresdefault_8f603157.webp" alt="Sự Kết Hợp AI &amp; Semiconductor - Xu hướng tương lai" loading="lazy" decoding="async">
+…external-migrated/maxresdefault_8f603157.webp(ideas.edu.vn)
+134,6 KiB
+113,4 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1280x720) so với kích thước hiển thị (508x285). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+113,4 KiB
+Bảo mật dữ liệu trong thời đại AI: Thách thức và giải pháp
+<img src="/wp-content/uploads/external-migrated/maxresdefault_4021a523.webp" alt="Bảo mật dữ liệu trong thời đại AI: Thách thức và giải pháp" loading="lazy" decoding="async">
+…external-migrated/maxresdefault_4021a523.webp(ideas.edu.vn)
+111,8 KiB
+94,2 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1280x720) so với kích thước hiển thị (508x285). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+94,2 KiB
+Giải mã AI - Những phương thức sáng tạo chưa từng được tiết lộ
+<img src="/wp-content/uploads/external-migrated/maxresdefault_3dd8bfa2.webp" alt="Giải mã AI - Những phương thức sáng tạo chưa từng được tiết lộ" loading="lazy" decoding="async">
+…external-migrated/maxresdefault_3dd8bfa2.webp(ideas.edu.vn)
+98,8 KiB
+83,2 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1280x720) so với kích thước hiển thị (508x285). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+83,2 KiB
+Lễ tốt nghiệp tại Việt Nam
+<img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.we…" alt="Lễ tốt nghiệp tại Việt Nam" loading="lazy" decoding="async">
+…10/Totnghiepumef-optimized.webp(ideas.edu.vn)
+116,9 KiB
+71,7 KiB
+Việc tăng hệ số nén của hình ảnh có thể cải thiện kích thước tải xuống của hình ảnh này.
+71,7 KiB
+VIBE CODING - Tự tạo ứng dụng bằng AI
+<img src="https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9-870…" alt="VIBE CODING - Tự tạo ứng dụng bằng AI" loading="lazy" decoding="async">
+…06/WORSHOP-2….webp(ideas.edu.vn)
+63,1 KiB
+38,1 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (870x489) so với kích thước hiển thị (508x333). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+38,1 KiB
+MSc AI Avatar
+<img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI Avatar" loading="lazy" decoding="async">
+…09/mscai-optimized.webp(ideas.edu.vn)
+63,2 KiB
+35,2 KiB
+Việc tăng hệ số nén của hình ảnh có thể cải thiện kích thước tải xuống của hình ảnh này.
+16,0 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (720x404) so với kích thước hiển thị (539x320). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+25,7 KiB
+Chief AI Officer
+<img loading="lazy" decoding="async" alt="Chief AI Officer" width="92" height="38" src="https://ideas.edu.vn/wp-content/uploads/2025/09/cao-logo-1.png.webp">
+…09/cao-logo-1.png.webp(ideas.edu.vn)
+27,0 KiB
+26,7 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1000x413) so với kích thước hiển thị (93x38). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+26,7 KiB
+AI-Platform
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/02/Buffet-AI-R.webp" alt="AI-Platform" width="53" height="28" style="height: 28px; width: auto; object-fit: contain;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'">
+…02/Buffet-AI-R.webp(ideas.edu.vn)
+26,7 KiB
+26,6 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1500x791) so với kích thước hiển thị (93x49). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+26,6 KiB
+Buổi hướng dẫn học viên IDEAS
+<img src="https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp" alt="Buổi hướng dẫn học viên IDEAS" width="1024" height="774" style="width: 100%; height: auto; border-radius: 24px;" loading="lazy" decoding="async">
+…03/buoihuongdan-optimized.webp(ideas.edu.vn)
+74,9 KiB
+24,6 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (794x600) so với kích thước hiển thị (651x492). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+24,6 KiB
+Moodle
+<img src="/wp-content/uploads/external-migrated/1280px-Moodle-logo_svg_005cb3ce.webp" alt="Moodle" width="93" height="24" style="height: 24px; width: auto; object-fit: contain;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'">
+…external-migrated/1280px-Moodle-logo_svg_005cb3ce.webp(ideas.edu.vn)
+20,1 KiB
+19,8 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1280x328) so với kích thước hiển thị (164x42). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+19,8 KiB
+Cengage
+<img src="/wp-content/uploads/external-migrated/1280px-Cengage-logo_svg_8308995d.webp" alt="Cengage" width="67" height="24" style="height: 24px; width: auto; object-fit: contain;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'">
+…external-migrated/1280px-Cengage-logo_svg_8308995d.webp(ideas.edu.vn)
+18,2 KiB
+17,8 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (1280x288) so với kích thước hiển thị (187x42). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+17,8 KiB
+body > main > section#thong-ke > div.counters-bg
+<div class="counters-bg">
+…08/quangnon_cdp-optimized.webp(ideas.edu.vn)
+86,6 KiB
+17,2 KiB
+Việc tăng hệ số nén của hình ảnh có thể cải thiện kích thước tải xuống của hình ảnh này.
+17,2 KiB
+Dual DBA Avatar
+<img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp" alt="Dual DBA Avatar" loading="lazy" decoding="async">
+…10/Dual-DBA-optimized.webp(ideas.edu.vn)
+30,7 KiB
+16,6 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (800x445) so với kích thước hiển thị (539x303). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+16,6 KiB
+Zalo
+<img loading="lazy" decoding="async" alt="Zalo" width="32" height="32" src="/wp-content/uploads/external-migrated/zalo-icon_3f4c0a22.webp">
+…external-migrated/zalo-icon_3f4c0a22.webp(ideas.edu.vn)
+13,0 KiB
+13,0 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (615x615) so với kích thước hiển thị (32x32). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+13,0 KiB
+Online MBA Avatar
+<img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp" alt="Online MBA Avatar" loading="lazy" decoding="async">
+…09/online-mba-1-optimized.webp(ideas.edu.vn)
+28,7 KiB
+11,7 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (720x404) so với kích thước hiển thị (539x320). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+11,7 KiB
+Executive MBA Avatar
+<img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp" alt="Executive MBA Avatar" loading="lazy" decoding="async">
+…09/emba-optimized.webp(ideas.edu.vn)
+27,7 KiB
+11,3 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (720x404) so với kích thước hiển thị (539x320). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+11,3 KiB
+Học viên 7
+<img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/178.webp" alt="Học viên 7" class="hero-avatar-reveal" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgb(255, 255, 255);" loading="lazy">
+…06/178.webp(ideas.edu.vn)
+11,4 KiB
+10,9 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (250x250) so với kích thước hiển thị (56x56). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+10,9 KiB
+Học viên 6
+<img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/177.webp" alt="Học viên 6" class="hero-avatar-reveal" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgb(255, 255, 255);" loading="lazy">
+…06/177.webp(ideas.edu.vn)
+11,4 KiB
+10,9 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (250x250) so với kích thước hiển thị (56x56). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+10,8 KiB
+Logo IDEAS Education - 15 năm thành lập
+<img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.w…" alt="Logo IDEAS Education - 15 năm thành lập" width="60" height="60" loading="eager" fetchpriority="high">
+…06/Logo_IDEAS_Slg-optimized.webp(ideas.edu.vn)
+12,5 KiB
+10,1 KiB
+Việc tăng hệ số nén của hình ảnh có thể cải thiện kích thước tải xuống của hình ảnh này.
+4,3 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (300x169) so với kích thước hiển thị (162x91). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+8,9 KiB
+TOP-UP BBA Avatar
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="TOP-UP BBA Avatar" loading="lazy" decoding="async">
+…02/TOPUP-optimized.webp(ideas.edu.vn)
+19,3 KiB
+8,3 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (800x448) so với kích thước hiển thị (539x379). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+8,3 KiB
+IDEAS LMS
+<img src="https://ideas.edu.vn/wp-content/uploads/2025/06/log_ideas-optimized.webp" alt="IDEAS LMS" width="84" height="32" style="height: 32px; width: auto; object-fit: contain;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'">
+…06/log_ideas-optimized.webp(ideas.edu.vn)
+6,9 KiB
+5,6 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (300x115) so với kích thước hiển thị (146x56). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+5,3 KiB
+Chuyên gia 7
+<img decoding="async" src="/wp-content/uploads/external-migrated/Image-empty-state_671165e0.webp" alt="Chuyên gia 7" class="avatar" loading="lazy" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid rgb(9, 14, 26);">
+…external-migrated/Image-empty-state_671165e0.webp(ideas.edu.vn)
+5,5 KiB
+5,1 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (277x277) so với kích thước hiển thị (72x72). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+5,1 KiB
+eacademy
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/06/eacademy.webp" alt="eacademy" width="85" height="26" style="height: 26px; width: auto; object-fit: contain;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(1) opacity(0.85)'">
+…06/eacademy.webp(ideas.edu.vn)
+5,3 KiB
+5,1 KiB
+Tệp hình ảnh này lớn hơn mức cần thiết (712x217) so với kích thước hiển thị (149x45). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
+5,1 KiB
+Chuyên gia 5
+<img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp" alt="Chuyên gia 5" class="avatar" loading="lazy" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid rgb(9, 14, 26);">
+…04/Doan-optimized.webp(ideas.edu.vn)
+6,2 KiB
+5,0 KiB
+Việc tăng hệ số nén của hình ảnh có thể cải thiện kích thước tải xuống của hình ảnh này.
+4,6 KiB
+Sử dụng thời gian hữu dụng của bộ nhớ đệm hiệu quả Mức tiết kiệm ước tính: 70 KiB
+Buộc chỉnh lại luồng
+Cây phần phụ thuộc mạng
+Yêu cầu chặn hiển thị
+Tối ưu hoá kích thước DOM
+Bảng chi tiết về LCP (Nội dung lớn nhất hiển thị)
+bên thứ ba
+Những thông tin chi tiết này cũng có trong Bảng điều khiển hiệu suất của Chrome DevTools – hãy ghi lại dấu vết để xem thông tin chi tiết hơn.
+Chẩn đoán
+Giảm thiểu công việc theo chuỗi chính 3,6 giây
+Hãy cân nhắc giảm thời gian dùng để phân tích cú pháp, biên dịch và thực thi JS. Bạn có thể giải quyết vấn đề này bằng cách phân phối các tải trọng JS nhỏ hơn. Tìm hiểu cách giảm thiểu công việc theo chuỗi chínhTBTKhông được tính
+Danh mục
+Thời gian sử dụng
+Style & Layout
+1.584 mili giây
+Other
+950 mili giây
+Script Evaluation
+454 mili giây
+Rendering
+328 mili giây
+Script Parsing & Compilation
+173 mili giây
+Parse HTML & CSS
+120 mili giây
+Garbage Collection
+18 mili giây
+Rút gọn JavaScript Mức tiết kiệm ước tính: 38 KiB
+Việc giảm thiểu kích thước tệp JavaScript có thể giảm kích thước tải trọng và thời gian phân tích cú pháp tập lệnh. Tìm hiểu cách giảm thiểu kích thước tệp JavaScript.LCPFCPKhông được tính
+URL
+Kích thước cần chuyển
+Mức tiết kiệm ước tính
+ideas.edu.vn Bên thứ nhất
+116,7 KiB	37,7 KiB
+/ai-chat-embedded.js(automation.ideas.edu.vn)
+56,8 KiB
+19,9 KiB
+…js/script.min.js?v=178…(ideas.edu.vn)
+26,0 KiB
+5,9 KiB
+…js/variables.min.js?v=178…(ideas.edu.vn)
+17,6 KiB
+5,6 KiB
+/tracker.js(automation.ideas.edu.vn)
+7,5 KiB
+3,2 KiB
+…js/booking-modal.min.js?v=178…(ideas.edu.vn)
+8,8 KiB
+3,0 KiB
+Giảm JavaScript không dùng đến Mức tiết kiệm ước tính: 94 KiB
+Giảm JavaScript không dùng đến và trì hoãn việc tải các tập lệnh cho tới khi cần có các tập lệnh này để giảm số byte mà hoạt động mạng sử dụng. Tìm hiểu cách giảm JavaScript không dùng đến.LCPFCPKhông được tính
+URL
+Kích thước cần chuyển
+Mức tiết kiệm ước tính
+Google Tag Manager tag-manager 
+175,9 KiB	56,5 KiB
+/gtag/js?id=G-QKV7LKNLLH(www.googletagmanager.com)
+175,9 KiB
+56,5 KiB
+ideas.edu.vn Bên thứ nhất
+56,5 KiB	37,1 KiB
+/ai-chat-embedded.js(automation.ideas.edu.vn)
+56,5 KiB
+37,1 KiB
+Giảm CSS không dùng đến Mức tiết kiệm ước tính: 40 KiB
+Giảm những quy tắc không dùng đến trong các biểu định kiểu và trì hoãn CSS chưa sử dụng cho nội dung trong màn hình đầu tiên để giảm số byte mà hoạt động mạng sử dụng. Tìm hiểu cách giảm CSS không dùng đến.LCPFCPKhông được tính
+URL
+Kích thước cần chuyển
+Mức tiết kiệm ước tính
+ideas.edu.vn Bên thứ nhất
+37,2 KiB	22,2 KiB
+…css/style.min.css?v=178…(ideas.edu.vn)
+37,2 KiB
+22,2 KiB
+Cloudflare CDN cdn 
+18,3 KiB	17,6 KiB
+…css/all.min.css(cdnjs.cloudflare.com)
+18,3 KiB
+17,6 KiB
+Rút gọn CSS Mức tiết kiệm ước tính: 14 KiB
+Việc giảm thiểu kích thước tệp Biểu định kiểu xếp chồng (CSS) có thể giảm kích thước tải trọng mạng. Tìm hiểu cách giảm thiểu kích thước tệp Biểu định kiểu xếp chồng (CSS).LCPFCPKhông được tính
+URL
+Kích thước cần chuyển
+Mức tiết kiệm ước tính
+@media (min-width: 992px) { .BBA-grid { grid-template-columns: repeat(3, 1fr) !important; } …
+12,7 KiB
+6,1 KiB
+/* Counters Section Red Gradient & Whites */ .counters-section { background: transparent !import… } …
+9,4 KiB
+4,1 KiB
+#mf-root { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; … } …
+8,4 KiB
+3,6 KiB
+Tránh các tài nguyên lớn trên mạng Tổng kích thước là 16.203 KiB
+Tải trọng mạng lớn gây tốn kém cho người dùng và thường khiến thời gian tải kéo dài. Tìm hiểu cách giảm kích thước tải trọng.Không được tính
+URL
+Kích thước cần chuyển
+ideas.edu.vn Bên thứ nhất
+14.260,7 KiB
+…12/1220.mp4(ideas.edu.vn)
+12.946,1 KiB
+…01/ltn27122025.webp(ideas.edu.vn)
+350,1 KiB
+…assets/herobg.png(ideas.edu.vn)
+232,4 KiB
+…06/ltnumef10202501.webp(ideas.edu.vn)
+207,1 KiB
+…05/Kien-tao.webp(ideas.edu.vn)
+159,7 KiB
+…external-migrated/maxresdefault_8f603157.webp(ideas.edu.vn)
+135,3 KiB
+…10/Totnghiepumef-optimized.webp(ideas.edu.vn)
+117,6 KiB
+…external-migrated/maxresdefault_4021a523.webp(ideas.edu.vn)
+112,5 KiB
+Google Tag Manager tag-manager 
+176,6 KiB
+/gtag/js?id=G-QKV7LKNLLH(www.googletagmanager.com)
+176,6 KiB
+Cloudflare CDN cdn 
+147,5 KiB
+…webfonts/fa-solid-900.woff2(cdnjs.cloudflare.com)
+147,5 KiB

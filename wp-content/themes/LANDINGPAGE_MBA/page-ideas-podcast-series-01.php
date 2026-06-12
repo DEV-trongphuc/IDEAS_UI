@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -42,20 +43,20 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Ideas Podcast Series 01 – Vượt rào cản tiếng Anh | IDEAS</title>
+        <title><?php echo $is_en ? 'Ideas Podcast Series 01 – Overcoming English Barriers | IDEAS' : 'Ideas Podcast Series 01 – Vượt rào cản tiếng Anh | IDEAS'; ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Chuỗi Podcast chia sẻ phương pháp vượt qua rào cản tiếng Anh bằng cách ứng dụng AI trong học tập và nghiên cứu học thuật." />
+            content="<?php echo $is_en ? 'A Podcast series sharing methods to overcome language barriers by applying AI in academic learning and research.' : 'Chuỗi Podcast chia sẻ phương pháp vượt qua rào cản tiếng Anh bằng cách ứng dụng AI trong học tập và nghiên cứu học thuật.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Ideas Podcast Series 01 – Vượt rào cản tiếng Anh" />
+        <meta property="og:title" content="<?php echo $is_en ? 'Ideas Podcast Series 01 – Overcoming English Barriers' : 'Ideas Podcast Series 01 – Vượt rào cản tiếng Anh'; ?>" />
         <meta property="og:description"
-            content="Lắng nghe các giải pháp, lời khuyên thực tế từ đội ngũ chuyên gia về cách kết hợp tư duy độc lập và Trí Tuệ Nhân Tạo." />
+            content="<?php echo $is_en ? 'Listen to practical solutions and advice from experts on combining independent thinking and Artificial Intelligence.' : 'Lắng nghe các giải pháp, lời khuyên thực tế từ đội ngũ chuyên gia về cách kết hợp tư duy độc lập và Trí Tuệ Nhân Tạo.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -605,9 +606,8 @@ ob_start(function ($html) {
                 <span class="podcast-hero-badge">
                     <i class="fa-solid fa-microphone-lines"></i> Podcast Series 01
                 </span>
-                <h1>Vượt rào cản tiếng Anh <br><span>bằng cách ứng dụng AI</span></h1>
-                <p>Khám phá cách thức sử dụng Trí Tuệ Nhân Tạo để khắc phục rào cản ngoại ngữ, nâng cao hiệu suất học
-                    tập chuẩn quốc tế cùng IDEAS</p>
+                <h1><?php echo $is_en ? 'Overcoming English Barriers <br><span>by Applying AI</span>' : 'Vượt rào cản tiếng Anh <br><span>bằng cách ứng dụng AI</span>'; ?></h1>
+                <p><?php echo $is_en ? 'Discover how to use Artificial Intelligence to overcome language barriers and improve international standard learning performance with IDEAS' : 'Khám phá cách thức sử dụng Trí Tuệ Nhân Tạo để khắc phục rào cản ngoại ngữ, nâng cao hiệu suất học\n                    tập chuẩn quốc tế cùng IDEAS'; ?></p>
             </div>
         </section>
 
@@ -622,7 +622,7 @@ ob_start(function ($html) {
 
                     <div class="player-meta-card">
                         <span class="meta-tag" id="current-video-type">Podcast Video</span>
-                        <h2 id="current-video-title">Đang tải video...</h2>
+                        <h2 id="current-video-title"><?php echo $is_en ? 'Loading video...' : 'Đang tải video...'; ?></h2>
                         <div class="meta-row">
                             <div class="meta-item">
                                 <i class="fa-regular fa-clock"></i>
@@ -630,7 +630,7 @@ ob_start(function ($html) {
                             </div>
                             <div class="meta-item">
                                 <i class="fa-solid fa-headphones"></i>
-                                <span>Âm thanh chất lượng cao</span>
+                                <span><?php echo $is_en ? 'High-quality Audio' : 'Âm thanh chất lượng cao'; ?></span>
                             </div>
                         </div>
                     </div>
@@ -639,8 +639,8 @@ ob_start(function ($html) {
                 <!-- Right: Playlist Sidebar -->
                 <div class="playlist-column">
                     <div class="playlist-header">
-                        <h3><i class="fa-solid fa-headphones"></i> Danh sách phát</h3>
-                        <span class="video-count-badge" id="video-count">0 videos</span>
+                        <h3><i class="fa-solid fa-headphones"></i> <?php echo $is_en ? 'Playlist' : 'Danh sách phát'; ?></h3>
+                        <span class="video-count-badge" id="video-count"><?php echo $is_en ? '0 videos' : '0 video'; ?></span>
                     </div>
                     <div class="playlist-scroll" data-lenis-prevent>
                         <ul class="playlist-items" id="playlist-list">
@@ -654,8 +654,8 @@ ob_start(function ($html) {
         <!-- Cooperation Block -->
         <section class="podcast-coop">
             <div class="coop-container">
-                <h2 class="coop-title"><i class="fa-solid fa-handshake-simple"></i> Đơn vị <b>Đồng hành</b></h2>
-                <p class="coop-sub">Các đơn vị tài trợ học thuật và đồng sản xuất chương trình Podcast</p>
+                <h2 class="coop-title"><i class="fa-solid fa-handshake-simple"></i> <?php echo $is_en ? 'Co-producing <b>Partners</b>' : 'Đơn vị <b>Đồng hành</b>'; ?></h2>
+                <p class="coop-sub"><?php echo $is_en ? 'Academic sponsors and co-producers of the Podcast program' : 'Các đơn vị tài trợ học thuật và đồng sản xuất chương trình Podcast'; ?></p>
 
                 <div class="coop-grid">
                     <a class="coop-card" href="https://chiefaiofficer.vn/" target="_blank"
@@ -681,33 +681,34 @@ ob_start(function ($html) {
 
     <!-- Podcast Playlist and Player Controller Script -->
     <script>
+        if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         const podcast_data = {
             series1: {
-                name: "Vượt rào cản tiếng Anh",
-                name_sub: "#bằng cách ứng dụng AI trong học tập",
+                name: isEnMode ? "Breaking English Barriers" : "Vượt rào cản tiếng Anh",
+                name_sub: isEnMode ? "#by applying AI in learning" : "#bằng cách ứng dụng AI trong học tập",
                 data: [
                     {
                         type: "Podcast Video",
                         duration: "2:03",
-                        title: "Không giỏi tiếng Anh - Bạn không đơn độc",
+                        title: isEnMode ? "Not Good at English - You are Not Alone" : "Không giỏi tiếng Anh - Bạn không đơn độc",
                         video: "https://ideas.edu.vn/wp-content/uploads/2025/07/podcast_1.mp4",
                     },
                     {
                         type: "Podcast Video",
                         duration: "2:40",
-                        title: "Bạn không cần hiểu hết, chỉ cần hiểu đúng với sự trợ giúp của AI",
+                        title: isEnMode ? "You don't need to understand everything, just understand correctly with AI assistance" : "Bạn không cần hiểu hết, chỉ cần hiểu đúng với sự trợ giúp của AI",
                         video: "https://ideas.edu.vn/wp-content/uploads/2025/08/FSave.com_Facebook_Media_003_3593813510926577v.mp4",
                     },
                     {
                         type: "Podcast Video",
                         duration: "3:07",
-                        title: "AI chỉ hỗ trợ, không thay thế việc tư duy",
+                        title: isEnMode ? "AI only assists, it does not replace thinking" : "AI chỉ hỗ trợ, không thay thế việc tư duy",
                         video: "https://ideas.edu.vn/wp-content/uploads/2025/08/video-podcast-3.mp4",
                     },
                     {
                         type: "Podcast Video",
                         duration: "2:01",
-                        title: "Bạn có đang sử dụng AI vô thức",
+                        title: isEnMode ? "Are you using AI unconsciously?" : "Bạn có đang sử dụng AI vô thức",
                         video: "https://ideas.edu.vn/wp-content/uploads/2025/08/FSave.com_Facebook_Media_002_1076359851223438v.mp4",
                     },
                 ],
@@ -727,7 +728,7 @@ ob_start(function ($html) {
             const videos = podcast_data.series1.data;
 
             // Update video count badge
-            if (lenElement) lenElement.textContent = `${videos.length} videos`;
+            if (lenElement) lenElement.textContent = `${videos.length} ${isEnMode ? 'videos' : 'video'}`;
 
             // Populate playlist
             if (listElement) {

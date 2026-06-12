@@ -26,9 +26,10 @@ ob_start(function($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 <head>
     <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
@@ -50,7 +51,7 @@ ob_start(function($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')) : ?>
-<title>404 - Không tìm thấy trang | <?php bloginfo('name'); ?></title>
+<title><?php echo $is_en ? '404 - Page Not Found | ' . get_bloginfo('name') : '404 - Không tìm thấy trang | ' . get_bloginfo('name'); ?></title>
 <?php endif; ?>
     
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
@@ -300,24 +301,24 @@ ob_start(function($html) {
         
         <div class="error-container">
             <div class="error-code">404</div>
-            <h1>Không Tìm Thấy Trang</h1>
-            <p>Trang bạn đang tìm kiếm không tồn tại, đã bị xóa hoặc đã được di chuyển sang một đường dẫn khác. Hãy thử tìm kiếm bài viết bên dưới hoặc quay lại trang chủ.</p>
+            <h1><?php echo $is_en ? 'Page Not Found' : 'Không Tìm Thấy Trang'; ?></h1>
+            <p><?php echo $is_en ? 'The page you are looking for does not exist, has been removed, or has been moved to a different path. Try searching for articles below or return to the homepage.' : 'Trang bạn đang tìm kiếm không tồn tại, đã bị xóa hoặc đã được di chuyển sang một đường dẫn khác. Hãy thử tìm kiếm bài viết bên dưới hoặc quay lại trang chủ.'; ?></p>
             
             <!-- Search bar -->
             <form role="search" method="get" class="error-search-form" action="<?php echo esc_url( home_url( '/index.php' ) ); ?>">
                 <div class="error-search-wrap">
                     <i class="fa-solid fa-magnifying-glass error-search-icon"></i>
-                    <input type="search" class="error-search-input" placeholder="Tìm kiếm thông tin trên website..." value="" name="s" required />
-                    <button type="submit" class="error-search-btn">Tìm kiếm</button>
+                    <input type="search" class="error-search-input" placeholder="<?php echo $is_en ? 'Search website content...' : 'Tìm kiếm thông tin trên website...'; ?>" value="" name="s" required />
+                    <button type="submit" class="error-search-btn"><?php echo $is_en ? 'Search' : 'Tìm kiếm'; ?></button>
                 </div>
             </form>
 
             <div class="error-actions">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn-404 btn-404-primary">
-                    <i class="fa-solid fa-house"></i> Về trang chủ
+                    <i class="fa-solid fa-house"></i> <?php echo $is_en ? 'Go to Home' : 'Về trang chủ'; ?>
                 </a>
                 <a href="/bai-viet" class="btn-404 btn-404-secondary">
-                    <i class="fa-solid fa-newspaper"></i> Xem tin tức
+                    <i class="fa-solid fa-newspaper"></i> <?php echo $is_en ? 'Read News' : 'Xem tin tức'; ?>
                 </a>
             </div>
         </div>

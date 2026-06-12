@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -42,20 +43,20 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>IDEAS Talk – Webinar &amp; Chuyên đề AI | IDEAS</title>
+        <title><?php echo $is_en ? 'IDEAS Talk – AI Webinars &amp; Seminars | IDEAS' : 'IDEAS Talk – Webinar &amp; Chuyên đề AI | IDEAS'; ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Chuỗi chuyên đề thảo luận và thực hành ứng dụng AI trong học tập, nghiên cứu và quản trị doanh nghiệp tổ chức bởi IDEAS." />
+            content="<?php echo $is_en ? 'A series of discussion and practice seminars on AI application in study, research, and business management organized by IDEAS.' : 'Chuỗi chuyên đề thảo luận và thực hành ứng dụng AI trong học tập, nghiên cứu và quản trị doanh nghiệp tổ chức bởi IDEAS.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="IDEAS Talk – Webinar &amp; Chuyên đề AI" />
+        <meta property="og:title" content="<?php echo $is_en ? 'IDEAS Talk – AI Webinars &amp; Seminars' : 'IDEAS Talk – Webinar &amp; Chuyên đề AI'; ?>" />
         <meta property="og:description"
-            content="Cập nhật các buổi Monthly Workshop công nghệ, hướng dẫn ứng dụng AI thực chiến từ hội đồng chuyên gia IDEAS." />
+            content="<?php echo $is_en ? 'Update monthly technology workshops and hands-on AI application guides from the IDEAS expert board.' : 'Cập nhật các buổi Monthly Workshop công nghệ, hướng dẫn ứng dụng AI thực chiến từ hội đồng chuyên gia IDEAS.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -611,9 +612,8 @@ ob_start(function ($html) {
                 <span class="talk-hero-badge">
                     <i class="fa-solid fa-globe"></i> Webinar Series
                 </span>
-                <h1><span>IDEAS TALK</span> <br>Workshop Ứng dụng AI</h1>
-                <p>#IDEAS Monthly AI Workshop – Chia sẻ phương pháp sáng tạo học tập &amp; làm việc đột phá cùng Trí Tuệ
-                    Nhân Tạo</p>
+                <h1><span>IDEAS TALK</span> <br><?php echo $is_en ? 'AI Application Workshop' : 'Workshop Ứng dụng AI'; ?></h1>
+                <p><?php echo $is_en ? '#IDEAS Monthly AI Workshop – Sharing breakthrough learning &amp; working methods with Artificial Intelligence' : '#IDEAS Monthly AI Workshop – Chia sẻ phương pháp sáng tạo học tập &amp; làm việc đột phá cùng Trí Tuệ\n                    Nhân Tạo'; ?></p>
             </div>
         </section>
 
@@ -630,7 +630,7 @@ ob_start(function ($html) {
 
                     <div class="player-meta-card">
                         <span class="meta-tag" id="current-video-type">IDEAS Talk - AI</span>
-                        <h2 id="current-video-title">Đang tải video...</h2>
+                        <h2 id="current-video-title"><?php echo $is_en ? 'Loading video...' : 'Đang tải video...'; ?></h2>
                         <div class="meta-row">
                             <div class="meta-item">
                                 <i class="fa-regular fa-calendar-days"></i>
@@ -638,7 +638,7 @@ ob_start(function ($html) {
                             </div>
                             <div class="meta-item">
                                 <i class="fa-solid fa-play"></i>
-                                <span>Phát sóng trực tiếp</span>
+                                <span><?php echo $is_en ? 'Live Broadcast' : 'Phát sóng trực tiếp'; ?></span>
                             </div>
                         </div>
                     </div>
@@ -647,8 +647,8 @@ ob_start(function ($html) {
                 <!-- Right: Playlist Sidebar -->
                 <div class="playlist-column">
                     <div class="playlist-header">
-                        <h3><i class="fa-solid fa-rectangle-list"></i> Danh sách phát</h3>
-                        <span class="video-count-badge" id="video-count">0 videos</span>
+                        <h3><i class="fa-solid fa-rectangle-list"></i> <?php echo $is_en ? 'Playlist' : 'Danh sách phát'; ?></h3>
+                        <span class="video-count-badge" id="video-count"><?php echo $is_en ? '0 videos' : '0 video'; ?></span>
                     </div>
                     <div class="playlist-scroll" data-lenis-prevent>
                         <ul class="playlist-items" id="playlist-list">
@@ -662,8 +662,8 @@ ob_start(function ($html) {
         <!-- Cooperation Block -->
         <section class="talk-coop">
             <div class="coop-container">
-                <h2 class="coop-title"><i class="fa-solid fa-handshake-simple"></i> Đơn vị <b>Đồng hành</b></h2>
-                <p class="coop-sub">Các đối tác và tổ chức học thuật uy tín đồng tổ chức chuỗi sự kiện IDEAS Talk</p>
+                <h2 class="coop-title"><i class="fa-solid fa-handshake-simple"></i> <?php echo $is_en ? 'Co-organizing <b>Partners</b>' : 'Đơn vị <b>Đồng hành</b>'; ?></h2>
+                <p class="coop-sub"><?php echo $is_en ? 'Prestigious partners and academic organizations co-hosting the IDEAS Talk event series' : 'Các đối tác và tổ chức học thuật uy tín đồng tổ chức chuỗi sự kiện IDEAS Talk'; ?></p>
 
                 <div class="coop-grid">
                     <a class="coop-card" href="https://chiefaiofficer.vn/" target="_blank"
@@ -689,39 +689,40 @@ ob_start(function ($html) {
 
     <!-- Playlist and Player Controller Script -->
     <script>
+        if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         const workshop_data = {
             series1: {
-                name: "Vượt rào cản tiếng Anh",
-                name_sub: "#bằng cách ứng dụng AI trong học tập",
+                name: isEnMode ? "Breaking English Barriers" : "Vượt rào cản tiếng Anh",
+                name_sub: isEnMode ? "#by applying AI in learning" : "#bằng cách ứng dụng AI trong học tập",
                 data: [
                     {
                         type: "IDEAS Talk - AI",
                         date: "29/06/2025",
-                        title: "VIBE CODING - Tự tạo ứng dụng bằng AI",
+                        title: isEnMode ? "VIBE CODING - Build your own app with AI" : "VIBE CODING - Tự tạo ứng dụng bằng AI",
                         video: "https://www.youtube.com/embed/CXCDUKsU-0I?si=EUDQfhO6gIZ517bY",
                     },
                     {
                         type: "IDEAS Talk - AI",
                         date: "25/05/2025",
-                        title: "Giải mã AI - Những phương thức sáng tạo chưa từng được tiết lộ",
+                        title: isEnMode ? "Demystifying AI - Unveiling Untold Creative Methods" : "Giải mã AI - Những phương thức sáng tạo chưa từng được tiết lộ",
                         video: "https://www.youtube.com/embed/n0S6vGsilhs?si=qOu2_jTHYmvj5ppD",
                     },
                     {
                         type: "IDEAS Talk - AI",
                         date: "20/04/2025",
-                        title: "Bảo mật dữ liệu trong thời đại AI: Thách thức và giải pháp",
+                        title: isEnMode ? "Data Security in the AI Era: Challenges and Solutions" : "Bảo mật dữ liệu trong thời đại AI: Thách thức và giải pháp",
                         video: "https://www.youtube.com/embed/1wyT6IVUCpg?si=Dl66rshN8IoTRKuG",
                     },
                     {
                         type: "IDEAS Talk - AI",
                         date: "23/03/2025",
-                        title: "Ứng dụng AI chăm sóc khách hàng đa kênh",
+                        title: isEnMode ? "AI Applications in Omnichannel Customer Service" : "Ứng dụng AI chăm sóc khách hàng đa kênh",
                         video: "https://www.youtube.com/embed/mB0mDrgjVNs?si=8OciF14MwQh1w1AF",
                     },
                     {
                         type: "IDEAS Talk - AI",
                         date: "09/03/2025",
-                        title: "Sự Kết Hợp AI & Semiconductor - Xu hướng tương lai",
+                        title: isEnMode ? "The Convergence of AI & Semiconductor - Future Trends" : "Sự Kết Hợp AI & Semiconductor - Xu hướng tương lai",
                         video: "https://www.youtube.com/embed/5cogIW22nFI?si=0YF_3H5NX1UTPtr2",
                     },
                 ],
@@ -741,7 +742,7 @@ ob_start(function ($html) {
             const videos = workshop_data.series1.data;
 
             // Update video count badge
-            if (lenElement) lenElement.textContent = `${videos.length} videos`;
+            if (lenElement) lenElement.textContent = `${videos.length} ${isEnMode ? 'videos' : 'video'}`;
 
             // Populate the playlist DOM elements
             if (listElement) {

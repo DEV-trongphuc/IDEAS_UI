@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -39,19 +40,19 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Sơ đồ tổ chức & Cơ cấu nhân sự | IDEAS</title>
+        <title><?php echo $is_en ? 'Organizational Chart & Staff Structure | IDEAS' : 'Sơ đồ tổ chức & Cơ cấu nhân sự | IDEAS'; ?></title>
     <?php endif; ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Khám phá sơ đồ tổ chức của IDEAS với đội ngũ điều hành chuyên nghiệp, hội đồng khoa học chuyên môn và các tư vấn viên tận tâm." />
+            content="<?php echo $is_en ? 'Explore the IDEAS organizational chart featuring a professional executive team, scientific advisory board, and dedicated admissions advisors.' : 'Khám phá sơ đồ tổ chức của IDEAS với đội ngũ điều hành chuyên nghiệp, hội đồng khoa học chuyên môn và các tư vấn viên tận tâm.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Sơ đồ tổ chức & Cơ cấu nhân sự | IDEAS" />
+        <meta property="og:title" content="<?php echo $is_en ? 'Organizational Chart & Staff Structure | IDEAS' : 'Sơ đồ tổ chức & Cơ cấu nhân sự | IDEAS'; ?>" />
         <meta property="og:description"
-            content="Hành trình hỗ trợ học vụ chuyên nghiệp và bền vững với bộ máy nhân sự được tối ưu hóa toàn diện." />
+            content="<?php echo $is_en ? 'A journey of professional and sustainable academic support with a fully optimized staff structure.' : 'Hành trình hỗ trợ học vụ chuyên nghiệp và bền vững với bộ máy nhân sự được tối ưu hóa toàn diện.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -1001,11 +1002,10 @@ ob_start(function ($html) {
     <section class="org-hero">
         <div class="org-hero-badge">
             <i class="fa-solid fa-sitemap"></i>
-            Bộ máy nhân sự
+            <?php echo $is_en ? 'Staff Structure' : 'Bộ máy nhân sự'; ?>
         </div>
-        <h1>Cơ Cấu Tổ Chức &amp; <span>Sơ Đồ Nhân Sự</span></h1>
-        <p>Quy chế hoạt động khoa học, bộ máy quản lý tinh gọn cùng đội ngũ chuyên viên học vụ chuyên nghiệp đồng hành
-            cùng học viên IDEAS.</p>
+        <h1><?php echo $is_en ? 'Organizational Structure &amp; <span>Staff Chart</span>' : 'Cơ Cấu Tổ Chức &amp; <span>Sơ Đồ Nhân Sự</span>'; ?></h1>
+        <p><?php echo $is_en ? 'Scientific operating regulations, a streamlined management structure, and a team of professional academic specialists accompanying IDEAS students.' : 'Quy chế hoạt động khoa học, bộ máy quản lý tinh gọn cùng đội ngũ chuyên viên học vụ chuyên nghiệp đồng hành\n            cùng học viên IDEAS.'; ?></p>
     </section>
 
     <!-- Tree Flow Section -->
@@ -1013,9 +1013,9 @@ ob_start(function ($html) {
         <div class="canvas-viewport" id="org-canvas-viewport">
             <!-- Floating Canvas Controls -->
             <div class="canvas-controls">
-                <button type="button" id="btn-zoom-in" title="Phóng to" aria-label="Phóng to" aria-label="Phóng to"><i class="fa-solid fa-plus"></i></button>
-                <button type="button" id="btn-zoom-out" title="Thu nhỏ" aria-label="Thu nhỏ" aria-label="Thu nhỏ"><i class="fa-solid fa-minus"></i></button>
-                <button type="button" id="btn-zoom-reset" title="Đặt lại góc nhìn" aria-label="Đặt lại góc nhìn" aria-label="Đặt lại góc nhìn"><i
+                <button type="button" id="btn-zoom-in" title="<?php echo $is_en ? 'Zoom In' : 'Phóng to'; ?>" aria-label="<?php echo $is_en ? 'Zoom In' : 'Phóng to'; ?>"><i class="fa-solid fa-plus"></i></button>
+                <button type="button" id="btn-zoom-out" title="<?php echo $is_en ? 'Zoom Out' : 'Thu nhỏ'; ?>" aria-label="<?php echo $is_en ? 'Zoom Out' : 'Thu nhỏ'; ?>"><i class="fa-solid fa-minus"></i></button>
+                <button type="button" id="btn-zoom-reset" title="<?php echo $is_en ? 'Reset View' : 'Đặt lại góc nhìn'; ?>" aria-label="<?php echo $is_en ? 'Reset View' : 'Đặt lại góc nhìn'; ?>"><i
                         class="fa-solid fa-arrows-to-eye"></i></button>
             </div>
 
@@ -1027,7 +1027,7 @@ ob_start(function ($html) {
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp"
                             class="org-node-avatar" alt="Viện trưởng IDEAS - TS. Phạm Quang Vinh">
                         <div class="org-node-body">
-                            <div class="org-node-role">Viện Trưởng</div>
+                            <div class="org-node-role"><?php echo $is_en ? 'Dean / Director' : 'Viện Trưởng'; ?></div>
                             <h3 class="org-node-name">TS. Phạm Quang Vinh</h3>
                             <div class="org-node-info">
                                 <i class="fa-solid fa-envelope"></i>
@@ -1048,7 +1048,7 @@ ob_start(function ($html) {
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png"
                                     class="org-node-avatar" alt="Hội đồng chuyên môn">
                                 <div class="org-node-body-horizontal">
-                                    <div class="org-node-role" style="margin-bottom:2px;">Hội đồng chuyên môn</div>
+                                    <div class="org-node-role" style="margin-bottom:2px;"><?php echo $is_en ? 'Academic Board' : 'Hội đồng chuyên môn'; ?></div>
                                     <div class="org-node-name" style="margin-bottom:0; font-size:0.95rem;"><i
                                             class="fa-solid fa-user-group"
                                             style="font-size:0.85rem; color:#ab0e00; margin-right:4px;"></i> Giảng viên
@@ -1068,13 +1068,13 @@ ob_start(function ($html) {
                         <div class="org-branch-col has-sub-branches">
                             <div class="org-node">
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/mainu_avt.jpg"
-                                    class="org-node-avatar" alt="Trưởng phòng Kinh doanh - Mai Nữ">
+                                    class="org-node-avatar" alt="<?php echo $is_en ? 'Head of Department - Mai Nu' : 'Trưởng phòng Kinh doanh - Mai Nữ'; ?>">
                                 <div class="org-node-body">
-                                    <div class="org-node-role">Trưởng Khối</div>
+                                    <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
                                     <h3 class="org-node-name">Mai Nữ</h3>
                                     <div class="org-node-role"
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Kinh
-                                        Doanh &amp; Trải Nghiệm Học Viên</div>
+                                        <?php echo $is_en ? 'Business & Student Experience' : 'Doanh &amp; Trải Nghiệm Học Viên'; ?></div>
                                     <div class="org-node-info">
                                         <i class="fa-solid fa-envelope"></i>
                                         <a href="mailto:info@ideas.edu.vn">info@ideas.edu.vn</a>
@@ -1099,14 +1099,13 @@ ob_start(function ($html) {
                                     <!-- Line down to advisors -->
                                     <div class="org-tree-line sub-line"></div>
                                     <div class="consultants-title"><i class="fa-solid fa-headset"
-                                            style="margin-right:4px; color:#ab0e00;"></i> Tư vấn viên tuyển sinh</div>
+                                            style="margin-right:4px; color:#ab0e00;"></i> <?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></div>
 
                                     <div class="consultants-grid">
                                         <div class="consultants-warning">
                                             <i class="fa-solid fa-triangle-exclamation"></i>
                                             <div>
-                                                <strong>CẢNH BÁO:</strong> Cảnh giác với các số điện thoại lạ mạo danh
-                                                là tư vấn viên tuyển sinh của IDEAS.
+                                                 <strong><?php echo $is_en ? 'ALERT:' : 'CẢNH BÁO:'; ?></strong> <?php echo $is_en ? 'Be cautious of unknown phone numbers pretending to be IDEAS admissions advisors.' : 'Cảnh giác với các số điện thoại lạ mạo danh\n                                                 là tư vấn viên tuyển sinh của IDEAS.'; ?>
                                             </div>
                                         </div>
 
@@ -1115,7 +1114,7 @@ ob_start(function ($html) {
                                                 class="consultant-avatar" alt="Lưu Phan Hoàng Phúc" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Lưu Phan Hoàng Phúc</h4>
-                                                <span class="consultant-role">Tư vấn viên</span>
+                                                <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
                                                     <i class="fa-solid fa-phone"></i>
                                                     <strong>*********017</strong>
@@ -1128,7 +1127,7 @@ ob_start(function ($html) {
                                                 class="consultant-avatar" alt="Nguyễn Thị Linh Đan" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Nguyễn Thị Linh Đan</h4>
-                                                <span class="consultant-role">Tư vấn viên</span>
+                                                <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
                                                     <i class="fa-solid fa-phone"></i>
                                                     <strong>*********953</strong>
@@ -1141,7 +1140,7 @@ ob_start(function ($html) {
                                                 class="consultant-avatar" alt="Lê Đinh Ý Nhi" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Lê Đinh Ý Nhi</h4>
-                                                <span class="consultant-role">Tư vấn viên</span>
+                                                <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
                                                     <i class="fa-solid fa-phone"></i>
                                                     <strong>*********486</strong>
@@ -1154,7 +1153,7 @@ ob_start(function ($html) {
                                                 class="consultant-avatar" alt="Nguyễn Phương Uyên" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Nguyễn Phương Uyên</h4>
-                                                <span class="consultant-role">Tư vấn viên</span>
+                                                <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
                                                     <i class="fa-solid fa-phone"></i>
                                                     <strong>*********935</strong>
@@ -1169,7 +1168,7 @@ ob_start(function ($html) {
                                     <div class="org-node">
                                         <div class="org-node-avatar-placeholder">LHT</div>
                                         <div class="org-node-body">
-                                            <div class="org-node-role">Học thuật</div>
+                                            <div class="org-node-role"><?php echo $is_en ? 'Academics' : 'Học thuật'; ?></div>
                                             <h3 class="org-node-name">Lê Huyền Trâm</h3>
                                         </div>
                                     </div>
@@ -1181,9 +1180,9 @@ ob_start(function ($html) {
                         <div class="org-branch-col has-sub-branches">
                             <div class="org-node">
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/phamthiphuonglan_avt.jpg"
-                                    class="org-node-avatar" alt="Trưởng phòng Kế hoạch - Phạm Thị Phương Lan" loading="lazy" decoding="async">
+                                    class="org-node-avatar" alt="<?php echo $is_en ? 'Head of Department - Pham Thi Phuong Lan' : 'Trưởng phòng Kế hoạch - Phạm Thị Phương Lan'; ?>" loading="lazy" decoding="async">
                                 <div class="org-node-body">
-                                    <div class="org-node-role">Trưởng Khối</div>
+                                    <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
                                     <h3 class="org-node-name">Phạm Thị Phương Lan</h3>
                                     <div class="org-node-role"
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Quản
@@ -1204,7 +1203,7 @@ ob_start(function ($html) {
                                     <div class="org-node">
                                         <div class="org-node-avatar-placeholder">DP</div>
                                         <div class="org-node-body">
-                                            <div class="org-node-role">Trưởng Phòng Nhân Sự</div>
+                                            <div class="org-node-role"><?php echo $is_en ? 'HR Manager' : 'Trưởng Phòng Nhân Sự'; ?></div>
                                             <h3 class="org-node-name">Nguyễn Thị Duy Phương</h3>
                                         </div>
                                     </div>
@@ -1215,7 +1214,7 @@ ob_start(function ($html) {
                                     <div class="org-node">
                                         <div class="org-node-avatar-placeholder">NTT</div>
                                         <div class="org-node-body">
-                                            <div class="org-node-role">Trưởng Phòng Kế Toán</div>
+                                            <div class="org-node-role"><?php echo $is_en ? 'Chief Accountant' : 'Trưởng Phòng Kế Toán'; ?></div>
                                             <h3 class="org-node-name">Nguyễn Thu Thảo</h3>
                                         </div>
                                     </div>
@@ -1228,7 +1227,7 @@ ob_start(function ($html) {
                             <div class="org-node">
                                 <div class="org-node-avatar-placeholder">VTD</div>
                                 <div class="org-node-body">
-                                    <div class="org-node-role">Trưởng Khối</div>
+                                    <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
                                     <h3 class="org-node-name">Võ Trùng Dương</h3>
                                     <div class="org-node-role"
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Tăng

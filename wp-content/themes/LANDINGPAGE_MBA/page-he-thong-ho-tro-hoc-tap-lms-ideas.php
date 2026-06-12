@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -936,14 +937,14 @@ ob_start(function ($html) {
         <div class="lms-hero-container">
             <div class="lms-hero-badge">
                 <i class="fa-solid fa-laptop-code"></i>
-                Công Nghệ Đào Tạo 4.0
+                <?php echo $is_en ? 'Training Technology 4.0' : 'Công Nghệ Đào Tạo 4.0'; ?>
             </div>
-            <h1>Hệ thống LMS <br /> Cùng <span>hệ sinh thái học tập.</span></h1>
+            <h1><?php echo $is_en ? 'LMS System <br /> Along with a <span>Learning Ecosystem.</span>' : 'Hệ thống LMS <br /> Cùng <span>hệ sinh thái học tập.</span>'; ?></h1>
             <p>Đồng hành hỗ trợ học vụ chuyên nghiệp, giải pháp học tập số toàn diện giúp tối ưu hóa thời gian và nâng
                 cao hiệu quả tiếp thu kiến thức cho học viên.</p>
             <div class="lms-hero-actions">
                 <button type="button" class="btn btn-primary" onclick="showform('lms-hero')">
-                    Trải nghiệm hệ thống ngay
+                    <?php echo $is_en ? 'Experience the System Now' : 'Trải nghiệm hệ thống ngay'; ?>
                     <svg width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M5 12h14M12 5l7 7-7 7" />
@@ -951,21 +952,21 @@ ob_start(function ($html) {
                 </button>
                 <button type="button" class="btn-video-watch" id="btn-watch-video">
                     <i class="fa-solid fa-circle-play"></i>
-                    Xem video hướng dẫn
+                    <?php echo $is_en ? 'Watch Guide Video' : 'Xem video hướng dẫn'; ?>
                 </button>
             </div>
             <div class="lms-hero-stats">
                 <div class="lms-stat-card">
                     <span class="lms-stat-num">24/7</span>
-                    <span class="lms-stat-lbl">Học Tập Chủ Động</span>
+                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Active Learning' : 'Học Tập Chủ Động'; ?></span>
                 </div>
                 <div class="lms-stat-card">
                     <span class="lms-stat-num">1.000+</span>
-                    <span class="lms-stat-lbl">Tài Liệu Cengage</span>
+                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Cengage Resources' : 'Tài Liệu Cengage'; ?></span>
                 </div>
                 <div class="lms-stat-card">
                     <span class="lms-stat-num">100%</span>
-                    <span class="lms-stat-lbl">Bổ Trợ Tiếng Việt</span>
+                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Vietnamese Support' : 'Bổ Trợ Tiếng Việt'; ?></span>
                 </div>
             </div>
         </div>
@@ -978,11 +979,10 @@ ob_start(function ($html) {
         <div class="eco-orb eco-orb-3" aria-hidden="true"></div>
         <div class="eco-inner">
             <div class="eco-header">
-                <div class="eco-label-light">HỆ SINH THÁI HỌC TẬP</div>
+                <div class="eco-label-light"><?php echo $is_en ? 'LEARNING ECOSYSTEM' : 'HỆ SINH THÁI HỌC TẬP'; ?></div>
                 <h3 class="ecosystem-title">Hệ sinh thái học tập toàn diện<br /><span class="eco-title-accent">luôn đồng
                         hành cùng bạn</span></h3>
-                <p class="ecosystem-sub">IDEAS là đối tác tuyển sinh chính thức của Swiss UMEF, xây dựng hệ sinh thái
-                    học tập toàn diện cho người học Việt Nam.</p>
+                <p class="ecosystem-sub"><?php echo $is_en ? 'IDEAS is the official admissions partner of Swiss UMEF, building a comprehensive learning ecosystem for Vietnamese learners.' : 'IDEAS là đối tác tuyển sinh chính thức của Swiss UMEF, xây dựng hệ sinh thái\n                    học tập toàn diện cho người học Việt Nam.'; ?></p>
             </div>
 
             <div class="ecosystem-grid-v2">
@@ -995,8 +995,7 @@ ob_start(function ($html) {
                     </div>
                     <div class="eco-card-v2-body">
                         <h4 class="eco-card-v2-title">LMS Powered by Moodle</h4>
-                        <p class="eco-card-v2-desc">Nền tảng học tập hiện đại, hỗ trợ video bài giảng, tài liệu và bài
-                            tập - truy cập 24/7 mọi lúc, mọi nơi.</p>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Modern learning platform supporting lecture videos, documents, and assignments - accessible 24/7 anytime, anywhere.' : 'Nền tảng học tập hiện đại, hỗ trợ video bài giảng, tài liệu và bài\n                            tập - truy cập 24/7 mọi lúc, mọi nơi.'; ?></p>
                     </div>
                 </article>
 
@@ -1009,8 +1008,7 @@ ob_start(function ($html) {
                     </div>
                     <div class="eco-card-v2-body">
                         <h4 class="eco-card-v2-title">IDEAS AI Platform</h4>
-                        <p class="eco-card-v2-desc">Trợ lý AI hỗ trợ giải thích kiến thức, nghiên cứu tài liệu và tối ưu
-                            thời gian học tập hiệu quả.</p>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'AI assistant supporting knowledge explanation, literature research, and optimizing effective study time.' : 'Trợ lý AI hỗ trợ giải thích kiến thức, nghiên cứu tài liệu và tối ưu\n                            thời gian học tập hiệu quả.'; ?></p>
                     </div>
                 </article>
 
@@ -1023,9 +1021,8 @@ ob_start(function ($html) {
                             alt="Cengage logo" style="width:68px;height:auto;object-fit:contain;" loading="lazy" />
                     </div>
                     <div class="eco-card-v2-body">
-                        <h4 class="eco-card-v2-title">Thư viện Cengage</h4>
-                        <p class="eco-card-v2-desc">Miễn phí truy cập hơn 1.000 đầu sách học thuật chuyên ngành kinh
-                            doanh và quản trị hàng đầu thế giới.</p>
+                        <h4 class="eco-card-v2-title"><?php echo $is_en ? 'Cengage Library' : 'Thư viện Cengage'; ?></h4>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Free access to over 1,000 leading academic books in business and management worldwide.' : 'Miễn phí truy cập hơn 1.000 đầu sách học thuật chuyên ngành kinh\n                            doanh và quản trị hàng đầu thế giới.'; ?></p>
                     </div>
                 </a>
 
@@ -1036,9 +1033,8 @@ ob_start(function ($html) {
                             alt="Chuyên đề" style="width:68px;height:auto;object-fit:contain;" loading="lazy" />
                     </div>
                     <div class="eco-card-v2-body">
-                        <h4 class="eco-card-v2-title">Lớp chuyên đề bổ trợ</h4>
-                        <p class="eco-card-v2-desc">Các buổi chuyên đề cuối tuần cùng giảng viên và chuyên gia đầu
-                            ngành, kết nối kiến thức MBA với thực tiễn.</p>
+                        <h4 class="eco-card-v2-title"><?php echo $is_en ? 'Supplemental Seminars' : 'Lớp chuyên đề bổ trợ'; ?></h4>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Weekend supplemental seminars with lecturers and leading experts, connecting MBA knowledge with reality.' : 'Các buổi chuyên đề cuối tuần cùng giảng viên và chuyên gia đầu\n                            ngành, kết nối kiến thức MBA với thực tiễn.'; ?></p>
                     </div>
                 </article>
             </div>
@@ -1050,11 +1046,9 @@ ob_start(function ($html) {
         <!-- Moodle LMS Detail -->
         <div class="platform-detail-row">
             <div class="platform-text">
-                <span class="platform-text-badge">Nền tảng chính</span>
+                <span class="platform-text-badge"><?php echo $is_en ? 'Core Platform' : 'Nền tảng chính'; ?></span>
                 <h3>LMS Powered by Moodle</h3>
-                <p>Moodle là hệ thống quản lý học tập (LMS) phổ biến hàng đầu thế giới được sử dụng bởi các trường đại
-                    học danh tiếng. Tại IDEAS, hệ thống Moodle được cấu hình thông minh và trực quan hóa tối đa để đồng
-                    hành cùng học viên trong suốt chặng đường học tập:</p>
+                <p><?php echo $is_en ? 'Moodle is the world\'s leading popular learning management system (LMS) used by prestigious universities. At IDEAS, Moodle is smartly configured and maximized visually to accompany students throughout their learning journey:' : 'Moodle là hệ thống quản lý học tập (LMS) phổ biến hàng đầu thế giới được sử dụng bởi các trường đại\n                    học danh tiếng. Tại IDEAS, hệ thống Moodle được cấu hình thông minh và trực quan hóa tối đa để đồng\n                    hành cùng học viên trong suốt chặng đường học tập:'; ?></p>
                 <ul class="platform-features-list">
                     <li><i class="fa-solid fa-circle-check"></i> Xem video bài giảng ghi hình chất lượng cao mọi lúc mọi
                         nơi.</li>
@@ -1075,10 +1069,9 @@ ob_start(function ($html) {
         <!-- AI Platform Detail -->
         <div class="platform-detail-row reverse">
             <div class="platform-text">
-                <span class="platform-text-badge">Trợ lý học thuật 4.0</span>
+                <span class="platform-text-badge"><?php echo $is_en ? 'Academic Assistant 4.0' : 'Trợ lý học thuật 4.0'; ?></span>
                 <h3>IDEAS AI Platform</h3>
-                <p>Nền tảng hỗ trợ học vụ tích hợp mô hình ngôn ngữ lớn (LLM) thông minh được huấn luyện chuyên sâu cho
-                    môi trường học tập sau đại học, giúp học viên giải quyết nhanh chóng các khó khăn học thuật:</p>
+                <p><?php echo $is_en ? 'An academic support platform integrated with smart Large Language Models (LLM) trained specifically for graduate study environments, helping students resolve academic challenges quickly:' : 'Nền tảng hỗ trợ học vụ tích hợp mô hình ngôn ngữ lớn (LLM) thông minh được huấn luyện chuyên sâu cho\n                    môi trường học tập sau đại học, giúp học viên giải quyết nhanh chóng các khó khăn học thuật:'; ?></p>
                 <ul class="platform-features-list">
                     <li><i class="fa-solid fa-circle-check"></i> Giải thích các thuật ngữ chuyên ngành kinh tế, tài
                         chính bằng tiếng Việt.</li>
@@ -1086,7 +1079,7 @@ ob_start(function ($html) {
                         nhanh chóng.</li>
                     <li><i class="fa-solid fa-circle-check"></i> Gợi ý hướng nghiên cứu và cấu trúc đề án luận văn tốt
                         nghiệp.</li>
-                    <li><i class="fa-solid fa-circle-check"></i> Hoạt động 24/7 phản hồi tức thì giải tỏa áp lực tự học.
+                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Operating 24/7 with instant responses to relieve self-study pressure.' : 'Hoạt động 24/7 phản hồi tức thì giải tỏa áp lực tự học.'; ?>
                     </li>
                 </ul>
             </div>
@@ -1099,10 +1092,9 @@ ob_start(function ($html) {
         <!-- Cengage Detail -->
         <div class="platform-detail-row">
             <div class="platform-text">
-                <span class="platform-text-badge">Thư viện số toàn cầu</span>
-                <h3>Thư viện số Cengage</h3>
-                <p>Cengage Learning là một trong những nhà xuất bản giáo dục lớn nhất thế giới. Học viên tại IDEAS được
-                    cấp quyền truy cập miễn phí vào kho tàng tri thức số khổng lồ:</p>
+                <span class="platform-text-badge"><?php echo $is_en ? 'Global Digital Library' : 'Thư viện số toàn cầu'; ?></span>
+                <h3><?php echo $is_en ? 'Cengage Digital Library' : 'Thư viện số Cengage'; ?></h3>
+                <p><?php echo $is_en ? 'Cengage Learning is one of the world\'s largest educational publishers. Students at IDEAS are granted free access to a massive digital library:' : 'Cengage Learning là một trong những nhà xuất bản giáo dục lớn nhất thế giới. Học viên tại IDEAS được\n                    cấp quyền truy cập miễn phí vào kho tàng tri thức số khổng lồ:'; ?></p>
                 <ul class="platform-features-list">
                     <li><i class="fa-solid fa-circle-check"></i> Hơn 1.000+ đầu sách học thuật nguyên bản tiếng Anh
                         chuyên ngành Kinh tế.</li>
@@ -1118,9 +1110,9 @@ ob_start(function ($html) {
                         <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/cengage-blog-1.webp" alt="Tài liệu Cengage tại IDEAS" loading="lazy" />
                     </div>
                     <div class="cengage-post-card-content">
-                        <span class="cengage-post-card-tag"><i class="fa-solid fa-book-open"></i> Bài viết nổi bật</span>
-                        <h4 class="cengage-post-card-title">Tài liệu Cengage tại IDEAS: Lợi thế cạnh tranh học online</h4>
-                        <span class="cengage-post-card-link">Đọc bài viết <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="cengage-post-card-tag"><i class="fa-solid fa-book-open"></i> <?php echo $is_en ? 'Featured Article' : 'Bài viết nổi bật'; ?></span>
+                        <h4 class="cengage-post-card-title"><?php echo $is_en ? 'Cengage Materials at IDEAS: The Competitive Edge of Online Learning' : 'Tài liệu Cengage tại IDEAS: Lợi thế cạnh tranh học online'; ?></h4>
+                        <span class="cengage-post-card-link"><?php echo $is_en ? 'Read Article' : 'Đọc bài viết'; ?> <i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
@@ -1134,25 +1126,25 @@ ob_start(function ($html) {
     <!-- Consultation Registration Form -->
     <section class="lms-form-section">
         <div class="lms-form-wrapper">
-            <h3>Đăng ký tìm hiểu &amp; Trải nghiệm hệ thống</h3>
+            <h3><?php echo $is_en ? 'Register to Learn & Experience the System' : 'Đăng ký tìm hiểu &amp; Trải nghiệm hệ thống'; ?></h3>
             <p>Nhận tài khoản dùng thử hệ thống LMS Moodle và nhận tư vấn lộ trình học tập miễn phí từ chuyên viên học
                 vụ IDEAS.</p>
             <form class="cta-form" id="lms-register-form">
                 <div class="form-group" style="margin-bottom: 20px; text-align: left;">
-                    <input type="text" placeholder="Họ và tên của bạn" required
+                    <input type="text" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" required
                         style="width: 100%; padding: 14px 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #fff; font-size: 0.95rem;" />
                 </div>
                 <div class="form-group" style="margin-bottom: 20px; text-align: left;">
-                    <input type="tel" placeholder="Số điện thoại" required
+                    <input type="tel" placeholder="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>" required
                         style="width: 100%; padding: 14px 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #fff; font-size: 0.95rem;" />
                 </div>
                 <div class="form-group" style="margin-bottom: 20px; text-align: left;">
-                    <input type="email" placeholder="Địa chỉ email" required
+                    <input type="email" placeholder="<?php echo $is_en ? 'Email address' : 'Địa chỉ email'; ?>" required
                         style="width: 100%; padding: 14px 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #fff; font-size: 0.95rem;" />
                 </div>
                 <button type="submit" class="btn btn-primary btn-full"
                     style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
-                    Đăng ký tư vấn ngay
+                    <?php echo $is_en ? 'Register for Consultation Now' : 'Đăng ký tư vấn ngay'; ?>
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </form>
@@ -1192,8 +1184,8 @@ ob_start(function ($html) {
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
-                    const nameInput = form.querySelector('input[placeholder*="Họ và tên"]') || form.querySelector('input[type="text"]');
-                    const phoneInput = form.querySelector('input[placeholder*="Số điện thoại"]') || form.querySelector('input[type="tel"]');
+                    const nameInput = form.querySelector('input[placeholder*="<?php echo $is_en ? 'Your full name' : 'Họ và tên'; ?>"]') || form.querySelector('input[type="text"]');
+                    const phoneInput = form.querySelector('input[placeholder*="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>"]') || form.querySelector('input[type="tel"]');
                     const emailInput = form.querySelector('input[placeholder*="email"]') || form.querySelector('input[type="email"]');
 
                     const name = nameInput ? nameInput.value.trim() : '';
@@ -1201,7 +1193,7 @@ ob_start(function ($html) {
                     const email = emailInput ? emailInput.value.trim() : '';
 
                     if (!name || !phone || !email) {
-                        alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
+                        alert('<?php echo $is_en ? 'Please fill in all required fields.' : 'Vui lòng điền đầy đủ các thông tin bắt buộc.'; ?>');
                         return;
                     }
 
@@ -1212,8 +1204,8 @@ ob_start(function ($html) {
                         firstName: name,
                         phoneNumber: phone,
                         time_dat_lich: "",
-                        note_dat_lich: "Đăng ký từ trang LMS",
-                        chuong_trinh_dat_lich: "LMS Moodle và Hệ sinh thái"
+                        note_dat_lich: $is_en ? 'Registered from LMS Page' : 'Đăng ký từ trang LMS',
+                        chuong_trinh_dat_lich: $is_en ? 'LMS Moodle & Ecosystem' : 'LMS Moodle và Hệ sinh thái'
                     };
 
                     const webhookPayload = {
@@ -1225,8 +1217,8 @@ ob_start(function ($html) {
                         tieng_anh: "",
                         hoc_van: "",
                         time_dat_lich: "",
-                        chuong_trinh: "LMS Moodle và Hệ sinh thái",
-                        nhu_cau: "Đăng ký tư vấn và cấp tài khoản LMS Moodle / Trợ lý AI"
+                        chuong_trinh: $is_en ? 'LMS Moodle & Ecosystem' : 'LMS Moodle và Hệ sinh thái',
+                        nhu_cau: $is_en ? 'Request consultation and LMS Moodle / AI Assistant trial' : 'Đăng ký tư vấn và cấp tài khoản LMS Moodle / Trợ lý AI'
                     };
 
                     // Bind UTMs
@@ -1269,11 +1261,11 @@ ob_start(function ($html) {
                         }
 
                         // Handle success
-                        alert('Đăng ký thành công! Chuyên viên học vụ sẽ liên hệ hỗ trợ bạn trong vòng 24h làm việc.');
+                        alert('<?php echo $is_en ? 'Registration successful! An academic specialist will contact you within 24 working hours.' : 'Đăng ký thành công! Chuyên viên học vụ sẽ liên hệ hỗ trợ bạn trong vòng 24h làm việc.'; ?>');
                         form.reset();
                     } catch (error) {
                         console.error('Submission error:', error);
-                        alert('Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
+                        alert('<?php echo $is_en ? 'An error occurred during submission. Please try again later.' : 'Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.'; ?>');
                     } finally {
                         if (btn) {
                             btn.disabled = false;
@@ -1341,10 +1333,10 @@ ob_start(function ($html) {
         style="display: none;">
         <div class="video-modal-overlay"></div>
         <div class="video-modal-container">
-            <button class="video-modal-close" aria-label="Đóng video">✕</button>
+            <button class="video-modal-close" aria-label="<?php echo $is_en ? 'Close video' : 'Đóng video'; ?>">✕</button>
             <div class="video-modal-content">
                 <div class="iframe-container">
-                    <iframe id="video-iframe" src="" title="Video hướng dẫn" frameborder="0"
+                    <iframe id="video-iframe" src="" title="<?php echo $is_en ? 'Guide Video' : 'Video hướng dẫn'; ?>" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                 </div>

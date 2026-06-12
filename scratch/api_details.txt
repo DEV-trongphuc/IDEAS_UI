@@ -1,0 +1,85 @@
+featured_media ID: 0
+Keys of post: ['id', 'date', 'date_gmt', 'guid', 'modified', 'modified_gmt', 'slug', 'status', 'type', 'link', 'title', 'content', 'excerpt', 'author', 'featured_media', 'comment_status', 'ping_status', 'sticky', 'template', 'format', 'meta', 'categories', 'tags', 'class_list', '_links', '_embedded']
+Keys of _embedded: ['author', 'wp:term']
+wp:featuredmedia is missing in _embedded!
+_embedded contents:
+{
+  "author": [
+    {
+      "id": 9,
+      "name": "Tr\u1ea7n Ng\u1ecdc Th\u00f9y D\u01b0\u01a1ng",
+      "url": "",
+      "description": "",
+      "link": "https://ideas.edu.vn/author/duongtntideas-edu-vn",
+      "slug": "duongtntideas-edu-vn",
+      "avatar_urls": {
+        "24": "/wp-content/uploads/external-migrated/avatar_6a1e83d9b4447_8ee10547.webp",
+        "48": "/wp-content/uploads/external-migrated/avatar_6a1e83d9b4447_8ee10547.webp",
+        "96": "/wp-content/uploads/external-migrated/avatar_6a1e83d9b4447_8ee10547.webp"
+      },
+      "_links": {
+        "self": [
+          {
+            "href": "https://ideas.edu.vn/wp-json/wp/v2/users/9",
+            "targetHints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        ],
+        "collection": [
+          {
+            "href": "https://ideas.edu.vn/wp-json/wp/v2/users"
+          }
+        ]
+      }
+    }
+  ],
+  "wp:term": [
+    [
+      {
+        "id": 70,
+        "link": "https://ideas.edu.vn/tin-tuc-moi",
+        "name": "Tin T\u1ee9c M\u1edbi",
+        "slug": "tin-tuc-moi",
+        "taxonomy": "category",
+        "_links": {
+          "self": [
+            {
+              "href": "https://ideas.edu.vn/wp-json/wp/v2/categories/70",
+              "targetHints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "collection": [
+            {
+              "href": "https://ideas.edu.vn/wp-json/wp/v2/categories"
+            }
+          ],
+          "about": [
+            {
+              "href": "https://ideas.edu.vn/wp-json/wp/v2/taxonomies/category"
+            }
+          ],
+          "wp:post_type": [
+            {
+              "href": "https://ideas.edu.vn/wp-json/wp/v2/posts?categories=70"
+            }
+          ],
+          "curies": [
+            {
+              "name": "wp",
+              "href": "https://api.w.org/{rel}",
+              "templated": true
+            }
+          ]
+        }
+      }
+    ],
+    []
+  ]
+}

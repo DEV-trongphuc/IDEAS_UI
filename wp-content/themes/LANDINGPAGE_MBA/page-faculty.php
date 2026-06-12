@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -41,18 +42,18 @@ ob_start(function ($html) {
     <!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Hội đồng Chuyên môn | Đội ngũ Giảng viên IDEAS</title>
+        <title><?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?> | Đội ngũ Giảng viên IDEAS</title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Đội ngũ Hội đồng Chuyên môn IDEAS – tập hợp những chuyên gia hàng đầu với nhiều năm kinh nghiệm thực tiễn trong các lĩnh vực quản trị kinh doanh, tài chính, công nghệ và giáo dục quốc tế." />
+            content="Đội ngũ <?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?> IDEAS – tập hợp những chuyên gia hàng đầu với nhiều năm kinh nghiệm thực tiễn trong các lĩnh vực quản trị kinh doanh, tài chính, công nghệ và giáo dục quốc tế." />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Hội đồng Chuyên môn – Đội ngũ Giảng viên IDEAS" />
+        <meta property="og:title" content="<?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?> – Đội ngũ Giảng viên IDEAS" />
         <meta property="og:description"
             content="Gặp gỡ các chuyên gia, giáo sư và giảng viên hàng đầu của IDEAS – những người dẫn dắt chương trình MBA, DBA và MSc AI đẳng cấp quốc tế." />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
@@ -906,23 +907,22 @@ ob_start(function ($html) {
         <div class="faculty-hero-content">
             <div class="faculty-hero-badge">
                 <i class="fa-solid fa-user-graduate"></i>
-                Hội đồng Chuyên môn
+                <?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?>
             </div>
-            <h1>Đội Ngũ <em>Chuyên Gia</em><br>Hàng Đầu Của IDEAS</h1>
-            <p>Tập hợp những giáo sư, tiến sĩ và chuyên gia hàng đầu với nhiều năm kinh nghiệm thực tiễn trong quản trị
-                kinh doanh, tài chính, công nghệ và giáo dục quốc tế.</p>
+            <h1><?php echo $is_en ? 'Leading <em>Experts &amp; Specialists</em><br>at IDEAS' : 'Đội Ngũ <em>Chuyên Gia</em><br>Hàng Đầu Của IDEAS'; ?></h1>
+            <p><?php echo $is_en ? 'Gathering top professors, doctors, and specialists with extensive hands-on experience in business administration, finance, technology, and global education.' : 'Tập hợp những giáo sư, tiến sĩ và chuyên gia hàng đầu với nhiều năm kinh nghiệm thực tiễn trong quản trị\n                kinh doanh, tài chính, công nghệ và giáo dục quốc tế.'; ?></p>
             <div class="hero-stats">
                 <div class="hero-stat">
                     <div class="hero-stat-number">15<span>+</span></div>
-                    <div class="hero-stat-label">Giảng viên cơ hữu</div>
+                    <div class="hero-stat-label"><?php echo $is_en ? 'Core Faculty' : 'Giảng viên cơ hữu'; ?></div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-number">10<span>+</span></div>
-                    <div class="hero-stat-label">Cố vấn quốc tế</div>
+                    <div class="hero-stat-label"><?php echo $is_en ? 'International Advisors' : 'Cố vấn quốc tế'; ?></div>
                 </div>
                 <div class="hero-stat">
                     <div class="hero-stat-number">25<span>+</span></div>
-                    <div class="hero-stat-label">Năm kinh nghiệm tb.</div>
+                    <div class="hero-stat-label"><?php echo $is_en ? 'Avg. Yrs Experience' : 'Năm kinh nghiệm tb.'; ?></div>
                 </div>
             </div>
         </div>
@@ -934,28 +934,24 @@ ob_start(function ($html) {
         <div class="section-header">
             <div class="section-badge">
                 <i class="fa-solid fa-graduation-cap"></i>
-                Hội đồng Chuyên môn
+                <?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?>
             </div>
-            <h2 class="section-title">Gặp gỡ <em>Đội Ngũ Giảng Viên</em> của Chúng Tôi</h2>
-            <p class="section-subtitle">Những chuyên gia dẫn dắt chương trình MBA, MSc AI và DBA đẳng cấp quốc tế tại
-                IDEAS.</p>
+            <h2 class="section-title"><?php echo $is_en ? 'Meet Our <em>Faculty Board &amp; Team</em>' : 'Gặp gỡ <em>Đội Ngũ Giảng Viên</em> của Chúng Tôi'; ?></h2>
+            <p class="section-subtitle"><?php echo $is_en ? 'Distinguished experts guiding world-class MBA, MSc AI, and DBA programs at IDEAS.' : 'Những chuyên gia dẫn dắt chương trình MBA, MSc AI và DBA đẳng cấp quốc tế tại\n                IDEAS.'; ?></p>
         </div>
 
         <!-- Tab Navigation -->
         <div class="tab-nav" id="faculty-tabs" role="tablist">
             <button class="tab-btn active" id="tab-gv" data-tab="gv" role="tab" aria-selected="true">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                Giảng viên
+                <i class="fa-solid fa-chalkboard-user"></i> <?php echo $is_en ? 'Lecturers' : 'Giảng viên'; ?>
                 <span class="tab-count" id="count-gv">15</span>
             </button>
             <button class="tab-btn" id="tab-cv" data-tab="cv" role="tab" aria-selected="false">
-                <i class="fa-solid fa-globe"></i>
-                Cố vấn Quốc tế
+                <i class="fa-solid fa-globe"></i> <?php echo $is_en ? 'International Advisors' : 'Cố vấn Quốc tế'; ?>
                 <span class="tab-count" id="count-cv">15</span>
             </button>
             <button class="tab-btn" id="tab-umef" data-tab="umef" role="tab" aria-selected="false">
-                <i class="fa-solid fa-building-columns"></i>
-                Swiss UMEF
+                <i class="fa-solid fa-building-columns"></i> <?php echo $is_en ? 'Swiss UMEF' : 'Swiss UMEF'; ?>
                 <span class="tab-count" id="count-umef">51</span>
             </button>
         </div>
@@ -973,7 +969,7 @@ ob_start(function ($html) {
                 <div class="faculty-modal-cover">
                     <div class="faculty-modal-cover-pattern"></div>
                 </div>
-                <button class="faculty-modal-close" id="modal-close" aria-label="Đóng">
+                <button class="faculty-modal-close" id="modal-close" aria-label="<?php echo $is_en ? 'Close' : 'Đóng'; ?>">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
@@ -981,7 +977,7 @@ ob_start(function ($html) {
                 <div class="faculty-modal-tag" id="modal-tag"></div>
                 <div class="faculty-modal-name" id="modal-name"></div>
                 <div class="faculty-modal-job" id="modal-job"></div>
-                <div class="faculty-modal-des-title" id="modal-des-title">Kinh nghiệm & Chức vụ</div>
+                <div class="faculty-modal-des-title" id="modal-des-title"><?php echo $is_en ? 'Experience &amp; Positions' : 'Kinh nghiệm & Chức vụ'; ?></div>
                 <ul class="faculty-modal-des" id="modal-des"></ul>
             </div>
         </div>
@@ -990,9 +986,177 @@ ob_start(function ($html) {
     <!-- ══ SCRIPTS ══ -->
     <script>
         // ── Faculty data ───────────────────────────────────────────────
+        if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         const FACULTY_DATA = {
-            gv: [
+            gv: isEnMode ? [
                 {
+                    name: "Phạm Quang Vinh",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp",
+                    tag: "PhD in Business Administration (USA)",
+                    job: "Director of IDEAS",
+                    des: [
+                        "Over 25 years of experience in Marketing and Insurance",
+                        "Founder - Director of IDEAS",
+                        "CEO of TSSAC Study Abroad Consulting JSC",
+                        "Governing Board Member of the HCMC Center for Research, Consulting, Support and Tech Innovation (R.i.C.H)",
+                        "Vice President of the Vietnam Association for Human Resources and Talent Development HCMC",
+                        "Head of External Affairs and International Cooperation, HCMC Vocational Education Association",
+                    ]
+                },
+                {
+                    name: "Dương Văn Thịnh",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp",
+                    tag: "PhD in Business Administration (France)",
+                    job: "VERON Group - Vice President, AI Technology",
+                    des: [
+                        "PhD in Business Administration - AI Research & Data Center (Ascencia, College de Paris - France)",
+                        "Master in Electronic Management (Innotech France)",
+                        "Post-Graduate in Economics (University of Economics HCMC)",
+                        "Bachelor of French Studies",
+                    ]
+                },
+                {
+                    name: "Sơn Điền Trung",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/NHP_1769-removebg-preview-optimized.webp",
+                    tag: "PhD in Business Administration (France)",
+                    job: "Chairman of Sonha Pharma, Q Pharma. Co-founder & Member of IDEAS.",
+                    des: [
+                        "20 years of experience in the pharmaceutical business",
+                        "5 years of experience in educational services",
+                    ]
+                },
+                {
+                    name: "Trần Tâm Anh",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/a-tam-anh-1-optimized.webp",
+                    tag: "PhD in Business Administration (USA)",
+                    job: "Responsible for international development strategy, marketing, and academic activities at IDEAS.",
+                    des: [
+                        "Many years of experience as senior manager for international programs – AEC Region",
+                    ]
+                },
+                {
+                    name: "Trần Hoàng Hiệp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.jpg",
+                    tag: "MBA from McFord University",
+                    job: "Deputy General Director – Business Smart JSC",
+                    des: [
+                        "Over 31 years of business experience",
+                        "Consultant and implementation expert for international capacity building projects in Singapore, Malaysia, and Myanmar",
+                        "Participated in the $49M Banking Modernization Project funded by the World Bank (WB)",
+                        "Certified trainer for John Kotter's [Leading Bold Change] program (Harvard University, USA)",
+                    ]
+                },
+                {
+                    name: "Nguyễn Thị Minh Đoan",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp",
+                    tag: "PhD in Business Administration",
+                    job: "Lecturer at IDEAS",
+                    des: [
+                        "18 years of experience as Sales Training Director at AIA, Prudential, and Aviva VN",
+                        "2 years of experience as HR Manager at Nam A Bank and Hoa Sen University",
+                    ]
+                },
+                {
+                    name: "Mang Viên Hoàng Nhật",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp",
+                    tag: "PhD in Business Administration",
+                    job: "Lecturer at IDEAS",
+                    des: [
+                        "25 years of experience in Pharmaceuticals, Vaccines, and Medical Devices business",
+                        "11 years of senior management experience at GlaxoSmithKline (GSK), Roche, Menarini, and Takeda",
+                        "3 years of experience in education, guest lecturer, and university speaker",
+                    ]
+                },
+                {
+                    name: "Dương Trần Minh Đoàn",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/duong-tran-minh-doan.jpg",
+                    tag: "MBA from University of Houston-Clear Lake",
+                    job: "Principal of Saigon Information Technology College (SITC)",
+                    des: [
+                        "Over 27 years working in domestic and foreign enterprises",
+                        "Over 12 years of hands-on experience in finance and accounting",
+                        "Many years of teaching experience at VNU-HCMC, Hoa Sen University, and Broward College",
+                    ]
+                },
+                {
+                    name: "Trần Thị Mai Anh",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-thi-mai-anh.jpg",
+                    tag: "Master of Human Resource Management (USA)",
+                    job: "Managing Director – Anpha Solutions and Training",
+                    des: [
+                        "Over 19 years as Strategic HR Director at Teko/VNLife, AAA, Circle K Vietnam, and Central Group",
+                        "Over 20 years as HR Management Lecturer and Consultant",
+                    ]
+                },
+                {
+                    name: "Lê Sơn Phong",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.jpg",
+                    tag: "MBA",
+                    job: "Associate Counsel Le Nguyen Law Firm — HCMC",
+                    des: [
+                        "MBA Lecturer - UBIS and Apollos University (USA)",
+                        "Vice President - Institute for Development and Applied Science Exchange (IDEAS)",
+                        "Head of Risk Management, Process, Compliance & AML - Novaland Group",
+                        "Senior Judge - People's Court of Ho Chi Minh City",
+                    ]
+                },
+                {
+                    name: "Đặng Quốc Phong",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    tag: "Master of Computer Science (VNU-HCMC)",
+                    job: "Director of Software Engineering Program – Gia Dinh University",
+                    des: [
+                        "Technology and education expert, specializing in ML/AI and research methodology",
+                        "Supervised many BA/MBA & DBA students in conducting research projects",
+                        "Project Manager DEG at Nova Education Group (2021–2024)",
+                    ]
+                },
+                {
+                    name: "Nguyễn Anh Toàn",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    tag: "MBA",
+                    job: "Investment Advisor - Maybank Investment Bank VN",
+                    des: [
+                        "Financial Advisor - VinaCapital Fund Management JSC",
+                        "Relationship Manager - Citibank Vietnam",
+                        "Management Consultant - JAVI Coffee Franchise Chain",
+                    ]
+                },
+                {
+                    name: "Nguyễn Hoài Trung",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    tag: "MBA & Master of Petroleum Engineering",
+                    job: "Business Development Advisor - Wecare 247",
+                    des: [
+                        "Over 16 years of experience in Business Management, Operations, and Petroleum Engineering",
+                        "Adjunct Faculty - FPT University & International Management Institute",
+                        "Senior Engineer with over 10 years of experience at Schlumberger, Petronas, and Petrovietnam",
+                    ]
+                },
+                {
+                    name: "Nguyễn Thanh Tuấn",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    tag: "PhD in Business Administration",
+                    job: "Lecturer",
+                    des: [
+                        "Over 20 years of teaching experience at domestic and international universities",
+                        "Topics: Business Research Methods, International Management, Organizational Behavior, Marketing Strategy, HRM",
+                    ]
+                },
+                {
+                    name: "Nguyễn Thành Nhân",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.jpg",
+                    tag: "Master of Business Analytics & Digital Transformation",
+                    job: "Associate IT Director - MSD (Pharmaceuticals & Healthcare)",
+                    des: [
+                        "Associate IT Director - MSD (Pharmaceuticals & Healthcare)",
+                        "IT Manager - Schneider Electric (Energy Management & Industrial Automation)",
+                        "Industry 4.0 Project Portfolio Manager - Bosch (Automotive Manufacturing)",
+                        "IT Systems Engineer at Intel (Semiconductor Manufacturing)",
+                    ]
+                }
+            ] : [
+{
                     name: "Phạm Quang Vinh",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp",
                     tag: "Tiến sĩ QTKD Hoa Kỳ",
@@ -1158,8 +1322,7 @@ ob_start(function ($html) {
                         "Kỹ sư hệ thống CNTT tại Intel (Semiconductor Manufacturing)",
                     ]
                 },
-            ],
-            cv: [
+            ],cv: [
                 {
                     name: "Phạm Quang Vinh",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp",

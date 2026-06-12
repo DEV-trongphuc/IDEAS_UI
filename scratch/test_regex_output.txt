@@ -1,0 +1,14 @@
+Content length: 10095
+First 500 chars of content:
+
+<p class="wp-block-paragraph">Chương trình Cử nhân Quản Trị Kinh Doanh (BBA) từ Swiss UMEF, Thụy Sĩ chính thức mở tuyển sinh tại Việt Nam. Học 100% online trong 3 năm, nhận bằng cử nhân quốc tế chính quy do Swiss UMEF cấp mà không cần du học hay gián đoạn công việc. IDEAS hiện đang là đối tác độc quyền hỗ trợ tuyển sinh và học thuật của Swiss UMEF tại Việt Nam.</p>
+
+
+
+<h2 class="wp-block-heading">Bằng Cử nhân quốc tế, học tại Việt Nam</h2>
+
+
+
+<p class="wp-block-paragraph">Chương trình Cử nhân Q
+Regex Match: <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/05/swiss-1.webp"
+Extracted Group 1: https://ideas.edu.vn/wp-content/uploads/2026/05/swiss-1.webp

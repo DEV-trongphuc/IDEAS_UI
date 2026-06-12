@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
@@ -109,24 +110,24 @@ ob_start(function ($html) {
 
     <!-- Rank Math SEO Metadata Fallback (only outputs if Rank Math/Yoast is inactive) -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-            <title>Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS</title>
+            <title><?php echo $is_en ? 'Study Swiss Online BBA &amp; MBA | IDEAS Institute' : 'Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS'; ?></title>
             <meta name="description"
-                content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
+                content="<?php echo $is_en ? 'International standard Swiss Bachelor (BBA) &amp; Master (MBA, MSc) online programs from reputable Swiss universities. Maximum flexibility for busy professionals.' : 'Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn.'; ?>" />
             <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-            <link rel="canonical" href="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
-            <meta property="og:locale" content="vi_VN" />
+            <link rel="canonical" href="<?php echo $is_en ? 'https://ideas.edu.vn/en/online-mba-admission' : 'https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba'; ?>" />
+            <meta property="og:locale" content="<?php echo $is_en ? 'en_US' : 'vi_VN'; ?>" />
             <meta property="og:type" content="article" />
-            <meta property="og:title" content="Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS" />
+            <meta property="og:title" content="<?php echo $is_en ? 'Study Swiss Online BBA &amp; MBA | IDEAS Institute' : 'Học Cử nhân BBA &amp; Thạc sĩ MBA Online Thụy Sĩ | Viện IDEAS'; ?>" />
             <meta property="og:description"
-                content="Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn." />
-            <meta property="og:url" content="https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba" />
+                content="<?php echo $is_en ? 'International standard Swiss Bachelor (BBA) &amp; Master (MBA, MSc) online programs from reputable Swiss universities. Maximum flexibility for busy professionals.' : 'Chương trình đào tạo Cử nhân (BBA) &amp; Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Linh hoạt cho người bận rộn.'; ?>" />
+            <meta property="og:url" content="<?php echo $is_en ? 'https://ideas.edu.vn/en/online-mba-admission' : 'https://ideas.edu.vn/thac-si-quan-tri-kinh-doanh-mba'; ?>" />
             <meta property="og:site_name" content="IDEAS Education" />
             <meta property="og:updated_time" content="2026-03-30T09:51:56+07:00" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
             <meta property="og:image:secure_url" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
             <meta property="og:image:width" content="1920" />
             <meta property="og:image:height" content="1080" />
-            <meta property="og:image:alt" content="chương trình bba mba online thụy sĩ" />
+            <meta property="og:image:alt" content="<?php echo $is_en ? 'swiss online bba mba programs' : 'chương trình bba mba online thụy sĩ'; ?>" />
             <meta property="og:image:type" content="image/png" />
     <?php endif; ?>
 
@@ -2635,26 +2636,21 @@ ob_start(function ($html) {
             <div class="umef-hero-bg"></div>
             <div class="umef-hero-overlay"></div>
             <div class="umef-hero-container">
-                <div class="umef-hero-badge">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    Cử nhân &amp; Thạc sĩ Thụy Sĩ
-                </div>
-                <h1>Học Cử nhân BBA &amp; Thạc sĩ <br /><span>MBA Online Thụy Sĩ</span> tại Việt Nam</h1>
-                <p>Cổng kết nối các chương trình đào tạo Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ
-                    các trường Đại học danh tiếng của Thụy Sĩ. Giải pháp học tập tinh hoa, linh hoạt tối đa dành riêng
-                    cho người bận rộn.</p>
+                <div class="umef-hero-badge"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'Swiss Bachelor &amp; Master' : 'Cử nhân &amp; Thạc sĩ Thụy Sĩ'; ?></div>
+                <h1><?php echo $is_en ? 'Study Swiss BBA &amp; <br /><span>Online MBA</span> in Vietnam' : 'Học Cử nhân BBA &amp; Thạc sĩ <br /><span>MBA Online Thụy Sĩ</span> tại Việt Nam'; ?></h1>
+                <p><?php echo $is_en ? 'Gateway to international standard online Bachelor (BBA) and Master (MBA, MSc) programs from prestigious Swiss universities. An elite, highly flexible learning solution dedicated to busy professionals.' : 'Cổng kết nối các chương trình đào tạo Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Giải pháp học tập tinh hoa, linh hoạt tối đa dành riêng cho người bận rộn.'; ?></p>
                 <div class="umef-hero-stats">
                     <div class="umef-stat-card">
                         <span class="umef-stat-num">100%</span>
-                        <span class="umef-stat-lbl">Học Online</span>
+                        <span class="umef-stat-lbl"><?php echo $is_en ? 'Online Study' : 'Học Online'; ?></span>
                     </div>
                     <div class="umef-stat-card">
                         <span class="umef-stat-num">Linh hoạt</span>
-                        <span class="umef-stat-lbl">12 - 36 Tháng</span>
+                        <span class="umef-stat-lbl"><?php echo $is_en ? '12 - 36 Months' : '12 - 36 Tháng'; ?></span>
                     </div>
                     <div class="umef-stat-card">
                         <span class="umef-stat-num">Thụy Sĩ</span>
-                        <span class="umef-stat-lbl">Bằng Cấp Quốc Tế</span>
+                        <span class="umef-stat-lbl"><?php echo $is_en ? 'International Degrees' : 'Bằng Cấp Quốc Tế'; ?></span>
                     </div>
                 </div>
 
@@ -2662,11 +2658,11 @@ ob_start(function ($html) {
                     style="margin-top: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; width: 100%;">
                     <button type="button" class="btn-ideas-primary"
                         onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('hero-hub'); } else if(typeof window.showform === 'function') { window.showform('hero-hub'); }">
-                        <span>Tư vấn chọn chương trình</span>
+                        <span><?php echo $is_en ? 'Choose a Program' : 'Tư vấn chọn chương trình'; ?></span>
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
                     <a href="#danh-sach" class="btn-ideas-outline">
-                        <span>Khám phá các khóa học</span>
+                        <span><?php echo $is_en ? 'Explore Courses' : 'Khám phá các khóa học'; ?></span>
                         <i class="fa-solid fa-arrow-down"></i>
                     </a>
                 </div>
@@ -2676,43 +2672,35 @@ ob_start(function ($html) {
         <!-- EVALUATION PROS & CONS -->
         <section class="proscons-section">
             <div class="container text-center">
-                <span class="section-badge">Đánh giá khách quan</span>
-                <h2 class="section-title">Ưu &amp; Nhược điểm khi <span>học MBA Online Quốc tế</span></h2>
-                <p class="section-desc">
-                    Giúp học viên có góc nhìn chân thực, khách quan nhất trước khi quyết định đầu tư thời gian và ngân
-                    sách cho con đường học tập từ xa.
-                </p>
+                <span class="section-badge"><?php echo $is_en ? 'Objective Evaluation' : 'Đánh giá khách quan'; ?></span>
+                <h2 class="section-title"><?php echo $is_en ? 'Pros &amp; Cons of <span>Online International MBA</span>' : 'Ưu &amp; Nhược điểm khi <span>học MBA Online Quốc tế</span>'; ?></h2>
+                <p class="section-desc"><?php echo $is_en ? 'Provides students with the most realistic and objective perspectives before deciding to invest time and budget in remote learning.' : 'Giúp học viên có góc nhìn chân thực, khách quan nhất trước khi quyết định đầu tư thời gian và ngân sách cho con đường học tập từ xa.'; ?></p>
 
                 <div class="proscons-grid text-left">
 
                     <!-- Pros Column -->
                     <div class="proscons-col pros-col">
-                        <h3 class="proscons-col-title pros-title">
-                            <i class="fa-solid fa-circle-plus"></i> Ưu Điểm Nổi Bật
-                        </h3>
+                        <h3 class="proscons-col-title pros-title"><i class="fa-solid fa-circle-plus"></i> <?php echo $is_en ? 'Key Advantages' : 'Ưu Điểm Nổi Bật'; ?></h3>
                         <ul class="proscons-list">
                             <li class="proscons-item pros-item">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div>
-                                    <h4>Tự do sắp xếp thời gian</h4>
-                                    <p>Không bị gò bó bởi thời gian và khoảng cách địa lý. Học viên có thể vừa duy trì
-                                        công việc toàn thời gian tại công sở vừa học vào buổi tối.</p>
+                                    <h4><?php echo $is_en ? 'Flexible Scheduling' : 'Tự do sắp xếp thời gian'; ?></h4>
+                                    <p><?php echo $is_en ? 'No constraints of time and geography. Students can maintain full-time jobs while studying in the evening.' : 'Không bị gò bó bởi thời gian và khoảng cách địa lý. Học viên có thể vừa duy trì công việc toàn thời gian tại công sở vừa học vào buổi tối.'; ?></p>
                                 </div>
                             </li>
                             <li class="proscons-item pros-item">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div>
-                                    <h4>Tối ưu hóa học phí (tiết kiệm đến 90%)</h4>
-                                    <p>Học viên nhận bằng cấp quốc tế "chính hãng" từ Thụy Sĩ nhưng với mức chi phí học
-                                        tập tại Việt Nam, tiết kiệm tối đa so với du học trực tiếp.</p>
+                                    <h4><?php echo $is_en ? 'Affordable Tuition (Save up to 90%)' : 'Tối ưu hóa học phí (tiết kiệm đến 90%)'; ?></h4>
+                                    <p><?php echo $is_en ? 'Earn "authentic" international degrees from Switzerland at a fraction of the cost in Vietnam, saving maximum compared to studying abroad.' : 'Học viên nhận bằng cấp quốc tế "chính hãng" từ Thụy Sĩ nhưng với mức chi phí học tập tại Việt Nam, tiết kiệm tối đa so với du học trực tiếp.'; ?></p>
                                 </div>
                             </li>
                             <li class="proscons-item pros-item">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div>
-                                    <h4>Nội dung đào tạo thực tiễn</h4>
-                                    <p>Chương trình được thiết kế theo tiêu chuẩn giáo dục Châu Âu, giảng dạy thông qua
-                                        các case study thực tế và bài tập giải quyết vấn đề doanh nghiệp.</p>
+                                    <h4><?php echo $is_en ? 'Practical Curriculum' : 'Nội dung đào tạo thực tiễn'; ?></h4>
+                                    <p><?php echo $is_en ? 'European standard curriculum, taught through real-world case studies and business problem-solving projects.' : 'Chương trình được thiết kế theo tiêu chuẩn giáo dục Châu Âu, giảng dạy thông qua các case study thực tế và bài tập giải quyết vấn đề doanh nghiệp.'; ?></p>
                                 </div>
                             </li>
                         </ul>
@@ -2720,33 +2708,27 @@ ob_start(function ($html) {
 
                     <!-- Cons Column -->
                     <div class="proscons-col cons-col">
-                        <h3 class="proscons-col-title cons-title">
-                            <i class="fa-solid fa-circle-minus"></i> Hạn Chế Cần Lưu Ý
-                        </h3>
+                        <h3 class="proscons-col-title cons-title"><i class="fa-solid fa-circle-minus"></i> <?php echo $is_en ? 'Limitations to Consider' : 'Hạn Chế Cần Lưu Ý'; ?></h3>
                         <ul class="proscons-list">
                             <li class="proscons-item cons-item">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                 <div>
-                                    <h4>Đòi hỏi sự tự giác và kỷ luật rất cao</h4>
-                                    <p>Học từ xa không có giảng viên đôn đốc trực tiếp trên lớp. Học viên cần thiết lập
-                                        kế hoạch tự học nghiêm túc để hoàn thành các bài luận đúng hạn.</p>
+                                    <h4><?php echo $is_en ? 'Requires High Self-Discipline' : 'Đòi hỏi sự tự giác và kỷ luật rất cao'; ?></h4>
+                                    <p><?php echo $is_en ? 'Remote learning lacks direct classroom supervision. Students must establish a disciplined study plan to complete assignments on time.' : 'Học từ xa không có giảng viên đôn đốc trực tiếp trên lớp. Học viên cần thiết lập kế hoạch tự học nghiêm túc để hoàn thành các bài luận đúng hạn.'; ?></p>
                                 </div>
                             </li>
                             <li class="proscons-item cons-item">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                 <div>
-                                    <h4>Hạn chế về tương tác vật lý trực tiếp</h4>
-                                    <p>Thiếu đi không khí thảo luận trực tiếp tại giảng đường. IDEAS khắc phục điều này
-                                        bằng cách tổ chức các buổi Workshop bổ trợ trực tuyến và Offline networking.</p>
+                                    <h4><?php echo $is_en ? 'Limited Direct Physical Interaction' : 'Hạn chế về tương tác vật lý trực tiếp'; ?></h4>
+                                    <p><?php echo $is_en ? 'Lacks the atmosphere of classroom discussions. IDEAS addresses this by organizing online workshops and offline networking events.' : 'Thiếu đi không khí thảo luận trực tiếp tại giảng đường. IDEAS khắc phục điều này bằng cách tổ chức các buổi Workshop bổ trợ trực tuyến và Offline networking.'; ?></p>
                                 </div>
                             </li>
                             <li class="proscons-item cons-item">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                 <div>
-                                    <h4>Rủi ro chọn nhầm trường thiếu uy tín</h4>
-                                    <p>Thị trường có nhiều trường không đạt kiểm định chính thức. Ứng viên cần kiểm tra
-                                        kỹ thông tin kiểm định liên bang hoặc tổ chức kiểm định quốc tế uy tín trước khi
-                                        đăng ký.</p>
+                                    <h4><?php echo $is_en ? 'Risk of Choosing Unaccredited Schools' : 'Rủi ro chọn nhầm trường thiếu uy tín'; ?></h4>
+                                    <p><?php echo $is_en ? 'Many unaccredited schools exist. Candidates must verify federal accreditations or reputable international accrediting bodies before enrolling.' : 'Thị trường có nhiều trường không đạt kiểm định chính thức. Ứng viên cần kiểm tra kỹ thông tin kiểm định liên bang hoặc tổ chức kiểm định quốc tế uy tín trước khi đăng ký.'; ?></p>
                                 </div>
                             </li>
                         </ul>
@@ -2759,45 +2741,37 @@ ob_start(function ($html) {
         <!-- CORE COMPETENCIES -->
         <section class="comp-section">
             <div class="container text-center">
-                <span class="section-badge">Đầu ra năng lực</span>
-                <h2 class="section-title">4 Năng Lực Quản Trị Cốt Lõi <span>Sau Khi Tốt Nghiệp</span></h2>
-                <p class="section-desc">
-                    Chương trình MBA không chỉ cung cấp tấm bằng danh giá, mà trực tiếp tái cấu trúc hệ thống tư duy và
-                    kỹ năng để giúp bạn chuyển mình thành nhà quản trị thực thụ.
-                </p>
+                <span class="section-badge"><?php echo $is_en ? 'Key Competencies' : 'Đầu ra năng lực'; ?></span>
+                <h2 class="section-title"><?php echo $is_en ? '4 Core Management Competencies <span>After Graduation</span>' : '4 Năng Lực Quản Trị Cốt Lõi <span>Sau Khi Tốt Nghiệp</span>'; ?></h2>
+                <p class="section-desc"><?php echo $is_en ? 'An MBA program does not just provide a prestigious degree, it directly restructures your thinking and skills to help you transform into a real manager.' : 'Chương trình MBA không chỉ cung cấp tấm bằng danh giá, mà trực tiếp tái cấu trúc hệ thống tư duy và kỹ năng để giúp bạn chuyển mình thành nhà quản trị thực thụ.'; ?></p>
 
                 <div class="comp-grid text-left">
                     <div class="comp-card">
                         <span class="comp-num">01</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-globe"></i></div>
-                        <h3 class="comp-card-title">Tư duy quản trị tổng thể</h3>
-                        <p class="comp-card-desc">Hình thành bức tranh toàn cảnh về vận hành doanh nghiệp. Kết nối và
-                            tối ưu hóa sự phối hợp giữa các phòng ban: Tài chính, Nhân sự, Vận hành và Kinh doanh.</p>
+                        <h3 class="comp-card-title"><?php echo $is_en ? 'Holistic Managerial Thinking' : 'Tư duy quản trị tổng thể'; ?></h3>
+                        <p class="comp-card-desc"><?php echo $is_en ? 'Form a big picture of business operations. Connect and optimize coordination across departments: Finance, HR, Operations, and Sales.' : 'Hình thành bức tranh toàn cảnh về vận hành doanh nghiệp. Kết nối và tối ưu hóa sự phối hợp giữa các phòng ban: Tài chính, Nhân sự, Vận hành và Kinh doanh.'; ?></p>
                     </div>
 
                     <div class="comp-card">
                         <span class="comp-num">02</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
-                        <h3 class="comp-card-title">Ra quyết định bằng dữ liệu</h3>
-                        <p class="comp-card-desc">Nâng cao khả năng đọc hiểu báo cáo tài chính, phân tích chỉ số kinh
-                            doanh và kiểm soát ngân sách. Đưa ra các quyết định chiến lược dựa trên các con số thực
-                            tiễn.</p>
+                        <h3 class="comp-card-title"><?php echo $is_en ? 'Data-Driven Decision Making' : 'Ra quyết định bằng dữ liệu'; ?></h3>
+                        <p class="comp-card-desc"><?php echo $is_en ? 'Enhance skills in reading financial statements, analyzing business metrics, and controlling budgets. Make strategic decisions based on practical figures.' : 'Nâng cao khả năng đọc hiểu báo cáo tài chính, phân tích chỉ số kinh doanh và kiểm soát ngân sách. Đưa ra các quyết định chiến lược dựa trên các con số thực tiễn.'; ?></p>
                     </div>
 
                     <div class="comp-card">
                         <span class="comp-num">03</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-users-gear"></i></div>
-                        <h3 class="comp-card-title">Lãnh đạo và quản trị con người</h3>
-                        <p class="comp-card-desc">Trang bị năng lực quản lý đội nhóm đa chức năng, đàm phán thương mại
-                            và dẫn dắt tổ chức qua các giai đoạn chuyển đổi cơ cấu phức tạp.</p>
+                        <h3 class="comp-card-title"><?php echo $is_en ? 'Leadership &amp; People Management' : 'Lãnh đạo và quản trị con người'; ?></h3>
+                        <p class="comp-card-desc"><?php echo $is_en ? 'Equip capacity to manage cross-functional teams, negotiate commercially, and lead organizations through complex structural transformations.' : 'Trang bị năng lực quản lý đội nhóm đa chức năng, đàm phán thương mại và dẫn dắt tổ chức qua các giai đoạn chuyển đổi cơ cấu phức tạp.'; ?></p>
                     </div>
 
                     <div class="comp-card">
                         <span class="comp-num">04</span>
                         <div class="comp-card-icon"><i class="fa-solid fa-bolt"></i></div>
-                        <h3 class="comp-card-title">Tư duy đổi mới sáng tạo</h3>
-                        <p class="comp-card-desc">Lồng ghép tư duy công nghệ số và trí tuệ nhân tạo (AI) vào quản trị
-                            kinh doanh hiện đại để tạo ra lợi thế cạnh tranh vượt trội cho doanh nghiệp.</p>
+                        <h3 class="comp-card-title"><?php echo $is_en ? 'Innovative &amp; Creative Thinking' : 'Tư duy đổi mới sáng tạo'; ?></h3>
+                        <p class="comp-card-desc"><?php echo $is_en ? 'Integrate digital technology and Artificial Intelligence (AI) into modern business administration to create a competitive edge.' : 'Lồng ghép tư duy công nghệ số và trí tuệ nhân tạo (AI) vào quản trị kinh doanh hiện đại để tạo ra lợi thế cạnh tranh vượt trội cho doanh nghiệp.'; ?></p>
                     </div>
                 </div>
             </div>
@@ -2807,70 +2781,49 @@ ob_start(function ($html) {
         <section class="faq-section">
             <div class="container">
                 <div class="text-center">
-                    <span class="section-badge">Giải đáp thắc mắc</span>
-                    <h2 class="section-title">Câu hỏi thường gặp về <span>MBA Online</span></h2>
-                    <p class="section-desc">Giải đáp các câu hỏi phổ biến nhất của học viên Việt Nam về tính pháp lý,
-                        ngôn ngữ và thủ tục nhập học.</p>
+                    <span class="section-badge"><?php echo $is_en ? 'FAQ' : 'Giải đáp thắc mắc'; ?></span>
+                    <h2 class="section-title"><?php echo $is_en ? 'Frequently Asked Questions about <span>Online MBA</span>' : 'Câu hỏi thường gặp về <span>MBA Online</span>'; ?></h2>
+                    <p class="section-desc"><?php echo $is_en ? 'Answering the most common questions about legality, language, and admission procedures.' : 'Giải đáp các câu hỏi phổ biến nhất của học viên Việt Nam về tính pháp lý, ngôn ngữ và thủ tục nhập học.'; ?></p>
                 </div>
 
                 <div class="faq-accordion">
                     <div class="faq-item">
                         <div class="faq-header">
-                            <span>1. Bằng MBA trực tuyến có giá trị tương đương bằng học trực tiếp tại trường
-                                không?</span>
+                            <span><?php echo $is_en ? '1. Is an online MBA degree equivalent to an on-campus degree?' : '1. Bằng MBA trực tuyến có giá trị tương đương bằng học trực tiếp tại trường không?'; ?></span>
                             <i class="fa-solid fa-chevron-down faq-arrow"></i>
                         </div>
                         <div class="faq-body">
-                            <div class="faq-content">
-                                Có. Bằng cấp được cấp bởi trường Đại học Thụy Sĩ hoàn toàn giống nhau, trên văn bằng tốt
-                                nghiệp không ghi hình thức học trực tuyến (Online) và có giá trị pháp lý tương đương văn
-                                bằng học trực tiếp tại cơ sở chính ở Châu Âu.
-                            </div>
+                            <div class="faq-content"><?php echo $is_en ? 'Yes. The degree awarded by the Swiss university is exactly the same, with no mention of "Online" on the diploma, and has equivalent legal value to on-campus degrees in Europe.' : 'Có. Bằng cấp được cấp bởi trường Đại học Thụy Sĩ hoàn toàn giống nhau, trên văn bằng tốt nghiệp không ghi hình thức học trực tuyến (Online) và có giá trị pháp lý tương đương văn bằng học trực tiếp tại cơ sở chính ở Châu Âu.'; ?></div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-header">
-                            <span>2. Yêu cầu đầu vào của chương trình MBA là gì?</span>
+                            <span><?php echo $is_en ? '2. What are the admission requirements for the MBA program?' : '2. Yêu cầu đầu vào của chương trình MBA là gì?'; ?></span>
                             <i class="fa-solid fa-chevron-down faq-arrow"></i>
                         </div>
                         <div class="faq-body">
-                            <div class="faq-content">
-                                Các chương trình MBA quốc tế yêu cầu ứng viên tối thiểu tốt nghiệp Đại học (Cử nhân) ở
-                                mọi chuyên ngành, có tối thiểu 2 - 3 năm kinh nghiệm làm việc thực tế và đạt trình độ
-                                tiếng Anh IELTS 6.0 hoặc tương đương. Trường hợp chưa đủ chứng chỉ tiếng Anh, học viên
-                                sẽ được hỗ trợ các lớp bổ túc và kiểm tra năng lực đầu vào.
-                            </div>
+                            <div class="faq-content"><?php echo $is_en ? 'International MBA programs require candidates to hold a Bachelor\'s degree in any major, have at least 2-3 years of work experience, and achieve IELTS 6.0 or equivalent. Students without English certificates will be supported with prep classes and entry tests.' : 'Các chương trình MBA quốc tế yêu cầu ứng viên tối thiểu tốt nghiệp Đại học (Cử nhân) ở mọi chuyên ngành, có tối thiểu 2 - 3 năm kinh nghiệm làm việc thực tế và đạt trình độ tiếng Anh IELTS 6.0 hoặc tương đương. Trường hợp chưa đủ chứng chỉ tiếng Anh, học viên sẽ được hỗ trợ các lớp bổ túc và kiểm tra năng lực đầu vào.'; ?></div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-header">
-                            <span>3. Chi phí học MBA tại Việt Nam dao động khoảng bao nhiêu?</span>
+                            <span><?php echo $is_en ? '3. How much does an MBA program cost in Vietnam?' : '3. Chi phí học MBA tại Việt Nam dao động khoảng bao nhiêu?'; ?></span>
                             <i class="fa-solid fa-chevron-down faq-arrow"></i>
                         </div>
                         <div class="faq-body">
-                            <div class="faq-content">
-                                Tại Việt Nam, chi phí học MBA rất đa dạng: Các chương trình trong nước dao động từ 50 -
-                                70 triệu đồng; trong khi đó các chương trình MBA quốc tế online chất lượng cao dao động
-                                từ 120 - 250 triệu đồng cho toàn khóa học. Đây là mức chi phí tối ưu, tiết kiệm đến 90%
-                                chi phí ăn ở sinh hoạt so với du học trực tiếp tại Châu Âu.
-                            </div>
+                            <div class="faq-content"><?php echo $is_en ? 'In Vietnam, MBA tuition varies widely: local programs range from 50 - 70 million VND, whereas high-quality international online MBA programs range from 120 - 250 million VND for the entire course. This is an optimal cost, saving up to 90% in living expenses compared to studying abroad.' : 'Tại Việt Nam, chi phí học MBA rất đa dạng: Các chương trình trong nước dao động từ 50 - 70 triệu đồng; trong khi đó các chương trình MBA quốc tế online chất lượng cao dao động từ 120 - 250 triệu đồng cho toàn khóa học. Đây là mức chi phí tối ưu, tiết kiệm đến 90% chi phí ăn ở sinh hoạt so với du học trực tiếp tại Châu Âu.'; ?></div>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <div class="faq-header">
-                            <span>4. Viện IDEAS đóng vai trò gì trong quá trình học của tôi?</span>
+                            <span><?php echo $is_en ? '4. What is the role of the IDEAS Institute during my studies?' : '4. Viện IDEAS đóng vai trò gì trong quá trình học của tôi?'; ?></span>
                             <i class="fa-solid fa-chevron-down faq-arrow"></i>
                         </div>
                         <div class="faq-body">
-                            <div class="faq-content">
-                                Viện IDEAS là đơn vị hỗ trợ học thuật chính thức và duy nhất tại Việt Nam. Chúng tôi
-                                đồng hành cùng học viên từ khâu tư vấn định hướng, nộp hồ sơ nhập học, hỗ trợ dịch thuật
-                                tài liệu, tổ chức các lớp chuyên đề bổ trợ kiến thức bằng tiếng Việt, hỗ trợ kỹ thuật
-                                trên hệ thống LMS, cho đến khi học viên hoàn thành luận văn tốt nghiệp và nhận bằng.
-                            </div>
+                            <div class="faq-content"><?php echo $is_en ? 'IDEAS Institute is the official and sole academic support partner in Vietnam. We accompany students from orientation counseling, admission application, document translation, organizing tutoring classes in Vietnamese, technical support on the LMS, to graduation.' : 'Viện IDEAS là đơn vị hỗ trợ học thuật chính thức và duy nhất tại Việt Nam. Chúng tôi đồng hành cùng học viên từ khâu tư vấn định hướng, nộp hồ sơ nhập học, hỗ trợ dịch thuật tài liệu, tổ chức các lớp chuyên đề bổ trợ kiến thức bằng tiếng Việt, hỗ trợ kỹ thuật trên hệ thống LMS, cho đến khi học viên hoàn thành luận văn tốt nghiệp và nhận bằng.'; ?></div>
                         </div>
                     </div>
                 </div>
@@ -2893,34 +2846,21 @@ ob_start(function ($html) {
             <div class="acc-inner">
                 <!-- Header -->
                 <div class="acc-header">
-                    <div class="acc-label">
-                        <i class="fa-solid fa-stamp"></i>
-                        Kiểm định &amp; Công nhận Quốc tế
-                    </div>
-                    <h2 class="acc-title">
-                        Kiểm định <span>Quốc tế</span> Uy tín
-                    </h2>
-                    <p class="acc-desc">Đại học Swiss UMEF được kiểm định và công nhận bởi các cơ quan và tổ chức uy tín
-                        hàng đầu Thụy Sĩ, Hoa Kỳ và Quốc tế.</p>
+                    <div class="acc-label"><i class="fa-solid fa-stamp"></i> <?php echo $is_en ? 'Accreditations &amp; Recognition' : 'Kiểm định &amp; Công nhận Quốc tế'; ?></div>
+                    <h2 class="acc-title"><?php echo $is_en ? 'Prestigious <span>Accreditations</span>' : 'Kiểm định <span>Quốc tế</span> Uy tín'; ?></h2>
+                    <p class="acc-desc"><?php echo $is_en ? 'Swiss UMEF University is accredited and recognized by leading Swiss, US, and international authorities.' : 'Đại học Swiss UMEF được kiểm định và công nhận bởi các cơ quan và tổ chức uy tín hàng đầu Thụy Sĩ, Hoa Kỳ và Quốc tế.'; ?></p>
                 </div>
 
                 <!-- SAC Hero Card -->
                 <div class="acc-sac-hero">
                     <div class="acc-sac-left">
-                        <div class="acc-sac-badge">
-                            <span class="acc-sac-badge-dot"></span>
-                            Công nhận chính thức từ Hội đồng Giáo dục
-                        </div>
+                        <div class="acc-sac-badge"><span class="acc-sac-badge-dot"></span> <?php echo $is_en ? 'Official Recognition from Education Council' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?></div>
                         <h3 class="acc-sac-name"><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html" target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="Xem bài viết về Kiểm định SAC">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></h3>
-                        <p class="acc-sac-tagline">Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư
-                            thục
-                            <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy
-                            Sĩ.
-                        </p>
+                        <p class="acc-sac-tagline"><?php echo $is_en ? 'Swiss Federal Accreditation Body. Swiss UMEF is the <strong>first private university in Geneva</strong> to be officially recognized in the Swiss higher education system.' : 'Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ.'; ?></p>
                         <div class="acc-sac-stats">
                             <div class="acc-sac-stat">
                                 <span class="acc-sac-stat-val">Gov</span>
-                                <span class="acc-sac-stat-label">Thẩm quyền Liên bang</span>
+                                <span class="acc-sac-stat-label"><?php echo $is_en ? 'Federal Authority' : 'Thẩm quyền Liên bang'; ?></span>
                             </div>
                             <div class="acc-sac-stat">
                                 <span class="acc-sac-stat-val acc-sac-stat-svg-wrap">
@@ -2931,11 +2871,11 @@ ob_start(function ($html) {
                                         <rect x="4" y="7.5" width="10" height="3" fill="#ffffff"></rect>
                                     </svg>
                                 </span>
-                                <span class="acc-sac-stat-label">Hội đồng Giáo dục</span>
+                                <span class="acc-sac-stat-label"><?php echo $is_en ? 'Education Council' : 'Hội đồng Giáo dục'; ?></span>
                             </div>
                             <div class="acc-sac-stat">
                                 <span class="acc-sac-stat-val">ECTS</span>
-                                <span class="acc-sac-stat-label">Tiêu chuẩn Châu Âu</span>
+                                <span class="acc-sac-stat-label"><?php echo $is_en ? 'European Standard' : 'Tiêu chuẩn Châu Âu'; ?></span>
                             </div>
                         </div>
                     </div>
@@ -2952,40 +2892,28 @@ ob_start(function ($html) {
                             </a>
                             <div class="acc-sac-logo-text">
                                 <div class="acc-sac-logo-title"><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html" target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="Xem bài viết về Kiểm định SAC">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></div>
-                                <p>Cơ quan kiểm định liên bang Thụy Sĩ<br>Công nhận chính thức từ Hội đồng Giáo dục Thụy
-                                    Sĩ
-                                </p>
+                                <p><?php echo $is_en ? 'Swiss Federal Accreditation Body<br>Official recognition from the Swiss Education Council' : 'Cơ quan kiểm định liên bang Thụy Sĩ<br>Công nhận chính thức từ Hội đồng Giáo dục Thụy Sĩ'; ?></p>
                             </div>
                         </div>
                         <ul class="acc-sac-points">
-                            <li><i class="fa-solid fa-circle-check"></i><span>Bằng cấp được hợp pháp hóa lãnh sự tại Đại
-                                    sứ
-                                    quán Việt Nam tại Thụy Sĩ</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i><span>Chương trình đạt chuẩn châu Âu — ECTS tín
-                                    chỉ
-                                    quốc tế</span></li>
-                            <li><i class="fa-solid fa-circle-check"></i><span>Swiss UMEF là trường đại học tư thục
-                                    <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo
-                                    dục Thụy Sĩ</span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Degrees consularly legalized at the Vietnamese Embassy in Switzerland' : 'Bằng cấp được hợp pháp hóa lãnh sự tại Đại sứ quán Việt Nam tại Thụy Sĩ'; ?></span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'European-standard program — ECTS international credits' : 'Chương trình đạt chuẩn châu Âu — ECTS tín chỉ quốc tế'; ?></span></li>
+                            <li><i class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Swiss UMEF is the <strong>first private university in Geneva</strong> to be officially recognized in the Swiss education system' : 'Swiss UMEF là trường đại học tư thục <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ'; ?></span></li>
                         </ul>
                         <div class="acc-sac-cert-strip">
                             <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
                                 class="acc-cert-thumb lightbox-trigger" target="_blank" rel="noopener noreferrer">
-                                <i class="fa-solid fa-file-certificate"></i>
-                                Chứng nhận kiểm định SAC
-                            </a>
+                                <i class="fa-solid fa-file-certificate"></i> <?php echo $is_en ? 'SAC Accreditation Certificate' : 'Chứng nhận kiểm định SAC'; ?> </a>
                             <a href="https://www.swiss-umef.ch/en/partenaires" class="acc-cert-thumb" target="_blank"
                                 rel="noopener noreferrer">
-                                <i class="fa-solid fa-globe"></i>
-                                Xác thực đối tác từ Swiss UMEF
-                            </a>
+                                <i class="fa-solid fa-globe"></i> <?php echo $is_en ? 'Partner Verification from Swiss UMEF' : 'Xác thực đối tác từ Swiss UMEF'; ?> </a>
 
                         </div>
                     </div>
                 </div>
 
                 <!-- Divider -->
-                <div class="acc-others-title">Các kiểm định quốc tế khác</div>
+                <div class="acc-others-title"><?php echo $is_en ? 'Other International Accreditations' : 'Các kiểm định quốc tế khác'; ?></div>
 
                 <!-- Other accreditations grid -->
                 <div class="acc-grid">
@@ -2994,37 +2922,34 @@ ob_start(function ($html) {
                             src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png" alt="CHEA"
                             loading="lazy" decoding="async" />
                         <h4>CHEA – Hoa Kỳ</h4>
-                        <p>Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế</p>
+                        <p><?php echo $is_en ? 'Council for Higher Education Accreditation (USA), ensuring international recognition' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?></p>
                     </div>
                     <div class="acc-card">
                         <img class="acc-card-logo"
                             src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png" alt="IACBE"
                             loading="lazy" decoding="async" />
                         <h4>IACBE – Business Education</h4>
-                        <p>Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA</p>
+                        <p><?php echo $is_en ? 'Accreditation body specializing in international business education quality for BBA, MBA, and DBA' : 'Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA'; ?></p>
                     </div>
                     <div class="acc-card">
                         <img class="acc-card-logo"
                             src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png" alt="ACBSP"
                             loading="lazy" decoding="async" />
                         <h4>ACBSP – Business Schools</h4>
-                        <p>Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức</p>
+                        <p><?php echo $is_en ? 'Accreditation for business schools, officially recognized by the US Department of Education' : 'Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức'; ?></p>
                     </div>
                     <div class="acc-card">
                         <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2025/10/qs-1.webp"
                             alt="QS Stars" loading="lazy" decoding="async" />
                         <h4>QS Stars ⭐ 5 Stars Overall</h4>
-                        <p>Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới
-                        </p>
+                        <p><?php echo $is_en ? '5-Star Overall Rating by Quacquarelli Symonds — a global university rating system' : 'Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới'; ?></p>
                     </div>
                     <div class="acc-card">
                         <img class="acc-card-logo"
                             src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png" alt="EduQua"
                             loading="lazy" decoding="async" />
                         <h4>SGS – EduQua</h4>
-                        <p>Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo
-                            dục
-                        </p>
+                        <p><?php echo $is_en ? 'Swiss quality label recognized by the government, evaluated against 6 educational standards' : 'Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo dục'; ?></p>
                     </div>
                 </div>
             </div>
@@ -3033,13 +2958,9 @@ ob_start(function ($html) {
         <!-- MBA PROGRAM CATALOG -->
         <section class="umef-section" id="danh-sach">
             <div class="section-header">
-                <span class="section-badge">Danh mục đào tạo</span>
-                <h2 class="section-title">Các Chương trình <span>Cử nhân &amp; Thạc sĩ nổi bật</span></h2>
-                <p class="section-subtitle">
-                    Tuyển chọn các khóa học Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chất lượng cao từ Thụy Sĩ,
-                    đáp ứng mọi định hướng phát triển từ nền tảng kinh doanh, lãnh đạo điều hành đến dẫn đầu xu hướng
-                    công nghệ số.
-                </p>
+                <span class="section-badge"><?php echo $is_en ? 'Program Catalog' : 'Danh mục đào tạo'; ?></span>
+                <h2 class="section-title"><?php echo $is_en ? 'Featured <span>Bachelor &amp; Master Programs</span>' : 'Các Chương trình <span>Cử nhân &amp; Thạc sĩ nổi bật</span>'; ?></h2>
+                <p class="section-subtitle"><?php echo $is_en ? 'A selection of high-quality online Bachelor (BBA) and Master (MBA, MSc) programs from Switzerland, meeting all development orientations from business foundations to executive leadership and digital trends.' : 'Tuyển chọn các khóa học Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chất lượng cao từ Thụy Sĩ, đáp ứng mọi định hướng phát triển từ nền tảng kinh doanh, lãnh đạo điều hành đến dẫn đầu xu hướng công nghệ số.'; ?></p>
             </div>
 
             <div class="programs-grid">
@@ -3051,7 +2972,7 @@ ob_start(function ($html) {
                             <span class="prog-card-badge">MBA</span>
                             <div class="prog-card-school">
                                 <i class="fa-solid fa-building-columns"></i>
-                                <span>Swiss UMEF | Thụy Sĩ</span>
+                                <span><?php echo $is_en ? 'Swiss UMEF | Switzerland' : 'Swiss UMEF | Thụy Sĩ'; ?></span>
                             </div>
                         </div>
                         <div class="prog-avatar-container">
@@ -3060,29 +2981,25 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-card-title-group">
                             <h3 class="prog-card-title-new">Online MBA</h3>
-                            <div class="prog-card-subtitle-new">Thạc sĩ Quản trị Kinh doanh</div>
+                            <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh'; ?></div>
                         </div>
-                        <p class="prog-card-desc-new">
-                            Chương trình Thạc sĩ Quản trị Kinh doanh trực tuyến tổng hợp chuẩn Bologna Châu Âu, tập
-                            trung xây dựng tư duy quản trị toàn diện từ chiến lược đến thực thi.
-                        </p>
+                        <p class="prog-card-desc-new"><?php echo $is_en ? 'European Bologna-standard online general MBA program, focusing on building comprehensive management mindset from strategy to execution.' : 'Chương trình Thạc sĩ Quản trị Kinh doanh trực tuyến tổng hợp chuẩn Bologna Châu Âu, tập trung xây dựng tư duy quản trị toàn diện từ chiến lược đến thực thi.'; ?></p>
                     </div>
                     <div>
                         <div class="prog-card-specs">
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Thời gian:</span>
-                                <strong class="prog-spec-value">18 tháng</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '18 months' : '18 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Cấu trúc môn:</span>
-                                <strong class="prog-spec-value">90 ECTS - 12 môn học &amp; Luận văn</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Curriculum:' : 'Cấu trúc môn:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 12 courses &amp; Thesis' : '90 ECTS - 12 môn học &amp; Luận văn'; ?></strong>
                             </div>
                         </div>
                         <div class="prog-card-actions">
-                            <a href="/mba" class="prog-btn-detail">Xem chi tiết</a>
+                            <a href="<?php echo $is_en ? '/en/mba' : '/mba'; ?>" class="prog-btn-detail"><?php echo $is_en ? 'Details' : 'Xem chi tiết'; ?></a>
                             <button type="button" class="prog-btn-inquire"
-                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-mba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-mba'); }">Nhận
-                                tư vấn</button>
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-mba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-mba'); }"><?php echo $is_en ? 'Inquire' : 'Nhận tư vấn'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -3094,7 +3011,7 @@ ob_start(function ($html) {
                             <span class="prog-card-badge">MBA</span>
                             <div class="prog-card-school">
                                 <i class="fa-solid fa-building-columns"></i>
-                                <span>Swiss UMEF | Thụy Sĩ</span>
+                                <span><?php echo $is_en ? 'Swiss UMEF | Switzerland' : 'Swiss UMEF | Thụy Sĩ'; ?></span>
                             </div>
                         </div>
                         <div class="prog-avatar-container">
@@ -3103,29 +3020,25 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-card-title-group">
                             <h3 class="prog-card-title-new">Executive MBA (EMBA)</h3>
-                            <div class="prog-card-subtitle-new">Thạc sĩ Điều hành QTKD</div>
+                            <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Executive MBA' : 'Thạc sĩ Điều hành QTKD'; ?></div>
                         </div>
-                        <p class="prog-card-desc-new">
-                            Thiết kế riêng cho các nhà điều hành, quản lý cấp cao và chủ doanh nghiệp bận rộn. Tập trung
-                            vào năng lực lãnh đạo chiến lược toàn cầu và giải quyết xung đột vận hành.
-                        </p>
+                        <p class="prog-card-desc-new"><?php echo $is_en ? 'Tailored for executives, senior managers, and busy business owners. Focuses on global strategic leadership and resolving operational conflicts.' : 'Thiết kế riêng cho các nhà điều hành, quản lý cấp cao và chủ doanh nghiệp bận rộn. Tập trung vào năng lực lãnh đạo chiến lược toàn cầu và giải quyết xung đột vận hành.'; ?></p>
                     </div>
                     <div>
                         <div class="prog-card-specs">
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Thời gian:</span>
-                                <strong class="prog-spec-value">14 - 16 tháng</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Cấu trúc môn:</span>
-                                <strong class="prog-spec-value">60 ECTS - 10 môn học (Không luận văn)</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Curriculum:' : 'Cấu trúc môn:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '60 ECTS - 10 courses (No thesis)' : '60 ECTS - 10 môn học (Không luận văn)'; ?></strong>
                             </div>
                         </div>
                         <div class="prog-card-actions">
-                            <a href="/emba" class="prog-btn-detail">Xem chi tiết</a>
+                            <a href="<?php echo $is_en ? '/en/emba' : '/emba'; ?>" class="prog-btn-detail"><?php echo $is_en ? 'Details' : 'Xem chi tiết'; ?></a>
                             <button type="button" class="prog-btn-inquire"
-                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-emba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-emba'); }">Nhận
-                                tư vấn</button>
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-emba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-emba'); }"><?php echo $is_en ? 'Inquire' : 'Nhận tư vấn'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -3137,7 +3050,7 @@ ob_start(function ($html) {
                             <span class="prog-card-badge">MSc</span>
                             <div class="prog-card-school">
                                 <i class="fa-solid fa-building-columns"></i>
-                                <span>Swiss UMEF | Thụy Sĩ</span>
+                                <span><?php echo $is_en ? 'Swiss UMEF | Switzerland' : 'Swiss UMEF | Thụy Sĩ'; ?></span>
                             </div>
                         </div>
                         <div class="prog-avatar-container">
@@ -3146,29 +3059,25 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-card-title-group">
                             <h3 class="prog-card-title-new">MSc AI</h3>
-                            <div class="prog-card-subtitle-new">Thạc sĩ Khoa học Trí tuệ Nhân tạo</div>
+                            <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Master of Science in Artificial Intelligence' : 'Thạc sĩ Khoa học Trí tuệ Nhân tạo'; ?></div>
                         </div>
-                        <p class="prog-card-desc-new">
-                            Thạc sĩ Trí tuệ Nhân tạo Ứng dụng. Chương trình tiên phong kết hợp giữa kỹ thuật AI ứng
-                            dụng, Machine Learning và khả năng ra quyết định dựa trên Big Data trong doanh nghiệp.
-                        </p>
+                        <p class="prog-card-desc-new"><?php echo $is_en ? 'Applied Artificial Intelligence Master\'s program. Pioneering integration of applied AI, Machine Learning, and Big Data-driven decision making in business.' : 'Thạc sĩ Trí tuệ Nhân tạo Ứng dụng. Chương trình tiên phong kết hợp giữa kỹ thuật AI ứng dụng, Machine Learning và khả năng ra quyết định dựa trên Big Data trong doanh nghiệp.'; ?></p>
                     </div>
                     <div>
                         <div class="prog-card-specs">
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Thời gian:</span>
-                                <strong class="prog-spec-value">15 - 18 tháng</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '15 - 18 months' : '15 - 18 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Cấu trúc môn:</span>
-                                <strong class="prog-spec-value">90 ECTS - 12 môn &amp; Capstone Project</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Curriculum:' : 'Cấu trúc môn:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 12 courses &amp; Capstone Project' : '90 ECTS - 12 môn &amp; Capstone Project'; ?></strong>
                             </div>
                         </div>
                         <div class="prog-card-actions">
-                            <a href="/mscai" class="prog-btn-detail">Xem chi tiết</a>
+                            <a href="<?php echo $is_en ? '/en/mscai' : '/mscai'; ?>" class="prog-btn-detail"><?php echo $is_en ? 'Details' : 'Xem chi tiết'; ?></a>
                             <button type="button" class="prog-btn-inquire"
-                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-mscai'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-mscai'); }">Nhận
-                                tư vấn</button>
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-mscai'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-mscai'); }"><?php echo $is_en ? 'Inquire' : 'Nhận tư vấn'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -3180,7 +3089,7 @@ ob_start(function ($html) {
                             <span class="prog-card-badge">MBA</span>
                             <div class="prog-card-school">
                                 <i class="fa-solid fa-building-columns"></i>
-                                <span>Swiss UMEF | Thụy Sĩ</span>
+                                <span><?php echo $is_en ? 'Swiss UMEF | Switzerland' : 'Swiss UMEF | Thụy Sĩ'; ?></span>
                             </div>
                         </div>
                         <div class="prog-avatar-container">
@@ -3189,29 +3098,25 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-card-title-group">
                             <h3 class="prog-card-title-new">MBA in AI</h3>
-                            <div class="prog-card-subtitle-new">Thạc sĩ QTKD Ứng dụng AI</div>
+                            <div class="prog-card-subtitle-new"><?php echo $is_en ? 'MBA in Applied AI' : 'Thạc sĩ QTKD Ứng dụng AI'; ?></div>
                         </div>
-                        <p class="prog-card-desc-new">
-                            Chương trình Thạc sĩ Quản trị kinh doanh Ứng dụng AI. Trang bị tư duy lãnh đạo doanh nghiệp
-                            số kết hợp năng lực ứng dụng công cụ AI thế hệ mới để tự động hóa và tối ưu vận hành.
-                        </p>
+                        <p class="prog-card-desc-new"><?php echo $is_en ? 'MBA program in Applied AI. Equips digital business leadership mindset integrated with new-generation AI tools to automate and optimize operations.' : 'Chương trình Thạc sĩ Quản trị kinh doanh Ứng dụng AI. Trang bị tư duy lãnh đạo doanh nghiệp số kết hợp năng lực ứng dụng công cụ AI thế hệ mới để tự động hóa và tối ưu vận hành.'; ?></p>
                     </div>
                     <div>
                         <div class="prog-card-specs">
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Thời gian:</span>
-                                <strong class="prog-spec-value">16 - 18 tháng</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '16 - 18 months' : '16 - 18 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Cấu trúc môn:</span>
-                                <strong class="prog-spec-value">90 ECTS - Chương trình tích hợp AI &amp; QTKD</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Curriculum:' : 'Cấu trúc môn:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '90 ECTS - Integrated AI &amp; MBA program' : '90 ECTS - Chương trình tích hợp AI &amp; QTKD'; ?></strong>
                             </div>
                         </div>
                         <div class="prog-card-actions">
-                            <a href="/mbainai" class="prog-btn-detail">Xem chi tiết</a>
+                            <a href="<?php echo $is_en ? '/en/mbainai' : '/mbainai'; ?>" class="prog-btn-detail"><?php echo $is_en ? 'Details' : 'Xem chi tiết'; ?></a>
                             <button type="button" class="prog-btn-inquire"
-                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-mbainai'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-mbainai'); }">Nhận
-                                tư vấn</button>
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-mbainai'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-mbainai'); }"><?php echo $is_en ? 'Inquire' : 'Nhận tư vấn'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -3223,7 +3128,7 @@ ob_start(function ($html) {
                             <span class="prog-card-badge">BBA</span>
                             <div class="prog-card-school">
                                 <i class="fa-solid fa-building-columns"></i>
-                                <span>Swiss UMEF | Thụy Sĩ</span>
+                                <span><?php echo $is_en ? 'Swiss UMEF | Switzerland' : 'Swiss UMEF | Thụy Sĩ'; ?></span>
                             </div>
                         </div>
                         <div class="prog-avatar-container">
@@ -3232,29 +3137,25 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-card-title-group">
                             <h3 class="prog-card-title-new">Top-up BBA</h3>
-                            <div class="prog-card-subtitle-new">Liên thông Cử nhân QTKD</div>
+                            <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Bachelor of Business Administration Top-up' : 'Liên thông Cử nhân QTKD'; ?></div>
                         </div>
-                        <p class="prog-card-desc-new">
-                            Chương trình liên thông cử nhân QTKD Thụy Sĩ nhanh chóng trong 12 tháng dành cho học viên đã
-                            tốt nghiệp Cao đẳng, Trung cấp hoặc hoàn thành năm 3 Đại học.
-                        </p>
+                        <p class="prog-card-desc-new"><?php echo $is_en ? '12-month Swiss BBA Top-up program for students holding an Associate degree, Diploma, or who have completed their 3rd year of university.' : 'Chương trình liên thông cử nhân QTKD Thụy Sĩ nhanh chóng trong 12 tháng dành cho học viên đã tốt nghiệp Cao đẳng, Trung cấp hoặc hoàn thành năm 3 Đại học.'; ?></p>
                     </div>
                     <div>
                         <div class="prog-card-specs">
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Thời gian:</span>
-                                <strong class="prog-spec-value">12 tháng</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '12 months' : '12 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Cấu trúc môn:</span>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Curriculum:' : 'Cấu trúc môn:'; ?></span>
                                 <strong class="prog-spec-value">60 ECTS - 10 môn học &amp; Luận văn</strong>
                             </div>
                         </div>
                         <div class="prog-card-actions">
-                            <a href="/bba" class="prog-btn-detail">Xem chi tiết</a>
+                            <a href="<?php echo $is_en ? '/en/bba' : '/bba'; ?>" class="prog-btn-detail"><?php echo $is_en ? 'Details' : 'Xem chi tiết'; ?></a>
                             <button type="button" class="prog-btn-inquire"
-                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-bba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-bba'); }">Nhận
-                                tư vấn</button>
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-bba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-bba'); }"><?php echo $is_en ? 'Inquire' : 'Nhận tư vấn'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -3266,7 +3167,7 @@ ob_start(function ($html) {
                             <span class="prog-card-badge">BBA</span>
                             <div class="prog-card-school">
                                 <i class="fa-solid fa-building-columns"></i>
-                                <span>Swiss UMEF | Thụy Sĩ</span>
+                                <span><?php echo $is_en ? 'Swiss UMEF | Switzerland' : 'Swiss UMEF | Thụy Sĩ'; ?></span>
                             </div>
                         </div>
                         <div class="prog-avatar-container">
@@ -3275,29 +3176,25 @@ ob_start(function ($html) {
                         </div>
                         <div class="prog-card-title-group">
                             <h3 class="prog-card-title-new">Global Online BBA</h3>
-                            <div class="prog-card-subtitle-new">Cử nhân Quản trị Kinh doanh</div>
+                            <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Bachelor of Business Administration' : 'Cử nhân Quản trị Kinh doanh'; ?></div>
                         </div>
-                        <p class="prog-card-desc-new">
-                            Chương trình Cử nhân Quản trị Kinh doanh chính quy 3 năm chuẩn Châu Âu, mang lại nền tảng
-                            kiến thức quản trị kinh doanh hiện đại và năng lực hội nhập quốc tế vượt trội.
-                        </p>
+                        <p class="prog-card-desc-new"><?php echo $is_en ? 'European-standard 3-year BBA program, providing modern business management foundation and outstanding international integration capabilities.' : 'Chương trình Cử nhân Quản trị Kinh doanh chính quy 3 năm chuẩn Châu Âu, mang lại nền tảng kiến thức quản trị kinh doanh hiện đại và năng lực hội nhập quốc tế vượt trội.'; ?></p>
                     </div>
                     <div>
                         <div class="prog-card-specs">
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Thời gian:</span>
-                                <strong class="prog-spec-value">3 năm (36 tháng)</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '3 years (36 months)' : '3 năm (36 tháng)'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
-                                <span class="prog-spec-label">Cấu trúc môn:</span>
-                                <strong class="prog-spec-value">180 ECTS - 34 môn học &amp; Luận văn</strong>
+                                <span class="prog-spec-label"><?php echo $is_en ? 'Curriculum:' : 'Cấu trúc môn:'; ?></span>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '180 ECTS - 34 courses &amp; Thesis' : '180 ECTS - 34 môn học &amp; Luận văn'; ?></strong>
                             </div>
                         </div>
                         <div class="prog-card-actions">
-                            <a href="/fullbba" class="prog-btn-detail">Xem chi tiết</a>
+                            <a href="<?php echo $is_en ? '/en/fullbba' : '/fullbba'; ?>" class="prog-btn-detail"><?php echo $is_en ? 'Details' : 'Xem chi tiết'; ?></a>
                             <button type="button" class="prog-btn-inquire"
-                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-fullbba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-fullbba'); }">Nhận
-                                tư vấn</button>
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('swiss-umef-program-fullbba'); } else if(typeof window.showform === 'function') { window.showform('swiss-umef-program-fullbba'); }"><?php echo $is_en ? 'Inquire' : 'Nhận tư vấn'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -3311,34 +3208,24 @@ ob_start(function ($html) {
                 <div class="ideas-layout">
                     <div class="ideas-img-box reveal-up">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg"
-                            alt="Lễ tốt nghiệp học viên MBA IDEAS" loading="lazy" />
+                            alt="<?php echo $is_en ? 'Graduation ceremony of MBA IDEAS students' : 'Lễ tốt nghiệp học viên MBA IDEAS'; ?>" loading="lazy" />
                     </div>
                     <div class="reveal-up">
-                        <span class="section-badge">Đơn vị hỗ trợ học vụ uy tín</span>
-                        <h2 class="section-title">Tại sao chọn <span>IDEAS Education</span>?</h2>
-                        <p style="line-height: 1.6;">
-                            Với hơn 15 năm hình thành và phát triển, Viện Nghiên cứu Phát triển và Trao đổi Khoa học Áp
-                            dụng (IDEAS) tự hào là đối tác hỗ trợ giáo dục và quản lý đào tạo MBA Quốc tế hàng đầu tại
-                            Việt Nam.
-                        </p>
+                        <span class="section-badge"><?php echo $is_en ? 'Reputable Academic Support Partner' : 'Đơn vị hỗ trợ học vụ uy tín'; ?></span>
+                        <h2 class="section-title"><?php echo $is_en ? 'Why Choose <span>IDEAS Education</span>?' : 'Tại sao chọn <span>IDEAS Education</span>?'; ?></h2>
+                        <p style="line-height: 1.6;"><?php echo $is_en ? 'With over 15 years of establishment and development, the Institute for Applied Sciences Research and Development (IDEAS) is proud to be the leading partner for international MBA education support in Vietnam.' : 'Với hơn 15 năm hình thành và phát triển, Viện Nghiên cứu Phát triển và Trao đổi Khoa học Áp dụng (IDEAS) tự hào là đối tác hỗ trợ giáo dục và quản lý đào tạo MBA Quốc tế hàng đầu tại Việt Nam.'; ?></p>
                         <ul class="ideas-points">
                             <li class="ideas-point-item">
                                 <i class="fa-solid fa-square-poll-vertical"></i>
-                                <span><strong>Hỗ trợ học vụ song ngữ 24/7:</strong> Giảm thiểu rào cản ngôn ngữ và
-                                    phương pháp học Châu Âu thông qua các lớp chuyên đề bổ trợ kiến thức bằng tiếng
-                                    Việt.</span>
+                                <span><strong><?php echo $is_en ? '24/7 Bilingual Academic Support:' : 'Hỗ trợ học vụ song ngữ 24/7:'; ?></strong> <?php echo $is_en ? 'Minimize language barriers and adapt to European learning methodologies through Vietnamese tutoring classes.' : 'Giảm thiểu rào cản ngôn ngữ và phương pháp học Châu Âu thông qua các lớp chuyên đề bổ trợ kiến thức bằng tiếng Việt.'; ?></span>
                             </li>
                             <li class="ideas-point-item">
                                 <i class="fa-solid fa-credit-card"></i>
-                                <span><strong>Trả góp học phí Sacombank:</strong> Hỗ trợ tài chính tối đa với chính sách
-                                    chia nhỏ học phí đóng theo đợt hoặc trả góp lãi suất 0% qua ngân hàng
-                                    Sacombank.</span>
+                                <span><strong><?php echo $is_en ? 'Sacombank Tuition Installment:' : 'Trả góp học phí Sacombank:'; ?></strong> <?php echo $is_en ? 'Maximum financial support with flexible installments or 0% interest installment plan via Sacombank.' : 'Hỗ trợ tài chính tối đa với chính sách chia nhỏ học phí đóng theo đợt hoặc trả góp lãi suất 0% qua ngân hàng Sacombank.'; ?></span>
                             </li>
                             <li class="ideas-point-item">
                                 <i class="fa-solid fa-users"></i>
-                                <span><strong>Mạng lưới Network 2500+:</strong> Cơ hội tham gia các hội thảo, sự kiện
-                                    kết nối cùng cộng đồng hơn 2500 học viên đã tốt nghiệp là quản lý, giám đốc doanh
-                                    nghiệp.</span>
+                                <span><strong><?php echo $is_en ? '2500+ Alumni Network:' : 'Mạng lưới Network 2500+:'; ?></strong> <?php echo $is_en ? 'Opportunities to participate in networking workshops and events with a community of over 2500 graduated managers and directors.' : 'Cơ hội tham gia các hội thảo, sự kiện kết nối cùng cộng đồng hơn 2500 học viên đã tốt nghiệp là quản lý, giám đốc doanh nghiệp.'; ?></span>
                             </li>
                         </ul>
                     </div>
@@ -3350,13 +3237,10 @@ ob_start(function ($html) {
         <section class="container">
             <div class="cta-banner">
                 <div class="cta-banner-glow"></div>
-                <h2>Bắt đầu hành trình nâng tầm sự nghiệp ngay hôm nay</h2>
-                <p>Nhận ngay tài liệu chi tiết về điều kiện tuyển sinh, học bổng và lịch khai giảng mới nhất của các
-                    chương trình MBA quốc tế.</p>
+                <h2><?php echo $is_en ? 'Start your career advancement journey today' : 'Bắt đầu hành trình nâng tầm sự nghiệp ngay hôm nay'; ?></h2>
+                <p><?php echo $is_en ? 'Get detailed information on admission requirements, scholarships, and the latest intake schedule of international MBA programs.' : 'Nhận ngay tài liệu chi tiết về điều kiện tuyển sinh, học bổng và lịch khai giảng mới nhất của các chương trình MBA quốc tế.'; ?></p>
                 <button type="button" class="btn-ideas-primary"
-                    onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('cta-banner-hub'); } else if(typeof window.showform === 'function') { window.showform('cta-banner-hub'); }">
-                    Đăng ký tư vấn lộ trình MBA
-                    <i class="fa-solid fa-circle-arrow-right"></i>
+                    onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('cta-banner-hub'); } else if(typeof window.showform === 'function') { window.showform('cta-banner-hub'); }"> <?php echo $is_en ? 'Register for MBA Roadmap Counseling' : 'Đăng ký tư vấn lộ trình MBA'; ?> <i class="fa-solid fa-circle-arrow-right"></i>
                 </button>
             </div>
         </section>

@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -39,20 +40,20 @@ ob_start(function ($html) {
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-            <title>Các khoản chi phí & Lệ phí học vụ | IDEAS</title>
+            <title><?php echo $is_en ? 'Admissions & Academic Fees | IDEAS' : 'Các khoản chi phí & Lệ phí học vụ | IDEAS'; ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta name="description"
-                content="Bảng tổng hợp chi tiết các khoản phí dịch vụ, lệ phí thi lại, học lại và quy định học vụ áp dụng cho chương trình đào tạo của Swiss UMEF." />
+                content="<?php echo $is_en ? 'Detailed summary of academic service fees, recheck, retake, and redo fees for the Swiss UMEF program at IDEAS.' : 'Bảng tổng hợp chi tiết các khoản phí dịch vụ, lệ phí thi lại, học lại và quy định học vụ áp dụng cho chương trình đào tạo của Swiss UMEF.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta property="og:type" content="article" />
-            <meta property="og:title" content="Các khoản chi phí & Lệ phí học vụ - IDEAS" />
+            <meta property="og:title" content="<?php echo $is_en ? 'Admissions & Academic Fees - IDEAS' : 'Các khoản chi phí & Lệ phí học vụ - IDEAS'; ?>" />
             <meta property="og:description"
-                content="Xem bảng lệ phí chi tiết các hoạt động học vụ (Recheck, Retake, Redo, Lễ tốt nghiệp...) dành cho học viên chương trình Swiss UMEF." />
+                content="<?php echo $is_en ? 'View detailed academic service fees (Recheck, Retake, Redo, Graduation...) for Swiss UMEF students at IDEAS.' : 'Xem bảng lệ phí chi tiết các hoạt động học vụ (Recheck, Retake, Redo, Lễ tốt nghiệp...) dành cho học viên chương trình Swiss UMEF.'; ?>" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -386,10 +387,9 @@ ob_start(function ($html) {
         <section class="fee-section" style="padding-top: 130px;">
             <div class="fee-container-width">
                 <div class="fee-section-title-wrap">
-                    <span class="fee-section-tag"><i class="fa-solid fa-coins"></i> Lệ phí học vụ</span>
-                    <h1 class="fee-section-title">Chi Tiết <span>Các Khoản Phí</span> Swiss UMEF</h1>
-                    <p class="fee-section-subtitle">Áp dụng cho học viên tham gia học tập các chương trình cử nhân, thạc
-                        sĩ và tiến sĩ liên kết Thụy Sĩ tại IDEAS.</p>
+                    <span class="fee-section-tag"><i class="fa-solid fa-coins"></i> <?php echo $is_en ? 'Academic Fees' : 'Lệ phí học vụ'; ?></span>
+                    <h1 class="fee-section-title"><?php echo $is_en ? 'Swiss UMEF <span>Academic Fees</span>' : 'Chi Tiết <span>Các Khoản Phí</span> Swiss UMEF'; ?></h1>
+                    <p class="fee-section-subtitle"><?php echo $is_en ? 'Applicable to students enrolled in Swiss-accredited Bachelor, Master, and Doctorate programs at IDEAS.' : 'Áp dụng cho học viên tham gia học tập các chương trình cử nhân, thạc sĩ và tiến sĩ liên kết Thụy Sĩ tại IDEAS.'; ?></p>
                 </div>
 
                 <div class="fee-table-wrap">
@@ -399,21 +399,20 @@ ob_start(function ($html) {
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
                                 alt="Swiss UMEF Logo" class="fee-partner-logo" />
                             <h4 class="fee-partner-title">Swiss UMEF University</h4>
-                            <p class="fee-partner-desc">Trường Đại học chuẩn quốc tế được công nhận bởi Hội đồng Kiểm
-                                định Thụy Sĩ (Swiss Accreditation Council).</p>
+                            <p class="fee-partner-desc"><?php echo $is_en ? 'An internationally accredited university recognized by the Swiss Accreditation Council.' : 'Trường Đại học chuẩn quốc tế được công nhận bởi Hội đồng Kiểm định Thụy Sĩ (Swiss Accreditation Council).'; ?></p>
 
                             <div class="fee-table-highlights">
                                 <div class="fee-hl-item">
                                     <i class="fa-solid fa-circle-info"></i>
-                                    <span>Đơn vị tiền tệ tính bằng Franc Thụy Sĩ (CHF)</span>
+                                    <span><?php echo $is_en ? 'Currency calculated in Swiss Francs (CHF)' : 'Đơn vị tiền tệ tính bằng Franc Thụy Sĩ (CHF)'; ?></span>
                                 </div>
                                 <div class="fee-hl-item">
                                     <i class="fa-solid fa-circle-check"></i>
-                                    <span>Công khai, minh bạch theo chuẩn kiểm định</span>
+                                    <span><?php echo $is_en ? 'Public and transparent as per accreditation standards' : 'Công khai, minh bạch theo chuẩn kiểm định'; ?></span>
                                 </div>
                                 <div class="fee-hl-item">
                                     <i class="fa-solid fa-shield-halved"></i>
-                                    <span>Áp dụng thống nhất trong toàn bộ khóa học</span>
+                                    <span><?php echo $is_en ? 'Applied consistently throughout the course' : 'Áp dụng thống nhất trong toàn bộ khóa học'; ?></span>
                                 </div>
                             </div>
                         </div>
@@ -423,44 +422,43 @@ ob_start(function ($html) {
                             <table class="fee-table-custom">
                                 <thead>
                                     <tr>
-                                        <th>Loại phí học vụ</th>
-                                        <th style="width:170px; text-align:center;">Lệ phí</th>
+                                        <th><?php echo $is_en ? 'Fee Category' : 'Loại phí học vụ'; ?></th>
+                                        <th style="width:170px; text-align:center;"><?php echo $is_en ? 'Fee Amount' : 'Lệ phí'; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Phí phúc khảo bài thi (Recheck)</td>
+                                        <td><?php echo $is_en ? 'Exam Recheck Fee' : 'Phí phúc khảo bài thi (Recheck)'; ?></td>
                                         <td style="text-align:center;"><span class="fee-badge">200 CHF</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Phí thi lại môn học (Retake)</td>
+                                        <td><?php echo $is_en ? 'Module Retake Fee' : 'Phí thi lại môn học (Retake)'; ?></td>
                                         <td style="text-align:center;"><span class="fee-badge">200 CHF</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Phí học lại môn học (Redo)</td>
+                                        <td><?php echo $is_en ? 'Module Redo Fee' : 'Phí học lại môn học (Redo)'; ?></td>
                                         <td style="text-align:center;"><span class="fee-badge">300 CHF</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Lệ phí Canton &amp; Lãnh sự Thụy Sĩ</td>
+                                        <td><?php echo $is_en ? 'Swiss Canton & Consulate Fees' : 'Lệ phí Canton &amp; Lãnh sự Thụy Sĩ'; ?></td>
                                         <td style="text-align:center;">
                                             <span class="fee-badge highlight">~400 CHF</span>
                                             <div
                                                 style="font-size:0.75rem; color:#64748b; font-weight:600; margin-top:4px;">
-                                                (dự kiến, tùy đợt)</div>
+                                                <?php echo $is_en ? '(estimated, varies by cohort)' : '(dự kiến, tùy đợt)'; ?></div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Lệ phí chuyển đổi chương trình học</td>
+                                        <td><?php echo $is_en ? 'Program Transfer Fee' : 'Lệ phí chuyển đổi chương trình học'; ?></td>
                                         <td style="text-align:center;"><span class="fee-badge">350 CHF</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Phí quản lý hành chính (Administration fee)</td>
+                                        <td><?php echo $is_en ? 'Administrative Fee' : 'Phí quản lý hành chính (Administration fee)'; ?></td>
                                         <td style="text-align:center;"><span class="fee-badge">150 CHF</span></td>
                                     </tr>
                                     <tr>
-                                        <td>Lệ phí tham dự Lễ Tốt Nghiệp</td>
-                                        <td style="text-align:center;"><span class="fee-badge simple">Tùy từng
-                                                đợt</span></td>
+                                        <td><?php echo $is_en ? 'Graduation Ceremony Fee' : 'Lệ phí tham dự Lễ Tốt Nghiệp'; ?></td>
+                                        <td style="text-align:center;"><span class="fee-badge simple"><?php echo $is_en ? 'Varies by cohort' : 'Tùy từng đợt'; ?></span></td>
                                     </tr>
                                 </tbody>
                             </table>

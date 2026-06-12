@@ -1,0 +1,21 @@
+Fetched blog page: 156649 characters
+Found '100% Online' in HTML. Surrounding 1000 chars:
+                322 lượt xem</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="blog-grid-inner">                    <a href="https://ideas.edu.vn/tin-tuc-moi/cu-nhan-quan-tri-kinh-doanh-online.html" class="blog-card">
+                        <div class="card-img-wrap skeleton">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/05/swiss-1.webp" alt="Cử nhân Quản Trị Kinh Doanh quốc tế 100% Online tại Việt Nam" loading="lazy"
+                                onload="this.parentElement.classList.remove('skeleton')">
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag">Tin Tức Mới</span>                            <h3>Cử nhân Quản Trị Kinh Doanh quốc tế 100% Online tại Việt Nam</h3>
+                            <p>Swiss UMEF triển khai chương trình Cử nhân Quản trị Kinh doanh hoàn toàn online tại Việt Nam
+Found 'Lien-thong-1' in HTML. Surrounding 500 chars:
+<a href="https://ideas.edu.vn/tin-tuc-moi/lien-thong-quoc-te-la-gi.html" class="blog-card">
+                        <div class="card-img-wrap skeleton">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/2026-06-09-Lien-thong-1.png" alt="Liên thông quốc tế là gì? Khác gì với liên thông trong nước?" loading="lazy"
+                                onload="this.parentElement.classList.remove('skeleton')">
+                        </div>
+                        <div 

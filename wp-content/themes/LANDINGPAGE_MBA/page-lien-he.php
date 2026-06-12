@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -42,19 +43,19 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Liên hệ ban tuyển sinh – Viện IDEAS | IDEAS</title>
+        <title><?php echo $is_en ? 'Contact Admissions – IDEAS Institute | IDEAS' : 'Liên hệ ban tuyển sinh – Viện IDEAS | IDEAS'; ?></title>
     <?php endif; ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Liên hệ trực tiếp Viện IDEAS để được tư vấn học vụ 1:1, đăng ký tìm hiểu các chương trình Cử nhân, Thạc sĩ, Tiến sĩ chuẩn quốc tế." />
+            content="<?php echo $is_en ? 'Contact IDEAS directly for 1:1 academic counseling and register to explore international standard Bachelor, Master, and Doctoral programs.' : 'Liên hệ trực tiếp Viện IDEAS để được tư vấn học vụ 1:1, đăng ký tìm hiểu các chương trình Cử nhân, Thạc sĩ, Tiến sĩ chuẩn quốc tế.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Liên hệ ban tuyển sinh – Viện IDEAS | IDEAS" />
+        <meta property="og:title" content="<?php echo $is_en ? 'Contact Admissions – IDEAS Institute | IDEAS' : 'Liên hệ ban tuyển sinh – Viện IDEAS | IDEAS'; ?>" />
         <meta property="og:description"
-            content="Gửi yêu cầu tư vấn học vụ 1:1 và nhận lộ trình học tập, thông tin học bổng chi tiết từ ban tuyển sinh." />
+            content="<?php echo $is_en ? 'Submit a request for 1:1 academic counseling and receive a detailed learning roadmap and scholarship info from admissions.' : 'Gửi yêu cầu tư vấn học vụ 1:1 và nhận lộ trình học tập, thông tin học bổng chi tiết từ ban tuyển sinh.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -665,11 +666,9 @@ ob_start(function ($html) {
             <div class="contact-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');"></div>
             <div class="contact-hero-overlay"></div>
             <div class="contact-hero-container">
-                <span class="contact-hero-badge">
-                    <i class="fa-solid fa-envelope"></i> Liên hệ tuyển sinh
-                </span>
-                <h1><span>LIÊN HỆ TƯ VẤN</span> <br>Hỗ trợ học vụ 1:1</h1>
-                <p>Kết nối trực tiếp với Ban tuyển sinh & Chuyên viên học vụ của Viện IDEAS để nhận thông tin học bổng, lộ trình học tập tối ưu.</p>
+                <span class="contact-hero-badge"><i class="fa-solid fa-envelope"></i> <?php echo $is_en ? 'Contact Admissions' : 'Liên hệ tuyển sinh'; ?></span>
+                <h1><span><?php echo $is_en ? 'CONTACT FOR COUNSELING' : 'LIÊN HỆ TƯ VẤN'; ?></span> <br><?php echo $is_en ? '1:1 Academic Support' : 'Hỗ trợ học vụ 1:1'; ?></h1>
+                <p><?php echo $is_en ? 'Connect directly with the Admissions Board &amp; Academic Specialists of IDEAS to receive scholarship details and optimal learning roadmaps.' : 'Kết nối trực tiếp với Ban tuyển sinh &amp; Chuyên viên học vụ của Viện IDEAS để nhận thông tin học bổng, lộ trình học tập tối ưu.'; ?></p>
             </div>
         </section>
 
@@ -680,26 +679,26 @@ ob_start(function ($html) {
                 <!-- Left: Contact Details -->
                 <div class="contact-info-column">
                     <div class="contact-info-card">
-                        <h2><i class="fa-solid fa-circle-nodes"></i> Văn phòng IDEAS</h2>
+                        <h2><i class="fa-solid fa-circle-nodes"></i> <?php echo $is_en ? 'IDEAS Office' : 'Văn phòng IDEAS'; ?></h2>
                         <div class="info-details">
                             <div class="info-item">
                                 <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                                 <div class="info-content">
-                                    <span class="info-label">Trụ sở chính</span>
-                                    <span class="info-value">Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, Quận Tân Bình, TP.HCM</span>
+                                    <span class="info-label"><?php echo $is_en ? 'Headquarters' : 'Trụ sở chính'; ?></span>
+                                    <span class="info-value"><?php echo $is_en ? '4th Floor, Hai Au Building, 39B Truong Son, Tan Son Nhat Ward, Tan Binh District, HCMC' : 'Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, Quận Tân Bình, TP.HCM'; ?></span>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
                                 <div class="info-content">
-                                    <span class="info-label">Hotline Tuyển sinh</span>
+                                    <span class="info-label"><?php echo $is_en ? 'Admissions Hotline' : 'Hotline Tuyển sinh'; ?></span>
                                     <span class="info-value"><a href="tel:02822442244">028 2244 2244</a></span>
                                 </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                                 <div class="info-content">
-                                    <span class="info-label">Email hỗ trợ</span>
+                                    <span class="info-label"><?php echo $is_en ? 'Support Email' : 'Email hỗ trợ'; ?></span>
                                     <span class="info-value"><a href="mailto:info@ideas.edu.vn">info@ideas.edu.vn</a></span>
                                 </div>
                             </div>
@@ -707,9 +706,9 @@ ob_start(function ($html) {
 
                         <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
                             <h3 style="font-size:1.05rem; font-weight:800; color:#0f172a; margin: 0 0 10px; display:flex; align-items:center; gap:8px;">
-                                <i class="fa-solid fa-comments" style="color:#ab0e00;"></i> Liên hệ nhanh
+                                <i class="fa-solid fa-comments" style="color:#ab0e00;"></i> <?php echo $is_en ? 'Quick Contact' : 'Liên hệ nhanh'; ?>
                             </h3>
-                            <p style="font-size:0.82rem; color:#4b5563; margin: 0 0 16px; line-height: 1.5;">Nếu cần trao đổi ngay, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video.</p>
+                            <p style="font-size:0.82rem; color:#4b5563; margin: 0 0 16px; line-height: 1.5;"><?php echo $is_en ? 'If you need to discuss immediately, you can chat via Zalo or schedule a video counseling session.' : 'Nếu cần trao đổi ngay, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video.'; ?></p>
                             <div class="contact-action-row">
                                 <a href="https://zalo.me/3857867121882640296" target="_blank" class="contact-zalo-btn" rel="nofollow noopener noreferrer">
                                     <img src="/wp-content/uploads/external-migrated/zalo-oa-icon-unplated_82aad094.webp" alt="Zalo Logo" loading="lazy">
@@ -719,7 +718,7 @@ ob_start(function ($html) {
                                     <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="flex-shrink: 0;" aria-hidden="true">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
-                                    <span>Đặt lịch hẹn</span>
+                                    <span><?php echo $is_en ? 'Book Appointment' : 'Đặt lịch hẹn'; ?></span>
                                 </button>
                             </div>
                         </div>
@@ -730,87 +729,87 @@ ob_start(function ($html) {
                 <div class="contact-form-column">
                     <div class="contact-form-card">
                         <header class="form-card-header" id="form-header">
-                            <div class="form-card-badge">ĐĂNG KÝ 1:1</div>
-                            <h3>Tìm hiểu <span>Chương trình</span></h3>
-                            <p>Điền thông tin bên dưới, chuyên viên hỗ trợ học vụ sẽ liên hệ lại với bạn trong vòng 24h làm việc.</p>
+                            <div class="form-card-badge"><?php echo $is_en ? '1:1 REGISTRATION' : 'ĐĂNG KÝ 1:1'; ?></div>
+                            <h3><?php echo $is_en ? 'Explore <span>Programs</span>' : 'Tìm hiểu <span>Chương trình</span>'; ?></h3>
+                            <p><?php echo $is_en ? 'Fill in the details below, our academic support specialist will contact you within 24 working hours.' : 'Điền thông tin bên dưới, chuyên viên hỗ trợ học vụ sẽ liên hệ lại với bạn trong vòng 24h làm việc.'; ?></p>
                         </header>
 
                         <!-- Form -->
                         <form class="page-contact-form" id="page-contact-form" novalidate>
                             <div class="form-group">
-                                <label for="fullname">Họ và tên *</label>
-                                <input type="text" id="fullname" name="fullname" placeholder="Họ và tên của bạn" required />
-                                <span class="form-error" id="fullname-error">Vui lòng nhập họ tên</span>
+                                <label for="fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
+                                <input type="text" id="fullname" name="fullname" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" required />
+                                <span class="form-error" id="fullname-error"><?php echo $is_en ? 'Please enter your full name' : 'Vui lòng nhập họ tên'; ?></span>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="phone">Số điện thoại *</label>
-                                    <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required />
-                                    <span class="form-error" id="phone-error">Số điện thoại không hợp lệ</span>
+                                    <label for="phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
+                                    <input type="tel" id="phone" name="phone" placeholder="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>" required />
+                                    <span class="form-error" id="phone-error"><?php echo $is_en ? 'Invalid phone number' : 'Số điện thoại không hợp lệ'; ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email *</label>
-                                    <input type="email" id="email" name="email" placeholder="Địa chỉ email" required />
-                                    <span class="form-error" id="email-error">Email không hợp lệ</span>
+                                    <input type="email" id="email" name="email" placeholder="<?php echo $is_en ? 'Email address' : 'Địa chỉ email'; ?>" required />
+                                    <span class="form-error" id="email-error"><?php echo $is_en ? 'Invalid email' : 'Email không hợp lệ'; ?></span>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="education">Trình độ học vấn *</label>
+                                    <label for="education"><?php echo $is_en ? 'Highest Education *' : 'Trình độ học vấn *'; ?></label>
                                     <select id="education" name="education" required>
-                                        <option value="">-- Chọn trình độ --</option>
-                                        <option value="highschool">THPT</option>
-                                        <option value="college">Cao đẳng</option>
-                                        <option value="bachelor">Cử nhân</option>
-                                        <option value="master">Thạc sĩ</option>
-                                        <option value="other">Khác</option>
+                                        <option value=""><?php echo $is_en ? '-- Select Education Level --' : '-- Chọn trình độ --'; ?></option>
+                                        <option value="highschool"><?php echo $is_en ? 'High School' : 'THPT'; ?></option>
+                                        <option value="college"><?php echo $is_en ? 'Associate Degree' : 'Cao đẳng'; ?></option>
+                                        <option value="bachelor"><?php echo $is_en ? 'Bachelor\'s Degree' : 'Cử nhân'; ?></option>
+                                        <option value="master"><?php echo $is_en ? 'Master\'s Degree' : 'Thạc sĩ'; ?></option>
+                                        <option value="other"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
                                     </select>
-                                    <span class="form-error" id="education-error">Vui lòng chọn học vấn</span>
+                                    <span class="form-error" id="education-error"><?php echo $is_en ? 'Please select education level' : 'Vui lòng chọn học vấn'; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="english">Trình độ Tiếng Anh *</label>
+                                    <label for="english"><?php echo $is_en ? 'English Level *' : 'Trình độ Tiếng Anh *'; ?></label>
                                     <select id="english" name="english" required>
-                                        <option value="">-- Chọn trình độ --</option>
-                                        <option value="below-5.0">Dưới IELTS 5.0</option>
+                                        <option value=""><?php echo $is_en ? '-- Select Education Level --' : '-- Chọn trình độ --'; ?></option>
+                                        <option value="below-5.0"><?php echo $is_en ? 'Below IELTS 5.0' : 'Dưới IELTS 5.0'; ?></option>
                                         <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
                                         <option value="6.0-plus">IELTS 6.0+</option>
-                                        <option value="other">Khác / Chưa thi</option>
+                                        <option value="other"><?php echo $is_en ? 'Other / Not tested' : 'Khác / Chưa thi'; ?></option>
                                     </select>
-                                    <span class="form-error" id="english-error">Vui lòng chọn trình độ Tiếng Anh</span>
+                                    <span class="form-error" id="english-error"><?php echo $is_en ? 'Please select English level' : 'Vui lòng chọn trình độ Tiếng Anh'; ?></span>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="interest">Chương trình quan tâm *</label>
+                                <label for="interest"><?php echo $is_en ? 'Program of Interest *' : 'Chương trình quan tâm *'; ?></label>
                                 <select id="interest" name="interest" required>
-                                    <option value="">-- Chọn chương trình học --</option>
-                                    <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
-                                    <option value="Executive MBA">Executive MBA (Thạc sĩ Điều hành)</option>
-                                    <option value="Master AI">Master AI (Thạc sĩ Khoa học AI)</option>
-                                    <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
-                                    <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
+                                    <option value=""><?php echo $is_en ? '-- Select Program --' : '-- Chọn chương trình học --'; ?></option>
+                                    <option value="Online MBA"><?php echo $is_en ? 'Online MBA (Master of Business Administration)' : 'Online MBA (Thạc sĩ QTKD)'; ?></option>
+                                    <option value="Executive MBA"><?php echo $is_en ? 'Executive MBA' : 'Executive MBA (Thạc sĩ Điều hành)'; ?></option>
+                                    <option value="Master AI"><?php echo $is_en ? 'Master AI (MSc AI)' : 'Master AI (Thạc sĩ Khoa học AI)'; ?></option>
+                                    <option value="MBA in AI"><?php echo $is_en ? 'MBA in AI' : 'MBA in AI (Thạc sĩ QTKD Ứng dụng AI)'; ?></option>
+                                    <option value="Top-up BBA"><?php echo $is_en ? 'Top-up BBA (12-month Bachelor Top-up)' : 'Top-up BBA (Cử nhân liên thông 12 tháng)'; ?></option>
                                     <option value="Full BBA">Global Online BBA</option>
-                                    <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
-                                    <option value="Cần tư vấn chung">Cần tư vấn chung (Học bổng & Tuyển sinh)</option>
+                                    <option value="Dual DBA"><?php echo $is_en ? 'Dual DBA (UK &amp; France Doctor of Business Administration)' : 'Dual DBA (Tiến sĩ song bằng Pháp &amp; Anh)'; ?></option>
+                                    <option value="Cần tư vấn chung"><?php echo $is_en ? 'General Inquiry (Scholarships &amp; Admissions)' : 'Cần tư vấn chung (Học bổng &amp; Tuyển sinh)'; ?></option>
                                 </select>
-                                <span class="form-error" id="interest-error">Vui lòng chọn chương trình</span>
+                                <span class="form-error" id="interest-error"><?php echo $is_en ? 'Please select program' : 'Vui lòng chọn chương trình'; ?></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="message">Nội dung bạn muốn chia sẻ / thời gian nghe tư vấn</label>
-                                <textarea id="message" name="message" placeholder="Ví dụ: Tôi muốn hỏi về học phí, chính sách trả góp..." rows="3"></textarea>
+                                <label for="message"><?php echo $is_en ? 'Message / preferred counseling time' : 'Nội dung bạn muốn chia sẻ / thời gian nghe tư vấn'; ?></label>
+                                <textarea id="message" name="message" placeholder="<?php echo $is_en ? 'e.g., I want to inquire about tuition fees, installment plans...' : 'Ví dụ: Tôi muốn hỏi về học phí, chính sách trả góp...'; ?>" rows="3"></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn" style="border: none; cursor: pointer; font-family: inherit;">
-                                <span>Gửi thông tin đăng ký</span>
+                                <span><?php echo $is_en ? 'Submit Registration' : 'Gửi thông tin đăng ký'; ?></span>
                                 <svg width="20" height="20" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="margin-left: 8px; vertical-align: middle;">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </button>
 
-                            <p class="form-privacy">Cam kết bảo mật thông tin</p>
+                            <p class="form-privacy"><?php echo $is_en ? 'Information privacy committed' : 'Cam kết bảo mật thông tin'; ?></p>
                         </form>
 
                         <!-- Success Box -->
@@ -821,8 +820,8 @@ ob_start(function ($html) {
                                     <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" class="checkmark__check" />
                                 </svg>
                             </div>
-                            <h3>Đăng ký thành công!</h3>
-                            <p id="success-msg">Cảm ơn bạn đã quan tâm. Chuyên viên tuyển sinh của IDEAS sẽ liên hệ trong thời gian sớm nhất.</p>
+                            <h3><?php echo $is_en ? 'Registration Successful!' : 'Đăng ký thành công!'; ?></h3>
+                            <p id="success-msg"><?php echo $is_en ? 'Thank you for your interest. An IDEAS admissions specialist will contact you as soon as possible.' : 'Cảm ơn bạn đã quan tâm. Chuyên viên tuyển sinh của IDEAS sẽ liên hệ trong thời gian sớm nhất.'; ?></p>
                         </div>
 
                     </div>
@@ -837,6 +836,7 @@ ob_start(function ($html) {
 
     <!-- Form Submit Handler -->
     <script>
+        if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('page-contact-form');
             if (!form) return;
@@ -956,7 +956,7 @@ ob_start(function ($html) {
                 const originalBtnHtml = btn.innerHTML;
                 btn.disabled = true;
                 btn.style.opacity = '0.7';
-                btn.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...</span>';
+                btn.innerHTML = `<span><i class="fa-solid fa-spinner fa-spin"></i> ${isEnMode ? 'Submitting...' : 'Đang gửi...'}</span>`;
 
                 try {
                     const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
@@ -986,7 +986,7 @@ ob_start(function ($html) {
                     const successBox = document.getElementById('page-form-success');
                     const successMsg = document.getElementById('success-msg');
                     if (successMsg && name) {
-                        successMsg.innerHTML = 'Cảm ơn bạn <strong>' + name + '</strong> đã quan tâm. Chuyên viên tuyển sinh chương trình <strong>' + interestText + '</strong> của IDEAS sẽ liên hệ trong thời gian sớm nhất.';
+                        successMsg.innerHTML = isEnMode ? 'Thank you <strong>' + name + '</strong> for your interest. The admissions specialist for the <strong>' + interestText + '</strong> program at IDEAS will contact you as soon as possible.' : 'Cảm ơn bạn <strong>' + name + '</strong> đã quan tâm. Chuyên viên tuyển sinh chương trình <strong>' + interestText + '</strong> của IDEAS sẽ liên hệ trong thời gian sớm nhất.';
                     }
                     
                     form.style.display = 'none';
@@ -995,7 +995,7 @@ ob_start(function ($html) {
 
                 } catch (error) {
                     console.error('Submission error:', error);
-                    alert('Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
+                    alert(isEnMode ? 'An error occurred during submission. Please try again later.' : 'Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
                 } finally {
                     btn.disabled = false;
                     btn.style.opacity = '1';

@@ -27,9 +27,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
@@ -55,30 +56,30 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-            <title>Lịch sử hình thành và phát triển IDEAS | <?php bloginfo('name'); ?></title>
+            <title><?php echo $is_en ? 'History & Development Journey of IDEAS | ' . get_bloginfo('name') : 'Lịch sử hình thành và phát triển IDEAS | ' . get_bloginfo('name'); ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta name="description"
-                content="Lịch sử phát triển của IDEAS từ tiền thân Viện IBM (2010), UBIS partner (2013), đến sự chuyển đổi tái định vị thương hiệu năm 2023 với mục tiêu 'Sáng tạo và đổi mới'.">
+                content="<?php echo $is_en ? 'The development history of IDEAS from its predecessor IBM Institute (2010), UBIS partner (2013), to rebranding in 2023 for Innovation & Development.' : 'Lịch sử phát triển của IDEAS từ tiền thân Viện IBM (2010), UBIS partner (2013), đến sự chuyển đổi tái định vị thương hiệu năm 2023 với mục tiêu \'Sáng tạo và đổi mới\'.'; ?>">
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <!-- Open Graph / Facebook -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta property="og:type" content="article" />
-            <meta property="og:title" content="Lịch sử hình thành và phát triển IDEAS" />
+            <meta property="og:title" content="<?php echo $is_en ? 'History & Development of IDEAS' : 'Lịch sử hình thành và phát triển IDEAS'; ?>" />
             <meta property="og:description"
-                content="Khám phá hành trình 15 năm kiến tạo và phát triển giáo dục sau đại học quốc tế chất lượng cao của IDEAS." />
+                content="<?php echo $is_en ? 'Discover the 15-year journey of creating and developing high-quality international postgraduate education at IDEAS.' : 'Khám phá hành trình 15 năm kiến tạo và phát triển giáo dục sau đại học quốc tế chất lượng cao của IDEAS.'; ?>" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
     <!-- Twitter Card -->
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Lịch sử hình thành và phát triển IDEAS" />
+            <meta name="twitter:title" content="<?php echo $is_en ? 'History & Development of IDEAS' : 'Lịch sử hình thành và phát triển IDEAS'; ?>" />
             <meta name="twitter:description"
-                content="Hành trình phát triển vượt bậc của IDEAS trong hỗ trợ các chương trình Cử nhân, Thạc sĩ, Tiến sĩ chuẩn quốc tế." />
+                content="<?php echo $is_en ? 'The remarkable development journey of IDEAS in supporting international standard Bachelor, Master, and Doctoral programs.' : 'Hành trình phát triển vượt bậc của IDEAS trong hỗ trợ các chương trình Cử nhân, Thạc sĩ, Tiến sĩ chuẩn quốc tế.'; ?>" />
             <meta name="twitter:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php endif; ?>
     <!-- Google Fonts & FontAwesome -->
@@ -471,12 +472,10 @@ ob_start(function ($html) {
         <div class="history-hero-overlay"></div>
         <div class="container">
             <div class="history-hero-badge">
-                <i class="fa-solid fa-landmark"></i>
-                Hành Trình Kiến Tạo
+                <i class="fa-solid fa-landmark"></i> <?php echo $is_en ? 'Creative Journey' : 'Hành Trình Kiến Tạo'; ?>
             </div>
-            <h1>Hành Trình <span>Phát Triển</span></h1>
-            <p>Hơn 15 năm kinh nghiệm đồng hành cùng học viên Việt Nam chinh phục các chương trình sau Đại học tại các
-                trường đại học quốc tế danh tiếng.</p>
+            <h1><?php echo $is_en ? 'Development <span>Journey</span>' : 'Hành Trình <span>Phát Triển</span>'; ?></h1>
+            <p><?php echo $is_en ? 'Over 15 years of experience accompanying Vietnamese students to conquer postgraduate programs at prestigious international universities.' : 'Hơn 15 năm kinh nghiệm đồng hành cùng học viên Việt Nam chinh phục các chương trình sau Đại học tại các\n                trường đại học quốc tế danh tiếng.'; ?></p>
         </div>
     </section>
 
@@ -489,15 +488,13 @@ ob_start(function ($html) {
                 <div class="timeline-year-badge">2010</div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-card-year">Năm 2010</span>
-                    <h3>Tiền thân của IDEAS là Viện IBM</h3>
-                    <p>Thành lập Viện Quản lý Kinh doanh Quốc tế (Viện IBM) với sứ mệnh đào tạo đội ngũ nhà quản lý
-                        chuyên nghiệp, đáp ứng nhu cầu khắt khe của thị trường nhân lực chất lượng cao tại Việt Nam.</p>
+                    <span class="timeline-card-year"><?php echo $is_en ? 'Year 2010' : 'Năm 2010'; ?></span>
+                    <h3><?php echo $is_en ? 'Predecessor of IDEAS - IBM Institute' : 'Tiền thân của IDEAS là Viện IBM'; ?></h3>
+                    <p><?php echo $is_en ? 'Establishment of the International Business Management Institute (IBM Institute) with the mission of training professional managers to meet the demanding needs of the high-quality workforce market in Vietnam.' : 'Thành lập Viện Quản lý Kinh doanh Quốc tế (Viện IBM) với sứ mệnh đào tạo đội ngũ nhà quản lý\n                        chuyên nghiệp, đáp ứng nhu cầu khắt khe của thị trường nhân lực chất lượng cao tại Việt Nam.'; ?></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Đánh dấu cột mốc đầu tiên của Viện</li>
-                        <li><i class="fa-solid fa-check"></i> Vượt qua khó khăn, khẳng định chất lượng & thương hiệu
-                        </li>
-                        <li><i class="fa-solid fa-check"></i> Mở rộng hợp tác đào tạo quốc tế</li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Marking the very first milestone of the Institute' : 'Đánh dấu cột mốc đầu tiên của Viện'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Overcoming challenges, asserting quality &amp; brand' : 'Vượt qua khó khăn, khẳng định chất lượng &amp; thương hiệu'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Expanding international academic collaboration' : 'Mở rộng hợp tác đào tạo quốc tế'; ?></li>
                     </ul>
                     <div class="timeline-images wlogos">
                         <img class="wlogo" src="/wp-content/uploads/external-migrated/IBM_da6cdc09.webp" alt="Viện IBM" />
@@ -510,14 +507,12 @@ ob_start(function ($html) {
                 <div class="timeline-year-badge">2013</div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-card-year">Năm 2013</span>
-                    <h3>Đối tác khoa học của trường Đại học UBIS</h3>
-                    <p>Một bước ngoặt lớn trong đào tạo quản trị kinh doanh quốc tế tại Việt Nam khi Viện trở thành đối
-                        tác khoa học chính thức của Đại học UBIS (Thụy Sĩ) cho chương trình MBA Online.</p>
+                    <span class="timeline-card-year"><?php echo $is_en ? 'Year 2013' : 'Năm 2013'; ?></span>
+                    <h3><?php echo $is_en ? 'Academic Partner of UBIS University' : 'Đối tác khoa học của trường Đại học UBIS'; ?></h3>
+                    <p><?php echo $is_en ? 'A major turning point in international business administration training in Vietnam when the Institute became the official academic partner of UBIS University (Switzerland) for the Online MBA program.' : 'Một bước ngoặt lớn trong đào tạo quản trị kinh doanh quốc tế tại Việt Nam khi Viện trở thành đối\n                        tác khoa học chính thức của Đại học UBIS (Thụy Sĩ) cho chương trình MBA Online.'; ?></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Đạt kiểm định quốc tế uy tín: IACBE, CHEA</li>
-                        <li><i class="fa-solid fa-check"></i> Thành viên tổ chức giáo dục hàng đầu EFMD, ECBE, AACSB
-                        </li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Attaining prestigious international accreditations: IACBE, CHEA' : 'Đạt kiểm định quốc tế uy tín: IACBE, CHEA'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Member of leading educational organizations: EFMD, ECBE, AACSB' : 'Thành viên tổ chức giáo dục hàng đầu EFMD, ECBE, AACSB'; ?></li>
                     </ul>
                     <div class="timeline-images">
                         <img src="/wp-content/uploads/external-migrated/hinh-1-1681901533615728171371_f7674a7c.webp"
@@ -531,15 +526,14 @@ ob_start(function ($html) {
                 <div class="timeline-year-badge">2016</div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-card-year">Năm 2016</span>
-                    <h3>Đối tác khoa học chiến lược tại Châu Á</h3>
+                    <span class="timeline-card-year"><?php echo $is_en ? 'Year 2016' : 'Năm 2016'; ?></span>
+                    <h3><?php echo $is_en ? 'Strategic Academic Partner in Asia' : 'Đối tác khoa học chiến lược tại Châu Á'; ?></h3>
                     <p>Vị thế của Viện tiếp tục được củng cố vượt bậc khi được các trường Đại học Polonia (Ba Lan), Học
                         viện Quản Lý và Luật St. Petersburg (Nga) và Học viện quản lý các dự án giáo dục (Nga) công nhận
                         là đối tác khoa học quan trọng nhất tại Việt Nam và Châu Á.</p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Cung cấp chương trình đào tạo MBA chuẩn Châu Âu</li>
-                        <li><i class="fa-solid fa-check"></i> Đáp ứng hoàn hảo nhu cầu học tập của học viên Việt Nam
-                        </li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Providing European-standard MBA training programs' : 'Cung cấp chương trình đào tạo MBA chuẩn Châu Âu'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Perfecting meeting the learning needs of Vietnamese students' : 'Đáp ứng hoàn hảo nhu cầu học tập của học viên Việt Nam'; ?></li>
                     </ul>
                 </div>
             </div>
@@ -549,15 +543,12 @@ ob_start(function ($html) {
                 <div class="timeline-year-badge">2021</div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-card-year">Năm 2021</span>
-                    <h3>Cột mốc hơn 1300 học viên MBA UBIS</h3>
-                    <p>Liên kết thành công 48 khóa đào tạo MBA hợp tác cùng UBIS với tổng số hơn 1300 học viên tốt
-                        nghiệp và theo học. IDEAS đóng vai trò như một Local Service đồng hành hỗ trợ học vụ trọn vẹn.
-                    </p>
+                    <span class="timeline-card-year"><?php echo $is_en ? 'Year 2021' : 'Năm 2021'; ?></span>
+                    <h3><?php echo $is_en ? 'Milestone of Over 1300 UBIS MBA Students' : 'Cột mốc hơn 1300 học viên MBA UBIS'; ?></h3>
+                    <p><?php echo $is_en ? 'Successfully coordinated 48 MBA cohorts in collaboration with UBIS with over 1300 students. IDEAS plays the role of a Local Service partner, providing comprehensive academic support.' : 'Liên kết thành công 48 khóa đào tạo MBA hợp tác cùng UBIS với tổng số hơn 1300 học viên tốt\n                        nghiệp và theo học. IDEAS đóng vai trò như một Local Service đồng hành hỗ trợ học vụ trọn vẹn.'; ?></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Chương trình học trực tuyến tối ưu thời gian và chi phí
-                        </li>
-                        <li><i class="fa-solid fa-check"></i> Hỗ trợ học vụ chu đáo, chuyên nghiệp suốt khóa học</li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Online programs optimizing time and cost' : 'Chương trình học trực tuyến tối ưu thời gian và chi phí'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Attentive and professional academic support throughout the course' : 'Hỗ trợ học vụ chu đáo, chuyên nghiệp suốt khóa học'; ?></li>
                     </ul>
                     <div class="timeline-images">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/ideas_ubis_2021.webp"
@@ -573,16 +564,12 @@ ob_start(function ($html) {
                 <div class="timeline-year-badge">2022</div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-card-year">Năm 2022</span>
-                    <h3>Chuyển đổi thành IDEAS – Sáng tạo & Đổi mới</h3>
-                    <p>Nhằm đáp ứng xu hướng toàn cầu và cống hiến mạnh mẽ hơn cho cộng đồng doanh nghiệp Việt Nam, Viện
-                        IBM chuyển đổi mô hình và đổi mới thương hiệu thành Viện Nghiên Cứu Phát triển và Trao đổi Khoa
-                        học Ứng dụng (IDEAS).</p>
+                    <span class="timeline-card-year"><?php echo $is_en ? 'Year 2022' : 'Năm 2022'; ?></span>
+                    <h3><?php echo $is_en ? 'Transition to IDEAS – Innovation &amp; Development' : 'Chuyển đổi thành IDEAS – Sáng tạo &amp; Đổi mới'; ?></h3>
+                    <p><?php echo $is_en ? 'To adapt to global trends and contribute more strongly to the Vietnamese business community, the IBM Institute restructured and rebranded as the Institute for Development and Applied Science Exchange (IDEAS).' : 'Nhằm đáp ứng xu hướng toàn cầu và cống hiến mạnh mẽ hơn cho cộng đồng doanh nghiệp Việt Nam, Viện\n                        IBM chuyển đổi mô hình và đổi mới thương hiệu thành Viện Nghiên Cứu Phát triển và Trao đổi Khoa\n                        học Ứng dụng (IDEAS).'; ?></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Hợp tác mở rộng các chương trình chất lượng cao mới: SBS
-                            Swiss Business School, Swiss UMEF, Ascencia Business School.</li>
-                        <li><i class="fa-solid fa-check"></i> Đào tạo thực tiễn, định hướng tư duy khai phóng toàn diện.
-                        </li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Expanding partnerships with new high-quality programs: SBS Swiss Business School, Swiss UMEF, Ascencia Business School.' : 'Hợp tác mở rộng các chương trình chất lượng cao mới: SBS\n                            Swiss Business School, Swiss UMEF, Ascencia Business School.'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Practical training orienting comprehensive liberal education.' : 'Đào tạo thực tiễn, định hướng tư duy khai phóng toàn diện.'; ?></li>
                     </ul>
                     <div class="timeline-images wlogos">
                         <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.png"
@@ -600,16 +587,12 @@ ob_start(function ($html) {
                 <div class="timeline-year-badge">2024</div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-card-year">Năm 2024</span>
-                    <h3>Đối tác toàn diện của College de Paris và Swiss UMEF</h3>
-                    <p>IDEAS chính thức nâng tầm mối quan hệ chiến lược lên đối tác toàn diện của College de Paris (sở
-                        hữu Ascencia Business School) và trường Swiss UMEF tại Việt Nam, mở rộng các chương trình Thạc
-                        sĩ & Tiến sĩ quốc tế.</p>
+                    <span class="timeline-card-year"><?php echo $is_en ? 'Year 2024' : 'Năm 2024'; ?></span>
+                    <h3><?php echo $is_en ? 'Comprehensive Partner of Collège de Paris &amp; Swiss UMEF' : 'Đối tác toàn diện của College de Paris và Swiss UMEF'; ?></h3>
+                    <p><?php echo $is_en ? 'IDEAS officially elevated its strategic relationship to a comprehensive partnership with Collège de Paris (owner of Ascencia Business School) and Swiss UMEF in Vietnam, expanding international Master\'s &amp; Doctoral programs.' : 'IDEAS chính thức nâng tầm mối quan hệ chiến lược lên đối tác toàn diện của College de Paris (sở\n                        hữu Ascencia Business School) và trường Swiss UMEF tại Việt Nam, mở rộng các chương trình Thạc\n                        sĩ &amp; Tiến sĩ quốc tế.'; ?></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Hỗ trợ học vụ tối đa cho học viên học chương trình quốc tế
-                        </li>
-                        <li><i class="fa-solid fa-check"></i> Tổ chức các đoàn lễ tốt nghiệp sang Thụy Sĩ, Pháp, Hoa Kỳ
-                        </li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Maximum academic support for students of international programs' : 'Hỗ trợ học vụ tối đa cho học viên học chương trình quốc tế'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Organizing graduation cohorts traveling to Switzerland, France, and the USA' : 'Tổ chức các đoàn lễ tốt nghiệp sang Thụy Sĩ, Pháp, Hoa Kỳ'; ?></li>
                     </ul>
                     <div class="timeline-images wlogos">
                         <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
@@ -635,16 +618,12 @@ ob_start(function ($html) {
                 <div class="timeline-year-badge">2025 +</div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-card">
-                    <span class="timeline-card-year">Năm 2025 +</span>
-                    <h3>Nắm bắt xu thế mới trong thời đại AI</h3>
-                    <p>Trước làn sóng trí tuệ nhân tạo (AI) định hình lại nền kinh tế toàn cầu, IDEAS tiên phong tích
-                        cực ứng dụng AI và đưa chương trình Thạc sĩ Khoa học Trí tuệ Nhân tạo Ứng dụng (MSc AI) của
-                        Swiss UMEF về Việt Nam.</p>
+                    <span class="timeline-card-year"><?php echo $is_en ? 'Year 2025 +' : 'Năm 2025 +'; ?></span>
+                    <h3><?php echo $is_en ? 'Embracing New Trends in the AI Era' : 'Nắm bắt xu thế mới trong thời đại AI'; ?></h3>
+                    <p><?php echo $is_en ? 'Amid the wave of Artificial Intelligence (AI) reshaping the global economy, IDEAS pioneers AI applications and brings the Master of Science in Applied Artificial Intelligence (MSc AI) program by Swiss UMEF to Vietnam.' : 'Trước làn sóng trí tuệ nhân tạo (AI) định hình lại nền kinh tế toàn cầu, IDEAS tiên phong tích\n                        cực ứng dụng AI và đưa chương trình Thạc sĩ Khoa học Trí tuệ Nhân tạo Ứng dụng (MSc AI) của\n                        Swiss UMEF về Việt Nam.'; ?></p>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Ký kết hợp tác chiến lược cùng trường ESTIAM (Pháp) vào
-                            ngày 26/02/2025</li>
-                        <li><i class="fa-solid fa-check"></i> Mở rộng đào tạo đa dạng từ Cử nhân đến Thạc sĩ & Tiến sĩ
-                            công nghệ</li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Strategic partnership signing with ESTIAM (France) on February 26, 2025' : 'Ký kết hợp tác chiến lược cùng trường ESTIAM (Pháp) vào\n                            ngày 26/02/2025'; ?></li>
+                        <li><i class="fa-solid fa-check"></i> <?php echo $is_en ? 'Expanding diverse training from Bachelor to Master &amp; Doctor of Technology' : 'Mở rộng đào tạo đa dạng từ Cử nhân đến Thạc sĩ &amp; Tiến sĩ\n                            công nghệ'; ?></li>
                     </ul>
                     <div class="timeline-images">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/AI.jpg" alt="Trí tuệ nhân tạo AI" />

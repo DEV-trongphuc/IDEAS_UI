@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -41,20 +42,20 @@ ob_start(function ($html) {
     <!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>IDEAS Ambassador – Chương trình Đại sứ Thương hiệu | IDEAS</title>
+        <title><?php echo $is_en ? 'IDEAS Ambassador – Brand Ambassador Program | IDEAS' : 'IDEAS Ambassador – Chương trình Đại sứ Thương hiệu | IDEAS'; ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Chương trình Đại sứ IDEAS - Lan tỏa tri thức, xây dựng cộng đồng học thuật và nhận những đặc quyền tài trợ học phí, vé máy bay sang Châu Âu." />
+            content="<?php echo $is_en ? 'IDEAS Ambassador Program - Sharing knowledge, building an academic community, and receiving tuition sponsorships and flight tickets to Europe.' : 'Chương trình Đại sứ IDEAS - Lan tỏa tri thức, xây dựng cộng đồng học thuật và nhận những đặc quyền tài trợ học phí, vé máy bay sang Châu Âu.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="IDEAS Ambassador – Chương trình Đại sứ Thương hiệu" />
+        <meta property="og:title" content="<?php echo $is_en ? 'IDEAS Ambassador – Brand Ambassador Program' : 'IDEAS Ambassador – Chương trình Đại sứ Thương hiệu'; ?>" />
         <meta property="og:description"
-            content="Đồng hành lan tỏa giáo dục chuẩn quốc tế cùng IDEAS. Tích lũy tín chỉ học thuật quy đổi quà tặng, học bổng và các chuyến đi Châu Âu giá trị." />
+            content="<?php echo $is_en ? 'Accompany IDEAS to spread international education. Accumulate academic credits to redeem gifts, scholarships, and Europe trips.' : 'Đồng hành lan tỏa giáo dục chuẩn quốc tế cùng IDEAS. Tích lũy tín chỉ học thuật quy đổi quà tặng, học bổng và các chuyến đi Châu Âu giá trị.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -1046,12 +1047,10 @@ ob_start(function ($html) {
             <div class="amb-hero-overlay"></div>
             <div class="amb-hero-container">
                 <div class="amb-hero-content">
-                    <div class="amb-hero-badge"><i class="fa-solid fa-star"></i> Chương trình đặc biệt</div>
+                    <div class="amb-hero-badge"><i class="fa-solid fa-star"></i> <?php echo $is_en ? 'Special Program' : 'Chương trình đặc biệt'; ?></div>
                     <h1>IDEAS <br><span>AMBASSADOR</span></h1>
-                    <p>Lan tỏa tri thức · Xây dựng cộng đồng · Tôn vinh cống hiến. Chương trình Đại sứ Thương hiệu kết
-                        nối tri thức chuẩn quốc tế và nâng cánh tài năng Việt.</p>
-                    <a class="amb-hero-btn" onclick="showform('amb_hero_top')"><i class="fa-solid fa-headset"></i> Tìm
-                        hiểu ngay</a>
+                    <p><?php echo $is_en ? 'Spread knowledge · Build community · Honor dedication. Brand Ambassador Program connecting international knowledge and nurturing Vietnamese talents.' : 'Lan tỏa tri thức · Xây dựng cộng đồng · Tôn vinh cống hiến. Chương trình Đại sứ Thương hiệu kết\n                        nối tri thức chuẩn quốc tế và nâng cánh tài năng Việt.'; ?></p>
+                    <a class="amb-hero-btn" onclick="showform('amb_hero_top')"><i class="fa-solid fa-headset"></i> <?php echo $is_en ? 'Learn More' : 'Tìm hiểu ngay'; ?></a>
                 </div>
             </div>
         </section>
@@ -1061,42 +1060,37 @@ ob_start(function ($html) {
             <div class="amb-container-width">
                 <div class="amb-intro-split">
                     <div class="amb-intro-text">
-                        <span class="amb-section-tag"><i class="fa-solid fa-graduation-cap"></i> Về chương trình</span>
+                        <span class="amb-section-tag"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'About Program' : 'Về chương trình'; ?></span>
                         <h2 class="amb-section-title">IDEAS – <span>Ambassador</span></h2>
-                        <p class="amb-intro-desc">Chương trình Đại sứ IDEAS được xây dựng nhằm <span>chia sẻ giá
-                                trị</span>, lan tỏa tri thức và thúc đẩy sự phát triển của giáo dục sau đại học. Chúng
-                            tôi hướng đến một môi trường học thuật và xã hội tích cực, nơi mỗi cá nhân thuộc cộng đồng
-                            IDEAS đều có cơ hội đóng góp và nhận lại những quyền lợi xứng đáng.</p>
+                        <p class="amb-intro-desc"><?php echo $is_en ? 'The IDEAS Ambassador program is built to <span>share values</span>, spread knowledge, and promote the development of postgraduate education. We aim for a positive academic and social environment where every individual in the IDEAS community has the opportunity to contribute and receive worthy benefits.' : 'Chương trình Đại sứ IDEAS được xây dựng nhằm <span>chia sẻ giá\n                                trị</span>, lan tỏa tri thức và thúc đẩy sự phát triển của giáo dục sau đại học. Chúng\n                            tôi hướng đến một môi trường học thuật và xã hội tích cực, nơi mỗi cá nhân thuộc cộng đồng\n                            IDEAS đều có cơ hội đóng góp và nhận lại những quyền lợi xứng đáng.'; ?></p>
 
                         <div class="amb-goals-list">
                             <div class="amb-goal-card">
                                 <div class="amb-goal-icon-box"><i class="fa-solid fa-network-wired"></i></div>
                                 <div class="amb-goal-info">
-                                    <h4>Xây dựng cộng đồng</h4>
-                                    <p>Tạo ra mạng lưới kết nối mạnh mẽ, hỗ trợ nhau trong học tập và phát triển sự
-                                        nghiệp.</p>
+                                    <h4><?php echo $is_en ? 'Community Building' : 'Xây dựng cộng đồng'; ?></h4>
+                                    <p><?php echo $is_en ? 'Create a strong networking connection, supporting each other in studying and career development.' : 'Tạo ra mạng lưới kết nối mạnh mẽ, hỗ trợ nhau trong học tập và phát triển sự\n                                        nghiệp.'; ?></p>
                                 </div>
                             </div>
                             <div class="amb-goal-card">
                                 <div class="amb-goal-icon-box"><i class="fa-solid fa-bullhorn"></i></div>
                                 <div class="amb-goal-info">
-                                    <h4>Lan tỏa giáo dục</h4>
-                                    <p>Mở rộng cơ hội tiếp cận giáo dục chất lượng quốc tế chuẩn Châu Âu cho nhiều người
-                                        hơn.</p>
+                                    <h4><?php echo $is_en ? 'Spreading Education' : 'Lan tỏa giáo dục'; ?></h4>
+                                    <p><?php echo $is_en ? 'Expanding access to European-standard high-quality international education to more people.' : 'Mở rộng cơ hội tiếp cận giáo dục chất lượng quốc tế chuẩn Châu Âu cho nhiều người\n                                        hơn.'; ?></p>
                                 </div>
                             </div>
                             <div class="amb-goal-card">
                                 <div class="amb-goal-icon-box"><i class="fa-solid fa-trophy"></i></div>
                                 <div class="amb-goal-info">
-                                    <h4>Tôn vinh cống hiến</h4>
-                                    <p>Vinh danh và trao thưởng xứng đáng đối với những đóng góp tích cực của bạn.</p>
+                                    <h4><?php echo $is_en ? 'Honoring Dedication' : 'Tôn vinh cống hiến'; ?></h4>
+                                    <p><?php echo $is_en ? 'Recognizing and rewarding worthily for your positive contributions.' : 'Vinh danh và trao thưởng xứng đáng đối với những đóng góp tích cực của bạn.'; ?></p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="amb-intro-meta">
                             <i class="fa-solid fa-clock"></i>
-                            <span><b>Thời gian áp dụng:</b> Từ 11/11/2025 | Tích lũy liên tục trong vòng 03 năm</span>
+                            <span><?php echo $is_en ? '<b>Effective Period:</b> From Nov 11, 2025 | Accumulated continuously for 03 years' : '<b>Thời gian áp dụng:</b> Từ 11/11/2025 | Tích lũy liên tục trong vòng 03 năm'; ?></span>
                         </div>
                     </div>
 
@@ -1105,7 +1099,7 @@ ob_start(function ($html) {
                             alt="IDEAS Ambassador Program" class="amb-intro-img" />
                         <div class="amb-intro-floating-badge">
                             <i class="fa-solid fa-medal"></i>
-                            <span>Đại sứ Uy tín IDEAS</span>
+                            <span><?php echo $is_en ? 'IDEAS Prestigious Ambassador' : 'Đại sứ Uy tín IDEAS'; ?></span>
                         </div>
                     </div>
                 </div>
@@ -1116,10 +1110,9 @@ ob_start(function ($html) {
         <section class="amb-section" style="background-color: #ffffff;">
             <div class="amb-container-width">
                 <div class="amb-section-title-wrap">
-                    <span class="amb-section-tag"><i class="fa-solid fa-coins"></i> Cơ chế tích điểm</span>
-                    <h2 class="amb-section-title">Bảng Tích Tín Chỉ <span>Học Thuật</span> IDEAS</h2>
-                    <p class="amb-section-subtitle">Mỗi hoạt động bạn tham gia đều được ghi nhận và tích lũy thành Tín
-                        chỉ học thuật IDEAS – chìa khóa mở ra những đặc quyền hấp dẫn.</p>
+                    <span class="amb-section-tag"><i class="fa-solid fa-coins"></i> <?php echo $is_en ? 'Credit Scoring' : 'Cơ chế tích điểm'; ?></span>
+                    <h2 class="amb-section-title"><?php echo $is_en ? 'IDEAS <span>Academic Credit</span> Accumulation Table' : 'Bảng Tích Tín Chỉ <span>Học Thuật</span> IDEAS'; ?></h2>
+                    <p class="amb-section-subtitle"><?php echo $is_en ? 'Every activity you join is recorded and accumulated into IDEAS Academic Credits – the key to unlocking attractive privileges.' : 'Mỗi hoạt động bạn tham gia đều được ghi nhận và tích lũy thành Tín\n                        chỉ học thuật IDEAS – chìa khóa mở ra những đặc quyền hấp dẫn.'; ?></p>
                 </div>
 
                 <div class="amb-table-section">
@@ -1132,45 +1125,45 @@ ob_start(function ($html) {
                             <table class="amb-table-custom">
                                 <thead>
                                     <tr>
-                                        <th>Hoạt động tham gia</th>
-                                        <th style="width:140px; text-align:center;">Tín chỉ tích lũy</th>
+                                        <th><?php echo $is_en ? 'Participating Activity' : 'Hoạt động tham gia'; ?></th>
+                                        <th style="width:140px; text-align:center;"><?php echo $is_en ? 'Accumulated Credits' : 'Tín chỉ tích lũy'; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Tham gia sự kiện trực tuyến (Online Webinar)</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge">2 điểm</span></td>
+                                        <td><?php echo $is_en ? 'Join Online Events (Webinars)' : 'Tham gia sự kiện trực tuyến (Online Webinar)'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge"><?php echo $is_en ? '2 pts' : '2 điểm'; ?></span></td>
                                     </tr>
                                     <tr>
-                                        <td>Giới thiệu khách hàng tiềm năng liên hệ tư vấn</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge">2 điểm</span></td>
+                                        <td><?php echo $is_en ? 'Refer potential leads for counseling' : 'Giới thiệu khách hàng tiềm năng liên hệ tư vấn'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge"><?php echo $is_en ? '2 pts' : '2 điểm'; ?></span></td>
                                     </tr>
                                     <tr>
-                                        <td>Chia sẻ bài viết truyền thông #IDEAS trên trang cá nhân</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge">5 điểm</span></td>
+                                        <td><?php echo $is_en ? 'Share #IDEAS promotional posts on personal page' : 'Chia sẻ bài viết truyền thông #IDEAS trên trang cá nhân'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge"><?php echo $is_en ? '5 pts' : '5 điểm'; ?></span></td>
                                     </tr>
                                     <tr>
-                                        <td>Tham gia sự kiện trực tiếp (Offline Workshop)</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge">5 điểm</span></td>
+                                        <td><?php echo $is_en ? 'Join On-site Events (Offline Workshops)' : 'Tham gia sự kiện trực tiếp (Offline Workshop)'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge"><?php echo $is_en ? '5 pts' : '5 điểm'; ?></span></td>
                                     </tr>
                                     <tr>
-                                        <td>Quay video chia sẻ trải nghiệm & cảm nhận về khóa học</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge high">10 điểm</span>
+                                        <td><?php echo $is_en ? 'Record testimonial video sharing course experiences' : 'Quay video chia sẻ trải nghiệm & cảm nhận về khóa học'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge high"><?php echo $is_en ? '10 pts' : '10 điểm'; ?></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Đánh giá chất lượng học thuật và đóng góp chuyên sâu</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge high">15 điểm</span>
+                                        <td><?php echo $is_en ? 'Evaluate academic quality and write professional inputs' : 'Đánh giá chất lượng học thuật và đóng góp chuyên sâu'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge high"><?php echo $is_en ? '15 pts' : '15 điểm'; ?></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Giới thiệu một học viên đăng ký nhập học thành công</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge high">20 điểm</span>
+                                        <td><?php echo $is_en ? 'Refer a student who successfully enrolls' : 'Giới thiệu một học viên đăng ký nhập học thành công'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge high"><?php echo $is_en ? '20 pts' : '20 điểm'; ?></span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Hoàn thành chương trình học Topup / Master / DBA</td>
-                                        <td style="text-align:center;"><span class="amb-pts-badge top">30 điểm</span>
+                                        <td><?php echo $is_en ? 'Graduate from Top-up / Master / DBA program' : 'Hoàn thành chương trình học Topup / Master / DBA'; ?></td>
+                                        <td style="text-align:center;"><span class="amb-pts-badge top"><?php echo $is_en ? '30 pts' : '30 điểm'; ?></span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1185,10 +1178,9 @@ ob_start(function ($html) {
         <section class="amb-section">
             <div class="amb-container-width">
                 <div class="amb-section-title-wrap">
-                    <span class="amb-section-tag"><i class="fa-solid fa-ranking-star"></i> Hạng mức</span>
-                    <h2 class="amb-section-title">Hạng Mức & <span>Quyền Lợi Đặc Biệt</span></h2>
-                    <p class="amb-section-subtitle">Tích lũy tín chỉ để nâng hạng đại sứ và mở khóa các chính sách tài
-                        trợ đặc biệt từ IDEAS.</p>
+                    <span class="amb-section-tag"><i class="fa-solid fa-ranking-star"></i> <?php echo $is_en ? 'Tier Levels' : 'Hạng mức'; ?></span>
+                    <h2 class="amb-section-title"><?php echo $is_en ? 'Tier Levels &amp; <span>Special Privileges</span>' : 'Hạng Mức &amp; <span>Quyền Lợi Đặc Biệt</span>'; ?></h2>
+                    <p class="amb-section-subtitle"><?php echo $is_en ? 'Accumulate credits to upgrade ambassador tier and unlock special sponsorship policies from IDEAS.' : 'Tích lũy tín chỉ để nâng hạng đại sứ và mở khóa các chính sách tài trợ đặc biệt từ IDEAS.'; ?></p>
                 </div>
 
                 <div class="amb-tiers-list">
@@ -1197,13 +1189,13 @@ ob_start(function ($html) {
                         <div class="amb-tier-profile">
                             <div class="amb-tier-icon-wrap"><i class="fa-solid fa-link"></i></div>
                             <div>
-                                <h4 class="amb-tier-title">Gắn kết</h4>
-                                <div class="amb-tier-points-range">10 – 99 điểm</div>
+                                <h4 class="amb-tier-title"><?php echo $is_en ? 'Engagement' : 'Gắn kết'; ?></h4>
+                                <div class="amb-tier-points-range"><?php echo $is_en ? '10 – 99 pts' : '10 – 99 điểm'; ?></div>
                             </div>
                         </div>
                         <ul class="amb-tier-benefits-list">
-                            <li><i class="fa-solid fa-gift"></i> Nhận quà tặng độc quyền hàng năm</li>
-                            <li><i class="fa-solid fa-coins"></i> Quỹ hỗ trợ tri thức: <b>100 CHF</b>/học viên</li>
+                            <li><i class="fa-solid fa-gift"></i> <?php echo $is_en ? 'Receive annual exclusive gift set' : 'Nhận quà tặng độc quyền hàng năm'; ?></li>
+                            <li><i class="fa-solid fa-coins"></i> <?php echo $is_en ? 'Intellectual support fund: <b>100 CHF</b>/student' : 'Quỹ hỗ trợ tri thức: <b>100 CHF</b>/học viên'; ?></li>
                         </ul>
                     </div>
 
@@ -1212,15 +1204,14 @@ ob_start(function ($html) {
                         <div class="amb-tier-profile">
                             <div class="amb-tier-icon-wrap"><i class="fa-solid fa-signal"></i></div>
                             <div>
-                                <h4 class="amb-tier-title">Lan tỏa</h4>
-                                <div class="amb-tier-points-range">100 – 299 điểm</div>
+                                <h4 class="amb-tier-title"><?php echo $is_en ? 'Sharing' : 'Lan tỏa'; ?></h4>
+                                <div class="amb-tier-points-range"><?php echo $is_en ? '100 – 299 pts' : '100 – 299 điểm'; ?></div>
                             </div>
                         </div>
                         <ul class="amb-tier-benefits-list">
-                            <li><i class="fa-solid fa-gift"></i> Nhận quà tặng độc quyền hàng năm</li>
-                            <li><i class="fa-solid fa-coins"></i> Quỹ hỗ trợ tri thức: <b>200 CHF</b>/học viên</li>
-                            <li><i class="fa-solid fa-percent"></i> Ưu đãi giảm thêm <b>200 CHF</b> cho người được giới
-                                thiệu</li>
+                            <li><i class="fa-solid fa-gift"></i> <?php echo $is_en ? 'Receive annual exclusive gift set' : 'Nhận quà tặng độc quyền hàng năm'; ?></li>
+                            <li><i class="fa-solid fa-coins"></i> <?php echo $is_en ? 'Intellectual support fund: <b>200 CHF</b>/student' : 'Quỹ hỗ trợ tri thức: <b>200 CHF</b>/học viên'; ?></li>
+                            <li><i class="fa-solid fa-percent"></i> <?php echo $is_en ? 'Additional <b>200 CHF</b> discount for the referee' : 'Ưu đãi giảm thêm <b>200 CHF</b> cho người được giới giới thiệu'; ?></li>
                         </ul>
                     </div>
 
@@ -1229,15 +1220,14 @@ ob_start(function ($html) {
                         <div class="amb-tier-profile">
                             <div class="amb-tier-icon-wrap"><i class="fa-solid fa-rocket"></i></div>
                             <div>
-                                <h4 class="amb-tier-title">Tiên phong</h4>
-                                <div class="amb-tier-points-range">300 – 599 điểm</div>
+                                <h4 class="amb-tier-title"><?php echo $is_en ? 'Pioneering' : 'Tiên phong'; ?></h4>
+                                <div class="amb-tier-points-range"><?php echo $is_en ? '300 – 599 pts' : '300 – 599 điểm'; ?></div>
                             </div>
                         </div>
                         <ul class="amb-tier-benefits-list">
-                            <li><i class="fa-solid fa-gift"></i> Nhận quà tặng độc quyền hàng năm</li>
-                            <li><i class="fa-solid fa-coins"></i> Quỹ hỗ trợ tri thức: <b>250 CHF</b>/học viên</li>
-                            <li><i class="fa-solid fa-percent"></i> Ưu đãi giảm thêm <b>200 CHF</b> cho người được giới
-                                thiệu</li>
+                            <li><i class="fa-solid fa-gift"></i> <?php echo $is_en ? 'Receive annual exclusive gift set' : 'Nhận quà tặng độc quyền hàng năm'; ?></li>
+                            <li><i class="fa-solid fa-coins"></i> <?php echo $is_en ? 'Intellectual support fund: <b>250 CHF</b>/student' : 'Quỹ hỗ trợ tri thức: <b>250 CHF</b>/học viên'; ?></li>
+                            <li><i class="fa-solid fa-percent"></i> <?php echo $is_en ? 'Additional <b>200 CHF</b> discount for the referee' : 'Ưu đãi giảm thêm <b>200 CHF</b> cho người được giới giới thiệu'; ?></li>
                         </ul>
                     </div>
 
@@ -1246,39 +1236,34 @@ ob_start(function ($html) {
                         <div class="amb-tier-profile">
                             <div class="amb-tier-icon-wrap"><i class="fa-solid fa-gem"></i></div>
                             <div>
-                                <h4 class="amb-tier-title">Kim Cương</h4>
-                                <div class="amb-tier-points-range">600 – 999 điểm</div>
+                                <h4 class="amb-tier-title"><?php echo $is_en ? 'Diamond' : 'Kim Cương'; ?></h4>
+                                <div class="amb-tier-points-range"><?php echo $is_en ? '600 – 999 pts' : '600 – 999 điểm'; ?></div>
                             </div>
                         </div>
                         <ul class="amb-tier-benefits-list">
-                            <li><i class="fa-solid fa-gift"></i> Nhận quà tặng độc quyền hàng năm</li>
-                            <li><i class="fa-solid fa-ticket"></i> Voucher DBA 5.000 EUR / MSc AI 2.500 CHF / Hỗ trợ 50%
-                                EMBA</li>
-                            <li><i class="fa-solid fa-coins"></i> Quỹ hỗ trợ tri thức: <b>250 CHF</b>/học viên</li>
-                            <li><i class="fa-solid fa-percent"></i> Giảm thêm <b>15% học phí</b> cho người được giới
-                                thiệu</li>
+                            <li><i class="fa-solid fa-gift"></i> <?php echo $is_en ? 'Receive annual exclusive gift set' : 'Nhận quà tặng độc quyền hàng năm'; ?></li>
+                            <li><i class="fa-solid fa-ticket"></i> <?php echo $is_en ? 'DBA 5,000 EUR / MSc AI 2,500 CHF Voucher / 50% EMBA Support' : 'Voucher DBA 5.000 EUR / MSc AI 2.500 CHF / Hỗ trợ 50% EMBA'; ?></li>
+                            <li><i class="fa-solid fa-coins"></i> <?php echo $is_en ? 'Intellectual support fund: <b>250 CHF</b>/student' : 'Quỹ hỗ trợ tri thức: <b>250 CHF</b>/học viên'; ?></li>
+                            <li><i class="fa-solid fa-percent"></i> <?php echo $is_en ? 'Additional <b>15% tuition</b> discount for the referee' : 'Giảm thêm <b>15% học phí</b> cho người được giới thiệu'; ?></li>
                         </ul>
                     </div>
 
                     <!-- Tier 5 -->
                     <div class="amb-tier-row tier-master">
-                        <div class="amb-tier-top-badge"><i class="fa-solid fa-crown"></i> Hạng Cao Nhất</div>
+                        <div class="amb-tier-top-badge"><i class="fa-solid fa-crown"></i> <?php echo $is_en ? 'Highest Tier' : 'Hạng Cao Nhất'; ?></div>
                         <div class="amb-tier-profile">
                             <div class="amb-tier-icon-wrap"><i class="fa-solid fa-crown"></i></div>
                             <div>
                                 <h4 class="amb-tier-title" style="color: #ab0e00;">Master</h4>
-                                <div class="amb-tier-points-range">≥ 1.000 điểm</div>
+                                <div class="amb-tier-points-range"><?php echo $is_en ? '≥ 1,000 pts' : '≥ 1.000 điểm'; ?></div>
                             </div>
                         </div>
                         <ul class="amb-tier-benefits-list">
-                            <li><i class="fa-solid fa-gift"></i> Nhận quà tặng độc quyền hàng năm</li>
-                            <li><i class="fa-solid fa-ticket"></i> Voucher DBA 5.000 EUR / MSc AI 2.500 CHF / Hỗ trợ 60%
-                                EMBA</li>
-                            <li><i class="fa-solid fa-plane"></i> Tặng <b>01 cặp vé máy bay</b> khứ hồi sang Châu Âu
-                            </li>
-                            <li><i class="fa-solid fa-coins"></i> Quỹ hỗ trợ tri thức: <b>300 CHF</b>/học viên</li>
-                            <li><i class="fa-solid fa-percent"></i> Giảm thêm <b>25% học phí</b> cho người được giới
-                                thiệu</li>
+                            <li><i class="fa-solid fa-gift"></i> <?php echo $is_en ? 'Receive annual exclusive gift set' : 'Nhận quà tặng độc quyền hàng năm'; ?></li>
+                            <li><i class="fa-solid fa-ticket"></i> <?php echo $is_en ? 'DBA 5,000 EUR / MSc AI 2,500 CHF Voucher / 60% EMBA Support' : 'Voucher DBA 5.000 EUR / MSc AI 2.500 CHF / Hỗ trợ 60% EMBA'; ?></li>
+                            <li><i class="fa-solid fa-plane"></i> <?php echo $is_en ? 'Gifted <b>01 pair of round-trip flight tickets</b> to Europe' : 'Tặng <b>01 cặp vé máy bay</b> khứ hồi sang Châu Âu'; ?></li>
+                            <li><i class="fa-solid fa-coins"></i> <?php echo $is_en ? 'Intellectual support fund: <b>300 CHF</b>/student' : 'Quỹ hỗ trợ tri thức: <b>300 CHF</b>/học viên'; ?></li>
+                            <li><i class="fa-solid fa-percent"></i> <?php echo $is_en ? 'Additional <b>25% tuition</b> discount for the referee' : 'Giảm thêm <b>25% học phí</b> cho người được giới thiệu'; ?></li>
                         </ul>
                     </div>
                 </div>
@@ -1291,31 +1276,28 @@ ob_start(function ($html) {
                 <div class="amb-split-layout">
                     <!-- Steps -->
                     <div class="amb-flow-box">
-                        <span class="amb-section-tag"><i class="fa-solid fa-map-signs"></i> Tham gia</span>
-                        <h3>Hướng Dẫn <span>Tham Gia</span></h3>
+                        <span class="amb-section-tag"><i class="fa-solid fa-map-signs"></i> <?php echo $is_en ? 'Join Us' : 'Tham gia'; ?></span>
+                        <h3><?php echo $is_en ? 'Participation <span>Guide</span>' : 'Hướng Dẫn <span>Tham Gia</span>'; ?></h3>
                         <div class="amb-steps-col">
                             <div class="amb-step-card">
                                 <div class="amb-step-num-circle">1</div>
                                 <div class="amb-step-info">
-                                    <h5>Chia sẻ &amp; Kết nối</h5>
-                                    <p>Đại sứ chia sẻ trải nghiệm học tập thực tế và Mã Đại Sứ (SĐT của bạn) cho học
-                                        viên tiềm năng, hoặc tham gia tích cực các sự kiện do IDEAS tổ chức.</p>
+                                    <h5><?php echo $is_en ? 'Share &amp; Connect' : 'Chia sẻ &amp; Kết nối'; ?></h5>
+                                    <p><?php echo $is_en ? 'Ambassadors share practical study experiences and Ambassador Code (your phone number) to prospective students, or actively join events organized by IDEAS.' : 'Đại sứ chia sẻ trải nghiệm học tập thực tế và Mã Đại Sứ (SĐT của bạn) cho học viên tiềm năng, hoặc tham gia tích cực các sự kiện do IDEAS tổ chức.'; ?></p>
                                 </div>
                             </div>
                             <div class="amb-step-card">
                                 <div class="amb-step-num-circle">2</div>
                                 <div class="amb-step-info">
-                                    <h5>Ghi nhận &amp; Tích lũy</h5>
-                                    <p>Hệ thống tự động ghi nhận các đóng góp của đại sứ và cập nhật điểm tích lũy trực
-                                        tiếp trên hệ thống học vụ của Viện.</p>
+                                    <h5><?php echo $is_en ? 'Record &amp; Accumulate' : 'Ghi nhận &amp; Tích lũy'; ?></h5>
+                                    <p><?php echo $is_en ? 'The system automatically records ambassador contributions and updates accumulated credits directly on the Institute\'s academic management platform.' : 'Hệ thống tự động ghi nhận các đóng góp của đại sứ và cập nhật điểm tích lũy trực tiếp trên hệ thống học vụ của Viện.'; ?></p>
                                 </div>
                             </div>
                             <div class="amb-step-card">
                                 <div class="amb-step-num-circle">3</div>
                                 <div class="amb-step-info">
-                                    <h5>Quy đổi Quyền lợi</h5>
-                                    <p>Sử dụng điểm tín chỉ tích lũy được để quy đổi sang học bổng, phần thưởng giá trị
-                                        hoặc trao tặng thẻ hỗ trợ tri thức cho người thân.</p>
+                                    <h5><?php echo $is_en ? 'Redeem Benefits' : 'Quy đổi Quyền lợi'; ?></h5>
+                                    <p><?php echo $is_en ? 'Use accumulated credits to redeem scholarships, valuable rewards, or gift academic support vouchers to relatives.' : 'Sử dụng điểm tín chỉ tích lũy được để quy đổi sang học bổng, phần thưởng giá trị hoặc trao tặng thẻ hỗ trợ tri thức cho người thân.'; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -1325,29 +1307,25 @@ ob_start(function ($html) {
                     <div class="amb-commit-box"
                         style="display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
-                            <span class="amb-section-tag"><i class="fa-solid fa-certificate"></i> Cam kết</span>
-                            <h3>Cam Kết Từ <span>IDEAS</span></h3>
+                            <span class="amb-section-tag"><i class="fa-solid fa-certificate"></i> <?php echo $is_en ? 'Commitments' : 'Cam kết'; ?></span>
+                            <h3><?php echo $is_en ? 'Commitments from <span>IDEAS</span>' : 'Cam Kết Từ <span>IDEAS</span>'; ?></h3>
                             <div class="amb-commit-checklist">
                                 <div class="amb-commit-item">
                                     <i class="fa-solid fa-circle-check"></i>
-                                    <span>Đảm bảo tính minh bạch, chính xác tuyệt đối trong việc ghi nhận điểm và xếp
-                                        hạng đại sứ.</span>
+                                    <span><?php echo $is_en ? 'Ensure absolute transparency and accuracy in recording credits and ranking ambassadors.' : 'Đảm bảo tính minh bạch, chính xác tuyệt đối trong việc ghi nhận điểm và xếp hạng đại sứ.'; ?></span>
                                 </div>
                                 <div class="amb-commit-item">
                                     <i class="fa-solid fa-circle-check"></i>
-                                    <span>Tôn vinh và vinh danh đóng góp của đại sứ qua các sự kiện, giải thưởng niên
-                                        giám và danh sách công bố chính thức.</span>
+                                    <span><?php echo $is_en ? 'Honor and recognize ambassador contributions through events, yearbook awards, and official announcements.' : 'Tôn vinh và vinh danh đóng góp của đại sứ qua các sự kiện, giải thưởng niên giám và danh sách công bố chính thức.'; ?></span>
                                 </div>
                                 <div class="amb-commit-item">
                                     <i class="fa-solid fa-circle-check"></i>
-                                    <span>Tạo mọi điều kiện hỗ trợ tối đa để hội viên phát triển năng lực bản thân và mở
-                                        rộng mạng lưới quan hệ xã hội.</span>
+                                    <span><?php echo $is_en ? 'Create all favorable conditions to help members develop their personal capabilities and expand social networks.' : 'Tạo mọi điều kiện hỗ trợ tối đa để hội viên phát triển năng lực bản thân và mở rộng mạng lưới quan hệ xã hội.'; ?></span>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <button class="amb-commit-cta-btn" onclick="showform('amb_commit_sec')"><i
-                                    class="fa-solid fa-headset"></i> Đăng ký tư vấn</button>
+                            <button class="amb-commit-cta-btn" onclick="showform('amb_commit_sec')"><i class="fa-solid fa-headset"></i> <?php echo $is_en ? 'Register for Counseling' : 'Đăng ký tư vấn'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -1358,10 +1336,9 @@ ob_start(function ($html) {
         <section class="amb-section">
             <div class="amb-container-width">
                 <div class="amb-section-title-wrap">
-                    <span class="amb-section-tag"><i class="fa-solid fa-newspaper"></i> Tin tức</span>
-                    <h2 class="amb-section-title">Bài Viết <span>Nổi Bật</span></h2>
-                    <p class="amb-section-subtitle">Tìm hiểu chi tiết hơn các bài phân tích chuyên sâu về vai trò và sự
-                        phát triển của cộng đồng đại sứ.</p>
+                    <span class="amb-section-tag"><i class="fa-solid fa-newspaper"></i> <?php echo $is_en ? 'News &amp; Updates' : 'Tin tức'; ?></span>
+                    <h2 class="amb-section-title"><?php echo $is_en ? 'Featured <span>Articles</span>' : 'Bài Viết <span>Nổi Bật</span>'; ?></h2>
+                    <p class="amb-section-subtitle"><?php echo $is_en ? 'Learn details of in-depth analyses on the role and development of the ambassador community.' : 'Tìm hiểu chi tiết hơn các bài phân tích chuyên sâu về vai trò và sự phát triển của cộng đồng đại sứ.'; ?></p>
                 </div>
 
                 <div class="amb-news-grid">
@@ -1376,13 +1353,11 @@ ob_start(function ($html) {
                         </div>
                         <div class="amb-news-body">
                             <span class="amb-news-tag"><i class="fa-solid fa-tag"></i> Ambassador</span>
-                            <h4>Đại Sứ Thương Hiệu IDEAS Ambassador</h4>
-                            <p>Tìm hiểu vai trò Đại sứ thương hiệu IDEAS – cơ hội tuyệt vời để chia sẻ tri thức, mở rộng
-                                mối quan hệ và nhận những quyền lợi đặc quyền hấp dẫn từ cộng đồng học thuật.</p>
+                            <h4><?php echo $is_en ? 'IDEAS Brand Ambassador Program' : 'Đại Sứ Thương Hiệu IDEAS Ambassador'; ?></h4>
+                            <p><?php echo $is_en ? 'Explore the role of an IDEAS brand ambassador – an excellent opportunity to share knowledge, expand networks, and receive attractive exclusive benefits from the academic community.' : 'Tìm hiểu vai trò Đại sứ thương hiệu IDEAS – cơ hội tuyệt vời để chia sẻ tri thức, mở rộng mối quan hệ và nhận những quyền lợi đặc quyền hấp dẫn từ cộng đồng học thuật.'; ?></p>
                             <div class="amb-news-footer">
-                                <span><i class="fa-solid fa-calendar"></i> Năm 2026</span>
-                                <span class="amb-news-readmore">Đọc chi tiết <i
-                                        class="fa-solid fa-arrow-right"></i></span>
+                                <span><i class="fa-solid fa-calendar"></i> <?php echo $is_en ? 'Year 2026' : 'Năm 2026'; ?></span>
+                                <span class="amb-news-readmore"><?php echo $is_en ? 'Read Details' : 'Đọc chi tiết'; ?> <i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                         </div>
                     </a>
@@ -1397,14 +1372,12 @@ ob_start(function ($html) {
                             </div>
                         </div>
                         <div class="amb-news-body">
-                            <span class="amb-news-tag"><i class="fa-solid fa-tag"></i> Quỹ Nhân Tài</span>
-                            <h4>IDEAS Ambassador 2026 – Quỹ Đầu Tư Nhân Tài</h4>
-                            <p>Khám phá thông tin chi tiết về Quỹ đầu tư nhân tài IDEAS Ambassador 2026 – nơi vinh danh
-                                các cống hiến vượt bậc và bồi đắp nguồn nhân lực cấp cao cho tương lai.</p>
+                            <span class="amb-news-tag"><i class="fa-solid fa-tag"></i> <?php echo $is_en ? 'Talent Fund' : 'Quỹ Nhân Tài'; ?></span>
+                            <h4><?php echo $is_en ? 'IDEAS Ambassador 2026 – Talent Investment Fund' : 'IDEAS Ambassador 2026 – Quỹ Đầu Tư Nhân Tài'; ?></h4>
+                            <p><?php echo $is_en ? 'Discover detailed information about the IDEAS Ambassador 2026 Talent Investment Fund – honoring outstanding dedication and nurturing high-level workforce for the future.' : 'Khám phá thông tin chi tiết về Quỹ đầu tư nhân tài IDEAS Ambassador 2026 – nơi vinh danh các cống hiến vượt bậc và bồi đắp nguồn nhân lực cấp cao cho tương lai.'; ?></p>
                             <div class="amb-news-footer">
-                                <span><i class="fa-solid fa-calendar"></i> Năm 2026</span>
-                                <span class="amb-news-readmore">Đọc chi tiết <i
-                                        class="fa-solid fa-arrow-right"></i></span>
+                                <span><i class="fa-solid fa-calendar"></i> <?php echo $is_en ? 'Year 2026' : 'Năm 2026'; ?></span>
+                                <span class="amb-news-readmore"><?php echo $is_en ? 'Read Details' : 'Đọc chi tiết'; ?> <i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                         </div>
                     </a>

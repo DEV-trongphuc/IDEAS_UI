@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en'); echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 <head>
     <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
@@ -55,7 +56,7 @@
     <div class="premium-page-hero-overlay"></div>
     <div class="premium-page-hero-container">
         <nav class="premium-page-breadcrumbs">
-            <a href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a> / <span><?php the_title(); ?></span>
+            <a href="<?php echo esc_url(home_url('/')); ?>"><?php echo $is_en ? 'Home' : 'Trang chủ'; ?></a> / <span><?php the_title(); ?></span>
         </nav>
         <h1 class="premium-page-title"><?php the_title(); ?></h1>
     </div>

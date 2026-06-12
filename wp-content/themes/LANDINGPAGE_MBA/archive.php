@@ -27,9 +27,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager / Global Site Tag (gtag.js) -->
@@ -700,18 +701,17 @@ ob_start(function ($html) {
             </div>
         </div>
         <div class="container" style="position: relative; z-index: 3;">
-            <h1>Tin Tức &amp; Sự Kiện</h1>
-            <p>Cập nhật những thông tin tuyển sinh mới nhất, hoạt động của học viên và bài viết chia sẻ tri thức chuyên
-                môn từ Hội đồng Học thuật IDEAS.</p>
+            <h1><?php echo $is_en ? 'News &amp; Events' : 'Tin Tức &amp; Sự Kiện'; ?></h1>
+            <p><?php echo $is_en ? 'Stay updated with the latest admissions information, student activities, and academic articles shared by the IDEAS Academic Council.' : 'Cập nhật những thông tin tuyển sinh mới nhất, hoạt động của học viên và bài viết chia sẻ tri thức chuyên môn từ Hội đồng Học thuật IDEAS.'; ?></p>
 
             <!-- Search bar -->
             <form role="search" method="get" class="archive-search-form"
                 action="<?php echo esc_url(home_url('/index.php')); ?>">
                 <div class="search-input-wrap">
                     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="search" class="search-input" placeholder="Tìm kiếm bài viết..." aria-label="Tìm kiếm bài viết"
+                    <input type="search" class="search-input" placeholder="<?php echo $is_en ? 'Search articles...' : 'Tìm kiếm bài viết...'; ?>" aria-label="<?php echo $is_en ? 'Search articles' : 'Tìm kiếm bài viết'; ?>"
                         value="<?php echo get_search_query(); ?>" name="s" required />
-                    <button type="submit" class="search-btn">Tìm kiếm</button>
+                    <button type="submit" class="search-btn"><?php echo $is_en ? 'Search' : 'Tìm kiếm'; ?></button>
                 </div>
             </form>
         </div>
@@ -760,7 +760,7 @@ ob_start(function ($html) {
                                 onload="this.parentElement.classList.remove('skeleton')">
                         </div>
                         <div class="featured-body">
-                            <span class="featured-tag">Mới nhất</span>
+                            <span class="featured-tag"><?php echo $is_en ? 'Latest' : 'Mới nhất'; ?></span>
                             <h2><?php the_title(); ?></h2>
                             <p><?php echo esc_html($excerpt); ?></p>
                             <div class="meta-row">
@@ -773,7 +773,7 @@ ob_start(function ($html) {
                                 }
                                 ?>
                                 <span><i class="fa-regular fa-eye" style="color:#ab0e00; margin-right:4px;"></i>
-                                    <?php echo number_format(ideas_get_post_views($featured_id)); ?> lượt xem</span>
+                                    <?php echo number_format(ideas_get_post_views($featured_id)); ?> <?php echo $is_en ? 'views' : 'lượt xem'; ?></span>
                             </div>
                         </div>
                     </a>
@@ -820,9 +820,9 @@ ob_start(function ($html) {
                                     <span><i class="fa-regular fa-calendar-days" style="color:#ab0e00; margin-right:4px;"></i>
                                         <?php echo get_the_date('d/m/Y'); ?></span>
                                     <span><i class="fa-regular fa-eye" style="color:#ab0e00; margin-right:4px;"></i>
-                                        <?php echo number_format(ideas_get_post_views(get_the_ID())); ?> lượt xem</span>
+                                        <?php echo number_format(ideas_get_post_views(get_the_ID())); ?> <?php echo $is_en ? 'views' : 'lượt xem'; ?></span>
                                 </div>
-                                <span class="read-more">Đọc tiếp <i class="fa-solid fa-arrow-right"></i></span>
+                                <span class="read-more"><?php echo $is_en ? 'Read More' : 'Đọc tiếp'; ?> <i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                         </div>
                     </a>
@@ -852,8 +852,7 @@ ob_start(function ($html) {
 
             } else {
                 ?>
-                <p style="text-align: center; padding: 60px 0; color: #64748b; font-weight: 500;">Không có bài viết nào được
-                    tìm thấy.</p>
+                <p style="text-align: center; padding: 60px 0; color: #64748b; font-weight: 500;"><?php echo $is_en ? 'No articles found.' : 'Không có bài viết nào được tìm thấy.'; ?></p>
                 <?php
             }
             ?>
@@ -865,85 +864,77 @@ ob_start(function ($html) {
 
                 <!-- Quick Register Consultation Widget (Parity with single.php) -->
                 <div class="sidebar-widget">
-                    <h3 class="widget-title">Đăng ký tư vấn lộ trình</h3>
+                    <h3 class="widget-title"><?php echo $is_en ? 'Register for Roadmap Counseling' : 'Đăng ký tư vấn lộ trình'; ?></h3>
                     <form class="ideas-widget-form">
-                        <input type="text" placeholder="Họ và tên của bạn" aria-label="Họ và tên" required>
-                        <input type="email" placeholder="Địa chỉ Email" aria-label="Địa chỉ Email" required>
-                        <input type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
-                        <select aria-label="Chương trình quan tâm" required>
-                            <option value="" disabled selected hidden>Chương trình quan tâm</option>
-                            <option value="Top-up BBA">Top-up BBA (Cử nhân liên thông 12 tháng)</option>
+                        <input type="text" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" aria-label="<?php echo $is_en ? 'Full Name' : 'Họ và tên'; ?>" required>
+                        <input type="email" placeholder="<?php echo $is_en ? 'Email Address' : 'Địa chỉ Email'; ?>" aria-label="<?php echo $is_en ? 'Email Address' : 'Địa chỉ Email'; ?>" required>
+                        <input type="tel" placeholder="<?php echo $is_en ? 'Phone Number' : 'Số điện thoại'; ?>" aria-label="<?php echo $is_en ? 'Phone Number' : 'Số điện thoại'; ?>" required>
+                        <select aria-label="<?php echo $is_en ? 'Program of Interest' : 'Chương trình quan tâm'; ?>" required>
+                            <option value="" disabled selected hidden><?php echo $is_en ? 'Program of Interest' : 'Chương trình quan tâm'; ?></option>
+                            <option value="Top-up BBA"><?php echo $is_en ? 'Top-up BBA (12-month Bachelor Top-up)' : 'Top-up BBA (Cử nhân liên thông 12 tháng)'; ?></option>
                             <option value="Full BBA">Global Online BBA</option>
-                            <option value="Online MBA">Online MBA (Thạc sĩ QTKD)</option>
-                            <option value="Executive MBA">Executive MBA (Thạc sĩ điều hành)</option>
-                            <option value="MBA in AI">MBA in AI (Thạc sĩ QTKD Ứng dụng AI)</option>
-                            <option value="MSc AI">MSc AI (Thạc sĩ AI ứng dụng)</option>
-                            <option value="Dual DBA">Dual DBA (Tiến sĩ song bằng Pháp & Anh)</option>
+                            <option value="Online MBA"><?php echo $is_en ? 'Online MBA (Master of Business Administration)' : 'Online MBA (Thạc sĩ QTKD)'; ?></option>
+                            <option value="Executive MBA"><?php echo $is_en ? 'Executive MBA' : 'Executive MBA (Thạc sĩ điều hành)'; ?></option>
+                            <option value="MBA in AI"><?php echo $is_en ? 'MBA in AI' : 'MBA in AI (Thạc sĩ QTKD Ứng dụng AI)'; ?></option>
+                            <option value="MSc AI"><?php echo $is_en ? 'MSc AI' : 'MSc AI (Thạc sĩ AI ứng dụng)'; ?></option>
+                            <option value="Dual DBA"><?php echo $is_en ? 'Dual DBA (UK &amp; France Doctor of Business Administration)' : 'Dual DBA (Tiến sĩ song bằng Pháp &amp; Anh)'; ?></option>
                         </select>
-                        <textarea rows="3" placeholder="Ghi chú về kinh nghiệm, nhu cầu của bạn..."
-                            aria-label="Ghi chú thêm"></textarea>
-                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Đăng ký ngay</button>
+                        <textarea rows="3" placeholder="<?php echo $is_en ? 'Notes on your experience, requirements...' : 'Ghi chú về kinh nghiệm, nhu cầu của bạn...'; ?>" aria-label="<?php echo $is_en ? 'Additional notes' : 'Ghi chú thêm'; ?>"></textarea>
+                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> <?php echo $is_en ? 'Register Now' : 'Đăng ký ngay'; ?></button>
                     </form>
                 </div>
 
                 <!-- Suggested Programs Widget -->
                 <div class="sidebar-widget">
-                    <h3 class="widget-title">Chương trình đào tạo</h3>
+                    <h3 class="widget-title"><?php echo $is_en ? 'Academic Programs' : 'Chương trình đào tạo'; ?></h3>
                     <div class="sidebar-course-list">
-                        <a href="/bba" class="sidebar-course-item">
+                        <a href="<?php echo $is_en ? '/en/bba' : '/bba'; ?>" class="sidebar-course-item">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="Top-up BBA"
                                 class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Top-up BBA</h4>
-                                <p class="sidebar-course-desc">Liên thông Cử nhân 12 tháng</p>
+                                <h4 class="sidebar-course-title">Top-up BBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? '12-month Bachelor Top-up' : 'Liên thông Cử nhân 12 tháng'; ?></p>
                             </div>
                         </a>
-                        <a href="/fullbba" class="sidebar-course-item">
+                        <a href="<?php echo $is_en ? '/en/fullbba' : '/fullbba'; ?>" class="sidebar-course-item">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                                 alt="Global Online BBA" class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Global Online BBA</h4>
-                                <p class="sidebar-course-desc">Cử nhân QTKD Quốc tế</p>
+                                <h4 class="sidebar-course-title">Global Online BBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'International BBA' : 'Cử nhân QTKD Quốc tế'; ?></p>
                             </div>
                         </a>
-                        <a href="/mba" class="sidebar-course-item">
+                        <a href="<?php echo $is_en ? '/en/mba' : '/mba'; ?>" class="sidebar-course-item">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                                 alt="Online MBA" class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Online MBA</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ QTKD Trực tuyến</p>
+                                <h4 class="sidebar-course-title">Online MBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Online MBA' : 'Thạc sĩ QTKD Trực tuyến'; ?></p>
                             </div>
                         </a>
-                        <a href="/emba" class="sidebar-course-item">
+                        <a href="<?php echo $is_en ? '/en/emba' : '/emba'; ?>" class="sidebar-course-item">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp" alt="Executive MBA"
                                 class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Executive MBA</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ điều hành QTKD</p>
+                                <h4 class="sidebar-course-title">Executive MBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Executive MBA' : 'Thạc sĩ điều hành QTKD'; ?></p>
                             </div>
                         </a>
-                        <a href="/mbainai" class="sidebar-course-item">
+                        <a href="<?php echo $is_en ? '/en/mbainai' : '/mbainai'; ?>" class="sidebar-course-item">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                                 alt="MBA in AI" class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">MBA in AI</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ QTKD Ứng dụng AI</p>
+                                <h4 class="sidebar-course-title">MBA in AI</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'MBA in Applied AI' : 'Thạc sĩ QTKD Ứng dụng AI'; ?></p>
                             </div>
                         </a>
-                        <a href="/mscai" class="sidebar-course-item">
+                        <a href="<?php echo $is_en ? '/en/mscai' : '/mscai'; ?>" class="sidebar-course-item">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI"
                                 class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Master AI (MSc AI)</h4>
-                                <p class="sidebar-course-desc">Thạc sĩ AI ứng dụng</p>
+                                <h4 class="sidebar-course-title">Master AI (MSc AI)</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Applied MSc AI' : 'Thạc sĩ AI ứng dụng'; ?></p>
                             </div>
                         </a>
-                        <a href="/dual-dba" class="sidebar-course-item">
+                        <a href="<?php echo $is_en ? '/en/dual-dba' : '/dual-dba'; ?>" class="sidebar-course-item">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp" alt="Dual DBA"
                                 class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Dual DBA</h4>
-                                <p class="sidebar-course-desc">Tiến sĩ song bằng Pháp & Anh</p>
+                                <h4 class="sidebar-course-title">Dual DBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Dual DBA (France &amp; UK)' : 'Tiến sĩ song bằng Pháp &amp; Anh'; ?></p>
                             </div>
                         </a>
                     </div>
@@ -1002,6 +993,7 @@ ob_start(function ($html) {
         }, { passive: true });
 
         // Sidebar inline form submission logic (parity with single.php)
+        if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.querySelector('.ideas-widget-form');
             if (!form) return;
@@ -1016,7 +1008,7 @@ ob_start(function ($html) {
                 const note = form.querySelector('textarea').value.trim();
 
                 if (!name || !email || !phone || !program) {
-                    alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
+                    alert(isEnMode ? 'Please fill in all required fields.' : 'Vui lòng điền đầy đủ các thông tin bắt buộc.');
                     return;
                 }
 
@@ -1090,7 +1082,7 @@ ob_start(function ($html) {
                 const btn = form.querySelector('button[type="submit"]');
                 const origText = btn.innerHTML;
                 btn.disabled = true;
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
+                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${isEnMode ? 'Submitting...' : 'Đang gửi...'}`;
 
                 const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
                     method: "POST",
@@ -1117,11 +1109,11 @@ ob_start(function ($html) {
                         console.log('Google Ads Conversion Event measured.');
                     }
 
-                    alert('Đăng ký tư vấn thành công! IDEAS sẽ sớm liên hệ với bạn.');
+                    alert(isEnMode ? 'Registration successful! IDEAS will contact you soon.' : 'Đăng ký tư vấn thành công! IDEAS sẽ sớm liên hệ với bạn.');
                     form.reset();
                 } catch (err) {
                     console.error('Submission failed:', err);
-                    alert('Đã xảy ra sự cố khi đăng ký. Vui lòng liên hệ hotline.');
+                    alert(isEnMode ? 'An error occurred during registration. Please contact the hotline.' : 'Đã xảy ra sự cố khi đăng ký. Vui lòng liên hệ hotline.');
                 } finally {
                     btn.disabled = false;
                     btn.innerHTML = origText;

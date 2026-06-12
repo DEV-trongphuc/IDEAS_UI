@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -42,20 +43,20 @@ ob_start(function ($html) {
     <link rel="preload" fetchpriority="high" as="image"
         href="https://ideas.edu.vn/wp-content/uploads/2026/04/recap_growverth.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Hỗ Trợ Tài Chính Sacombank – Trả Góp Học Phí 0% | IDEAS</title>
+        <title><?php echo $is_en ? 'Sacombank Financial Support – 0% Tuition Installment | IDEAS' : 'Hỗ Trợ Tài Chính Sacombank – Trả Góp Học Phí 0% | IDEAS'; ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Chương trình hỗ trợ tài chính liên kết giữa IDEAS và Sacombank. Trả góp học phí lãi suất 0% từ 12 - 24 tháng cho chương trình MBA." />
+            content="<?php echo $is_en ? 'Sacombank Financial Support program linked with IDEAS. 0% interest rate tuition fee installment from 12 to 24 months for MBA program.' : 'Chương trình hỗ trợ tài chính liên kết giữa IDEAS và Sacombank. Trả góp học phí lãi suất 0% từ 12 - 24 tháng cho chương trình MBA.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Hỗ Trợ Tài Chính Sacombank – Trả Góp Học Phí 0%" />
+        <meta property="og:title" content="<?php echo $is_en ? 'Sacombank Financial Support – 0% Tuition Installment' : 'Hỗ Trợ Tài Chính Sacombank – Trả Góp Học Phí 0%'; ?>" />
         <meta property="og:description"
-            content="Đồng hành cùng học viên vững bước học thuật. Hỗ trợ tài chính trước để thanh toán học phí MBA linh hoạt và an tâm." />
+            content="<?php echo $is_en ? 'Accompanying students on their academic path. Financial support for flexible and worry-free MBA tuition payment.' : 'Đồng hành cùng học viên vững bước học thuật. Hỗ trợ tài chính trước để thanh toán học phí MBA linh hoạt và an tâm.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2024/09/tra_gop_scb.png" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -986,29 +987,27 @@ ob_start(function ($html) {
             <div class="scb-hero-overlay"></div>
             <div class="scb-hero-container">
                 <div class="scb-hero-content">
-                    <div class="scb-hero-badge"><i class="fa-solid fa-circle-dollar-to-slot"></i> HỖ TRỢ TRẢ GÓP HỌC PHÍ
-                        0%</div>
+                    <div class="scb-hero-badge"><i class="fa-solid fa-circle-dollar-to-slot"></i> <?php echo $is_en ? '0% TUITION INSTALLMENT SUPPORT' : 'HỖ TRỢ TRẢ GÓP HỌC PHÍ 0%'; ?></div>
                     <h1>IDEAS <br><span>SACOMBANK</span></h1>
-                    <p class="hero-subtitle">An tâm tài chính – Vững vàng chinh phục chương trình MBA. Chương trình liên
-                        kết hỗ trợ tài chính đặc quyền từ đối tác chiến lược Sacombank.</p>
+                    <p class="hero-subtitle"><?php echo $is_en ? 'Financial peace of mind – Steady path to conquer the MBA program. Exclusive financial support program linked with strategic partner Sacombank.' : 'An tâm tài chính – Vững vàng chinh phục chương trình MBA. Chương trình liên kết hỗ trợ tài chính đặc quyền từ đối tác chiến lược Sacombank.'; ?></p>
 
                     <div class="scb-hero-stats">
                         <div class="scb-stat-card">
                             <span class="scb-stat-num"><i class="fa-solid fa-coins"></i> 250M</span>
-                            <span class="scb-stat-lbl">Học phí chương trình MBA tích hợp</span>
+                            <span class="scb-stat-lbl"><?php echo $is_en ? 'Integrated MBA Program Tuition' : 'Học phí chương trình MBA tích hợp'; ?></span>
                         </div>
                         <div class="scb-stat-card">
-                            <span class="scb-stat-num"><i class="fa-solid fa-calendar-check"></i> 24 Th</span>
-                            <span class="scb-stat-lbl">Thời gian trả góp linh hoạt tối đa</span>
+                            <span class="scb-stat-num"><i class="fa-solid fa-calendar-check"></i> <?php echo $is_en ? '24 Mos' : '24 Th'; ?></span>
+                            <span class="scb-stat-lbl"><?php echo $is_en ? 'Max Flexible Installment Period' : 'Thời gian trả góp linh hoạt tối đa'; ?></span>
                         </div>
                         <div class="scb-stat-card">
                             <span class="scb-stat-num"><i class="fa-solid fa-hand-holding-dollar"></i> 5.9M</span>
-                            <span class="scb-stat-lbl">Trả góp hàng tháng chỉ từ (VND)</span>
+                            <span class="scb-stat-lbl"><?php echo $is_en ? 'Monthly Payment Starting From' : 'Trả góp hàng tháng chỉ từ (VND)'; ?></span>
                         </div>
                     </div>
 
                     <a class="scb-hero-btn" onclick="showform('Trả góp Sacombank - Hero CTA')"><i
-                            class="fa-solid fa-headset"></i> Nhận tư vấn trả góp</a>
+                            class="fa-solid fa-headset"></i> <?php echo $is_en ? 'Get Installment Advice' : 'Nhận tư vấn trả góp'; ?></a>
                 </div>
 
             </div>
@@ -1023,31 +1022,28 @@ ob_start(function ($html) {
                             alt="Thẻ tín dụng doanh nghiệp cá nhân Sacombank" />
                     </div>
                     <div class="scb-benefits-content">
-                        <span class="scb-section-tag"><i class="fa-solid fa-credit-card"></i> Đặc quyền</span>
-                        <h3>Lợi ích vượt trội <span>khi mở thẻ</span></h3>
+                        <span class="scb-section-tag"><i class="fa-solid fa-credit-card"></i> <?php echo $is_en ? 'Exclusive Privileges' : 'Đặc quyền'; ?></span>
+                        <h3><?php echo $is_en ? 'Outstanding Benefits <span>of Opening Card</span>' : 'Lợi ích vượt trội <span>khi mở thẻ</span>'; ?></h3>
                         <div class="scb-benefits-list">
                             <div class="scb-benefit-item">
                                 <i class="fa-solid fa-hand-holding-hand"></i>
                                 <div class="scb-benefit-text">
-                                    <h4>Ngân hàng hỗ trợ thanh toán trước</h4>
-                                    <p>Học viên được ngân hàng Sacombank ứng vốn hoàn tất học phí ngay tại thời điểm
-                                        nhập học để được kích hoạt tài khoản LMS chính thức.</p>
+                                    <h4><?php echo $is_en ? 'Bank-Advanced Prepayment' : 'Ngân hàng hỗ trợ thanh toán trước'; ?></h4>
+                                    <p><?php echo $is_en ? 'Students have their tuition advanced by Sacombank at enrollment to activate their official LMS account immediately.' : 'Học viên được ngân hàng Sacombank ứng vốn hoàn tất học phí ngay tại thời điểm nhập học để được kích hoạt tài khoản LMS chính thức.'; ?></p>
                                 </div>
                             </div>
                             <div class="scb-benefit-item">
                                 <i class="fa-solid fa-percent"></i>
                                 <div class="scb-benefit-text">
-                                    <h4>Học phí trả góp lãi suất 0%</h4>
-                                    <p>Hỗ trợ chia nhỏ học phí trả góp theo nhiều kỳ hạn linh động mong muốn (3, 6, 9,
-                                        12, 18, hoặc 24 tháng) với lãi suất 0%.</p>
+                                    <h4><?php echo $is_en ? '0% Interest Installment Tuition' : 'Học phí trả góp lãi suất 0%'; ?></h4>
+                                    <p><?php echo $is_en ? 'Support splitting tuition into flexible installments (3, 6, 9, 12, 18, or 24 months) at 0% interest rate.' : 'Hỗ trợ chia nhỏ học phí trả góp theo nhiều kỳ hạn linh động mong muốn (3, 6, 9, 12, 18, hoặc 24 tháng) với lãi suất 0%.'; ?></p>
                                 </div>
                             </div>
                             <div class="scb-benefit-item">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div class="scb-benefit-text">
-                                    <h4>Hưởng trọn ưu đãi từ hai phía</h4>
-                                    <p>Học viên mở thẻ vừa nhận chính sách quà tặng từ Sacombank vừa giữ nguyên các
-                                        chương trình ưu đãi hiện hành của IDEAS/TSSAC.</p>
+                                    <h4><?php echo $is_en ? 'Double Offers from Both Sides' : 'Hưởng trọn ưu đãi từ hai phía'; ?></h4>
+                                    <p><?php echo $is_en ? 'Card-opening students receive gift programs from Sacombank while keeping existing promotional discounts from IDEAS/TSSAC.' : 'Học viên mở thẻ vừa nhận chính sách quà tặng từ Sacombank vừa giữ nguyên các chương trình ưu đãi hiện hành của IDEAS/TSSAC.'; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -1060,10 +1056,9 @@ ob_start(function ($html) {
         <section class="scb-section" style="background-color: #ffffff;">
             <div class="scb-container-width">
                 <div class="scb-section-title-wrap">
-                    <span class="scb-section-tag"><i class="fa-solid fa-table"></i> Biểu phí</span>
-                    <h2 class="scb-section-title">Phí Chuyển Đổi <span>Trả Góp</span> Sacombank</h2>
-                    <p class="scb-section-subtitle">Chi tiết biểu phí dịch vụ chuyển đổi trả góp 0% áp dụng cho chủ thẻ
-                        tín dụng quốc tế Sacombank.</p>
+                    <span class="scb-section-tag"><i class="fa-solid fa-table"></i> <?php echo $is_en ? 'Fee Schedule' : 'Biểu phí'; ?></span>
+                    <h2 class="scb-section-title"><?php echo $is_en ? 'Sacombank <span>Installment</span> Conversion Fee' : 'Phí Chuyển Đổi <span>Trả Góp</span> Sacombank'; ?></h2>
+                    <p class="scb-section-subtitle"><?php echo $is_en ? 'Details of the service fees for 0% installment conversion applied to Sacombank international credit cardholders.' : 'Chi tiết biểu phí dịch vụ chuyển đổi trả góp 0% áp dụng cho chủ thẻ tín dụng quốc tế Sacombank.'; ?></p>
                 </div>
 
                 <div class="scb-table-section">
@@ -1076,40 +1071,37 @@ ob_start(function ($html) {
                             <table class="scb-table-custom">
                                 <thead>
                                     <tr>
-                                        <th style="width: 30%;">Kỳ hạn (tháng)</th>
-                                        <th style="width: 70%;">Phí chuyển đổi áp dụng</th>
+                                        <th style="width: 30%;"><?php echo $is_en ? 'Tenor (months)' : 'Kỳ hạn (tháng)'; ?></th>
+                                        <th style="width: 70%;"><?php echo $is_en ? 'Applied Conversion Fee' : 'Phí chuyển đổi áp dụng'; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong>3 tháng</strong></td>
+                                        <td><strong><?php echo $is_en ? '3 months' : '3 tháng'; ?></strong></td>
                                         <td rowspan="2" style="vertical-align: middle;">
-                                            <span class="scb-fee-formula">0,4%/tháng</span> x kỳ hạn x số tiền thanh
-                                            toán
+                                            <span class="scb-fee-formula"><?php echo $is_en ? '0.4%/month' : '0,4%/tháng'; ?></span> <?php echo $is_en ? 'x tenor x payment amount' : 'x kỳ hạn x số tiền thanh toán'; ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>6 tháng</strong></td>
+                                        <td><strong><?php echo $is_en ? '6 months' : '6 tháng'; ?></strong></td>
                                     </tr>
                                     <tr>
-                                        <td><strong>9 tháng</strong></td>
+                                        <td><strong><?php echo $is_en ? '9 months' : '9 tháng'; ?></strong></td>
                                         <td rowspan="2" style="vertical-align: middle;">
-                                            <span class="scb-fee-formula">0,45%/tháng</span> x kỳ hạn x số tiền thanh
-                                            toán
+                                            <span class="scb-fee-formula"><?php echo $is_en ? '0.45%/month' : '0,45%/tháng'; ?></span> <?php echo $is_en ? 'x tenor x payment amount' : 'x kỳ hạn x số tiền thanh toán'; ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>12 tháng</strong></td>
+                                        <td><strong><?php echo $is_en ? '12 months' : '12 tháng'; ?></strong></td>
                                     </tr>
                                     <tr>
-                                        <td><strong>18 tháng</strong></td>
+                                        <td><strong><?php echo $is_en ? '18 months' : '18 tháng'; ?></strong></td>
                                         <td rowspan="2" style="vertical-align: middle;">
-                                            <span class="scb-fee-formula">0,5%/tháng</span> x kỳ hạn x số tiền thanh
-                                            toán
+                                            <span class="scb-fee-formula"><?php echo $is_en ? '0.5%/month' : '0,5%/tháng'; ?></span> <?php echo $is_en ? 'x tenor x payment amount' : 'x kỳ hạn x số tiền thanh toán'; ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>24 tháng</strong></td>
+                                        <td><strong><?php echo $is_en ? '24 months' : '24 tháng'; ?></strong></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1123,10 +1115,9 @@ ob_start(function ($html) {
         <section class="scb-section">
             <div class="scb-container-width">
                 <div class="scb-section-title-wrap">
-                    <span class="scb-section-tag"><i class="fa-solid fa-id-card"></i> Lựa chọn thẻ</span>
-                    <h2 class="scb-section-title">So Sánh Dòng Thẻ <span>Tín Dụng</span> Sacombank</h2>
-                    <p class="scb-section-subtitle">Hai dòng thẻ tín dụng quốc tế Visa được học viên tin dùng phổ biến
-                        để đăng ký hỗ trợ trả học phí.</p>
+                    <span class="scb-section-tag"><i class="fa-solid fa-id-card"></i> <?php echo $is_en ? 'Card Options' : 'Lựa chọn thẻ'; ?></span>
+                    <h2 class="scb-section-title"><?php echo $is_en ? 'Comparison of Sacombank <span>Credit Cards</span>' : 'So Sánh Dòng Thẻ <span>Tín Dụng</span> Sacombank'; ?></h2>
+                    <p class="scb-section-subtitle"><?php echo $is_en ? 'Two Visa international credit card lines commonly trusted by students to register for tuition support.' : 'Hai dòng thẻ tín dụng quốc tế Visa được học viên tin dùng phổ biến để đăng ký hỗ trợ trả học phí.'; ?></p>
                 </div>
 
                 <div class="scb-cards-grid">
@@ -1138,50 +1129,45 @@ ob_start(function ($html) {
                                     alt="Sacombank Visa Platinum Cashback" />
                             </div>
                             <div class="scb-card-title-wrap">
-                                <span class="scb-card-badge">Phổ biến</span>
+                                <span class="scb-card-badge"><?php echo $is_en ? 'Popular' : 'Phổ biến'; ?></span>
                                 <h4 class="scb-card-name">Visa Platinum</h4>
-                                <span class="scb-card-limit">Hạn mức từ 40M - 100M VND</span>
+                                <span class="scb-card-limit"><?php echo $is_en ? 'Limit from 40M - 100M VND' : 'Hạn mức từ 40M - 100M VND'; ?></span>
                             </div>
                         </div>
                         <div class="scb-card-body">
                             <ul class="scb-card-details">
-                                <li class="detail-title"><i class="fa-solid fa-circle-info"></i> Thông tin phí thường
-                                    niên</li>
+                                <li class="detail-title"><i class="fa-solid fa-circle-info"></i> <?php echo $is_en ? 'Annual Fee Information' : 'Thông tin phí thường niên'; ?></li>
                                 <li>
                                     <i class="fa-solid fa-shield-halved"></i>
-                                    <span>Phí thường niên năm 1: thu 100% <strong>(599.000đ)</strong></span>
+                                    <span><?php echo $is_en ? 'Year 1 Annual Fee: 100% charged <strong>(VND 599,000)</strong>' : 'Phí thường niên năm 1: thu 100% <strong>(599.000đ)</strong>'; ?></span>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-shield-halved"></i>
-                                    <span>Miễn/giảm phí thường niên từ năm thứ 2 trở đi:</span>
+                                    <span><?php echo $is_en ? 'Year 2+ Annual Fee waiver/reduction:' : 'Miễn/giảm phí thường niên từ năm thứ 2 trở đi:'; ?></span>
                                 </li>
                                 <li style="padding-left: 20px;">
                                     <i class="fa-solid fa-circle-chevron-right"
                                         style="font-size: 0.75rem; color: #ab0e00;"></i>
-                                    <span>Doanh số giao dịch thanh toán <strong>400trđ/năm</strong>: Miễn 100%
-                                        PTN</span>
+                                    <span><?php echo $is_en ? 'Payment volume of <strong>VND 400M/year</strong>: 100% Annual Fee waived' : 'Doanh số giao dịch thanh toán <strong>400trđ/năm</strong>: Miễn 100% PTN'; ?></span>
                                 </li>
                                 <li style="padding-left: 20px;">
                                     <i class="fa-solid fa-circle-chevron-right"
                                         style="font-size: 0.75rem; color: #ab0e00;"></i>
-                                    <span>Doanh số giao dịch thanh toán <strong>300trđ/năm</strong>: Giảm 50% PTN</span>
+                                    <span><?php echo $is_en ? 'Payment volume of <strong>VND 300M/year</strong>: 50% Annual Fee reduced' : 'Doanh số giao dịch thanh toán <strong>300trđ/năm</strong>: Giảm 50% PTN'; ?></span>
                                 </li>
 
-                                <li class="detail-title"><i class="fa-solid fa-gift"></i> Quyền lợi &amp; Đối tác liên
-                                    kết</li>
+                                <li class="detail-title"><i class="fa-solid fa-gift"></i> <?php echo $is_en ? 'Benefits &amp; Co-branded Partners' : 'Quyền lợi &amp; Đối tác liên kết'; ?></li>
                                 <li>
                                     <i class="fa-solid fa-gift"></i>
-                                    <span>Hoàn 600.000 VND khi lần đầu mở thẻ &amp; chi tiêu hóa đơn từ 2.000.000 VND
-                                        trong 30 ngày.</span>
+                                    <span><?php echo $is_en ? 'VND 600,000 cashback on new card opening &amp; spending from VND 2,000,000 in 30 days.' : 'Hoàn 600.000 VND khi lần đầu mở thẻ &amp; chi tiêu hóa đơn từ 2.000.000 VND trong 30 ngày.'; ?></span>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-gift"></i>
-                                    <span>Ưu đãi giảm giá đặc quyền tại CGV, Agoda, Zara, Klook, Xanh SM, Grab,
-                                        Starbucks, Kichi Kichi, Gogi House...</span>
+                                    <span><?php echo $is_en ? 'Exclusive discounts at CGV, Agoda, Zara, Klook, Xanh SM, Grab, Starbucks, Kichi Kichi, Gogi House...' : 'Ưu đãi giảm giá đặc quyền tại CGV, Agoda, Zara, Klook, Xanh SM, Grab, Starbucks, Kichi Kichi, Gogi House...'; ?></span>
                                 </li>
                             </ul>
                             <button class="scb-card-btn" onclick="showform('Trả góp Sacombank - Visa Platinum')"><i
-                                    class="fa-solid fa-headset"></i> Đăng ký mở thẻ Visa Platinum</button>
+                                    class="fa-solid fa-headset"></i> <?php echo $is_en ? 'Register for Visa Platinum' : 'Đăng ký mở thẻ Visa Platinum'; ?></button>
                         </div>
                     </div>
 
@@ -1193,51 +1179,45 @@ ob_start(function ($html) {
                                     alt="Sacombank Visa Signature" />
                             </div>
                             <div class="scb-card-title-wrap">
-                                <span class="scb-card-badge" style="background-color: #fef3c7; color: #d97706;">Cao
-                                    cấp</span>
+                                <span class="scb-card-badge" style="background-color: #fef3c7; color: #d97706;"><?php echo $is_en ? 'Premium' : 'Cao cấp'; ?></span>
                                 <h4 class="scb-card-name">Visa Signature</h4>
-                                <span class="scb-card-limit">Hạn mức từ 100M VND trở lên</span>
+                                <span class="scb-card-limit"><?php echo $is_en ? 'Limit from 100M VND and above' : 'Hạn mức từ 100M VND trở lên'; ?></span>
                             </div>
                         </div>
                         <div class="scb-card-body">
                             <ul class="scb-card-details">
-                                <li class="detail-title"><i class="fa-solid fa-circle-info"></i> Thông tin phí thường
-                                    niên</li>
+                                <li class="detail-title"><i class="fa-solid fa-circle-info"></i> <?php echo $is_en ? 'Annual Fee Information' : 'Thông tin phí thường niên'; ?></li>
                                 <li>
                                     <i class="fa-solid fa-shield-halved"></i>
-                                    <span>Phí thường niên năm 1: thu 100% <strong>(1.499.000đ)</strong></span>
+                                    <span><?php echo $is_en ? 'Year 1 Annual Fee: 100% charged <strong>(VND 1,499,000)</strong>' : 'Phí thường niên năm 1: thu 100% <strong>(1.499.000đ)</strong>'; ?></span>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-shield-halved"></i>
-                                    <span>Miễn/giảm phí thường niên từ năm thứ 2 trở đi:</span>
+                                    <span><?php echo $is_en ? 'Year 2+ Annual Fee waiver/reduction:' : 'Miễn/giảm phí thường niên từ năm thứ 2 trở đi:'; ?></span>
                                 </li>
                                 <li style="padding-left: 20px;">
                                     <i class="fa-solid fa-circle-chevron-right"
                                         style="font-size: 0.75rem; color: #ab0e00;"></i>
-                                    <span>Doanh số giao dịch thanh toán <strong>400trđ/năm</strong>: Miễn 100%
-                                        PTN</span>
+                                    <span><?php echo $is_en ? 'Payment volume of <strong>VND 400M/year</strong>: 100% Annual Fee waived' : 'Doanh số giao dịch thanh toán <strong>400trđ/năm</strong>: Miễn 100% PTN'; ?></span>
                                 </li>
                                 <li style="padding-left: 20px;">
                                     <i class="fa-solid fa-circle-chevron-right"
                                         style="font-size: 0.75rem; color: #ab0e00;"></i>
-                                    <span>Doanh số giao dịch thanh toán <strong>300trđ/năm</strong>: Giảm 50% PTN</span>
+                                    <span><?php echo $is_en ? 'Payment volume of <strong>VND 300M/year</strong>: 50% Annual Fee reduced' : 'Doanh số giao dịch thanh toán <strong>300trđ/năm</strong>: Giảm 50% PTN'; ?></span>
                                 </li>
 
-                                <li class="detail-title"><i class="fa-solid fa-gift"></i> Quyền lợi &amp; Đối tác liên
-                                    kết</li>
+                                <li class="detail-title"><i class="fa-solid fa-gift"></i> <?php echo $is_en ? 'Benefits &amp; Co-branded Partners' : 'Quyền lợi &amp; Đối tác liên kết'; ?></li>
                                 <li>
                                     <i class="fa-solid fa-gift"></i>
-                                    <span>Tích lũy dặm Sacombank để quy đổi vé máy bay nhiều hãng hàng không, đổi ngang
-                                        dặm Vietnam Airlines, đổi phí thường niên...</span>
+                                    <span><?php echo $is_en ? 'Accumulate Sacombank miles for flight ticket redemption, Vietnam Airlines miles exchange, annual fee swap...' : 'Tích lũy dặm Sacombank để quy đổi vé máy bay nhiều hãng hàng không, đổi ngang dặm Vietnam Airlines, đổi phí thường niên...'; ?></span>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-gift"></i>
-                                    <span>Miễn phí 1 phần đồ ăn tại Starbucks. Giảm 25% - 50% tại chuỗi nhà hàng ẩm thực
-                                        Á/Âu cao cấp: Nén Light, Bờm, Jumbo, Coco, Tre, Stoker...</span>
+                                    <span><?php echo $is_en ? 'Free 1 dish at Starbucks. 25% - 50% discount at high-end Asian/European restaurant chains: Nen Light, Bom, Jumbo, Coco, Tre, Stoker...' : 'Miễn phí 1 phần đồ ăn tại Starbucks. Giảm 25% - 50% tại chuỗi nhà hàng ẩm thực Á/Âu cao cấp: Nén Light, Bờm, Jumbo, Coco, Tre, Stoker...'; ?></span>
                                 </li>
                             </ul>
                             <button class="scb-card-btn" onclick="showform('Trả góp Sacombank - Visa Signature')"><i
-                                    class="fa-solid fa-headset"></i> Đăng ký mở thẻ Visa Signature</button>
+                                    class="fa-solid fa-headset"></i> <?php echo $is_en ? 'Register for Visa Signature' : 'Đăng ký mở thẻ Visa Signature'; ?></button>
                         </div>
                     </div>
                 </div>
@@ -1248,10 +1228,9 @@ ob_start(function ($html) {
         <section class="scb-section" style="background-color: #ffffff;">
             <div class="scb-container-width">
                 <div class="scb-section-title-wrap">
-                    <span class="scb-section-tag"><i class="fa-solid fa-route"></i> Quy trình</span>
-                    <h2 class="scb-section-title">Quy Trình <span>Đăng Ký</span> &amp; Nhập Học</h2>
-                    <p class="scb-section-subtitle">Chỉ với 4 bước đơn giản, học viên có thể hoàn tất đăng ký trả góp
-                        học phí và bắt đầu chương trình MBA.</p>
+                    <span class="scb-section-tag"><i class="fa-solid fa-route"></i> <?php echo $is_en ? 'Process' : 'Quy trình'; ?></span>
+                    <h2 class="scb-section-title"><?php echo $is_en ? 'Registration <span>Process</span> &amp; Enrollment' : 'Quy Trình <span>Đăng Ký</span> &amp; Nhập Học'; ?></h2>
+                    <p class="scb-section-subtitle"><?php echo $is_en ? 'In just 4 simple steps, students can complete their tuition installment registration and begin the MBA program.' : 'Chỉ với 4 bước đơn giản, học viên có thể hoàn tất đăng ký trả góp học phí và bắt đầu chương trình MBA.'; ?></p>
                 </div>
 
                 <div class="scb-timeline-inner">
@@ -1261,8 +1240,8 @@ ob_start(function ($html) {
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon4.png"
                                 alt="Bước 1 Tiếp nhận hồ sơ" />
                         </div>
-                        <h4>1. Tiếp nhận hồ sơ</h4>
-                        <p>Học viên cung cấp CCCD, Số điện thoại và số tiền học phí mong muốn làm thủ tục trả góp.</p>
+                        <h4><?php echo $is_en ? '1. Application Intake' : '1. Tiếp nhận hồ sơ'; ?></h4>
+                        <p><?php echo $is_en ? 'Students provide National ID, phone number, and desired tuition amount for installment setup.' : 'Học viên cung cấp CCCD, Số điện thoại và số tiền học phí mong muốn làm thủ tục trả góp.'; ?></p>
                     </div>
 
                     <!-- Step 2 -->
@@ -1271,9 +1250,8 @@ ob_start(function ($html) {
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon3.png"
                                 alt="Bước 2 Xác nhận ngân hàng" />
                         </div>
-                        <h4>2. Ngân hàng xác nhận</h4>
-                        <p>Sacombank tiếp nhận thông tin và kiểm tra sơ bộ điều kiện cấp hạn mức tín dụng cho học viên.
-                        </p>
+                        <h4><?php echo $is_en ? '2. Bank Verification' : '2. Ngân hàng xác nhận'; ?></h4>
+                        <p><?php echo $is_en ? 'Sacombank receives info and conducts a preliminary credit limit check for the student.' : 'Sacombank tiếp nhận thông tin và kiểm tra sơ bộ điều kiện cấp hạn mức tín dụng cho học viên.'; ?></p>
                     </div>
 
                     <!-- Step 3 -->
@@ -1282,9 +1260,8 @@ ob_start(function ($html) {
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon1.png"
                                 alt="Bước 3 Xử lý hồ sơ" />
                         </div>
-                        <h4>3. Xử lý &amp; Phát hành</h4>
-                        <p>Chuyên viên tín dụng liên hệ, hướng dẫn học viên ký hồ sơ phát hành thẻ tận nơi nhanh chóng.
-                        </p>
+                        <h4><?php echo $is_en ? '3. Processing &amp; Issuance' : '3. Xử lý &amp; Phát hành'; ?></h4>
+                        <p><?php echo $is_en ? 'Credit specialist contacts and guides the student through rapid on-site card issuance signing.' : 'Chuyên viên tín dụng liên hệ, hướng dẫn học viên ký hồ sơ phát hành thẻ tận nơi nhanh chóng.'; ?></p>
                     </div>
 
                     <!-- Step 4 -->
@@ -1293,9 +1270,8 @@ ob_start(function ($html) {
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon2.png"
                                 alt="Bước 4 Thanh toán học phí" />
                         </div>
-                        <h4>4. Thanh toán học phí</h4>
-                        <p>Thực hiện thanh toán gói học qua thẻ, IDEAS kích hoạt tài khoản LMS chính thức bắt đầu học
-                            ngay.</p>
+                        <h4><?php echo $is_en ? '4. Tuition Payment' : '4. Thanh toán học phí'; ?></h4>
+                        <p><?php echo $is_en ? 'Pay tuition package via card, and IDEAS activates the official LMS account to start learning immediately.' : 'Thực hiện thanh toán gói học qua thẻ, IDEAS kích hoạt tài khoản LMS chính thức bắt đầu học ngay.'; ?></p>
                     </div>
                 </div>
             </div>

@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -40,19 +41,19 @@ ob_start(function ($html) {
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Sơ đồ trang web – Sitemap | IDEAS</title>
+        <title><?php echo $is_en ? 'Sitemap – Website Sitemap | IDEAS' : 'Sơ đồ trang web – Sitemap | IDEAS'; ?></title>
     <?php endif; ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Sơ đồ toàn bộ trang web, thông tin giới thiệu, chương trình đào tạo Cử nhân, Thạc sĩ, Tiến sĩ và dịch vụ học tập tại Viện IDEAS." />
+            content="<?php echo $is_en ? 'Sitemap of the entire website, introductory info, Bachelor, Master, Doctor programs, and academic services at IDEAS.' : 'Sơ đồ toàn bộ trang web, thông tin giới thiệu, chương trình đào tạo Cử nhân, Thạc sĩ, Tiến sĩ và dịch vụ học tập tại Viện IDEAS.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Sơ đồ trang web – Sitemap | IDEAS" />
+        <meta property="og:title" content="<?php echo $is_en ? 'Sitemap – Website Sitemap | IDEAS' : 'Sơ đồ trang web – Sitemap | IDEAS'; ?>" />
         <meta property="og:description"
-            content="Truy cập nhanh chóng và dễ dàng đến tất cả các bài viết, chuyên mục đào tạo và dịch vụ của Viện IDEAS." />
+            content="<?php echo $is_en ? 'Quick and easy access to all articles, academic categories, and services of the IDEAS Institute.' : 'Truy cập nhanh chóng và dễ dàng đến tất cả các bài viết, chuyên mục đào tạo và dịch vụ của Viện IDEAS.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -426,11 +427,10 @@ ob_start(function ($html) {
         <section class="sitemap-hero">
             <div class="sitemap-hero-container">
                 <span class="sitemap-hero-badge">
-                    <i class="fa-solid fa-sitemap"></i> Sơ đồ trang web
+                    <i class="fa-solid fa-sitemap"></i> <?php echo $is_en ? 'Sitemap' : 'Sơ đồ trang web'; ?>
                 </span>
-                <h1><span>SƠ ĐỒ TRANG WEB</span> <br>Website Sitemap</h1>
-                <p>Khám phá toàn bộ cấu trúc website, dễ dàng định hướng và truy cập nhanh các chương trình đào tạo,
-                    chính sách hỗ trợ & hoạt động của Viện IDEAS.</p>
+                <h1><span><?php echo $is_en ? 'WEBSITE SITEMAP' : 'SƠ ĐỒ TRANG WEB'; ?></span> <br>Website Sitemap</h1>
+                <p><?php echo $is_en ? 'Explore the entire website structure, easily navigate and quickly access academic programs, support policies &amp; activities of IDEAS.' : 'Khám phá toàn bộ cấu trúc website, dễ dàng định hướng và truy cập nhanh các chương trình đào tạo,\n                    chính sách hỗ trợ &amp; hoạt động của Viện IDEAS.'; ?></p>
             </div>
         </section>
 
@@ -438,7 +438,7 @@ ob_start(function ($html) {
         <section class="sitemap-search-container">
             <div class="sitemap-search-wrapper">
                 <input type="text" id="sitemap-search" class="sitemap-search-input"
-                    placeholder="Tìm kiếm trang học vụ, khóa học, chính sách..." autocomplete="off">
+                    placeholder="<?php echo $is_en ? 'Search academic pages, courses, policies...' : 'Tìm kiếm trang học vụ, khóa học, chính sách...'; ?>" autocomplete="off">
                 <i class="fa-solid fa-magnifying-glass sitemap-search-icon"></i>
             </div>
         </section>
@@ -448,59 +448,59 @@ ob_start(function ($html) {
 
             <!-- Card 1: Giới thiệu & Định hướng -->
             <div class="sitemap-card">
-                <h3 class="sitemap-card-title"><i class="fa-solid fa-circle-info"></i> Giới thiệu &amp; Tin tức</h3>
+                <h3 class="sitemap-card-title"><i class="fa-solid fa-circle-info"></i> <?php echo $is_en ? 'About &amp; News' : 'Giới thiệu &amp; Tin tức'; ?></h3>
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
-                        <a href="/" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/?lang=en' : '/'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-house"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Trang chủ</span>
-                                <span class="sitemap-item-desc">Tổng quan về Viện IDEAS và các hệ thống</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Home' : 'Trang chủ'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Overview of IDEAS Institute and systems' : 'Tổng quan về Viện IDEAS và các hệ thống'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/he-thong-ho-tro-hoc-tap-lms-ideas" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/lms-ecosystem' : '/he-thong-ho-tro-hoc-tap-lms-ideas'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-layer-group"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Hệ thống LMS</span>
-                                <span class="sitemap-item-desc">Cổng học tập, thư viện Cengage & trợ lý AI</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'LMS Ecosystem' : 'Hệ thống LMS'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Learning portal, Cengage library &amp; AI assistant' : 'Cổng học tập, thư viện Cengage &amp; trợ lý AI'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/doi-ngu-giang-vien" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/faculty' : '/doi-ngu-giang-vien'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-user-graduate"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Hội đồng chuyên môn</span>
-                                <span class="sitemap-item-desc">Đội ngũ giáo sư, chuyên gia và cố vấn khoa học</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Academic Advisory Board' : 'Hội đồng chuyên môn'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Team of professors, experts and scientific advisors' : 'Đội ngũ giáo sư, chuyên gia và cố vấn khoa học'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/dong-su-kien" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/events' : '/dong-su-kien'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-clock"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Dòng sự kiện</span>
-                                <span class="sitemap-item-desc">Các sự kiện, hội thảo và hoạt động ngoại khóa</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Events Timeline' : 'Dòng sự kiện'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Events, seminars and extracurricular activities' : 'Các sự kiện, hội thảo và hoạt động ngoại khóa'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/lich-su-hinh-thanh-va-phat-trien-vien-ideas" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/history' : '/lich-su-hinh-thanh-va-phat-trien-vien-ideas'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-landmark"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Lịch sử phát triển</span>
-                                <span class="sitemap-item-desc">Chặng đường 15 năm hình thành & phát triển</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'History &amp; Development' : 'Lịch sử phát triển'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? '15-year journey of formation &amp; development' : 'Chặng đường 15 năm hình thành &amp; phát triển'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/so-do-to-chuc" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/organizational-chart' : '/so-do-to-chuc'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-sitemap"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Sơ đồ tổ chức</span>
-                                <span class="sitemap-item-desc">Cơ cấu tổ chức điều hành & ban chuyên môn</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Organizational Chart' : 'Sơ đồ tổ chức'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Management structure &amp; academic board' : 'Cơ cấu tổ chức điều hành &amp; ban chuyên môn'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -509,42 +509,41 @@ ob_start(function ($html) {
 
             <!-- Card 2: Chương trình Thạc sĩ -->
             <div class="sitemap-card">
-                <h3 class="sitemap-card-title"><i class="fa-solid fa-graduation-cap"></i> Chương trình Thạc sĩ</h3>
+                <h3 class="sitemap-card-title"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'Master Programs' : 'Chương trình Thạc sĩ'; ?></h3>
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
-                        <a href="/mba" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/online-mba-admission' : '/mba'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-book"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Online MBA</span>
-                                <span class="sitemap-item-desc">Thạc sĩ Quản trị Kinh doanh Trực tuyến Thụy Sĩ</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Swiss Online Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh Trực tuyến Thụy Sĩ'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/emba" class="sitemap-link">
+                        <a href="/emba<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
                             <i class="fa-solid fa-user-tie"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Executive MBA</span>
-                                <span class="sitemap-item-desc">Thạc sĩ Điều hành Quản trị Kinh doanh chất lượng
-                                    cao</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'High-quality Executive Master of Business Administration' : 'Thạc sĩ Điều hành Quản trị Kinh doanh chất lượng cao'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/mscai" class="sitemap-link">
+                        <a href="/mscai<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
                             <i class="fa-solid fa-robot"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Master AI (MSc AI)</span>
-                                <span class="sitemap-item-desc">Thạc sĩ Khoa học Trí tuệ Nhân tạo ứng dụng</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Master of Science in Applied Artificial Intelligence' : 'Thạc sĩ Khoa học Trí tuệ Nhân tạo ứng dụng'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/mbainai" class="sitemap-link">
+                        <a href="/mbainai<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
                             <i class="fa-solid fa-brain"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">MBA in AI</span>
-                                <span class="sitemap-item-desc">Thạc sĩ QTKD tích hợp Ứng dụng Trí tuệ Nhân tạo</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'MBA integrated with Artificial Intelligence Application' : 'Thạc sĩ QTKD tích hợp Ứng dụng Trí tuệ Nhân tạo'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -553,32 +552,32 @@ ob_start(function ($html) {
 
             <!-- Card 3: Cử nhân & Tiến sĩ -->
             <div class="sitemap-card">
-                <h3 class="sitemap-card-title"><i class="fa-solid fa-award"></i> Cử nhân &amp; Tiến sĩ</h3>
+                <h3 class="sitemap-card-title"><i class="fa-solid fa-award"></i> <?php echo $is_en ? 'Bachelor &amp; Doctoral' : 'Cử nhân &amp; Tiến sĩ'; ?></h3>
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
-                        <a href="/bba" class="sitemap-link">
+                        <a href="/bba<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
                             <i class="fa-solid fa-school-flag"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Top-up BBA</span>
-                                <span class="sitemap-item-desc">Liên thông Cử nhân QTKD 12 tháng lấy bằng Quốc tế</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? '12-month BBA Top-up for International Degree' : 'Liên thông Cử nhân QTKD 12 tháng lấy bằng Quốc tế'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/fullbba" class="sitemap-link">
+                        <a href="/fullbba<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
                             <i class="fa-solid fa-award"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Global Online BBA</span>
-                                <span class="sitemap-item-desc">Cử nhân Quản trị Kinh doanh chính quy Thụy Sĩ</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Swiss Full-time Online Bachelor of Business Administration' : 'Cử nhân Quản trị Kinh doanh chính quy Thụy Sĩ'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/dual-dba-estiam-rb" class="sitemap-link">
+                        <a href="/dual-dba-estiam-rb<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
                             <i class="fa-solid fa-user-doctor"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Dual DBA</span>
-                                <span class="sitemap-item-desc">Tiến sĩ Quản trị Kinh doanh song bằng Anh & Pháp</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Dual Doctor of Business Administration from UK &amp; France' : 'Tiến sĩ Quản trị Kinh doanh song bằng Anh &amp; Pháp'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -587,33 +586,32 @@ ob_start(function ($html) {
 
             <!-- Card 4: Chính sách & Học phí -->
             <div class="sitemap-card">
-                <h3 class="sitemap-card-title"><i class="fa-solid fa-hand-holding-dollar"></i> Chính sách &amp; Học phí
-                </h3>
+                <h3 class="sitemap-card-title"><i class="fa-solid fa-hand-holding-dollar"></i> <?php echo $is_en ? 'Policies &amp; Tuition Fees' : 'Chính sách &amp; Học phí'; ?></h3>
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
-                        <a href="/ho-tro-tai-chinh-sacombank" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/sacombank-financing' : '/ho-tro-tai-chinh-sacombank'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-circle-dollar-to-slot"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Trả góp học phí</span>
-                                <span class="sitemap-item-desc">Hỗ trợ trả góp học phí 0% lãi suất với Sacombank</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Tuition Installment' : 'Trả góp học phí'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? '0% interest rate tuition installment support with Sacombank' : 'Hỗ trợ trả góp học phí 0% lãi suất với Sacombank'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/cac-khoan-chi-phi" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/tuition-fees' : '/cac-khoan-chi-phi'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-file-invoice-dollar"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Các khoản chi phí</span>
-                                <span class="sitemap-item-desc">Minh bạch biểu phí học trình & quy chế tài chính</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Tuition Fees &amp; Expenses' : 'Các khoản chi phí'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Transparent schedule of fees &amp; financial regulations' : 'Minh bạch biểu phí học trình &amp; quy chế tài chính'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/ideas-ambassador" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/ambassador' : '/ideas-ambassador'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-medal"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">IDEAS - Ambassador</span>
-                                <span class="sitemap-item-desc">Chương trình học bổng & đại sứ kết nối học viên</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Scholarship program &amp; student networking ambassador' : 'Chương trình học bổng &amp; đại sứ kết nối học viên'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -622,45 +620,41 @@ ob_start(function ($html) {
 
             <!-- Card 5: Bản tin & Truyền thông -->
             <div class="sitemap-card">
-                <h3 class="sitemap-card-title"><i class="fa-solid fa-bullhorn"></i> Bản tin &amp; Truyền thông</h3>
+                <h3 class="sitemap-card-title"><i class="fa-solid fa-bullhorn"></i> <?php echo $is_en ? 'News &amp; Media' : 'Bản tin &amp; Truyền thông'; ?></h3>
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
-                        <a href="/bai-viet" class="sitemap-link">
+                        <a href="/bai-viet<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
                             <i class="fa-solid fa-newspaper"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Bài viết</span>
-                                <span class="sitemap-item-desc">Tin hoạt động, thông tin khoa học & kiến thức hữu
-                                    ích</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Articles &amp; News' : 'Bài viết'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Activity news, scientific updates &amp; useful knowledge' : 'Tin hoạt động, thông tin khoa học &amp; kiến thức hữu ích'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/dong-su-kien#chuyen-di" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/events#chuyen-di' : '/dong-su-kien#chuyen-di'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-plane-departure"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Chuyến đi học tập</span>
-                                <span class="sitemap-item-desc">Hành trình bảo vệ luận văn, tham quan thực tế nước
-                                    ngoài</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Study Tours' : 'Chuyến đi học tập'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Thesis defense journeys, international field trips' : 'Hành trình bảo vệ luận văn, tham quan thực tế nước ngoài'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/ideas-talk" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/ideas-talk' : '/ideas-talk'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-microphone-lines"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Webinar IDEAS Talk</span>
-                                <span class="sitemap-item-desc">Workshop Monthly AI thực chiến định kỳ cùng chuyên
-                                    gia</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'IDEAS Talk Webinars' : 'Webinar IDEAS Talk'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Periodic monthly AI workshops with leading experts' : 'Workshop Monthly AI thực chiến định kỳ cùng chuyên gia'; ?></span>
                             </div>
                         </a>
                     </li>
                     <li class="sitemap-item">
-                        <a href="/ideas-podcast-series-01" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/ideas-podcast' : '/ideas-podcast-series-01'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-podcast"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">IDEAS Podcast</span>
-                                <span class="sitemap-item-desc">Chuỗi chia sẻ tư duy lãnh đạo, quản trị thời đại
-                                    số</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Series sharing leadership &amp; management in digital era' : 'Chuỗi chia sẻ tư duy lãnh đạo, quản trị thời đại số'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -669,15 +663,14 @@ ob_start(function ($html) {
 
             <!-- Card 6: Trường đối tác -->
             <div class="sitemap-card">
-                <h3 class="sitemap-card-title"><i class="fa-solid fa-building-columns"></i> Đối tác &amp; Kiểm định</h3>
+                <h3 class="sitemap-card-title"><i class="fa-solid fa-building-columns"></i> <?php echo $is_en ? 'Partners &amp; Accreditations' : 'Đối tác &amp; Kiểm định'; ?></h3>
                 <ul class="sitemap-list">
                     <li class="sitemap-item">
-                        <a href="/swiss-umef" class="sitemap-link">
+                        <a href="<?php echo $is_en ? '/en/swiss-umef' : '/swiss-umef'; ?>" class="sitemap-link">
                             <i class="fa-solid fa-school"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Swiss UMEF University</span>
-                                <span class="sitemap-item-desc">Trường Đại học uy tín hàng đầu tại Geneva, Thụy
-                                    Sĩ</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Prestigious leading university in Geneva, Switzerland' : 'Trường Đại học uy tín hàng đầu tại Geneva, Thụy Sĩ'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -687,8 +680,7 @@ ob_start(function ($html) {
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             <div class="sitemap-item-content">
                                 <span class="sitemap-item-title">Ascencia Business School</span>
-                                <span class="sitemap-item-desc">Trường Quản trị Kinh doanh thành viên College de
-                                    Paris</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Business School member of Collège de Paris' : 'Trường Quản trị Kinh doanh thành viên College de Paris'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -697,8 +689,8 @@ ob_start(function ($html) {
                             rel="noopener noreferrer">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">College de Paris</span>
-                                <span class="sitemap-item-desc">Tập đoàn giáo dục tư thục hàng đầu tại Pháp</span>
+                                <span class="sitemap-item-title"><?php echo $is_en ? 'Collège de Paris' : 'College de Paris'; ?></span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Leading private educational group in France' : 'Tập đoàn giáo dục tư thục hàng đầu tại Pháp'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -707,9 +699,8 @@ ob_start(function ($html) {
                             rel="noopener noreferrer">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             <div class="sitemap-item-content">
-                                <span class="sitemap-item-title">Estiam</span>
-                                <span class="sitemap-item-desc">Trường chuyên đào tạo Công nghệ thông tin cao cấp tại
-                                    Pháp</span>
+                                <span class="sitemap-item-title">ESTIAM</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'School specializing in advanced IT training in France' : 'Trường chuyên đào tạo Công nghệ thông tin cao cấp tại Pháp'; ?></span>
                             </div>
                         </a>
                     </li>
@@ -719,7 +710,7 @@ ob_start(function ($html) {
             <!-- No results box -->
             <div class="sitemap-no-results" id="sitemap-no-results">
                 <i class="fa-solid fa-circle-question"></i>
-                Không tìm thấy trang phù hợp với từ khóa tìm kiếm.
+                <?php echo $is_en ? 'No pages found matching your search keywords.' : 'Không tìm thấy trang phù hợp với từ khóa tìm kiếm.'; ?>
             </div>
 
         </section>

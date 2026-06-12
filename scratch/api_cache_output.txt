@@ -1,0 +1,14 @@
+Cached response posts count: 6
+Fresh response posts count: 6
+
+Cached Post 2:
+  Title: Cử nhân Quản Trị Kinh Doanh quốc tế 100% Online tại Việt Nam
+  Content keys: ['rendered', 'protected']
+  Content length: 10095
+  Has featuredmedia key in _embedded: False
+
+Fresh Post 2:
+  Title: Cử nhân Quản Trị Kinh Doanh quốc tế 100% Online tại Việt Nam
+  Content keys: ['rendered', 'protected']
+  Content length: 10095
+  Has featuredmedia key in _embedded: False

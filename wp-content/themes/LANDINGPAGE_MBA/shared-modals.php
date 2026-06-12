@@ -3,85 +3,166 @@
  * Shared Modals Template Part
  * Contains Registration Modal and Booking Modal with dynamic content tailored to the current page.
  */
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
 // 1. Resolve page-specific content for Registration Modal (reg-modal)
-$modal_badge = 'NHẬN TƯ VẤN 1:1';
-$modal_title = 'Đăng ký tìm hiểu <br><span class="gradient-text" id="modal-program-title">Hành Trình Học Tập</span>';
-$modal_subtitle = 'Chuyên viên hỗ trợ học vụ sẽ liên hệ với bạn trong vòng 24h làm việc để tư vấn chi tiết.';
+$modal_badge = $is_en ? '1:1 COUNSELING' : 'NHẬN TƯ VẤN 1:1';
 
-if (is_page('so-do-to-chuc')) {
-    $modal_title = 'Đăng ký tìm hiểu <br><span class="gradient-text" id="modal-program-title">Cơ Cấu Tổ Chức</span>';
-} elseif (is_page('he-thong-ho-tro-hoc-tap-lms-ideas')) {
-    $modal_title = 'Đăng ký trải nghiệm <br><span class="gradient-text" id="modal-program-title">Hệ Sinh Thái LMS</span>';
-    $modal_subtitle = 'Điền thông tin để chuyên viên cấp tài khoản học thử LMS và trợ lý AI.';
-} elseif (is_page('ideas-talk')) {
-    $modal_title = 'Đăng ký tham gia <br><span class="gradient-text" id="modal-program-title">IDEAS Talk & AI</span>';
-    $modal_subtitle = 'Điền thông tin bên dưới, chuyên viên tư vấn sẽ liên hệ hướng dẫn lịch học và nhận link Zoom.';
-} elseif (is_page('ideas-podcast-series-01')) {
-    $modal_title = 'Nhận tài liệu <br><span class="gradient-text" id="modal-program-title">Podcast Series 01</span>';
-    $modal_subtitle = 'Đăng ký thông tin để nhận slide tài liệu và thông báo tập podcast mới nhất.';
-} elseif (is_page('ideas-ambassador')) {
-    $modal_title = 'Đăng ký làm <br><span class="gradient-text" id="modal-program-title">Đại Sứ IDEAS</span>';
-    $modal_subtitle = 'Đồng hành lan tỏa tri thức và nhận chính sách đãi ngộ đặc quyền.';
-} elseif (is_page('ho-tro-tai-chinh-sacombank')) {
-    $modal_title = 'Đăng ký tư vấn <br><span class="gradient-text" id="modal-program-title">Trả Góp Học Phí</span>';
-    $modal_subtitle = 'Hỗ trợ trả góp học phí 0% liên kết Sacombank từ 12 đến 24 tháng.';
-} elseif (is_page('cac-khoan-chi-phi')) {
-    $modal_title = 'Nhận thông tin <br><span class="gradient-text" id="modal-program-title">Học Phí & Ưu Đãi</span>';
-    $modal_subtitle = 'Chuyên viên tư vấn tuyển sinh sẽ liên hệ gửi biểu phí chi tiết.';
+if ($is_en) {
+    $modal_title = 'Register to learn about <br><span class="gradient-text" id="modal-program-title">Your Learning Journey</span>';
+    $modal_subtitle = 'Our academic counselor will contact you within 24 business hours.';
+    
+    if (is_page('so-do-to-chuc')) {
+        $modal_title = 'Register to learn about <br><span class="gradient-text" id="modal-program-title">Organizational Structure</span>';
+    } elseif (is_page('he-thong-ho-tro-hoc-tap-lms-ideas')) {
+        $modal_title = 'Register to experience <br><span class="gradient-text" id="modal-program-title">LMS Ecosystem</span>';
+        $modal_subtitle = 'Enter your details to receive a trial account for LMS and our AI Assistant.';
+    } elseif (is_page('ideas-talk')) {
+        $modal_title = 'Register to join <br><span class="gradient-text" id="modal-program-title">IDEAS Talk & AI</span>';
+        $modal_subtitle = 'Enter your details. A counselor will guide you through the schedule and Zoom link.';
+    } elseif (is_page('ideas-podcast-series-01')) {
+        $modal_title = 'Get materials for <br><span class="gradient-text" id="modal-program-title">Podcast Series 01</span>';
+        $modal_subtitle = 'Register to receive slides, documents, and notifications of new podcast episodes.';
+    } elseif (is_page('ideas-ambassador')) {
+        $modal_title = 'Apply to become <br><span class="gradient-text" id="modal-program-title">IDEAS Ambassador</span>';
+        $modal_subtitle = 'Partner with us to spread knowledge and enjoy exclusive ambassador benefits.';
+    } elseif (is_page('ho-tro-tai-chinh-sacombank')) {
+        $modal_title = 'Get consulting on <br><span class="gradient-text" id="modal-program-title">Tuition Installments</span>';
+        $modal_subtitle = 'Support for 0% tuition installment program linked with Sacombank for 12-24 months.';
+    } elseif (is_page('cac-khoan-chi-phi')) {
+        $modal_title = 'Get details on <br><span class="gradient-text" id="modal-program-title">Tuition & Offers</span>';
+        $modal_subtitle = 'An admissions counselor will contact you to send the detailed fee schedule.';
+    }
+} else {
+    $modal_title = 'Đăng ký tìm hiểu <br><span class="gradient-text" id="modal-program-title">Hành Trình Học Tập</span>';
+    $modal_subtitle = 'Chuyên viên hỗ trợ học vụ sẽ liên hệ với bạn trong vòng 24h làm việc để tư vấn chi tiết.';
+    
+    if (is_page('so-do-to-chuc')) {
+        $modal_title = 'Đăng ký tìm hiểu <br><span class="gradient-text" id="modal-program-title">Cơ Cấu Tổ Chức</span>';
+    } elseif (is_page('he-thong-ho-tro-hoc-tap-lms-ideas')) {
+        $modal_title = 'Đăng ký trải nghiệm <br><span class="gradient-text" id="modal-program-title">Hệ Sinh Thái LMS</span>';
+        $modal_subtitle = 'Điền thông tin để chuyên viên cấp tài khoản học thử LMS và trợ lý AI.';
+    } elseif (is_page('ideas-talk')) {
+        $modal_title = 'Đăng ký tham gia <br><span class="gradient-text" id="modal-program-title">IDEAS Talk & AI</span>';
+        $modal_subtitle = 'Điền thông tin bên dưới, chuyên viên tư vấn sẽ liên hệ hướng dẫn lịch học và nhận link Zoom.';
+    } elseif (is_page('ideas-podcast-series-01')) {
+        $modal_title = 'Nhận tài liệu <br><span class="gradient-text" id="modal-program-title">Podcast Series 01</span>';
+        $modal_subtitle = 'Đăng ký thông tin để nhận slide tài liệu và thông báo tập podcast mới nhất.';
+    } elseif (is_page('ideas-ambassador')) {
+        $modal_title = 'Đăng ký làm <br><span class="gradient-text" id="modal-program-title">Đại Sứ IDEAS</span>';
+        $modal_subtitle = 'Đồng hành lan tỏa tri thức và nhận chính sách đãi ngộ đặc quyền.';
+    } elseif (is_page('ho-tro-tai-chinh-sacombank')) {
+        $modal_title = 'Đăng ký tư vấn <br><span class="gradient-text" id="modal-program-title">Trả Góp Học Phí</span>';
+        $modal_subtitle = 'Hỗ trợ trả góp học phí 0% liên kết Sacombank từ 12 đến 24 tháng.';
+    } elseif (is_page('cac-khoan-chi-phi')) {
+        $modal_title = 'Nhận thông tin <br><span class="gradient-text" id="modal-program-title">Học Phí & Ưu Đãi</span>';
+        $modal_subtitle = 'Chuyên viên tư vấn tuyển sinh sẽ liên hệ gửi biểu phí chi tiết.';
+    }
 }
 
 // 2. Resolve page-specific program options for Booking Modal (bk-modal)
 $program_options = [];
 
-if (is_page('so-do-to-chuc')) {
-    $program_options = [
-        ['value' => 'Cơ cấu tổ chức Viện', 'label' => 'Tổ chức IDEAS', 'desc' => 'Tìm hiểu thông tin hoạt động', 'icon' => '👔'],
-        ['value' => 'Chương trình Thạc sĩ', 'label' => 'Chương trình Thạc sĩ', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
-} elseif (is_page('he-thong-ho-tro-hoc-tap-lms-ideas')) {
-    $program_options = [
-        ['value' => 'Hệ sinh thái LMS', 'label' => 'Hệ sinh thái LMS', 'desc' => 'Cách sử dụng & tính năng', 'icon' => '💻'],
-        ['value' => 'Chương trình Thạc sĩ', 'label' => 'Chương trình Thạc sĩ', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
-} elseif (is_page('ideas-talk')) {
-    $program_options = [
-        ['value' => 'Chuyên đề IDEAS Talk', 'label' => 'IDEAS Talk', 'desc' => 'Đăng ký tham gia sự kiện', 'icon' => '🎤'],
-        ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
-} elseif (is_page('ideas-podcast-series-01')) {
-    $program_options = [
-        ['value' => 'Podcast Series 01', 'label' => 'Podcast Series 01', 'desc' => 'Xem và nhận tài liệu podcast', 'icon' => '🎙️'],
-        ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
-} elseif (is_page('ideas-ambassador')) {
-    $program_options = [
-        ['value' => 'Chính sách Ambassador', 'label' => 'Đại sứ IDEAS', 'desc' => 'Chính sách & quyền lợi', 'icon' => '🤝'],
-        ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
-} elseif (is_page('ho-tro-tai-chinh-sacombank')) {
-    $program_options = [
-        ['value' => 'Trả góp Sacombank', 'label' => 'Trả góp Sacombank', 'desc' => 'Hỗ trợ trả góp học phí 0%', 'icon' => '💳'],
-        ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
-} elseif (is_page('cac-khoan-chi-phi')) {
-    $program_options = [
-        ['value' => 'Các khoản chi phí', 'label' => 'Học phí & Lệ phí', 'desc' => 'Chi tiết các khoản phí', 'icon' => '💵'],
-        ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
+if ($is_en) {
+    if (is_page('so-do-to-chuc')) {
+        $program_options = [
+            ['value' => 'Cơ cấu tổ chức Viện', 'label' => 'IDEAS Organization', 'desc' => 'Structure & board inquiry', 'icon' => '👔'],
+            ['value' => 'Chương trình Thạc sĩ', 'label' => 'Master Programs', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('he-thong-ho-tro-hoc-tap-lms-ideas')) {
+        $program_options = [
+            ['value' => 'Hệ sinh thái LMS', 'label' => 'LMS Ecosystem', 'desc' => 'Usage & features', 'icon' => '💻'],
+            ['value' => 'Chương trình Thạc sĩ', 'label' => 'Master Programs', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('ideas-talk')) {
+        $program_options = [
+            ['value' => 'Chuyên đề IDEAS Talk', 'label' => 'IDEAS Talk', 'desc' => 'Register for events', 'icon' => '🎤'],
+            ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('ideas-podcast-series-01')) {
+        $program_options = [
+            ['value' => 'Podcast Series 01', 'label' => 'Podcast Series 01', 'desc' => 'Get podcast slides & docs', 'icon' => '🎙️'],
+            ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('ideas-ambassador')) {
+        $program_options = [
+            ['value' => 'Chính sách Ambassador', 'label' => 'IDEAS Ambassador', 'desc' => 'Benefits & policies', 'icon' => '🤝'],
+            ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('ho-tro-tai-chinh-sacombank')) {
+        $program_options = [
+            ['value' => 'Trả góp Sacombank', 'label' => 'Sacombank Installment', 'desc' => '0% tuition installment program', 'icon' => '💳'],
+            ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('cac-khoan-chi-phi')) {
+        $program_options = [
+            ['value' => 'Các khoản chi phí', 'label' => 'Tuition & Fees', 'desc' => 'Detailed breakdown of fees', 'icon' => '💵'],
+            ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } else {
+        $program_options = [
+            ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
+            ['value' => 'Cần tư vấn chung', 'label' => 'General Inquiry', 'desc' => 'Scholarships & Admissions', 'icon' => '📞'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    }
 } else {
-    $program_options = [
-        ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
-        ['value' => 'Cần tư vấn chung', 'label' => 'Tư vấn chung', 'desc' => 'Học bổng & Tuyển sinh', 'icon' => '📞'],
-        ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
-    ];
+    if (is_page('so-do-to-chuc')) {
+        $program_options = [
+            ['value' => 'Cơ cấu tổ chức Viện', 'label' => 'Tổ chức IDEAS', 'desc' => 'Tìm hiểu thông tin hoạt động', 'icon' => '👔'],
+            ['value' => 'Chương trình Thạc sĩ', 'label' => 'Chương trình Thạc sĩ', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('he-thong-ho-tro-hoc-tap-lms-ideas')) {
+        $program_options = [
+            ['value' => 'Hệ sinh thái LMS', 'label' => 'Hệ sinh thái LMS', 'desc' => 'Cách sử dụng & tính năng', 'icon' => '💻'],
+            ['value' => 'Chương trình Thạc sĩ', 'label' => 'Chương trình Thạc sĩ', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('ideas-talk')) {
+        $program_options = [
+            ['value' => 'Chuyên đề IDEAS Talk', 'label' => 'IDEAS Talk', 'desc' => 'Đăng ký tham gia sự kiện', 'icon' => '🎤'],
+            ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('ideas-podcast-series-01')) {
+        $program_options = [
+            ['value' => 'Podcast Series 01', 'label' => 'Podcast Series 01', 'desc' => 'Xem và nhận tài liệu podcast', 'icon' => '🎙️'],
+            ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('ideas-ambassador')) {
+        $program_options = [
+            ['value' => 'Chính sách Ambassador', 'label' => 'Đại sứ IDEAS', 'desc' => 'Chính sách & quyền lợi', 'icon' => '🤝'],
+            ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('ho-tro-tai-chinh-sacombank')) {
+        $program_options = [
+            ['value' => 'Trả góp Sacombank', 'label' => 'Trả góp Sacombank', 'desc' => 'Hỗ trợ trả góp học phí 0%', 'icon' => '💳'],
+            ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('cac-khoan-chi-phi')) {
+        $program_options = [
+            ['value' => 'Các khoản chi phí', 'label' => 'Học phí & Lệ phí', 'desc' => 'Chi tiết các khoản phí', 'icon' => '💵'],
+            ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } else {
+        $program_options = [
+            ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI / MSc AI', 'icon' => '🎓'],
+            ['value' => 'Cần tư vấn chung', 'label' => 'Tư vấn chung', 'desc' => 'Học bổng & Tuyển sinh', 'icon' => '📞'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    }
 }
 ?>
 
@@ -89,7 +170,7 @@ if (is_page('so-do-to-chuc')) {
 <div class="reg-modal" id="reg-modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
     <div class="reg-modal-overlay" id="reg-modal-overlay"></div>
     <div class="reg-modal-container" data-lenis-prevent>
-        <button class="reg-modal-close" id="reg-modal-close" aria-label="Đóng modal">✕</button>
+        <button class="reg-modal-close" id="reg-modal-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
         <div class="reg-modal-content">
             <header class="modal-form-header">
                 <div class="modal-badge"><?php echo esc_html($modal_badge); ?></div>
@@ -99,59 +180,59 @@ if (is_page('so-do-to-chuc')) {
 
             <form class="cta-form modal-form" id="modal-cta-form" data-submit-handler-registered="true" novalidate>
                 <div class="form-group">
-                    <label for="modal-fullname">Họ và tên *</label>
-                    <input type="text" id="modal-fullname" name="fullname" placeholder="Họ và tên của bạn" required />
+                    <label for="modal-fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
+                    <input type="text" id="modal-fullname" name="fullname" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" required />
                     <span class="form-error" id="modal-fullname-error"></span>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="modal-phone">Số điện thoại *</label>
-                        <input type="tel" id="modal-phone" name="phone" placeholder="Số điện thoại" required />
+                        <label for="modal-phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
+                        <input type="tel" id="modal-phone" name="phone" placeholder="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>" required />
                         <span class="form-error" id="modal-phone-error"></span>
                     </div>
                     <div class="form-group">
-                        <label for="modal-email">Email *</label>
-                        <input type="email" id="modal-email" name="email" placeholder="Địa chỉ email" required />
+                        <label for="modal-email"><?php echo $is_en ? 'Email Address *' : 'Email *'; ?></label>
+                        <input type="email" id="modal-email" name="email" placeholder="<?php echo $is_en ? 'Email address' : 'Địa chỉ email'; ?>" required />
                         <span class="form-error" id="modal-email-error"></span>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="modal-education">Trình độ học vấn *</label>
+                        <label for="modal-education"><?php echo $is_en ? 'Education Level *' : 'Trình độ học vấn *'; ?></label>
                         <select id="modal-education" name="education" required>
-                            <option value="">-- Chọn trình độ --</option>
-                            <option value="highschool">THPT</option>
-                            <option value="college">Cao đẳng</option>
-                            <option value="bachelor">Cử nhân</option>
-                            <option value="master">Thạc sĩ</option>
-                            <option value="other">Khác</option>
+                            <option value=""><?php echo $is_en ? '-- Select Education --' : '-- Chọn trình độ --'; ?></option>
+                            <option value="highschool"><?php echo $is_en ? 'High School' : 'THPT'; ?></option>
+                            <option value="college"><?php echo $is_en ? 'College/Diploma' : 'Cao đẳng'; ?></option>
+                            <option value="bachelor"><?php echo $is_en ? 'Bachelor' : 'Cử nhân'; ?></option>
+                            <option value="master"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></option>
+                            <option value="other"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
                         </select>
                         <span class="form-error" id="modal-education-error"></span>
                     </div>
                     <div class="form-group">
-                        <label for="modal-english">Trình độ Tiếng Anh *</label>
+                        <label for="modal-english"><?php echo $is_en ? 'English Proficiency *' : 'Trình độ Tiếng Anh *'; ?></label>
                         <select id="modal-english" name="english" required>
-                            <option value="">-- Chọn trình độ --</option>
-                            <option value="below-5.0">Dưới IELTS 5.0</option>
-                            <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
-                            <option value="6.0-plus">IELTS 6.0+</option>
-                            <option value="other">Khác / Chưa thi</option>
+                            <option value=""><?php echo $is_en ? '-- Select Level --' : '-- Chọn trình độ --'; ?></option>
+                            <option value="below-5.0"><?php echo $is_en ? 'Below IELTS 5.0' : 'Dưới IELTS 5.0'; ?></option>
+                            <option value="5.0-5.5"><?php echo $is_en ? 'IELTS 5.0 - 5.5' : 'IELTS 5.0 - 5.5'; ?></option>
+                            <option value="6.0-plus"><?php echo $is_en ? 'IELTS 6.0+' : 'IELTS 6.0+'; ?></option>
+                            <option value="other"><?php echo $is_en ? 'Other / No Score' : 'Khác / Chưa thi'; ?></option>
                         </select>
                         <span class="form-error" id="modal-english-error"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="modal-message">Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1</label>
-                    <textarea id="modal-message" name="message" placeholder="Ví dụ: Tôi quan tâm chương trình MBA..."
+                    <label for="modal-message"><?php echo $is_en ? 'Any notes or preferred time for a 1:1 call' : 'Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1'; ?></label>
+                    <textarea id="modal-message" name="message" placeholder="<?php echo $is_en ? 'e.g. I am interested in the MBA program...' : 'Ví dụ: Tôi quan tâm chương trình MBA...'; ?>"
                         rows="3"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-full" id="modal-form-submit-btn"
-                    aria-label="Gửi đăng ký tư vấn">
-                    <span>Gửi thông tin đăng ký</span>
+                    aria-label="<?php echo $is_en ? 'Submit Registration' : 'Gửi đăng ký tư vấn'; ?>">
+                    <span><?php echo $is_en ? 'Submit Registration' : 'Gửi thông tin đăng ký'; ?></span>
                     <svg width="20" height="20" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M5 12h14M12 5l7 7-7 7" />
@@ -160,7 +241,7 @@ if (is_page('so-do-to-chuc')) {
 
                 <div class="modal-zalo-section">
                     <div class="modal-zalo-divider">
-                        <span>Hoặc chọn cách liên hệ</span>
+                        <span><?php echo $is_en ? 'Or connect via' : 'Hoặc chọn cách liên hệ'; ?></span>
                     </div>
                     <div class="modal-zalo-row">
                         <a href="https://zalo.me/3857867121882640296" target="_blank" class="modal-zalo-btn"
@@ -168,21 +249,21 @@ if (is_page('so-do-to-chuc')) {
                             <img decoding="async"
                                 src="/wp-content/uploads/external-migrated/zalo-oa-icon-unplated_82aad094.webp"
                                 alt="Zalo Logo IDEAS" width="20" height="20" loading="lazy">
-                            <span>Chat Zalo với IDEAS</span>
+                            <span>Chat Zalo</span>
                         </a>
                         <button type="button" class="modal-booking-btn" id="modal-open-booking"
-                            aria-label="Đặt lịch hẹn tư vấn">
+                            aria-label="<?php echo $is_en ? 'Book a counseling appointment' : 'Đặt lịch hẹn tư vấn'; ?>">
                             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2"
                                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
-                            <span>Đặt lịch tư vấn</span>
+                            <span><?php echo $is_en ? 'Book Appointment' : 'Đặt lịch tư vấn'; ?></span>
                         </button>
                     </div>
                 </div>
 
-                <p class="form-privacy">Cam kết bảo mật thông tin</p>
+                <p class="form-privacy"><?php echo $is_en ? 'Your information is kept secure & private' : 'Cam kết bảo mật thông tin'; ?></p>
             </form>
 
             <div class="modal-form-success" id="modal-form-success">
@@ -192,10 +273,10 @@ if (is_page('so-do-to-chuc')) {
                         <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" class="checkmark__check" />
                     </svg>
                 </div>
-                <h3>Gửi thông tin thành công!</h3>
-                <p id="modal-success-msg">Cảm ơn bạn đã quan tâm. Chuyên viên của IDEAS sẽ liên hệ trong thời gian sớm nhất.</p>
+                <h3><?php echo $is_en ? 'Registration Successful!' : 'Gửi thông tin thành công!'; ?></h3>
+                <p id="modal-success-msg"><?php echo $is_en ? 'Thank you for your interest. A counselor from IDEAS will contact you shortly.' : 'Cảm ơn bạn đã quan tâm. Chuyên viên của IDEAS sẽ liên hệ trong thời gian sớm nhất.'; ?></p>
                 <button type="button" class="btn btn-primary btn-full" style="margin-top: 32px;"
-                    onclick="closeRegModal()">Quay lại trang</button>
+                    onclick="closeRegModal()"><?php echo $is_en ? 'Back to page' : 'Quay lại trang'; ?></button>
             </div>
         </div>
     </div>
@@ -218,7 +299,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
     style="display: none;">
     <div class="bk-overlay" id="bk-overlay"></div>
     <div class="bk-container" data-lenis-prevent role="document">
-        <button class="bk-close" id="bk-close" aria-label="Đóng modal">
+        <button class="bk-close" id="bk-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -232,9 +313,9 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 <div class="bk-progress-fill" id="bk-progress-fill"></div>
             </div>
             <div class="bk-steps-label">
-                <span class="bk-step-lbl active" data-step="1">Thông tin</span>
-                <span class="bk-step-lbl" data-step="2">Chọn lịch</span>
-                <span class="bk-step-lbl" data-step="3">Xác nhận</span>
+                <span class="bk-step-lbl active" data-step="1"><?php echo $is_en ? 'Info' : 'Thông tin'; ?></span>
+                <span class="bk-step-lbl" data-step="2"><?php echo $is_en ? 'Schedule' : 'Chọn lịch'; ?></span>
+                <span class="bk-step-lbl" data-step="3"><?php echo $is_en ? 'Confirm' : 'Xác nhận'; ?></span>
             </div>
         </div>
 
@@ -249,22 +330,22 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     </svg>
                 </div>
                 <div>
-                    <div class="bk-step-badge">BƯỚC 1 / 3</div>
-                    <h2 class="bk-step-title" id="bk-title">Thông tin của bạn</h2>
-                    <p class="bk-step-sub">Điền thông tin để chuyên viên chuẩn bị buổi tư vấn phù hợp nhất</p>
+                    <div class="bk-step-badge"><?php echo $is_en ? 'STEP 1 / 3' : 'BƯỚC 1 / 3'; ?></div>
+                    <h2 class="bk-step-title" id="bk-title"><?php echo $is_en ? 'Your Information' : 'Thông tin của bạn'; ?></h2>
+                    <p class="bk-step-sub"><?php echo $is_en ? 'Fill in the details to help our counselor prepare for your session' : 'Điền thông tin để chuyên viên chuẩn bị buổi tư vấn phù hợp nhất'; ?></p>
                 </div>
             </div>
 
             <form class="bk-form" id="bk-form-1" novalidate>
                 <div class="bk-field">
-                    <label for="bk-name">Họ và tên <span class="bk-required">*</span></label>
+                    <label for="bk-name"><?php echo $is_en ? 'Full Name' : 'Họ và tên'; ?> <span class="bk-required">*</span></label>
                     <div class="bk-input-wrap">
                         <svg class="bk-input-icon" width="16" height="16" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="1.8">
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
-                        <input type="text" id="bk-name" name="bk-name" placeholder="Nguyễn Văn A" autocomplete="name"
+                        <input type="text" id="bk-name" name="bk-name" placeholder="<?php echo $is_en ? 'John Doe' : 'Nguyễn Văn A'; ?>" autocomplete="name"
                             required />
                     </div>
                     <span class="bk-err" id="bk-name-err"></span>
@@ -272,7 +353,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
 
                 <div class="bk-row-2">
                     <div class="bk-field">
-                        <label for="bk-phone">Số điện thoại <span class="bk-required">*</span></label>
+                        <label for="bk-phone"><?php echo $is_en ? 'Phone Number' : 'Số điện thoại'; ?> <span class="bk-required">*</span></label>
                         <div class="bk-input-wrap">
                             <svg class="bk-input-icon" width="16" height="16" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="1.8">
@@ -301,28 +382,28 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
 
                 <div class="bk-row-2">
                     <div class="bk-field">
-                        <label for="bk-edu">Trình độ học vấn <span class="bk-required">*</span></label>
+                        <label for="bk-edu"><?php echo $is_en ? 'Education Level' : 'Trình độ học vấn'; ?> <span class="bk-required">*</span></label>
                         <div class="bk-select-wrap">
                             <select id="bk-edu" name="bk-edu" required>
-                                <option value="">-- Chọn trình độ --</option>
-                                <option value="highschool">THPT</option>
-                                <option value="college">Cao đẳng</option>
-                                <option value="bachelor">Cử nhân</option>
-                                <option value="master">Thạc sĩ</option>
-                                <option value="other">Khác</option>
+                                <option value=""><?php echo $is_en ? '-- Select Education --' : '-- Chọn trình độ --'; ?></option>
+                                <option value="highschool"><?php echo $is_en ? 'High School' : 'THPT'; ?></option>
+                                <option value="college"><?php echo $is_en ? 'College/Diploma' : 'Cao đẳng'; ?></option>
+                                <option value="bachelor"><?php echo $is_en ? 'Bachelor' : 'Cử nhân'; ?></option>
+                                <option value="master"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></option>
+                                <option value="other"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
                             </select>
                         </div>
                         <span class="bk-err" id="bk-edu-err"></span>
                     </div>
                     <div class="bk-field">
-                        <label for="bk-eng">Trình độ Tiếng Anh <span class="bk-required">*</span></label>
+                        <label for="bk-eng"><?php echo $is_en ? 'English Proficiency' : 'Trình độ Tiếng Anh'; ?> <span class="bk-required">*</span></label>
                         <div class="bk-select-wrap">
                             <select id="bk-eng" name="bk-eng" required>
-                                <option value="">-- Chọn trình độ --</option>
-                                <option value="below-5.0">Dưới IELTS 5.0</option>
-                                <option value="5.0-5.5">IELTS 5.0 – 5.5</option>
-                                <option value="6.0-plus">IELTS 6.0+</option>
-                                <option value="other">Khác / Chưa thi</option>
+                                <option value=""><?php echo $is_en ? '-- Select Level --' : '-- Chọn trình độ --'; ?></option>
+                                <option value="below-5.0"><?php echo $is_en ? 'Below IELTS 5.0' : 'Dưới IELTS 5.0'; ?></option>
+                                <option value="5.0-5.5"><?php echo $is_en ? 'IELTS 5.0 – 5.5' : 'IELTS 5.0 – 5.5'; ?></option>
+                                <option value="6.0-plus"><?php echo $is_en ? 'IELTS 6.0+' : 'IELTS 6.0+'; ?></option>
+                                <option value="other"><?php echo $is_en ? 'Other / No Score' : 'Khác / Chưa thi'; ?></option>
                             </select>
                         </div>
                         <span class="bk-err" id="bk-eng-err"></span>
@@ -330,7 +411,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 </div>
 
                 <div class="bk-field">
-                    <label>Chương trình quan tâm <span class="bk-required">*</span></label>
+                    <label><?php echo $is_en ? 'Program of Interest' : 'Chương trình quan tâm'; ?> <span class="bk-required">*</span></label>
                     <div class="bk-program-grid" id="bk-program-grid">
                         <?php foreach ($program_options as $index => $opt): ?>
                             <label class="bk-program-card">
@@ -346,8 +427,8 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     <span class="bk-err" id="bk-program-err"></span>
                 </div>
 
-                <button type="button" class="bk-btn-next" id="bk-next-1" aria-label="Sang bước tiếp theo: chọn lịch">
-                    Tiếp theo - Chọn lịch
+                <button type="button" class="bk-btn-next" id="bk-next-1" aria-label="<?php echo $is_en ? 'Next to scheduling' : 'Sang bước tiếp theo: chọn lịch'; ?>">
+                    <?php echo $is_en ? 'Next - Select Date' : 'Tiếp theo - Chọn lịch'; ?>
                     <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -368,22 +449,22 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     </svg>
                 </div>
                 <div>
-                    <div class="bk-step-badge">BƯỚC 2 / 3</div>
-                    <h2 class="bk-step-title">Chọn ngày &amp; giờ</h2>
-                    <p class="bk-step-sub">Chọn thời gian phù hợp để chuyên viên gọi tư vấn cho bạn</p>
+                    <div class="bk-step-badge"><?php echo $is_en ? 'STEP 2 / 3' : 'BƯỚC 2 / 3'; ?></div>
+                    <h2 class="bk-step-title"><?php echo $is_en ? 'Select Date & Time' : 'Chọn ngày &amp; giờ'; ?></h2>
+                    <p class="bk-step-sub"><?php echo $is_en ? 'Choose a suitable time slot for our counselor to call you' : 'Chọn thời gian phù hợp để chuyên viên gọi tư vấn cho bạn'; ?></p>
                 </div>
             </div>
 
             <div class="bk-calendar-wrap">
                 <div class="bk-cal-header">
-                    <button type="button" class="bk-cal-nav" id="bk-cal-prev" aria-label="Tháng trước">
+                    <button type="button" class="bk-cal-nav" id="bk-cal-prev" aria-label="<?php echo $is_en ? 'Previous month' : 'Tháng trước'; ?>">
                         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
                     <span class="bk-cal-month-label" id="bk-cal-month-label"></span>
-                    <button type="button" class="bk-cal-nav" id="bk-cal-next" aria-label="Tháng tiếp theo">
+                    <button type="button" class="bk-cal-nav" id="bk-cal-next" aria-label="<?php echo $is_en ? 'Next month' : 'Tháng tiếp theo'; ?>">
                         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -391,7 +472,11 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     </button>
                 </div>
                 <div class="bk-cal-weekdays">
-                    <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+                    <?php if ($is_en): ?>
+                        <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+                    <?php else: ?>
+                        <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+                    <?php endif; ?>
                 </div>
                 <div class="bk-cal-grid" id="bk-cal-grid"></div>
             </div>
@@ -402,22 +487,22 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                         <circle cx="12" cy="12" r="10" />
                         <polyline points="12 6 12 12 16 14" />
                     </svg>
-                    <span id="bk-selected-date-label">Vui lòng chọn ngày trước</span>
+                    <span id="bk-selected-date-label"><?php echo $is_en ? 'Please select a date first' : 'Vui lòng chọn ngày trước'; ?></span>
                 </div>
                 <div class="bk-time-grid" id="bk-time-grid"></div>
                 <span class="bk-err" id="bk-time-err"></span>
             </div>
 
             <div class="bk-step-actions">
-                <button type="button" class="bk-btn-back" id="bk-back-2" aria-label="Quay lại bước trước">
+                <button type="button" class="bk-btn-back" id="bk-back-2" aria-label="<?php echo $is_en ? 'Go back' : 'Quay lại bước trước'; ?>">
                     <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
                     </svg>
-                    Quay lại
+                    <?php echo $is_en ? 'Back' : 'Quay lại'; ?>
                 </button>
-                <button type="button" class="bk-btn-next" id="bk-next-2" aria-label="Sang bước tiếp theo: xem xác nhận">
-                    Xem xác nhận
+                <button type="button" class="bk-btn-next" id="bk-next-2" aria-label="<?php echo $is_en ? 'Review confirmation' : 'Sang bước tiếp theo: xem xác nhận'; ?>">
+                    <?php echo $is_en ? 'Review Confirmation' : 'Xem xác nhận'; ?>
                     <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -436,28 +521,28 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     </svg>
                 </div>
                 <div>
-                    <div class="bk-step-badge">BƯỚC 3 / 3</div>
-                    <h2 class="bk-step-title">Xác nhận lịch hẹn</h2>
-                    <p class="bk-step-sub">Vui lòng kiểm tra kỹ các thông tin trước khi xác nhận đặt lịch</p>
+                    <div class="bk-step-badge"><?php echo $is_en ? 'STEP 3 / 3' : 'BƯỚC 3 / 3'; ?></div>
+                    <h2 class="bk-step-title"><?php echo $is_en ? 'Confirm Appointment' : 'Xác nhận lịch hẹn'; ?></h2>
+                    <p class="bk-step-sub"><?php echo $is_en ? 'Please double check your details before confirming' : 'Vui lòng kiểm tra kỹ các thông tin trước khi xác nhận đặt lịch'; ?></p>
                 </div>
             </div>
 
             <div class="bk-confirm-summary">
                 <div class="bk-confirm-item-data">
-                    <span class="bk-confirm-lbl">Lịch tư vấn</span>
+                    <span class="bk-confirm-lbl"><?php echo $is_en ? 'Appointment Time' : 'Lịch tư vấn'; ?></span>
                     <div class="bk-confirm-val">
                         <i class="fa-regular fa-calendar-check"></i>
-                        <span id="bk-confirm-date">-</span> &nbsp;lúc&nbsp;
+                        <span id="bk-confirm-date">-</span> &nbsp;<?php echo $is_en ? 'at' : 'lúc'; ?>&nbsp;
                         <span id="bk-confirm-time">-</span>
                     </div>
                 </div>
                 <div class="bk-confirm-grid">
                     <div class="bk-confirm-cell">
-                        <span class="bk-confirm-lbl">Họ và tên</span>
+                        <span class="bk-confirm-lbl"><?php echo $is_en ? 'Full Name' : 'Họ và tên'; ?></span>
                         <span class="bk-confirm-val" id="bk-confirm-name">-</span>
                     </div>
                     <div class="bk-confirm-cell">
-                        <span class="bk-confirm-lbl">Số điện thoại</span>
+                        <span class="bk-confirm-lbl"><?php echo $is_en ? 'Phone Number' : 'Số điện thoại'; ?></span>
                         <span class="bk-confirm-val" id="bk-confirm-phone">-</span>
                     </div>
                     <div class="bk-confirm-cell">
@@ -465,22 +550,22 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                         <span class="bk-confirm-val" id="bk-confirm-email" style="word-break: break-all;">-</span>
                     </div>
                     <div class="bk-confirm-cell">
-                        <span class="bk-confirm-lbl">Chương trình</span>
+                        <span class="bk-confirm-lbl"><?php echo $is_en ? 'Program' : 'Chương trình'; ?></span>
                         <span class="bk-confirm-val" id="bk-confirm-program">-</span>
                     </div>
                 </div>
             </div>
 
             <div class="bk-step-actions">
-                <button type="button" class="bk-btn-back" id="bk-back-3" aria-label="Quay lại bước trước">
+                <button type="button" class="bk-btn-back" id="bk-back-3" aria-label="<?php echo $is_en ? 'Go back' : 'Quay lại bước trước'; ?>">
                     <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7" />
                     </svg>
-                    Quay lại
+                    <?php echo $is_en ? 'Back' : 'Quay lại'; ?>
                 </button>
-                <button type="button" class="bk-btn-next" id="bk-confirm-btn" aria-label="Xác nhận lịch hẹn">
-                    Xác nhận đặt lịch
+                <button type="button" class="bk-btn-next" id="bk-confirm-btn" aria-label="<?php echo $is_en ? 'Confirm and book' : 'Xác nhận đặt lịch'; ?>">
+                    <?php echo $is_en ? 'Confirm & Book' : 'Xác nhận đặt lịch'; ?>
                     <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -496,26 +581,27 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" class="bk-checkmark-check" />
                 </svg>
             </div>
-            <h2 class="bk-success-title">Đặt lịch thành công!</h2>
-            <p class="bk-success-sub" id="bk-success-msg">Thông tin lịch hẹn của bạn đã được ghi nhận. Chuyên viên sẽ gọi cho bạn theo khung
-                giờ đăng ký.</p>
+            <h2 class="bk-success-title"><?php echo $is_en ? 'Booking Successful!' : 'Đặt lịch thành công!'; ?></h2>
+            <p class="bk-success-sub" id="bk-success-msg">
+                <?php echo $is_en ? 'Your appointment has been booked. A counselor will call you at the registered time.' : 'Thông tin lịch hẹn của bạn đã được ghi nhận. Chuyên viên sẽ gọi cho bạn theo khung giờ đăng ký.'; ?>
+            </p>
 
             <div class="bk-success-details">
                 <div class="bk-success-details-row">
-                    <span>Học viên:</span>
+                    <span><?php echo $is_en ? 'Student:' : 'Học viên:'; ?></span>
                     <strong id="bk-success-name">-</strong>
                 </div>
                 <div class="bk-success-details-row">
-                    <span>Ngày hẹn:</span>
+                    <span><?php echo $is_en ? 'Date:' : 'Ngày hẹn:'; ?></span>
                     <strong id="bk-success-date">-</strong>
                 </div>
                 <div class="bk-success-details-row">
-                    <span>Khung giờ:</span>
+                    <span><?php echo $is_en ? 'Time:' : 'Khung giờ:'; ?></span>
                     <strong id="bk-success-time">-</strong>
                 </div>
             </div>
 
-            <button type="button" class="bk-btn-done" id="bk-done-btn">Hoàn tất</button>
+            <button type="button" class="bk-btn-done" id="bk-done-btn"><?php echo $is_en ? 'Done' : 'Hoàn tất'; ?></button>
         </div>
     </div>
 </div>
@@ -608,8 +694,10 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
             const engVal = engSelect ? engSelect.value : '';
             const msgVal = msgTextarea ? msgTextarea.value.trim() : '';
 
+            if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
+
             if (!name || !phone || !email) {
-                alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
+                alert(isEnMode ? 'Please fill in all required fields.' : 'Vui lòng điền đầy đủ các thông tin bắt buộc.');
                 return;
             }
 
@@ -726,7 +814,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 btn.disabled = true;
                 btn.style.opacity = '0.7';
                 originalBtnHtml = btn.innerHTML;
-                btn.innerHTML = '<span><i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...</span>';
+                btn.innerHTML = isEnMode ? '<span><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>' : '<span><i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...</span>';
             }
 
             try {
@@ -758,14 +846,16 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 if (successContainer) {
                     const successMsg = document.getElementById('modal-success-msg');
                     if (successMsg && name) {
-                        successMsg.innerHTML = 'Cảm ơn bạn <strong>' + name + '</strong> đã quan tâm. Chuyên viên của IDEAS sẽ liên hệ trong thời gian sớm nhất.';
+                        successMsg.innerHTML = isEnMode 
+                            ? 'Thank you <strong>' + name + '</strong> for your interest. A counselor from IDEAS will contact you shortly.'
+                            : 'Cảm ơn bạn <strong>' + name + '</strong> đã quan tâm. Chuyên viên của IDEAS sẽ liên hệ trong thời gian sớm nhất.';
                     }
                     successContainer.classList.add('visible');
                     form.style.display = 'none';
                 }
             } catch (error) {
                 console.error('Submission error:', error);
-                alert('Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
+                alert(isEnMode ? 'An error occurred. Please try again later.' : 'Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
             } finally {
                 if (btn) {
                     btn.disabled = false;
@@ -791,8 +881,8 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
 ?>
 
 <!-- 3. Lightbox Modal for accreditation/certificate viewing -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh phóng to">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Đóng ảnh">✕</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="<?php echo $is_en ? 'View zoomed image' : 'Xem ảnh phóng to'; ?>">
+    <button class="lightbox-close" id="lightbox-close" aria-label="<?php echo $is_en ? 'Close image' : 'Đóng ảnh'; ?>">✕</button>
     <div class="lightbox-content">
         <img id="lightbox-img" src="" alt="">
     </div>

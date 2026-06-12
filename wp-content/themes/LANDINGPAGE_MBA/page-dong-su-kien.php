@@ -14,9 +14,10 @@ ob_start(function ($html) {
     );
     return $html;
 });
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> prefix="og: https://ogp.me/ns#">
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <!-- Google Tag Manager -->
@@ -41,20 +42,20 @@ ob_start(function ($html) {
     <!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/11/z7168028016898_a6b3673704a0f8fead78c7cde0d0c719.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>Dòng Sự Kiện &amp; Hoạt Động | IDEAS</title>
+        <title><?php echo $is_en ? 'Events Timeline & Activities | IDEAS' : 'Dòng Sự Kiện &amp; Hoạt Động | IDEAS'; ?></title>
     <?php endif; ?>
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
-            content="Theo dõi các hoạt động nổi bật, lễ tốt nghiệp, buổi hội thảo khoa học, lễ ký kết và các chuyến đi thực tế của cộng đồng học viên IDEAS." />
+            content="<?php echo $is_en ? 'Follow outstanding activities, graduation ceremonies, scientific seminars, signings, and field trips of the IDEAS student community.' : 'Theo dõi các hoạt động nổi bật, lễ tốt nghiệp, buổi hội thảo khoa học, lễ ký kết và các chuyến đi thực tế của cộng đồng học viên IDEAS.'; ?>" />
     <?php endif; ?>
     <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Dòng Sự Kiện &amp; Hoạt Động – IDEAS" />
+        <meta property="og:title" content="<?php echo $is_en ? 'Events Timeline & Activities – IDEAS' : 'Dòng Sự Kiện &amp; Hoạt Động – IDEAS'; ?>" />
         <meta property="og:description"
-            content="Xem lại các sự kiện đáng nhớ, cột mốc học thuật và các hoạt động thực tế quốc tế của học viên và giảng viên tại IDEAS." />
+            content="<?php echo $is_en ? 'Review memorable events, academic milestones, and international practical activities of students and faculty at IDEAS.' : 'Xem lại các sự kiện đáng nhớ, cột mốc học thuật và các hoạt động thực tế quốc tế của học viên và giảng viên tại IDEAS.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/11/z7168028016898_a6b3673704a0f8fead78c7cde0d0c719.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -737,9 +738,8 @@ ob_start(function ($html) {
                 <i class="fa-solid fa-calendar-days"></i>
                 IDEAS Events
             </div>
-            <h1>Dòng <span>Sự Kiện</span></h1>
-            <p>Khám phá các hoạt động thực tế nổi bật gần đây, lễ tốt nghiệp danh giá, các buổi hội thảo khoa học và các
-                chuyến đi kiến tập thực tế.</p>
+            <h1><?php echo $is_en ? 'Events <span>Timeline</span>' : 'Dòng <span>Sự Kiện</span>'; ?></h1>
+            <p><?php echo $is_en ? 'Discover recent practical highlights, prestigious graduation ceremonies, academic seminars, and international study tours.' : 'Khám phá các hoạt động thực tế nổi bật gần đây, lễ tốt nghiệp danh giá, các buổi hội thảo khoa học và các\n                chuyến đi kiến tập thực tế.'; ?></p>
         </div>
     </section>
 
@@ -747,11 +747,11 @@ ob_start(function ($html) {
     <main class="events-section">
         <!-- Filter Tabs Bar (desktop) -->
         <div class="events-filter-bar">
-            <button class="filter-btn active" data-filter="TẤT CẢ">TẤT CẢ</button>
+            <button class="filter-btn active" data-filter="TẤT CẢ"><?php echo $is_en ? 'ALL' : 'TẤT CẢ'; ?></button>
             <button class="filter-btn" data-filter="Workshop">Workshop</button>
-            <button class="filter-btn" data-filter="Lễ tốt nghiệp">Lễ tốt nghiệp</button>
-            <button class="filter-btn" data-filter="Chuyến đi">Chuyến đi</button>
-            <button class="filter-btn" data-filter="Khác">Khác</button>
+            <button class="filter-btn" data-filter="Lễ tốt nghiệp"><?php echo $is_en ? 'Graduation' : 'Lễ tốt nghiệp'; ?></button>
+            <button class="filter-btn" data-filter="Chuyến đi"><?php echo $is_en ? 'Study Tours' : 'Chuyến đi'; ?></button>
+            <button class="filter-btn" data-filter="Khác"><?php echo $is_en ? 'Others' : 'Khác'; ?></button>
         </div>
 
         <!-- Mobile Dropdown Filters -->
@@ -761,22 +761,18 @@ ob_start(function ($html) {
                 <button class="emf-trigger" id="emf-cat-trigger" aria-haspopup="listbox" aria-expanded="false">
                     <span class="emf-trigger-icon"><i class="fa-solid fa-tag"></i></span>
                     <span class="emf-trigger-label">
-                        <small>Loại sự kiện</small>
-                        <span id="emf-cat-label">Tất cả</span>
+                        <small><?php echo $is_en ? 'Event Type' : 'Loại sự kiện'; ?></small>
+                        <span id="emf-cat-label"><?php echo $is_en ? 'All' : 'Tất cả'; ?></span>
                     </span>
                     <span class="emf-trigger-arrow"><i class="fa-solid fa-chevron-down"></i></span>
                 </button>
                 <div class="emf-panel" id="emf-cat-panel" role="listbox">
-                    <div class="emf-option active" data-value="TẤT CẢ" role="option"><i
-                            class="fa-solid fa-layer-group"></i>Tất cả</div>
+                    <div class="emf-option active" data-value="TẤT CẢ" role="option"><i class="fa-solid fa-layer-group"></i><?php echo $is_en ? 'All' : 'Tất cả'; ?></div>
                     <div class="emf-option" data-value="Workshop" role="option"><i
                             class="fa-solid fa-chalkboard-user"></i>Workshop</div>
-                    <div class="emf-option" data-value="Lễ tốt nghiệp" role="option"><i
-                            class="fa-solid fa-graduation-cap"></i>Lễ tốt nghiệp</div>
-                    <div class="emf-option" data-value="Chuyến đi" role="option"><i class="fa-solid fa-plane"></i>Chuyến
-                        đi</div>
-                    <div class="emf-option" data-value="Khác" role="option"><i class="fa-solid fa-ellipsis"></i>Khác
-                    </div>
+                    <div class="emf-option" data-value="Lễ tốt nghiệp" role="option"><i class="fa-solid fa-graduation-cap"></i><?php echo $is_en ? 'Graduation' : 'Lễ tốt nghiệp'; ?></div>
+                    <div class="emf-option" data-value="Chuyến đi" role="option"><i class="fa-solid fa-plane"></i><?php echo $is_en ? 'Study Tours' : 'Chuyến đi'; ?></div>
+                    <div class="emf-option" data-value="Khác" role="option"><i class="fa-solid fa-ellipsis"></i><?php echo $is_en ? 'Others' : 'Khác'; ?></div>
                 </div>
             </div>
             <!-- Year Dropdown -->
@@ -784,8 +780,8 @@ ob_start(function ($html) {
                 <button class="emf-trigger" id="emf-year-trigger" aria-haspopup="listbox" aria-expanded="false">
                     <span class="emf-trigger-icon"><i class="fa-solid fa-calendar"></i></span>
                     <span class="emf-trigger-label">
-                        <small>Năm</small>
-                        <span id="emf-year-label">Tất cả</span>
+                        <small><?php echo $is_en ? 'Year' : 'Năm'; ?></small>
+                        <span id="emf-year-label"><?php echo $is_en ? 'All' : 'Tất cả'; ?></span>
                     </span>
                     <span class="emf-trigger-arrow"><i class="fa-solid fa-chevron-down"></i></span>
                 </button>
@@ -808,7 +804,298 @@ ob_start(function ($html) {
 
     <!-- EVENTS Data and Dynamic JS -->
     <script>
-        const EVENTS = [
+        if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
+        const EVENTS_EN = [
+            {
+                type: "IDEAS x GrowthVerse 2026",
+                place: "SIHUB - Ho Chi Minh",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/04/recap_growverth.webp",
+                for: "Swiss UMEF",
+                name: "IDEAS",
+                data: "21/04/2026",
+                link: "https://www.facebook.com/share/p/18FBbmmySq/",
+            },
+            {
+                type: "Webinar",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/04/event.webp",
+                for: "Swiss UMEF",
+                name: "MSc AI",
+                data: "18/04/2026",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid0LTM9ykp3UAi6J5M2fZJWaUYFoEYNprYNersCeBaf3mLuP3zVtDeSAMhMCtj954DZl",
+            },
+            {
+                type: "Graduation Ceremony",
+                place: "Ho Chi Minh City",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/01/ltn27122025.webp",
+                for: "Swiss UMEF",
+                name: "MBA/EMBA",
+                data: "27/12/2025",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid034nzCDGcFVfz54M62b4Yod9iJ3mMx2eVNMXB33PpDeDSw6Xw1cZsH4oucpX2TogDcl?locale=vi_VN",
+            },
+            {
+                type: "Graduation Ceremony",
+                name: "MBA/EMBA/MSc AI",
+                for: "Swiss UMEF",
+                place: "Geneva - Switzerland",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/11/ltnumef10202501.webp",
+                data: "29/10/2025",
+                link: "http://ideas.edu.vn/chuyen-di-thang-10-2025",
+            },
+            {
+                type: "Europe Tour",
+                name: "Swiss UMEF",
+                for: "Study tour combined with Graduation Ceremony",
+                place: "France - Italy - Switzerland",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/11/z7168028016898_a6b3673704a0f8fead78c7cde0d0c719.webp",
+                data: "25/10/2025",
+                link: "http://ideas.edu.vn/chuyen-di-thang-10-2025",
+            },
+            {
+                type: "VDCA Conference 2025",
+                name: "MBA/EMBA/MSc/Top-up BBA",
+                for: "Connecting Values & Spreading Knowledge",
+                place: "VDCA Conference",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/10/en2810.webp",
+                data: "28/10/2025",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid02SX1tkwi6jWnjGh8FD1AJE2fy6YQxj29sD4s7V4U5xuqv8VWeqfKE5H5bygm85jCPl",
+            },
+            {
+                type: "Orientation",
+                name: "MSc AI",
+                for: "Swiss UMEF",
+                place: "Online - ZOOM",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/10/ort-msc-t10.webp",
+                data: "02/10/2025",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid065RLK6SL5N2pYzL2WwwREMW24HSM9etC6BETHMJrYUvrgWLsWL6t5y4x8gXLBi4sl",
+            },
+            {
+                type: "Workshop - Coffee Talk",
+                name: " AI in Learning - From Local to Global",
+                for: "Everyone",
+                place: "LYNK.THE VIBES - HCMC",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg",
+                data: "16/08/2025",
+                link: "https://ideas.edu.vn/workshop-ai-in-learning-from-local-to-global",
+            },
+            {
+                type: "Graduation Ceremony",
+                name: "Global MBA - DBA",
+                for: "Ascencia Business School",
+                place: "Eden Star Hotel - HCMC",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/07/ltn72025.webp",
+                data: "26/07/2025",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid02D6QV6Lwqbk6PWN3ToipRQJ3jV9AkFV9FcnAqQwsdf9wVBdNkHr5bHWaKPJtGojf2l?locale=vi_VN",
+            },
+            {
+                type: "Graduation Ceremony",
+                name: "Global MBA - DBA",
+                for: "Ascencia Business School",
+                place: "Paris - France",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp",
+                data: "02/07/2025",
+                link: "https://www.linkedin.com/posts/college-de-paris-internationall_graduationceremony-collegedeparis-internationalstudents-activity-7351534584573902848-Aohn?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAE2CO4QB8War1r8xRIr7DEuSqFi_aID5Gv8",
+            },
+            {
+                type: "France - Switzerland Tour",
+                name: "Ascencia Business School",
+                for: "Study tour combined with Graduation Ceremony",
+                place: "France - Switzerland",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/07/cdpts_2.webp",
+                data: "30/06/2025",
+                link: "https://ideas.edu.vn/chuyen-di-phap-thuy-si",
+            },
+            {
+                type: "Workshop",
+                name: "VIBE CODING - Build your own app with AI",
+                for: "IDEAS Talk",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/06/WORSHOP-29-6-SIZE-16_9-870x570.webp",
+                data: "29/06/2025",
+                link: "https://www.youtube.com/watch?v=CXCDUKsU-0I",
+            },
+            {
+                type: "Workshop",
+                name: "Demystifying AI - Unveiling Untold Creative Methods",
+                for: "IDEAS Talk",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/05/IDEAS-TALK-25-5-1.png.webp",
+                data: "25/05/2025",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid04xb45shGBrNbYxHQwLdS6dmbpNmrQ7JGEabd7RoKghsJojm6UP7QegFETux1XsWol",
+            },
+            {
+                type: "Graduation Ceremony",
+                name: "Swiss UMEF",
+                for: "UMEF awards degrees to Vietnamese students",
+                place: "Geneva - Switzerland",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/05/ltnumef52025-1.jpg",
+                data: "06/05/2025",
+                link: "https://ideas.edu.vn/chuyen-di-thuy-si",
+            },
+            {
+                type: "Switzerland Tour",
+                name: "Swiss UMEF",
+                for: "Study tour combined with Graduation Ceremony",
+                place: "Swiss UMEF - Geneva",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/05/umef-tour52025-8.jpg.webp",
+                data: "04/05/2025",
+                link: "https://ideas.edu.vn/chuyen-di-thuy-si",
+            },
+            {
+                type: "Workshop",
+                name: "Data Security in the AI Era: Challenges and Solutions",
+                for: "IDEAS Talk",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/ws-16-9.png",
+                data: "20/04/2025",
+                link: "https://ideas.edu.vn/bao-mat-du-lieu-trong-thoi-dai-ai-thach-thuc-va-giai-phap",
+            },
+            {
+                type: "Workshop",
+                name: "AI Applications in Omnichannel Customer Service",
+                for: "IDEAS Talk",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/workshop233.jpg",
+                data: "23/03/2025",
+                link: "https://www.youtube.com/watch?v=mB0mDrgjVNs",
+            },
+            {
+                type: "Workshop",
+                name: "The Convergence of AI & Semiconductor",
+                for: "IDEAS Talk",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/sukethopai.jpg",
+                data: "09/03/2025",
+                link: "https://www.youtube.com/watch?v=5cogIW22nFI",
+            },
+            {
+                type: "Signing Ceremony",
+                name: "Signing Ceremony between Estiam - IDEAS - TSSAC",
+                for: "BBA & MBA",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/ShareImage-1.jpg",
+                data: "26/02/2025",
+                link: "https://www.facebook.com/photo?fbid=1107390047854216&set=a.547436477182912",
+            },
+            {
+                type: "Orientation",
+                name: "Orientation",
+                for: "MSc AI",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.png",
+                data: "16/02/2025",
+                link: "https://www.facebook.com/ideas.edu.vn/videos/547173147650906",
+            },
+            {
+                type: "Thesis Defense",
+                name: "Thesis Defense Session",
+                for: "DBA - Ascencia",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/IMG_8514.jpg",
+                data: "24/11/2024",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid035TAEqoZxxAPFMqeCf9FhwGb7a2Mt1pS38GHvsrFCNjMhLd5hGneXDavxSGBKHosil",
+            },
+            {
+                type: "Graduation Ceremony",
+                name: "Ascencia Business School",
+                for: "Global MBA",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/11/8X1A9328-1-1.jpg",
+                data: "23/11/2024",
+                link: "https://www.youtube.com/watch?si=gR-YOgFi2KQJftr9&v=hmVxOq5jkeM&feature=youtu.be",
+            },
+            {
+                type: "Instruction",
+                name: "UMEF Learning Platform Instruction Session",
+                for: "IDEAS - Swiss UMEF",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp",
+                data: "11/11/2024",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid02N7ZWkS7oXbCyta7gBob3mrtUUyftQWY9DiHxi7r3iXG9TuAQda8P41s1gx3ZbVx8l",
+            },
+            {
+                type: "Graduation Ceremony",
+                name: "Swiss UMEF",
+                for: "MBA/EMBA",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp",
+                data: "26/10/2024",
+                link: "https://www.youtube.com/watch?si=eJDfqKWc4HxT_TmS&v=fBf5YcaMxDY&feature=youtu.be",
+            },
+            {
+                type: "Workshop - Offline",
+                name: "Applying AI into Learning, Research and Career",
+                for: "IDEAS Talk",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg",
+                data: "26/10/2024",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid0v1oLG26bZKVR3551ikuTwrd2552LgxQqBv9YTtKRgakRe2nZf1WyKjfXi554s1gMl",
+            },
+            {
+                type: "Orientation",
+                name: "Ascencia Business School",
+                for: "Global MBA",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/10/461779815_852230670439635_3180438795963466960_n.jpg",
+                data: "29/09/2024",
+                link: "https://www.facebook.com/globalmba.collegedeparis/posts/pfbid0Wm4A4Jm42rgMAajQ31TSbp3jgyap1NrZEgJ8rWZh3yNciRePaUUr9Ay3dkGNbjrul",
+            },
+            {
+                type: "Thesis Defense",
+                name: "Ascencia Business School",
+                for: "Global MBA",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/baoveluanvanglobalmba.jpg",
+                data: "08/09/2024",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid0PFdnFWGiTkKYKNgBEzVgv2M5RZqKRVyc9pZm1gKMoTbBgQGF7BJHQzsaMtD9df4kl",
+            },
+            {
+                type: "Project Launch",
+                name: "Applying AI to Business Operations",
+                for: "IDEAS",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/08/Untitled-design.jpg",
+                data: "16/08/2024",
+                link: "https://ideas.edu.vn/tin-tuc-moi/vien-ideas-khoi-dong-du-an-ung-dung-ai-vao-van-hanh.html",
+            },
+            {
+                type: "Workshop - Seminar",
+                name: "International MBA 5.0 Model",
+                for: "IDEAS Talk",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.jpg",
+                data: "24/03/2024",
+                link: "https://ideas.edu.vn/su-kien-moi/hoi-thao-mba-quoc-te-mo-thuc-5-0-do-vien-ideas-to-chuc-da-dien-ra-thanh-cong-va-khep-lai-day-cam-xuc.html",
+            },
+            {
+                type: "Graduation Ceremony",
+                name: "Ascencia Business School",
+                for: "Global MBA/DBA",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/01/416256674_837845658141991_5379123310787471174_n.jpg",
+                data: "06/01/2024",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid02uRUWP7AE5ithsMRnvDcKhgLRUS5JTJzWofcoFQsnXPQPTtG9WogjihFvAPHLrNNKl",
+            },
+            {
+                type: "Thesis Defense",
+                name: "Doctoral Thesis Defense",
+                for: "DBA - Ascencia",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2024/01/400944403_660729459589758_4740588263672831012_n.jpg",
+                data: "20/11/2024",
+                link: "https://www.facebook.com/globalmba.collegedeparis/posts/pfbid02f2zzNXEJQts7XZ7kMMmAVw84Le2JgMKQGJg2NP7V2LvKG6QWpyBdFGYu2LSvq1tQl",
+            },
+            {
+                type: "Workshop",
+                name: "Networking Event with Swiss UMEF",
+                for: "MBA/EMBA",
+                place: "IDEAS",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2023/07/umefws.webp",
+                data: "18/06/2023",
+                link: "https://www.facebook.com/embatructuyen/posts/pfbid0fzGmQrABPKxsS11VSwPqdL2jWkv9HvfSPsNo95foRDyPMHUDNt476R5UxdUzVdaxl",
+            }
+        ];
+        const EVENTS_VI = [
             {
                 type: "IDEAS x GrowthVerse 2026",
                 place: "SIHUB - Hồ Chí Minh",
@@ -1099,6 +1386,8 @@ ob_start(function ($html) {
             },
         ];
 
+        const EVENTS = isEnMode ? EVENTS_EN : EVENTS_VI;
+
         const gridContainer = document.getElementById("events-grid-container");
         const paginationContainer = document.getElementById("events-pagination-container");
         const filterButtons = document.querySelectorAll(".events-filter-bar .filter-btn");
@@ -1138,7 +1427,7 @@ ob_start(function ($html) {
         const displayEventsPage = () => {
             const list = currentFilteredEvents;
             if (list.length === 0) {
-                gridContainer.innerHTML = `<p class="empty-grid-msg">Không tìm thấy sự kiện nào trong danh mục này.</p>`;
+                gridContainer.innerHTML = `<p class="empty-grid-msg">${isEnMode ? 'No events found in this category.' : 'Không tìm thấy sự kiện nào trong danh mục này.'}</p>`;
                 paginationContainer.innerHTML = "";
                 return;
             }
@@ -1153,13 +1442,13 @@ ob_start(function ($html) {
 
             // Render cards
             gridContainer.innerHTML = pageItems.map((event, idx) => {
-                let categoryTag = "Sự kiện";
+                let categoryTag = isEnMode ? "Event" : "Sự kiện";
                 if (event.type.includes("Workshop")) {
                     categoryTag = "Workshop";
-                } else if (event.type.includes("Lễ tốt nghiệp")) {
-                    categoryTag = "Tốt nghiệp";
-                } else if (event.type.includes("Chuyến đi")) {
-                    categoryTag = "Chuyến đi";
+                } else if (event.type.includes("Lễ tốt nghiệp") || event.type.includes("Graduation Ceremony")) {
+                    categoryTag = isEnMode ? "Graduation" : "Tốt nghiệp";
+                } else if (event.type.includes("Chuyến đi") || event.type.includes("Tour")) {
+                    categoryTag = isEnMode ? "Study Tour" : "Chuyến đi";
                 }
 
                 const displayTitle = event.type.length > 70 ? event.type.substring(0, 67) + "..." : event.type;
@@ -1364,7 +1653,7 @@ ob_start(function ($html) {
                 allOpt.className = 'emf-option active';
                 allOpt.dataset.value = 'ALL';
                 allOpt.setAttribute('role', 'option');
-                allOpt.innerHTML = '<i class="fa-solid fa-infinity"></i>Tất cả';
+                allOpt.innerHTML = `<i class="fa-solid fa-infinity"></i>${isEnMode ? 'All' : 'Tất cả'}`;
                 yearPanel.appendChild(allOpt);
                 years.forEach(yr => {
                     const opt = document.createElement('div');

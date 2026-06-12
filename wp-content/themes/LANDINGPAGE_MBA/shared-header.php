@@ -2,20 +2,137 @@
 /**
  * Shared Header Template Part (Vietnamese-only header extracted from index.html)
  */
+$is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
+
+if (!function_exists('get_language_toggle_url')) {
+    function get_language_toggle_url($to_lang) {
+        $current_uri = $_SERVER['REQUEST_URI'];
+        $url_parts = parse_url($current_uri);
+        $path = isset($url_parts['path']) ? $url_parts['path'] : '/';
+        $query = isset($url_parts['query']) ? $url_parts['query'] : '';
+        
+        parse_str($query, $query_params);
+        
+        if ($to_lang === 'en') {
+            if (strpos($path, '/en/') === 0 || $path === '/en') {
+                return $current_uri;
+            }
+            
+            $slug_mappings = [
+                '/he-thong-ho-tro-hoc-tap-lms-ideas' => '/lms-ecosystem',
+                '/so-do-to-chuc' => '/organizational-chart',
+                '/tu-van-vien' => '/advisors',
+                '/doi-ngu-giang-vien' => '/faculty',
+                '/dong-su-kien' => '/events',
+                '/lich-su-hinh-thanh-va-phat-trien-vien-ideas' => '/history',
+                '/ho-tro-tai-chinh-sacombank' => '/sacombank-financing',
+                '/cac-khoan-chi-phi' => '/tuition-fees',
+                '/ideas-ambassador' => '/ambassador',
+                '/ideas-podcast-series-01' => '/ideas-podcast',
+                '/lien-he' => '/contact',
+                '/thac-si-quan-tri-kinh-doanh-mba' => '/online-mba-admission',
+                '/chuong-trinh-online-mba' => '/online-mba-curriculum',
+                '/bai-viet' => '/news',
+            ];
+            
+            $new_path = $path;
+            $matched = false;
+            foreach ($slug_mappings as $vi_slug => $en_slug) {
+                if (rtrim($path, '/') === $vi_slug) {
+                    $new_path = $en_slug;
+                    $matched = true;
+                    break;
+                }
+            }
+            
+            if ($new_path === '/') {
+                $path = '/en';
+            } else {
+                $path = '/en' . $new_path;
+            }
+            
+            if (!$matched) {
+                $query_params['lang'] = 'en';
+            } else {
+                unset($query_params['lang']);
+            }
+        } else {
+            if (strpos($path, '/en/') === 0) {
+                $path = substr($path, 3);
+            } elseif ($path === '/en') {
+                $path = '/';
+            }
+            
+            $reverse_mappings = [
+                '/lms-ecosystem' => '/he-thong-ho-tro-hoc-tap-lms-ideas',
+                '/organizational-chart' => '/so-do-to-chuc',
+                '/advisors' => '/tu-van-vien',
+                '/faculty' => '/doi-ngu-giang-vien',
+                '/events' => '/dong-su-kien',
+                '/history' => '/lich-su-hinh-thanh-va-phat-trien-vien-ideas',
+                '/sacombank-financing' => '/ho-tro-tai-chinh-sacombank',
+                '/tuition-fees' => '/cac-khoan-chi-phi',
+                '/ambassador' => '/ideas-ambassador',
+                '/ideas-podcast' => '/ideas-podcast-series-01',
+                '/contact' => '/lien-he',
+                '/online-mba-admission' => '/thac-si-quan-tri-kinh-doanh-mba',
+                '/online-mba-curriculum' => '/chuong-trinh-online-mba',
+                '/news' => '/bai-viet',
+            ];
+            
+            foreach ($reverse_mappings as $en_slug => $vi_slug) {
+                if (rtrim($path, '/') === $en_slug) {
+                    $path = $vi_slug;
+                    break;
+                }
+            }
+            
+            unset($query_params['lang']);
+        }
+        
+        $new_query = http_build_query($query_params);
+        return $path . ($new_query ? '?' . $new_query : '');
+    }
+}
+
+$home_url = $is_en ? '/en' : '/';
+$lms_url = $is_en ? '/en/lms-ecosystem' : '/he-thong-ho-tro-hoc-tap-lms-ideas';
+$faculty_url = $is_en ? '/en/faculty' : '/doi-ngu-giang-vien';
+$events_url = $is_en ? '/en/events' : '/dong-su-kien';
+$history_url = $is_en ? '/en/history' : '/lich-su-hinh-thanh-va-phat-trien-vien-ideas';
+$advisors_url = $is_en ? '/en/advisors' : '/tu-van-vien';
+$swiss_umef_url = $is_en ? '/en/swiss-umef' : '/swiss-umef';
+$sacombank_url = $is_en ? '/en/sacombank-financing' : '/ho-tro-tai-chinh-sacombank';
+$tuition_url = $is_en ? '/en/tuition-fees' : '/cac-khoan-chi-phi';
+$ambassador_url = $is_en ? '/en/ambassador' : '/ideas-ambassador';
+$news_url = $is_en ? '/en/news' : '/bai-viet';
+$ideas_talk_url = $is_en ? '/en/ideas-talk' : '/ideas-talk';
+$podcast_url = $is_en ? '/en/ideas-podcast' : '/ideas-podcast-series-01';
+$sitemap_url = $is_en ? '/en/sitemap' : '/sitemap';
+$contact_url = $is_en ? '/en/contact' : '/lien-he';
+
+// Program pages
+$mba_url = $is_en ? '/en/mba' : '/mba';
+$emba_url = $is_en ? '/en/emba' : '/emba';
+$mscai_url = $is_en ? '/en/mscai' : '/mscai';
+$mbainai_url = $is_en ? '/en/mbainai' : '/mbainai';
+$bba_url = $is_en ? '/en/bba' : '/bba';
+$fullbba_url = $is_en ? '/en/fullbba' : '/fullbba';
+$dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
 ?>
 <!-- Site Header -->
 <header class="ideas_header" id="site-header">
     <div class="container header-inner">
-        <a href="https://ideas.edu.vn/" class="logo" aria-label="Trang chủ IDEAS">
+        <a href="<?php echo esc_url($home_url); ?>" class="logo" aria-label="<?php echo $is_en ? 'IDEAS Homepage' : 'Trang chủ IDEAS'; ?>">
             <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
                 alt="Logo IDEAS Education - 15 năm thành lập" width="60" height="60" loading="eager"
                 fetchpriority="high">
         </a>
         <nav class="header-nav">
-            <!-- Dropdown 1: Giới thiệu -->
+            <!-- Dropdown 1: Giới thiệu / About -->
             <div class="nav-dropdown">
                 <button type="button" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    Giới thiệu
+                    <?php echo $is_en ? 'About Us' : 'Giới thiệu'; ?>
                     <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -23,36 +140,35 @@
                     </svg>
                 </button>
                 <div class="dropdown-menu-box simple-dropdown">
-                    <a href="/" class="dropdown-item-simple">
-                        <i class="fa-solid fa-house"></i> <span>Trang chủ</span>
+                    <a href="<?php echo esc_url($home_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-house"></i> <span><?php echo $is_en ? 'Home' : 'Trang chủ'; ?></span>
                     </a>
-                    <a href="/he-thong-ho-tro-hoc-tap-lms-ideas" class="dropdown-item-simple">
-                        <i class="fa-solid fa-layer-group"></i> <span>Hệ thống LMS</span>
+                    <a href="<?php echo esc_url($lms_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-layer-group"></i> <span><?php echo $is_en ? 'LMS Ecosystem' : 'Hệ thống LMS'; ?></span>
                     </a>
-
-                    <a href="/doi-ngu-giang-vien" class="dropdown-item-simple">
-                        <i class="fa-solid fa-user-graduate"></i> <span>Hội đồng chuyên môn</span>
+                    <a href="<?php echo esc_url($faculty_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-user-graduate"></i> <span><?php echo $is_en ? 'Faculty Board' : 'Hội đồng chuyên môn'; ?></span>
                     </a>
-                    <a href="/dong-su-kien" class="dropdown-item-simple">
-                        <i class="fa-solid fa-clock"></i> <span>Dòng sự kiện</span>
+                    <a href="<?php echo esc_url($events_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-clock"></i> <span><?php echo $is_en ? 'Events' : 'Dòng sự kiện'; ?></span>
                     </a>
-                    <a href="/lich-su-hinh-thanh-va-phat-trien-vien-ideas" class="dropdown-item-simple">
-                        <i class="fa-solid fa-landmark"></i> <span>Lịch sử phát triển</span>
+                    <a href="<?php echo esc_url($history_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-landmark"></i> <span><?php echo $is_en ? 'History' : 'Lịch sử phát triển'; ?></span>
                     </a>
-                    <a href="/tu-van-vien" class="dropdown-item-simple">
-                        <i class="fa-solid fa-user-check"></i> <span>Tư vấn viên</span>
+                    <a href="<?php echo esc_url($advisors_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-user-check"></i> <span><?php echo $is_en ? 'Advisors' : 'Tư vấn viên'; ?></span>
                     </a>
                     <div class="dropdown-divider-simple"></div>
-                    <a href="/swiss-umef" class="dropdown-item-simple">
+                    <a href="<?php echo esc_url($swiss_umef_url); ?>" class="dropdown-item-simple">
                         <i class="fa-solid fa-school"></i> <span>Swiss UMEF</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Dropdown 2: Chương trình -->
+            <!-- Dropdown 2: Chương trình / Programs -->
             <div class="nav-dropdown">
                 <button type="button" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    Chương trình
+                    <?php echo $is_en ? 'Programs' : 'Chương trình'; ?>
                     <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -61,80 +177,80 @@
                 </button>
                 <div class="dropdown-menu-box">
                     <div class="dropdown-column">
-                        <div class="dropdown-column-title">Thạc sĩ</div>
-                        <a href="/mba" class="dropdown-item">
+                        <div class="dropdown-column-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
+                        <a href="<?php echo esc_url($mba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
                                 src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                                 alt="Online MBA" decoding="async" loading="lazy" />
                             <div class="item-content">
                                 <div class="item-title">Online MBA</div>
-                                <div class="item-desc">Thạc sĩ QTKD Trực tuyến</div>
+                                <div class="item-desc"><?php echo $is_en ? 'Online MBA Degree' : 'Thạc sĩ QTKD Trực tuyến'; ?></div>
                             </div>
                         </a>
-                        <a href="/emba" class="dropdown-item">
+                        <a href="<?php echo esc_url($emba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                                 alt="Executive MBA" decoding="async" loading="lazy" />
                             <div class="item-content">
                                 <div class="item-title">Executive MBA</div>
-                                <div class="item-desc">Thạc sĩ điều hành QTKD trực tuyến</div>
+                                <div class="item-desc"><?php echo $is_en ? 'Online Executive MBA' : 'Thạc sĩ điều hành QTKD trực tuyến'; ?></div>
                             </div>
                         </a>
-                        <a href="/mscai" class="dropdown-item">
+                        <a href="<?php echo esc_url($mscai_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
                                 src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="Master AI"
                                 loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Master AI (MSc AI)</div>
-                                <div class="item-desc">Thạc sĩ AI ứng dụng</div>
+                                <div class="item-desc"><?php echo $is_en ? 'Applied MSc in AI' : 'Thạc sĩ AI ứng dụng'; ?></div>
                             </div>
                         </a>
-                        <a href="/mbainai" class="dropdown-item">
+                        <a href="<?php echo esc_url($mbainai_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
                                 src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                                 alt="MBA in AI" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">MBA in AI</div>
-                                <div class="item-desc">Thạc sĩ QTKD Ứng dụng AI</div>
+                                <div class="item-desc"><?php echo $is_en ? 'MBA Applied AI' : 'Thạc sĩ QTKD Ứng dụng AI'; ?></div>
                             </div>
                         </a>
                     </div>
                     <div class="dropdown-column-divider"></div>
                     <div class="dropdown-column">
-                        <div class="dropdown-column-title">Cử nhân</div>
-                        <a href="/bba" class="dropdown-item">
+                        <div class="dropdown-column-title"><?php echo $is_en ? 'Bachelor' : 'Cử nhân'; ?></div>
+                        <a href="<?php echo esc_url($bba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp"
                                 alt="Top-up BBA" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Top-up BBA</div>
-                                <div class="item-desc">Liên thông Cử nhân 12 tháng</div>
+                                <div class="item-desc"><?php echo $is_en ? '12-Month Degree Completion' : 'Liên thông Cử nhân 12 tháng'; ?></div>
                             </div>
                         </a>
-                        <a href="/fullbba" class="dropdown-item">
+                        <a href="<?php echo esc_url($fullbba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
                                 src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                                 alt="Global Online BBA" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Global Online BBA</div>
-                                <div class="item-desc">Cử nhân QTKD Quốc tế</div>
+                                <div class="item-desc"><?php echo $is_en ? 'International BBA' : 'Cử nhân QTKD Quốc tế'; ?></div>
                             </div>
                         </a>
-                        <div class="dropdown-column-title" style="margin-top: 16px;">Tiến sĩ</div>
-                        <a href="/dual-dba-estiam-rb" class="dropdown-item">
+                        <div class="dropdown-column-title" style="margin-top: 16px;"><?php echo $is_en ? 'Doctorate' : 'Tiến sĩ'; ?></div>
+                        <a href="<?php echo esc_url($dual_dba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp"
                                 alt="Dual DBA" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Dual DBA</div>
-                                <div class="item-desc">Tiến sĩ song bằng Pháp & Anh</div>
+                                <div class="item-desc"><?php echo $is_en ? 'Dual French & UK DBA' : 'Tiến sĩ song bằng Pháp & Anh'; ?></div>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Dropdown 3: Chính sách -->
+            <!-- Dropdown 3: Chính sách / Policies -->
             <div class="nav-dropdown">
                 <button type="button" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    Chính sách
+                    <?php echo $is_en ? 'Policies' : 'Chính sách'; ?>
                     <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -142,22 +258,22 @@
                     </svg>
                 </button>
                 <div class="dropdown-menu-box simple-dropdown">
-                    <a href="/ho-tro-tai-chinh-sacombank" class="dropdown-item-simple">
-                        <i class="fa-solid fa-circle-dollar-to-slot"></i> <span>Trả góp học phí</span>
+                    <a href="<?php echo esc_url($sacombank_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-circle-dollar-to-slot"></i> <span><?php echo $is_en ? 'Installment Plan' : 'Trả góp học phí'; ?></span>
                     </a>
-                    <a href="/cac-khoan-chi-phi" class="dropdown-item-simple">
-                        <i class="fa-solid fa-file-invoice-dollar"></i> <span>Các khoản chi phí</span>
+                    <a href="<?php echo esc_url($tuition_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-file-invoice-dollar"></i> <span><?php echo $is_en ? 'Tuition & Fees' : 'Các khoản chi phí'; ?></span>
                     </a>
-                    <a href="/ideas-ambassador" class="dropdown-item-simple">
+                    <a href="<?php echo esc_url($ambassador_url); ?>" class="dropdown-item-simple">
                         <i class="fa-solid fa-user-graduate"></i> <span>IDEAS - Ambassador</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Dropdown 4: Bản tin -->
+            <!-- Dropdown 4: Bản tin / News -->
             <div class="nav-dropdown">
                 <button type="button" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                    Bản tin
+                    <?php echo $is_en ? 'News' : 'Bản tin'; ?>
                     <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -165,27 +281,29 @@
                     </svg>
                 </button>
                 <div class="dropdown-menu-box simple-dropdown">
-                    <a href="/bai-viet" class="dropdown-item-simple">
-                        <i class="fa-solid fa-newspaper"></i> <span>Bài viết</span>
+                    <a href="<?php echo esc_url($news_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-newspaper"></i> <span><?php echo $is_en ? 'News' : 'Bài viết'; ?></span>
                     </a>
                     <a href="/kiem-dinh-2" class="dropdown-item-simple">
-                        <i class="fa-solid fa-certificate"></i> <span>Kiểm định</span>
+                        <i class="fa-solid fa-certificate"></i> <span><?php echo $is_en ? 'Accreditation' : 'Kiểm định'; ?></span>
                     </a>
-                    <a href="/dong-su-kien#chuyen-di" class="dropdown-item-simple">
-                        <i class="fa-solid fa-plane-departure"></i> <span>Chuyến đi</span>
+                    <a href="<?php echo esc_url($events_url); ?>#chuyen-di" class="dropdown-item-simple">
+                        <i class="fa-solid fa-plane-departure"></i> <span><?php echo $is_en ? 'Study Trips' : 'Chuyến đi'; ?></span>
                     </a>
-                    <a href="/ideas-talk" class="dropdown-item-simple">
+                    <a href="<?php echo esc_url($ideas_talk_url); ?>" class="dropdown-item-simple">
                         <i class="fa-solid fa-globe"></i> <span>Webinar</span>
                     </a>
-                    <a href="/ideas-podcast-series-01" class="dropdown-item-simple">
+                    <a href="<?php echo esc_url($podcast_url); ?>" class="dropdown-item-simple">
                         <i class="fa-solid fa-microphone-lines"></i> <span>Podcast</span>
                     </a>
                 </div>
             </div>
+
             <div style="display:flex;align-items:center;gap:8px;">
                 <button type="button" class="nav-cta" style="cursor: pointer; border: none; font-family: inherit;"
-                    onclick="showform('header')">Nhận tư vấn</button>
-                <button class="bk-open-btn" aria-label="Mở form đặt lịch tư vấn"
+                    onclick="showform('header')"><?php echo $is_en ? 'Apply Now' : 'Nhận tư vấn'; ?></button>
+                
+                <button class="bk-open-btn" aria-label="<?php echo $is_en ? 'Book a counseling appointment' : 'Mở form đặt lịch tư vấn'; ?>"
                     style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:transparent;color:#ab0e00;border:1.5px solid rgba(171,14,0,0.45);border-radius:100px;font-weight:700;font-size:0.88rem;cursor:pointer;transition:all 0.3s ease;white-space:nowrap;"
                     onmouseover="this.style.background='#ab0e00';this.style.color='#fff';this.style.borderColor='#ab0e00';"
                     onmouseout="this.style.background='transparent';this.style.color='#ab0e00';this.style.borderColor='rgba(171,14,0,0.45)';"
@@ -197,8 +315,17 @@
                         <line x1="8" y1="2" x2="8" y2="6"></line>
                         <line x1="3" y1="10" x2="21" y2="10"></line>
                     </svg>
-                    Đặt lịch
+                    <?php echo $is_en ? 'Book Meeting' : 'Đặt lịch'; ?>
                 </button>
+
+                <!-- Language Switcher Toggle -->
+                <a href="<?php echo esc_url(get_language_toggle_url($is_en ? 'vi' : 'en')); ?>" class="lang-switch-btn" 
+                   aria-label="<?php echo $is_en ? 'Chuyển sang Tiếng Việt' : 'Switch to English'; ?>" 
+                   style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.15);font-weight:700;font-size:0.8rem;text-decoration:none;transition:all 0.3s ease;box-shadow:0 4px 12px rgba(0,0,0,0.15);"
+                   onmouseover="this.style.background='rgba(171,14,0,0.2)';this.style.borderColor='#ab0e00';this.style.color='#ffcccc';"
+                   onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#fff';">
+                    <?php echo $is_en ? 'VI' : 'EN'; ?>
+                </a>
             </div>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -212,21 +339,31 @@
 <div class="mobile-overlay" id="mobile-overlay"></div>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true" data-lenis-prevent>
     <div class="mobile-menu-header">
-        <a href="/" class="mobile-menu-logo" aria-label="Trang chủ IDEAS">
+        <a href="<?php echo esc_url($home_url); ?>" class="mobile-menu-logo" aria-label="<?php echo $is_en ? 'IDEAS Homepage' : 'Trang chủ IDEAS'; ?>">
             <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
                 alt="Logo IDEAS Education - 15 năm thành lập" width="45" height="45" loading="lazy">
         </a>
-        <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
-                xmlns="http://www.w3.org/2000/svg">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
+        
+        <div style="display:flex;align-items:center;gap:12px;">
+            <!-- Language Switcher in Mobile Menu -->
+            <a href="<?php echo esc_url(get_language_toggle_url($is_en ? 'vi' : 'en')); ?>" class="lang-switch-btn" 
+               style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.05);color:#fff;border:1px solid rgba(255,255,255,0.15);font-weight:700;font-size:0.75rem;text-decoration:none;transition:all 0.3s ease;">
+                <?php echo $is_en ? 'VI' : 'EN'; ?>
+            </a>
+
+            <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
     </div>
+    
     <div class="mobile-dropdown">
         <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
-            Giới thiệu
+            <?php echo $is_en ? 'About Us' : 'Giới thiệu'; ?>
             <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -234,32 +371,32 @@
             </svg>
         </button>
         <div class="mobile-dropdown-content">
-            <a href="/" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-house"></i> <span>Trang chủ</span>
+            <a href="<?php echo esc_url($home_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-house"></i> <span><?php echo $is_en ? 'Home' : 'Trang chủ'; ?></span>
             </a>
-            <a href="/he-thong-ho-tro-hoc-tap-lms-ideas" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-layer-group"></i> <span>Hệ thống LMS</span>
+            <a href="<?php echo esc_url($lms_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-layer-group"></i> <span><?php echo $is_en ? 'LMS Ecosystem' : 'Hệ thống LMS'; ?></span>
             </a>
-
-            <a href="/doi-ngu-giang-vien" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-user-graduate"></i> <span>Hội đồng chuyên môn</span>
+            <a href="<?php echo esc_url($faculty_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-user-graduate"></i> <span><?php echo $is_en ? 'Faculty Board' : 'Hội đồng chuyên môn'; ?></span>
             </a>
-            <a href="/dong-su-kien" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-clock"></i> <span>Dòng sự kiện</span>
+            <a href="<?php echo esc_url($events_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-clock"></i> <span><?php echo $is_en ? 'Events' : 'Dòng sự kiện'; ?></span>
             </a>
-            <a href="/lich-su-hinh-thanh-va-phat-trien-vien-ideas" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-landmark"></i> <span>Lịch sử phát triển</span>
+            <a href="<?php echo esc_url($history_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-landmark"></i> <span><?php echo $is_en ? 'History' : 'Lịch sử phát triển'; ?></span>
             </a>
-            <a href="/tu-van-vien" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-user-check"></i> <span>Tư vấn viên</span>
+            <a href="<?php echo esc_url($advisors_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-user-check"></i> <span><?php echo $is_en ? 'Advisors' : 'Tư vấn viên'; ?></span>
             </a>
-            <div class="mobile-dropdown-section-title">Trường đối tác</div>
-            <a href="/swiss-umef" class="mobile-dropdown-item-simple">Swiss UMEF</a>
+            <div class="mobile-dropdown-section-title"><?php echo $is_en ? 'Partner University' : 'Trường đối tác'; ?></div>
+            <a href="<?php echo esc_url($swiss_umef_url); ?>" class="mobile-dropdown-item-simple">Swiss UMEF</a>
         </div>
     </div>
+    
     <div class="mobile-dropdown expanded expanded-default">
         <button type="button" class="mobile-dropdown-toggle" aria-expanded="true">
-            Chương trình
+            <?php echo $is_en ? 'Programs' : 'Chương trình'; ?>
             <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -268,72 +405,73 @@
         </button>
         <div class="mobile-dropdown-content active">
             <div class="mobile-dropdown-section">
-                <div class="mobile-section-title">Thạc sĩ</div>
-                <a href="/mba" class="mobile-dropdown-item">
+                <div class="mobile-section-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
+                <a href="<?php echo esc_url($mba_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
                         alt="Online MBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Online MBA</div>
-                        <div class="item-desc">Thạc sĩ QTKD Trực tuyến</div>
+                        <div class="item-desc"><?php echo $is_en ? 'Online MBA Degree' : 'Thạc sĩ QTKD Trực tuyến'; ?></div>
                     </div>
                 </a>
-                <a href="/emba" class="mobile-dropdown-item">
+                <a href="<?php echo esc_url($emba_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
                         alt="Executive MBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Executive MBA</div>
-                        <div class="item-desc">Thạc sĩ điều hành QTKD trực tuyến</div>
+                        <div class="item-desc"><?php echo $is_en ? 'Online Executive MBA' : 'Thạc sĩ điều hành QTKD trực tuyến'; ?></div>
                     </div>
                 </a>
-                <a href="/mscai" class="mobile-dropdown-item">
+                <a href="<?php echo esc_url($mscai_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp"
                         alt="Master AI" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Master AI (MSc AI)</div>
-                        <div class="item-desc">Thạc sĩ AI ứng dụng</div>
+                        <div class="item-desc"><?php echo $is_en ? 'Applied MSc in AI' : 'Thạc sĩ AI ứng dụng'; ?></div>
                     </div>
                 </a>
-                <a href="/mbainai" class="mobile-dropdown-item">
+                <a href="<?php echo esc_url($mbainai_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
                         alt="MBA in AI" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">MBA in AI</div>
-                        <div class="item-desc">Thạc sĩ QTKD Ứng dụng AI</div>
+                        <div class="item-desc"><?php echo $is_en ? 'MBA Applied AI' : 'Thạc sĩ QTKD Ứng dụng AI'; ?></div>
                     </div>
                 </a>
             </div>
             <div class="mobile-dropdown-section">
-                <div class="mobile-section-title">Cử nhân &amp; Tiến sĩ</div>
-                <a href="/bba" class="mobile-dropdown-item">
+                <div class="mobile-section-title"><?php echo $is_en ? 'Bachelor & Doctorate' : 'Cử nhân &amp; Tiến sĩ'; ?></div>
+                <a href="<?php echo esc_url($bba_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp"
                         alt="Top-up BBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Top-up BBA</div>
-                        <div class="item-desc">Liên thông Cử nhân 12 tháng</div>
+                        <div class="item-desc"><?php echo $is_en ? '12-Month Completion' : 'Liên thông Cử nhân 12 tháng'; ?></div>
                     </div>
                 </a>
-                <a href="/fullbba" class="mobile-dropdown-item">
+                <a href="<?php echo esc_url($fullbba_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
                         alt="Global Online BBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Global Online BBA</div>
-                        <div class="item-desc">Cử nhân QTKD Quốc tế</div>
+                        <div class="item-desc"><?php echo $is_en ? 'International BBA' : 'Cử nhân QTKD Quốc tế'; ?></div>
                     </div>
                 </a>
-                <a href="/dual-dba-estiam-rb" class="mobile-dropdown-item">
+                <a href="<?php echo esc_url($dual_dba_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp"
                         alt="Dual DBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Dual DBA</div>
-                        <div class="item-desc">Tiến sĩ song bằng Pháp & Anh</div>
+                        <div class="item-desc"><?php echo $is_en ? 'Dual French & UK DBA' : 'Tiến sĩ song bằng Pháp & Anh'; ?></div>
                     </div>
                 </a>
             </div>
         </div>
     </div>
+    
     <div class="mobile-dropdown">
         <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
-            Chính sách
+            <?php echo $is_en ? 'Policies' : 'Chính sách'; ?>
             <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -341,20 +479,21 @@
             </svg>
         </button>
         <div class="mobile-dropdown-content">
-            <a href="/ho-tro-tai-chinh-sacombank" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-circle-dollar-to-slot"></i> <span>Trả góp học phí</span>
+            <a href="<?php echo esc_url($sacombank_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-circle-dollar-to-slot"></i> <span><?php echo $is_en ? 'Installment Plan' : 'Trả góp học phí'; ?></span>
             </a>
-            <a href="/cac-khoan-chi-phi" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-file-invoice-dollar"></i> <span>Các khoản chi phí</span>
+            <a href="<?php echo esc_url($tuition_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-file-invoice-dollar"></i> <span><?php echo $is_en ? 'Tuition & Fees' : 'Các khoản chi phí'; ?></span>
             </a>
-            <a href="/ideas-ambassador" class="mobile-dropdown-item-simple">
+            <a href="<?php echo esc_url($ambassador_url); ?>" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-user-graduate"></i> <span>IDEAS - Ambassador</span>
             </a>
         </div>
     </div>
+    
     <div class="mobile-dropdown">
         <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
-            Bản tin
+            <?php echo $is_en ? 'News' : 'Bản tin'; ?>
             <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -362,27 +501,28 @@
             </svg>
         </button>
         <div class="mobile-dropdown-content">
-            <a href="/bai-viet" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-newspaper"></i> <span>Bài viết</span>
+            <a href="<?php echo esc_url($news_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-newspaper"></i> <span><?php echo $is_en ? 'News' : 'Bài viết'; ?></span>
             </a>
             <a href="/kiem-dinh-2" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-certificate"></i> <span>Kiểm định</span>
+                <i class="fa-solid fa-certificate"></i> <span><?php echo $is_en ? 'Accreditation' : 'Kiểm định'; ?></span>
             </a>
-            <a href="/dong-su-kien#chuyen-di" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-plane-departure"></i> <span>Chuyến đi</span>
+            <a href="<?php echo esc_url($events_url); ?>#chuyen-di" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-plane-departure"></i> <span><?php echo $is_en ? 'Study Trips' : 'Chuyến đi'; ?></span>
             </a>
-            <a href="/ideas-talk" class="mobile-dropdown-item-simple">
+            <a href="<?php echo esc_url($ideas_talk_url); ?>" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-globe"></i> <span>Webinar</span>
             </a>
-            <a href="/ideas-podcast-series-01" class="mobile-dropdown-item-simple">
+            <a href="<?php echo esc_url($podcast_url); ?>" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-microphone-lines"></i> <span>Podcast</span>
             </a>
         </div>
     </div>
+    
     <div style="padding:20px; margin-top:20px;">
         <button type="button" class="nav-cta"
             style="display:block; text-align:center; width:100%; cursor: pointer; border: none; font-family: inherit;"
-            onclick="showform('header_mb')">Nhận tư vấn</button>
+            onclick="showform('header_mb')"><?php echo $is_en ? 'Apply Now' : 'Nhận tư vấn'; ?></button>
     </div>
 </div>
 
