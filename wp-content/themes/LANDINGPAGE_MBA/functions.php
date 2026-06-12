@@ -1,4 +1,85 @@
 <?php
+// Custom routing hook for English version URLs (/en/...)
+add_action('parse_request', function($wp) {
+    if (empty($wp->request)) {
+        return;
+    }
+    
+    // Check if the request starts with en/
+    if (preg_match('/^en\/(.*)$/', $wp->request, $matches)) {
+        $slug = rtrim($matches[1], '/');
+        
+        if (empty($slug)) {
+            return;
+        }
+        
+        // Define slug mappings from English URLs to Vietnamese WordPress slugs
+        $slug_map = [
+            'swiss-umef' => 'swiss-umef',
+            'lms-ecosystem' => 'he-thong-ho-tro-hoc-tap-lms-ideas',
+            'organizational-chart' => 'so-do-to-chuc',
+            'advisors' => 'tu-van-vien',
+            'faculty' => 'doi-ngu-giang-vien',
+            'events' => 'dong-su-kien',
+            'history' => 'lich-su-hinh-thanh-va-phat-trien-vien-ideas',
+            'sacombank-financing' => 'ho-tro-tai-chinh-sacombank',
+            'tuition-fees' => 'cac-khoan-chi-phi',
+            'ambassador' => 'ideas-ambassador',
+            'ideas-talk' => 'ideas-talk',
+            'ideas-podcast' => 'ideas-podcast-series-01',
+            'sitemap' => 'sitemap',
+            'contact' => 'lien-he',
+            'online-mba-admission' => 'thac-si-quan-tri-kinh-doanh-mba',
+            'online-mba-curriculum' => 'chuong-trinh-online-mba',
+            'news' => 'bai-viet',
+        ];
+        
+        // Find if this is a custom page we support
+        $matched_slug = null;
+        if (isset($slug_map[$slug])) {
+            $matched_slug = $slug_map[$slug];
+        } elseif (in_array($slug, $slug_map)) {
+            $matched_slug = $slug;
+        }
+        
+        if ($matched_slug !== null) {
+            // Force WordPress to route to the correct page slug
+            $wp->query_vars = [
+                'pagename' => $matched_slug,
+                'lang' => 'en'
+            ];
+            $wp->matched_rule = 'pagename';
+        } elseif (strpos($slug, 'tin-tuc-moi') === 0) {
+            // It is a blog category or single post
+            $parts = explode('/', $slug);
+            if (count($parts) > 1 && !empty($parts[1])) {
+                $wp->query_vars = [
+                    'category_name' => 'tin-tuc-moi',
+                    'name' => $parts[1],
+                    'lang' => 'en'
+                ];
+            } else {
+                $wp->query_vars = [
+                    'category_name' => 'tin-tuc-moi',
+                    'lang' => 'en'
+                ];
+            }
+        }
+        
+        // Set lang=en in $_GET and query vars
+        $_GET['lang'] = 'en';
+        $wp->query_vars['lang'] = 'en';
+    }
+});
+
+// Avoid redirecting /en/... URLs back to the Vietnamese versions
+add_filter('redirect_canonical', function($redirect_url, $requested_url) {
+    if (strpos($redirect_url, '/en/') !== false || strpos($requested_url, '/en/') !== false) {
+        return false;
+    }
+    return $redirect_url;
+}, 10, 2);
+
 add_action('after_setup_theme', 'blankslate_setup');
 function blankslate_setup()
 {
