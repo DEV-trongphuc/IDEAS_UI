@@ -47,6 +47,51 @@ $reels = [
             font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
         }
 
+        /* Hide global scrollbar for this page */
+        *::-webkit-scrollbar,
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar,
+        .reel-container::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        
+        * {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+
+        /* Floating Unmute Hint Toast */
+        .reel-mute-toast {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translate(-50%, -10px);
+            z-index: 999;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 8px 16px;
+            border-radius: 100px;
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0;
+            white-space: nowrap;
+        }
+        .reel-mute-toast.visible {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
         /* Hide standard theme wrapper components */
         header, footer, .site-header, .site-footer, #site-header, #site-footer, .header_menu_area, .footer_area {
             display: none !important;
@@ -356,6 +401,11 @@ $reels = [
 
     <!-- central viewport frame -->
     <div class="reel-app-frame">
+        <!-- Unmute Hint Toast -->
+        <div class="reel-mute-toast" id="reel-mute-toast">
+            <i class="fa-solid fa-volume-xmark"></i> <span><?php echo $is_en ? 'Tap video to unmute' : 'Chạm vào video để bật âm thanh'; ?> 🔊</span>
+        </div>
+
         <div class="reel-container">
             <?php foreach ($reels as $index => $r): ?>
                 <div class="reel-slide" data-index="<?php echo $index; ?>" data-reel-id="<?php echo esc_attr($r['id']); ?>">
@@ -496,6 +546,7 @@ $reels = [
         });
     </script>
 
+    <?php get_template_part('shared-modals'); ?>
     <?php wp_footer(); ?>
 </body>
 </html>

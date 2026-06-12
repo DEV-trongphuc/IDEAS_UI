@@ -7490,9 +7490,14 @@
 
 <!-- Facebook Reel Modal & Trigger Integration -->
 <style>
-.hero-photo-secondary {
+.hero-visual {
     position: relative !important;
+}
+.hero-photo-secondary {
+    position: absolute !important;
+    display: block !important;
     cursor: pointer !important;
+    z-index: 15 !important;
 }
 .reel-overlay {
     position: absolute !important;
@@ -7500,7 +7505,7 @@
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(171, 14, 0, 0.35) !important;
+    background: rgba(15, 23, 42, 0.25) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -7510,51 +7515,59 @@
     z-index: 10 !important;
 }
 .hero-photo-secondary:hover .reel-overlay {
-    background: rgba(171, 14, 0, 0.55) !important;
+    background: rgba(15, 23, 42, 0.4) !important;
 }
 .play-btn-circle {
     width: 48px !important;
     height: 48px !important;
-    background: #ffffff !important;
+    background: #ab0e00 !important;
     border-radius: 50% !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
-    color: #ab0e00 !important;
+    box-shadow: 0 4px 15px rgba(171, 14, 0, 0.4) !important;
+    color: #ffffff !important;
     font-size: 18px !important;
     position: relative !important;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, color 0.3s !important;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, box-shadow 0.3s !important;
 }
 .play-btn-circle i {
     margin-left: 3px !important;
 }
+.play-btn-circle::before,
 .play-btn-circle::after {
     content: '' !important;
     position: absolute !important;
     width: 100% !important;
     height: 100% !important;
-    border: 2px solid #ffffff !important;
+    border: 3px solid rgba(171, 14, 0, 0.7) !important;
     border-radius: 50% !important;
-    animation: playRipple 1.6s infinite ease-out !important;
-    opacity: 0 !important;
     top: 0 !important;
     left: 0 !important;
     box-sizing: border-box !important;
+    pointer-events: none !important;
+}
+.play-btn-circle::before {
+    animation: playRipple 2s infinite ease-out !important;
+}
+.play-btn-circle::after {
+    animation: playRipple 2s infinite ease-out !important;
+    animation-delay: 1s !important;
 }
 @keyframes playRipple {
     0% {
         transform: scale(1);
-        opacity: 0.8;
+        opacity: 0.9;
     }
     100% {
-        transform: scale(1.6);
+        transform: scale(1.8);
         opacity: 0;
     }
 }
 .hero-photo-secondary:hover .play-btn-circle {
     transform: scale(1.15) !important;
-    background: #ab0e00 !important;
+    background: #ff2a1a !important;
+    box-shadow: 0 6px 25px rgba(255, 42, 26, 0.6) !important;
     color: #ffffff !important;
 }
 
@@ -7583,7 +7596,7 @@
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(20, 2, 0, 0.85) !important;
+    background: rgba(15, 23, 42, 0.92) !important;
 }
 .fb-reel-modal-container {
     position: relative !important;
@@ -7754,5 +7767,4 @@
 </script>
 
 </body>
-
 </html>

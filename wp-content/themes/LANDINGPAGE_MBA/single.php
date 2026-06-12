@@ -1335,6 +1335,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </form>
                                 </div>
 
+                                <!-- Standalone IDEAS Reel Promo Card Widget -->
+                                <div class="sidebar-widget reel-sidebar-promo-widget" style="padding: 0; background: transparent; border: none; box-shadow: none; margin-bottom: 24px;">
+                                    <div class="reel-promo-card" style="margin-bottom: 0 !important;">
+                                        <div class="reel-promo-icon">
+                                            <i class="fa-solid fa-circle-play"></i>
+                                        </div>
+                                        <div class="reel-promo-info">
+                                            <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
+                                            <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-link">
+                                                <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <!-- Recent Posts Widget -->
                                 <div class="sidebar-widget">
                                     <h3 class="widget-title"><?php echo $is_en ? 'Recent Posts' : 'Bài viết gần đây'; ?></h3>

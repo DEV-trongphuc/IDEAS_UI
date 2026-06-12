@@ -110,6 +110,7 @@ $ideas_talk_url = $is_en ? '/en/ideas-talk' : '/ideas-talk';
 $podcast_url = $is_en ? '/en/ideas-podcast' : '/ideas-podcast-series-01';
 $sitemap_url = $is_en ? '/en/sitemap' : '/sitemap';
 $contact_url = $is_en ? '/en/contact' : '/lien-he';
+$reel_url = $is_en ? '/reel?lang=en' : '/reel';
 
 // Program pages
 $mba_url = $is_en ? '/en/mba' : '/mba';
@@ -283,6 +284,9 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                 <div class="dropdown-menu-box simple-dropdown">
                     <a href="<?php echo esc_url($news_url); ?>" class="dropdown-item-simple">
                         <i class="fa-solid fa-newspaper"></i> <span><?php echo $is_en ? 'News' : 'Bài viết'; ?></span>
+                    </a>
+                    <a href="<?php echo esc_url($reel_url); ?>" class="dropdown-item-simple">
+                        <i class="fa-solid fa-circle-play"></i> <span>IDEAS Reel</span>
                     </a>
                     <a href="/kiem-dinh-2" class="dropdown-item-simple">
                         <i class="fa-solid fa-certificate"></i> <span><?php echo $is_en ? 'Accreditation' : 'Kiểm định'; ?></span>
@@ -566,6 +570,9 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
         <div class="mobile-dropdown-content">
             <a href="<?php echo esc_url($news_url); ?>" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-newspaper"></i> <span><?php echo $is_en ? 'News' : 'Bài viết'; ?></span>
+            </a>
+            <a href="<?php echo esc_url($reel_url); ?>" class="mobile-dropdown-item-simple">
+                <i class="fa-solid fa-circle-play"></i> <span>IDEAS Reel</span>
             </a>
             <a href="/kiem-dinh-2" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-certificate"></i> <span><?php echo $is_en ? 'Accreditation' : 'Kiểm định'; ?></span>
