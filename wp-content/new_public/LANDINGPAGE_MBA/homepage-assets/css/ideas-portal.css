@@ -1817,7 +1817,7 @@ button {
 .lang-switcher-wrapper {
   position: relative;
   display: inline-block;
-  z-index: 1000;
+  z-index: 2200;
 }
 
 .lang-toggle-btn {

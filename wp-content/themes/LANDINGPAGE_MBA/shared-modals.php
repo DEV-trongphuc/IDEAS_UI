@@ -884,6 +884,9 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
 <div class="accred-modal" id="accred-modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="accred-modal-overlay" id="accred-modal-overlay"></div>
     <div class="accred-modal-container" data-lenis-prevent>
+        <button class="accred-modal-slide-trigger" id="accred-slide-trigger" aria-label="<?php echo $is_en ? 'Watch Video' : 'Xem video'; ?>">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
         <button class="accred-modal-close" id="accred-modal-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
         <div class="accred-modal-content">
             <div class="accred-modal-body">
@@ -893,6 +896,12 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
                     <div class="accred-modal-desc" id="accred-desc"></div>
                 </div>
             </div>
+        </div>
+        <div class="accred-modal-video-pane" id="accred-video-pane">
+            <div class="accred-video-loading">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            </div>
+            <iframe id="accred-video-iframe" src="" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
         </div>
     </div>
 </div>
