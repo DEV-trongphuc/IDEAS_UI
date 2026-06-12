@@ -12,4 +12,7 @@ deployment:
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)
     - /bin/rsync -av --exclude='.git*' wp-content/themes/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
+    # Deploy committed uploads (optimized images)
+    - mkdir -p $DEPLOYPATH/wp-content/uploads/
+    - /bin/rsync -av --exclude='.git*' wp-content/uploads/ $DEPLOYPATH/wp-content/uploads/
 
