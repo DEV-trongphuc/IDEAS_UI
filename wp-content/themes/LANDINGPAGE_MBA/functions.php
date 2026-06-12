@@ -5212,7 +5212,7 @@ add_action('wp_head', 'ideas_add_seo_schemas_fallback', 10);
 function ideas_customize_rank_math_schema($data, $jsonld) {
     // Debug logging
     $log_file = WP_CONTENT_DIR . '/debug_rank_math.log';
-    $log_entry = date('[Y-m-d H:i:s] ') . 'URL: ' . ($_SERVER['REQUEST_URI'] ?? '') . ' | Has graph: ' . (isset($data['graph']) ? 'yes' : 'no') . "\n";
+    $log_entry = date('[Y-m-d H:i:s] ') . 'URL: ' . ($_SERVER['REQUEST_URI'] ?? '') . ' | data keys: ' . json_encode(array_keys((array)$data)) . ' | type: ' . gettype($data) . "\n";
     file_put_contents($log_file, $log_entry, FILE_APPEND);
 
     if (isset($data['graph']) && is_array($data['graph'])) {
