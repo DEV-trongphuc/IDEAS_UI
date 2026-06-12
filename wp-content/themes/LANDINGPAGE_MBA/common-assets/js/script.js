@@ -2819,7 +2819,7 @@ function initHomepageToastPopup() {
     toast.innerHTML = `
         <button class="ideas-toast-close" id="ideas-toast-close" aria-label="Close popup">&times;</button>
         <a href="https://ideas.edu.vn/tin-tuc-moi/chuong-trinh-thac-si-swiss-umef.html" class="ideas-toast-content">
-            <img src="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-600x600.webp" alt="Avatar" class="ideas-toast-avatar">
+            <img src="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" alt="Avatar" class="ideas-toast-avatar">
             <div class="ideas-toast-body">
                 <span class="ideas-toast-tag">Tin tức nổi bật</span>
                 <p class="ideas-toast-title">Swiss UMEF hợp tác IDEAS đưa chương trình Thạc sĩ Thụy Sĩ đến Việt Nam</p>
