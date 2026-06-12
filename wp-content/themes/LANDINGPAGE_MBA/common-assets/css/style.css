@@ -5504,7 +5504,7 @@ button.nav-link {
   transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease, margin 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 8px;
   width: 100%;
   background: #f8fafc;
@@ -7955,6 +7955,7 @@ h6,
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
+    align-items: stretch !important;
   }
 
   .mobile-dropdown.expanded .mobile-dropdown-content {
@@ -11543,27 +11544,32 @@ body .pain-card-desc {
 
 /* Mobile Simple Dropdowns style override */
 .mobile-dropdown-item-simple {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--clr-text, #111729);
-  text-decoration: none;
-  transition: var(--transition, all 0.2s ease);
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 16px !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  color: var(--clr-text, #111729) !important;
+  text-decoration: none !important;
+  transition: var(--transition, all 0.2s ease) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
 }
 
-.mobile-dropdown-item-simple:hover {
-  color: var(--clr-primary, #ab0e00);
+.mobile-dropdown-item-simple:hover,
+.mobile-dropdown-item-simple:active {
+  color: var(--clr-primary, #ab0e00) !important;
+  background-color: rgba(171, 14, 0, 0.05) !important;
 }
 
 .mobile-dropdown-item-simple i {
-  color: var(--clr-primary, #ab0e00);
-  width: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  color: var(--clr-primary, #ab0e00) !important;
+  width: 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .mobile-dropdown-section-title {
@@ -13468,75 +13474,94 @@ body .cta-headline {
 .reel-promo-card {
   display: flex !important;
   align-items: center !important;
-  gap: 16px !important;
-  padding: 22px 20px !important;
-  background: linear-gradient(135deg, rgba(171, 14, 0, 0.05), rgba(171, 14, 0, 0.02)) !important;
-  border: 1px dashed rgba(171, 14, 0, 0.2) !important;
-  border-radius: 12px !important;
+  gap: 14px !important;
+  padding: 16px 20px !important;
+  background: linear-gradient(135deg, rgba(171, 14, 0, 0.05) 0%, rgba(171, 14, 0, 0.01) 100%) !important;
+  border: 1px solid rgba(171, 14, 0, 0.15) !important;
+  border-radius: 16px !important;
   margin-bottom: 20px !important;
-  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(171, 14, 0, 0.02) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   text-align: left !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  min-height: 90px !important;
+  cursor: pointer !important;
 }
 .reel-promo-card:hover {
-  background: linear-gradient(135deg, rgba(171, 14, 0, 0.08), rgba(171, 14, 0, 0.04)) !important;
-  border-color: rgba(171, 14, 0, 0.4) !important;
-  transform: translateY(-1px) !important;
+  background: linear-gradient(135deg, rgba(171, 14, 0, 0.09) 0%, rgba(171, 14, 0, 0.03) 100%) !important;
+  border-color: rgba(171, 14, 0, 0.35) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(171, 14, 0, 0.08) !important;
 }
 .reel-promo-icon {
-  font-size: 28px !important;
-  color: #ab0e00 !important;
+  background: #ab0e00 !important;
+  color: #ffffff !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  font-size: 14px !important;
   flex-shrink: 0 !important;
-  animation: pulsePlay 2s infinite !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  box-shadow: 0 4px 10px rgba(171, 14, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+  padding-left: 2px !important;
+  box-sizing: border-box !important;
 }
-@keyframes pulsePlay {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
+.reel-promo-card:hover .reel-promo-icon {
+  transform: scale(1.1) rotate(15deg) !important;
+  background: #c21302 !important;
+  box-shadow: 0 6px 14px rgba(171, 14, 0, 0.4) !important;
 }
 .reel-promo-info {
   display: flex !important;
   flex-direction: column !important;
-  gap: 2px !important;
+  gap: 3px !important;
 }
 .reel-promo-tag {
-  font-size: 10px !important;
+  font-size: 9px !important;
   font-weight: 800 !important;
   color: #ab0e00 !important;
-  letter-spacing: 0.05em !important;
+  letter-spacing: 0.08em !important;
   line-height: 1 !important;
   text-transform: uppercase !important;
 }
 .reel-promo-link {
-  font-size: 14.5px !important;
+  font-size: 13.5px !important;
   font-weight: 700 !important;
   color: #1e293b !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 4px !important;
+  gap: 6px !important;
   line-height: 1.2 !important;
 }
 .reel-promo-link i {
-  font-size: 11px !important;
+  font-size: 10px !important;
   transition: transform 0.2s !important;
   color: #ab0e00 !important;
 }
 .reel-promo-card:hover .reel-promo-link i {
   transform: translateX(3px) !important;
+}
+
+/* ─── MOBILE HERO TEXT CONTRAST ENHANCEMENTS ─── */
+@media (max-width: 768px) {
+  .blog-archive-hero::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: rgba(15, 23, 42, 0.45) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+  .blog-archive-hero h1 {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+  }
+  .blog-archive-hero p {
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
+    color: #ffffff !important;
+  }
 }
 

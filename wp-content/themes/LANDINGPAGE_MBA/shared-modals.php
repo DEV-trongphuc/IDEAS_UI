@@ -176,66 +176,67 @@ if ($is_en) {
             .reel-promo-card {
                 display: flex !important;
                 align-items: center !important;
-                gap: 12px !important;
-                padding: 12px 16px !important;
-                background: linear-gradient(135deg, rgba(171, 14, 0, 0.05), rgba(171, 14, 0, 0.02)) !important;
-                border: 1px dashed rgba(171, 14, 0, 0.2) !important;
-                border-radius: 12px !important;
+                gap: 14px !important;
+                padding: 16px 20px !important;
+                background: linear-gradient(135deg, rgba(171, 14, 0, 0.05) 0%, rgba(171, 14, 0, 0.01) 100%) !important;
+                border: 1px solid rgba(171, 14, 0, 0.15) !important;
+                border-radius: 16px !important;
                 margin-bottom: 20px !important;
-                transition: all 0.3s ease !important;
+                box-shadow: 0 4px 15px rgba(171, 14, 0, 0.02) !important;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
                 text-align: left !important;
                 width: 100% !important;
                 box-sizing: border-box !important;
+                cursor: pointer !important;
             }
             .reel-promo-card:hover {
-                background: linear-gradient(135deg, rgba(171, 14, 0, 0.08), rgba(171, 14, 0, 0.04)) !important;
-                border-color: rgba(171, 14, 0, 0.4) !important;
-                transform: translateY(-1px) !important;
+                background: linear-gradient(135deg, rgba(171, 14, 0, 0.09) 0%, rgba(171, 14, 0, 0.03) 100%) !important;
+                border-color: rgba(171, 14, 0, 0.35) !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 8px 25px rgba(171, 14, 0, 0.08) !important;
             }
             .reel-promo-icon {
-                font-size: 24px !important;
-                color: #ab0e00 !important;
+                background: #ab0e00 !important;
+                color: #ffffff !important;
+                width: 40px !important;
+                height: 40px !important;
+                border-radius: 50% !important;
+                font-size: 14px !important;
                 flex-shrink: 0 !important;
-                animation: pulsePlay 2s infinite !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
+                box-shadow: 0 4px 10px rgba(171, 14, 0, 0.3) !important;
+                transition: all 0.3s ease !important;
+                padding-left: 2px !important;
+                box-sizing: border-box !important;
             }
-            @keyframes pulsePlay {
-                0% {
-                    transform: scale(1);
-                    opacity: 0.8;
-                }
-                50% {
-                    transform: scale(1.1);
-                    opacity: 1;
-                }
-                100% {
-                    transform: scale(1);
-                    opacity: 0.8;
-                }
+            .reel-promo-card:hover .reel-promo-icon {
+                transform: scale(1.1) rotate(15deg) !important;
+                background: #c21302 !important;
+                box-shadow: 0 6px 14px rgba(171, 14, 0, 0.4) !important;
             }
             .reel-promo-info {
                 display: flex !important;
                 flex-direction: column !important;
-                gap: 2px !important;
+                gap: 3px !important;
             }
             .reel-promo-tag {
                 font-size: 9px !important;
                 font-weight: 800 !important;
                 color: #ab0e00 !important;
-                letter-spacing: 0.05em !important;
+                letter-spacing: 0.08em !important;
                 line-height: 1 !important;
                 text-transform: uppercase !important;
             }
             .reel-promo-link {
-                font-size: 13px !important;
+                font-size: 13.5px !important;
                 font-weight: 700 !important;
                 color: #1e293b !important;
                 text-decoration: none !important;
                 display: inline-flex !important;
                 align-items: center !important;
-                gap: 4px !important;
+                gap: 6px !important;
                 line-height: 1.2 !important;
             }
             .reel-promo-link i {
@@ -256,7 +257,7 @@ if ($is_en) {
             <?php if (is_single()) : ?>
                 <div class="reel-promo-card">
                     <div class="reel-promo-icon">
-                        <i class="fa-solid fa-circle-play"></i>
+                        <i class="fa-solid fa-play"></i>
                     </div>
                     <div class="reel-promo-info">
                         <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
@@ -428,7 +429,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
             <?php if (is_single()) : ?>
                 <div class="reel-promo-card" style="margin-left: 20px; margin-right: 20px; width: calc(100% - 40px);">
                     <div class="reel-promo-icon">
-                        <i class="fa-solid fa-circle-play"></i>
+                        <i class="fa-solid fa-play"></i>
                     </div>
                     <div class="reel-promo-info">
                         <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
