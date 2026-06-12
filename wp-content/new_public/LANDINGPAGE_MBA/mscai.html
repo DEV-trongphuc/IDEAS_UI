@@ -6897,6 +6897,45 @@
             </div>
 
             <style>
+                /* ── Toggle Switch ── */
+                .hq-toggle-switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 38px;
+                    height: 20px;
+                    margin: 0;
+                    flex-shrink: 0;
+                }
+                .hq-toggle-switch input:checked+.hq-toggle-slider {
+                    background-color: #ab0e00;
+                }
+
+                .hq-toggle-switch input:checked+.hq-toggle-slider:before {
+                    transform: translateX(18px);
+                }
+
+                .hq-toggle-slider {
+                    position: absolute;
+                    cursor: pointer;
+                    inset: 0;
+                    background-color: #cbd5e1;
+                    transition: .3s;
+                    border-radius: 20px;
+                }
+
+                .hq-toggle-slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 14px;
+                    width: 14px;
+                    left: 3px;
+                    bottom: 3px;
+                    background-color: white;
+                    transition: .3s;
+                    border-radius: 50%;
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+                }
+
                 .pricing-card-premium {
                     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                 }
@@ -7034,28 +7073,36 @@
                         <!-- Right Column -->
                         <div class="pricing-card-premium-right">
                             <!-- Price Section -->
-                            <div style="margin-bottom: 24px;">
+                            <div style="margin-bottom: 12px;">
                                 <span
-                                    style="display: block; font-size: 0.8rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">HỌC
-                                    PHÍ</span>
+                                    style="display: block; font-size: 0.8rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">HỌC PHÍ</span>
                                 <div
                                     style="display: flex; align-items: baseline; gap: 4px; justify-content: flex-end; margin-bottom: 2px;">
                                     <span id="card-price-chf"
-                                        style="font-size: 3rem; font-weight: 900; color: #ab0e00; line-height: 1;">5.820</span>
+                                        style="font-size: 3rem; font-weight: 900; color: #ab0e00; line-height: 1;">5.500</span>
                                     <span style="font-size: 1.3rem; font-weight: 800; color: #ab0e00;">CHF</span>
                                 </div>
                                 <p id="card-price-vnd"
-                                    style="margin: 0; font-size: 1.35rem; color: #0f172a; font-weight: 900; margin-bottom: 12px;">
-                                    ~192.060.000đ
+                                    style="margin: 0; font-size: 1.35rem; color: #0f172a; font-weight: 900; margin-bottom: 8px;">
+                                    ~181.500.000đ
                                 </p>
-                                <p style="margin: 0; font-size: 0.85rem; color: #64748b; line-height: 1.5;">
+                                <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">
                                     Đóng 1 lần (Giảm 10%): <strong id="card-price-discounted-val"
-                                        style="color: #ab0e00; font-weight: 800;">172.854.000đ</strong>
+                                        style="color: #ab0e00; font-weight: 800; font-size: 1.05rem;">163.350.000đ</strong>
                                 </p>
-                                <p
-                                    style="margin: 4px 0 0 0; font-size: 0.8rem; color: #94a3b8; text-decoration: line-through;">
+                                <p id="card-price-original-val"
+                                    style="margin: 4px 0 0 0; font-size: 0.85rem; color: #94a3b8; text-decoration: line-through; font-weight: 500;">
                                     Học phí gốc: 8.720 CHF
                                 </p>
+                            </div>
+
+                            <!-- Toggle Switch for Europe Trip -->
+                            <div style="display: flex; align-items: center; gap: 10px; margin: 12px 0 16px auto; background: rgba(171, 14, 0, 0.04); border: 1px solid rgba(171, 14, 0, 0.08); padding: 8px 14px; border-radius: 12px; width: fit-content; justify-content: flex-end;">
+                                <span style="font-size: 0.82rem; font-weight: 700; color: #475569;">Chuyến đi Thụy Sĩ</span>
+                                <label class="hq-toggle-switch" style="position: relative; display: inline-block; width: 38px; height: 20px; margin: 0; flex-shrink: 0;">
+                                    <input type="checkbox" id="mscai-tour-toggle" aria-label="Chọn chuyến đi Thụy Sĩ" style="opacity: 0; width: 0; height: 0;" onchange="toggleMscaiTour(this)">
+                                    <span class="hq-toggle-slider"></span>
+                                </label>
                             </div>
 
                             <!-- CTA Button -->
@@ -7260,12 +7307,29 @@
 
                         const activeTier = tiers[activeIndex];
 
-                        const cardChf = document.getElementById("card-price-chf");
-                        if (cardChf) cardChf.innerText = activeTier.chf;
-                        const cardVnd = document.getElementById("card-price-vnd");
-                        if (cardVnd) cardVnd.innerText = "~" + activeTier.vnd + "đ";
-                        const cardDisc = document.getElementById("card-price-discounted-val");
-                        if (cardDisc) cardDisc.innerText = activeTier.discount + "đ";
+                        window.toggleMscaiTour = function(cb) {
+                            const cardChf = document.getElementById("card-price-chf");
+                            const cardVnd = document.getElementById("card-price-vnd");
+                            const cardDisc = document.getElementById("card-price-discounted-val");
+                            const cardOrig = document.getElementById("card-price-original-val");
+                            if (cb.checked) {
+                                cardChf.innerText = "7.000";
+                                cardVnd.innerText = "~231.000.000đ";
+                                cardDisc.innerText = "207.900.000đ";
+                                cardOrig.innerText = "Học phí gốc: 11.720 CHF";
+                            } else {
+                                cardChf.innerText = activeTier.chf;
+                                cardVnd.innerText = "~" + activeTier.vnd + "đ";
+                                cardDisc.innerText = activeTier.discount + "đ";
+                                cardOrig.innerText = "Học phí gốc: 8.720 CHF";
+                            }
+                        }
+
+                        // Initialize price based on toggle state
+                        const toggleEl = document.getElementById("mscai-tour-toggle");
+                        if (toggleEl) {
+                            window.toggleMscaiTour(toggleEl);
+                        }
 
                         const inst1El = document.getElementById("inst-1-val");
                         if (inst1El) inst1El.innerText = activeTier.inst1;
