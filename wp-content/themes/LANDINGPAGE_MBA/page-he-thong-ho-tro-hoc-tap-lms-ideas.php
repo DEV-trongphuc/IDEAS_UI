@@ -767,6 +767,142 @@ ob_start(function ($html) {
                 justify-content: center;
             }
         }
+
+        /* ── Cengage Blog Post Card ── */
+        .cengage-post-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: 28px;
+            text-decoration: none;
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            max-width: 480px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cengage-post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .cengage-post-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .cengage-post-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(239, 68, 68, 0.35);
+            box-shadow: 0 12px 30px rgba(239, 68, 68, 0.1);
+        }
+
+        .cengage-post-card-img {
+            width: 88px;
+            height: 88px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cengage-post-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .cengage-post-card:hover .cengage-post-card-img img {
+            transform: scale(1.08);
+        }
+
+        .cengage-post-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .cengage-post-card-tag {
+            font-size: 0.72rem;
+            color: #ef4444;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cengage-post-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+            margin: 0;
+            transition: color 0.3s ease;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .cengage-post-card:hover .cengage-post-card-title {
+            color: #ef4444;
+        }
+
+        .cengage-post-card-link {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .cengage-post-card-link i {
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .cengage-post-card:hover .cengage-post-card-link {
+            color: #ffffff;
+        }
+
+        .cengage-post-card:hover .cengage-post-card-link i {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 480px) {
+            .cengage-post-card {
+                padding: 12px;
+                gap: 12px;
+                margin-top: 20px;
+                max-width: 100%;
+            }
+            .cengage-post-card-img {
+                width: 80px;
+                height: 80px;
+            }
+            .cengage-post-card-title {
+                font-size: 0.88rem;
+            }
+        }
     </style>
     <?php wp_head(); ?>
 </head>
@@ -959,6 +1095,18 @@ ob_start(function ($html) {
                     <li><i class="fa-solid fa-circle-check"></i> Đọc sách trực tuyến dễ dàng trên máy tính, máy tính
                         bảng và điện thoại di động.</li>
                 </ul>
+
+                <!-- Blog Post Card Link -->
+                <a href="https://ideas.edu.vn/tin-tuc-moi/tai-lieu-cengage-tai-ideas.html" class="cengage-post-card" target="_blank" rel="noopener">
+                    <div class="cengage-post-card-img">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/cengage-blog-1.webp" alt="Tài liệu Cengage tại IDEAS" loading="lazy" />
+                    </div>
+                    <div class="cengage-post-card-content">
+                        <span class="cengage-post-card-tag"><i class="fa-solid fa-book-open"></i> Bài viết nổi bật</span>
+                        <h4 class="cengage-post-card-title">Tài liệu Cengage tại IDEAS: Lợi thế cạnh tranh học online</h4>
+                        <span class="cengage-post-card-link">Đọc bài viết <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </a>
             </div>
             <div class="platform-visual">
                 <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/maxresdefault.webp"
