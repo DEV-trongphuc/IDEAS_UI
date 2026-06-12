@@ -2152,6 +2152,9 @@ function initLanguageSwitcher() {
     const langBtns = document.querySelectorAll('.lang-dropdown-item, .mobile-lang-btn');
     langBtns.forEach(btn => {
         btn.addEventListener('click', function (e) {
+            if (this.tagName.toLowerCase() === 'a') {
+                return;
+            }
             e.preventDefault();
             const targetLang = this.getAttribute('data-lang');
             if (!targetLang) return;
