@@ -282,7 +282,7 @@ ob_start(function ($html) {
             border: 1px solid #e2e8f0;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
             display: grid;
-            grid-template-columns: 1fr 1.35fr;
+            grid-template-columns: 1.15fr 1fr;
             overflow: hidden;
             margin-bottom: 40px;
             transition: all 0.4s ease;
@@ -299,7 +299,7 @@ ob_start(function ($html) {
         .blog-featured-card .featured-img-wrap {
             position: relative;
             overflow: hidden;
-            height: 100%;
+            aspect-ratio: 16 / 9;
         }
 
         .blog-featured-card .featured-img-wrap img {
@@ -314,7 +314,7 @@ ob_start(function ($html) {
         }
 
         .blog-featured-card .featured-body {
-            padding: 30px 40px;
+            padding: 24px 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -324,21 +324,21 @@ ob_start(function ($html) {
         .featured-tag {
             background: #fef2f2;
             color: #ab0e00;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 100px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .blog-featured-card h2 {
-            font-size: 1.6rem;
+            font-size: 1.45rem;
             font-weight: 800;
             color: #0f172a;
-            line-height: 1.3;
-            margin-bottom: 10px;
+            line-height: 1.35;
+            margin-bottom: 8px;
             transition: color 0.3s ease;
         }
 
@@ -348,11 +348,11 @@ ob_start(function ($html) {
 
         .blog-featured-card p {
             color: #475569;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             line-height: 1.5;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
