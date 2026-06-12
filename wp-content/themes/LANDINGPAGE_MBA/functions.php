@@ -49,6 +49,11 @@ add_action('parse_request', function($wp) {
                 'lang' => 'en'
             ];
             $wp->matched_rule = 'pagename';
+            
+            // Set lang=en in $_GET and query vars
+            $_GET['lang'] = 'en';
+            $wp->query_vars['lang'] = 'en';
+            return;
         } elseif (strpos($slug, 'tin-tuc-moi') === 0) {
             // It is a blog category or single post
             $parts = explode('/', $slug);
@@ -64,11 +69,17 @@ add_action('parse_request', function($wp) {
                     'lang' => 'en'
                 ];
             }
+            
+            // Set lang=en in $_GET and query vars
+            $_GET['lang'] = 'en';
+            $wp->query_vars['lang'] = 'en';
+            return;
         }
         
-        // Set lang=en in $_GET and query vars
-        $_GET['lang'] = 'en';
-        $wp->query_vars['lang'] = 'en';
+        // Unsupported EN path -> Redirect 301 to the corresponding Vietnamese version
+        $query_string = !empty($_SERVER['QUERY_STRING']) ? '?' . $_SERVER['QUERY_STRING'] : '';
+        wp_redirect(home_url('/' . $slug . $query_string), 301);
+        exit;
     }
 });
 

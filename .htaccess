@@ -112,62 +112,7 @@ RewriteRule ^en/(mba-in-ai|mbainai)/?$ /wp-content/new_public/LANDINGPAGE_MBA/en
 RewriteRule ^en/dual-dba(-estiam-rb)?/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/dual-dba.html [L,NC]
 RewriteRule ^en/dat-lich/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/dat-lich.html [L]
 
-# English WordPress page silent rewrites
-RewriteRule ^en/swiss-umef/?$ /swiss-umef?lang=en [QSA,L]
-RewriteRule ^en/(he-thong-ho-tro-hoc-tap-lms-ideas|lms-ecosystem)/?$ /he-thong-ho-tro-hoc-tap-lms-ideas?lang=en [QSA,L]
-RewriteRule ^en/(so-do-to-chuc|organizational-chart)/?$ /so-do-to-chuc?lang=en [QSA,L]
-RewriteRule ^en/(tu-van-vien|advisors)/?$ /tu-van-vien?lang=en [QSA,L]
-RewriteRule ^en/(doi-ngu-giang-vien|faculty)/?$ /doi-ngu-giang-vien?lang=en [QSA,L]
-RewriteRule ^en/(dong-su-kien|events)/?$ /dong-su-kien?lang=en [QSA,L]
-RewriteRule ^en/(lich-su-hinh-thanh-va-phat-trien-vien-ideas|history)/?$ /lich-su-hinh-thanh-va-phat-trien-vien-ideas?lang=en [QSA,L]
-RewriteRule ^en/(ho-tro-tai-chinh-sacombank|sacombank-financing)/?$ /ho-tro-tai-chinh-sacombank?lang=en [QSA,L]
-RewriteRule ^en/(cac-khoan-chi-phi|tuition-fees)/?$ /cac-khoan-chi-phi?lang=en [QSA,L]
-RewriteRule ^en/(ideas-ambassador|ambassador)/?$ /ideas-ambassador?lang=en [QSA,L]
-RewriteRule ^en/ideas-talk/?$ /ideas-talk?lang=en [QSA,L]
-RewriteRule ^en/(ideas-podcast-series-01|ideas-podcast)/?$ /ideas-podcast-series-01?lang=en [QSA,L]
-RewriteRule ^en/sitemap/?$ /sitemap?lang=en [QSA,L]
-RewriteRule ^en/(lien-he|contact)/?$ /lien-he?lang=en [QSA,L]
-RewriteRule ^en/(thac-si-quan-tri-kinh-doanh-mba|online-mba-admission)/?$ /thac-si-quan-tri-kinh-doanh-mba?lang=en [QSA,L]
-RewriteRule ^en/(chuong-trinh-online-mba|online-mba-curriculum)/?$ /chuong-trinh-online-mba?lang=en [QSA,L]
-RewriteRule ^en/(bai-viet|news)/?$ /bai-viet?lang=en [QSA,L]
-RewriteRule ^en/tin-tuc-moi/(.+)$ /tin-tuc-moi/$1?lang=en [QSA,L]
 
-# Fallback redirect: If the requested URL starts with /en/, and it does not map to a physical file or directory, and is not one of our defined static English landing pages, redirect it to the corresponding Vietnamese version.
-RewriteCond %{REQUEST_URI} ^/en/(.*)$ [NC]
-# Exclude defined English landing pages
-RewriteCond %{REQUEST_URI} !^/en/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/mba/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/msc-?ai/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/emba/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/bba/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/fullbba/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(mba-in-ai|mbainai)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/dual-dba(-estiam-rb)?/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/dat-lich/?$ [NC]
-# Exclude new English dynamic pages
-RewriteCond %{REQUEST_URI} !^/en/swiss-umef/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(he-thong-ho-tro-hoc-tap-lms-ideas|lms-ecosystem)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(so-do-to-chuc|organizational-chart)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(tu-van-vien|advisors)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(doi-ngu-giang-vien|faculty)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(dong-su-kien|events)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(lich-su-hinh-thanh-va-phat-trien-vien-ideas|history)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(ho-tro-tai-chinh-sacombank|sacombank-financing)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(cac-khoan-chi-phi|tuition-fees)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(ideas-ambassador|ambassador)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/ideas-talk/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(ideas-podcast-series-01|ideas-podcast)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/sitemap/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(lien-he|contact)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(thac-si-quan-tri-kinh-doanh-mba|online-mba-admission)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(chuong-trinh-online-mba|online-mba-curriculum)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/(bai-viet|news)/?$ [NC]
-RewriteCond %{REQUEST_URI} !^/en/tin-tuc-moi/ [NC]
-# Exclude actual physical files on server
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-# Redirect to the corresponding Vietnamese page path
-RewriteRule ^en/(.*)$ /$1 [R=301,L]
 
 # Route riêng cho landing xét duyệt (giữ nguyên rule cũ)
 RewriteRule ^xet-duyet-ho-so-truc-tuyen/?$ /wp-content/index.html [L]
