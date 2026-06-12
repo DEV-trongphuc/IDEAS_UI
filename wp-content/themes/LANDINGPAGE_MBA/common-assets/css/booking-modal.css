@@ -257,10 +257,22 @@
     gap: 14px;
 }
 
+.bk-row-2:has(.bk-sel-open),
+.bk-row-2.bk-row-open {
+    position: relative;
+    z-index: 10000;
+}
+
 .bk-field {
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+.bk-field:has(.bk-sel-open),
+.bk-field.bk-field-open {
+    position: relative;
+    z-index: 10000;
 }
 
 .bk-field>label {

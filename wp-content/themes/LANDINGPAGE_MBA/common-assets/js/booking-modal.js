@@ -169,15 +169,27 @@
 
     function openCustomSelect(custom) {
         custom.classList.add('bk-sel-open');
+        const row = custom.closest('.bk-row-2');
+        if (row) row.classList.add('bk-row-open');
+        const field = custom.closest('.bk-field');
+        if (field) field.classList.add('bk-field-open');
     }
 
     function closeCustomSelect(custom) {
         custom.classList.remove('bk-sel-open');
+        const row = custom.closest('.bk-row-2');
+        if (row) row.classList.remove('bk-row-open');
+        const field = custom.closest('.bk-field');
+        if (field) field.classList.remove('bk-field-open');
     }
 
     function closeAllCustomSelects() {
         document.querySelectorAll('.bk-custom-select.bk-sel-open').forEach(el => {
             el.classList.remove('bk-sel-open');
+            const row = el.closest('.bk-row-2');
+            if (row) row.classList.remove('bk-row-open');
+            const field = el.closest('.bk-field');
+            if (field) field.classList.remove('bk-field-open');
         });
     }
 
