@@ -9,17 +9,20 @@ $reels = [
     [
         'id' => '1885125805685011',
         'title' => $is_en ? 'Top-up BBA (12 months)' : 'Cử nhân Liên thông 12 tháng (BBA Top-up)',
-        'desc' => $is_en ? 'International standard Bachelor degree from Swiss UMEF Switzerland.' : 'Chương trình Cử nhân Liên thông Quản trị Kinh doanh cấp bằng từ Swiss UMEF Thụy Sĩ. Nhận bằng chính quy chuẩn quốc tế.'
+        'desc' => $is_en ? 'International standard Bachelor degree from Swiss UMEF Switzerland.' : 'Chương trình Cử nhân Liên thông Quản trị Kinh doanh cấp bằng từ Swiss UMEF Thụy Sĩ. Nhận bằng chính quy chuẩn quốc tế.',
+        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp'
     ],
     [
         'id' => '970904218875704',
         'title' => $is_en ? 'Master of Business Administration (MBA / EMBA)' : 'Thạc sĩ Quản trị Kinh doanh (MBA/EMBA/MBA in AI)',
-        'desc' => $is_en ? 'Transform leadership mindset & expand network with Swiss standard MBA at IDEAS.' : 'Bứt phá tư duy quản trị & mở rộng mạng lưới quan hệ với chương trình MBA chuẩn Thụy Sĩ tại IDEAS.'
+        'desc' => $is_en ? 'Transform leadership mindset & expand network with Swiss standard MBA at IDEAS.' : 'Bứt phá tư duy quản trị & mở rộng mạng lưới quan hệ với chương trình MBA chuẩn Thụy Sĩ tại IDEAS.',
+        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg'
     ],
     [
         'id' => '1015362661016811',
         'title' => $is_en ? 'Master of Science in Applied AI (MSc AI)' : 'Thạc sĩ Khoa học Trí tuệ Nhân tạo Ứng dụng (MSc AI / fullBBA)',
-        'desc' => $is_en ? 'Leading master program in AI applications for business management and automation.' : 'Chương trình Thạc sĩ đi đầu về ứng dụng AI trong quản trị vận hành và tự động hóa doanh nghiệp.'
+        'desc' => $is_en ? 'Leading master program in AI applications for business management and automation.' : 'Chương trình Thạc sĩ đi đầu về ứng dụng AI trong quản trị vận hành và tự động hóa doanh nghiệp.',
+        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg'
     ]
 ];
 ?>
@@ -62,35 +65,7 @@ $reels = [
             -ms-overflow-style: none !important;
         }
 
-        /* Floating Unmute Hint Toast */
-        .reel-mute-toast {
-            position: absolute;
-            top: 80px;
-            left: 50%;
-            transform: translate(-50%, -10px);
-            z-index: 999;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 8px 16px;
-            border-radius: 100px;
-            color: #fff;
-            font-size: 0.78rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            pointer-events: none;
-            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            white-space: nowrap;
-        }
-        .reel-mute-toast.visible {
-            opacity: 1;
-            transform: translate(-50%, 0);
-        }
+
 
         /* Hide standard theme wrapper components */
         header, footer, .site-header, .site-footer, #site-header, #site-footer, .header_menu_area, .footer_area {
@@ -237,7 +212,11 @@ $reels = [
         }
 
         .reel-info-overlay * {
-            pointer-events: all;
+            pointer-events: none;
+        }
+
+        .reel-info-overlay .reel-info-cta {
+            pointer-events: all !important;
         }
 
         .reel-info-tag {
@@ -391,6 +370,105 @@ $reels = [
                 font-size: 0.8rem;
             }
         }
+
+        /* ─── Custom Cover Placeholder & Play Button ─── */
+        .reel-cover-placeholder {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.4s ease;
+        }
+
+        .reel-cover-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.45) !important;
+            transition: background 0.3s ease !important;
+            z-index: 1 !important;
+        }
+
+        .reel-cover-placeholder:hover .reel-cover-overlay {
+            background: rgba(15, 23, 42, 0.6) !important;
+        }
+
+        .reel-play-button-wrapper {
+            position: relative;
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            pointer-events: none;
+        }
+
+        .reel-play-button {
+            width: 72px;
+            height: 72px;
+            background: #ab0e00 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #fff !important;
+            font-size: 28px !important;
+            box-shadow: 0 8px 30px rgba(171, 14, 0, 0.6) !important;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            position: relative !important;
+        }
+
+        .reel-play-button::before,
+        .reel-play-button::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 100% !important;
+            height: 100% !important;
+            border: 3px solid #ab0e00 !important;
+            border-radius: 50% !important;
+            top: 0 !important;
+            left: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        .reel-play-button::before {
+            animation: playRipple 2s infinite ease-out !important;
+        }
+
+        .reel-play-button::after {
+            animation: playRipple 2s infinite ease-out !important;
+            animation-delay: 1s !important;
+        }
+
+        .reel-cover-placeholder:hover .reel-play-button {
+            transform: scale(1.1) !important;
+            background: #ff2a1a !important;
+            box-shadow: 0 12px 40px rgba(255, 42, 26, 0.8) !important;
+        }
+
+        .reel-play-text {
+            color: #ffffff !important;
+            font-size: 0.9rem !important;
+            font-weight: 700 !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+            letter-spacing: 0.05em !important;
+            text-transform: uppercase !important;
+        }
+
+        @keyframes playRipple {
+            0% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
     </style>
     <?php wp_head(); ?>
 </head>
@@ -406,22 +484,28 @@ $reels = [
 
     <!-- central viewport frame -->
     <div class="reel-app-frame">
-        <!-- Unmute Hint Toast -->
-        <div class="reel-mute-toast" id="reel-mute-toast">
-            <i class="fa-solid fa-volume-xmark"></i> <span><?php echo $is_en ? 'Tap video to unmute' : 'Chạm vào video để bật âm thanh'; ?> 🔊</span>
-        </div>
-
         <div class="reel-container">
             <?php foreach ($reels as $index => $r): ?>
                 <div class="reel-slide" data-index="<?php echo $index; ?>" data-reel-id="<?php echo esc_attr($r['id']); ?>">
-                    <div class="reel-video-loading">
+                    <!-- cover placeholder -->
+                    <div class="reel-cover-placeholder" onclick="playReel(<?php echo $index; ?>)" style="background-image: url('<?php echo esc_url($r['cover']); ?>');">
+                        <div class="reel-cover-overlay"></div>
+                        <div class="reel-play-button-wrapper">
+                            <div class="reel-play-button">
+                                <i class="fa-solid fa-play" style="margin-left: 4px;"></i>
+                            </div>
+                            <span class="reel-play-text"><?php echo $is_en ? 'Explore Reel' : 'Khám phá'; ?></span>
+                        </div>
+                    </div>
+
+                    <div class="reel-video-loading" style="display: none;">
                         <i class="fa-solid fa-spinner fa-spin"></i>
                     </div>
                     <div class="fb-reel-wrapper">
                         <!-- Dynamically loaded iframe goes here -->
                     </div>
                     <div class="reel-info-overlay">
-                        <span class="reel-info-tag"><i class="fa-solid fa-circle-play"></i> IDEAS REEL</span>
+                        <span class="reel-info-tag"><i class="fa-solid fa-circle-play"></i> Reel</span>
                         <h3><?php echo esc_html($r['title']); ?></h3>
                         <p><?php echo esc_html($r['desc']); ?></p>
                         <button class="reel-info-cta" onclick="showform('Reel Page - <?php echo esc_js($r['title']); ?>')">
@@ -457,45 +541,35 @@ $reels = [
         function activateSlide(index) {
             if (index === currentActiveIndex) return;
 
-            // Deactivate previous slide video to stop audio
+            // Deactivate previous slide to stop audio and restore cover placeholder
             if (currentActiveIndex !== -1) {
                 var oldSlide = document.querySelector('.reel-slide[data-index="' + currentActiveIndex + '"]');
                 if (oldSlide) {
                     var wrapper = oldSlide.querySelector('.fb-reel-wrapper');
                     if (wrapper) wrapper.innerHTML = '';
                     var loading = oldSlide.querySelector('.reel-video-loading');
-                    if (loading) loading.style.display = 'block';
+                    if (loading) loading.style.display = 'none';
+                    var placeholder = oldSlide.querySelector('.reel-cover-placeholder');
+                    if (placeholder) {
+                        placeholder.style.display = 'flex';
+                        placeholder.style.opacity = '1';
+                    }
                 }
             }
 
             currentActiveIndex = index;
 
-            // Activate new slide video dynamically
+            // Reset current slide state to cover placeholder showing
             var newSlide = document.querySelector('.reel-slide[data-index="' + index + '"]');
             if (newSlide) {
                 var wrapper = newSlide.querySelector('.fb-reel-wrapper');
-                var reelId = newSlide.getAttribute('data-reel-id');
+                if (wrapper) wrapper.innerHTML = '';
                 var loading = newSlide.querySelector('.reel-video-loading');
-                if (wrapper && reelId) {
-                    if (loading) loading.style.display = 'block';
-
-                    var iframe = document.createElement('iframe');
-                    iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500&autoplay=true';
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100%';
-                    iframe.style.border = 'none';
-                    iframe.style.opacity = '0';
-                    iframe.style.transition = 'opacity 0.3s';
-                    iframe.scrolling = 'no';
-                    iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
-                    iframe.allowFullscreen = true;
-
-                    iframe.onload = function() {
-                        if (loading) loading.style.display = 'none';
-                        iframe.style.opacity = '1';
-                    };
-
-                    wrapper.appendChild(iframe);
+                if (loading) loading.style.display = 'none';
+                var placeholder = newSlide.querySelector('.reel-cover-placeholder');
+                if (placeholder) {
+                    placeholder.style.display = 'flex';
+                    placeholder.style.opacity = '1';
                 }
             }
 
@@ -504,15 +578,45 @@ $reels = [
             var nextBtn = document.getElementById('reel-btn-next');
             if (prevBtn) prevBtn.disabled = (index === 0);
             if (nextBtn) nextBtn.disabled = (index === reels.length - 1);
+        }
 
-            // Show unmute toast hint for 4 seconds
-            var toast = document.getElementById('reel-mute-toast');
-            if (toast) {
-                toast.classList.add('visible');
-                clearTimeout(window.toastTimer);
-                window.toastTimer = setTimeout(function() {
-                    toast.classList.remove('visible');
-                }, 4000);
+        function playReel(index) {
+            var slide = document.querySelector('.reel-slide[data-index="' + index + '"]');
+            if (!slide) return;
+
+            var wrapper = slide.querySelector('.fb-reel-wrapper');
+            var reelId = slide.getAttribute('data-reel-id');
+            var loading = slide.querySelector('.reel-video-loading');
+            var placeholder = slide.querySelector('.reel-cover-placeholder');
+
+            if (wrapper && reelId) {
+                if (loading) loading.style.display = 'block';
+
+                if (placeholder) {
+                    placeholder.style.opacity = '0';
+                    setTimeout(function() {
+                        placeholder.style.display = 'none';
+                    }, 400);
+                }
+
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500&autoplay=true';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                iframe.style.opacity = '0';
+                iframe.style.transition = 'opacity 0.3s';
+                iframe.scrolling = 'no';
+                iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+                iframe.allowFullscreen = true;
+
+                iframe.onload = function() {
+                    if (loading) loading.style.display = 'none';
+                    iframe.style.opacity = '1';
+                };
+
+                wrapper.innerHTML = '';
+                wrapper.appendChild(iframe);
             }
         }
 
