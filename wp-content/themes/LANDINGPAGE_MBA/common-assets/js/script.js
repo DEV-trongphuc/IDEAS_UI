@@ -2217,9 +2217,15 @@ function initWordPressBlog() {
                     day: '2-digit',
                     month: isEn ? 'short' : '2-digit'
                 });
-                const fThumbRaw = featuredPost._embedded['wp:featuredmedia']
-                    ? featuredPost._embedded['wp:featuredmedia'][0].source_url
-                    : 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp';
+                
+                let fThumbRaw = '';
+                if (featuredPost._embedded['wp:featuredmedia']) {
+                    fThumbRaw = featuredPost._embedded['wp:featuredmedia'][0].source_url;
+                } else {
+                    const fContent = featuredPost.content ? featuredPost.content.rendered : '';
+                    const fMatch = fContent.match(/<img[^>]+src=["']([^"']+)["']/i);
+                    fThumbRaw = (fMatch && fMatch[1]) ? fMatch[1] : 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp';
+                }
                 const fThumb = getWebpUrl(fThumbRaw);
 
                 let html = `
@@ -2247,9 +2253,15 @@ function initWordPressBlog() {
                         month: isEn ? 'short' : '2-digit',
                         year: 'numeric'
                     });
-                    const lThumbRaw = post._embedded['wp:featuredmedia']
-                        ? post._embedded['wp:featuredmedia'][0].source_url
-                        : 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp';
+                    
+                    let lThumbRaw = '';
+                    if (post._embedded['wp:featuredmedia']) {
+                        lThumbRaw = post._embedded['wp:featuredmedia'][0].source_url;
+                    } else {
+                        const lContent = post.content ? post.content.rendered : '';
+                        const lMatch = lContent.match(/<img[^>]+src=["']([^"']+)["']/i);
+                        lThumbRaw = (lMatch && lMatch[1]) ? lMatch[1] : 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp';
+                    }
                     const lThumb = getWebpUrl(lThumbRaw);
 
                     html += `
