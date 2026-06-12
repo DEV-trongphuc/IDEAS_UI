@@ -2176,12 +2176,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="acc-sac-badge-dot"></span>
                         <?php echo $is_en ? 'Official Recognition from Swiss Government' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?>
                     </div>
-                    <h3 class="acc-sac-name">Swiss Accreditation Council <a
-                            href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html"
-                            target="_blank"
-                            style="color: inherit; font-size: 0.75em; margin-left: 8px; display: inline-flex; align-items: center; transition: color 0.3s;"
-                            onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
-                            title="Xem bài viết về Kiểm định SAC"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    <h3 class="acc-sac-name"><a href="javascript:void(0)" class="accred-trigger" data-accred="sac" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a>
                     </h3>
                     <p class="acc-sac-tagline"><?php echo $is_en ? 'Swiss Federal Accreditation Authority. Swiss UMEF is the first private university <strong>in Geneva</strong> to be officially accredited in the Swiss higher education system.' : 'Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục\n                        <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ.'; ?>
                     </p>
@@ -2219,7 +2214,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 loading="lazy" decoding="async" />
                         </a>
                         <div class="acc-sac-logo-text">
-                            <div class="acc-sac-logo-title"><a href="https://ideas.edu.vn/tin-tuc-moi/kiem-dinh-sac-bao-chung-chat-luong-giao-duc-thuy-si.html" target="_blank" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="Xem bài viết về Kiểm định SAC">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></div>
+                            <div class="acc-sac-logo-title"><a href="javascript:void(0)" class="accred-trigger" data-accred="sac" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></div>
                             <p>Cơ quan kiểm định liên bang Thụy Sĩ<br><?php echo $is_en ? 'Official Recognition from Swiss Government' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?> Thụy Sĩ
                             </p>
                         </div>
