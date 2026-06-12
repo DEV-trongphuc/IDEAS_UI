@@ -282,7 +282,7 @@ ob_start(function ($html) {
             border: 1px solid #e2e8f0;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
             display: grid;
-            grid-template-columns: 1.25fr 1fr;
+            grid-template-columns: 1fr 1.35fr;
             overflow: hidden;
             margin-bottom: 40px;
             transition: all 0.4s ease;
@@ -314,7 +314,7 @@ ob_start(function ($html) {
         }
 
         .blog-featured-card .featured-body {
-            padding: 40px;
+            padding: 30px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -324,21 +324,21 @@ ob_start(function ($html) {
         .featured-tag {
             background: #fef2f2;
             color: #ab0e00;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 100px;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
         }
 
         .blog-featured-card h2 {
-            font-size: 1.75rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: #0f172a;
-            line-height: 1.35;
-            margin-bottom: 16px;
+            line-height: 1.3;
+            margin-bottom: 10px;
             transition: color 0.3s ease;
         }
 
@@ -348,9 +348,9 @@ ob_start(function ($html) {
 
         .blog-featured-card p {
             color: #475569;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 24px;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
