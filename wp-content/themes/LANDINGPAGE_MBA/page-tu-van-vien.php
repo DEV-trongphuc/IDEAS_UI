@@ -107,8 +107,8 @@ ob_start(function ($html) {
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.3;
-            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg');
+            opacity: 0.25;
+            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp.webp');
         }
 
         .verify-hero-overlay {
@@ -154,17 +154,18 @@ ob_start(function ($html) {
         }
 
         .verify-hero h1 {
-            font-size: clamp(2.6rem, 5.5vw, 4rem);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
             font-weight: 900;
             margin-bottom: 20px;
             letter-spacing: -0.02em;
             line-height: 1.15;
             color: #ffffff !important;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            white-space: nowrap;
         }
 
         .verify-hero h1 span {
-            background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
+            background: linear-gradient(135deg, #ff4d4d 0%, #ab0e00 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
@@ -422,9 +423,9 @@ ob_start(function ($html) {
             margin: 0;
         }
 
-        /* List Section - 2 TVV 1 Hàng */
+        /* List Section - 4 TVV 1 Hàng */
         .list-section {
-            max-width: 940px;
+            max-width: 1400px;
             margin: 80px auto;
             padding: 0 20px;
         }
@@ -449,8 +450,8 @@ ob_start(function ($html) {
 
         .consultants-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
             margin-top: 40px;
         }
 
@@ -689,6 +690,16 @@ ob_start(function ($html) {
         }
 
         /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .consultants-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .list-section {
+                max-width: 960px;
+            }
+        }
+
         @media (max-width: 992px) {
             .guidelines-grid {
                 grid-template-columns: 1fr;
@@ -779,7 +790,7 @@ ob_start(function ($html) {
                 <i class="fa-solid fa-user-shield"></i>
                 Bảo Mật &amp; Minh Bạch
             </span>
-            <h1>Xác Thực <span>Tư Vấn Viên</span> Tuyển Sinh</h1>
+            <h1>Xác Thực <span>Tư Vấn Viên Tuyển Sinh</span></h1>
             <p>Kiểm tra nhanh danh tính chuyên viên tư vấn chính thức của Viện IDEAS nhằm bảo vệ quyền lợi học tập và phòng ngừa các hình thức giả mạo hoặc lừa đảo.</p>
         </div>
     </section>
