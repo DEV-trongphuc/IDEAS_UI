@@ -300,24 +300,6 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
             </div>
 
             <div style="display:flex;align-items:center;gap:8px;">
-                <button type="button" class="nav-cta" style="cursor: pointer; border: none; font-family: inherit;"
-                    onclick="showform('header')"><?php echo $is_en ? 'Apply Now' : 'Nhận tư vấn'; ?></button>
-                
-                <button class="bk-open-btn" aria-label="<?php echo $is_en ? 'Book a counseling appointment' : 'Mở form đặt lịch tư vấn'; ?>"
-                    style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:transparent;color:#ab0e00;border:1.5px solid rgba(171,14,0,0.45);border-radius:100px;font-weight:700;font-size:0.88rem;cursor:pointer;transition:all 0.3s ease;white-space:nowrap;"
-                    onmouseover="this.style.background='#ab0e00';this.style.color='#fff';this.style.borderColor='#ab0e00';"
-                    onmouseout="this.style.background='transparent';this.style.color='#ab0e00';this.style.borderColor='rgba(171,14,0,0.45)';"
-                    type="button">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    <?php echo $is_en ? 'Book Meeting' : 'Đặt lịch'; ?>
-                </button>
-
                 <!-- Language Switcher Toggle -->
                 <div class="lang-switcher-wrapper">
                     <button class="lang-toggle-btn" aria-label="<?php echo $is_en ? 'Select Language' : 'Chọn ngôn ngữ'; ?>" type="button">
@@ -396,6 +378,25 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                         </a>
                     </div>
                 </div>
+                <div class="lang-divider"></div>
+
+                <button type="button" class="nav-cta" style="cursor: pointer; border: none; font-family: inherit;"
+                    onclick="showform('header')"><?php echo $is_en ? 'Apply Now' : 'Nhận tư vấn'; ?></button>
+                
+                <button class="bk-open-btn" aria-label="<?php echo $is_en ? 'Book a counseling appointment' : 'Mở form đặt lịch tư vấn'; ?>"
+                    style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:transparent;color:#ab0e00;border:1.5px solid rgba(171,14,0,0.45);border-radius:100px;font-weight:700;font-size:0.88rem;cursor:pointer;transition:all 0.3s ease;white-space:nowrap;"
+                    onmouseover="this.style.background='#ab0e00';this.style.color='#fff';this.style.borderColor='#ab0e00';"
+                    onmouseout="this.style.background='transparent';this.style.color='#ab0e00';this.style.borderColor='rgba(171,14,0,0.45)';"
+                    type="button">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <?php echo $is_en ? 'Book Meeting' : 'Đặt lịch'; ?>
+                </button>
             </div>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Menu">
