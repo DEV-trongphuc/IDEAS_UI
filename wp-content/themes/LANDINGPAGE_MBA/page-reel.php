@@ -203,11 +203,12 @@ $reels = [
 
         .fb-reel-wrapper {
             width: 100%;
-            height: 100%;
+            height: calc(100% - 130px) !important;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 2;
+            transform: translateY(-40px);
         }
 
         .reel-video-loading {
@@ -371,10 +372,14 @@ $reels = [
             .reel-app-frame {
                 max-width: 100% !important;
                 max-height: 100% !important;
+                height: 100dvh !important; /* DVH support to prevent clipping on mobile browser navbars */
                 border-radius: 0 !important;
                 border: none !important;
                 top: 0 !important;
                 transform: none !important;
+            }
+            .reel-info-overlay {
+                padding: 20px 20px calc(env(safe-area-inset-bottom) + 24px) !important;
             }
             .reel-nav-arrow {
                 right: 12px;
@@ -499,6 +504,16 @@ $reels = [
             var nextBtn = document.getElementById('reel-btn-next');
             if (prevBtn) prevBtn.disabled = (index === 0);
             if (nextBtn) nextBtn.disabled = (index === reels.length - 1);
+
+            // Show unmute toast hint for 4 seconds
+            var toast = document.getElementById('reel-mute-toast');
+            if (toast) {
+                toast.classList.add('visible');
+                clearTimeout(window.toastTimer);
+                window.toastTimer = setTimeout(function() {
+                    toast.classList.remove('visible');
+                }, 4000);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -547,6 +562,11 @@ $reels = [
     </script>
 
     <?php get_template_part('shared-modals'); ?>
+    <?php
+    $js_path = get_stylesheet_directory() . '/common-assets/js/script.min.js';
+    $js_version = file_exists($js_path) ? filemtime($js_path) : time();
+    ?>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>" defer></script>
     <?php wp_footer(); ?>
 </body>
 </html>

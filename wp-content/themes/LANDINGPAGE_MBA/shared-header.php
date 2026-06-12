@@ -286,7 +286,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                         <i class="fa-solid fa-newspaper"></i> <span><?php echo $is_en ? 'News' : 'Bài viết'; ?></span>
                     </a>
                     <a href="<?php echo esc_url($reel_url); ?>" class="dropdown-item-simple">
-                        <i class="fa-solid fa-circle-play"></i> <span>IDEAS Reel</span>
+                        <i class="fa-solid fa-circle-play"></i> <span>Reel</span>
                     </a>
                     <a href="/kiem-dinh-2" class="dropdown-item-simple">
                         <i class="fa-solid fa-certificate"></i> <span><?php echo $is_en ? 'Accreditation' : 'Kiểm định'; ?></span>
@@ -572,7 +572,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                 <i class="fa-solid fa-newspaper"></i> <span><?php echo $is_en ? 'News' : 'Bài viết'; ?></span>
             </a>
             <a href="<?php echo esc_url($reel_url); ?>" class="mobile-dropdown-item-simple">
-                <i class="fa-solid fa-circle-play"></i> <span>IDEAS Reel</span>
+                <i class="fa-solid fa-circle-play"></i> <span>Reel</span>
             </a>
             <a href="/kiem-dinh-2" class="mobile-dropdown-item-simple">
                 <i class="fa-solid fa-certificate"></i> <span><?php echo $is_en ? 'Accreditation' : 'Kiểm định'; ?></span>
