@@ -356,6 +356,21 @@ if (isset($_GET['action'])) {
                         (strpos($all_references_text, ':' . $id . ';') !== false) ||
                         (strpos($all_references_text, '>' . $id . '<') !== false);
             
+            // Nếu kiểm tra tên gốc chưa ra, quét tiếp các kích thước thumbnail (medium, large, v.v...) của ảnh đó
+            if (!$is_used) {
+                $meta = wp_get_attachment_metadata($id);
+                if (!empty($meta['sizes'])) {
+                    foreach ($meta['sizes'] as $size => $size_info) {
+                        if (!empty($size_info['file'])) {
+                            if (strpos($all_references_text, $size_info['file']) !== false) {
+                                $is_used = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            
             if (!$is_used) {
                 // Get local file path
                 $attached_file = get_post_meta($id, '_wp_attached_file', true);
