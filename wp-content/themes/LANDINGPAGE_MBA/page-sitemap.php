@@ -427,7 +427,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="sitemap-hero">
             <div class="sitemap-hero-container">
                 <span class="sitemap-hero-badge">
-                    <i class="fa-solid fa-sitemap"></i> <?php echo $is_en ? 'Sitemap' : 'Sơ đồ trang web'; ?>
+                    <i class="fa-solid fa-sitemap"></i> <?php echo $is_en ? 'Sitemap / Navigation' : 'Sơ đồ trang web'; ?>
                 </span>
                 <h1><span><?php echo $is_en ? 'WEBSITE SITEMAP' : 'SƠ ĐỒ TRANG WEB'; ?></span> <br>Website Sitemap</h1>
                 <p><?php echo $is_en ? 'Explore the entire website structure, easily navigate and quickly access academic programs, support policies &amp; activities of IDEAS.' : 'Khám phá toàn bộ cấu trúc website, dễ dàng định hướng và truy cập nhanh các chương trình đào tạo,\n                    chính sách hỗ trợ &amp; hoạt động của Viện IDEAS.'; ?></p>

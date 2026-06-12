@@ -610,7 +610,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="talk-hero-overlay"></div>
             <div class="talk-hero-container">
                 <span class="talk-hero-badge">
-                    <i class="fa-solid fa-globe"></i> Webinar Series
+                    <i class="fa-solid fa-globe"></i> <?php echo $is_en ? 'Webinar &amp; Seminar Series' : 'Webinar Series'; ?>
                 </span>
                 <h1><span>IDEAS TALK</span> <br><?php echo $is_en ? 'AI Application Workshop' : 'Workshop Ứng dụng AI'; ?></h1>
                 <p><?php echo $is_en ? '#IDEAS Monthly AI Workshop – Sharing breakthrough learning &amp; working methods with Artificial Intelligence' : '#IDEAS Monthly AI Workshop – Chia sẻ phương pháp sáng tạo học tập &amp; làm việc đột phá cùng Trí Tuệ\n                    Nhân Tạo'; ?></p>

@@ -1178,7 +1178,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="amb-section">
             <div class="amb-container-width">
                 <div class="amb-section-title-wrap">
-                    <span class="amb-section-tag"><i class="fa-solid fa-ranking-star"></i> <?php echo $is_en ? 'Tier Levels' : 'Hạng mức'; ?></span>
+                    <span class="amb-section-tag"><i class="fa-solid fa-ranking-star"></i> <?php echo $is_en ? 'Tier Levels / Policy' : 'Hạng mức'; ?></span>
                     <h2 class="amb-section-title"><?php echo $is_en ? 'Tier Levels &amp; <span>Special Privileges</span>' : 'Hạng Mức &amp; <span>Quyền Lợi Đặc Biệt</span>'; ?></h2>
                     <p class="amb-section-subtitle"><?php echo $is_en ? 'Accumulate credits to upgrade ambassador tier and unlock special sponsorship policies from IDEAS.' : 'Tích lũy tín chỉ để nâng hạng đại sứ và mở khóa các chính sách tài trợ đặc biệt từ IDEAS.'; ?></p>
                 </div>

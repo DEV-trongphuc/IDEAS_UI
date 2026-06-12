@@ -666,7 +666,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="contact-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');"></div>
             <div class="contact-hero-overlay"></div>
             <div class="contact-hero-container">
-                <span class="contact-hero-badge"><i class="fa-solid fa-envelope"></i> <?php echo $is_en ? 'Contact Admissions' : 'Liên hệ tuyển sinh'; ?></span>
+                <span class="contact-hero-badge"><i class="fa-solid fa-envelope"></i> <?php echo $is_en ? 'Contact Admissions &amp; Feedback' : 'Liên hệ tuyển sinh'; ?></span>
                 <h1><span><?php echo $is_en ? 'CONTACT FOR COUNSELING' : 'LIÊN HỆ TƯ VẤN'; ?></span> <br><?php echo $is_en ? '1:1 Academic Support' : 'Hỗ trợ học vụ 1:1'; ?></h1>
                 <p><?php echo $is_en ? 'Connect directly with the Admissions Board &amp; Academic Specialists of IDEAS to receive scholarship details and optimal learning roadmaps.' : 'Kết nối trực tiếp với Ban tuyển sinh &amp; Chuyên viên học vụ của Viện IDEAS để nhận thông tin học bổng, lộ trình học tập tối ưu.'; ?></p>
             </div>
