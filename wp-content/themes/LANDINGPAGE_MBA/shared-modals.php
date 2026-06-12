@@ -880,6 +880,23 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
 }
 ?>
 
+<!-- Accreditation Detail Modal -->
+<div class="accred-modal" id="accred-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="accred-modal-overlay" id="accred-modal-overlay"></div>
+    <div class="accred-modal-container" data-lenis-prevent>
+        <button class="accred-modal-close" id="accred-modal-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
+        <div class="accred-modal-content">
+            <div class="accred-modal-body">
+                <div class="accred-modal-info">
+                    <div class="accred-modal-label"><?php echo $is_en ? 'Accreditation Detail' : 'Chi tiết kiểm định'; ?></div>
+                    <h3 class="accred-modal-title" id="accred-title"></h3>
+                    <div class="accred-modal-desc" id="accred-desc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- 3. Lightbox Modal for accreditation/certificate viewing -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="<?php echo $is_en ? 'View zoomed image' : 'Xem ảnh phóng to'; ?>">
     <button class="lightbox-close" id="lightbox-close" aria-label="<?php echo $is_en ? 'Close image' : 'Đóng ảnh'; ?>">✕</button>

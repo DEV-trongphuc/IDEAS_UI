@@ -795,7 +795,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-align: center;
             gap: 14px;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            cursor: default;
+            cursor: pointer;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.01);
         }
 
@@ -2246,31 +2246,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <!-- Other accreditations grid -->
             <div class="acc-grid">
-                <div class="acc-card">
+                <div class="acc-card" data-accred="chea">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
                         alt="CHEA" loading="lazy" decoding="async" />
                     <h4>CHEA – Hoa Kỳ</h4>
                     <p><?php echo $is_en ? 'The leading higher education accreditation council in the United States, ensuring international recognition standards.' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?></p>
                 </div>
-                <div class="acc-card">
+                <div class="acc-card" data-accred="iacbe">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
                         alt="IACBE" loading="lazy" decoding="async" />
                     <h4>IACBE – Business Education</h4>
                     <p><?php echo $is_en ? 'An accreditation organization specializing in international business education quality for BBA, MBA, and DBA.' : 'Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA'; ?></p>
                 </div>
-                <div class="acc-card">
+                <div class="acc-card" data-accred="acbsp">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
                         alt="ACBSP" loading="lazy" decoding="async" />
                     <h4>ACBSP – Business Schools</h4>
                     <p><?php echo $is_en ? 'Business school quality accreditation officially recognized by the United States Department of Education.' : 'Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức'; ?></p>
                 </div>
-                <div class="acc-card">
+                <div class="acc-card" data-accred="qs">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2025/10/qs-1.webp"
                         alt="QS Stars" loading="lazy" decoding="async" />
                     <h4>QS Stars ⭐ 5 Stars Overall</h4>
                     <p><?php echo $is_en ? 'Rated 5 stars overall by Quacquarelli Symonds — the world\'s prestigious university evaluation system.' : 'Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới'; ?></p>
                 </div>
-                <div class="acc-card">
+                <div class="acc-card" data-accred="eduqua">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
                         alt="EduQua" loading="lazy" decoding="async" />
                     <h4>SGS – EduQua</h4>

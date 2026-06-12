@@ -1069,7 +1069,7 @@ const isEn = document.documentElement.lang === 'en';
         unlockScroll();
     }
 
-    document.querySelectorAll('.accred-trigger').forEach(trigger => {
+    document.querySelectorAll('.accred-trigger, [data-accred]').forEach(trigger => {
         trigger.addEventListener('click', () => {
             const key = trigger.dataset.accred;
             openAccredModal(key);
