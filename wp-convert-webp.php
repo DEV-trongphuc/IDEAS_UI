@@ -745,7 +745,7 @@ if (isset($_GET['action'])) {
             btnScan.disabled = true;
             addLog("Bắt đầu quét thư mục uploads...");
             try {
-                const res = await fetch('?action=scan');
+                const res = await fetch('?action=scan&_t=' + Date.now());
                 const data = await res.json();
                 if (data.success) {
                     imageList = data.images;
@@ -883,7 +883,7 @@ if (isset($_GET['action'])) {
             btnHtaccess.disabled = true;
             document.getElementById('htaccess-status').textContent = "Đang cấu hình...";
             try {
-                const res = await fetch('?action=htaccess');
+                const res = await fetch('?action=htaccess&_t=' + Date.now());
                 const data = await res.json();
                 if (data.success) {
                     document.getElementById('htaccess-status').style.color = '#10b981';
@@ -1089,7 +1089,7 @@ if (isset($_GET['action'])) {
             cleanerResults.style.display = 'none';
 
             try {
-                const res = await fetch('?action=scan_theme_assets');
+                const res = await fetch('?action=scan_theme_assets&_t=' + Date.now());
                 const data = await res.json();
                 
                 if (data.success) {
@@ -1114,7 +1114,7 @@ if (isset($_GET['action'])) {
             cleanerResults.style.display = 'none';
 
             try {
-                const res = await fetch('?action=scan_db_media');
+                const res = await fetch('?action=scan_db_media&_t=' + Date.now());
                 const data = await res.json();
                 
                 if (data.success) {
