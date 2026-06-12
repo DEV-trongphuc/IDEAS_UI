@@ -2,12 +2,12 @@
 // Load WordPress bootstrap
 require_once(__DIR__ . '/../../../wp-load.php');
 
-// Purge LiteSpeed Cache
-if (class_exists('LiteSpeed\Purge')) {
-    LiteSpeed\Purge::purge_all();
-    echo "LiteSpeed Purged successfully!\n";
+// Purge LiteSpeed Cache via action hook
+if (function_exists('do_action')) {
+    do_action('litespeed_purge_all');
+    echo "LiteSpeed Purged hook triggered successfully!\n";
 } else {
-    echo "LiteSpeed Purge class not found.\n";
+    echo "WordPress do_action function not found.\n";
 }
 
 // Clear OPcache
