@@ -82,94 +82,128 @@ ob_start(function ($html) {
             color: #1e293b;
         }
 
-        /* Hero Banner Section */
+        /* ── Hero y hệt /ideas-talk ──────────────────────────── */
         .verify-hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #ffffff;
-            padding: 160px 20px 80px;
-            text-align: center;
             position: relative;
+            padding: 180px 20px 90px;
             overflow: hidden;
+            background: #080405;
+            min-height: 45vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: none;
         }
 
-        .verify-hero::before {
-            content: '';
+        .verify-hero-bg {
+            position: absolute;
+            top: -150px;
+            left: -5%;
+            width: 110%;
+            height: calc(100% + 300px);
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            transform: translate3d(0, 0, 0) scale(1.1);
+            z-index: 1;
+            opacity: 0.3;
+            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg');
+        }
+
+        .verify-hero-overlay {
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle at 80% 20%, rgba(171, 14, 0, 0.15) 0%, transparent 50%);
-            pointer-events: none;
+            z-index: 2;
+            background:
+                linear-gradient(180deg,
+                    rgba(8, 4, 5, 0.85) 0%,
+                    rgba(80, 6, 0, 0.35) 60%,
+                    transparent 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
         }
 
         .verify-hero-container {
+            position: relative;
+            z-index: 3;
             max-width: 900px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         .verify-badge {
-            background: rgba(171, 14, 0, 0.15);
-            border: 1px solid rgba(255, 77, 77, 0.3);
-            padding: 8px 18px;
+            background: rgba(171, 14, 0, 0.2);
+            border: 1px solid rgba(255, 77, 77, 0.35);
+            padding: 8px 22px;
             border-radius: 100px;
             color: #ffcccc;
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(12px);
         }
 
         .verify-hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
+            font-size: clamp(2.6rem, 5.5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
             letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: #ffffff !important;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
 
         .verify-hero h1 span {
-            color: #ff3b30;
-            background: linear-gradient(135deg, #ff8a80 0%, #ff3b30 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
         }
 
         .verify-hero p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #cbd5e1;
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95) !important;
             max-width: 700px;
-            margin: 0 auto;
+            margin-bottom: 0;
+            line-height: 1.6;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         /* Search Section */
         .search-section {
-            margin-top: -40px;
+            margin-top: -50px;
             padding: 0 20px;
             position: relative;
             z-index: 10;
         }
 
         .search-container {
-            max-width: 720px;
+            max-width: 760px;
             margin: 0 auto;
             background: #ffffff;
             border-radius: 24px;
-            padding: 30px;
+            padding: 36px 30px;
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
             border: 1px solid rgba(148, 163, 184, 0.15);
         }
 
         .search-label {
             display: block;
-            font-size: 0.95rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             color: #334155;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             text-align: left;
         }
 
@@ -210,8 +244,8 @@ ob_start(function ($html) {
             background: #ab0e00;
             color: #ffffff;
             border: none;
-            padding: 16px 28px;
-            font-size: 0.95rem;
+            padding: 16px 32px;
+            font-size: 1rem;
             font-weight: 700;
             border-radius: 16px;
             cursor: pointer;
@@ -230,7 +264,7 @@ ob_start(function ($html) {
 
         /* Result Section */
         .results-container {
-            max-width: 720px;
+            max-width: 760px;
             margin: 24px auto 0;
             display: none; /* Controlled by JS */
             opacity: 0;
@@ -358,12 +392,12 @@ ob_start(function ($html) {
 
         /* Warning section */
         .warning-notice-bar {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 60px auto 0;
             background: #fffbeb;
             border: 1px solid #fde68a;
             border-radius: 20px;
-            padding: 20px;
+            padding: 24px;
             display: flex;
             gap: 16px;
             align-items: flex-start;
@@ -371,37 +405,37 @@ ob_start(function ($html) {
         }
 
         .warning-notice-bar i {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #d97706;
             margin-top: 2px;
         }
 
         .warning-notice-bar h4 {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 6px;
         }
 
         .warning-notice-bar p {
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin: 0;
         }
 
-        /* List Section */
+        /* List Section - 2 TVV 1 Hàng */
         .list-section {
-            max-width: 1000px;
+            max-width: 940px;
             margin: 80px auto;
             padding: 0 20px;
         }
 
         .list-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .list-header h2 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: #0f172a;
             margin-bottom: 12px;
@@ -409,38 +443,43 @@ ob_start(function ($html) {
         }
 
         .list-header p {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #64748b;
         }
 
         .consultants-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .consultant-card {
             background: #ffffff;
             border: 1px solid rgba(148, 163, 184, 0.15);
             border-radius: 24px;
-            padding: 24px;
+            padding: 40px 30px;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .consultant-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-            border-color: rgba(171, 14, 0, 0.2);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+            border-color: rgba(171, 14, 0, 0.25);
         }
 
         .consultant-avatar-wrap {
             position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 18px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 24px;
         }
 
         .consultant-avatar {
@@ -448,42 +487,43 @@ ob_start(function ($html) {
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid rgba(171, 14, 0, 0.08);
+            border: 4px solid rgba(171, 14, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         .consultant-card:hover .consultant-avatar {
             border-color: #ab0e00;
+            transform: scale(1.03);
         }
 
         .consultant-card-name {
-            font-size: 1.1rem;
+            font-size: 1.35rem;
             font-weight: 800;
             color: #0f172a;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .consultant-card-role {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #64748b;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 18px;
         }
 
         .consultant-card-phone {
             background: #f8fafc;
-            border: 1px dashed #cbd5e1;
-            padding: 10px 14px;
-            border-radius: 12px;
-            font-size: 0.95rem;
+            border: 1.5px dashed #cbd5e1;
+            padding: 12px 20px;
+            border-radius: 14px;
+            font-size: 1.05rem;
             color: #334155;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 16px;
+            gap: 8px;
+            margin-bottom: 24px;
             transition: all 0.3s ease;
         }
 
@@ -504,18 +544,22 @@ ob_start(function ($html) {
 
         .consultant-card-phone strong {
             font-weight: 800;
+            font-size: 1.1rem;
         }
 
         .btn-card-action {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 10px;
+            max-width: 240px;
+            padding: 12px;
             background: transparent;
             color: #ab0e00;
-            border: 1.5px solid rgba(171, 14, 0, 0.3);
-            border-radius: 12px;
+            border: 2px solid rgba(171, 14, 0, 0.35);
+            border-radius: 14px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-align: center;
@@ -526,6 +570,7 @@ ob_start(function ($html) {
             background: #ab0e00;
             color: #ffffff;
             border-color: #ab0e00;
+            box-shadow: 0 6px 15px rgba(171, 14, 0, 0.2);
         }
 
         /* Payment Guidelines Section */
@@ -645,11 +690,6 @@ ob_start(function ($html) {
 
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
-            .consultants-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-
             .guidelines-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -658,11 +698,22 @@ ob_start(function ($html) {
 
         @media (max-width: 768px) {
             .verify-hero {
-                padding: 120px 20px 60px;
+                padding: 130px 20px 50px !important;
+                min-height: auto;
+            }
+
+            .verify-hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+
+            .verify-hero p {
+                font-size: 1rem;
+                color: rgba(255, 255, 255, 0.9) !important;
             }
 
             .search-container {
-                padding: 20px;
+                padding: 24px 20px;
                 border-radius: 20px;
             }
 
@@ -699,14 +750,15 @@ ob_start(function ($html) {
                 margin-bottom: 30px;
             }
 
-            .payment-guidelines-section {
-                padding: 50px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
             .consultants-grid {
                 grid-template-columns: 1fr;
+                max-width: 440px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .payment-guidelines-section {
+                padding: 50px 20px;
             }
         }
     </style>
@@ -718,13 +770,15 @@ ob_start(function ($html) {
     <!-- Site Header -->
     <?php get_template_part('shared-header'); ?>
 
-    <!-- Hero Section -->
+    <!-- Hero Section y hệt /ideas-talk -->
     <section class="verify-hero">
+        <div class="verify-hero-bg"></div>
+        <div class="verify-hero-overlay"></div>
         <div class="verify-hero-container">
-            <div class="verify-badge">
+            <span class="verify-badge">
                 <i class="fa-solid fa-user-shield"></i>
                 Bảo Mật &amp; Minh Bạch
-            </div>
+            </span>
             <h1>Xác Thực <span>Tư Vấn Viên</span> Tuyển Sinh</h1>
             <p>Kiểm tra nhanh danh tính chuyên viên tư vấn chính thức của Viện IDEAS nhằm bảo vệ quyền lợi học tập và phòng ngừa các hình thức giả mạo hoặc lừa đảo.</p>
         </div>
@@ -733,10 +787,10 @@ ob_start(function ($html) {
     <!-- Search Tool Section -->
     <section class="search-section">
         <div class="search-container">
-            <label for="advisor-search" class="search-label">Nhập số điện thoại hoặc 3 số đuôi cần kiểm tra:</label>
+            <label for="advisor-search" class="search-label">Nhập đầy đủ số điện thoại tư vấn viên cần kiểm tra:</label>
             <div class="search-input-wrap">
                 <i class="fa-solid fa-phone search-icon-decor"></i>
-                <input type="text" id="advisor-search" class="search-input-field" placeholder="Ví dụ: 017, 953, 090...017">
+                <input type="text" id="advisor-search" class="search-input-field" placeholder="Ví dụ: 0901234017 hoặc chỉ nhập 3 số đuôi như 017">
                 <button type="button" id="btn-verify" class="btn-search-verify">
                     <i class="fa-solid fa-user-check"></i>
                     Kiểm tra ngay
@@ -754,12 +808,12 @@ ob_start(function ($html) {
             <i class="fa-solid fa-triangle-exclamation"></i>
             <div>
                 <h4>Cảnh báo phòng tránh mạo danh</h4>
-                <p>Mọi yêu cầu chuyển khoản đóng học phí hoặc các khoản lệ phí tại Viện IDEAS chỉ được thực hiện thông qua tài khoản ngân hàng chính thức đứng tên <strong>VIỆN IDEAS</strong>. Chúng tôi tuyệt đối <strong>KHÔNG</strong> yêu cầu học viên chuyển khoản vào bất kỳ tài khoản cá nhân nào. Hãy cảnh giác với các cuộc gọi hoặc tin nhắn từ các số lạ mạo danh nhân viên IDEAS.</p>
+                <p>Hiện nay có tình trạng mạo danh nhân viên Viện IDEAS để tiếp cận và cung cấp thông tin sai lệch đến học viên. Quý học viên hãy hết sức cảnh giác trước các cuộc gọi, tin nhắn hoặc liên hệ từ các số điện thoại lạ không nằm trong danh sách tư vấn viên chính thức của Viện.</p>
             </div>
         </div>
     </section>
 
-    <!-- Official Advisors Grid -->
+    <!-- Official Advisors Grid - 2 TVV 1 Hàng -->
     <section class="list-section">
         <div class="list-header">
             <h2>Đội Ngũ Tư Vấn Viên Chính Thức</h2>
@@ -914,8 +968,8 @@ ob_start(function ($html) {
                 // Get value and sanitize (remove non-alphanumeric chars)
                 let query = searchInput.value.replace(/[^0-9]/g, '').trim();
                 
-                if (query.length === 0) {
-                    alert('Vui lòng nhập số điện thoại hoặc 3 số đuôi để kiểm tra.');
+                if (query.length < 3) {
+                    alert('Vui lòng nhập đầy đủ số điện thoại hoặc ít nhất 3 số đuôi để kiểm tra.');
                     return;
                 }
 
@@ -935,6 +989,14 @@ ob_start(function ($html) {
 
                 setTimeout(() => {
                     if (matchedAdvisor) {
+                        // Mask middle of the entered number if they input full number
+                        let maskedNum = '';
+                        if (query.length >= 7) {
+                            maskedNum = query.substring(0, 3) + '****' + query.substring(query.length - 3);
+                        } else {
+                            maskedNum = '*********' + matchedAdvisor.suffix;
+                        }
+
                         // SUCCESS MATCH
                         resultsContainer.innerHTML = `
                             <div class="result-card success">
@@ -943,7 +1005,7 @@ ob_start(function ($html) {
                                     <span>Xác thực thành công</span>
                                 </div>
                                 <div class="result-desc">
-                                    Số điện thoại này thuộc về tư vấn viên chính thức của Viện IDEAS. Quý học viên hoàn toàn có thể yên tâm liên hệ trao đổi học tập.
+                                    Số điện thoại khớp với thông tin của chuyên viên tư vấn chính thức thuộc Viện IDEAS. Quý học viên hoàn toàn có thể yên tâm trao đổi học tập.
                                 </div>
                                 <div class="matched-consultant-card">
                                     <img src="${matchedAdvisor.avatar}" class="matched-avatar" alt="${matchedAdvisor.name}">
@@ -952,7 +1014,7 @@ ob_start(function ($html) {
                                         <span class="matched-role">${matchedAdvisor.role}</span>
                                         <div class="matched-phone">
                                             <i class="fa-solid fa-phone"></i>
-                                            <span>Số điện thoại đuôi: <strong>*********${matchedAdvisor.suffix}</strong></span>
+                                            <span>Số điện thoại: <strong>${maskedNum}</strong></span>
                                         </div>
                                         <div>
                                             <span class="verified-badge-pill">
@@ -976,7 +1038,7 @@ ob_start(function ($html) {
                                     Số điện thoại hoặc số đuôi <strong>"${searchInput.value}"</strong> mà Quý học viên vừa nhập <strong>KHÔNG</strong> nằm trong danh sách các tư vấn viên chính thức của Viện IDEAS.
                                 </div>
                                 <p style="margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                                    Nhằm tránh bị lừa đảo hoặc lợi dụng thông tin, Quý học viên vui lòng tuyệt đối <strong>KHÔNG</strong> thực hiện bất kỳ giao dịch chuyển khoản hay cung cấp thông tin cá nhân cho số điện thoại này. Hãy liên hệ ngay với chúng tôi qua số Hotline chính thức: <strong>028 2244 2244</strong> hoặc gửi phản hồi về địa chỉ email <strong>info@ideas.edu.vn</strong> để được xác minh hỗ trợ kịp thời.
+                                    Nhằm tránh bị lợi dụng thông tin hoặc mạo danh tư vấn viên, Quý học viên vui lòng hết sức cảnh giác, không làm việc trực tiếp hoặc cung cấp thông tin cá nhân cho số điện thoại này. Hãy liên hệ ngay với chúng tôi qua số Hotline chính thức: <strong>028 2244 2244</strong> hoặc gửi phản hồi về địa chỉ email <strong>info@ideas.edu.vn</strong> để được xác minh và hỗ trợ kịp thời.
                                 </p>
                             </div>
                         `;
@@ -1000,3 +1062,5 @@ ob_start(function ($html) {
     </script>
 
     <?php get_footer(); ?>
+</body>
+</html>
