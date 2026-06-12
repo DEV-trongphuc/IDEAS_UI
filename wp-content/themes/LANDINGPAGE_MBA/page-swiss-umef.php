@@ -27,11 +27,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         href="/wp-content/uploads/external-migrated/fc7eeb_82548a7721e6472b9c5f4813e39e94b9_mv2_ea5d6ab4.webp" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title><?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?></title>
+        <title>
+            <?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>
+        </title>
         <meta name="description"
             content="<?php echo $is_en ? 'Explore Swiss UMEF University in Geneva, Switzerland. Officially accredited by the Swiss Accreditation Council, QS 5-Star rated, and recognized by the Ministry of Education and Training of Vietnam.' : 'Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars và được công nhận bởi Bộ GD&ĐT Việt Nam.'; ?>" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="<?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>" />
+        <meta property="og:title"
+            content="<?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>" />
         <meta property="og:description"
             content="<?php echo $is_en ? 'Experience the elite Swiss education with a prestigious international degree, accredited by SAC, ACBSP, EduQua.' : 'Trải nghiệm giáo dục tinh hoa Thụy Sĩ với bằng cấp quốc tế danh giá, được kiểm định bởi SAC, ACBSP, EduQua.'; ?>" />
         <meta property="og:image"
@@ -44,7 +47,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     $bk_css_version = file_exists($bk_css_path) ? filemtime($bk_css_path) : time();
     ?>
     <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" />
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>"
+        media="print" onload="this.media='all'" />
 
     <style>
         :root {
@@ -515,6 +519,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1px solid rgba(15, 23, 42, 0.08);
             box-shadow: 0 20px 40px rgba(15, 23, 42, 0.03), 0 5px 15px rgba(15, 23, 42, 0.01);
             position: relative;
+        }
+
+        .acc-sac-hero,
+        .acc-sac-hero *:hover {
+            transform: none !important;
         }
 
         .acc-sac-left {
@@ -2116,16 +2125,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="umef-hero-container">
             <div class="umef-hero-logo-wrap">
                 <a href="https://www.swiss-umef.ch/" target="_blank" rel="noopener" class="umef-hero-logo-link">
-                    <img src="/wp-content/uploads/external-migrated/images_b4d597a4.webp"
-                        alt="Swiss UMEF Logo" class="umef-hero-circle-logo" fetchpriority="high" decoding="async" />
+                    <img src="/wp-content/uploads/external-migrated/images_b4d597a4.webp" alt="Swiss UMEF Logo"
+                        class="umef-hero-circle-logo" fetchpriority="high" decoding="async" />
                 </a>
             </div>
             <div class="umef-hero-badge">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <?php echo $is_en ? 'Swiss Partner University' : 'Trường Đối Tác Thụy Sĩ'; ?>
             </div>
-            <h1><?php echo $is_en ? 'First private university <span>in Geneva</span> <br />officially accredited in the <span>Swiss higher education system</span>' : 'Đại học tư thục <span>đầu tiên tại Geneva</span> <br />được công nhận chính thức trong <span>hệ thống\n                    giáo dục Thụy Sĩ</span>'; ?></h1>
-            <p><?php echo $is_en ? 'Swiss UMEF – established in 1984, is accredited by the Swiss Accreditation Council (SAC) and is listed among the official Swiss higher education institutions under Swissuniversities.' : 'Swiss UMEF – thành lập 1984, được công nhận bởi Hội đồng Kiểm định Thụy Sĩ SAC (Swiss Accreditation\n                Council) và nằm trong danh sách các cơ sở giáo dục đại học chính thức thuộc Swissuniversities.'; ?></p>
+            <h1><?php echo $is_en ? 'First private university <span>in Geneva</span> <br />officially accredited in the <span>Swiss higher education system</span>' : 'Đại học tư thục <span>đầu tiên tại Geneva</span> <br />được công nhận chính thức trong <span>hệ thống\n                    giáo dục Thụy Sĩ</span>'; ?>
+            </h1>
+            <p><?php echo $is_en ? 'Swiss UMEF – established in 1984, is accredited by the Swiss Accreditation Council (SAC) and is listed among the official Swiss higher education institutions under Swissuniversities.' : 'Swiss UMEF – thành lập 1984, được công nhận bởi Hội đồng Kiểm định Thụy Sĩ SAC (Swiss Accreditation\n                Council) và nằm trong danh sách các cơ sở giáo dục đại học chính thức thuộc Swissuniversities.'; ?>
+            </p>
             <div class="umef-hero-stats">
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">1984</span>
@@ -2133,7 +2144,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">SAC</span>
-                    <span class="umef-stat-lbl"><?php echo $is_en ? 'Swiss Accreditation' : 'Kiểm Định Thụy Sĩ'; ?></span>
+                    <span
+                        class="umef-stat-lbl"><?php echo $is_en ? 'Swiss Accreditation' : 'Kiểm Định Thụy Sĩ'; ?></span>
                 </div>
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">5 Stars</span>
@@ -2166,7 +2178,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h2 class="acc-title">
                     <?php echo $is_en ? 'Prestigious <span>International</span> Accreditation' : 'Kiểm định <span>Quốc tế</span> Uy tín'; ?>
                 </h2>
-                <p class="acc-desc"><?php echo $is_en ? 'Swiss UMEF University is accredited and recognized by leading prestigious authorities and organizations in Switzerland, the United States, and internationally.' : 'Đại học Swiss UMEF được kiểm định và công nhận bởi các cơ quan và tổ chức uy tín\n                    hàng đầu Thụy Sĩ, Hoa Kỳ và Quốc tế.'; ?></p>
+                <p class="acc-desc">
+                    <?php echo $is_en ? 'Swiss UMEF University is accredited and recognized by leading prestigious authorities and organizations in Switzerland, the United States, and internationally.' : 'Đại học Swiss UMEF được kiểm định và công nhận bởi các cơ quan và tổ chức uy tín\n                    hàng đầu Thụy Sĩ, Hoa Kỳ và Quốc tế.'; ?>
+                </p>
             </div>
 
             <!-- SAC Hero Card -->
@@ -2176,14 +2190,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="acc-sac-badge-dot"></span>
                         <?php echo $is_en ? 'Official Recognition from Swiss Government' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?>
                     </div>
-                    <h3 class="acc-sac-name"><a href="javascript:void(0)" class="accred-trigger" data-accred="sac" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a>
+                    <h3 class="acc-sac-name"><a href="javascript:void(0)" class="accred-trigger" data-accred="sac"
+                            style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;"
+                            onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
+                            title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss
+                            Accreditation Council <i class="fa-solid fa-up-right-from-square"
+                                style="font-size: 0.75em;"></i></a>
                     </h3>
-                    <p class="acc-sac-tagline"><?php echo $is_en ? 'Swiss Federal Accreditation Authority. Swiss UMEF is the first private university <strong>in Geneva</strong> to be officially accredited in the Swiss higher education system.' : 'Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục\n                        <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ.'; ?>
+                    <p class="acc-sac-tagline">
+                        <?php echo $is_en ? 'Swiss Federal Accreditation Authority. Swiss UMEF is the first private university <strong>in Geneva</strong> to be officially accredited in the Swiss higher education system.' : 'Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục\n                        <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ.'; ?>
                     </p>
                     <div class="acc-sac-stats">
                         <div class="acc-sac-stat">
                             <span class="acc-sac-stat-val">Gov</span>
-                            <span class="acc-sac-stat-label"><?php echo $is_en ? 'Federal Authority' : 'Thẩm quyền Liên bang'; ?></span>
+                            <span
+                                class="acc-sac-stat-label"><?php echo $is_en ? 'Federal Authority' : 'Thẩm quyền Liên bang'; ?></span>
                         </div>
                         <div class="acc-sac-stat">
                             <span class="acc-sac-stat-val acc-sac-stat-svg-wrap">
@@ -2194,38 +2215,53 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <rect x="4" y="7.5" width="10" height="3" fill="#ffffff"></rect>
                                 </svg>
                             </span>
-                            <span class="acc-sac-stat-label"><?php echo $is_en ? 'Education Council' : 'Hội đồng Giáo dục'; ?></span>
+                            <span
+                                class="acc-sac-stat-label"><?php echo $is_en ? 'Education Council' : 'Hội đồng Giáo dục'; ?></span>
                         </div>
                         <div class="acc-sac-stat">
                             <span class="acc-sac-stat-val">ECTS</span>
-                            <span class="acc-sac-stat-label"><?php echo $is_en ? 'European Standards' : 'Tiêu chuẩn Châu Âu'; ?></span>
+                            <span
+                                class="acc-sac-stat-label"><?php echo $is_en ? 'European Standards' : 'Tiêu chuẩn Châu Âu'; ?></span>
                         </div>
                     </div>
                 </div>
                 <div class="acc-sac-right">
                     <div class="acc-sac-logo-wrap">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.png"
-                            class="acc-sac-logo-img" alt="Logo SAC - Swiss Accreditation Council" loading="lazy"
-                            decoding="async" />
-                        <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp" target="_blank"
-                            rel="noopener noreferrer" class="acc-sac-cert-link">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.png" class="acc-sac-logo-img"
+                            alt="Logo SAC - Swiss Accreditation Council" loading="lazy" decoding="async" />
+                        <a href="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
+                            target="_blank" rel="noopener noreferrer" class="acc-sac-cert-link">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
                                 class="acc-sac-cert-img" alt="Chứng nhận SAC - Swiss Accreditation Council"
                                 loading="lazy" decoding="async" />
                         </a>
                         <div class="acc-sac-logo-text">
-                            <div class="acc-sac-logo-title"><a href="javascript:void(0)" class="accred-trigger" data-accred="sac" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;" onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'" title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss Accreditation Council <i class="fa-solid fa-up-right-from-square" style="font-size: 0.75em;"></i></a></div>
-                            <p>Cơ quan kiểm định liên bang Thụy Sĩ<br><?php echo $is_en ? 'Official Recognition from Swiss Government' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?> Thụy Sĩ
+                            <div class="acc-sac-logo-title"><a href="javascript:void(0)" class="accred-trigger"
+                                    data-accred="sac"
+                                    style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;"
+                                    onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
+                                    title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss
+                                    Accreditation Council <i class="fa-solid fa-up-right-from-square"
+                                        style="font-size: 0.75em;"></i></a></div>
+                            <p>Cơ quan kiểm định liên bang Thụy
+                                Sĩ<br><?php echo $is_en ? 'Official Recognition from Swiss Government' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?>
+                                Thụy Sĩ
                             </p>
                         </div>
                     </div>
                     <ul class="acc-sac-points">
-                        <li><i class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Degrees are legally authenticated by the Embassy of Vietnam in Switzerland' : 'Bằng cấp được hợp pháp hóa lãnh sự tại Đại sứ\n                                quán Việt Nam tại Thụy Sĩ'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Curriculum meets European standards — ECTS international credits' : 'Chương trình đạt chuẩn châu Âu — ECTS tín chỉ\n                                quốc tế'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Swiss UMEF is the first private university <strong>in Geneva</strong> to be officially accredited in the Swiss higher education system' : 'Swiss UMEF là trường đại học tư thục\n                                <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục\n                                Thụy Sĩ'; ?></span></li>
+                        <li><i
+                                class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Degrees are legally authenticated by the Embassy of Vietnam in Switzerland' : 'Bằng cấp được hợp pháp hóa lãnh sự tại Đại sứ\n                                quán Việt Nam tại Thụy Sĩ'; ?></span>
+                        </li>
+                        <li><i
+                                class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Curriculum meets European standards — ECTS international credits' : 'Chương trình đạt chuẩn châu Âu — ECTS tín chỉ\n                                quốc tế'; ?></span>
+                        </li>
+                        <li><i
+                                class="fa-solid fa-circle-check"></i><span><?php echo $is_en ? 'Swiss UMEF is the first private university <strong>in Geneva</strong> to be officially accredited in the Swiss higher education system' : 'Swiss UMEF là trường đại học tư thục\n                                <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục\n                                Thụy Sĩ'; ?></span>
+                        </li>
                     </ul>
                     <div class="acc-sac-cert-strip">
-                        <a href="https://ideas.edu.vn/wp-content/uploads/2026/06/sac.webp"
+                        <a href="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
                             class="acc-cert-thumb lightbox-trigger" target="_blank" rel="noopener noreferrer">
                             <i class="fa-solid fa-file-certificate"></i>
                             <?php echo $is_en ? 'SAC Accreditation Certificate' : 'Chứng nhận kiểm định SAC'; ?>
@@ -2241,7 +2277,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Divider -->
-            <div class="acc-others-title"><?php echo $is_en ? 'Other International Accreditations' : 'Các kiểm định quốc tế khác'; ?></div>
+            <div class="acc-others-title">
+                <?php echo $is_en ? 'Other International Accreditations' : 'Các kiểm định quốc tế khác'; ?></div>
 
             <!-- Other accreditations grid -->
             <div class="acc-grid">
@@ -2249,25 +2286,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
                         alt="CHEA" loading="lazy" decoding="async" />
                     <h4>CHEA – Hoa Kỳ</h4>
-                    <p><?php echo $is_en ? 'The leading higher education accreditation council in the United States, ensuring international recognition standards.' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?></p>
+                    <p><?php echo $is_en ? 'The leading higher education accreditation council in the United States, ensuring international recognition standards.' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?>
+                    </p>
                 </div>
                 <div class="acc-card" data-accred="iacbe">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
                         alt="IACBE" loading="lazy" decoding="async" />
                     <h4>IACBE – Business Education</h4>
-                    <p><?php echo $is_en ? 'An accreditation organization specializing in international business education quality for BBA, MBA, and DBA.' : 'Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA'; ?></p>
+                    <p><?php echo $is_en ? 'An accreditation organization specializing in international business education quality for BBA, MBA, and DBA.' : 'Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA'; ?>
+                    </p>
                 </div>
                 <div class="acc-card" data-accred="acbsp">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
                         alt="ACBSP" loading="lazy" decoding="async" />
                     <h4>ACBSP – Business Schools</h4>
-                    <p><?php echo $is_en ? 'Business school quality accreditation officially recognized by the United States Department of Education.' : 'Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức'; ?></p>
+                    <p><?php echo $is_en ? 'Business school quality accreditation officially recognized by the United States Department of Education.' : 'Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức'; ?>
+                    </p>
                 </div>
                 <div class="acc-card" data-accred="qs">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2025/10/qs-1.webp"
                         alt="QS Stars" loading="lazy" decoding="async" />
                     <h4>QS Stars ⭐ 5 Stars Overall</h4>
-                    <p><?php echo $is_en ? 'Rated 5 stars overall by Quacquarelli Symonds — the world\'s prestigious university evaluation system.' : 'Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới'; ?></p>
+                    <p><?php echo $is_en ? 'Rated 5 stars overall by Quacquarelli Symonds — the world\'s prestigious university evaluation system.' : 'Xếp hạng 5 sao toàn diện bởi Quacquarelli Symonds — hệ thống đánh giá đại học uy tín thế giới'; ?>
+                    </p>
                 </div>
                 <div class="acc-card" data-accred="eduqua">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
@@ -2284,8 +2325,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section umef-section-dark" style="background: #040508;">
         <div class="section-header">
             <span class="section-badge"><?php echo $is_en ? 'HERITAGE & PRESTIGE' : 'DI SẢN &amp; UY TÍN'; ?></span>
-            <h2 class="section-title"><?php echo $is_en ? 'Over 4 Decades of <span>Swiss Elite Education</span>' : 'Hơn 4 thập kỷ <span>đào tạo tinh hoa Thụy Sĩ</span>'; ?></h2>
-            <p class="section-subtitle"><?php echo $is_en ? 'Inheriting a deep educational heritage since 1984 in Geneva, Swiss UMEF combines the highest federal accreditation prestige with global training experience, building a solid online future for managers.' : 'Kế thừa chiều sâu di sản giáo dục từ năm 1984 tại Geneva, Swiss UMEF kết hợp uy\n                tín kiểm định liên bang cao nhất với kinh nghiệm đào tạo toàn cầu, kiến tạo tương lai trực tuyến vững\n                chắc cho các nhà quản lý.'; ?></p>
+            <h2 class="section-title">
+                <?php echo $is_en ? 'Over 4 Decades of <span>Swiss Elite Education</span>' : 'Hơn 4 thập kỷ <span>đào tạo tinh hoa Thụy Sĩ</span>'; ?>
+            </h2>
+            <p class="section-subtitle">
+                <?php echo $is_en ? 'Inheriting a deep educational heritage since 1984 in Geneva, Swiss UMEF combines the highest federal accreditation prestige with global training experience, building a solid online future for managers.' : 'Kế thừa chiều sâu di sản giáo dục từ năm 1984 tại Geneva, Swiss UMEF kết hợp uy\n                tín kiểm định liên bang cao nhất với kinh nghiệm đào tạo toàn cầu, kiến tạo tương lai trực tuyến vững\n                chắc cho các nhà quản lý.'; ?>
+            </p>
         </div>
 
         <div class="campus-grid">
@@ -2295,8 +2340,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         alt="Château d'Aï Campus" loading="lazy" />
                 </div>
                 <div class="campus-body">
-                    <h3 class="campus-card-title"><?php echo $is_en ? 'Longevous Academic Heritage' : 'Di sản học thuật lâu đời'; ?></h3>
-                    <p class="campus-card-desc"><?php echo $is_en ? 'Guaranteed by a long history with its headquarters located in the ancient castle Château d\'Aï (Geneva, Switzerland), upholding standard intellectual values across generations.' : 'Bảo chứng bởi lịch sử lâu đời và trụ sở chính đặt tại lâu đài cổ kính\n                        Château d\'Aï (Geneva, Thụy Sĩ), giữ vững các giá trị tri thức chuẩn mực qua nhiều thế hệ.'; ?></p>
+                    <h3 class="campus-card-title">
+                        <?php echo $is_en ? 'Longevous Academic Heritage' : 'Di sản học thuật lâu đời'; ?></h3>
+                    <p class="campus-card-desc">
+                        <?php echo $is_en ? 'Guaranteed by a long history with its headquarters located in the ancient castle Château d\'Aï (Geneva, Switzerland), upholding standard intellectual values across generations.' : 'Bảo chứng bởi lịch sử lâu đời và trụ sở chính đặt tại lâu đài cổ kính\n                        Château d\'Aï (Geneva, Thụy Sĩ), giữ vững các giá trị tri thức chuẩn mực qua nhiều thế hệ.'; ?>
+                    </p>
                 </div>
             </div>
 
@@ -2306,8 +2354,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         alt="UMEF Lecture Hall" loading="lazy" />
                 </div>
                 <div class="campus-body">
-                    <h3 class="campus-card-title"><?php echo $is_en ? 'International Training Experience' : 'Kinh nghiệm đào tạo quốc tế'; ?></h3>
-                    <p class="campus-card-desc"><?php echo $is_en ? 'Over 40 years accompanying the learning journey of students from more than 100 countries, delivering experience-rich teaching and global practice.' : 'Hơn 40 năm đồng hành cùng sự nghiệp học tập của học viên từ hơn 100 quốc\n                        gia, mang lại phương pháp giảng dạy giàu trải nghiệm và thực tiễn toàn cầu.'; ?></p>
+                    <h3 class="campus-card-title">
+                        <?php echo $is_en ? 'International Training Experience' : 'Kinh nghiệm đào tạo quốc tế'; ?></h3>
+                    <p class="campus-card-desc">
+                        <?php echo $is_en ? 'Over 40 years accompanying the learning journey of students from more than 100 countries, delivering experience-rich teaching and global practice.' : 'Hơn 40 năm đồng hành cùng sự nghiệp học tập của học viên từ hơn 100 quốc\n                        gia, mang lại phương pháp giảng dạy giàu trải nghiệm và thực tiễn toàn cầu.'; ?>
+                    </p>
                 </div>
             </div>
 
@@ -2317,8 +2368,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         alt="UMEF Graduation Event" loading="lazy" />
                 </div>
                 <div class="campus-body">
-                    <h3 class="campus-card-title"><?php echo $is_en ? 'Affirmed International Prestige' : 'Uy tín quốc tế khẳng định'; ?></h3>
-                    <p class="campus-card-desc"><?php echo $is_en ? 'Officially accredited by the Swiss Accreditation Council, rated 5 stars by QS Stars, and recognized by the Ministry of Education & Training of Vietnam, ensuring the global value of the prestigious degree.' : 'Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao\n                        QS Stars và được\n                        công nhận bởi Bộ GD&amp;ĐT Việt Nam, bảo đảm giá trị tấm bằng danh giá toàn cầu.'; ?></p>
+                    <h3 class="campus-card-title">
+                        <?php echo $is_en ? 'Affirmed International Prestige' : 'Uy tín quốc tế khẳng định'; ?></h3>
+                    <p class="campus-card-desc">
+                        <?php echo $is_en ? 'Officially accredited by the Swiss Accreditation Council, rated 5 stars by QS Stars, and recognized by the Ministry of Education & Training of Vietnam, ensuring the global value of the prestigious degree.' : 'Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao\n                        QS Stars và được\n                        công nhận bởi Bộ GD&amp;ĐT Việt Nam, bảo đảm giá trị tấm bằng danh giá toàn cầu.'; ?>
+                    </p>
                 </div>
             </div>
     </section>
@@ -2333,9 +2387,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 style="top: 65%; right: 7%; animation-duration: 24s;"></i>
         </div>
         <div class="section-header">
-            <span class="section-badge"><?php echo $is_en ? 'NEWS & FEATURED EVENTS' : 'TIN TỨC &amp; SỰ KIỆN NỔI BẬT'; ?></span>
-            <h2 class="section-title"><?php echo $is_en ? '<span>Affirming Position</span> and External Prestige' : '<span>Khẳng định vị thế</span> và uy tín đối ngoại'; ?></h2>
-            <p class="section-subtitle"><?php echo $is_en ? 'Evidence of a strong strategic partnership and recognition from high-level agencies of Vietnam and Switzerland.' : 'Minh chứng cho mối quan hệ hợp tác chiến lược bền chặt và sự công nhận từ các cơ\n                quan ban ngành cấp cao của Việt Nam và Thụy Sĩ.'; ?></p>
+            <span
+                class="section-badge"><?php echo $is_en ? 'NEWS & FEATURED EVENTS' : 'TIN TỨC &amp; SỰ KIỆN NỔI BẬT'; ?></span>
+            <h2 class="section-title">
+                <?php echo $is_en ? '<span>Affirming Position</span> and External Prestige' : '<span>Khẳng định vị thế</span> và uy tín đối ngoại'; ?>
+            </h2>
+            <p class="section-subtitle">
+                <?php echo $is_en ? 'Evidence of a strong strategic partnership and recognition from high-level agencies of Vietnam and Switzerland.' : 'Minh chứng cho mối quan hệ hợp tác chiến lược bền chặt và sự công nhận từ các cơ\n                quan ban ngành cấp cao của Việt Nam và Thụy Sĩ.'; ?>
+            </p>
         </div>
 
         <div class="umef_news_layout">
@@ -2343,14 +2402,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <a class="umef_news_card_featured" href="https://www.facebook.com/share/p/1CHpxdmHUS/" target="_blank"
                 rel="noopener nofollow external noreferrer" data-wpel-link="external">
                 <div class="umef_news_card_img">
-                    <span class="umef_news_featured_badge"><i class="fa-solid fa-star"></i> <?php echo $is_en ? 'Featured' : 'Nổi bật'; ?></span>
+                    <span class="umef_news_featured_badge"><i class="fa-solid fa-star"></i>
+                        <?php echo $is_en ? 'Featured' : 'Nổi bật'; ?></span>
                     <img loading="lazy" decoding="async"
                         src="https://ideas.edu.vn/wp-content/uploads/2025/08/btc_umef.webp"
                         alt="Phái đoàn Bộ Tài Chính Việt Nam ghé thăm Swiss UMEF tại Geneva">
                 </div>
                 <div class="umef_news_card_body">
-                    <div class="umef_news_card_tag"><i class="fa-solid fa-newspaper"></i> <?php echo $is_en ? 'External Affairs News' : 'Tin tức đối ngoại'; ?></div>
-                    <h3 class="umef_news_card_title"><?php echo $is_en ? 'Vietnam Ministry of Finance Delegation Officially Visits & Works at Swiss UMEF, Geneva' : 'Phái đoàn Bộ Tài Chính Việt Nam chính thức ghé thăm &amp; làm việc\n                        tại Swiss UMEF, Geneva'; ?></h3>
+                    <div class="umef_news_card_tag"><i class="fa-solid fa-newspaper"></i>
+                        <?php echo $is_en ? 'External Affairs News' : 'Tin tức đối ngoại'; ?></div>
+                    <h3 class="umef_news_card_title">
+                        <?php echo $is_en ? 'Vietnam Ministry of Finance Delegation Officially Visits & Works at Swiss UMEF, Geneva' : 'Phái đoàn Bộ Tài Chính Việt Nam chính thức ghé thăm &amp; làm việc\n                        tại Swiss UMEF, Geneva'; ?>
+                    </h3>
                     <span><?php echo $is_en ? 'On July 30, 2025, Swiss UMEF was honored to welcome the delegation from the Ministry of Finance of Vietnam to visit and work at the Geneva headquarters, affirming the strategic cooperative relationship between the two countries.' : 'Ngày 30/07/2025, Swiss UMEF vinh dự đón tiếp phái đoàn từ Bộ Tài Chính Việt Nam đến thăm và\n                        làm việc tại trụ sở Geneva, khẳng định mối quan hệ hợp tác chiến lược giữa hai nước.'; ?></span>
                     <div class="umef_news_card_meta">
                         <i class="fa-regular fa-calendar"></i>
@@ -2359,7 +2422,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <i class="fa-brands fa-facebook"></i>
                         <span>Facebook</span>
                     </div>
-                    <div class="umef_news_card_read"><?php echo $is_en ? 'Read Article' : 'Đọc bài viết'; ?> <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="umef_news_card_read"><?php echo $is_en ? 'Read Article' : 'Đọc bài viết'; ?> <i
+                            class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </a>
 
@@ -2373,7 +2437,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         alt="Swiss UMEF cam kết đồng hành cùng học viên Việt Nam">
                 </div>
                 <div class="umef_news_card_body">
-                    <div class="umef_news_card_tag"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'Educational Commitment' : 'Cam kết giáo dục'; ?>
+                    <div class="umef_news_card_tag"><i class="fa-solid fa-graduation-cap"></i>
+                        <?php echo $is_en ? 'Educational Commitment' : 'Cam kết giáo dục'; ?>
                     </div>
                     <b><?php echo $is_en ? 'Swiss UMEF commits to accompanying Vietnamese students in developing high-quality human resources' : 'Swiss UMEF cam kết đồng hành cùng học viên Việt Nam phát triển nguồn nhân lực chất lượng\n                        cao'; ?></b>
                     <div class="umef_news_card_meta">
@@ -2383,7 +2448,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <i class="fa-solid fa-link"></i>
                         <span>ideas.edu.vn</span>
                     </div>
-                    <div class="umef_news_card_read"><?php echo $is_en ? 'See More' : 'Xem thêm'; ?> <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="umef_news_card_read"><?php echo $is_en ? 'See More' : 'Xem thêm'; ?> <i
+                            class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </a>
             <!-- Card 2: Chủ tịch Quốc hội -->
@@ -2391,12 +2457,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 href="https://ideas.edu.vn/tin-tuc-moi/toa-dam-xay-dung-va-van-hanh-trung-tam-tai-chinh-quoc-te-mo-ra-co-hoi-nghe-nghiep-voi-bang-cap-chuan-thuy-si.html"
                 target="_blank" data-wpel-link="internal">
                 <div class="umef_news_card_img umef_news_card_img--sm">
-                    <img loading="lazy" decoding="async"
-                        src="https://ideas.edu.vn/wp-content/uploads/2026/06/ctqh.webp"
+                    <img loading="lazy" decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/ctqh.webp"
                         alt="Chủ tịch Quốc hội Trần Thanh Mẫn dự Tọa đàm">
                 </div>
                 <div class="umef_news_card_body">
-                    <div class="umef_news_card_tag"><i class="fa-solid fa-calendar-check"></i> <?php echo $is_en ? 'Special Event' : 'Sự kiện đặc biệt'; ?>
+                    <div class="umef_news_card_tag"><i class="fa-solid fa-calendar-check"></i>
+                        <?php echo $is_en ? 'Special Event' : 'Sự kiện đặc biệt'; ?>
                     </div>
                     <b><?php echo $is_en ? 'National Assembly Chairman Tran Thanh Man Attends Seminar on Building International Financial Center' : 'Chủ tịch Quốc hội Trần Thanh Mẫn dự Tọa đàm Xây dựng Trung tâm Tài chính Quốc tế'; ?></b>
                     <div class="umef_news_card_meta">
@@ -2406,7 +2472,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <i class="fa-solid fa-link"></i>
                         <span>ideas.edu.vn</span>
                     </div>
-                    <div class="umef_news_card_read"><?php echo $is_en ? 'See More' : 'Xem thêm'; ?> <i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="umef_news_card_read"><?php echo $is_en ? 'See More' : 'Xem thêm'; ?> <i
+                            class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </a>
         </div>
@@ -2416,8 +2483,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section">
         <div class="section-header">
             <span class="section-badge"><?php echo $is_en ? 'ACADEMIC PROGRAMS' : 'CHƯƠNG TRÌNH ĐÀO TẠO'; ?></span>
-            <h2 class="section-title"><?php echo $is_en ? 'International <span>Standard Programs</span>' : 'Chương trình <span>chuẩn quốc tế</span>'; ?></h2>
-            <p class="section-subtitle"><?php echo $is_en ? 'IDEAS provides lifetime professional academic support for international standard undergraduate and graduate programs from Swiss UMEF.' : 'IDEAS đồng hành hỗ trợ học vụ chuyên nghiệp trọn đời cho các chương trình\n                đại học và sau đại học chuẩn quốc tế từ Swiss UMEF.'; ?></p>
+            <h2 class="section-title">
+                <?php echo $is_en ? 'International <span>Standard Programs</span>' : 'Chương trình <span>chuẩn quốc tế</span>'; ?>
+            </h2>
+            <p class="section-subtitle">
+                <?php echo $is_en ? 'IDEAS provides lifetime professional academic support for international standard undergraduate and graduate programs from Swiss UMEF.' : 'IDEAS đồng hành hỗ trợ học vụ chuyên nghiệp trọn đời cho các chương trình\n                đại học và sau đại học chuẩn quốc tế từ Swiss UMEF.'; ?>
+            </p>
         </div>
 
         <div class="programs-grid">
@@ -2437,9 +2508,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="prog-card-title-group">
                         <h3 class="prog-card-title-new">Online MBA</h3>
-                        <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh'; ?></div>
+                        <div class="prog-card-subtitle-new">
+                            <?php echo $is_en ? 'Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh'; ?>
+                        </div>
                     </div>
-                    <p class="prog-card-desc-new"><?php echo $is_en ? 'Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh'; ?> trực tuyến chuẩn Thụy Sĩ, tối ưu hóa cho
+                    <p class="prog-card-desc-new">
+                        <?php echo $is_en ? 'Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh'; ?> trực
+                        tuyến chuẩn Thụy Sĩ, tối ưu hóa cho
                         nhà quản lý bận rộn với học vụ bổ trợ 100% tiếng Việt.</p>
                 </div>
                 <div>
@@ -2450,12 +2525,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 14 courses & Thesis' : '90 ECTS - 14 môn học &amp; Luận văn'; ?></strong>
+                            <strong
+                                class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 14 courses & Thesis' : '90 ECTS - 14 môn học &amp; Luận văn'; ?></strong>
                         </div>
                     </div>
                     <div class="prog-card-actions">
-                        <a href="/mba" class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
-                        <button type="button" class="prog-btn-inquire" onclick="showform('swiss-umef-program-mba')"><?php echo $is_en ? 'Get Consultation' : 'Nhận\n                            tư vấn'; ?></button>
+                        <a href="/mba"
+                            class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
+                        <button type="button" class="prog-btn-inquire"
+                            onclick="showform('swiss-umef-program-mba')"><?php echo $is_en ? 'Get Consultation' : 'Nhận\n                            tư vấn'; ?></button>
                     </div>
                 </div>
             </div>
@@ -2476,23 +2554,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="prog-card-title-group">
                         <h3 class="prog-card-title-new">MBA in AI</h3>
-                        <div class="prog-card-subtitle-new"><?php echo $is_en ? 'MBA in AI Application' : 'Thạc sĩ QTKD Ứng dụng AI'; ?></div>
+                        <div class="prog-card-subtitle-new">
+                            <?php echo $is_en ? 'MBA in AI Application' : 'Thạc sĩ QTKD Ứng dụng AI'; ?></div>
                     </div>
-                    <p class="prog-card-desc-new"><?php echo $is_en ? 'Breakthrough in management combining traditional business knowledge with modern Artificial Intelligence tools, optimizing digital business performance.' : 'Đột phá trong quản lý khi kết hợp kiến thức kinh doanh truyền thống\n                        với các công cụ Trí tuệ Nhân tạo hiện đại, giúp tối ưu hóa hiệu suất doanh nghiệp số.'; ?></p>
+                    <p class="prog-card-desc-new">
+                        <?php echo $is_en ? 'Breakthrough in management combining traditional business knowledge with modern Artificial Intelligence tools, optimizing digital business performance.' : 'Đột phá trong quản lý khi kết hợp kiến thức kinh doanh truyền thống\n                        với các công cụ Trí tuệ Nhân tạo hiện đại, giúp tối ưu hóa hiệu suất doanh nghiệp số.'; ?>
+                    </p>
                 </div>
                 <div>
                     <div class="prog-card-specs">
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '16 - 18 months' : '16 - 18 tháng'; ?></strong>
+                            <strong
+                                class="prog-spec-value"><?php echo $is_en ? '16 - 18 months' : '16 - 18 tháng'; ?></strong>
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 15 courses & Thesis' : '90 ECTS - 15 môn học &amp; Luận văn'; ?></strong>
+                            <strong
+                                class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 15 courses & Thesis' : '90 ECTS - 15 môn học &amp; Luận văn'; ?></strong>
                         </div>
                     </div>
                     <div class="prog-card-actions">
-                        <a href="/mbainai" class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
+                        <a href="/mbainai"
+                            class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
                         <button type="button" class="prog-btn-inquire"
                             onclick="showform('swiss-umef-program-mbainai')"><?php echo $is_en ? 'Get Consultation' : 'Nhận tư vấn'; ?></button>
                     </div>
@@ -2510,14 +2594,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
                     <div class="prog-avatar-container">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI Avatar"
-                            loading="lazy" decoding="async" />
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp"
+                            alt="MSc AI Avatar" loading="lazy" decoding="async" />
                     </div>
                     <div class="prog-card-title-group">
                         <h3 class="prog-card-title-new">MSc AI</h3>
-                        <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Master of Science in Artificial Intelligence' : 'Thạc sĩ Khoa học Trí tuệ Nhân tạo'; ?></div>
+                        <div class="prog-card-subtitle-new">
+                            <?php echo $is_en ? 'Master of Science in Artificial Intelligence' : 'Thạc sĩ Khoa học Trí tuệ Nhân tạo'; ?>
+                        </div>
                     </div>
-                    <p class="prog-card-desc-new"><?php echo $is_en ? 'Equips with deep technical and technology management capabilities. Focuses on developing AI solutions and big data processing for real-world problems.' : 'Trang bị năng lực kỹ thuật và quản lý công nghệ chuyên sâu. Tập trung\n                        phát triển các giải pháp AI, xử lý dữ liệu lớn phục vụ bài toán thực tế.'; ?></p>
+                    <p class="prog-card-desc-new">
+                        <?php echo $is_en ? 'Equips with deep technical and technology management capabilities. Focuses on developing AI solutions and big data processing for real-world problems.' : 'Trang bị năng lực kỹ thuật và quản lý công nghệ chuyên sâu. Tập trung\n                        phát triển các giải pháp AI, xử lý dữ liệu lớn phục vụ bài toán thực tế.'; ?>
+                    </p>
                 </div>
                 <div>
                     <div class="prog-card-specs">
@@ -2527,11 +2615,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 15 courses & Thesis' : '90 ECTS - 15 môn học &amp; Luận văn'; ?></strong>
+                            <strong
+                                class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 15 courses & Thesis' : '90 ECTS - 15 môn học &amp; Luận văn'; ?></strong>
                         </div>
                     </div>
                     <div class="prog-card-actions">
-                        <a href="/mscai" class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
+                        <a href="/mscai"
+                            class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
                         <button type="button" class="prog-btn-inquire"
                             onclick="showform('swiss-umef-program-mscai')"><?php echo $is_en ? 'Get Consultation' : 'Nhận tư vấn'; ?></button>
                     </div>
@@ -2554,23 +2644,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="prog-card-title-group">
                         <h3 class="prog-card-title-new">Executive MBA</h3>
-                        <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Executive Master of Business Administration' : 'Thạc sĩ Điều hành QTKD'; ?></div>
+                        <div class="prog-card-subtitle-new">
+                            <?php echo $is_en ? 'Executive Master of Business Administration' : 'Thạc sĩ Điều hành QTKD'; ?>
+                        </div>
                     </div>
-                    <p class="prog-card-desc-new"><?php echo $is_en ? 'Specially designed for Directors, C-levels, and large business owners. Focuses on enhancing macro strategic planning skills and network expansion.' : 'Thiết kế chuyên biệt cho Giám đốc, C-level và các Chủ doanh nghiệp\n                        lớn. Tập trung nâng cao kỹ năng hoạch định chiến lược vĩ mô và mở rộng mạng lưới.'; ?></p>
+                    <p class="prog-card-desc-new">
+                        <?php echo $is_en ? 'Specially designed for Directors, C-levels, and large business owners. Focuses on enhancing macro strategic planning skills and network expansion.' : 'Thiết kế chuyên biệt cho Giám đốc, C-level và các Chủ doanh nghiệp\n                        lớn. Tập trung nâng cao kỹ năng hoạch định chiến lược vĩ mô và mở rộng mạng lưới.'; ?>
+                    </p>
                 </div>
                 <div>
                     <div class="prog-card-specs">
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
+                            <strong
+                                class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 14 courses & Thesis' : '90 ECTS - 14 môn học &amp; Luận văn'; ?></strong>
+                            <strong
+                                class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 14 courses & Thesis' : '90 ECTS - 14 môn học &amp; Luận văn'; ?></strong>
                         </div>
                     </div>
                     <div class="prog-card-actions">
-                        <a href="/emba" class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
+                        <a href="/emba"
+                            class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
                         <button type="button" class="prog-btn-inquire"
                             onclick="showform('swiss-umef-program-emba')"><?php echo $is_en ? 'Get Consultation' : 'Nhận tư vấn'; ?></button>
                     </div>
@@ -2588,14 +2685,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
                     <div class="prog-avatar-container">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="Top-up BBA Avatar"
-                            loading="lazy" decoding="async" />
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp"
+                            alt="Top-up BBA Avatar" loading="lazy" decoding="async" />
                     </div>
                     <div class="prog-card-title-group">
                         <h3 class="prog-card-title-new">Top-up BBA</h3>
-                        <div class="prog-card-subtitle-new"><?php echo $is_en ? 'Top-up Bachelor of Business Administration' : 'Liên thông Cử nhân QTKD'; ?></div>
+                        <div class="prog-card-subtitle-new">
+                            <?php echo $is_en ? 'Top-up Bachelor of Business Administration' : 'Liên thông Cử nhân QTKD'; ?>
+                        </div>
                     </div>
-                    <p class="prog-card-desc-new"><?php echo $is_en ? 'Swiss BBA Top-up in 12 months for students graduated from college, vocational school or completed 3rd year of university.' : 'Liên thông cử nhân QTKD Thụy Sĩ nhanh chóng trong 12 tháng dành cho\n                        học viên đã tốt nghiệp Cao đẳng, Trung cấp hoặc hoàn thành năm 3 Đại học.'; ?></p>
+                    <p class="prog-card-desc-new">
+                        <?php echo $is_en ? 'Swiss BBA Top-up in 12 months for students graduated from college, vocational school or completed 3rd year of university.' : 'Liên thông cử nhân QTKD Thụy Sĩ nhanh chóng trong 12 tháng dành cho\n                        học viên đã tốt nghiệp Cao đẳng, Trung cấp hoặc hoàn thành năm 3 Đại học.'; ?>
+                    </p>
                 </div>
                 <div>
                     <div class="prog-card-specs">
@@ -2605,12 +2706,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '60 ECTS - 10 courses & Thesis' : '60 ECTS - 10 môn học &amp; Luận văn'; ?></strong>
+                            <strong
+                                class="prog-spec-value"><?php echo $is_en ? '60 ECTS - 10 courses & Thesis' : '60 ECTS - 10 môn học &amp; Luận văn'; ?></strong>
                         </div>
                     </div>
                     <div class="prog-card-actions">
-                        <a href="/bba" class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
-                        <button type="button" class="prog-btn-inquire" onclick="showform('swiss-umef-program-bba')"><?php echo $is_en ? 'Get Consultation' : 'Nhận\n                            tư vấn'; ?></button>
+                        <a href="/bba"
+                            class="prog-btn-detail"><?php echo $is_en ? 'View Details' : 'Xem chi tiết'; ?></a>
+                        <button type="button" class="prog-btn-inquire"
+                            onclick="showform('swiss-umef-program-bba')"><?php echo $is_en ? 'Get Consultation' : 'Nhận\n                            tư vấn'; ?></button>
                     </div>
                 </div>
             </div>
@@ -2627,9 +2731,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 style="top: 60%; right: 9%; animation-duration: 26s;"></i>
         </div>
         <div class="section-header">
-            <span class="section-badge" style="color:#ff9e9e;"><?php echo $is_en ? 'PERSPECTIVES & SHARE' : 'CHIA SẺ &amp; GÓC NHÌN'; ?></span>
-            <h2 class="section-title" style="color:#ffffff;"><?php echo $is_en ? 'Hear what they say about <span>Swiss UMEF</span>' : 'Lắng nghe chia sẻ về <span>Swiss UMEF</span>'; ?></h2>
-            <p class="section-subtitle" style="color:#94a3b8;"><?php echo $is_en ? 'Multidimensional perspectives from Swiss Professors and actual learning journeys from students accompanying IDEAS.' : 'Góc nhìn đa chiều từ các Giáo sư Thụy Sĩ và hành trình\n                học tập thực tế từ các\n                học viên của trường đồng hành cùng IDEAS.'; ?></p>
+            <span class="section-badge"
+                style="color:#ff9e9e;"><?php echo $is_en ? 'PERSPECTIVES & SHARE' : 'CHIA SẺ &amp; GÓC NHÌN'; ?></span>
+            <h2 class="section-title" style="color:#ffffff;">
+                <?php echo $is_en ? 'Hear what they say about <span>Swiss UMEF</span>' : 'Lắng nghe chia sẻ về <span>Swiss UMEF</span>'; ?>
+            </h2>
+            <p class="section-subtitle" style="color:#94a3b8;">
+                <?php echo $is_en ? 'Multidimensional perspectives from Swiss Professors and actual learning journeys from students accompanying IDEAS.' : 'Góc nhìn đa chiều từ các Giáo sư Thụy Sĩ và hành trình\n                học tập thực tế từ các\n                học viên của trường đồng hành cùng IDEAS.'; ?>
+            </p>
         </div>
 
         <div class="umef-video-carousel-container">
@@ -2647,9 +2756,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 allowfullscreen></iframe>
                         </div>
                         <div class="umef-video-body">
-                            <span class="umef-video-tag"><i class="fa-solid fa-handshake"></i> <?php echo $is_en ? 'Strategic Partnership' : 'Hợp Tác Chiến Lược'; ?></span>
+                            <span class="umef-video-tag"><i class="fa-solid fa-handshake"></i>
+                                <?php echo $is_en ? 'Strategic Partnership' : 'Hợp Tác Chiến Lược'; ?></span>
                             <h3 class="umef-video-title">IDEAS - UMEF: Switzerland and Vietnam partnership</h3>
-                            <p class="umef-video-desc"><?php echo $is_en ? 'Potential benefits and future expectations – Evaluation from the Professor on sustainable educational cooperation between Switzerland and Vietnam with future expectations.' : 'Potential benefits and future expectations – Đánh giá từ Giáo sư\n                                về tiềm\n                                năng hợp tác giáo dục bền vững giữa Thụy Sĩ và Việt Nam cùng những kỳ vọng phát triển\n                                trong\n                                tương lai.'; ?></p>
+                            <p class="umef-video-desc">
+                                <?php echo $is_en ? 'Potential benefits and future expectations – Evaluation from the Professor on sustainable educational cooperation between Switzerland and Vietnam with future expectations.' : 'Potential benefits and future expectations – Đánh giá từ Giáo sư\n                                về tiềm\n                                năng hợp tác giáo dục bền vững giữa Thụy Sĩ và Việt Nam cùng những kỳ vọng phát triển\n                                trong\n                                tương lai.'; ?>
+                            </p>
                         </div>
                     </div>
 
@@ -2662,11 +2774,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 allowfullscreen></iframe>
                         </div>
                         <div class="umef-video-body">
-                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'Student Value' : 'Giá Trị Học\n                                Viên'; ?></span>
+                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i>
+                                <?php echo $is_en ? 'Student Value' : 'Giá Trị Học\n                                Viên'; ?></span>
                             <h3 class="umef-video-title">IDEAS - UMEF: Value for Vietnamese Students</h3>
                             <p class="umef-video-desc">In cooperation with IDEAS, what value do you hope to bring to
                                 Vietnamese
-                                <?php echo $is_en ? 'students? – The Professor shares the practical academic value and career advancement opportunities for students.' : 'students? – Giáo sư chia sẻ về các giá trị học thuật thực tiễn và cơ hội thăng tiến sự\n                                nghiệp\n                                cho học viên.'; ?></p>
+                                <?php echo $is_en ? 'students? – The Professor shares the practical academic value and career advancement opportunities for students.' : 'students? – Giáo sư chia sẻ về các giá trị học thuật thực tiễn và cơ hội thăng tiến sự\n                                nghiệp\n                                cho học viên.'; ?>
+                            </p>
                         </div>
                     </div>
 
@@ -2679,9 +2793,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 allowfullscreen></iframe>
                         </div>
                         <div class="umef-video-body">
-                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'Executive MBA Student' : 'Học Viên Executive\n                                MBA'; ?></span>
+                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i>
+                                <?php echo $is_en ? 'Executive MBA Student' : 'Học Viên Executive\n                                MBA'; ?></span>
                             <h3 class="umef-video-title">Chu Hoàng Thái - Executive MBA Swiss UMEF</h3>
-                            <p class="umef-video-desc"><?php echo $is_en ? 'Listen to practical sharing from student Chu Hoang Thai about his learning journey of the executive master program at Swiss UMEF.' : 'Lắng nghe những chia sẻ thực tế từ học viên Chu Hoàng Thái về\n                                hành trình\n                                học tập chương trình Thạc sĩ điều hành tại Swiss UMEF.'; ?></p>
+                            <p class="umef-video-desc">
+                                <?php echo $is_en ? 'Listen to practical sharing from student Chu Hoang Thai about his learning journey of the executive master program at Swiss UMEF.' : 'Lắng nghe những chia sẻ thực tế từ học viên Chu Hoàng Thái về\n                                hành trình\n                                học tập chương trình Thạc sĩ điều hành tại Swiss UMEF.'; ?>
+                            </p>
                         </div>
                     </div>
 
@@ -2694,9 +2811,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 allowfullscreen></iframe>
                         </div>
                         <div class="umef-video-body">
-                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'Executive MBA Student' : 'Học Viên Executive\n                                MBA'; ?></span>
+                            <span class="umef-video-tag"><i class="fa-solid fa-graduation-cap"></i>
+                                <?php echo $is_en ? 'Executive MBA Student' : 'Học Viên Executive\n                                MBA'; ?></span>
                             <h3 class="umef-video-title">Lê Ngọc Thương - Executive MBA Swiss UMEF 2024</h3>
-                            <p class="umef-video-desc"><?php echo $is_en ? 'Sharing from student Le Ngoc Thuong about the practical value, flexibility, and strong support from the IDEAS academic team.' : 'Sharing from student Le Ngoc Thuong about the practical value, flexibility, and strong support from the IDEAS academic team.'; ?></p>
+                            <p class="umef-video-desc">
+                                <?php echo $is_en ? 'Sharing from student Le Ngoc Thuong about the practical value, flexibility, and strong support from the IDEAS academic team.' : 'Sharing from student Le Ngoc Thuong about the practical value, flexibility, and strong support from the IDEAS academic team.'; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -2714,20 +2834,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="testi-left">
                 <span class="section-badge"><?php echo $is_en ? 'STUDENT TESTIMONIALS' : 'HỌC VIÊN CHIA SẺ'; ?></span>
                 <h3><?php echo $is_en ? 'Real Student Experiences' : 'Chia sẻ thực tế từ học viên'; ?></h3>
-                <p><?php echo $is_en ? 'Authentic learning experiences, outstanding practical value, and dedicated academic support from IDEAS drive students to successfully conquer graduate programs from Switzerland.' : 'Những trải nghiệm học tập chân thực, giá trị thực tiễn vượt trội và sự hỗ trợ học vụ đồng hành từ\n                    IDEAS là động lực giúp các học viên chinh phục thành công chương trình đào tạo sau đại học từ\n                    Thụy Sĩ.'; ?></p>
+                <p><?php echo $is_en ? 'Authentic learning experiences, outstanding practical value, and dedicated academic support from IDEAS drive students to successfully conquer graduate programs from Switzerland.' : 'Những trải nghiệm học tập chân thực, giá trị thực tiễn vượt trội và sự hỗ trợ học vụ đồng hành từ\n                    IDEAS là động lực giúp các học viên chinh phục thành công chương trình đào tạo sau đại học từ\n                    Thụy Sĩ.'; ?>
+                </p>
                 <button type="button" class="btn btn-primary" onclick="showform('swiss-umef-testimonials')">
                     <?php echo $is_en ? 'Get Free Consultation Route' : 'Nhận lộ trình tư vấn miễn phí'; ?>
                 </button>
             </div>
             <div class="testi-quote-card">
                 <i class="fa-solid fa-quote-right testi-quote-icon"></i>
-                <p class="testi-text"><?php echo $is_en ? '"The curriculum of Swiss UMEF is very practical and highly applicable. Thanks to the IDEAS academic support team always by my side explaining terminology, offering 24/7 help, and providing a rich academic library, I could perfectly balance a busy management job and complete my master thesis on time."' : '"Chương trình học của Swiss UMEF thực sự rất thực tế và mang tính ứng dụng cao.\n                    Nhờ có đội ngũ hỗ trợ học vụ của IDEAS luôn sát cánh giải thích các thuật ngữ bằng tiếng Việt,\n                    hỗ trợ 24/7 và cung cấp thư viện học thuật dồi dào, tôi đã có thể cân bằng hoàn hảo giữa công việc\n                    quản lý bận rộn và việc hoàn thành luận văn thạc sĩ đúng hạn."'; ?></p>
+                <p class="testi-text">
+                    <?php echo $is_en ? '"The curriculum of Swiss UMEF is very practical and highly applicable. Thanks to the IDEAS academic support team always by my side explaining terminology, offering 24/7 help, and providing a rich academic library, I could perfectly balance a busy management job and complete my master thesis on time."' : '"Chương trình học của Swiss UMEF thực sự rất thực tế và mang tính ứng dụng cao.\n                    Nhờ có đội ngũ hỗ trợ học vụ của IDEAS luôn sát cánh giải thích các thuật ngữ bằng tiếng Việt,\n                    hỗ trợ 24/7 và cung cấp thư viện học thuật dồi dào, tôi đã có thể cân bằng hoàn hảo giữa công việc\n                    quản lý bận rộn và việc hoàn thành luận văn thạc sĩ đúng hạn."'; ?>
+                </p>
                 <div class="testi-author">
                     <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
                         class="testi-author-img" alt="Học viên UMEF" />
                     <div class="testi-author-info">
                         <h4>Nguyễn Hoàng Minh</h4>
-                        <p><?php echo $is_en ? 'Student of Executive MBA Class of 2024' : 'Học viên lớp Executive MBA khóa 2024'; ?></p>
+                        <p><?php echo $is_en ? 'Student of Executive MBA Class of 2024' : 'Học viên lớp Executive MBA khóa 2024'; ?>
+                        </p>
                     </div>
                 </div>
             </div>

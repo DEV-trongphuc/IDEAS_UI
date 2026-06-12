@@ -808,6 +808,114 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     echo '</div>';
                 }
 
+                ?>
+                <!-- IDEAS Reel Explorer Banner -->
+                <style>
+                .reel-explorer-banner {
+                    position: relative !important;
+                    background: #0d0607 !important;
+                    border: 1px solid rgba(171, 14, 0, 0.2) !important;
+                    border-radius: 20px !important;
+                    padding: 36px !important;
+                    margin-top: 48px !important;
+                    overflow: hidden !important;
+                    color: #fff !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 12px !important;
+                    text-align: left !important;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+                }
+                .reel-banner-backdrop {
+                    position: absolute !important;
+                    inset: 0 !important;
+                    background: 
+                        radial-gradient(circle at 80% 20%, rgba(171, 14, 0, 0.25) 0%, transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(171, 14, 0, 0.15) 0%, transparent 55%) !important;
+                    pointer-events: none !important;
+                    z-index: 1 !important;
+                }
+                .reel-banner-content {
+                    position: relative !important;
+                    z-index: 2 !important;
+                }
+                .reel-banner-tag {
+                    display: inline-flex !important;
+                    align-items: center !important;
+                    gap: 6px !important;
+                    padding: 6px 12px !important;
+                    background: rgba(171, 14, 0, 0.2) !important;
+                    border: 1px solid rgba(171, 14, 0, 0.3) !important;
+                    border-radius: 100px !important;
+                    font-size: 0.72rem !important;
+                    font-weight: 700 !important;
+                    color: #ff8e8e !important;
+                    letter-spacing: 0.05em !important;
+                    text-transform: uppercase !important;
+                    margin-bottom: 8px !important;
+                    line-height: 1 !important;
+                    width: fit-content !important;
+                }
+                .reel-banner-tag i {
+                    animation: pulsePlay 1.5s infinite !important;
+                }
+                .reel-explorer-banner h3 {
+                    font-size: 1.4rem !important;
+                    font-weight: 800 !important;
+                    color: #fff !important;
+                    margin: 0 0 6px 0 !important;
+                    line-height: 1.3 !important;
+                }
+                .reel-explorer-banner p {
+                    font-size: 0.9rem !important;
+                    color: #cbd5e1 !important;
+                    line-height: 1.5 !important;
+                    margin: 0 0 20px 0 !important;
+                }
+                .reel-banner-btn {
+                    display: inline-flex !important;
+                    align-items: center !important;
+                    gap: 8px !important;
+                    padding: 12px 24px !important;
+                    background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
+                    border: none !important;
+                    border-radius: 10px !important;
+                    color: #fff !important;
+                    font-weight: 700 !important;
+                    font-size: 0.88rem !important;
+                    text-decoration: none !important;
+                    width: fit-content !important;
+                    transition: all 0.3s !important;
+                    box-shadow: 0 8px 24px rgba(171, 14, 0, 0.3) !important;
+                }
+                .reel-banner-btn:hover {
+                    transform: translateY(-2px) !important;
+                    box-shadow: 0 12px 30px rgba(171, 14, 0, 0.5) !important;
+                    color: #fff !important;
+                }
+                .reel-banner-btn i {
+                    font-size: 10px !important;
+                    transition: transform 0.2s !important;
+                    color: #fff !important;
+                }
+                .reel-banner-btn:hover i {
+                    transform: translateX(3px) !important;
+                }
+                </style>
+                <div class="reel-explorer-banner">
+                    <div class="reel-banner-backdrop"></div>
+                    <div class="reel-banner-content">
+                        <span class="reel-banner-tag"><i class="fa-solid fa-circle-play"></i> <?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></span>
+                        <h3><?php echo $is_en ? 'Explore IDEAS Short Video Reels' : 'Khám phá video chia sẻ ngắn từ IDEAS'; ?></h3>
+                        <p><?php echo $is_en ? 'Watch highlight videos about students, alumni, and academic experiences at IDEAS.' : 'Xem ngay các thước phim ngắn chia sẻ thực tế của học viên, cựu học viên và chuyên gia học thuật tại IDEAS.'; ?></p>
+                        <a href="<?php echo home_url('/reel'); ?>" class="reel-banner-btn">
+                            <span><?php echo $is_en ? 'Watch Reels Now' : 'Xem Reels ngay'; ?></span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <?php
+
                 // Reset post data if custom query
                 if (!is_archive() && !is_home()) {
                     wp_reset_postdata();

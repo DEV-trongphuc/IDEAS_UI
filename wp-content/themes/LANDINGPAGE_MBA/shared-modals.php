@@ -172,11 +172,100 @@ if ($is_en) {
     <div class="reg-modal-container" data-lenis-prevent>
         <button class="reg-modal-close" id="reg-modal-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
         <div class="reg-modal-content">
+            <style>
+            .reel-promo-card {
+                display: flex !important;
+                align-items: center !important;
+                gap: 12px !important;
+                padding: 12px 16px !important;
+                background: linear-gradient(135deg, rgba(171, 14, 0, 0.05), rgba(171, 14, 0, 0.02)) !important;
+                border: 1px dashed rgba(171, 14, 0, 0.2) !important;
+                border-radius: 12px !important;
+                margin-bottom: 20px !important;
+                transition: all 0.3s ease !important;
+                text-align: left !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .reel-promo-card:hover {
+                background: linear-gradient(135deg, rgba(171, 14, 0, 0.08), rgba(171, 14, 0, 0.04)) !important;
+                border-color: rgba(171, 14, 0, 0.4) !important;
+                transform: translateY(-1px) !important;
+            }
+            .reel-promo-icon {
+                font-size: 24px !important;
+                color: #ab0e00 !important;
+                flex-shrink: 0 !important;
+                animation: pulsePlay 2s infinite !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            @keyframes pulsePlay {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: scale(1.1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+            }
+            .reel-promo-info {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 2px !important;
+            }
+            .reel-promo-tag {
+                font-size: 9px !important;
+                font-weight: 800 !important;
+                color: #ab0e00 !important;
+                letter-spacing: 0.05em !important;
+                line-height: 1 !important;
+                text-transform: uppercase !important;
+            }
+            .reel-promo-link {
+                font-size: 13px !important;
+                font-weight: 700 !important;
+                color: #1e293b !important;
+                text-decoration: none !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 4px !important;
+                line-height: 1.2 !important;
+            }
+            .reel-promo-link i {
+                font-size: 10px !important;
+                transition: transform 0.2s !important;
+                color: #ab0e00 !important;
+            }
+            .reel-promo-card:hover .reel-promo-link i {
+                transform: translateX(3px) !important;
+            }
+            </style>
             <header class="modal-form-header">
                 <div class="modal-badge"><?php echo esc_html($modal_badge); ?></div>
                 <h3><?php echo $modal_title; ?></h3>
                 <p><?php echo esc_html($modal_subtitle); ?></p>
             </header>
+
+            <?php if (is_single()) : ?>
+                <div class="reel-promo-card">
+                    <div class="reel-promo-icon">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </div>
+                    <div class="reel-promo-info">
+                        <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
+                        <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-link">
+                            <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
 
             <form class="cta-form modal-form" id="modal-cta-form" data-submit-handler-registered="true" novalidate>
                 <div class="form-group">
@@ -335,6 +424,20 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     <p class="bk-step-sub"><?php echo $is_en ? 'Fill in the details to help our counselor prepare for your session' : 'Điền thông tin để chuyên viên chuẩn bị buổi tư vấn phù hợp nhất'; ?></p>
                 </div>
             </div>
+
+            <?php if (is_single()) : ?>
+                <div class="reel-promo-card" style="margin-left: 20px; margin-right: 20px; width: calc(100% - 40px);">
+                    <div class="reel-promo-icon">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </div>
+                    <div class="reel-promo-info">
+                        <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
+                        <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-link">
+                            <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
 
             <form class="bk-form" id="bk-form-1" novalidate>
                 <div class="bk-field">

@@ -110,6 +110,11 @@ $pages = [
         'title' => 'Chương Trình Online MBA',
         'template' => 'page-chuong-trinh-online-mba.php'
     ],
+    [
+        'slug' => 'reel',
+        'title' => 'IDEAS Reel',
+        'template' => 'page-reel.php'
+    ],
 ];
 
 echo "<div style='font-family:monospace;padding:20px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:8px;max-width:800px;margin:20px auto;'>";
