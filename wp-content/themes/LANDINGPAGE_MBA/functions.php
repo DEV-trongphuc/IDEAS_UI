@@ -5206,11 +5206,8 @@ function ideas_disable_wp_about_page_redirect()
  * Centralized SEO structured data schemas for site name and breadcrumbs.
  * Integrates with Rank Math if active, falls back to manual injection otherwise.
  */
-if (class_exists('RankMath')) {
-    add_filter('rank_math/json_ld', 'ideas_customize_rank_math_schema', 99, 2);
-} else {
-    add_action('wp_head', 'ideas_add_seo_schemas_fallback', 10);
-}
+add_filter('rank_math/json_ld', 'ideas_customize_rank_math_schema', 99, 2);
+add_action('wp_head', 'ideas_add_seo_schemas_fallback', 10);
 
 function ideas_customize_rank_math_schema($data, $jsonld) {
     if (isset($data['graph']) && is_array($data['graph'])) {
@@ -5228,15 +5225,18 @@ function ideas_customize_rank_math_schema($data, $jsonld) {
                     foreach ($snippet['itemListElement'] as &$item) {
                         if (isset($item['position']) && $item['position'] == 2) {
                             $page_slug = get_post_field('post_name', get_the_ID());
+                            if (empty($page_slug)) {
+                                $page_slug = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+                            }
                             $new_name = '';
                             
-                            if ($page_slug === 'thac-si-quan-tri-kinh-doanh-mba') {
+                            if (strpos($page_slug, 'thac-si-quan-tri-kinh-doanh-mba') !== false) {
                                 $new_name = 'Online MBA';
-                            } elseif ($page_slug === 'swiss-umef') {
+                            } elseif (strpos($page_slug, 'swiss-umef') !== false) {
                                 $new_name = 'Swiss UMEF';
-                            } elseif ($page_slug === 'doi-ngu-giang-vien') {
+                            } elseif (strpos($page_slug, 'doi-ngu-giang-vien') !== false) {
                                 $new_name = 'Hội đồng chuyên môn';
-                            } elseif ($page_slug === 'he-thong-ho-tro-hoc-tap-lms-ideas') {
+                            } elseif (strpos($page_slug, 'he-thong-ho-tro-hoc-tap-lms-ideas') !== false) {
                                 $new_name = 'Hệ thống LMS';
                             }
                             
@@ -5257,6 +5257,11 @@ function ideas_customize_rank_math_schema($data, $jsonld) {
 }
 
 function ideas_add_seo_schemas_fallback() {
+    // If Rank Math is active, let it handle the schema injection via the filter
+    if (class_exists('RankMath')) {
+        return;
+    }
+
     // 1. WebSite Schema fallback for Homepage
     if (is_front_page() || is_home()) {
         $website_schema = array(
@@ -5296,13 +5301,13 @@ function ideas_add_seo_schemas_fallback() {
         $current_url = get_permalink();
         $page_slug = get_post_field('post_name', get_the_ID());
         
-        if ($page_slug === 'thac-si-quan-tri-kinh-doanh-mba') {
+        if (strpos($page_slug, 'thac-si-quan-tri-kinh-doanh-mba') !== false) {
             $page_name = "Online MBA";
-        } elseif ($page_slug === 'swiss-umef') {
+        } elseif (strpos($page_slug, 'swiss-umef') !== false) {
             $page_name = "Swiss UMEF";
-        } elseif ($page_slug === 'doi-ngu-giang-vien') {
+        } elseif (strpos($page_slug, 'doi-ngu-giang-vien') !== false) {
             $page_name = "Hội đồng chuyên môn";
-        } elseif ($page_slug === 'he-thong-ho-tro-hoc-tap-lms-ideas') {
+        } elseif (strpos($page_slug, 'he-thong-ho-tro-hoc-tap-lms-ideas') !== false) {
             $page_name = "Hệ thống LMS";
         }
         
