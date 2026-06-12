@@ -5201,3 +5201,125 @@ function ideas_disable_wp_about_page_redirect()
         exit;
     }
 }
+
+/**
+ * Centralized SEO structured data schemas for site name and breadcrumbs.
+ * Integrates with Rank Math if active, falls back to manual injection otherwise.
+ */
+if (class_exists('RankMath')) {
+    add_filter('rank_math/json_ld', 'ideas_customize_rank_math_schema', 99, 2);
+} else {
+    add_action('wp_head', 'ideas_add_seo_schemas_fallback', 10);
+}
+
+function ideas_customize_rank_math_schema($data, $jsonld) {
+    if (isset($data['graph']) && is_array($data['graph'])) {
+        foreach ($data['graph'] as &$snippet) {
+            // 1. Customize WebSite schema (Site Name) globally
+            if (isset($snippet['@type']) && $snippet['@type'] === 'WebSite') {
+                $snippet['name'] = 'IDEAS Education';
+                $snippet['alternateName'] = array('IDEAS', 'Viện IDEAS', 'IDEAS MBA');
+                $snippet['url'] = home_url('/');
+            }
+            
+            // 2. Customize BreadcrumbList schema
+            if (isset($snippet['@type']) && $snippet['@type'] === 'BreadcrumbList') {
+                if (isset($snippet['itemListElement']) && is_array($snippet['itemListElement'])) {
+                    foreach ($snippet['itemListElement'] as &$item) {
+                        if (isset($item['position']) && $item['position'] == 2) {
+                            $page_slug = get_post_field('post_name', get_the_ID());
+                            $new_name = '';
+                            
+                            if ($page_slug === 'thac-si-quan-tri-kinh-doanh-mba') {
+                                $new_name = 'Online MBA';
+                            } elseif ($page_slug === 'swiss-umef') {
+                                $new_name = 'Swiss UMEF';
+                            } elseif ($page_slug === 'doi-ngu-giang-vien') {
+                                $new_name = 'Hội đồng chuyên môn';
+                            } elseif ($page_slug === 'he-thong-ho-tro-hoc-tap-lms-ideas') {
+                                $new_name = 'Hệ thống LMS';
+                            }
+                            
+                            if (!empty($new_name)) {
+                                if (isset($item['item']) && is_array($item['item']) && isset($item['item']['name'])) {
+                                    $item['item']['name'] = $new_name;
+                                } else {
+                                    $item['name'] = $new_name;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return $data;
+}
+
+function ideas_add_seo_schemas_fallback() {
+    // 1. WebSite Schema fallback for Homepage
+    if (is_front_page() || is_home()) {
+        $website_schema = array(
+            "@context" => "https://schema.org",
+            "@graph" => array(
+                array(
+                    "@type" => "WebSite",
+                    "@id" => home_url('/#website'),
+                    "url" => home_url('/'),
+                    "name" => "IDEAS Education",
+                    "alternateName" => array(
+                        "IDEAS",
+                        "Viện IDEAS",
+                        "IDEAS MBA"
+                    ),
+                    "inLanguage" => "vi"
+                )
+            )
+        );
+        echo "\n<!-- WebSite Structured Data (Fallback) -->\n";
+        echo '<script type="application/ld+json">' . json_encode($website_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>' . "\n";
+        return;
+    }
+    
+    // 2. BreadcrumbList Schema fallback for singular pages
+    if (is_singular()) {
+        $crumbs = array();
+        
+        $crumbs[] = array(
+            "@type" => "ListItem",
+            "position" => 1,
+            "name" => "Trang chủ",
+            "item" => home_url('/')
+        );
+        
+        $page_name = get_the_title();
+        $current_url = get_permalink();
+        $page_slug = get_post_field('post_name', get_the_ID());
+        
+        if ($page_slug === 'thac-si-quan-tri-kinh-doanh-mba') {
+            $page_name = "Online MBA";
+        } elseif ($page_slug === 'swiss-umef') {
+            $page_name = "Swiss UMEF";
+        } elseif ($page_slug === 'doi-ngu-giang-vien') {
+            $page_name = "Hội đồng chuyên môn";
+        } elseif ($page_slug === 'he-thong-ho-tro-hoc-tap-lms-ideas') {
+            $page_name = "Hệ thống LMS";
+        }
+        
+        $crumbs[] = array(
+            "@type" => "ListItem",
+            "position" => 2,
+            "name" => $page_name,
+            "item" => $current_url
+        );
+        
+        $breadcrumb_schema = array(
+            "@context" => "https://schema.org",
+            "@type" => "BreadcrumbList",
+            "itemListElement" => $crumbs
+        );
+        
+        echo "\n<!-- Breadcrumb Structured Data (Fallback) -->\n";
+        echo '<script type="application/ld+json">' . json_encode($breadcrumb_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>' . "\n";
+    }
+}
