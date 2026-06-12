@@ -3008,6 +3008,21 @@
         .sacom-tag {
             color: rgba(255, 255, 255, 0.85) !important;
         }
+    
+        /* ── Clickable Cengage Card Style ── */
+        .eco-card-v2-link {
+            cursor: pointer !important;
+            position: relative;
+        }
+        .eco-card-v2-link:hover {
+            border-color: rgba(239, 68, 68, 0.4) !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.15) !important;
+        }
+        .eco-card-v2-link:hover .eco-card-external-icon {
+            color: #ef4444 !important;
+            transform: translate(2px, -2px) scale(1.1);
+        }
     </style>
 
     <!-- Favicon -->
@@ -4234,7 +4249,8 @@
                         </div>
                     </article>
 
-                    <article class="eco-card-v2">
+                    <a href="https://ideas.edu.vn/tin-tuc-moi/tai-lieu-cengage-tai-ideas.html" target="_blank" rel="noopener" class="eco-card-v2 eco-card-v2-link" style="text-decoration: none; position: relative;">
+                        <i class="fa-solid fa-arrow-up-right-from-square eco-card-external-icon" style="position: absolute; top: 20px; right: 20px; color: rgba(255,255,255,0.4); font-size: 0.85rem; transition: all 0.3s;"></i>
                         <div class="eco-card-v2-icon eco-card-v2-icon--logo"
                             style="--icon-clr:#34d399;--icon-bg:rgba(255,255,255,0.95)">
                             <img decoding="async"
@@ -4247,7 +4263,7 @@
                             <p class="eco-card-v2-desc">Miễn phí truy cập hơn 1.000 đầu sách học thuật chuyên ngành kinh
                                 doanh và quản lý.</p>
                         </div>
-                    </article>
+                    </a>
 
                     <article class="eco-card-v2">
                         <div class="eco-card-v2-icon eco-card-v2-icon--logo"
