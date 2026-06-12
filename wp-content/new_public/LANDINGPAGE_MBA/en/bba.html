@@ -8664,7 +8664,7 @@
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    background: rgba(15, 23, 42, 0.45) !important;
+    background: rgba(15, 23, 42, 0.25) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -8674,7 +8674,7 @@
     z-index: 10 !important;
 }
 .hero-photo-secondary:hover .reel-overlay {
-    background: rgba(15, 23, 42, 0.6) !important;
+    background: rgba(15, 23, 42, 0.4) !important;
 }
 .play-btn-circle {
     width: 48px !important;
@@ -8833,7 +8833,7 @@
             <div class="fb-reel-video-loading">
                 <i class="fa-solid fa-spinner fa-spin"></i>
             </div>
-            <iframe id="fb-reel-iframe" src="" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <iframe id="fb-reel-iframe" src="" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; encrypted-media; picture-in-picture"></iframe>
         </div>
     </div>
 </div>
@@ -8846,7 +8846,7 @@
         const loading = modal ? modal.querySelector('.fb-reel-video-loading') : null;
         if (!modal || !iframe) return;
 
-        const embedUrl = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500';
+        const embedUrl = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
         iframe.src = embedUrl;
         modal.style.display = 'flex';
         setTimeout(function() {
@@ -8889,14 +8889,14 @@
         let reelId = '';
         const path = window.location.pathname.toLowerCase();
         
-        if (path.indexOf('bba') !== -1 && path.indexOf('fullbba') === -1) {
-            reelId = '1885125805685011';
-        } else if (path.indexOf('msc-ai') !== -1 || path.indexOf('mscai') !== -1 || path.indexOf('fullbba') !== -1) {
-            reelId = '1015362661016811';
+        if (path.indexOf('sacombank') !== -1) {
+            reelId = 'tfSh3cVhvR8';
+        } else if (path.indexOf('bba') !== -1 && path.indexOf('fullbba') === -1) {
+            reelId = 'FMJ-j-bzn4A';
         } else if (path.indexOf('mba') !== -1 || path.indexOf('emba') !== -1 || path.indexOf('dba') !== -1) {
-            reelId = '970904218875704';
+            reelId = 'rXWWEC2LJJM';
         } else {
-            reelId = '970904218875704';
+            reelId = 'GPyTkgHtU-0';
         }
 
         secondaryPhotos.forEach(function(item) {

@@ -1066,7 +1066,7 @@ const isEn = document.documentElement.lang === 'en';
                 accredModalContainer.classList.add('video-expanded');
             }
             if (accredVideoIframe) {
-                accredVideoIframe.src = 'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F963927505403412%2F&show_text=false&width=267&t=0';
+                accredVideoIframe.src = 'https://www.youtube.com/embed/tfSh3cVhvR8?autoplay=1&loop=1&playlist=tfSh3cVhvR8&controls=1&rel=0&playsinline=1';
             }
         } else {
             if (accredModalContainer) {
@@ -1114,7 +1114,7 @@ const isEn = document.documentElement.lang === 'en';
             const isExpanded = accredModalContainer.classList.toggle('video-expanded');
             if (isExpanded) {
                 // Lazy-load vertical Reel URL
-                accredVideoIframe.src = 'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F963927505403412%2F&show_text=false&width=267&t=0';
+                accredVideoIframe.src = 'https://www.youtube.com/embed/tfSh3cVhvR8?autoplay=1&loop=1&playlist=tfSh3cVhvR8&controls=1&rel=0&playsinline=1';
             } else {
                 // Unload to stop video playback
                 accredVideoIframe.src = '';

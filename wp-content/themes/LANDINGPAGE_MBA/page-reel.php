@@ -7,21 +7,33 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
 $reels = [
     [
-        'id' => '1885125805685011',
+        'id' => 'FMJ-j-bzn4A',
         'title' => $is_en ? 'Top-up BBA (12 months)' : 'Cử nhân Liên thông 12 tháng (BBA Top-up)',
         'desc' => $is_en ? 'International standard Bachelor degree from Swiss UMEF Switzerland.' : 'Chương trình Cử nhân Liên thông Quản trị Kinh doanh cấp bằng từ Swiss UMEF Thụy Sĩ. Nhận bằng chính quy chuẩn quốc tế.',
         'cover' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp'
     ],
     [
-        'id' => '970904218875704',
+        'id' => 'rXWWEC2LJJM',
         'title' => $is_en ? 'Master of Business Administration (MBA / EMBA)' : 'Thạc sĩ Quản trị Kinh doanh (MBA/EMBA/MBA in AI)',
         'desc' => $is_en ? 'Transform leadership mindset & expand network with Swiss standard MBA at IDEAS.' : 'Bứt phá tư duy quản trị & mở rộng mạng lưới quan hệ với chương trình MBA chuẩn Thụy Sĩ tại IDEAS.',
         'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg'
     ],
     [
-        'id' => '1015362661016811',
-        'title' => $is_en ? 'Master of Science in Applied AI (MSc AI)' : 'Thạc sĩ Khoa học Trí tuệ Nhân tạo Ứng dụng (MSc AI / fullBBA)',
-        'desc' => $is_en ? 'Leading master program in AI applications for business management and automation.' : 'Chương trình Thạc sĩ đi đầu về ứng dụng AI trong quản trị vận hành và tự động hóa doanh nghiệp.',
+        'id' => 'tfSh3cVhvR8',
+        'title' => $is_en ? 'Sacombank Financial Support' : 'Hỗ trợ tài chính Sacombank',
+        'desc' => $is_en ? 'Scholarships & 0% interest tuition installment support via Sacombank.' : 'Học bổng & Hỗ trợ học phí trả góp 0% lãi suất thông qua ngân hàng Sacombank.',
+        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp'
+    ],
+    [
+        'id' => 'GPyTkgHtU-0',
+        'title' => $is_en ? 'About IDEAS Institute' : 'Giới thiệu Viện IDEAS',
+        'desc' => $is_en ? 'Discover the learning environment and global career development opportunities with IDEAS Institute.' : 'Khám phá môi trường học tập và cơ hội phát triển sự nghiệp toàn cầu cùng Viện IDEAS.',
+        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp'
+    ],
+    [
+        'id' => 'iIrS_71MFk4',
+        'title' => $is_en ? 'Learning Experience at IDEAS' : 'Trải nghiệm học tập tại IDEAS',
+        'desc' => $is_en ? 'Student feedback on the training quality and modern learning methods.' : 'Cảm nhận thực tế của học viên về chất lượng đào tạo và phương pháp học tập hiện đại.',
         'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg'
     ]
 ];
@@ -449,14 +461,14 @@ $reels = [
                     if (loading) loading.style.display = 'block';
 
                     var iframe = document.createElement('iframe');
-                    iframe.src = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent('https://www.facebook.com/reel/' + reelId) + '&show_text=0&width=500&autoplay=true&show_captions=true';
+                    iframe.src = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
                     iframe.style.width = '100%';
                     iframe.style.height = '100%';
                     iframe.style.border = 'none';
                     iframe.style.opacity = '0';
                     iframe.style.transition = 'opacity 0.3s';
                     iframe.scrolling = 'no';
-                    iframe.allow = 'autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share';
+                    iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
                     iframe.allowFullscreen = true;
 
                     iframe.onload = function() {
