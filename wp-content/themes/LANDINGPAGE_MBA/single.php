@@ -1204,6 +1204,11 @@ ob_start(function ($html) {
                                         ?>
                                         <span><?php echo $reading_time; ?> phút đọc</span>
                                     </div>
+
+                                    <div class="meta-info-item">
+                                        <i class="fa-regular fa-eye"></i>
+                                        <span><?php echo number_format(ideas_get_post_views(get_the_ID())); ?> lượt xem</span>
+                                    </div>
                                 </div>
 
                                 <!-- Featured Cover Image / Ảnh bìa -->

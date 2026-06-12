@@ -772,6 +772,8 @@ ob_start(function ($html) {
                                     echo '<span><i class="fa-regular fa-folder" style="color:#ab0e00; margin-right:4px;"></i> ' . esc_html($categories[0]->name) . '</span>';
                                 }
                                 ?>
+                                <span><i class="fa-regular fa-eye" style="color:#ab0e00; margin-right:4px;"></i>
+                                    <?php echo number_format(ideas_get_post_views($featured_id)); ?> lượt xem</span>
                             </div>
                         </div>
                     </a>
@@ -814,8 +816,12 @@ ob_start(function ($html) {
                             <h3><?php the_title(); ?></h3>
                             <p><?php echo esc_html($excerpt); ?></p>
                             <div class="card-meta">
-                                <span><i class="fa-regular fa-calendar-days" style="color:#ab0e00; margin-right:4px;"></i>
-                                    <?php echo get_the_date('d/m/Y'); ?></span>
+                                <div style="display: flex; gap: 12px; align-items: center;">
+                                    <span><i class="fa-regular fa-calendar-days" style="color:#ab0e00; margin-right:4px;"></i>
+                                        <?php echo get_the_date('d/m/Y'); ?></span>
+                                    <span><i class="fa-regular fa-eye" style="color:#ab0e00; margin-right:4px;"></i>
+                                        <?php echo number_format(ideas_get_post_views(get_the_ID())); ?> lượt xem</span>
+                                </div>
                                 <span class="read-more">Đọc tiếp <i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                         </div>
