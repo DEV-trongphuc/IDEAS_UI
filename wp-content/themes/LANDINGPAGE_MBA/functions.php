@@ -91,6 +91,89 @@ add_filter('redirect_canonical', function($redirect_url, $requested_url) {
     return $redirect_url;
 }, 10, 2);
 
+// Dynamic SEO Translation for English versions (/en/...)
+add_filter('pre_get_document_title', 'ideas_translate_page_titles', 100);
+add_filter('wpseo_title', 'ideas_translate_page_titles', 100);
+add_filter('wpseo_opengraph_title', 'ideas_translate_page_titles', 100);
+add_filter('rank_math/frontend/title', 'ideas_translate_page_titles', 100);
+
+function ideas_translate_page_titles($title) {
+    if (!isset($_GET['lang']) || $_GET['lang'] !== 'en') {
+        return $title;
+    }
+    
+    global $post;
+    if (!$post) {
+        return $title;
+    }
+    
+    $en_titles = [
+        'he-thong-ho-tro-hoc-tap-lms-ideas' => 'LMS System & Comprehensive Learning Ecosystem | IDEAS',
+        'swiss-umef' => 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS',
+        'so-do-to-chuc' => 'Organizational Chart | IDEAS',
+        'doi-ngu-giang-vien' => 'Academic Board | IDEAS',
+        'dong-su-kien' => 'Events & Activities | IDEAS',
+        'lich-su-hinh-thanh-va-phat-trien-vien-ideas' => 'Milestones & History | IDEAS',
+        'ho-tro-tai-chinh-sacombank' => 'Sacombank Tuition Installment Support | IDEAS',
+        'cac-khoan-chi-phi' => 'Admissions & Academic Fees | IDEAS',
+        'ideas-ambassador' => 'IDEAS Ambassador Program | IDEAS',
+        'ideas-talk' => 'IDEAS Talk & Workshop | IDEAS',
+        'ideas-podcast-series-01' => 'IDEAS Podcast Series | IDEAS',
+        'sitemap' => 'Sitemap | IDEAS',
+        'lien-he' => 'Contact Admissions | IDEAS',
+        'thac-si-quan-tri-kinh-doanh-mba' => 'Online MBA Admission | IDEAS',
+        'chuong-trinh-online-mba' => 'Online MBA Curriculum | IDEAS',
+        'tu-van-vien' => 'Advisors Verification | IDEAS'
+    ];
+    
+    if (isset($en_titles[$post->post_name])) {
+        return $en_titles[$post->post_name];
+    }
+    
+    return $title;
+}
+
+// Meta description translation
+add_filter('wpseo_metadesc', 'ideas_translate_meta_descriptions', 100);
+add_filter('wpseo_opengraph_description', 'ideas_translate_meta_descriptions', 100);
+add_filter('rank_math/frontend/description', 'ideas_translate_meta_descriptions', 100);
+
+function ideas_translate_meta_descriptions($desc) {
+    if (!isset($_GET['lang']) || $_GET['lang'] !== 'en') {
+        return $desc;
+    }
+    
+    global $post;
+    if (!$post) {
+        return $desc;
+    }
+    
+    $en_descs = [
+        'he-thong-ho-tro-hoc-tap-lms-ideas' => 'LMS Moodle learning support system, IDEAS AI, and Cengage academic library. Full professional academic support for international program students.',
+        'swiss-umef' => 'Explore Swiss UMEF University in Geneva, Switzerland. Officially accredited by the Swiss Accreditation Council, QS 5-Star rated, and recognized by the Ministry of Education and Training of Vietnam.',
+        'so-do-to-chuc' => 'Explore the organizational structure, departments, and academic leadership team of IDEAS.',
+        'doi-ngu-giang-vien' => 'Academic Board and Faculty of IDEAS – leading experts with international teaching experience and practical business backgrounds.',
+        'dong-su-kien' => 'Follow latest events, webinars, workshops and academic activities at IDEAS.',
+        'lich-su-hinh-thanh-va-phat-trien-vien-ideas' => 'Explore the historical milestones, growth and academic achievements of IDEAS from 2010 to present.',
+        'ho-tro-tai-chinh-sacombank' => 'Support for 0% tuition installment program linked with Sacombank for 12-24 months for MBA/DBA students.',
+        'cac-khoan-chi-phi' => 'Detailed summary of academic service fees, recheck, retake, and redo fees for the Swiss UMEF program at IDEAS.',
+        'ideas-ambassador' => 'Spread knowledge, represent IDEAS brand and receive premium exclusive ambassador rewards.',
+        'ideas-talk' => 'Join our monthly webinars and practical business management workshops at IDEAS.',
+        'ideas-podcast-series-01' => 'Listen to IDEAS podcasts discussing business, executive management, and AI trends.',
+        'sitemap' => 'Explore all training courses, news, milestones and sitemap navigation of IDEAS.',
+        'lien-he' => 'Contact IDEAS admissions counselors for MBA/DBA program consulting.',
+        'thac-si-quan-tri-kinh-doanh-mba' => 'Apply for the prestigious international Online MBA program by Swiss UMEF. Flexible schedule, accredited degree.',
+        'chuong-trinh-online-mba' => 'Explore the complete curriculum, semester outlines and course modules of the Swiss UMEF Online MBA program.',
+        'tu-van-vien' => 'Admissions advisors verification system at IDEAS. Verify phone numbers to ensure safety.'
+    ];
+    
+    if (isset($en_descs[$post->post_name])) {
+        return $en_descs[$post->post_name];
+    }
+    
+    return $desc;
+}
+
 add_action('after_setup_theme', 'blankslate_setup');
 function blankslate_setup()
 {
