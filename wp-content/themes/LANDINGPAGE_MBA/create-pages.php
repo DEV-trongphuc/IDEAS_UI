@@ -158,6 +158,7 @@ foreach ($pages as $p) {
             echo "<div style='color:#721c24;background:#f8d7da;padding:8px;margin-bottom:8px;border-radius:4px;'>";
             echo "✗ Lỗi tạo trang: <b>" . esc_html($title) . "</b> - " . esc_html($post_id->get_error_message());
             echo "</div>";
+        }
     }
 }
 
