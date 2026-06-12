@@ -1,33 +1,32 @@
 <?php
 /**
- * Standalone Utility: Batch WebP Converter & Link Optimizer
+ * Standalone Utility: Batch WebP Converter & Media Database Cleaner
  * Path: /wp-convert-webp.php
  * 
- * Instructions:
- * 1. Upload this file to the root directory of your WordPress website.
- * 2. Log in as a WordPress Administrator.
- * 3. Access https://yourdomain.com/wp-convert-webp.php in your browser.
- * 4. Run the batch conversion process.
- * 5. Click "Cấu hình .htaccess" to enable dynamic WebP delivery without breaking any database links.
+ * Features:
+ * 1. Batch WebP conversion (prevent timeouts with AJAX).
+ * 2. .htaccess router configuration for zero-break WebP serving.
+ * 3. Theme Assets Auditor: scan local files for unused design assets + Delete button.
+ * 4. Media DB Auditor: scan WordPress attachments against post contents + Delete button.
  */
 
 // 1. Boot WordPress and Authenticate
+$is_wp = false;
 if (file_exists('wp-load.php')) {
     require_once('wp-load.php');
     if (!current_user_can('manage_options')) {
         wp_die('<h3>Bạn không có quyền truy cập trang này. Vui lòng đăng nhập bằng tài khoản Administrator.</h3>');
     }
+    $is_wp = true;
 } else {
-    // Standalone fallback if wp-load.php is not found (e.g. non-WP)
+    // Standalone authentication if wp-load.php is not found
     session_start();
-    define('SECURE_PASS', 'ideas_webp_2026'); // Security key
-    
+    define('SECURE_PASS', 'ideas_webp_2026');
     if (isset($_GET['logout'])) {
         unset($_SESSION['webp_logged_in']);
         header('Location: ' . strtok($_SERVER["REQUEST_URI"], '?'));
         exit;
     }
-    
     if (isset($_POST['password'])) {
         if ($_POST['password'] === SECURE_PASS) {
             $_SESSION['webp_logged_in'] = true;
@@ -35,7 +34,6 @@ if (file_exists('wp-load.php')) {
             $error = "Mật khẩu bảo mật không chính xác!";
         }
     }
-    
     if (empty($_SESSION['webp_logged_in'])) {
         ?>
         <!DOCTYPE html>
@@ -43,52 +41,14 @@ if (file_exists('wp-load.php')) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>WebP Converter Authentication</title>
+            <title>Media Optimizer Security Access</title>
             <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
             <style>
-                body {
-                    font-family: 'Outfit', sans-serif;
-                    background: #0f172a;
-                    color: #e2e8f0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    min-height: 100vh;
-                    margin: 0;
-                }
-                .auth-box {
-                    background: #1e293b;
-                    padding: 40px;
-                    border-radius: 20px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                    width: 100%;
-                    max-width: 400px;
-                    text-align: center;
-                    border: 1px solid rgba(255,255,255,0.05);
-                }
+                body { font-family: 'Outfit', sans-serif; background: #0f172a; color: #e2e8f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+                .auth-box { background: #1e293b; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); width: 100%; max-width: 400px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
                 h2 { color: #f43f5e; margin-bottom: 24px; }
-                input[type="password"] {
-                    width: 100%;
-                    padding: 12px;
-                    border: 1px solid #475569;
-                    background: #0f172a;
-                    color: #fff;
-                    border-radius: 10px;
-                    box-sizing: border-box;
-                    margin-bottom: 16px;
-                    outline: none;
-                    text-align: center;
-                }
-                button {
-                    background: linear-gradient(135deg, #f43f5e, #be123c);
-                    color: #fff;
-                    border: none;
-                    padding: 12px 24px;
-                    border-radius: 10px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    width: 100%;
-                }
+                input[type="password"] { width: 100%; padding: 12px; border: 1px solid #475569; background: #0f172a; color: #fff; border-radius: 10px; box-sizing: border-box; margin-bottom: 16px; outline: none; text-align: center; }
+                button { background: linear-gradient(135deg, #f43f5e, #be123c); color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 600; cursor: pointer; width: 100%; }
                 .error { color: #ef4444; margin-top: 12px; font-size: 0.9rem; }
             </style>
         </head>
@@ -109,150 +69,296 @@ if (file_exists('wp-load.php')) {
     }
 }
 
-// 2. Define Upload Directory Path
+// 2. Paths
 $upload_dir = 'wp-content/uploads';
 if (!is_dir($upload_dir) && is_dir('../wp-content/uploads')) {
     $upload_dir = '../wp-content/uploads';
 }
 
-// 3. Helper Functions
-function get_all_images($dir) {
-    $images = [];
-    if (!is_dir($dir)) return $images;
+$asset_dirs = [
+    'wp-content/new_public/LANDINGPAGE_MBA/assets',
+    'wp-content/new_public/LANDINGPAGE_MBA/homepage-assets',
+    'wp-content/themes/LANDINGPAGE_MBA/common-assets'
+];
+
+$code_dirs = [
+    'wp-content/new_public/LANDINGPAGE_MBA',
+    'wp-content/themes/LANDINGPAGE_MBA'
+];
+
+// Helper to check security paths
+function is_path_safe($path, $allowed_dirs) {
+    $real_path = realpath($path);
+    if (!$real_path) return false;
     
-    $it = new RecursiveDirectoryIterator($dir);
-    $display = new RecursiveIteratorIterator($it);
-    foreach ($display as $file) {
-        if ($file->isFile()) {
-            $ext = strtolower(pathinfo($file->getPathname(), PATHINFO_EXTENSION));
-            if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
-                // Ensure we don't count existing .webp files
-                $images[] = str_replace('\\', '/', $file->getPathname());
-            }
+    foreach ($allowed_dirs as $dir) {
+        $real_dir = realpath($dir);
+        if ($real_dir && strpos($real_path, $real_dir) === 0) {
+            return true;
         }
     }
-    return $images;
+    return false;
 }
 
-function convert_to_webp($source_file, $quality = 82) {
-    $dir = pathinfo($source_file, PATHINFO_DIRNAME);
-    $filename = pathinfo($source_file, PATHINFO_FILENAME);
-    $destination = $dir . '/' . $filename . '.webp';
-    
-    // Check if webp file already exists
-    if (file_exists($destination)) {
-        return ['status' => 'exists', 'destination' => $destination];
-    }
-    
-    $ext = strtolower(pathinfo($source_file, PATHINFO_EXTENSION));
-    
-    // Check GD support
-    if (!function_exists('imagecreatefromjpeg') && $ext === 'jpeg' || $ext === 'jpg') {
-        return ['status' => 'error', 'message' => 'PHP GD library is missing JPEG support.'];
-    }
-    if (!function_exists('imagecreatefrompng') && $ext === 'png') {
-        return ['status' => 'error', 'message' => 'PHP GD library is missing PNG support.'];
-    }
-    
-    // Create image resource
-    if ($ext === 'jpg' || $ext === 'jpeg') {
-        $img = @imagecreatefromjpeg($source_file);
-    } elseif ($ext === 'png') {
-        $img = @imagecreatefrompng($source_file);
-        if ($img) {
-            imagepalettetotruecolor($img);
-            imagealphablending($img, true);
-            imagesavealpha($img, true);
-        }
-    } else {
-        return ['status' => 'error', 'message' => 'Unsupported format.'];
-    }
-    
-    if (!$img) {
-        return ['status' => 'error', 'message' => 'Failed to read image source file.'];
-    }
-    
-    // Save as webp
-    $saved = @imagewebp($img, $destination, $quality);
-    imagedestroy($img);
-    
-    if ($saved) {
-        return ['status' => 'success', 'destination' => $destination, 'saved_size' => filesize($destination)];
-    } else {
-        return ['status' => 'error', 'message' => 'Failed to save WebP file.'];
-    }
-}
-
-// 4. AJAX Handlers
+// 3. AJAX Actions Handlers
 if (isset($_GET['action'])) {
     header('Content-Type: application/json');
     
+    // A. Scan uploads for WebP conversion
     if ($_GET['action'] === 'scan') {
-        $images = get_all_images($upload_dir);
-        echo json_encode([
-            'success' => true,
-            'total' => count($images),
-            'images' => $images
-        ]);
+        $images = [];
+        if (is_dir($upload_dir)) {
+            $it = new RecursiveDirectoryIterator($upload_dir);
+            $display = new RecursiveIteratorIterator($it);
+            foreach ($display as $file) {
+                if ($file->isFile()) {
+                    $ext = strtolower(pathinfo($file->getPathname(), PATHINFO_EXTENSION));
+                    if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
+                        $images[] = str_replace('\\', '/', $file->getPathname());
+                    }
+                }
+            }
+        }
+        echo json_encode(['success' => true, 'total' => count($images), 'images' => $images]);
         exit;
     }
     
+    // B. Convert image to WebP
     if ($_GET['action'] === 'convert') {
         $data = json_decode(file_get_contents('php://input'), true);
-        if (empty($data['image'])) {
-            echo json_encode(['success' => false, 'message' => 'No image specified.']);
-            exit;
-        }
-        
         $image = $data['image'];
         $quality = isset($data['quality']) ? intval($data['quality']) : 82;
         
-        // Prevent path traversal
         if (strpos($image, '..') !== false || strpos($image, 'wp-content/uploads') === false) {
             echo json_encode(['success' => false, 'message' => 'Invalid image path.']);
             exit;
         }
         
-        $res = convert_to_webp($image, $quality);
-        echo json_encode(array_merge(['success' => $res['status'] !== 'error'], $res));
+        $dir = pathinfo($image, PATHINFO_DIRNAME);
+        $filename = pathinfo($image, PATHINFO_FILENAME);
+        $destination = $dir . '/' . $filename . '.webp';
+        
+        if (file_exists($destination)) {
+            echo json_encode(['success' => true, 'status' => 'exists', 'destination' => $destination]);
+            exit;
+        }
+        
+        $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+        if ($ext === 'jpg' || $ext === 'jpeg') {
+            $img = @imagecreatefromjpeg($image);
+        } elseif ($ext === 'png') {
+            $img = @imagecreatefrompng($image);
+            if ($img) {
+                imagepalettetotruecolor($img);
+                imagealphablending($img, true);
+                imagesavealpha($img, true);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Format unsupported.']);
+            exit;
+        }
+        
+        if (!$img) {
+            echo json_encode(['success' => false, 'message' => 'Failed to read source image.']);
+            exit;
+        }
+        
+        $saved = @imagewebp($img, $destination, $quality);
+        imagedestroy($img);
+        
+        if ($saved) {
+            echo json_encode(['success' => true, 'status' => 'success', 'destination' => $destination, 'saved_size' => filesize($destination)]);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Failed to save WebP file.']);
+        }
         exit;
     }
     
+    // C. Write htaccess rules
     if ($_GET['action'] === 'htaccess') {
-        $htaccess_path = '.htaccess';
-        if (!file_exists($htaccess_path) && file_exists('../.htaccess')) {
-            $htaccess_path = '../.htaccess';
+        $htaccess_path = file_exists('.htaccess') ? '.htaccess' : (file_exists('../.htaccess') ? '../.htaccess' : '');
+        if (!$htaccess_path) {
+            echo json_encode(['success' => false, 'message' => 'Không tìm thấy file .htaccess ở thư mục gốc.']);
+            exit;
         }
         
-        $rules = "\n# BEGIN WebP Redirection Rules (Safe & Non-Breaking)\n" .
+        $rules = "\n# BEGIN WebP Redirection Rules\n" .
                  "<IfModule mod_rewrite.c>\n" .
                  "  RewriteEngine On\n" .
-                 "  # 1. Check if browser accepts WebP images\n" .
                  "  RewriteCond %{HTTP_ACCEPT} image/webp\n" .
-                 "  # 2. Check if a corresponding WebP file exists next to original file\n" .
                  "  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f\n" .
-                 "  # 3. Silently serve the WebP file with correct content type\n" .
                  "  RewriteRule ^(wp-content/uploads/.*)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1,L]\n" .
                  "</IfModule>\n" .
                  "Header append Vary Accept env=REDIRECT_accept\n" .
                  "# END WebP Redirection Rules\n\n";
                  
-        if (file_exists($htaccess_path)) {
-            $content = file_get_contents($htaccess_path);
-            if (strpos($content, 'BEGIN WebP Redirection Rules') !== false) {
-                echo json_encode(['success' => true, 'message' => 'Cấu hình định tuyến WebP đã tồn tại trong .htaccess!']);
-                exit;
-            }
+        $content = file_get_contents($htaccess_path);
+        if (strpos($content, 'BEGIN WebP Redirection Rules') !== false) {
+            echo json_encode(['success' => true, 'message' => 'Cấu hình WebP đã tồn tại trong .htaccess!']);
+            exit;
+        }
+        
+        if (@file_put_contents($htaccess_path, $rules . $content)) {
+            echo json_encode(['success' => true, 'message' => 'Cập nhật .htaccess thành công!']);
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Không có quyền ghi đè file .htaccess.']);
+        }
+        exit;
+    }
+
+    // D. Scan unused theme asset images
+    if ($_GET['action'] === 'scan_theme_assets') {
+        $images = [];
+        $image_extensions = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif'];
+        
+        foreach ($asset_dirs as $adir) {
+            if (!is_dir($adir)) continue;
             
-            // Insert rules at the very top of .htaccess
-            $new_content = $rules . $content;
-            if (@file_put_contents($htaccess_path, $new_content)) {
-                echo json_encode(['success' => true, 'message' => 'Đã tự động cập nhật .htaccess thành công!']);
+            $it = new RecursiveDirectoryIterator($adir);
+            $display = new RecursiveIteratorIterator($it);
+            foreach ($display as $file) {
+                if ($file->isFile()) {
+                    $ext = strtolower(pathinfo($file->getPathname(), PATHINFO_EXTENSION));
+                    if (in_array($ext, $image_extensions)) {
+                        $images[] = [
+                            'filename' => $file->getFilename(),
+                            'filepath' => str_replace('\\', '/', $file->getPathname())
+                        ];
+                    }
+                }
+            }
+        }
+        
+        // Find code files to search
+        $code_files = [];
+        foreach ($code_dirs as $cdir) {
+            if (!is_dir($cdir)) continue;
+            $it = new RecursiveDirectoryIterator($cdir);
+            $display = new RecursiveIteratorIterator($it);
+            foreach ($display as $file) {
+                if ($file->isFile()) {
+                    $ext = strtolower(pathinfo($file->getPathname(), PATHINFO_EXTENSION));
+                    if (in_array($ext, ['html', 'php', 'js', 'css'])) {
+                        $code_files[] = $file->getPathname();
+                    }
+                }
+            }
+        }
+        
+        // Read code file contents
+        $code_contents = '';
+        foreach ($code_files as $cfile) {
+            $code_contents .= @file_get_contents($cfile);
+        }
+        
+        $unused = [];
+        foreach ($images as $img) {
+            if (strpos($code_contents, $img['filename']) === false) {
+                $unused[] = $img;
+            }
+        }
+        
+        echo json_encode(['success' => true, 'unused' => $unused]);
+        exit;
+    }
+    
+    // E. Delete local theme asset file securely
+    if ($_GET['action'] === 'delete_asset') {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $filepath = $data['filepath'];
+        
+        $all_allowed_dirs = array_merge($asset_dirs, [$upload_dir]);
+        if (is_path_safe($filepath, $all_allowed_dirs)) {
+            $ext = strtolower(pathinfo($filepath, PATHINFO_EXTENSION));
+            if (in_array($ext, ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif']) && @unlink($filepath)) {
+                echo json_encode(['success' => true, 'message' => 'Đã xóa file thành công!']);
             } else {
-                echo json_encode(['success' => false, 'message' => 'Không thể ghi đè .htaccess. Vui lòng copy thủ công mã cấu hình.']);
+                echo json_encode(['success' => false, 'message' => 'Không thể xóa tệp tin này.']);
             }
         } else {
-            echo json_encode(['success' => false, 'message' => 'Không tìm thấy file .htaccess ở thư mục gốc.']);
+            echo json_encode(['success' => false, 'message' => 'Cảnh báo bảo mật: Đường dẫn tệp tin không được phép xóa!']);
+        }
+        exit;
+    }
+    
+    // F. Scan unused media database attachments
+    if ($_GET['action'] === 'scan_db_media') {
+        if (!$is_wp) {
+            echo json_encode(['success' => false, 'message' => 'WordPress không được khởi động ở thư mục này.']);
+            exit;
+        }
+        
+        global $wpdb;
+        
+        // 1. Get all media attachments
+        $attachments = $wpdb->get_results(
+            "SELECT ID, guid, post_title FROM {$wpdb->posts} WHERE post_type = 'attachment'", 
+            ARRAY_A
+        );
+        
+        // 2. Get all published posts/pages content
+        $posts_content = $wpdb->get_col(
+            "SELECT post_content FROM {$wpdb->posts} WHERE post_status = 'publish' AND post_type IN ('post', 'page', 'product')"
+        );
+        $all_post_contents = implode(' ', $posts_content);
+        
+        // 3. Get all featured images meta
+        $featured_img_ids = $wpdb->get_col(
+            "SELECT meta_value FROM {$wpdb->postmeta} WHERE meta_key = '_thumbnail_id'"
+        );
+        $featured_img_ids = array_map('intval', $featured_img_ids);
+        
+        $unused = [];
+        foreach ($attachments as $att) {
+            $id = intval($att['ID']);
+            
+            // Check if it is featured image
+            if (in_array($id, $featured_img_ids)) {
+                continue;
+            }
+            
+            // Extract basename
+            $filename = basename($att['guid']);
+            
+            // Search filename in post contents
+            if (strpos($all_post_contents, $filename) === false) {
+                // Get local file path
+                $attached_file = get_post_meta($id, '_wp_attached_file', true);
+                $full_filepath = WP_CONTENT_DIR . '/uploads/' . $attached_file;
+                
+                $unused[] = [
+                    'id' => $id,
+                    'title' => $att['post_title'],
+                    'filename' => $filename,
+                    'filepath' => str_replace('\\', '/', $full_filepath)
+                ];
+            }
+        }
+        
+        echo json_encode(['success' => true, 'unused' => $unused]);
+        exit;
+    }
+    
+    // G. Delete WordPress Database Attachment (safe WP delete)
+    if ($_GET['action'] === 'delete_attachment') {
+        if (!$is_wp) {
+            echo json_encode(['success' => false, 'message' => 'WordPress is not booted.']);
+            exit;
+        }
+        
+        $data = json_decode(file_get_contents('php://input'), true);
+        $attachment_id = intval($data['id']);
+        
+        if ($attachment_id > 0) {
+            // wp_delete_attachment deletes physical files (including thumbnail sizes) and DB meta!
+            $deleted = wp_delete_attachment($attachment_id, true);
+            if ($deleted) {
+                echo json_encode(['success' => true, 'message' => 'Đã xóa ảnh khỏi database và ổ đĩa thành công!']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Không thể xóa đính kèm media này.']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'ID không hợp lệ.']);
         }
         exit;
     }
@@ -263,7 +369,7 @@ if (isset($_GET['action'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Công cụ Tối ưu hóa Ảnh WebP - IDEAS Education</title>
+    <title>Công cụ Tối ưu hóa & Dọn dẹp Media - IDEAS</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -276,231 +382,184 @@ if (isset($_GET['action'])) {
             --success: #10b981;
             --border: rgba(255,255,255,0.06);
         }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-main);
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            width: 100%;
-            max-width: 900px;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        header h1 {
-            font-weight: 800;
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            background: linear-gradient(135deg, #f43f5e, #fb7185);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg-dark); color: var(--text-main); margin: 0; padding: 40px 20px; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 950px; }
+        header { text-align: center; margin-bottom: 40px; }
+        header h1 { font-weight: 800; font-size: 2.5rem; margin: 0 0 10px 0; background: linear-gradient(135deg, #f43f5e, #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         header p { color: var(--text-sub); margin: 0; }
-        .card {
-            background: var(--card-dark);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid var(--border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            margin-bottom: 24px;
-        }
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 12px;
-            color: #fb7185;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .btn {
-            background: linear-gradient(135deg, var(--primary), #be123c);
-            color: #fff;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.4);
-        }
-        .btn:disabled {
-            background: #475569;
-            box-shadow: none;
-            cursor: not-allowed;
-            transform: none;
-        }
-        .btn-secondary {
-            background: #334155;
-            box-shadow: none;
-        }
-        .btn-secondary:hover {
-            background: #475569;
-            box-shadow: none;
-        }
-        .progress-container {
-            margin: 24px 0;
-            display: none;
-        }
-        .progress-bar-bg {
-            height: 12px;
-            background: #0f172a;
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative;
-        }
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #f43f5e, #10b981);
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-        .progress-text {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            margin-top: 8px;
-            font-weight: 600;
-        }
-        .console-logs {
-            background: #020617;
-            border-radius: 12px;
-            padding: 20px;
-            height: 300px;
-            overflow-y: auto;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            border: 1px solid var(--border);
-            color: #38bdf8;
-            margin-top: 20px;
-        }
-        .console-logs div { margin-bottom: 6px; line-height: 1.4; }
+        
+        .tabs { display: flex; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+        .tab-btn { background: none; border: none; color: var(--text-sub); font-size: 1rem; font-weight: 600; padding: 10px 20px; cursor: pointer; border-radius: 8px; transition: all 0.2s; }
+        .tab-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        .tab-btn.active { background: var(--primary); color: #fff; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .card { background: var(--card-dark); border-radius: 20px; padding: 30px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-bottom: 24px; }
+        .card-title { font-size: 1.25rem; font-weight: 600; margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 12px; color: #fb7185; display: flex; justify-content: space-between; align-items: center; }
+        
+        .btn { background: linear-gradient(135deg, var(--primary), #be123c); color: #fff; border: none; padding: 12px 24px; font-size: 0.95rem; font-weight: 600; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(244, 63, 94, 0.2); }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(244, 63, 94, 0.3); }
+        .btn:disabled { background: #475569; box-shadow: none; cursor: not-allowed; transform: none; }
+        .btn-secondary { background: #334155; box-shadow: none; }
+        .btn-secondary:hover { background: #475569; }
+        .btn-danger { background: linear-gradient(135deg, #ef4444, #b91c1c); box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2); }
+        .btn-danger:hover { box-shadow: 0 6px 16px rgba(239, 68, 68, 0.3); }
+
+        .progress-container { margin: 24px 0; display: none; }
+        .progress-bar-bg { height: 12px; background: #0f172a; border-radius: 6px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #f43f5e, #10b981); width: 0%; transition: width 0.1s ease; }
+        .progress-text { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-sub); margin-top: 8px; font-weight: 600; }
+        
+        .console-logs { background: #020617; border-radius: 12px; padding: 20px; height: 250px; overflow-y: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; border: 1px solid var(--border); color: #38bdf8; margin-top: 20px; }
+        .console-logs div { margin-bottom: 6px; }
         .log-success { color: #34d399; }
         .log-error { color: #f87171; }
         .log-warn { color: #fbbf24; }
         
-        .code-box {
-            background: #020617;
-            padding: 20px;
-            border-radius: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: #a7f3d0;
-            overflow-x: auto;
-            border: 1px solid var(--border);
-            margin: 15px 0;
-        }
+        .code-box { background: #020617; padding: 20px; border-radius: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #a7f3d0; overflow-x: auto; border: 1px solid var(--border); margin: 15px 0; }
         
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 24px;
-        }
-        .stat-card {
-            background: #0f172a;
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 24px; }
+        .stat-card { background: #0f172a; padding: 15px; border-radius: 12px; text-align: center; border: 1px solid var(--border); }
         .stat-num { font-size: 1.5rem; font-weight: 800; color: #fb7185; }
         .stat-label { font-size: 0.8rem; color: var(--text-sub); text-transform: uppercase; margin-top: 4px; }
+
+        /* Table styles for Unused lists */
+        .table-container { max-height: 450px; overflow-y: auto; border: 1px solid var(--border); border-radius: 12px; background: #0f172a; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+        th { background: #1e293b; padding: 12px 16px; font-weight: 600; color: var(--text-main); border-bottom: 1px solid var(--border); }
+        td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--text-sub); }
+        tr:hover td { background: rgba(255,255,255,0.02); color: #fff; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>WebP Media Optimizer</h1>
-            <p>Giải pháp tối ưu hóa hình ảnh hàng loạt, tự động chuyển đổi sang WebP & giữ nguyên liên kết gốc</p>
+            <h1>Media Optimizer & Cleaner</h1>
+            <p>Hệ thống nén WebP thông minh và dọn dẹp ảnh dư thừa trong Database & Giao diện</p>
         </header>
 
-        <!-- Step 1: Scan & Convert -->
-        <div class="card">
-            <div class="card-title">
-                <span>Trình chuyển đổi tệp hàng loạt</span>
-                <span style="font-size: 0.8rem; background: #334155; padding: 4px 10px; border-radius: 20px; color: #fff;">GD / Imagick</span>
-            </div>
-            
-            <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 0;">Quét thư mục uploads và chuyển đổi tất cả hình ảnh (.jpg, .jpeg, .png) sang phiên bản WebP tương ứng. Ảnh WebP mới sẽ được lưu cạnh tệp ảnh cũ (ví dụ: <code>photo.jpg</code> và <code>photo.webp</code>).</p>
-            
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="stat-num" id="stat-total">0</div>
-                    <div class="stat-label">Tổng tệp ảnh</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num" id="stat-processed" style="color: #34d399;">0</div>
-                    <div class="stat-label">Đã xử lý</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-num" id="stat-saving" style="color: #38bdf8;">0 KB</div>
-                    <div class="stat-label">Dung lượng giảm</div>
-                </div>
-            </div>
-
-            <div style="display: flex; gap: 12px;">
-                <button class="btn" id="btn-scan">Quét thư viện ảnh</button>
-                <button class="btn" id="btn-start" style="background: linear-gradient(135deg, #10b981, #047857); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" disabled>Bắt đầu tối ưu</button>
-                <button class="btn btn-secondary" id="btn-stop" style="display:none;">Dừng lại</button>
-            </div>
-
-            <div class="progress-container" id="progress-area">
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-fill"></div>
-                </div>
-                <div class="progress-text">
-                    <span id="progress-label">Đang chuẩn bị...</span>
-                    <span id="progress-percent">0%</span>
-                </div>
-            </div>
-
-            <div class="console-logs" id="logs">
-                <div>[Hệ thống] Nhấp "Quét thư viện ảnh" để bắt đầu tìm kiếm tệp...</div>
-            </div>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('tab-webp')">Tối ưu WebP</button>
+            <button class="tab-btn" onclick="switchTab('tab-cleaner')">Dọn dẹp ảnh dư thừa</button>
         </div>
 
-        <!-- Step 2: Htaccess Routing -->
-        <div class="card">
-            <div class="card-title">Cấu hình định tuyến ảnh thông minh (.htaccess)</div>
-            <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 0;">Phương pháp này sử dụng máy chủ Apache để tự động trả về tệp WebP đã tối ưu nếu trình duyệt của người dùng có hỗ trợ WebP. <strong>Liên kết ảnh trên trang và cơ sở dữ liệu không cần thay đổi, loại bỏ hoàn toàn khả năng lỗi link ảnh!</strong></p>
-            
-            <div class="code-box">
-# Cấu hình tự động chuyển hướng sang WebP khi có tệp tương ứng
+        <!-- TAB 1: WebP Optimizer -->
+        <div id="tab-webp" class="tab-content active">
+            <div class="card">
+                <div class="card-title">
+                    <span>Nén ảnh WebP hàng loạt</span>
+                    <span style="font-size: 0.8rem; background: #334155; padding: 4px 10px; border-radius: 20px; color: #fff;">Chế độ AJAX</span>
+                </div>
+                <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 0;">Quét toàn bộ thư mục <code>wp-content/uploads/</code> và nén hàng loạt ảnh PNG/JPG sang định dạng WebP siêu nhẹ nằm song song với ảnh gốc.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-num" id="stat-total">0</div>
+                        <div class="stat-label">Tổng tệp ảnh</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" id="stat-processed" style="color: #34d399;">0</div>
+                        <div class="stat-label">Đã xử lý</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" id="stat-saving" style="color: #38bdf8;">0 KB</div>
+                        <div class="stat-label">Dung lượng giảm</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn" id="btn-scan">Quét thư viện ảnh</button>
+                    <button class="btn" id="btn-start" style="background: linear-gradient(135deg, #10b981, #047857); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);" disabled>Bắt đầu tối ưu</button>
+                    <button class="btn btn-secondary" id="btn-stop" style="display:none;">Dừng lại</button>
+                </div>
+
+                <div class="progress-container" id="progress-area">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progress-label">Đang chuẩn bị...</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                </div>
+
+                <div class="console-logs" id="logs">
+                    <div>[Hệ thống] Nhấp "Quét thư viện ảnh" để bắt đầu...</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Cấu hình định tuyến thông minh (.htaccess)</div>
+                <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 0;">Tự động trả về ảnh WebP nếu trình duyệt hỗ trợ, không thay đổi đường dẫn vật lý trong database, loại bỏ 100% khả năng lỗi link ảnh.</p>
+                
+                <div class="code-box">
+# BEGIN WebP Redirection Rules
 &lt;IfModule mod_rewrite.c&gt;
   RewriteEngine On
   RewriteCond %{HTTP_ACCEPT} image/webp
   RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
   RewriteRule ^(wp-content/uploads/.*)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1,L]
 &lt;/IfModule&gt;
+# END WebP Redirection Rules
+                </div>
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <button class="btn btn-secondary" id="btn-htaccess">Tự động cấu hình .htaccess</button>
+                    <span id="htaccess-status" style="font-size: 0.9rem; font-weight: 600;"></span>
+                </div>
             </div>
+        </div>
 
-            <div style="display: flex; gap: 12px; align-items: center;">
-                <button class="btn btn-secondary" id="btn-htaccess">Tự động cấu hình .htaccess</button>
-                <span id="htaccess-status" style="font-size: 0.9rem; font-weight: 600;"></span>
+        <!-- TAB 2: Unused Media Cleaner -->
+        <div id="tab-cleaner" class="tab-content">
+            <div class="card">
+                <div class="card-title">Dọn dẹp ảnh không sử dụng (Giao diện & Database)</div>
+                <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 0;">Quét và phát hiện các ảnh dư thừa không được liên kết trong bất kỳ bài viết, trang tĩnh hay file code nào. Hỗ trợ xóa an toàn khỏi ổ đĩa và database.</p>
+                
+                <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+                    <button class="btn" id="btn-scan-assets">Quét ảnh giao diện (Assets)</button>
+                    <button class="btn btn-secondary" id="btn-scan-db" <?php echo !$is_wp ? 'disabled' : ''; ?>>
+                        Quét ảnh thư viện (Media DB)
+                    </button>
+                </div>
+
+                <div id="cleaner-results" style="display: none;">
+                    <h4 id="cleaner-results-title" style="margin-bottom: 10px; color: #fb7185;">Danh sách ảnh không sử dụng</h4>
+                    <div class="table-container">
+                        <table id="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Tên file</th>
+                                    <th>Vị trí vật lý</th>
+                                    <th style="width: 100px; text-align: center;">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-body">
+                                <!-- Dynamic results -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div id="cleaner-empty" style="padding: 30px; text-align: center; color: var(--text-sub); background: #0f172a; border-radius: 12px; border: 1px dashed var(--border); margin-top: 15px;">
+                    Chưa chạy quét dữ liệu. Vui lòng bấm một trong các nút quét phía trên.
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Tab switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // --- WebP Conversion Logic ---
         let imageList = [];
         let currentIndex = 0;
         let isProcessing = false;
@@ -526,28 +585,21 @@ if (isset($_GET['action'])) {
             if (type === 'success') div.className = 'log-success';
             if (type === 'error') div.className = 'log-error';
             if (type === 'warn') div.className = 'log-warn';
-            
             logsContainer.appendChild(div);
             logsContainer.scrollTop = logsContainer.scrollHeight;
         }
 
-        // Scan images
         btnScan.addEventListener('click', async () => {
             btnScan.disabled = true;
             addLog("Bắt đầu quét thư mục uploads...");
-            
             try {
                 const res = await fetch('?action=scan');
                 const data = await res.json();
-                
                 if (data.success) {
                     imageList = data.images;
                     statTotal.textContent = imageList.length;
-                    addLog(`Đã quét xong. Tìm thấy ${imageList.length} tệp hình ảnh (.jpg, .jpeg, .png).`, 'success');
-                    
-                    if (imageList.length > 0) {
-                        btnStart.disabled = false;
-                    }
+                    addLog(`Quét hoàn tất. Tìm thấy ${imageList.length} ảnh cần tối ưu.`, 'success');
+                    if (imageList.length > 0) btnStart.disabled = false;
                 } else {
                     addLog("Quét thất bại: " + data.message, 'error');
                 }
@@ -558,7 +610,6 @@ if (isset($_GET['action'])) {
             }
         });
 
-        // Start conversion
         btnStart.addEventListener('click', () => {
             isProcessing = true;
             btnScan.disabled = true;
@@ -566,16 +617,14 @@ if (isset($_GET['action'])) {
             btnStart.style.display = 'none';
             btnStop.style.display = 'inline-flex';
             progressArea.style.display = 'block';
-            
             addLog("Bắt đầu hàng đợi chuyển đổi WebP...");
             processNext();
         });
 
-        // Stop process
         btnStop.addEventListener('click', () => {
             isProcessing = false;
             btnStop.disabled = true;
-            addLog("Hành động: Đã nhấn tạm dừng. Chờ hoàn thành tệp hiện tại...", 'warn');
+            addLog("Hành động: Đang dừng, chờ tệp tin hiện tại...", 'warn');
         });
 
         async function processNext() {
@@ -585,7 +634,7 @@ if (isset($_GET['action'])) {
                 btnStart.style.display = 'inline-flex';
                 btnStop.style.display = 'none';
                 btnStop.disabled = false;
-                addLog("Hàng đợi chuyển đổi đã tạm dừng.", 'warn');
+                addLog("Đã tạm dừng hàng đợi.", 'warn');
                 return;
             }
 
@@ -613,14 +662,11 @@ if (isset($_GET['action'])) {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ image: img, quality: 82 })
                 });
-                
                 const data = await res.json();
-                
                 if (data.success) {
                     if (data.status === 'exists') {
                         addLog(`Bỏ qua: ${img.split('/').pop()} (Đã có bản WebP)`, 'info');
                     } else {
-                        // Success conversion
                         const savedKB = data.saved_size ? Math.round(data.saved_size / 1024) : 0;
                         addLog(`Thành công: Chuyển đổi ${img.split('/').pop()} sang WebP (${savedKB} KB)`, 'success');
                     }
@@ -628,7 +674,6 @@ if (isset($_GET['action'])) {
                     statProcessed.textContent = currentIndex;
                 } else {
                     addLog(`Lỗi xử lý ${img.split('/').pop()}: ${data.message}`, 'error');
-                    // Continue to next despite error
                     currentIndex++;
                 }
             } catch (err) {
@@ -636,32 +681,180 @@ if (isset($_GET['action'])) {
                 isProcessing = false;
             }
 
-            // Small delay to prevent CPU choking
             setTimeout(processNext, 50);
         }
 
-        // Configure htaccess
         btnHtaccess.addEventListener('click', async () => {
             btnHtaccess.disabled = true;
-            document.getElementById('htaccess-status').textContent = "Đang xử lý...";
-            
+            document.getElementById('htaccess-status').textContent = "Đang cấu hình...";
             try {
                 const res = await fetch('?action=htaccess');
                 const data = await res.json();
-                
                 if (data.success) {
                     document.getElementById('htaccess-status').style.color = '#10b981';
                     document.getElementById('htaccess-status').textContent = "Cấu hình thành công!";
-                    addLog("Cập nhật định tuyến .htaccess thành công!", 'success');
+                    addLog("Đã cập nhật .htaccess thành công!", 'success');
                 } else {
                     document.getElementById('htaccess-status').style.color = '#ef4444';
-                    document.getElementById('htaccess-status').textContent = "Không thành công.";
-                    addLog("Cấu hình .htaccess thất bại: " + data.message, 'error');
+                    document.getElementById('htaccess-status').textContent = "Lỗi ghi file.";
                 }
             } catch (err) {
-                addLog("Lỗi kết nối .htaccess: " + err.message, 'error');
+                addLog("Lỗi .htaccess: " + err.message, 'error');
             } finally {
                 btnHtaccess.disabled = false;
+            }
+        });
+
+        // --- Unused Images Cleaner Logic ---
+        const btnScanAssets = document.getElementById('btn-scan-assets');
+        const btnScanDB = document.getElementById('btn-scan-db');
+        const cleanerResults = document.getElementById('cleaner-results');
+        const cleanerResultsTitle = document.getElementById('cleaner-results-title');
+        const cleanerEmpty = document.getElementById('cleaner-empty');
+        const resultsBody = document.getElementById('results-body');
+
+        // Render scanner results
+        function renderResults(items, type) {
+            resultsBody.innerHTML = '';
+            
+            if (items.length === 0) {
+                cleanerResults.style.display = 'none';
+                cleanerEmpty.style.display = 'block';
+                cleanerEmpty.textContent = "Không tìm thấy ảnh dư thừa nào! Hệ thống của bạn rất sạch.";
+                return;
+            }
+            
+            cleanerEmpty.style.display = 'none';
+            cleanerResults.style.display = 'block';
+            cleanerResultsTitle.textContent = `Tìm thấy ${items.length} ảnh không sử dụng (${type === 'assets' ? 'Giao diện' : 'Media DB'})`;
+            
+            items.forEach(item => {
+                const tr = document.createElement('tr');
+                
+                // Filename col
+                const tdName = document.createElement('td');
+                tdName.textContent = item.filename;
+                tdName.style.fontWeight = '600';
+                tdName.style.color = '#fb7185';
+                
+                // Path col
+                const tdPath = document.createElement('td');
+                tdPath.textContent = item.filepath;
+                tdPath.style.fontSize = '0.85rem';
+                tdPath.style.fontFamily = 'JetBrains Mono, monospace';
+                
+                // Action col
+                const tdAction = document.createElement('td');
+                tdAction.style.textAlign = 'center';
+                
+                const delBtn = document.createElement('button');
+                delBtn.className = 'btn btn-danger';
+                delBtn.style.padding = '6px 12px';
+                delBtn.style.fontSize = '0.8rem';
+                delBtn.textContent = 'Xóa';
+                
+                delBtn.addEventListener('click', async () => {
+                    if (!confirm(`Bạn có chắc chắn muốn XÓA VĨNH VIỄN tệp này?\nHành động này không thể hoàn tác!`)) {
+                        return;
+                    }
+                    
+                    delBtn.disabled = true;
+                    delBtn.textContent = 'Đang xóa...';
+                    
+                    try {
+                        let res, data;
+                        if (type === 'assets') {
+                            res = await fetch('?action=delete_asset', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ filepath: item.filepath })
+                            });
+                        } else {
+                            res = await fetch('?action=delete_attachment', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ id: item.id })
+                            });
+                        }
+                        
+                        data = await res.json();
+                        if (data.success) {
+                            tr.remove();
+                            // Decrease count on title
+                            const currentCount = parseInt(cleanerResultsTitle.textContent.match(/\d+/)[0]);
+                            if (currentCount - 1 === 0) {
+                                renderResults([], type);
+                            } else {
+                                cleanerResultsTitle.textContent = `Tìm thấy ${currentCount - 1} ảnh không sử dụng (${type === 'assets' ? 'Giao diện' : 'Media DB'})`;
+                            }
+                            alert(data.message);
+                        } else {
+                            alert("Lỗi: " + data.message);
+                            delBtn.disabled = false;
+                            delBtn.textContent = 'Xóa';
+                        }
+                    } catch (err) {
+                        alert("Lỗi kết nối máy chủ: " + err.message);
+                        delBtn.disabled = false;
+                        delBtn.textContent = 'Xóa';
+                    }
+                });
+                
+                tdAction.appendChild(delBtn);
+                tr.appendChild(tdName);
+                tr.appendChild(tdPath);
+                tr.appendChild(tdAction);
+                resultsBody.appendChild(tr);
+            });
+        }
+
+        // Scan local theme assets
+        btnScanAssets.addEventListener('click', async () => {
+            btnScanAssets.disabled = true;
+            btnScanAssets.textContent = 'Đang quét...';
+            cleanerEmpty.style.display = 'block';
+            cleanerEmpty.textContent = 'Hệ thống đang tìm kiếm các liên kết ảnh giao diện trong toàn bộ mã nguồn tĩnh. Vui lòng chờ...';
+            cleanerResults.style.display = 'none';
+
+            try {
+                const res = await fetch('?action=scan_theme_assets');
+                const data = await res.json();
+                
+                if (data.success) {
+                    renderResults(data.unused, 'assets');
+                } else {
+                    alert("Quét thất bại: " + data.message);
+                }
+            } catch (err) {
+                alert("Lỗi kết nối: " + err.message);
+            } finally {
+                btnScanAssets.disabled = false;
+                btnScanAssets.textContent = 'Quét ảnh giao diện (Assets)';
+            }
+        });
+
+        // Scan media library database
+        btnScanDB.addEventListener('click', async () => {
+            btnScanDB.disabled = true;
+            btnScanDB.textContent = 'Đang quét...';
+            cleanerEmpty.style.display = 'block';
+            cleanerEmpty.textContent = 'Đang truy vấn cơ sở dữ liệu WordPress & đối chiếu với nội dung bài viết. Vui lòng chờ...';
+            cleanerResults.style.display = 'none';
+
+            try {
+                const res = await fetch('?action=scan_db_media');
+                const data = await res.json();
+                
+                if (data.success) {
+                    renderResults(data.unused, 'database');
+                } else {
+                    alert("Quét thất bại: " + data.message);
+                }
+            } catch (err) {
+                alert("Lỗi kết nối: " + err.message);
+            } finally {
+                btnScanDB.disabled = false;
+                btnScanDB.textContent = 'Quét ảnh thư viện (Media DB)';
             }
         });
     </script>
