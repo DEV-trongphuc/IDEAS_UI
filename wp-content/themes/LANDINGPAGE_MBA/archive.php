@@ -740,8 +740,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                     </a>
-                    <!-- Mobile-only Reel Banner under first content post (Featured Post on Page 1) -->
-                    <div class="reel-explorer-banner mobile-only-banner" style="margin-top: 24px !important; margin-bottom: 24px !important;">
+                    <!-- Reel Banner under first content post (Featured Post on Page 1) -->
+                    <div class="reel-explorer-banner" style="margin-top: 24px !important; margin-bottom: 24px !important;">
                         <div class="reel-banner-backdrop"></div>
                         <div class="reel-banner-content">
                             <span class="reel-banner-tag"><i class="fa-solid fa-circle-play"></i> <?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></span>
@@ -808,8 +808,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     // If page > 1 and it is the first item in the grid, output mobile-only banner
                     if ($current_page > 1 && $grid_post_counter === 1) {
                         ?>
-                        <!-- Mobile-only Reel Banner under first content post of page 2+ -->
-                        <div class="reel-explorer-banner mobile-only-banner" style="grid-column: 1 / -1; margin-top: 12px !important; margin-bottom: 24px !important;">
+                        <!-- Reel Banner under first content post of page 2+ -->
+                        <div class="reel-explorer-banner" style="grid-column: 1 / -1; margin-top: 12px !important; margin-bottom: 24px !important;">
                             <div class="reel-banner-backdrop"></div>
                             <div class="reel-banner-content">
                                 <span class="reel-banner-tag"><i class="fa-solid fa-circle-play"></i> <?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></span>
@@ -845,6 +845,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- IDEAS Reel Explorer Banner -->
                 <style>
                 .reel-explorer-banner {
+                    display: flex !important;
                     position: relative !important;
                     background: #0d0607 !important;
                     border: 1px solid rgba(171, 14, 0, 0.2) !important;
@@ -934,18 +935,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     transform: translateX(3px) !important;
                 }
                 </style>
-                <div class="reel-explorer-banner desktop-only-banner">
-                    <div class="reel-banner-backdrop"></div>
-                    <div class="reel-banner-content">
-                        <span class="reel-banner-tag"><i class="fa-solid fa-circle-play"></i> <?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></span>
-                        <h3><?php echo $is_en ? 'Explore IDEAS Short Video Reels' : 'Khám phá video chia sẻ ngắn từ IDEAS'; ?></h3>
-                        <p><?php echo $is_en ? 'Watch highlight videos about students, alumni, and academic experiences at IDEAS.' : 'Xem ngay các thước phim ngắn chia sẻ thực tế của học viên, cựu học viên và chuyên gia học thuật tại IDEAS.'; ?></p>
-                        <a href="<?php echo home_url('/reel'); ?>" class="reel-banner-btn">
-                            <span><?php echo $is_en ? 'Watch Reels Now' : 'Xem Reels ngay'; ?></span>
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
+
                 <?php
 
                 // Reset post data if custom query

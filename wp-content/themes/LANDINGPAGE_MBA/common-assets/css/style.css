@@ -8057,6 +8057,10 @@ h6,
     box-sizing: border-box !important;
     padding: 12px 16px !important;
   }
+  .mobile-menu .mobile-dropdown-item *,
+  .mobile-menu .mobile-dropdown-item-simple * {
+    pointer-events: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -13637,25 +13641,25 @@ body .cta-headline {
 
 /* ─── MOBILE HIDE DUPLICATE CARD & REORDER BANNER ─── */
 .reel-sidebar-promo-widget {
-  display: none !important;
+  display: block !important;
 }
 .desktop-only-banner {
-  display: none !important;
+  display: flex !important;
 }
 .mobile-only-banner {
-  display: flex !important;
+  display: none !important;
 }
 
 @media (max-width: 768px) {
   .reel-sidebar-promo-widget {
-    display: block !important;
+    display: none !important;
   }
   
   .desktop-only-banner {
     display: none !important;
   }
   .mobile-only-banner {
-    display: none !important;
+    display: flex !important;
   }
 }
 
@@ -13808,4 +13812,8 @@ body .cta-headline {
 .fb-reel-more-btn:hover i {
   transform: translateX(3px) !important;
 }
+.cache-buster-rule-1781320002 {
+  order: 0;
+}
+/* cache-bust: 1781320001 */
 
