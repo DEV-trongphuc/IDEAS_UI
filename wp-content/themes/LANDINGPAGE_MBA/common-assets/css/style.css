@@ -13955,5 +13955,29 @@ body .cta-headline {
     }
 }
 
+/* 8. Accreditation Certificate Buttons (acc-sac-cert-strip) Mobile Layout Polish */
+@media (max-width: 768px) {
+    .acc-sac-cert-strip {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+    .acc-sac-cert-strip .acc-cert-thumb {
+        flex: 1 1 calc(50% - 4px) !important;
+        min-width: 125px !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+        height: auto !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 8px 6px !important;
+        font-size: 0.68rem !important;
+    }
+}
+
 
 
