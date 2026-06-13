@@ -9180,6 +9180,22 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+        // Inject global floating play button
+        const currentPath = window.location.pathname.toLowerCase();
+        const isReelPage = currentPath.indexOf('/reel') !== -1;
+        if (!isReelPage) {
+            const isEn = currentPath.indexOf('/en/') !== -1;
+            const reelHref = isEn ? '/en/reel' : '/reel';
+            const label = isEn ? 'Watch Reels' : 'Xem Reels';
+            
+            const btn = document.createElement('a');
+            btn.href = reelHref;
+            btn.className = 'global-floating-reel-btn';
+            btn.setAttribute('aria-label', label);
+            btn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
+            document.body.appendChild(btn);
+        }
+
         const secondaryPhotos = document.querySelectorAll('.hero-photo-secondary');
         if (secondaryPhotos.length === 0) return;
 

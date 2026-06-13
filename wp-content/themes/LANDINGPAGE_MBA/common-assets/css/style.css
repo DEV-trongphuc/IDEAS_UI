@@ -13604,28 +13604,30 @@ body .cta-headline {
 /* ─── GLOBAL FLOATING REEL PLAY BUTTON ─── */
 .global-floating-reel-btn {
   position: fixed !important;
-  bottom: 84px !important;
-  right: 20px !important;
-  width: 48px !important;
-  height: 48px !important;
+  bottom: 110px !important;
+  right: 30px !important;
+  width: 64px !important;
+  height: 64px !important;
   border-radius: 50% !important;
   background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
   color: #ffffff !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;
-  z-index: 99999 !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  z-index: 2147483640 !important;
   text-decoration: none !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 .global-floating-reel-btn i {
-  font-size: 20px !important;
+  font-size: 26px !important;
   transition: transform 0.3s ease !important;
+  margin-left: 2px !important;
 }
 .global-floating-reel-btn:hover {
   transform: scale(1.08) translateY(-2px) !important;
-  box-shadow: 0 5px 15px rgba(171, 14, 0, 0.25) !important;
+  box-shadow: 0 12px 30px rgba(171, 14, 0, 0.3) !important;
   color: #ffffff !important;
 }
 .global-floating-reel-btn:hover i {
@@ -13633,35 +13635,38 @@ body .cta-headline {
 }
 
 /* ─── MOBILE HIDE DUPLICATE CARD & REORDER BANNER ─── */
+.reel-sidebar-promo-widget {
+  display: none !important;
+}
 .desktop-only-banner {
-  display: flex !important;
+  display: none !important;
 }
 .mobile-only-banner {
-  display: none !important;
+  display: flex !important;
 }
 
 @media (max-width: 768px) {
-  .global-floating-reel-btn {
-    bottom: 80px !important;
-    right: 16px !important;
-    width: 44px !important;
-    height: 44px !important;
-  }
-  .global-floating-reel-btn i {
-    font-size: 18px !important;
-  }
-  
   .reel-sidebar-promo-widget {
-    display: none !important;
+    display: block !important;
   }
   
   .desktop-only-banner {
     display: none !important;
   }
   .mobile-only-banner {
-    display: flex !important;
-    margin-top: 24px !important;
-    margin-bottom: 24px !important;
+    display: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .global-floating-reel-btn {
+    bottom: 92px !important;
+    right: 20px !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .global-floating-reel-btn i {
+    font-size: 22px !important;
   }
 }
 

@@ -853,7 +853,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     margin-top: 48px !important;
                     overflow: hidden !important;
                     color: #fff !important;
-                    display: flex !important;
                     flex-direction: column !important;
                     gap: 12px !important;
                     text-align: left !important;
