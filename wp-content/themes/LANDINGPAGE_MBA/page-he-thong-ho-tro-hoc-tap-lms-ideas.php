@@ -24,7 +24,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- Preconnect to external domains for faster resource loading --><!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image"
-        href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
+        href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <title><?php echo $is_en ? 'LMS System & Comprehensive Learning Ecosystem | IDEAS' : 'Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS'; ?></title>
     <?php endif; ?>
@@ -36,7 +36,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <meta property="og:title" content="<?php echo $is_en ? 'LMS System & Comprehensive Learning Ecosystem | IDEAS' : 'Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS'; ?>" />
             <meta property="og:description"
                 content="<?php echo $is_en ? 'Experience modern 4.0 learning with Moodle LMS, smart AI assistant, and a comprehensive 24/7 academic library.' : 'Trải nghiệm học tập hiện đại 4.0 với hệ thống Moodle LMS, trợ lý AI thông minh và thư viện học tập toàn diện 24/7.'; ?>" />
-            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg" />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?><!-- Main stylesheet --><!-- Booking Modal stylesheet -->
     <?php
@@ -93,7 +93,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: absolute;
             inset: 0;
             z-index: 1;
-            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.jpg');
+            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp');
             background-size: cover;
             background-position: center;
             opacity: 0.45;
@@ -1018,7 +1018,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </ul>
             </div>
             <div class="platform-visual">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.png" alt="LMS Moodle interface"
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.webp" alt="LMS Moodle interface"
                     loading="lazy" />
             </div>
         </div>

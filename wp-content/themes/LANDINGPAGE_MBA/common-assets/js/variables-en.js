@@ -29,8 +29,8 @@ const IDEAS_DATA = {
             link_iframe: "https://www.youtube.com/embed/ZrLeuFGGXQI?si=0tiJvbnRDzwEyo3B",
             listImgs: [
                 "https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.jpg"
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.webp"
             ],
             level: "BBA",
             avatar: "https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png",
@@ -55,7 +55,7 @@ const IDEAS_DATA = {
             fee_course: [
                 {
                     name: "Standard",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon6.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon6.webp",
                     price: "8,050 CHF (Full 3-year package)",
                     benefits: [
                         "Basic tuition fee with 80% scholarship applied from support fund.",
@@ -131,20 +131,20 @@ const IDEAS_DATA = {
             link_iframe: "https://www.youtube.com/embed/ZrLeuFGGXQI?si=o8eCXmmewBzKvCgT",
             listImgs: [
                 "https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4768.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4712.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4367.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4528.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4783.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4447.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4356.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4861.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4840.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4799.jpg",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4768.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4712.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4367.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4528.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4783.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4447.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4356.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4861.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4840.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4799.webp",
             ],
             level: "MBA",
             avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp",
@@ -206,7 +206,7 @@ const IDEAS_DATA = {
             fee_course: [
                 {
                     name: "High Quality",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
                     price: "9,900 CHF",
                     benefits: [
                         "Installment support for 12 - 24 months via Sacombank.",
@@ -219,11 +219,11 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.webp", link: "#" },
             ],
             require: [
                 "Bachelor's degree and transcripts",
@@ -280,23 +280,23 @@ const IDEAS_DATA = {
             link_iframe: "https://www.youtube.com/embed/ZrLeuFGGXQI?si=0tiJvbnRDzwEyo3B",
             listImgs: [
                 "https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4768.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4712.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4367.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4528.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4783.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4447.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4356.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4861.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4840.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4799.jpg",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4768.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4712.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4367.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4528.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4783.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4447.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4356.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4861.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4840.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4799.webp",
             ],
             level: "MBA",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/emba.png.webp",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/emba.webp.webp",
             name: "Executive MBA",
             school: "Swiss UMEF",
             subjects: "<b>60</b> ECTS credits - <b>10</b> courses (no thesis)",
@@ -355,7 +355,7 @@ const IDEAS_DATA = {
             fee_course: [
                 {
                     name: "High Quality",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
                     price: "8,900 CHF",
                     benefits: [
                         "Installment support for 12 - 24 months via Sacombank.",
@@ -368,11 +368,11 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.webp", link: "#" },
             ],
             require: [
                 "Bachelor's degree and transcripts",
@@ -427,17 +427,17 @@ const IDEAS_DATA = {
             link_iframe: "https://www.youtube.com/embed/mB0mDrgjVNs?si=wP6X9bDGqVVR2R28",
             listImgs: [
                 "https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4193.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4314.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4298.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4268.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4255.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4240.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4215.jpg",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4193.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4314.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4298.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4268.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4255.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4240.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4215.webp",
             ],
             level: "MBA",
             avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/mscai.png.webp",
@@ -486,14 +486,14 @@ const IDEAS_DATA = {
             },
             degree: {
                 back: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0002.webp",
-                front: "https://ideas.edu.vn/wp-content/uploads/2025/03/UMEF-MSc-Degree.jpg",
+                front: "https://ideas.edu.vn/wp-content/uploads/2025/03/UMEF-MSc-Degree.webp",
                 transcript: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0003.webp",
             },
             fee_plane: "4,400",
             fee_course: [
                 {
                     name: "High Quality",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
                     price: "11,900 CHF",
                     price_promo: "4,165 CHF",
                     benefits: [
@@ -508,11 +508,11 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.webp", link: "#" },
             ],
             require: [
                 "Bachelor's degree and transcripts",
@@ -569,11 +569,11 @@ const IDEAS_DATA = {
             link_iframe: "https://www.youtube.com/embed/mB0mDrgjVNs?si=wP6X9bDGqVVR2R28",
             listImgs: [
                 "https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.jpg"
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.webp"
             ],
             level: "MBA",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/mba_program_icon_1778123208188.png",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/mba_program_icon_1778123208188.webp",
             name: "MBA in AI",
             highlight: [
                 "100% Online",
@@ -595,7 +595,7 @@ const IDEAS_DATA = {
             fee_course: [
                 {
                     name: "Standard",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon6.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon6.webp",
                     price: "4,520 CHF",
                     benefits: [
                         "Includes 150 CHF admissions screening fee.",
@@ -605,7 +605,7 @@ const IDEAS_DATA = {
                 },
                 {
                     name: "High Quality",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
                     price: "7,970 CHF",
                     benefits: [
                         "Includes all benefits of the Standard package.",
@@ -646,7 +646,7 @@ const IDEAS_DATA = {
         },
         IDEAS06: {
             pay_rule: `
-        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon2.png"/>
+        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/icon2.webp"/>
         <p><b>Pay in full or in 4 installments</b></p>
       <ul>
         <li><b><svg class="svg-icon fa-file-invoice-dollar fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM64 80c0-8.8 7.2-16 16-16l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L80 96c-8.8 0-16-7.2-16-16zm0 64c0-8.8 7.2-16 16-16l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16zm128 72c8.8 0 16 7.2 16 16l0 17.3c8.5 1.2 16.7 3.1 24.1 5.1c8.5 2.3 13.6 11 11.3 19.6s-11 13.6-19.6 11.3c-11.1-3-22-5.2-32.1-5.3c-8.4-.1-17.4 1.8-23.6 5.5c-5.7 3.4-8.1 7.3-8.1 12.8c0 3.7 1.3 6.5 7.3 10.1c6.9 4.1 16.6 7.1 29.2 10.9l.5 .1s0 0 0 0s0 0 0 0c11.3 3.4 25.3 7.6 36.3 14.6c12.1 7.6 22.4 19.7 22.7 38.2c.3 19.3-9.6 33.3-22.9 41.6c-7.7 4.8-16.4 7.6-25.1 9.1l0 17.1c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-17.8c-11.2-2.1-21.7-5.7-30.9-8.9c0 0 0 0 0 0c-2.1-.7-4.2-1.4-6.2-2.1c-8.4-2.8-12.9-11.9-10.1-20.2s11.9-12.9 20.2-10.1c2.5 .8 4.8 1.6 7.1 2.4c0 0 0 0 0 0s0 0 0 0s0 0 0 0c13.6 4.6 24.6 8.4 36.3 8.7c9.1 .3 17.9-1.7 23.7-5.3c5.1-3.2 7.9-7.3 7.8-14c-.1-4.6-1.8-7.8-7.7-11.6c-6.8-4.3-16.5-7.4-29-11.2l-1.6-.5s0 0 0 0c-11-3.3-24.3-7.3-34.8-13.7c-12-7.2-22.6-18.9-22.7-37.3c-.1-19.4 10.8-32.8 23.8-40.5c7.5-4.4 15.8-7.2 24.1-8.7l0-17.3c0-8.8 7.2-16 16-16z"/></svg> Students paying in full receive a 20% subsidy from IDEAS</b></li>
@@ -673,7 +673,7 @@ const IDEAS_DATA = {
             link_iframe: "https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA.webp",
             listImgs: [
                 "/wp-content/uploads/external-migrated/maxresdefault_da8b7d95.webp",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/ShareImage-1.jpg",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/ShareImage-1.webp",
                 "/wp-content/uploads/external-migrated/maxresdefault_46db1d97.webp",
                 "/wp-content/uploads/external-migrated/images_5f697f7c.webp",
                 "/wp-content/uploads/external-migrated/maxresdefault_73e8f548.webp",
@@ -702,7 +702,7 @@ const IDEAS_DATA = {
             fee_course: [
                 {
                     name: "High Quality",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
                     price: "12,500 Euro",
                     benefits: [
                         "Subsidy of <b class='main_clr'>3,000 EURO</b> for alumni when registering.",
@@ -790,20 +790,20 @@ const IDEAS_DATA = {
             link_iframe: "https://www.youtube.com/embed/ZrLeuFGGXQI?si=0tiJvbnRDzwEyo3B",
             listImgs: [
                 "https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4768.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4712.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4367.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4528.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4783.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4447.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4356.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4861.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4840.jpg",
-                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4799.jpg",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSC_9177.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6555.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6740.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4768.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4712.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4367.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4528.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4783.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4447.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4356.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4861.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4840.webp",
+                "https://ideas.edu.vn/wp-content/uploads/2025/03/NHP_4799.webp",
             ],
             level: "BBA",
             avatar: "https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp",
@@ -863,7 +863,7 @@ const IDEAS_DATA = {
             fee_course: [
                 {
                     name: "TOP-UP BBA",
-                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.png",
+                    icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
                     price: "3,000 CHF",
                     benefits: [
                         "12-month installment support via Sacombank.",
@@ -875,11 +875,11 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png", link: "#" },
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },
+                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.webp", link: "#" },
             ],
             require: [
                 "College diploma or university 2nd-year transcript.",
@@ -959,7 +959,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "IDEAS - Vietnam",
-            avatar: "./assets/8X1A9328-1-1.jpg",
+            avatar: "./assets/8X1A9328-1-1.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "23/11/2024",
@@ -968,7 +968,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "IDEAS - Vietnam",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef.webp",
             school: "Swiss UMEF",
             name: "EMBA & Online MBA",
             time: "26/10/2024",
@@ -977,7 +977,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "Paris - France",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2026/06/image.png",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2026/06/image.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "18/07/2024",
@@ -986,7 +986,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "IDEAS - Vietnam",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2024/01/416256674_837845658141991_5379123310787471174_n.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2024/01/416256674_837845658141991_5379123310787471174_n.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "06/01/2024",
@@ -997,37 +997,37 @@ const IDEAS_DATA = {
         {
             name: "Nguyễn Thanh Bình",
             title: "French Doctor of Business Administration (DBA) – Ascencia Business School - Director of Information & Environment technology application Institute",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/casc1.webp",
             content: "Thank you for the very enthusiastic support of the IDEAS academic and administrative staff. They have accompanied us throughout the research journey, supporting day and night to help us complete our Doctorate objectives – the terminal academic degree.",
         },
         {
             name: "Nguyễn Huỳnh Phương",
             title: "French Master of Business Administration (Global MBA) – Ascencia Business School - UNIT MANAGER in Hanwha Life Vietnam",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong.webp",
             content: "For those choosing online study, I recommend selecting a trustworthy institution like IDEAS. You should share any stress or difficulties with professors because they will give helpful suggestions to help you overcome them.",
         },
         {
             name: "Nguyễn Thị Hà Miên",
             title: "French Master of Business Administration (Global MBA) – Ascencia Business School - Deputy Project Manager",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/hamien.webp",
             content: "I chose the online program because it is more flexible. In addition, the 24/7 support of IDEAS helped me complete assignments on time and kept me updated with constant class reminders.",
         },
         {
             name: "Lê Ngọc Thương",
             title: "Swiss Master of Business Administration (Executive MBA) – Swiss UMEF Head of Commercial Operations – Boehringer Ingelheim",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/cumef.webp",
             content: "The program connected me with many classmates across different industries, helping me gather valuable shares and experiences. I am especially grateful to IDEAS for their support over the past year, from expert insights to 24/7 admin assistance, helping me balance work and study to achieve my goal.",
         },
         {
             name: "Lê Chí Thành",
             title: "French Doctor of Business Administration (DBA) – Ascencia Business School - Channel Business Manager (Indochina) | Leica Biosystems (an OpCo of Danaher)",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/casc2.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/casc2.webp",
             content: "My online learning journey since the 2016 MBA program and then continuing with the DBA has always been accompanied and supported by the IDEAS team. Online learning was the right choice for me to balance work and family. My deep gratitude goes to Dr. Pham Quang Vinh and the IDEAS support team for constantly encouraging me along this long path.",
         },
         {
             name: "Chu Hoàng Thái",
             title: "Swiss Master of Business Administration (Executive MBA) – Swiss UMEF Director Of Housekeeping – REGENT PHU QUOC",
-            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/chu_hoang_thai.jpg",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2025/02/chu_hoang_thai.webp",
             content: "Choosing the EMBA from Swiss UMEF supported by IDEAS was a great decision for me, as it was highly convenient to study while working, and fitted my financial capacity. Besides the knowledge from Swiss and European professors, the greatest value for me has been the networking.",
         },
     ],
@@ -1039,7 +1039,7 @@ const IDEAS_DATA = {
         },
         "Ascencia Business School": {
             link: "https://www.ascencia-business-school.com/en/",
-            logo: "https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.png",
+            logo: "https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.webp",
             small_logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/Ascencia-Favicon.png",
         },
         "College de Paris": {
@@ -1049,7 +1049,7 @@ const IDEAS_DATA = {
         },
         "Estiam & RB College": {
             link: "https://www.estiam.education/",
-            logo: "https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.png",
+            logo: "https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.webp",
             small_logo: "https://ideas.edu.vn/wp-content/uploads/2025/10/small_estiam.webp",
         },
     },
@@ -1077,7 +1077,7 @@ const IDEAS_DATA = {
         {
             name: "ChiefAI",
             link: "#",
-            logo: "https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.png",
+            logo: "https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.webp",
         },
     ],
     faq: [

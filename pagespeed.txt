@@ -355,7 +355,7 @@ ideas.edu.vn Bên thứ nhất
 12.946,1 KiB
 …01/ltn27122025.webp(ideas.edu.vn)
 350,1 KiB
-…assets/herobg.png(ideas.edu.vn)
+…assets/herobg.webp(ideas.edu.vn)
 232,4 KiB
 …06/ltnumef10202501.webp(ideas.edu.vn)
 207,1 KiB

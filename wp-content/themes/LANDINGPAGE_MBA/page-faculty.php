@@ -999,7 +999,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Trần Hoàng Hiệp",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp",
                     tag: "MBA from McFord University",
                     job: "Deputy General Director – Business Smart JSC",
                     des: [
@@ -1032,7 +1032,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Dương Trần Minh Đoàn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/duong-tran-minh-doan.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/duong-tran-minh-doan.webp",
                     tag: "MBA from University of Houston-Clear Lake",
                     job: "Principal of Saigon Information Technology College (SITC)",
                     des: [
@@ -1043,7 +1043,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Trần Thị Mai Anh",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-thi-mai-anh.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-thi-mai-anh.webp",
                     tag: "Master of Human Resource Management (USA)",
                     job: "Managing Director – Anpha Solutions and Training",
                     des: [
@@ -1053,7 +1053,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Lê Sơn Phong",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.webp",
                     tag: "MBA",
                     job: "Associate Counsel Le Nguyen Law Firm — HCMC",
                     des: [
@@ -1065,7 +1065,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Đặng Quốc Phong",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Master of Computer Science (VNU-HCMC)",
                     job: "Director of Software Engineering Program – Gia Dinh University",
                     des: [
@@ -1076,7 +1076,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Anh Toàn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "MBA",
                     job: "Investment Advisor - Maybank Investment Bank VN",
                     des: [
@@ -1087,7 +1087,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Hoài Trung",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "MBA & Master of Petroleum Engineering",
                     job: "Business Development Advisor - Wecare 247",
                     des: [
@@ -1098,7 +1098,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Thanh Tuấn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "PhD in Business Administration",
                     job: "Lecturer",
                     des: [
@@ -1108,7 +1108,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Thành Nhân",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.webp",
                     tag: "Master of Business Analytics & Digital Transformation",
                     job: "Associate IT Director - MSD (Pharmaceuticals & Healthcare)",
                     des: [
@@ -1166,7 +1166,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Trần Hoàng Hiệp",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp",
                     tag: "Thạc sĩ QTKD MCFORD University",
                     job: "Phó Tổng giám đốc – Business Smart JSC",
                     des: [
@@ -1199,7 +1199,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Dương Trần Minh Đoàn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/duong-tran-minh-doan.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/duong-tran-minh-doan.webp",
                     tag: "Thạc sĩ QTKD Đại học Houston Clear Lake",
                     job: "Hiệu trưởng trường Trung cấp Công nghệ Thông tin Sài Gòn (SITC)",
                     des: [
@@ -1210,7 +1210,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Trần Thị Mai Anh",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-thi-mai-anh.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-thi-mai-anh.webp",
                     tag: "Thạc sĩ QTNNL, USA",
                     job: "Giám đốc Điều hành – Anpha Solutions and Training",
                     des: [
@@ -1220,7 +1220,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Lê Sơn Phong",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.webp",
                     tag: "Thạc sĩ QTKD",
                     job: "Associate Counsel Le Nguyen Law Firm — HCMC",
                     des: [
@@ -1232,7 +1232,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Đặng Quốc Phong",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Thạc sĩ Khoa học máy tính – VNUHCM",
                     job: "Giám đốc chương trình Kỹ thuật phần mềm – ĐH Gia Định",
                     des: [
@@ -1243,7 +1243,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Anh Toàn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Thạc sĩ QTKD",
                     job: "Chuyên gia tư vấn đầu tư - Maybank Investment Bank VN",
                     des: [
@@ -1254,7 +1254,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Hoài Trung",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Thạc sĩ QTKD – Thạc sĩ Kỹ thuật Dầu khí",
                     job: "Cố vấn Phát triển Kinh doanh - Wecare 247",
                     des: [
@@ -1265,7 +1265,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Thanh Tuấn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Tiến sĩ QTKD",
                     job: "Giảng viên",
                     des: [
@@ -1275,7 +1275,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Thành Nhân",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.webp",
                     tag: "Thạc sĩ Phân tích KD & Chuyển đổi số",
                     job: "Phó Giám đốc CNTT - MSD (Pharmaceuticals & Healthcare)",
                     des: [
@@ -1325,7 +1325,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Alexander Pulte",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "MBA from Columbia University",
                     job: "Professor and International Dean at the University of Business and International Studies in Geneva.",
                     des: [
@@ -1336,7 +1336,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Carsten Ley",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Owner & Consultant",
                     job: "Asia PMO - Agile Project Management, OKR & CX Consulting South East Asia",
                     des: [
@@ -1348,7 +1348,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Marcel Enzler",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "EMBA in Brand & Marketing Management",
                     job: "AI specialist and Data Scientist",
                     des: [
@@ -1359,7 +1359,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Talha Saleem Ahmad",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "BSc/MSc/MSc",
                     job: "AI specialist and Data Scientist",
                     des: [
@@ -1370,7 +1370,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Vasyl Mostovyy",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "BSc/MSc/MSc",
                     job: "Military Institute of KNU T. Shevchenko",
                     des: [
@@ -1381,7 +1381,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Garilyn Vause",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Master of Analytical Finance | Emory University",
                     job: "Social Media Strategy Analyst | KPMG LLP",
                     des: [
@@ -1392,7 +1392,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Frank Lee Harper Jr.",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "BSc/MSc/MSc",
                     job: "Founder, CEO & CLO – Intelligent Systems Services LLC",
                     des: [
@@ -1403,49 +1403,49 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Nguyễn Chính Quang",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "Postdoctoral – Western Sydney University",
                     job: "Academic Advisor",
                     des: []
                 },
                 {
                     name: "De Lagarde, Olivier",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "DBA at Cambridge Corporate University",
                     job: "Academic Advisor",
                     des: []
                 },
                 {
                     name: "Cartwright, Phillip",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "PhD in Economics – University of Illinois, Urbana-Champaign, USA",
                     job: "Academic Advisor",
                     des: []
                 },
                 {
                     name: "Chapuis, Jean-Michel",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "PhD in Management Science – Université de Bourgogne",
                     job: "Academic Advisor",
                     des: []
                 },
                 {
                     name: "Ng, Kwan Keung Steven",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "DBA – University of South Australia",
                     job: "Academic Advisor",
                     des: []
                 },
                 {
                     name: "Fung, Kwok Hung Lobo",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "PhD in Business Administration – Bulacan State University",
                     job: "Academic Advisor",
                     des: []
                 },
                 {
                     name: "Fung Man Kam Leo",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
                     tag: "DBA – Southern Cross University, Australia",
                     job: "Academic Advisor",
                     des: []
@@ -2298,7 +2298,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         };
 
         // Default avatar
-        const DEFAULT_AVATAR = 'https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png';
+        const DEFAULT_AVATAR = 'https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp';
 
         function isDefaultAvatar(url) {
             return url === DEFAULT_AVATAR || url.includes('logofavicon');

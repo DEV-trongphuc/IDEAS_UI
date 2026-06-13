@@ -2276,21 +2276,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Other accreditations grid -->
             <div class="acc-grid">
                 <div class="acc-card" data-accred="chea">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp"
                         alt="CHEA" loading="lazy" decoding="async" />
                     <h4>CHEA – Hoa Kỳ</h4>
                     <p><?php echo $is_en ? 'The leading higher education accreditation council in the United States, ensuring international recognition standards.' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?>
                     </p>
                 </div>
                 <div class="acc-card" data-accred="iacbe">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.webp"
                         alt="IACBE" loading="lazy" decoding="async" />
                     <h4>IACBE – Business Education</h4>
                     <p><?php echo $is_en ? 'An accreditation organization specializing in international business education quality for BBA, MBA, and DBA.' : 'Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA'; ?>
                     </p>
                 </div>
                 <div class="acc-card" data-accred="acbsp">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.webp"
                         alt="ACBSP" loading="lazy" decoding="async" />
                     <h4>ACBSP – Business Schools</h4>
                     <p><?php echo $is_en ? 'Business school quality accreditation officially recognized by the United States Department of Education.' : 'Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức'; ?>
@@ -2304,7 +2304,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </p>
                 </div>
                 <div class="acc-card" data-accred="eduqua">
-                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp"
                         alt="EduQua" loading="lazy" decoding="async" />
                     <h4>SGS – EduQua</h4>
                     <p><?php echo $is_en ? 'Swiss quality label recognized by the government, evaluated according to 6 education quality standards.' : 'Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo dục'; ?>
@@ -2329,7 +2329,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="campus-grid">
             <div class="campus-card">
                 <div class="campus-img">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/PIX_7701-Olivier-Gay-Perret-Pixipop.jpg"
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/PIX_7701-Olivier-Gay-Perret-Pixipop.webp"
                         alt="Château d'Aï Campus" loading="lazy" />
                 </div>
                 <div class="campus-body">
@@ -2343,7 +2343,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <div class="campus-card">
                 <div class="campus-img">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/PIX_7485-Olivier-Gay-Perret-Pixipop-1.jpg"
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/PIX_7485-Olivier-Gay-Perret-Pixipop-1.webp"
                         alt="UMEF Lecture Hall" loading="lazy" />
                 </div>
                 <div class="campus-body">
@@ -2357,7 +2357,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <div class="campus-card">
                 <div class="campus-img">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/2023-12-15.jpg"
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/2023-12-15.webp"
                         alt="UMEF Graduation Event" loading="lazy" />
                 </div>
                 <div class="campus-body">
@@ -2423,7 +2423,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 target="_blank" data-wpel-link="internal">
                 <div class="umef_news_card_img umef_news_card_img--sm">
                     <img loading="lazy" decoding="async"
-                        src="https://ideas.edu.vn/wp-content/uploads/2024/10/NHP_3982-1.jpg"
+                        src="https://ideas.edu.vn/wp-content/uploads/2024/10/NHP_3982-1.webp"
                         alt="Swiss UMEF cam kết đồng hành cùng học viên Việt Nam">
                 </div>
                 <div class="umef_news_card_body">

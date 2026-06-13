@@ -37,7 +37,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <meta property="og:title" content="<?php echo $is_en ? 'Sacombank Financial Support – 0% Tuition Installment' : 'Hỗ Trợ Tài Chính Sacombank – Trả Góp Học Phí 0%'; ?>" />
         <meta property="og:description"
             content="<?php echo $is_en ? 'Accompanying students on their academic path. Financial support for flexible and worry-free MBA tuition payment.' : 'Đồng hành cùng học viên vững bước học thuật. Hỗ trợ tài chính trước để thanh toán học phí MBA linh hoạt và an tâm.'; ?>" />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2024/09/tra_gop_scb.png" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2024/09/tra_gop_scb.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?><!-- Booking Modal stylesheet -->
     <?php
@@ -1193,7 +1193,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Step 1 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon4.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon4.webp"
                                 alt="Bước 1 Tiếp nhận hồ sơ" />
                         </div>
                         <h4><?php echo $is_en ? '1. Application Intake' : '1. Tiếp nhận hồ sơ'; ?></h4>
@@ -1203,7 +1203,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Step 2 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon3.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon3.webp"
                                 alt="Bước 2 Xác nhận ngân hàng" />
                         </div>
                         <h4><?php echo $is_en ? '2. Bank Verification' : '2. Ngân hàng xác nhận'; ?></h4>
@@ -1213,7 +1213,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Step 3 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon1.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon1.webp"
                                 alt="Bước 3 Xử lý hồ sơ" />
                         </div>
                         <h4><?php echo $is_en ? '3. Processing &amp; Issuance' : '3. Xử lý &amp; Phát hành'; ?></h4>
@@ -1223,7 +1223,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Step 4 -->
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon2.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon2.webp"
                                 alt="Bước 4 Thanh toán học phí" />
                         </div>
                         <h4><?php echo $is_en ? '4. Tuition Payment' : '4. Thanh toán học phí'; ?></h4>

@@ -16,7 +16,7 @@ $reels = [
         'id' => 'rXWWEC2LJJM',
         'title' => $is_en ? 'Master of Business Administration (MBA / EMBA)' : 'Thạc sĩ Quản trị Kinh doanh (MBA/EMBA/MBA in AI)',
         'desc' => $is_en ? 'Transform leadership mindset & expand network with Swiss standard MBA at IDEAS.' : 'Bứt phá tư duy quản trị & mở rộng mạng lưới quan hệ với chương trình MBA chuẩn Thụy Sĩ tại IDEAS.',
-        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg'
+        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp'
     ],
     [
         'id' => 'tfSh3cVhvR8',
@@ -34,7 +34,7 @@ $reels = [
         'id' => 'iIrS_71MFk4',
         'title' => $is_en ? 'Learning Experience at IDEAS' : 'Trải nghiệm học tập tại IDEAS',
         'desc' => $is_en ? 'Student feedback on the training quality and modern learning methods.' : 'Cảm nhận thực tế của học viên về chất lượng đào tạo và phương pháp học tập hiện đại.',
-        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.jpg'
+        'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp'
     ]
 ];
 ?>

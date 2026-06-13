@@ -628,7 +628,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </a>
                     <a class="coop-card" href="https://ideas.edu.vn/" target="_blank"
                         rel="nofollow noopener noreferrer">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.png"
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.webp"
                             alt="IDEAS Logo" />
                     </a>
                 </div>

@@ -2973,21 +2973,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Other accreditations grid -->
                 <div class="acc-grid">
                     <div class="acc-card" data-accred="chea">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.png"
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp"
                             alt="CHEA" loading="lazy" decoding="async" />
                         <h4>CHEA – Hoa Kỳ</h4>
                         <p><?php echo $is_en ? 'Council for Higher Education Accreditation (USA), ensuring international recognition' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?>
                         </p>
                     </div>
                     <div class="acc-card" data-accred="iacbe">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.png"
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef4.webp"
                             alt="IACBE" loading="lazy" decoding="async" />
                         <h4>IACBE – Business Education</h4>
                         <p><?php echo $is_en ? 'Accreditation body specializing in international business education quality for BBA, MBA, and DBA' : 'Tổ chức kiểm định chuyên về chất lượng giáo dục kinh doanh quốc tế cho BBA, MBA và DBA'; ?>
                         </p>
                     </div>
                     <div class="acc-card" data-accred="acbsp">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.png"
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.webp"
                             alt="ACBSP" loading="lazy" decoding="async" />
                         <h4>ACBSP – Business Schools</h4>
                         <p><?php echo $is_en ? 'Accreditation for business schools, officially recognized by the US Department of Education' : 'Kiểm định chất lượng trường kinh doanh được Bộ Giáo dục Hoa Kỳ công nhận chính thức'; ?>
@@ -3001,7 +3001,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </p>
                     </div>
                     <div class="acc-card" data-accred="eduqua">
-                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.png"
+                        <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp"
                             alt="EduQua" loading="lazy" decoding="async" />
                         <h4>SGS – EduQua</h4>
                         <p><?php echo $is_en ? 'Swiss quality label recognized by the government, evaluated against 6 educational standards' : 'Nhãn chất lượng Thụy Sĩ được Chính phủ công nhận, đánh giá theo 6 tiêu chuẩn chất lượng giáo dục'; ?>
@@ -3312,7 +3312,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="container">
                 <div class="ideas-layout">
                     <div class="ideas-img-box reveal-up">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.jpg"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp"
                             alt="<?php echo $is_en ? 'Graduation ceremony of MBA IDEAS students' : 'Lễ tốt nghiệp học viên MBA IDEAS'; ?>"
                             loading="lazy" />
                     </div>

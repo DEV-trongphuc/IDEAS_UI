@@ -25,7 +25,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
 
-    <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png" sizes="32x32" />
+    <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" sizes="32x32" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

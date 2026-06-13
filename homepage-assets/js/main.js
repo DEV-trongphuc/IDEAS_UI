@@ -612,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ringMesh.name = "glowRing";
         logoGroup.add(ringMesh);
 
-        const logoTexture = textureLoader.load('assets/logo.png', (tex) => {
+        const logoTexture = textureLoader.load('assets/logo.webp', (tex) => {
             logoMat.map = tex;
             logoMat.needsUpdate = true;
             if (tex && tex.image) {

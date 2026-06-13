@@ -1146,7 +1146,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Advisor 3 -->
             <article class="consultant-card" data-suffix="486">
                 <div class="consultant-avatar-wrap">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg" class="consultant-avatar" alt="Lê Đinh Ý Nhi" width="120" height="120" loading="lazy">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.webp" class="consultant-avatar" alt="Lê Đinh Ý Nhi" width="120" height="120" loading="lazy">
                 </div>
                 <h3 class="consultant-card-name">Lê Đinh Ý Nhi</h3>
                 <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
@@ -1262,7 +1262,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     phones: ["0916580486"],
                     suffixes: ["486"],
                     email: "nhildy@ideas.edu.vn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.webp",
                     role: "<?php echo $is_en ? 'Official Admissions Advisor' : 'Tư vấn viên tuyển sinh chính thức'; ?>"
                 },
                 {

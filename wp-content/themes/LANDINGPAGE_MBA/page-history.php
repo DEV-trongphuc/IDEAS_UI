@@ -516,7 +516,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="timeline-images">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/ideas_ubis_2021.webp"
                             alt="IDEAS UBIS 2021" />
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/16206769212.jpg"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/16206769212.webp"
                             alt="Lễ tốt nghiệp UBIS" />
                     </div>
                 </div>
@@ -535,11 +535,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <?php echo $is_en ? 'Practical training orienting comprehensive liberal education.' : 'Đào tạo thực tiễn, định hướng tư duy khai phóng toàn diện.'; ?></li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.png"
+                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.webp"
                             alt="Logo IDEAS" />
                     </div>
                     <div class="timeline-images" style="margin-top: 15px;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/01/416256674_837845658141991_5379123310787471174_n.jpg"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/01/416256674_837845658141991_5379123310787471174_n.webp"
                             alt="Lễ tốt nghiệp Ascencia 2024" />
                     </div>
                 </div>
@@ -561,14 +561,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
                             alt="Swiss UMEF" />
                         <img class="wlogo"
-                            src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.png"
+                            src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.webp"
                             alt="Ascencia BS" />
                         <img class="wlogo"
                             src="/wp-content/uploads/external-migrated/cdp-formation-continue_f4be5cc5.webp"
                             alt="College de Paris" />
                     </div>
                     <div class="timeline-images" style="margin-top: 15px;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/11/8X1A9328-1-1.jpg"
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/11/8X1A9328-1-1.webp"
                             alt="Sự kiện ký kết" />
                         <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp"
                             alt="Lễ tốt nghiệp UMEF" />
@@ -589,10 +589,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <?php echo $is_en ? 'Expanding diverse training from Bachelor to Master &amp; Doctor of Technology' : 'Mở rộng đào tạo đa dạng từ Cử nhân đến Thạc sĩ &amp; Tiến sĩ\n                            công nghệ'; ?></li>
                     </ul>
                     <div class="timeline-images">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/AI.jpg" alt="Trí tuệ nhân tạo AI" />
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/AI.webp" alt="Trí tuệ nhân tạo AI" />
                     </div>
                     <div class="timeline-images wlogos" style="margin-top: 15px;">
-                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.png"
+                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.webp"
                             alt="ESTIAM Paris" />
                     </div>
                 </div>

@@ -1002,7 +1002,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="org-side-branch-left">
                             <a href="/doi-ngu-giang-vien" title="Hội đồng chuyên môn IDEAS"
                                 class="org-node org-node-link">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.png"
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp"
                                     class="org-node-avatar" alt="Hội đồng chuyên môn">
                                 <div class="org-node-body-horizontal">
                                     <div class="org-node-role" style="margin-bottom:2px;"><?php echo $is_en ? 'Academic Board' : 'Hội đồng chuyên môn'; ?></div>
@@ -1022,7 +1022,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- COLUMN 1: Mai Nữ & Departments -->
                         <div class="org-branch-col has-sub-branches">
                             <div class="org-node">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/mainu_avt.jpg"
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/mainu_avt.webp"
                                     class="org-node-avatar" alt="<?php echo $is_en ? 'Head of Department - Mai Nu' : 'Trưởng phòng Kinh doanh - Mai Nữ'; ?>">
                                 <div class="org-node-body">
                                     <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
@@ -1090,7 +1090,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </article>
 
                                         <article class="consultant-card">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.jpg"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/nhi_avt.webp"
                                                 class="consultant-avatar" alt="Lê Đinh Ý Nhi" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Lê Đinh Ý Nhi</h4>
@@ -1133,7 +1133,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- COLUMN 2: Phạm Thị Phương Lan -->
                         <div class="org-branch-col has-sub-branches">
                             <div class="org-node">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/phamthiphuonglan_avt.jpg"
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/phamthiphuonglan_avt.webp"
                                     class="org-node-avatar" alt="<?php echo $is_en ? 'Head of Department - Pham Thi Phuong Lan' : 'Trưởng phòng Kế hoạch - Phạm Thị Phương Lan'; ?>" loading="lazy" decoding="async">
                                 <div class="org-node-body">
                                     <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
