@@ -221,6 +221,105 @@ if (isset($_GET['action'])) {
         exit;
     }
     
+    // G. Calculate Uploads folder size & stats
+    if ($_GET['action'] === 'uploads_stats') {
+        $stats = [
+            'total_size' => 0,
+            'orig_size' => 0,
+            'webp_size' => 0,
+            'other_size' => 0,
+            'total_count' => 0,
+            'orig_count' => 0,
+            'webp_count' => 0,
+            'other_count' => 0,
+        ];
+        
+        if (is_dir($upload_dir)) {
+            $it = new RecursiveDirectoryIterator($upload_dir);
+            $display = new RecursiveIteratorIterator($it);
+            foreach ($display as $file) {
+                if ($file->isFile()) {
+                    $size = $file->getSize();
+                    $ext = strtolower(pathinfo($file->getPathname(), PATHINFO_EXTENSION));
+                    
+                    $stats['total_size'] += $size;
+                    $stats['total_count']++;
+                    
+                    if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
+                        $stats['orig_size'] += $size;
+                        $stats['orig_count']++;
+                    } elseif ($ext === 'webp') {
+                        $stats['webp_size'] += $size;
+                        $stats['webp_count']++;
+                    } else {
+                        $stats['other_size'] += $size;
+                        $stats['other_count']++;
+                    }
+                }
+            }
+        }
+        echo json_encode(['success' => true, 'stats' => $stats]);
+        exit;
+    }
+
+    // H. Get list of deletable originals
+    if ($_GET['action'] === 'get_deletable_originals') {
+        $deletable = [];
+        if (is_dir($upload_dir)) {
+            $it = new RecursiveDirectoryIterator($upload_dir);
+            $display = new RecursiveIteratorIterator($it);
+            foreach ($display as $file) {
+                if ($file->isFile()) {
+                    $pathname = $file->getPathname();
+                    $ext = strtolower(pathinfo($pathname, PATHINFO_EXTENSION));
+                    if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
+                        $dir = pathinfo($pathname, PATHINFO_DIRNAME);
+                        $filename = pathinfo($pathname, PATHINFO_FILENAME);
+                        $destination = $dir . '/' . $filename . '.webp';
+                        
+                        if (file_exists($destination) && filesize($destination) > 0) {
+                            $deletable[] = str_replace('\\', '/', $pathname);
+                        }
+                    }
+                }
+            }
+        }
+        echo json_encode(['success' => true, 'files' => $deletable]);
+        exit;
+    }
+
+    // I. Delete originals batch
+    if ($_GET['action'] === 'delete_originals_batch') {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $files = isset($data['files']) ? $data['files'] : [];
+        
+        $success_count = 0;
+        $fail_count = 0;
+        
+        foreach ($files as $file) {
+            // Verify path safety
+            if (strpos($file, '..') === false && strpos($file, 'wp-content/uploads') !== false) {
+                $dir = pathinfo($file, PATHINFO_DIRNAME);
+                $filename = pathinfo($file, PATHINFO_FILENAME);
+                $destination = $dir . '/' . $filename . '.webp';
+                
+                if (file_exists($destination) && filesize($destination) > 0) {
+                    if (@unlink($file)) {
+                        $success_count++;
+                    } else {
+                        $fail_count++;
+                    }
+                } else {
+                    $fail_count++;
+                }
+            } else {
+                $fail_count++;
+            }
+        }
+        echo json_encode(['success' => true, 'deleted' => $success_count, 'failed' => $fail_count]);
+        exit;
+    }
+    
     // C. Write htaccess rules
     if ($_GET['action'] === 'htaccess') {
         $htaccess_path = file_exists('.htaccess') ? '.htaccess' : (file_exists('../.htaccess') ? '../.htaccess' : '');
@@ -669,6 +768,36 @@ if (isset($_GET['action'])) {
                 <div style="display: flex; gap: 12px; align-items: center;">
                     <button class="btn btn-secondary" id="btn-htaccess">Tự động cấu hình .htaccess</button>
                     <span id="htaccess-status" style="font-size: 0.9rem; font-weight: 600;"></span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Dọn dẹp ảnh gốc PNG/JPG & Thống kê dung lượng</div>
+                <p style="color: var(--text-sub); font-size: 0.95rem; margin-top: 0;">Quét và thống kê dung lượng thư mục Uploads, xóa an toàn các tệp ảnh gốc PNG/JPG đã được nén thành công sang WebP để giải phóng không gian lưu trữ.</p>
+                
+                <div class="stat-grid" id="stats-uploads-grid" style="display: none; grid-template-columns: repeat(4, 1fr); margin-bottom: 20px;">
+                    <div class="stat-card">
+                        <div class="stat-num" id="stat-uploads-total" style="color: #fb7185;">0 MB</div>
+                        <div class="stat-label">Tổng dung lượng</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" id="stat-uploads-orig" style="color: #ef4444;">0 MB</div>
+                        <div class="stat-label">Ảnh gốc PNG/JPG</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" id="stat-uploads-webp" style="color: #10b981;">0 MB</div>
+                        <div class="stat-label">Ảnh WebP</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num" id="stat-uploads-other" style="color: #94a3b8;">0 MB</div>
+                        <div class="stat-label">File khác</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                    <button class="btn btn-secondary" id="btn-stats-uploads">Tính dung lượng thư mục</button>
+                    <button class="btn btn-danger" id="btn-clean-originals" style="display: none;">Xóa sạch ảnh gốc PNG/JPG (An toàn)</button>
+                    <span id="clean-status" style="font-size: 0.9rem; font-weight: 600;"></span>
                 </div>
             </div>
         </div>
@@ -1150,6 +1279,116 @@ if (isset($_GET['action'])) {
                 btnScanDB.disabled = false;
                 btnScanDB.textContent = 'Quét ảnh thư viện (Media DB)';
             }
+        });
+
+        // --- Uploads Stats & Clean Originals Logic ---
+        const btnStatsUploads = document.getElementById('btn-stats-uploads');
+        const btnCleanOriginals = document.getElementById('btn-clean-originals');
+        const statsUploadsGrid = document.getElementById('stats-uploads-grid');
+        const cleanStatus = document.getElementById('clean-status');
+        
+        const statUploadsTotal = document.getElementById('stat-uploads-total');
+        const statUploadsOrig = document.getElementById('stat-uploads-orig');
+        const statUploadsWebp = document.getElementById('stat-uploads-webp');
+        const statUploadsOther = document.getElementById('stat-uploads-other');
+
+        let deletableOriginalsList = [];
+
+        btnStatsUploads.addEventListener('click', async () => {
+            btnStatsUploads.disabled = true;
+            btnStatsUploads.textContent = 'Đang quét và tính toán...';
+            cleanStatus.textContent = '';
+            
+            try {
+                // 1. Fetch stats
+                const res = await fetch('?action=uploads_stats&_t=' + Date.now());
+                const data = await res.json();
+                if (data.success) {
+                    const s = data.stats;
+                    
+                    statUploadsTotal.textContent = formatBytes(s.total_size);
+                    statUploadsOrig.textContent = formatBytes(s.orig_size) + ` (${s.orig_count} file)`;
+                    statUploadsWebp.textContent = formatBytes(s.webp_size) + ` (${s.webp_count} file)`;
+                    statUploadsOther.textContent = formatBytes(s.other_size) + ` (${s.other_count} file)`;
+                    
+                    statsUploadsGrid.style.display = 'grid';
+                    
+                    // 2. Fetch deletable files list
+                    const resDel = await fetch('?action=get_deletable_originals&_t=' + Date.now());
+                    const dataDel = await resDel.json();
+                    if (dataDel.success && dataDel.files.length > 0) {
+                        deletableOriginalsList = dataDel.files;
+                        btnCleanOriginals.style.display = 'inline-flex';
+                        btnCleanOriginals.textContent = `Xóa sạch ảnh gốc PNG/JPG (Có thể xóa ${deletableOriginalsList.length} file)`;
+                    } else {
+                        deletableOriginalsList = [];
+                        btnCleanOriginals.style.display = 'none';
+                        cleanStatus.style.color = '#10b981';
+                        cleanStatus.textContent = 'Thư mục uploads rất sạch! Không có ảnh gốc dư thừa cần xóa.';
+                    }
+                } else {
+                    cleanStatus.style.color = '#ef4444';
+                    cleanStatus.textContent = 'Không thể lấy thông tin dung lượng.';
+                }
+            } catch (err) {
+                cleanStatus.style.color = '#ef4444';
+                cleanStatus.textContent = 'Lỗi kết nối: ' + err.message;
+            } finally {
+                btnStatsUploads.disabled = false;
+                btnStatsUploads.textContent = 'Tính dung lượng thư mục';
+            }
+        });
+
+        btnCleanOriginals.addEventListener('click', async () => {
+            if (deletableOriginalsList.length === 0) return;
+            
+            const totalToClean = deletableOriginalsList.length;
+            if (!confirm(`CẢNH BÁO CỰC KỲ QUAN TRỌNG:\n\nHành động này sẽ XÓA VĨNH VIỄN ${totalToClean} tệp ảnh gốc (.png, .jpg, .jpeg) trong thư mục uploads đã có ảnh .webp thay thế.\n\nBạn đã sao lưu dữ liệu và chắc chắn muốn thực hiện?`)) {
+                return;
+            }
+            
+            btnCleanOriginals.disabled = true;
+            btnStatsUploads.disabled = true;
+            
+            let deletedTotal = 0;
+            let failedTotal = 0;
+            const batchSize = 50;
+            
+            cleanStatus.style.color = '#38bdf8';
+            cleanStatus.textContent = `Đang xóa ảnh gốc... (0/${totalToClean})`;
+            
+            for (let i = 0; i < deletableOriginalsList.length; i += batchSize) {
+                const batch = deletableOriginalsList.slice(i, i + batchSize);
+                const progress = Math.min(i + batchSize, totalToClean);
+                cleanStatus.textContent = `Đang xóa ảnh gốc... (${progress}/${totalToClean})`;
+                
+                try {
+                    const res = await fetch('?action=delete_originals_batch', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ files: batch })
+                    });
+                    
+                    const data = await res.json();
+                    if (data.success) {
+                        deletedTotal += data.deleted;
+                        failedTotal += data.failed;
+                    } else {
+                        failedTotal += batch.length;
+                    }
+                } catch (err) {
+                    failedTotal += batch.length;
+                }
+            }
+            
+            alert(`Đã hoàn tất dọn dẹp ảnh gốc!\n- Thành công: Xóa ${deletedTotal} ảnh.\n- Thất bại: ${failedTotal} ảnh.`);
+            btnCleanOriginals.disabled = false;
+            btnStatsUploads.disabled = false;
+            btnCleanOriginals.style.display = 'none';
+            deletableOriginalsList = [];
+            
+            // Re-trigger stats calculation to update size display
+            btnStatsUploads.click();
         });
     </script>
 </body>
