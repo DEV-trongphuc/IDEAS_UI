@@ -4,8 +4,8 @@ import re
 html_dir = r"e:\IDEAS_WP_UI\wp-content\new_public\LANDINGPAGE_MBA"
 
 updates = {
-    r"style\.min\.css\?v=\d+": "style.min.css?v=1781319000",
-    r"script\.min\.js\?v=\d+": "script.min.js?v=1781289417",
+    r"style\.min\.css\?v=\d+": "style.min.css?v=1781322000",
+    r"script\.min\.js\?v=\d+": "script.min.js?v=1781322000",
     r"booking-modal\.min\.css\?v=\d+": "booking-modal.min.css?v=1781270996",
     r"booking-modal\.min\.js\?v=\d+": "booking-modal.min.js?v=1781255283"
 }
