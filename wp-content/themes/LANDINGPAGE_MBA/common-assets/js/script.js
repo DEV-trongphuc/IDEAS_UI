@@ -1066,7 +1066,7 @@ const isEn = document.documentElement.lang === 'en';
                 accredModalContainer.classList.add('video-expanded');
             }
             if (accredVideoIframe) {
-                accredVideoIframe.src = 'https://www.youtube.com/embed/tfSh3cVhvR8?autoplay=1&loop=1&playlist=tfSh3cVhvR8&controls=1&rel=0&playsinline=1';
+                accredVideoIframe.src = 'https://www.youtube.com/embed/tfSh3cVhvR8?autoplay=1&mute=1&loop=1&playlist=tfSh3cVhvR8&controls=1&rel=0&playsinline=1';
             }
         } else {
             if (accredModalContainer) {
@@ -1114,7 +1114,7 @@ const isEn = document.documentElement.lang === 'en';
             const isExpanded = accredModalContainer.classList.toggle('video-expanded');
             if (isExpanded) {
                 // Lazy-load vertical Reel URL
-                accredVideoIframe.src = 'https://www.youtube.com/embed/tfSh3cVhvR8?autoplay=1&loop=1&playlist=tfSh3cVhvR8&controls=1&rel=0&playsinline=1';
+                accredVideoIframe.src = 'https://www.youtube.com/embed/tfSh3cVhvR8?autoplay=1&mute=1&loop=1&playlist=tfSh3cVhvR8&controls=1&rel=0&playsinline=1';
             } else {
                 // Unload to stop video playback
                 accredVideoIframe.src = '';
@@ -3115,7 +3115,7 @@ function initGlobalReelsModal() {
 
     function openModal(reelId) {
         if (!iframe) return;
-        const embedUrl = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
+        const embedUrl = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&mute=1&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
         iframe.src = embedUrl;
         modal.style.display = 'flex';
         setTimeout(() => {

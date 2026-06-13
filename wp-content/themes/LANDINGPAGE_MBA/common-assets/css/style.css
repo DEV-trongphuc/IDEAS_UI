@@ -13421,6 +13421,7 @@ body .cta-headline {
     max-width: 580px !important;
     border-radius: 20px !important;
     margin: 8px auto !important;
+    flex-direction: column !important;
   }
   .accred-modal-info {
     padding: 24px 16px !important; /* Overrides inline style="padding: 50px;" */
