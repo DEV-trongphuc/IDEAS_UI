@@ -4,10 +4,10 @@ import re
 html_dir = r"e:\IDEAS_WP_UI\wp-content\new_public\LANDINGPAGE_MBA"
 
 updates = {
-    r"style\.min\.css\?v=\d+": "style.min.css?v=1781337600",
-    r"script\.min\.js\?v=\d+": "script.min.js?v=1781337600",
-    r"booking-modal\.min\.css\?v=\d+": "booking-modal.min.css?v=1781337600",
-    r"booking-modal\.min\.js\?v=\d+": "booking-modal.min.js?v=1781337600"
+    r"style\.min\.css\?v=\d+": "style.min.css?v=1781338800",
+    r"script\.min\.js\?v=\d+": "script.min.js?v=1781338800",
+    r"booking-modal\.min\.css\?v=\d+": "booking-modal.min.css?v=1781338800",
+    r"booking-modal\.min\.js\?v=\d+": "booking-modal.min.js?v=1781338800"
 }
 
 def update_file(file_path):

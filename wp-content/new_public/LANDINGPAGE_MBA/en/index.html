@@ -262,9 +262,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1781337600" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1781337600" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1781337600" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1781338800" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1781338800" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1781338800" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -8496,16 +8496,21 @@
                 .acc-sac-cert-strip {
                     display: flex !important;
                     flex-direction: row !important;
-                    flex-wrap: nowrap !important;
+                    flex-wrap: wrap !important;
                     gap: 8px !important;
                 }
 
                 .acc-sac-cert-strip .acc-cert-thumb {
-                    flex: 1 !important;
+                    flex: 1 1 calc(50% - 4px) !important;
+                    min-width: 125px !important;
                     justify-content: center !important;
-                    padding: 10px 4px !important;
-                    font-size: 0.7rem !important;
-                    white-space: nowrap !important;
+                    padding: 8px 6px !important;
+                    font-size: 0.68rem !important;
+                    white-space: normal !important;
+                    word-wrap: break-word !important;
+                    text-align: center !important;
+                    line-height: 1.3 !important;
+                    height: auto !important;
                 }
 
                 .acc-sac-logo-wrap {
@@ -10427,8 +10432,8 @@
         </div>
     </div>
 
-    <script src="../common-assets/js/script.min.js?v=1781337600" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1781337600" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1781338800" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1781338800" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
