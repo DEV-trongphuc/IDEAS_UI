@@ -1,0 +1,7 @@
+with open(r"e:\IDEAS_WP_UI\wp-content\new_public\LANDINGPAGE_MBA\index.html", "r", encoding="utf-8") as f:
+    content = f.read()
+
+import re
+matches = re.findall(r'(<link[^>]+>)', content)
+for m in matches:
+    print(m)

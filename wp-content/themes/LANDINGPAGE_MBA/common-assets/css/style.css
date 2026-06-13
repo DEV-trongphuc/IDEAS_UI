@@ -13269,15 +13269,15 @@ body .cta-headline {
 
 /* --- SAC Slide-out Video Modal Extension --- */
 .accred-modal-container {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  background: #fff;
-  border-radius: 24px;
-  overflow: visible; /* allowed tab button to hang off right */
-  max-width: 650px;
-  width: 90%;
-  transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex !important;
+  flex-direction: row !important;
+  position: relative !important;
+  background: #fff !important;
+  border-radius: 24px !important;
+  overflow: visible !important; /* allowed tab button to hang off right */
+  max-width: 650px !important;
+  width: 90% !important;
+  transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .accred-modal-container.video-expanded {
@@ -13374,10 +13374,11 @@ body .cta-headline {
 /* Mobile styling */
 @media (max-width: 768px) {
   .accred-modal-container {
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     max-width: 450px !important;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
   }
   .accred-modal-video-pane {
     width: 100% !important;
