@@ -430,6 +430,20 @@ $reels = [
         var currentActiveIndex = -1;
         var reels = <?php echo json_encode($reels); ?>;
 
+        function sendPlayerCommand(iframe, func, args) {
+            if (iframe && iframe.contentWindow) {
+                try {
+                    iframe.contentWindow.postMessage(JSON.stringify({
+                        event: 'command',
+                        func: func,
+                        args: args || []
+                    }), '*');
+                } catch (e) {
+                    console.error('Error sending command to player:', e);
+                }
+            }
+        }
+
         function scrollToSlide(index) {
             var slides = document.querySelectorAll('.reel-slide');
             if (index >= 0 && index < slides.length) {
@@ -439,49 +453,84 @@ $reels = [
 
         function activateSlide(index) {
             if (index === currentActiveIndex) return;
-
-            // Deactivate previous slide to stop audio
-            if (currentActiveIndex !== -1) {
-                var oldSlide = document.querySelector('.reel-slide[data-index="' + currentActiveIndex + '"]');
-                if (oldSlide) {
-                    var wrapper = oldSlide.querySelector('.fb-reel-wrapper');
-                    if (wrapper) wrapper.innerHTML = '';
-                    var loading = oldSlide.querySelector('.reel-video-loading');
-                    if (loading) loading.style.display = 'block';
-                }
-            }
-
+            
+            var oldActiveIndex = currentActiveIndex;
             currentActiveIndex = index;
 
-            // Load and play new slide video immediately
-            var newSlide = document.querySelector('.reel-slide[data-index="' + index + '"]');
-            if (newSlide) {
-                var wrapper = newSlide.querySelector('.fb-reel-wrapper');
-                var reelId = newSlide.getAttribute('data-reel-id');
-                var loading = newSlide.querySelector('.reel-video-loading');
-                if (wrapper && reelId) {
-                    if (loading) loading.style.display = 'block';
+            var slides = document.querySelectorAll('.reel-slide');
+            var minKeep = index - 1;
+            var maxKeep = index + 1;
 
-                    var iframe = document.createElement('iframe');
-                    iframe.src = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100%';
-                    iframe.style.border = 'none';
-                    iframe.style.opacity = '0';
-                    iframe.style.transition = 'opacity 0.3s';
-                    iframe.scrolling = 'no';
-                    iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
-                    iframe.allowFullscreen = true;
-
-                    iframe.onload = function() {
-                        if (loading) loading.style.display = 'none';
-                        iframe.style.opacity = '1';
-                    };
-
-                    wrapper.innerHTML = '';
-                    wrapper.appendChild(iframe);
+            slides.forEach(function(slide) {
+                var slideIndex = parseInt(slide.getAttribute('data-index'));
+                var wrapper = slide.querySelector('.fb-reel-wrapper');
+                var loading = slide.querySelector('.reel-video-loading');
+                var reelId = slide.getAttribute('data-reel-id');
+                
+                if (slideIndex < minKeep || slideIndex > maxKeep) {
+                    if (wrapper) {
+                        wrapper.innerHTML = '';
+                    }
+                    if (loading) {
+                        loading.style.display = 'block';
+                    }
+                } else {
+                    if (wrapper && reelId) {
+                        var iframe = wrapper.querySelector('iframe');
+                        
+                        if (!iframe) {
+                            iframe = document.createElement('iframe');
+                            
+                            // If active: load playing but muted to load visual frames silently.
+                            // If adjacent: load paused.
+                            var autoplay = (slideIndex === index) ? 1 : 0;
+                            var mute = (slideIndex === index) ? 1 : 0;
+                            
+                            iframe.src = 'https://www.youtube.com/embed/' + reelId + 
+                                '?autoplay=' + autoplay + 
+                                '&mute=' + mute + 
+                                '&enablejsapi=1' + 
+                                '&loop=1' + 
+                                '&playlist=' + reelId + 
+                                '&controls=1' + 
+                                '&rel=0' + 
+                                '&playsinline=1';
+                                
+                            iframe.style.width = '100%';
+                            iframe.style.height = '100%';
+                            iframe.style.border = 'none';
+                            iframe.style.opacity = '0';
+                            iframe.style.transition = 'opacity 0.3s';
+                            iframe.scrolling = 'no';
+                            iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+                            iframe.allowFullscreen = true;
+                            
+                            iframe.onload = function() {
+                                if (loading) loading.style.display = 'none';
+                                iframe.style.opacity = '1';
+                                
+                                var currentIdx = parseInt(slide.getAttribute('data-index'));
+                                if (currentIdx === currentActiveIndex) {
+                                    sendPlayerCommand(iframe, 'unMute');
+                                    sendPlayerCommand(iframe, 'playVideo');
+                                }
+                            };
+                            
+                            wrapper.innerHTML = '';
+                            wrapper.appendChild(iframe);
+                        } else {
+                            if (slideIndex === index) {
+                                if (loading) loading.style.display = 'none';
+                                iframe.style.opacity = '1';
+                                sendPlayerCommand(iframe, 'unMute');
+                                sendPlayerCommand(iframe, 'playVideo');
+                            } else {
+                                sendPlayerCommand(iframe, 'pauseVideo');
+                            }
+                        }
+                    }
                 }
-            }
+            });
 
             // Update arrow button disable states
             var prevBtn = document.getElementById('reel-btn-prev');

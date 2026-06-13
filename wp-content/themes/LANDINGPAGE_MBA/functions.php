@@ -5520,3 +5520,71 @@ function ideas_add_seo_schemas_fallback() {
         echo '<script type="application/ld+json">' . json_encode($breadcrumb_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . '</script>' . "\n";
     }
 }
+
+/**
+ * Custom lightweight cached REST API endpoint for the latest news
+ */
+add_action('rest_api_init', function () {
+    register_rest_route('ideas/v1', '/latest-news', [
+        'methods' => 'GET',
+        'callback' => 'ideas_get_latest_news_cached',
+        'permission_callback' => '__return_true',
+    ]);
+});
+
+function ideas_get_latest_news_cached() {
+    $cache_key = 'ideas_latest_news_api_cache';
+    $cached_data = get_transient($cache_key);
+    
+    if ($cached_data !== false) {
+        return new WP_REST_Response($cached_data, 200);
+    }
+    
+    $args = [
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => 6,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    ];
+    
+    $posts = get_posts($args);
+    $data = [];
+    
+    foreach ($posts as $post) {
+        $featured_media_url = get_the_post_thumbnail_url($post->ID, 'medium_large');
+        if (!$featured_media_url) {
+            $featured_media_url = get_the_post_thumbnail_url($post->ID, 'full');
+        }
+        if (!$featured_media_url) {
+            if (preg_match('/<img[^>]+src=["\']([^"\']+)["\']/i', $post->post_content, $matches)) {
+                $featured_media_url = $matches[1];
+            } else {
+                $featured_media_url = 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp';
+            }
+        }
+        
+        $excerpt = wp_strip_all_tags($post->post_excerpt);
+        if (empty($excerpt)) {
+            $excerpt = wp_strip_all_tags($post->post_content);
+        }
+        $excerpt = mb_strimwidth($excerpt, 0, 150, '...');
+        
+        $data[] = [
+            'id' => $post->ID,
+            'title' => [
+                'rendered' => get_the_title($post->ID)
+            ],
+            'link' => get_permalink($post->ID),
+            'date' => $post->post_date,
+            'excerpt' => [
+                'rendered' => $excerpt
+            ],
+            'featured_image_url' => $featured_media_url,
+        ];
+    }
+    
+    set_transient($cache_key, $data, HOUR_IN_SECONDS);
+    
+    return new WP_REST_Response($data, 200);
+}
