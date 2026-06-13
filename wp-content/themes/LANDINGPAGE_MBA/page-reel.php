@@ -201,6 +201,7 @@ $reels = [
             align-items: center;
             z-index: 2;
             transform: translateY(-40px);
+            position: relative !important;
         }
 
         .reel-video-loading {
@@ -406,11 +407,14 @@ $reels = [
         <div class="reel-container">
             <?php foreach ($reels as $index => $r): ?>
                 <div class="reel-slide" data-index="<?php echo $index; ?>" data-reel-id="<?php echo esc_attr($r['id']); ?>">
-                    <div class="reel-video-loading">
+                    <div class="reel-video-loading" style="z-index: 3;">
                         <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
                     </div>
                     <div class="fb-reel-wrapper">
                         <!-- Dynamically loaded iframe goes here -->
+                        <?php if (!empty($r['cover'])): ?>
+                            <img class="reel-cover-placeholder" src="<?php echo esc_url($r['cover']); ?>" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; transition: opacity 0.3s;" alt="">
+                        <?php endif; ?>
                     </div>
                     <div class="reel-info-overlay">
                         <button class="reel-info-cta" onclick="showform('Reel Page - <?php echo esc_js($r['title']); ?>')">
@@ -433,6 +437,7 @@ $reels = [
 
     <!-- Swiper & Snap Controller Logic -->
     <script>
+        var activeTimeout = null;
         var currentActiveIndex = -1;
         var reels = <?php echo json_encode($reels); ?>;
 
@@ -460,89 +465,114 @@ $reels = [
         function activateSlide(index) {
             if (index === currentActiveIndex) return;
             
-            var oldActiveIndex = currentActiveIndex;
             currentActiveIndex = index;
 
-            var slides = document.querySelectorAll('.reel-slide');
-            var minKeep = index - 1;
-            var maxKeep = index + 1;
+            // Clear any pending activation to support fast scrolling
+            if (activeTimeout) {
+                clearTimeout(activeTimeout);
+            }
 
+            // Immediately destroy all other iframes to free memory and prevent domain connection blocking
+            var slides = document.querySelectorAll('.reel-slide');
             slides.forEach(function(slide) {
                 var slideIndex = parseInt(slide.getAttribute('data-index'));
-                var wrapper = slide.querySelector('.fb-reel-wrapper');
-                var loading = slide.querySelector('.reel-video-loading');
-                var reelId = slide.getAttribute('data-reel-id');
-                
-                if (slideIndex < minKeep || slideIndex > maxKeep) {
+                if (slideIndex !== index) {
+                    var wrapper = slide.querySelector('.fb-reel-wrapper');
+                    var loading = slide.querySelector('.reel-video-loading');
                     if (wrapper) {
-                        wrapper.innerHTML = '';
+                        var iframe = wrapper.querySelector('iframe');
+                        if (iframe) {
+                            iframe.remove();
+                        }
+                        var cover = wrapper.querySelector('.reel-cover-placeholder');
+                        if (cover) {
+                            cover.style.opacity = '1';
+                        }
                     }
                     if (loading) {
                         loading.style.display = 'block';
                     }
-                } else {
-                    if (wrapper && reelId) {
-                        var iframe = wrapper.querySelector('iframe');
-                        
-                        if (!iframe) {
-                            iframe = document.createElement('iframe');
-                            
-                            // If active: load playing but muted to load visual frames silently.
-                            // If adjacent: load paused.
-                            var autoplay = (slideIndex === index) ? 1 : 0;
-                            var mute = (slideIndex === index) ? 1 : 0;
-                            
-                            iframe.src = 'https://www.youtube.com/embed/' + reelId + 
-                                '?autoplay=' + autoplay + 
-                                '&mute=' + mute + 
-                                '&enablejsapi=1' + 
-                                '&loop=1' + 
-                                '&playlist=' + reelId + 
-                                '&controls=1' + 
-                                '&rel=0' + 
-                                '&playsinline=1';
-                                
-                            iframe.style.width = '100%';
-                            iframe.style.height = '100%';
-                            iframe.style.border = 'none';
-                            iframe.style.opacity = '0';
-                            iframe.style.transition = 'opacity 0.3s';
-                            iframe.scrolling = 'no';
-                            iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
-                            iframe.allowFullscreen = true;
-                            
-                            iframe.onload = function() {
-                                if (loading) loading.style.display = 'none';
-                                iframe.style.opacity = '1';
-                                
-                                var currentIdx = parseInt(slide.getAttribute('data-index'));
-                                if (currentIdx === currentActiveIndex) {
-                                    sendPlayerCommand(iframe, 'unMute');
-                                    sendPlayerCommand(iframe, 'playVideo');
-                                }
-                            };
-                            
-                            wrapper.innerHTML = '';
-                            wrapper.appendChild(iframe);
-                        } else {
-                            if (slideIndex === index) {
-                                if (loading) loading.style.display = 'none';
-                                iframe.style.opacity = '1';
-                                sendPlayerCommand(iframe, 'unMute');
-                                sendPlayerCommand(iframe, 'playVideo');
-                            } else {
-                                sendPlayerCommand(iframe, 'pauseVideo');
-                            }
-                        }
-                    }
                 }
             });
 
-            // Update arrow button disable states
+            // Update arrow button disable states immediately
             var prevBtn = document.getElementById('reel-btn-prev');
             var nextBtn = document.getElementById('reel-btn-next');
             if (prevBtn) prevBtn.disabled = (index === 0);
             if (nextBtn) nextBtn.disabled = (index === reels.length - 1);
+
+            // Debounce the iframe loading by 250ms
+            activeTimeout = setTimeout(function() {
+                var activeSlide = document.querySelector('.reel-slide[data-index="' + index + '"]');
+                if (!activeSlide) return;
+
+                var wrapper = activeSlide.querySelector('.fb-reel-wrapper');
+                var loading = activeSlide.querySelector('.reel-video-loading');
+                var reelId = activeSlide.getAttribute('data-reel-id');
+
+                if (wrapper && reelId) {
+                    var iframe = wrapper.querySelector('iframe');
+                    
+                    if (!iframe) {
+                        iframe = document.createElement('iframe');
+                        
+                        iframe.src = 'https://www.youtube.com/embed/' + reelId + 
+                            '?autoplay=1' + 
+                            '&mute=1' + // Load muted initially to bypass autoplay policy
+                            '&enablejsapi=1' + 
+                            '&loop=1' + 
+                            '&playlist=' + reelId + 
+                            '&controls=1' + 
+                            '&rel=0' + 
+                            '&playsinline=1';
+                            
+                        iframe.style.width = '100%';
+                        iframe.style.height = '100%';
+                        iframe.style.border = 'none';
+                        iframe.style.position = 'absolute';
+                        iframe.style.top = '0';
+                        iframe.style.left = '0';
+                        iframe.style.zIndex = '2';
+                        iframe.style.opacity = '0';
+                        iframe.style.transition = 'opacity 0.3s';
+                        iframe.scrolling = 'no';
+                        iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+                        iframe.allowFullscreen = true;
+                        
+                        iframe.onload = function() {
+                            if (currentActiveIndex === index) {
+                                if (loading) loading.style.display = 'none';
+                                iframe.style.opacity = '1';
+                                
+                                var cover = wrapper.querySelector('.reel-cover-placeholder');
+                                if (cover) {
+                                    cover.style.opacity = '0';
+                                }
+                                
+                                sendPlayerCommand(iframe, 'unMute');
+                                sendPlayerCommand(iframe, 'playVideo');
+                            }
+                        };
+                        
+                        // Clean wrapper of any leftover iframe first
+                        var oldIframe = wrapper.querySelector('iframe');
+                        if (oldIframe) oldIframe.remove();
+                        
+                        wrapper.appendChild(iframe);
+                    } else {
+                        if (loading) loading.style.display = 'none';
+                        iframe.style.opacity = '1';
+                        
+                        var cover = wrapper.querySelector('.reel-cover-placeholder');
+                        if (cover) {
+                            cover.style.opacity = '0';
+                        }
+                        
+                        sendPlayerCommand(iframe, 'unMute');
+                        sendPlayerCommand(iframe, 'playVideo');
+                    }
+                }
+            }, 250);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
