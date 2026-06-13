@@ -9770,6 +9770,9 @@
             </div>
             <iframe id="fb-reel-iframe" src="" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; encrypted-media; picture-in-picture"></iframe>
         </div>
+        <a href="/reel" class="fb-reel-more-btn" id="fb-reel-more-btn">
+            <span>Khám phá thêm Reels tư vấn</span> <i class="fa-solid fa-chevron-right"></i>
+        </a>
     </div>
 </div>
 
@@ -9818,54 +9821,67 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Inject global floating play button
         const currentPath = window.location.pathname.toLowerCase();
         const isReelPage = currentPath.indexOf('/reel') !== -1;
+        
+        let reelId = '';
+        if (currentPath.indexOf('sacombank') !== -1) {
+            reelId = 'tfSh3cVhvR8';
+        } else if (currentPath.indexOf('bba') !== -1 && currentPath.indexOf('fullbba') === -1) {
+            reelId = 'FMJ-j-bzn4A';
+        } else if (currentPath.indexOf('mba') !== -1 || currentPath.indexOf('emba') !== -1 || currentPath.indexOf('dba') !== -1 || currentPath.indexOf('mscai') !== -1 || currentPath.indexOf('mbainai') !== -1) {
+            reelId = 'rXWWEC2LJJM';
+        }
+
+        const isEn = currentPath.indexOf('/en/') !== -1;
+        const reelHref = isEn ? '/en/reel' : '/reel';
+        
+        const moreBtn = document.getElementById('fb-reel-more-btn');
+        if (moreBtn) {
+            moreBtn.href = reelHref;
+            const span = moreBtn.querySelector('span');
+            if (span) {
+                span.textContent = isEn ? 'Explore More Reels' : 'Khám phá thêm Reels tư vấn';
+            }
+        }
+
         if (!isReelPage) {
-            const isEn = currentPath.indexOf('/en/') !== -1;
-            const reelHref = isEn ? '/en/reel' : '/reel';
             const label = isEn ? 'Watch Reels' : 'Xem Reels';
-            
             const btn = document.createElement('a');
             btn.href = reelHref;
             btn.className = 'global-floating-reel-btn';
             btn.setAttribute('aria-label', label);
             btn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
             document.body.appendChild(btn);
+
+            if (reelId) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openReelModal(reelId);
+                });
+            }
         }
 
         const secondaryPhotos = document.querySelectorAll('.hero-photo-secondary');
-        if (secondaryPhotos.length === 0) return;
+        if (secondaryPhotos.length > 0) {
+            const photoReelId = reelId || 'GPyTkgHtU-0';
+            secondaryPhotos.forEach(function(item) {
+                item.setAttribute('data-reel-id', photoReelId);
+                
+                if (!item.querySelector('.reel-overlay')) {
+                    const overlay = document.createElement('div');
+                    overlay.className = 'reel-overlay';
+                    overlay.innerHTML = '<div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>';
+                    item.appendChild(overlay);
+                }
 
-        let reelId = '';
-        const path = window.location.pathname.toLowerCase();
-        
-        if (path.indexOf('sacombank') !== -1) {
-            reelId = 'tfSh3cVhvR8';
-        } else if (path.indexOf('bba') !== -1 && path.indexOf('fullbba') === -1) {
-            reelId = 'FMJ-j-bzn4A';
-        } else if (path.indexOf('mba') !== -1 || path.indexOf('emba') !== -1 || path.indexOf('dba') !== -1) {
-            reelId = 'rXWWEC2LJJM';
-        } else {
-            reelId = 'GPyTkgHtU-0';
-        }
-
-        secondaryPhotos.forEach(function(item) {
-            item.setAttribute('data-reel-id', reelId);
-            
-            if (!item.querySelector('.reel-overlay')) {
-                const overlay = document.createElement('div');
-                overlay.className = 'reel-overlay';
-                overlay.innerHTML = '<div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>';
-                item.appendChild(overlay);
-            }
-
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const id = item.getAttribute('data-reel-id');
-                openReelModal(id);
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const id = item.getAttribute('data-reel-id');
+                    openReelModal(id);
+                });
             });
-        });
+        }
 
         const modal = document.getElementById('fb-reel-modal');
         if (modal) {

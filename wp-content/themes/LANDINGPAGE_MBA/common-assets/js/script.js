@@ -3104,6 +3104,75 @@ function initCustomDropdowns() {
     });
 }
 
+function initGlobalReelsModal() {
+    const modal = document.getElementById('fb-reel-modal');
+    const iframe = document.getElementById('fb-reel-iframe');
+    const closeBtn = modal ? modal.querySelector('.fb-reel-modal-close') : null;
+    const overlay = modal ? modal.querySelector('.fb-reel-modal-overlay') : null;
+    const floatingBtn = document.querySelector('.global-floating-reel-btn');
+
+    if (!modal) return;
+
+    function openModal(reelId) {
+        if (!iframe) return;
+        const embedUrl = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
+        iframe.src = embedUrl;
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            modal.classList.add('open');
+        }, 10);
+        
+        const loading = modal.querySelector('.fb-reel-video-loading');
+        iframe.onload = function() {
+            if (loading) loading.style.display = 'none';
+            iframe.style.opacity = '1';
+        };
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        setTimeout(() => {
+            modal.style.display = 'none';
+            if (iframe) {
+                iframe.src = '';
+                iframe.style.opacity = '0';
+            }
+            const loading = modal.querySelector('.fb-reel-video-loading');
+            if (loading) loading.style.display = 'block';
+        }, 400);
+        document.body.style.overflow = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) overlay.addEventListener('click', closeModal);
+
+    // Escape to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    if (floatingBtn) {
+        const path = window.location.pathname.toLowerCase();
+        let reelId = '';
+
+        if (path.indexOf('sacombank') !== -1) {
+            reelId = 'tfSh3cVhvR8';
+        } else if (path.indexOf('bba') !== -1 && path.indexOf('fullbba') === -1) {
+            reelId = 'FMJ-j-bzn4A';
+        } else if (path.indexOf('mba') !== -1 || path.indexOf('emba') !== -1 || path.indexOf('dba') !== -1 || path.indexOf('mscai') !== -1 || path.indexOf('mbainai') !== -1) {
+            reelId = 'rXWWEC2LJJM';
+        }
+
+        if (reelId) {
+            floatingBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal(reelId);
+            });
+        }
+    }
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initCopyrightYear();
@@ -3119,6 +3188,7 @@ if (document.readyState === 'loading') {
         initMobileTopSheet();
         initHomepageToastPopup();
         initCustomDropdowns();
+        initGlobalReelsModal();
     });
 } else {
     initCopyrightYear();
@@ -3134,6 +3204,7 @@ if (document.readyState === 'loading') {
     initMobileTopSheet();
     initHomepageToastPopup();
     initCustomDropdowns();
+    initGlobalReelsModal();
 }
 
 

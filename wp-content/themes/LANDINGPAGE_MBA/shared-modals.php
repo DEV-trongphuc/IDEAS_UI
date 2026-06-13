@@ -940,13 +940,30 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
     </div>
 </div>
 
+<!-- Reels Video Modal for Program Pages -->
+<div class="fb-reel-modal" id="fb-reel-modal" style="display: none;">
+    <div class="fb-reel-modal-overlay"></div>
+    <div class="fb-reel-modal-container">
+        <button class="fb-reel-modal-close" aria-label="<?php echo $is_en ? 'Close' : 'Đóng'; ?>">&times;</button>
+        <div class="fb-reel-video-wrapper">
+            <div class="fb-reel-video-loading">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            </div>
+            <iframe id="fb-reel-iframe" src="" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; encrypted-media; picture-in-picture"></iframe>
+        </div>
+        <a href="<?php echo $is_en ? home_url('/en/reel') : home_url('/reel'); ?>" class="fb-reel-more-btn" id="fb-reel-more-btn">
+            <span><?php echo $is_en ? 'Explore More Reels' : 'Khám phá thêm Reels tư vấn'; ?></span> <i class="fa-solid fa-chevron-right"></i>
+        </a>
+    </div>
+</div>
+
 <!-- Global Floating Play Button for Reels -->
 <?php
 $current_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 $is_reel_page = (strpos($current_uri, '/reel') !== false);
 if (!$is_reel_page):
 ?>
-<a href="<?php echo home_url('/reel'); ?>" class="global-floating-reel-btn" aria-label="<?php echo $is_en ? 'Watch Reels' : 'Xem Reels'; ?>">
+<a href="<?php echo $is_en ? home_url('/en/reel') : home_url('/reel'); ?>" class="global-floating-reel-btn" aria-label="<?php echo $is_en ? 'Watch Reels' : 'Xem Reels'; ?>">
     <i class="fa-solid fa-circle-play"></i>
 </a>
 <?php endif; ?>

@@ -13689,3 +13689,122 @@ body .cta-headline {
   }
 }
 
+/* ─── GLOBAL REELS MODAL (PROGRAM PAGES) ─── */
+.fb-reel-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+  display: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0;
+  transition: opacity 0.4s ease !important;
+}
+.fb-reel-modal.open {
+  opacity: 1 !important;
+  display: flex !important;
+}
+.fb-reel-modal-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(15, 23, 42, 0.92) !important;
+}
+.fb-reel-modal-container {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 90% !important;
+  max-width: 420px !important;
+  height: 85vh !important;
+  max-height: 780px !important;
+  background: #000 !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6) !important;
+  transform: scale(0.9) !important;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.fb-reel-modal.open .fb-reel-modal-container {
+  transform: scale(1) !important;
+}
+.fb-reel-modal-close {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: none !important;
+  color: #fff !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+  transition: background 0.3s, transform 0.3s !important;
+}
+.fb-reel-modal-close:hover {
+  background: rgba(171, 14, 0, 0.8) !important;
+  transform: rotate(90deg) !important;
+}
+.fb-reel-video-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  flex: 1 !important;
+  height: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.fb-reel-video-loading {
+  position: absolute !important;
+  color: #fff !important;
+  font-size: 32px !important;
+  z-index: 1 !important;
+}
+#fb-reel-iframe {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  z-index: 2 !important;
+  opacity: 0;
+  transition: opacity 0.3s !important;
+  border: none !important;
+}
+.fb-reel-more-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: calc(100% - 32px) !important;
+  margin: 16px auto !important;
+  padding: 12px 24px !important;
+  background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(171, 14, 0, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+  text-align: center !important;
+}
+.fb-reel-more-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(171, 14, 0, 0.5) !important;
+  background: linear-gradient(135deg, #ff3600, #ab0e00) !important;
+}
+.fb-reel-more-btn i {
+  font-size: 10px !important;
+  transition: transform 0.2s !important;
+}
+.fb-reel-more-btn:hover i {
+  transform: translateX(3px) !important;
+}
+
