@@ -13519,7 +13519,7 @@ body .cta-headline {
   border: 1px solid rgba(171, 14, 0, 0.2) !important;
   border-radius: 16px !important;
   margin-bottom: 20px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   text-align: left !important;
   width: 100% !important;
@@ -13549,7 +13549,7 @@ body .cta-headline {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 4px 12px rgba(171, 14, 0, 0.4) !important;
+  box-shadow: 0 3px 8px rgba(171, 14, 0, 0.3) !important;
   transition: all 0.3s ease !important;
   padding-left: 2px !important;
   box-sizing: border-box !important;
@@ -13557,7 +13557,7 @@ body .cta-headline {
 }
 .reel-promo-card:hover .reel-promo-icon {
   transform: scale(1.08) rotate(15deg) !important;
-  box-shadow: 0 6px 18px rgba(171, 14, 0, 0.6) !important;
+  box-shadow: 0 4px 12px rgba(171, 14, 0, 0.4) !important;
 }
 .reel-promo-info {
   display: flex !important;
@@ -13591,8 +13591,8 @@ body .cta-headline {
 }
 .reel-promo-card:hover {
   transform: translateY(-2px) !important;
-  border-color: rgba(171, 14, 0, 0.4) !important;
-  box-shadow: 0 12px 35px rgba(171, 14, 0, 0.2) !important;
+  border-color: rgba(171, 14, 0, 0.35) !important;
+  box-shadow: 0 6px 16px rgba(171, 14, 0, 0.12) !important;
 }
 .reel-promo-card:hover .reel-promo-link {
   color: #ff8e8e !important;
@@ -13604,32 +13604,32 @@ body .cta-headline {
 /* ─── GLOBAL FLOATING REEL PLAY BUTTON ─── */
 .global-floating-reel-btn {
   position: fixed !important;
-  bottom: 96px !important;
-  right: 24px !important;
-  width: 52px !important;
-  height: 52px !important;
+  bottom: 84px !important;
+  right: 20px !important;
+  width: 48px !important;
+  height: 48px !important;
   border-radius: 50% !important;
   background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
   color: #ffffff !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;
   z-index: 99999 !important;
   text-decoration: none !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .global-floating-reel-btn i {
-  font-size: 24px !important;
+  font-size: 20px !important;
   transition: transform 0.3s ease !important;
 }
 .global-floating-reel-btn:hover {
-  transform: scale(1.1) translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(171, 14, 0, 0.6) !important;
+  transform: scale(1.08) translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(171, 14, 0, 0.25) !important;
   color: #ffffff !important;
 }
 .global-floating-reel-btn:hover i {
-  transform: scale(1.1) !important;
+  transform: scale(1.05) !important;
 }
 
 /* ─── MOBILE HIDE DUPLICATE CARD & REORDER BANNER ─── */
@@ -13642,13 +13642,13 @@ body .cta-headline {
 
 @media (max-width: 768px) {
   .global-floating-reel-btn {
-    bottom: 90px !important;
+    bottom: 80px !important;
     right: 16px !important;
-    width: 48px !important;
-    height: 48px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
   .global-floating-reel-btn i {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
   
   .reel-sidebar-promo-widget {

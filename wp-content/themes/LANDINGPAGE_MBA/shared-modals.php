@@ -941,6 +941,12 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
 </div>
 
 <!-- Global Floating Play Button for Reels -->
+<?php
+$current_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+$is_reel_page = (strpos($current_uri, '/reel') !== false);
+if (!$is_reel_page):
+?>
 <a href="<?php echo home_url('/reel'); ?>" class="global-floating-reel-btn" aria-label="<?php echo $is_en ? 'Watch Reels' : 'Xem Reels'; ?>">
     <i class="fa-solid fa-circle-play"></i>
 </a>
+<?php endif; ?>
