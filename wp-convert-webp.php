@@ -516,7 +516,7 @@ if (isset($_GET['action'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Công cụ Tối ưu hóa & Dọn dẹp Media - IDEAS</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
     <style>
         :root {
             --bg-dark: #0f172a;
@@ -1018,7 +1018,7 @@ if (isset($_GET['action'])) {
             
             btnDeleteAll.disabled = true;
             const originalText = btnDeleteAll.innerHTML;
-            btnDeleteAll.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang chuẩn bị...';
+            btnDeleteAll.innerHTML = '<svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg> Đang chuẩn bị...';
             
             const batchSize = 30;
             let successCount = 0;
@@ -1027,7 +1027,7 @@ if (isset($_GET['action'])) {
             for (let i = 0; i < currentUnusedItems.length; i += batchSize) {
                 const batch = currentUnusedItems.slice(i, i + batchSize);
                 const processed = Math.min(i + batchSize, currentUnusedItems.length);
-                btnDeleteAll.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Đang xóa... (${processed}/${currentUnusedItems.length})`;
+                btnDeleteAll.innerHTML = `<svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg> Đang xóa... (${processed}/${currentUnusedItems.length})`;
                 
                 try {
                     let res, data;

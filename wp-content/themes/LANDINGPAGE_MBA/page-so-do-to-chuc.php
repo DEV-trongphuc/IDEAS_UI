@@ -944,16 +944,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- Background Decorative Icons -->
     <div class="bg-decorations" aria-hidden="true">
-        <i class="fa-solid fa-sitemap bg-decor-icon"
-            style="top: 15%; left: 4%; transform: rotate(15deg); font-size: 8rem;"></i>
-        <i class="fa-solid fa-users bg-decor-icon"
-            style="top: 35%; right: 4%; transform: rotate(-20deg); font-size: 7.5rem;"></i>
-        <i class="fa-solid fa-network-wired bg-decor-icon"
-            style="top: 55%; left: 3%; transform: rotate(-10deg); font-size: 7rem;"></i>
-        <i class="fa-solid fa-graduation-cap bg-decor-icon"
-            style="top: 72%; right: 3%; transform: rotate(25deg); font-size: 8rem;"></i>
-        <i class="fa-solid fa-award bg-decor-icon"
-            style="top: 88%; left: 5%; transform: rotate(-15deg); font-size: 7.5rem;"></i>
+        <svg class="svg-icon fa-sitemap fa-solid bg-decor-icon" style="top: 15%; left: 4%; transform: rotate(15deg); font-size: 8rem;" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M208 80c0-26.5 21.5-48 48-48l64 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-8 0 0 40 152 0c30.9 0 56 25.1 56 56l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-4.4-3.6-8-8-8l-152 0 0 40 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-40-152 0c-4.4 0-8 3.6-8 8l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-30.9 25.1-56 56-56l152 0 0-40-8 0c-26.5 0-48-21.5-48-48l0-64z"/></svg>
+        <svg class="svg-icon fa-users fa-solid bg-decor-icon" style="top: 35%; right: 4%; transform: rotate(-20deg); font-size: 7.5rem;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z"/></svg>
+        <svg class="svg-icon fa-network-wired fa-solid bg-decor-icon" style="top: 55%; left: 3%; transform: rotate(-10deg); font-size: 7rem;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 64l128 0 0 64-128 0 0-64zM240 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l48 0 0 32L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0 0 32-48 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l160 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48l-48 0 0-32 256 0 0 32-48 0c-26.5 0-48 21.5-48 48l0 96c0 26.5 21.5 48 48 48l160 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48l-48 0 0-32 96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-256 0 0-32 48 0c26.5 0 48-21.5 48-48l0-96c0-26.5-21.5-48-48-48L240 0zM96 448l0-64 128 0 0 64L96 448zm320-64l128 0 0 64-128 0 0-64z"/></svg>
+        <svg class="svg-icon fa-graduation-cap fa-solid bg-decor-icon" style="top: 72%; right: 3%; transform: rotate(25deg); font-size: 8rem;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+        <svg class="svg-icon fa-award fa-solid bg-decor-icon" style="top: 88%; left: 5%; transform: rotate(-15deg); font-size: 7.5rem;" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0L228 17.2c6 3.9 13 5.8 20.1 5.4l21.3-1.3c13.2-.8 25.6 6.4 31.5 18.2l9.6 19.1c3.2 6.4 8.4 11.5 14.7 14.7L344.5 83c11.8 5.9 19 18.3 18.2 31.5l-1.3 21.3c-.4 7.1 1.5 14.2 5.4 20.1l11.8 17.8c7.3 11 7.3 25.4 0 36.4L366.8 228c-3.9 6-5.8 13-5.4 20.1l1.3 21.3c.8 13.2-6.4 25.6-18.2 31.5l-19.1 9.6c-6.4 3.2-11.5 8.4-14.7 14.7L301 344.5c-5.9 11.8-18.3 19-31.5 18.2l-21.3-1.3c-7.1-.4-14.2 1.5-20.1 5.4l-17.8 11.8c-11 7.3-25.4 7.3-36.4 0L156 366.8c-6-3.9-13-5.8-20.1-5.4l-21.3 1.3c-13.2 .8-25.6-6.4-31.5-18.2l-9.6-19.1c-3.2-6.4-8.4-11.5-14.7-14.7L39.5 301c-11.8-5.9-19-18.3-18.2-31.5l1.3-21.3c.4-7.1-1.5-14.2-5.4-20.1L5.5 210.2c-7.3-11-7.3-25.4 0-36.4L17.2 156c3.9-6 5.8-13 5.4-20.1l-1.3-21.3c-.8-13.2 6.4-25.6 18.2-31.5l19.1-9.6C65 70.2 70.2 65 73.4 58.6L83 39.5c5.9-11.8 18.3-19 31.5-18.2l21.3 1.3c7.1 .4 14.2-1.5 20.1-5.4L173.8 5.5zM272 192a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM1.3 441.8L44.4 339.3c.2 .1 .3 .2 .4 .4l9.6 19.1c11.7 23.2 36 37.3 62 35.8l21.3-1.3c.2 0 .5 0 .7 .2l17.8 11.8c5.1 3.3 10.5 5.9 16.1 7.7l-37.6 89.3c-2.3 5.5-7.4 9.2-13.3 9.7s-11.6-2.2-14.8-7.2L74.4 455.5l-56.1 8.3c-5.7 .8-11.4-1.5-15-6s-4.3-10.7-2.1-16zm248 60.4L211.7 413c5.6-1.8 11-4.3 16.1-7.7l17.8-11.8c.2-.1 .4-.2 .7-.2l21.3 1.3c26 1.5 50.3-12.6 62-35.8l9.6-19.1c.1-.2 .2-.3 .4-.4l43.2 102.5c2.2 5.3 1.4 11.4-2.1 16s-9.3 6.9-15 6l-56.1-8.3-32.2 49.2c-3.2 5-8.9 7.7-14.8 7.2s-11-4.3-13.3-9.7z"/></svg>
     </div>
 
     <!-- Site Header -->
@@ -964,7 +959,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Hero Section -->
     <section class="org-hero">
         <div class="org-hero-badge">
-            <i class="fa-solid fa-sitemap"></i>
+            <svg class="svg-icon fa-sitemap fa-solid" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M208 80c0-26.5 21.5-48 48-48l64 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-8 0 0 40 152 0c30.9 0 56 25.1 56 56l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-4.4-3.6-8-8-8l-152 0 0 40 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-40-152 0c-4.4 0-8 3.6-8 8l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-30.9 25.1-56 56-56l152 0 0-40-8 0c-26.5 0-48-21.5-48-48l0-64z"/></svg>
             <?php echo $is_en ? 'Staff Structure' : 'Bộ máy nhân sự'; ?>
         </div>
         <h1><?php echo $is_en ? 'Organizational Structure &amp; <span>Staff Chart</span>' : 'Cơ Cấu Tổ Chức &amp; <span>Sơ Đồ Nhân Sự</span>'; ?></h1>
@@ -976,10 +971,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="canvas-viewport" id="org-canvas-viewport">
             <!-- Floating Canvas Controls -->
             <div class="canvas-controls">
-                <button type="button" id="btn-zoom-in" title="<?php echo $is_en ? 'Zoom In' : 'Phóng to'; ?>" aria-label="<?php echo $is_en ? 'Zoom In' : 'Phóng to'; ?>"><i class="fa-solid fa-plus"></i></button>
-                <button type="button" id="btn-zoom-out" title="<?php echo $is_en ? 'Zoom Out' : 'Thu nhỏ'; ?>" aria-label="<?php echo $is_en ? 'Zoom Out' : 'Thu nhỏ'; ?>"><i class="fa-solid fa-minus"></i></button>
-                <button type="button" id="btn-zoom-reset" title="<?php echo $is_en ? 'Reset View' : 'Đặt lại góc nhìn'; ?>" aria-label="<?php echo $is_en ? 'Reset View' : 'Đặt lại góc nhìn'; ?>"><i
-                        class="fa-solid fa-arrows-to-eye"></i></button>
+                <button type="button" id="btn-zoom-in" title="<?php echo $is_en ? 'Zoom In' : 'Phóng to'; ?>" aria-label="<?php echo $is_en ? 'Zoom In' : 'Phóng to'; ?>"><svg class="svg-icon fa-plus fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg></button>
+                <button type="button" id="btn-zoom-out" title="<?php echo $is_en ? 'Zoom Out' : 'Thu nhỏ'; ?>" aria-label="<?php echo $is_en ? 'Zoom Out' : 'Thu nhỏ'; ?>"><svg class="svg-icon fa-minus fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"/></svg></button>
+                <button type="button" id="btn-zoom-reset" title="<?php echo $is_en ? 'Reset View' : 'Đặt lại góc nhìn'; ?>" aria-label="<?php echo $is_en ? 'Reset View' : 'Đặt lại góc nhìn'; ?>"><svg class="svg-icon fa-arrows-to-eye fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15 15C24.4 5.7 39.6 5.7 49 15l63 63L112 40c0-13.3 10.7-24 24-24s24 10.7 24 24l0 96c0 13.3-10.7 24-24 24l-96 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l38.1 0L15 49C5.7 39.6 5.7 24.4 15 15zM133.5 243.9C158.6 193.6 222.7 112 320 112s161.4 81.6 186.5 131.9c3.8 7.6 3.8 16.5 0 24.2C481.4 318.4 417.3 400 320 400s-161.4-81.6-186.5-131.9c-3.8-7.6-3.8-16.5 0-24.2zM320 320a64 64 0 1 0 0-128 64 64 0 1 0 0 128zM591 15c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-63 63 38.1 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-96 0c-13.3 0-24-10.7-24-24l0-96c0-13.3 10.7-24 24-24s24 10.7 24 24l0 38.1 63-63zM15 497c-9.4-9.4-9.4-24.6 0-33.9l63-63L40 400c-13.3 0-24-10.7-24-24s10.7-24 24-24l96 0c13.3 0 24 10.7 24 24l0 96c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-38.1L49 497c-9.4 9.4-24.6 9.4-33.9 0zm576 0l-63-63 0 38.1c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-96c0-13.3 10.7-24 24-24l96 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-38.1 0 63 63c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0z"/></svg></button>
             </div>
 
             <div class="canvas-content" id="org-canvas-content">
@@ -993,7 +987,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="org-node-role"><?php echo $is_en ? 'Dean / Director' : 'Viện Trưởng'; ?></div>
                             <h3 class="org-node-name">TS. Phạm Quang Vinh</h3>
                             <div class="org-node-info">
-                                <i class="fa-solid fa-envelope"></i>
+                                <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                 <a href="mailto:vinhpq@ideas.edu.vn">vinhpq@ideas.edu.vn</a>
                             </div>
                         </div>
@@ -1012,12 +1006,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     class="org-node-avatar" alt="Hội đồng chuyên môn">
                                 <div class="org-node-body-horizontal">
                                     <div class="org-node-role" style="margin-bottom:2px;"><?php echo $is_en ? 'Academic Board' : 'Hội đồng chuyên môn'; ?></div>
-                                    <div class="org-node-name" style="margin-bottom:0; font-size:0.95rem;"><i
-                                            class="fa-solid fa-user-group"
-                                            style="font-size:0.85rem; color:#ab0e00; margin-right:4px;"></i> Giảng viên
+                                    <div class="org-node-name" style="margin-bottom:0; font-size:0.95rem;"><svg class="svg-icon fa-user-group fa-solid" style="font-size:0.85rem; color:#ab0e00; margin-right:4px;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM609.3 512l-137.8 0c5.4-9.4 8.6-20.3 8.6-32l0-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2l61.4 0C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"/></svg> Giảng viên
                                         – cố vấn</div>
                                 </div>
-                                <i class="fa-solid fa-angle-right org-node-arrow"></i>
+                                <svg class="svg-icon fa-angle-right fa-solid org-node-arrow" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
                             </a>
                             <!-- Horizontal perpendicular connector line -->
                             <div class="org-horizontal-connector"></div>
@@ -1039,7 +1031,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Kinh
                                         <?php echo $is_en ? 'Business & Student Experience' : 'Doanh &amp; Trải Nghiệm Học Viên'; ?></div>
                                     <div class="org-node-info">
-                                        <i class="fa-solid fa-envelope"></i>
+                                        <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                         <a href="mailto:info@ideas.edu.vn">info@ideas.edu.vn</a>
                                     </div>
                                 </div>
@@ -1061,12 +1053,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                     <!-- Line down to advisors -->
                                     <div class="org-tree-line sub-line"></div>
-                                    <div class="consultants-title"><i class="fa-solid fa-headset"
-                                            style="margin-right:4px; color:#ab0e00;"></i> <?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></div>
+                                    <div class="consultants-title"><svg class="svg-icon fa-headset fa-solid" style="margin-right:4px; color:#ab0e00;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 48C141.1 48 48 141.1 48 256l0 40c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-40C0 114.6 114.6 0 256 0S512 114.6 512 256l0 144.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24l-32 0c-26.5 0-48-21.5-48-48s21.5-48 48-48l32 0c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40L464 256c0-114.9-93.1-208-208-208zM144 208l16 0c17.7 0 32 14.3 32 32l0 112c0 17.7-14.3 32-32 32l-16 0c-35.3 0-64-28.7-64-64l0-48c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64l0 48c0 35.3-28.7 64-64 64l-16 0c-17.7 0-32-14.3-32-32l0-112c0-17.7 14.3-32 32-32l16 0z"/></svg> <?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></div>
 
                                     <div class="consultants-grid">
                                         <div class="consultants-warning">
-                                            <i class="fa-solid fa-triangle-exclamation"></i>
+                                            <svg class="svg-icon fa-triangle-exclamation fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
                                             <div>
                                                  <strong><?php echo $is_en ? 'ALERT:' : 'CẢNH BÁO:'; ?></strong> <?php echo $is_en ? 'Be cautious of unknown phone numbers pretending to be IDEAS admissions advisors.' : 'Cảnh giác với các số điện thoại lạ mạo danh\n                                                 là tư vấn viên tuyển sinh của IDEAS.'; ?>
                                             </div>
@@ -1079,7 +1070,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                                 <h4 class="consultant-name">Lưu Phan Hoàng Phúc</h4>
                                                 <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
-                                                    <i class="fa-solid fa-phone"></i>
+                                                    <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                                                     <strong>*********017</strong>
                                                 </div>
                                             </div>
@@ -1092,7 +1083,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                                 <h4 class="consultant-name">Nguyễn Thị Linh Đan</h4>
                                                 <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
-                                                    <i class="fa-solid fa-phone"></i>
+                                                    <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                                                     <strong>*********953</strong>
                                                 </div>
                                             </div>
@@ -1105,7 +1096,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                                 <h4 class="consultant-name">Lê Đinh Ý Nhi</h4>
                                                 <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
-                                                    <i class="fa-solid fa-phone"></i>
+                                                    <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                                                     <strong>*********486</strong>
                                                 </div>
                                             </div>
@@ -1118,7 +1109,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                                 <h4 class="consultant-name">Nguyễn Phương Uyên</h4>
                                                 <span class="consultant-role"><?php echo $is_en ? 'Advisor' : 'Tư vấn viên'; ?></span>
                                                 <div class="consultant-info">
-                                                    <i class="fa-solid fa-phone"></i>
+                                                    <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                                                     <strong>*********935</strong>
                                                 </div>
                                             </div>
@@ -1151,7 +1142,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Quản
                                         Trị &amp; Hậu Cần</div>
                                     <div class="org-node-info">
-                                        <i class="fa-solid fa-envelope"></i>
+                                        <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                         <a href="mailto:lanptp@ideas.edu.vn">lanptp@ideas.edu.vn</a>
                                     </div>
                                 </div>
@@ -1196,7 +1187,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Tăng
                                         Trưởng &amp; Công Nghệ</div>
                                     <div class="org-node-info">
-                                        <i class="fa-solid fa-envelope"></i>
+                                        <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                         <a href="mailto:duongvt@ideas.edu.vn">duongvt@ideas.edu.vn</a>
                                     </div>
                                 </div>

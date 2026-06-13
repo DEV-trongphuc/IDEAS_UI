@@ -39,10 +39,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     $bk_css_version = file_exists($bk_css_path) ? filemtime($bk_css_path) : time();
     ?>
     <link rel="stylesheet"
-        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" /><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-solid-900.woff2"
-        as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/webfonts/fa-brands-400.woff2"
-        as="font" type="font/woff2" crossorigin />
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" />
+    
 
     <!-- MailFlow Pro Tracker & AI Chat -->
     <script>
@@ -680,18 +678,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="dir-hero-bg"></div>
             <div class="dir-hero-overlay"></div>
             <div class="dir-hero-container">
-                <div class="dir-hero-badge"><i class="fa-solid fa-graduation-cap"></i> <?php echo $is_en ? 'Online International MBA' : 'Thạc sĩ MBA Online Quốc tế'; ?></div>
+                <div class="dir-hero-badge"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg> <?php echo $is_en ? 'Online International MBA' : 'Thạc sĩ MBA Online Quốc tế'; ?></div>
                 <h1><?php echo $is_en ? 'Online MBA<br /><span>Curriculum &amp; Programs</span>' : 'Chương Trình Đào Tạo<br /><span>Thạc Sĩ MBA Online</span>'; ?></h1>
                 <p><?php echo $is_en ? 'Explore and choose international standard online MBA programs at IDEAS Institute. An elite learning solution accredited to European standards, offering maximum flexibility tailored for busy managers and leaders.' : 'Khám phá và chọn lựa các chương trình MBA trực tuyến chuẩn Quốc tế tại Viện IDEAS. Giải pháp học tập đỉnh cao được kiểm định chuẩn châu Âu, linh hoạt tối đa dành riêng cho nhà quản lý và lãnh đạo bận rộn.'; ?></p>
                 <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; width: 100%;">
                     <button type="button" class="card-btn-primary"
                         onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('dir-hero'); } else if(typeof window.showform === 'function') { window.showform('dir-hero'); }">
                         <span><?php echo $is_en ? 'Choose a Program' : 'Nhận tư vấn chọn chương trình'; ?></span>
-                        <i class="fa-solid fa-paper-plane"></i>
+                        <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
                     </button>
                     <a href="#danh-sach-chuong-trinh" class="card-btn-secondary" style="background: rgba(255,255,255,0.1); color: #fff !important; border-color: rgba(255,255,255,0.2);">
                         <span><?php echo $is_en ? 'Explore Programs' : 'Khám phá các chương trình'; ?></span>
-                        <i class="fa-solid fa-arrow-down"></i>
+                        <svg class="svg-icon fa-arrow-down fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
                     </a>
                 </div>
             </div>
@@ -708,24 +706,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="proscons-container">
                 <!-- Pros -->
                 <div class="pros-wrap">
-                    <h3 class="proscons-title"><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Key Advantages' : 'Ưu điểm nổi bật'; ?></h3>
+                    <h3 class="proscons-title"><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Key Advantages' : 'Ưu điểm nổi bật'; ?></h3>
                     <ul class="proscons-list">
                         <li class="proscons-item">
-                            <i class="fa-solid fa-circle-check"></i>
+                            <svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <div>
                                 <h4><?php echo $is_en ? 'Maximum Flexibility' : 'Linh hoạt tối đa'; ?></h4>
                                 <p><?php echo $is_en ? 'Arrange study time actively at 100% personal pace, easily balancing studies, work, and family.' : 'Sắp xếp thời gian học chủ động 100% theo nhịp độ cá nhân, dễ dàng cân bằng giữa việc học, công tác và chăm sóc gia đình.'; ?></p>
                             </div>
                         </li>
                         <li class="proscons-item">
-                            <i class="fa-solid fa-circle-check"></i>
+                            <svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <div>
                                 <h4><?php echo $is_en ? 'Optimal Savings' : 'Tiết kiệm tối ưu'; ?></h4>
                                 <p><?php echo $is_en ? 'Reduce costs of travel, accommodation, materials, and tuition fees which are usually significantly lower than full-time programs.' : 'Cắt giảm chi phí đi lại, ăn ở, tài liệu và học phí thường thấp hơn đáng kể so với các chương trình học tập trung trực tiếp.'; ?></p>
                             </div>
                         </li>
                         <li class="proscons-item">
-                            <i class="fa-solid fa-circle-check"></i>
+                            <svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <div>
                                 <h4><?php echo $is_en ? 'Practical Application' : 'Kiến thức ứng dụng thực tiễn'; ?></h4>
                                 <p><?php echo $is_en ? 'Curriculum focuses on solving real-world management problems of students\' businesses during their studies.' : 'Nội dung học tập trung vào giải quyết các bài toán quản trị thực tế của doanh nghiệp học viên ngay trong quá trình học.'; ?></p>
@@ -736,24 +734,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 <!-- Cons -->
                 <div class="cons-wrap">
-                    <h3 class="proscons-title"><i class="fa-solid fa-circle-minus"></i> <?php echo $is_en ? 'Challenges to Consider' : 'Thử thách cần lưu ý'; ?></h3>
+                    <h3 class="proscons-title"><svg class="svg-icon fa-circle-minus fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg> <?php echo $is_en ? 'Challenges to Consider' : 'Thử thách cần lưu ý'; ?></h3>
                     <ul class="proscons-list">
                         <li class="proscons-item">
-                            <i class="fa-solid fa-circle-minus"></i>
+                            <svg class="svg-icon fa-circle-minus fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>
                             <div>
                                 <h4><?php echo $is_en ? 'Requires Self-Discipline' : 'Yêu cầu tính tự giác cao'; ?></h4>
                                 <p><?php echo $is_en ? 'No direct classroom pressure, so it requires strong time-management skills and personal commitment.' : 'Không có sự thúc ép trực tiếp trên lớp nên đòi hỏi người học phải có kỹ năng quản lý thời gian và cam kết cá nhân lớn.'; ?></p>
                             </div>
                         </li>
                         <li class="proscons-item">
-                            <i class="fa-solid fa-circle-minus"></i>
+                            <svg class="svg-icon fa-circle-minus fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>
                             <div>
                                 <h4><?php echo $is_en ? 'Limited Direct Interaction' : 'Hạn chế tương tác trực tiếp'; ?></h4>
                                 <p><?php echo $is_en ? 'Interactions happen online via LMS or Zoom. However, IDEAS overcomes this with workshops and Swiss field trips.' : 'Tương tác diễn ra trực tuyến qua LMS, Zoom. Tuy nhiên, Viện IDEAS khắc phục bằng các workshop và chuyến đi thực tế Thụy Sĩ.'; ?></p>
                             </div>
                         </li>
                         <li class="proscons-item">
-                            <i class="fa-solid fa-circle-minus"></i>
+                            <svg class="svg-icon fa-circle-minus fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM184 232l144 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-144 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z"/></svg>
                             <div>
                                 <h4><?php echo $is_en ? 'Work-study Balance Pressure' : 'Áp lực từ công việc hiện tại'; ?></h4>
                                 <p><?php echo $is_en ? 'Can lead to overload if time is not allocated properly between daytime job schedule and evening self-study.' : 'Dễ rơi vào tình trạng quá tải nếu không phân bổ thời gian hợp lý giữa lịch làm việc tại cơ quan và lịch tự học buổi tối.'; ?></p>
@@ -791,18 +789,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <ul class="card-features">
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? '100% Online study via European-standard LMS system.' : '100% Học trực tuyến qua hệ thống LMS chuẩn châu Âu.'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'Master\'s degree awarded by a prestigious Swiss university.' : 'Bằng Thạc sĩ MBA do trường Đại học danh tiếng Thụy Sĩ cấp.'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'Equips 12 core foundational subjects in financial management, HR, and marketing.' : 'Trang bị 12 môn học nền tảng cốt lõi về quản trị tài chính, nhân sự, marketing.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? '100% Online study via European-standard LMS system.' : '100% Học trực tuyến qua hệ thống LMS chuẩn châu Âu.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'Master\'s degree awarded by a prestigious Swiss university.' : 'Bằng Thạc sĩ MBA do trường Đại học danh tiếng Thụy Sĩ cấp.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'Equips 12 core foundational subjects in financial management, HR, and marketing.' : 'Trang bị 12 môn học nền tảng cốt lõi về quản trị tài chính, nhân sự, marketing.'; ?></span></li>
                     </ul>
 
                     <div class="card-actions">
                         <button type="button" class="card-btn-primary"
                             onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('global-mba'); } else if(typeof window.showform === 'function') { window.showform('global-mba'); }">
                             <span><?php echo $is_en ? 'Get Counseling' : 'Đăng ký tư vấn'; ?></span>
-                            <i class="fa-solid fa-paper-plane"></i>
+                            <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
                         </button>
-                        <a href="<?php echo $is_en ? '/en/mba' : '/mba'; ?>" class="card-btn-secondary"><span><?php echo $is_en ? 'Program Details' : 'Chi tiết chương trình'; ?></span><i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="<?php echo $is_en ? '/en/mba' : '/mba'; ?>" class="card-btn-secondary"><span><?php echo $is_en ? 'Program Details' : 'Chi tiết chương trình'; ?></span><svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
                     </div>
                 </div>
 
@@ -824,18 +822,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <ul class="card-features">
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'In-depth modules on strategic leadership, crisis management, and M&amp;A.' : 'Chuyên đề chuyên sâu về tư duy lãnh đạo, quản trị khủng hoảng và M&amp;A.'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'Expand a high-quality CEO networking community.' : 'Mở rộng mạng lưới kết nối (Networking) chất lượng cao cùng các CEO.'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'Participate in online discussions directly with international faculty.' : 'Tham gia các chuyên đề thảo luận trực tuyến trực tiếp với giảng viên quốc tế.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'In-depth modules on strategic leadership, crisis management, and M&amp;A.' : 'Chuyên đề chuyên sâu về tư duy lãnh đạo, quản trị khủng hoảng và M&amp;A.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'Expand a high-quality CEO networking community.' : 'Mở rộng mạng lưới kết nối (Networking) chất lượng cao cùng các CEO.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'Participate in online discussions directly with international faculty.' : 'Tham gia các chuyên đề thảo luận trực tuyến trực tiếp với giảng viên quốc tế.'; ?></span></li>
                     </ul>
 
                     <div class="card-actions">
                         <button type="button" class="card-btn-primary"
                             onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('executive-emba'); } else if(typeof window.showform === 'function') { window.showform('executive-emba'); }">
                             <span><?php echo $is_en ? 'Get Counseling' : 'Đăng ký tư vấn'; ?></span>
-                            <i class="fa-solid fa-paper-plane"></i>
+                            <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
                         </button>
-                        <a href="<?php echo $is_en ? '/en/emba' : '/emba'; ?>" class="card-btn-secondary"><span><?php echo $is_en ? 'Program Details' : 'Chi tiết chương trình'; ?></span><i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="<?php echo $is_en ? '/en/emba' : '/emba'; ?>" class="card-btn-secondary"><span><?php echo $is_en ? 'Program Details' : 'Chi tiết chương trình'; ?></span><svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
                     </div>
                 </div>
 
@@ -857,18 +855,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <ul class="card-features">
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'Applied AI to optimize marketing processes, operations, and automation.' : 'Ứng dụng AI tối ưu hóa quy trình marketing, vận hành và tự động hóa.'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'Learn to build digital data strategies and manage practical AI projects.' : 'Học cách xây dựng chiến lược dữ liệu số và quản trị dự án AI thực chiến.'; ?></span></li>
-                        <li><i class="fa-solid fa-circle-check"></i> <span><?php echo $is_en ? 'No technical/coding background required, focusing on digital management mindset.' : 'Không yêu cầu nền tảng kỹ thuật/code, tập trung vào tư duy quản trị số.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'Applied AI to optimize marketing processes, operations, and automation.' : 'Ứng dụng AI tối ưu hóa quy trình marketing, vận hành và tự động hóa.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'Learn to build digital data strategies and manage practical AI projects.' : 'Học cách xây dựng chiến lược dữ liệu số và quản trị dự án AI thực chiến.'; ?></span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <span><?php echo $is_en ? 'No technical/coding background required, focusing on digital management mindset.' : 'Không yêu cầu nền tảng kỹ thuật/code, tập trung vào tư duy quản trị số.'; ?></span></li>
                     </ul>
 
                     <div class="card-actions">
                         <button type="button" class="card-btn-primary"
                             onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('mba-ai'); } else if(typeof window.showform === 'function') { window.showform('mba-ai'); }">
                             <span><?php echo $is_en ? 'Get Counseling' : 'Đăng ký tư vấn'; ?></span>
-                            <i class="fa-solid fa-paper-plane"></i>
+                            <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
                         </button>
-                        <a href="<?php echo $is_en ? '/en/mbainai' : '/mbainai'; ?>" class="card-btn-secondary"><span><?php echo $is_en ? 'Program Details' : 'Chi tiết chương trình'; ?></span><i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="<?php echo $is_en ? '/en/mbainai' : '/mbainai'; ?>" class="card-btn-secondary"><span><?php echo $is_en ? 'Program Details' : 'Chi tiết chương trình'; ?></span><svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
                     </div>
                 </div>
             </div>
@@ -881,7 +879,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <img src="/wp-content/uploads/external-migrated/vnnaric_official_logo.webp" alt="VN-NARIC Logo" width="110" height="19" loading="lazy" />
                 </div>
                 <div class="accred-text">
-                    <div class="accred-tag"><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Full International Legality' : 'Đầy đủ tính pháp lý quốc tế'; ?></div>
+                    <div class="accred-tag"><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Full International Legality' : 'Đầy đủ tính pháp lý quốc tế'; ?></div>
                     <h3><?php echo $is_en ? 'European Quality Accreditations &amp; VN-NARIC Verification' : 'Kiểm định chất lượng Châu Âu &amp; Xác thực VN-NARIC'; ?></h3>
                     <p><?php echo $is_en ? 'All associated online MBA programs are strictly accredited by reputable international organizations (IACBE, Swiss Accreditation Council - SAC) and are eligible for degree verification procedures at VN-NARIC - Ministry of Education and Training of Vietnam.' : 'Mọi chương trình đào tạo Thạc sĩ MBA Online liên kết đều được kiểm định khắt khe bởi các tổ chức uy tín quốc tế (Ủy ban Kiểm định các Trường Đại học và Chương trình Đào tạo Doanh nghiệp - IACBE, Hội đồng Kiểm định Thụy Sĩ - SAC) và đủ điều kiện làm thủ tục công nhận văn bằng tại Cục Quản lý chất lượng (VN-NARIC) - Bộ Giáo dục và Đào tạo Việt Nam.'; ?></p>
                     <a href="<?php echo $is_en ? '/en/swiss-umef' : '/swiss-umef'; ?>" class="card-btn-secondary" style="display: inline-flex; padding: 10px 20px; font-size: 0.82rem;"><?php echo $is_en ? 'Learn about partner Swiss UMEF' : 'Tìm hiểu về đối tác Swiss UMEF'; ?></a>
@@ -902,7 +900,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="faq-item">
                     <button type="button" class="faq-trigger">
                         <h3><?php echo $is_en ? 'Does the online MBA graduation certificate specify "Online"?' : 'Bằng tốt nghiệp chương trình MBA Online có ghi chữ "Online" không?'; ?></h3>
-                        <span class="faq-icon-wrap"><i class="fa-solid fa-chevron-down"></i></span>
+                        <span class="faq-icon-wrap"><svg class="svg-icon fa-chevron-down fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></span>
                     </button>
                     <div class="faq-body">
                         <div class="faq-content"><?php echo $is_en ? 'No. The degree awarded by the Swiss partner university is identical in format, legal content, and global value to the on-campus program at the main Swiss campus.' : 'Không. Bằng tốt nghiệp Thạc sĩ MBA do trường Đại học đối tác Thụy Sĩ cấp hoàn toàn đồng nhất về hình thức, nội dung pháp lý và giá trị sử dụng toàn cầu với chương trình đào tạo tập trung tại cơ sở chính ở Thụy Sĩ.'; ?></div>
@@ -913,7 +911,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="faq-item">
                     <button type="button" class="faq-trigger">
                         <h3><?php echo $is_en ? 'What are the entry requirements for the Swiss online MBA?' : 'Điều kiện đầu vào của chương trình MBA Online Thụy Sĩ là gì?'; ?></h3>
-                        <span class="faq-icon-wrap"><i class="fa-solid fa-chevron-down"></i></span>
+                        <span class="faq-icon-wrap"><svg class="svg-icon fa-chevron-down fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></span>
                     </button>
                     <div class="faq-body">
                         <div class="faq-content"><?php echo $is_en ? 'Students must hold a Bachelor\'s degree (any major). Non-business graduates will be supported with pre-requisite courses. Practical work experience in management or team lead roles is a major advantage.' : 'Học viên cần tốt nghiệp đại học (mọi ngành nghề). Với các học viên tốt nghiệp các ngành không thuộc khối kinh tế sẽ được hỗ trợ các môn chuyển đổi bổ sung. Ngoài ra, yêu cầu có kinh nghiệm làm việc thực tế ở vai trò quản lý hoặc trưởng nhóm là một lợi thế lớn.'; ?></div>
@@ -924,7 +922,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="faq-item">
                     <button type="button" class="faq-trigger">
                         <h3><?php echo $is_en ? 'What are the payment options? Is installment available?' : 'Hình thức đóng học phí thế nào? Có trả góp không?'; ?></h3>
-                        <span class="faq-icon-wrap"><i class="fa-solid fa-chevron-down"></i></span>
+                        <span class="faq-icon-wrap"><svg class="svg-icon fa-chevron-down fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></span>
                     </button>
                     <div class="faq-body">
                         <div class="faq-content"><?php echo $is_en ? 'Students can pay in flexible installments matching their study progress. In particular, IDEAS Institute partners with Sacombank to support 0% interest tuition installments up to 12 months, optimizing personal and corporate cash flows.' : 'Học viên có thể đóng học phí chia làm nhiều kỳ linh hoạt theo tiến độ học tập. Đặc biệt, Viện IDEAS liên kết cùng ngân hàng Sacombank hỗ trợ chương trình trả góp học phí lãi suất 0% kéo dài lên tới 12 tháng, giúp tối ưu dòng tiền cá nhân và doanh nghiệp của bạn.'; ?></div>
@@ -935,7 +933,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="faq-item">
                     <button type="button" class="faq-trigger">
                         <h3><?php echo $is_en ? 'Do students have the opportunity to attend the graduation ceremony in Switzerland?' : 'Học viên có cơ hội sang Thụy Sĩ tham gia Lễ tốt nghiệp không?'; ?></h3>
-                        <span class="faq-icon-wrap"><i class="fa-solid fa-chevron-down"></i></span>
+                        <span class="faq-icon-wrap"><svg class="svg-icon fa-chevron-down fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg></span>
                     </button>
                     <div class="faq-body">
                         <div class="faq-content"><?php echo $is_en ? 'Absolutely. Graduates of Swiss UMEF programs are eligible to attend the graduation ceremony at the historic Chateau de Grand-Saconnex (headquarters in Geneva, Switzerland) with international students.' : 'Hoàn toàn có. Học viên tốt nghiệp các chương trình liên kết của Swiss UMEF được quyền đăng ký tham dự lễ trao bằng tốt nghiệp trang trọng tại lâu đài lịch sử Chateau de Grand-Saconnex (trụ sở chính của trường tại Geneva, Thụy Sĩ) cùng với học viên quốc tế.'; ?></div>

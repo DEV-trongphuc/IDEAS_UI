@@ -899,7 +899,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="lms-hero-overlay"></div>
         <div class="lms-hero-container">
             <div class="lms-hero-badge">
-                <i class="fa-solid fa-laptop-code"></i>
+                <svg class="svg-icon fa-laptop-code fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64 96c0-35.3 28.7-64 64-64l384 0c35.3 0 64 28.7 64 64l0 256-64 0 0-256L128 96l0 256-64 0L64 96zM0 403.2C0 392.6 8.6 384 19.2 384l601.6 0c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8L76.8 480C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>
                 <?php echo $is_en ? 'Training Technology 4.0' : 'Công Nghệ Đào Tạo 4.0'; ?>
             </div>
             <h1><?php echo $is_en ? 'LMS System <br /> Along with a <span>Learning Ecosystem.</span>' : 'Hệ thống LMS <br /> Cùng <span>hệ sinh thái học tập.</span>'; ?></h1>
@@ -913,7 +913,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </svg>
                 </button>
                 <button type="button" class="btn-video-watch" id="btn-watch-video">
-                    <i class="fa-solid fa-circle-play"></i>
+                    <svg class="svg-icon fa-circle-play fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
                     <?php echo $is_en ? 'Watch Guide Video' : 'Xem video hướng dẫn'; ?>
                 </button>
             </div>
@@ -974,7 +974,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </article>
 
                 <a href="https://ideas.edu.vn/tin-tuc-moi/tai-lieu-cengage-tai-ideas.html" target="_blank" rel="noopener" class="eco-card-v2 eco-card-v2-link" style="text-decoration: none; position: relative;">
-                        <i class="fa-solid fa-arrow-up-right-from-square eco-card-external-icon" style="position: absolute; top: 20px; right: 20px; color: rgba(255,255,255,0.4); font-size: 0.85rem; transition: all 0.3s;"></i>
+                        <svg class="svg-icon fa-arrow-up-right-from-square fa-solid eco-card-external-icon" style="position: absolute; top: 20px; right: 20px; color: rgba(255,255,255,0.4); font-size: 0.85rem; transition: all 0.3s;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg>
                     <div class="eco-card-v2-icon eco-card-v2-icon--logo"
                         style="--icon-clr:#34d399;--icon-bg:rgba(255,255,255,0.95)">
                         <img decoding="async"
@@ -1011,10 +1011,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3>LMS Powered by Moodle</h3>
                 <p><?php echo $is_en ? 'Moodle is the world\'s leading popular learning management system (LMS) used by prestigious universities. At IDEAS, Moodle is smartly configured and maximized visually to accompany students throughout their learning journey:' : 'Moodle là hệ thống quản lý học tập (LMS) phổ biến hàng đầu thế giới được sử dụng bởi các trường đại\n                    học danh tiếng. Tại IDEAS, hệ thống Moodle được cấu hình thông minh và trực quan hóa tối đa để đồng\n                    hành cùng học viên trong suốt chặng đường học tập:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Watch high-quality recorded lecture videos anytime, anywhere.' : 'Xem video bài giảng ghi hình chất lượng cao mọi lúc mọi nơi.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Download study materials, curriculum, and lecture slides directly.' : 'Tải tài liệu học tập, giáo trình, slide bài giảng trực tiếp.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Submit assignments, track grades, and receive feedback directly from lecturers.' : 'Nộp bài tập, theo dõi điểm số và nhận feedback trực tiếp từ giảng viên.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Discussion forums among students in the classroom.' : 'Diễn đàn trao đổi thảo luận giữa các học viên trong lớp học.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Watch high-quality recorded lecture videos anytime, anywhere.' : 'Xem video bài giảng ghi hình chất lượng cao mọi lúc mọi nơi.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Download study materials, curriculum, and lecture slides directly.' : 'Tải tài liệu học tập, giáo trình, slide bài giảng trực tiếp.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Submit assignments, track grades, and receive feedback directly from lecturers.' : 'Nộp bài tập, theo dõi điểm số và nhận feedback trực tiếp từ giảng viên.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Discussion forums among students in the classroom.' : 'Diễn đàn trao đổi thảo luận giữa các học viên trong lớp học.'; ?></li>
                 </ul>
             </div>
             <div class="platform-visual">
@@ -1030,10 +1030,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3>IDEAS AI Platform</h3>
                 <p><?php echo $is_en ? 'An academic support platform integrated with smart Large Language Models (LLM) trained specifically for graduate study environments, helping students resolve academic challenges quickly:' : 'Nền tảng hỗ trợ học vụ tích hợp mô hình ngôn ngữ lớn (LLM) thông minh được huấn luyện chuyên sâu cho\n                    môi trường học tập sau đại học, giúp học viên giải quyết nhanh chóng các khó khăn học thuật:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Explain specialized economic and financial terminology in English/Vietnamese.' : 'Giải thích các thuật ngữ chuyên ngành kinh tế, tài chính bằng tiếng Việt.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Summarize reference materials hundreds of pages long quickly.' : 'Tóm tắt nội dung tài liệu tham khảo dài hàng trăm trang nhanh chóng.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Suggest research directions and structures for graduation theses.' : 'Gợi ý hướng nghiên cứu và cấu trúc đề án luận văn tốt nghiệp.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Operating 24/7 with instant responses to relieve self-study pressure.' : 'Hoạt động 24/7 phản hồi tức thì giải tỏa áp lực tự học.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Explain specialized economic and financial terminology in English/Vietnamese.' : 'Giải thích các thuật ngữ chuyên ngành kinh tế, tài chính bằng tiếng Việt.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Summarize reference materials hundreds of pages long quickly.' : 'Tóm tắt nội dung tài liệu tham khảo dài hàng trăm trang nhanh chóng.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Suggest research directions and structures for graduation theses.' : 'Gợi ý hướng nghiên cứu và cấu trúc đề án luận văn tốt nghiệp.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Operating 24/7 with instant responses to relieve self-study pressure.' : 'Hoạt động 24/7 phản hồi tức thì giải tỏa áp lực tự học.'; ?></li>
                 </ul>
             </div>
             <div class="platform-visual">
@@ -1049,9 +1049,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3><?php echo $is_en ? 'Cengage Digital Library' : 'Thư viện số Cengage'; ?></h3>
                 <p><?php echo $is_en ? 'Cengage Learning is one of the world\'s largest educational publishers. Students at IDEAS are granted free access to a massive digital library:' : 'Cengage Learning là một trong những nhà xuất bản giáo dục lớn nhất thế giới. Học viên tại IDEAS được\n                    cấp quyền truy cập miễn phí vào kho tàng tri thức số khổng lồ:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Over 1,000+ original English academic books specialized in Economics.' : 'Hơn 1.000+ đầu sách học thuật nguyên bản tiếng Anh chuyên ngành Kinh tế.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'The latest updated textbooks serving MBA/DBA courses.' : 'Các giáo trình cập nhật mới nhất phục vụ cho các môn học MBA/DBA.'; ?></li>
-                    <li><i class="fa-solid fa-circle-check"></i> <?php echo $is_en ? 'Read books online easily on computers, tablets, and mobile phones.' : 'Đọc sách trực tuyến dễ dàng trên máy tính, máy tính bảng và điện thoại di động.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Over 1,000+ original English academic books specialized in Economics.' : 'Hơn 1.000+ đầu sách học thuật nguyên bản tiếng Anh chuyên ngành Kinh tế.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'The latest updated textbooks serving MBA/DBA courses.' : 'Các giáo trình cập nhật mới nhất phục vụ cho các môn học MBA/DBA.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Read books online easily on computers, tablets, and mobile phones.' : 'Đọc sách trực tuyến dễ dàng trên máy tính, máy tính bảng và điện thoại di động.'; ?></li>
                 </ul>
 
                 <!-- Blog Post Card Link -->
@@ -1060,9 +1060,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/cengage-blog-1.webp" alt="Tài liệu Cengage tại IDEAS" loading="lazy" />
                     </div>
                     <div class="cengage-post-card-content">
-                        <span class="cengage-post-card-tag"><i class="fa-solid fa-book-open"></i> <?php echo $is_en ? 'Featured Article' : 'Bài viết nổi bật'; ?></span>
+                        <span class="cengage-post-card-tag"><svg class="svg-icon fa-book-open fa-solid" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z"/></svg> <?php echo $is_en ? 'Featured Article' : 'Bài viết nổi bật'; ?></span>
                         <h4 class="cengage-post-card-title"><?php echo $is_en ? 'Cengage Materials at IDEAS: The Competitive Edge of Online Learning' : 'Tài liệu Cengage tại IDEAS: Lợi thế cạnh tranh học online'; ?></h4>
-                        <span class="cengage-post-card-link"><?php echo $is_en ? 'Read Article' : 'Đọc bài viết'; ?> <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="cengage-post-card-link"><?php echo $is_en ? 'Read Article' : 'Đọc bài viết'; ?> <svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span>
                     </div>
                 </a>
             </div>
@@ -1094,7 +1094,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <button type="submit" class="btn btn-primary btn-full"
                     style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
                     <?php echo $is_en ? 'Register for Consultation Now' : 'Đăng ký tư vấn ngay'; ?>
-                    <i class="fa-solid fa-paper-plane"></i>
+                    <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
                 </button>
             </form>
         </div>

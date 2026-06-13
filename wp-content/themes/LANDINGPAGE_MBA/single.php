@@ -1132,14 +1132,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Hero Header Card -->
                             <article class="article-hero">
                                 <div class="article-breadcrumbs">
-                                    <a href="<?php echo esc_url(home_url('/')); ?>"><i class="fa-solid fa-house"></i> <?php echo $is_en ? 'Home' : 'Trang chủ'; ?></a>
-                                    <i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>
+                                    <a href="<?php echo esc_url(home_url('/')); ?>"><svg class="svg-icon fa-house fa-solid" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg> <?php echo $is_en ? 'Home' : 'Trang chủ'; ?></a>
+                                    <svg class="svg-icon fa-chevron-right fa-solid" style="font-size: 0.65rem;" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                                     <?php
                                     $categories = get_the_category();
                                     if (!empty($categories)) {
                                         $cat = $categories[0];
                                         echo '<a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a>';
-                                        echo '<i class="fa-solid fa-chevron-right" style="font-size: 0.65rem;"></i>';
+                                        echo '<svg class="svg-icon fa-chevron-right fa-solid" style="font-size: 0.65rem;" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>';
                                     }
                                     ?>
                                     <span><?php the_title(); ?></span>
@@ -1153,12 +1153,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                 <div class="article-meta-row">
                                     <div class="meta-info-item">
-                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <svg class="svg-icon fa-calendar-days fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 400l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z"/></svg>
                                         <span><?php echo get_the_date('d/m/Y'); ?></span>
                                     </div>
 
                                     <div class="meta-info-item">
-                                        <i class="fa-solid fa-clock"></i>
+                                        <svg class="svg-icon fa-clock fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
                                         <?php
                                         $post_content = get_the_content();
                                         $word_count = str_word_count(strip_tags($post_content));
@@ -1170,7 +1170,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
 
                                     <div class="meta-info-item">
-                                        <i class="fa-regular fa-eye"></i>
+                                        <svg class="svg-icon fa-eye fa-regular" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"/></svg>
                                         <span><?php echo number_format(ideas_get_post_views(get_the_ID())); ?> <?php echo $is_en ? 'views' : 'lượt xem'; ?></span>
                                     </div>
                                 </div>
@@ -1190,11 +1190,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="toc-box" id="dynamic-toc-container" style="display: none;">
                                         <div class="toc-header" id="toc-header-toggle">
                                             <div class="toc-title-area">
-                                                <i class="fa-solid fa-list-ul"></i>
+                                                <svg class="svg-icon fa-list-ul fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/></svg>
                                                 <span><?php echo $is_en ? 'Table of Contents' : 'Mục lục bài viết'; ?></span>
                                             </div>
                                             <button class="toc-toggle-btn" aria-label="Toggle TOC">
-                                                <i class="fa-solid fa-chevron-down"></i>
+                                                <svg class="svg-icon fa-chevron-down fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
                                             </button>
                                         </div>
                                         <div class="toc-body">
@@ -1215,7 +1215,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             </div>
                                             <button id="btn-gemini-summarize" class="summary-btn" data-post-id="<?php the_ID(); ?>">
                                                 <span><?php echo $is_en ? 'Summarize with AI' : 'Tóm tắt bằng AI'; ?></span>
-                                                <i class="fa-solid fa-bolt"></i>
+                                                <svg class="svg-icon fa-bolt fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"/></svg>
                                             </button>
                                         </div>
                                         <div id="gemini-summary-result" class="summary-result-content" style="display: none;"></div>
@@ -1247,14 +1247,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <span class="share-label"><?php echo $is_en ? 'Share this article:' : 'Chia sẻ bài viết:'; ?></span>
                                     <div class="share-buttons">
                                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo esc_url(get_permalink()); ?>"
-                                            target="_blank" class="share-btn facebook" aria-label="Chia sẻ bài viết lên Facebook"><i
-                                                class="fa-brands fa-facebook-f"></i></a>
+                                            target="_blank" class="share-btn facebook" aria-label="Chia sẻ bài viết lên Facebook"><svg class="svg-icon fa-facebook-f fa-brands" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg></a>
                                         <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo esc_url(get_permalink()); ?>"
-                                            target="_blank" class="share-btn linkedin" aria-label="Chia sẻ bài viết lên LinkedIn"><i
-                                                class="fa-brands fa-linkedin-in"></i></a>
+                                            target="_blank" class="share-btn linkedin" aria-label="Chia sẻ bài viết lên LinkedIn"><svg class="svg-icon fa-linkedin-in fa-brands" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
                                         <a href="https://twitter.com/intent/tweet?url=<?php echo esc_url(get_permalink()); ?>"
-                                            target="_blank" class="share-btn twitter" aria-label="Chia sẻ bài viết lên Twitter"><i
-                                                class="fa-brands fa-x-twitter"></i></a>
+                                            target="_blank" class="share-btn twitter" aria-label="Chia sẻ bài viết lên Twitter"><svg class="svg-icon fa-x-twitter fa-brands" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
                                     </div>
                                 </div>
 
@@ -1275,7 +1272,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                                     <img src="<?php echo esc_url($prev_img); ?>" alt="" class="nav-card-avatar" onload="this.parentElement.classList.remove('skeleton')">
                                                 </div>
                                                 <div class="nav-card-info">
-                                                    <span class="nav-card-label"><i class="fa-solid fa-arrow-left"></i> <?php echo $is_en ? 'Previous Post' : 'Bài trước đó'; ?></span>
+                                                    <span class="nav-card-label"><svg class="svg-icon fa-arrow-left fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg> <?php echo $is_en ? 'Previous Post' : 'Bài trước đó'; ?></span>
                                                     <span class="nav-card-title"><?php echo esc_html(get_the_title($prev_post->ID)); ?></span>
                                                 </div>
                                             </a>
@@ -1298,7 +1295,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                                     <img src="<?php echo esc_url($next_img); ?>" alt="" class="nav-card-avatar" onload="this.parentElement.classList.remove('skeleton')">
                                                 </div>
                                                 <div class="nav-card-info">
-                                                    <span class="nav-card-label"><?php echo $is_en ? 'Next Post' : 'Bài tiếp theo'; ?> <i class="fa-solid fa-arrow-right"></i></span>
+                                                    <span class="nav-card-label"><?php echo $is_en ? 'Next Post' : 'Bài tiếp theo'; ?> <svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span>
                                                     <span class="nav-card-title"><?php echo esc_html(get_the_title($next_post->ID)); ?></span>
                                                 </div>
                                             </a>
@@ -1331,7 +1328,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             <option value="Dual DBA"><?php echo $is_en ? 'Dual DBA (UK &amp; France Doctor of Business Administration)' : 'Dual DBA (Tiến sĩ song bằng Pháp &amp; Anh)'; ?></option>
                                         </select>
                                         <textarea rows="3" placeholder="<?php echo $is_en ? 'Notes on your experience, requirements...' : 'Ghi chú về kinh nghiệm, nhu cầu của bạn...'; ?>" aria-label="<?php echo $is_en ? 'Additional notes' : 'Ghi chú thêm'; ?>"></textarea>
-                                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> <?php echo $is_en ? 'Register Now' : 'Đăng ký ngay'; ?></button>
+                                        <button type="submit"><svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg> <?php echo $is_en ? 'Register Now' : 'Đăng ký ngay'; ?></button>
                                     </form>
                                 </div>
 
@@ -1339,12 +1336,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="sidebar-widget reel-sidebar-promo-widget" style="padding: 0; background: transparent; border: none; box-shadow: none; margin-top: 0 !important; margin-bottom: 0 !important;">
                                     <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-card" style="margin: 0 !important;">
                                         <div class="reel-promo-icon">
-                                            <i class="fa-solid fa-play"></i>
+                                            <svg class="svg-icon fa-play fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                                         </div>
                                         <div class="reel-promo-info">
                                             <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
                                             <span class="reel-promo-link">
-                                                <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
+                                                <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                                             </span>
                                         </div>
                                     </a>
@@ -1596,7 +1593,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 if (cachedSummary) {
                     summaryResult.innerHTML = cachedSummary;
                     summaryResult.style.display = 'block';
-                    btnSummarize.innerHTML = `<span>\${isEnMode ? 'AI Summarized' : 'Đã tóm tắt bằng AI'}</span><i class="fa-solid fa-check"></i>`;
+                    btnSummarize.innerHTML = `<span>\${isEnMode ? 'AI Summarized' : 'Đã tóm tắt bằng AI'}</span><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
                     btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
                     btnSummarize.disabled = true;
                 }
@@ -1608,8 +1605,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                     // Disable button and update UI state
                     btnSummarize.disabled = true;
-                    const originalBtnContent = '<span><?php echo $is_en ? 'Summarize with AI' : 'Tóm tắt bằng AI'; ?></span><i class="fa-solid fa-bolt"></i>';
-                    btnSummarize.innerHTML = `<span>\${isEnMode ? 'Analyzing...' : 'Đang phân tích...'}</span><i class="fa-solid fa-spinner fa-spin"></i>`;
+                    const originalBtnContent = '<span><?php echo $is_en ? 'Summarize with AI' : 'Tóm tắt bằng AI'; ?></span><svg class="svg-icon fa-bolt fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"/></svg>';
+                    btnSummarize.innerHTML = `<span>\${isEnMode ? 'Analyzing...' : 'Đang phân tích...'}</span><svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>`;
                     btnSummarize.style.background = ''; // reset to default red gradient while loading
 
                     // Inject loading shimmer animation
@@ -1641,12 +1638,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                 // Render AI summary list
                                 summaryResult.innerHTML = res.data;
-                                btnSummarize.innerHTML = `<span>\${isEnMode ? 'Summary Complete!' : 'Tóm tắt thành công!'}</span><i class="fa-solid fa-check"></i>`;
+                                btnSummarize.innerHTML = `<span>\${isEnMode ? 'Summary Complete!' : 'Tóm tắt thành công!'}</span><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
                                 btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
 
                                 // Change text to "Đã tóm tắt bằng AI" after 2 seconds but keep disabled
                                 setTimeout(() => {
-                                    btnSummarize.innerHTML = `<span>${isEnMode ? 'AI Summarized' : 'Đã tóm tắt bằng AI'}</span><i class="fa-solid fa-check"></i>`;
+                                    btnSummarize.innerHTML = `<span>${isEnMode ? 'AI Summarized' : 'Đã tóm tắt bằng AI'}</span><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
                                 }, 2000);
                             } else {
                                 // Render API error message
@@ -1663,7 +1660,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     function showError(message) {
                         summaryResult.innerHTML = `
                             <div class="summary-error-notice">
-                                <i class="fa-solid fa-circle-exclamation"></i>
+                                <svg class="svg-icon fa-circle-exclamation fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
                                 <span>${message}</span>
                             </div>
                         `;
@@ -1803,7 +1800,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const btn = form.querySelector('button[type="submit"]');
                 const origText = btn.innerHTML;
                 btn.disabled = true;
-                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${isEnMode ? 'Submitting...' : 'Đang gửi...'}`;
+                btn.innerHTML = `<svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg> ${isEnMode ? 'Submitting...' : 'Đang gửi...'}`;
 
                 const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
                     method: "POST",

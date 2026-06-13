@@ -629,7 +629,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="contact-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');"></div>
             <div class="contact-hero-overlay"></div>
             <div class="contact-hero-container">
-                <span class="contact-hero-badge"><i class="fa-solid fa-envelope"></i> <?php echo $is_en ? 'Contact Admissions &amp; Feedback' : 'Liên hệ tuyển sinh'; ?></span>
+                <span class="contact-hero-badge"><svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg> <?php echo $is_en ? 'Contact Admissions &amp; Feedback' : 'Liên hệ tuyển sinh'; ?></span>
                 <h1><span><?php echo $is_en ? 'CONTACT FOR COUNSELING' : 'LIÊN HỆ TƯ VẤN'; ?></span> <br><?php echo $is_en ? '1:1 Academic Support' : 'Hỗ trợ học vụ 1:1'; ?></h1>
                 <p><?php echo $is_en ? 'Connect directly with the Admissions Board &amp; Academic Specialists of IDEAS to receive scholarship details and optimal learning roadmaps.' : 'Kết nối trực tiếp với Ban tuyển sinh &amp; Chuyên viên học vụ của Viện IDEAS để nhận thông tin học bổng, lộ trình học tập tối ưu.'; ?></p>
             </div>
@@ -642,24 +642,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Left: Contact Details -->
                 <div class="contact-info-column">
                     <div class="contact-info-card">
-                        <h2><i class="fa-solid fa-circle-nodes"></i> <?php echo $is_en ? 'IDEAS Office' : 'Văn phòng IDEAS'; ?></h2>
+                        <h2><svg class="svg-icon fa-circle-nodes fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M418.4 157.9c35.3-8.3 61.6-40 61.6-77.9c0-44.2-35.8-80-80-80c-43.4 0-78.7 34.5-80 77.5L136.2 151.1C121.7 136.8 101.9 128 80 128c-44.2 0-80 35.8-80 80s35.8 80 80 80c12.2 0 23.8-2.7 34.1-7.6L259.7 407.8c-2.4 7.6-3.7 15.8-3.7 24.2c0 44.2 35.8 80 80 80s80-35.8 80-80c0-27.7-14-52.1-35.4-66.4l37.8-207.7zM156.3 232.2c2.2-6.9 3.5-14.2 3.7-21.7l183.8-73.5c3.6 3.5 7.4 6.7 11.6 9.5L317.6 354.1c-5.5 1.3-10.8 3.1-15.8 5.5L156.3 232.2z"/></svg> <?php echo $is_en ? 'IDEAS Office' : 'Văn phòng IDEAS'; ?></h2>
                         <div class="info-details">
                             <div class="info-item">
-                                <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="info-icon"><svg class="svg-icon fa-location-dot fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></div>
                                 <div class="info-content">
                                     <span class="info-label"><?php echo $is_en ? 'Headquarters' : 'Trụ sở chính'; ?></span>
                                     <span class="info-value"><?php echo $is_en ? '4th Floor, Hai Au Building, 39B Truong Son, Tan Son Nhat Ward, Tan Binh District, HCMC' : 'Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, Quận Tân Bình, TP.HCM'; ?></span>
                                 </div>
                             </div>
                             <div class="info-item">
-                                <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="info-icon"><svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></div>
                                 <div class="info-content">
                                     <span class="info-label"><?php echo $is_en ? 'Admissions Hotline' : 'Hotline Tuyển sinh'; ?></span>
                                     <span class="info-value"><a href="tel:02822442244">028 2244 2244</a></span>
                                 </div>
                             </div>
                             <div class="info-item">
-                                <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="info-icon"><svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></div>
                                 <div class="info-content">
                                     <span class="info-label"><?php echo $is_en ? 'Support Email' : 'Email hỗ trợ'; ?></span>
                                     <span class="info-value"><a href="mailto:info@ideas.edu.vn">info@ideas.edu.vn</a></span>
@@ -669,7 +669,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                         <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
                             <h3 style="font-size:1.05rem; font-weight:800; color:#0f172a; margin: 0 0 10px; display:flex; align-items:center; gap:8px;">
-                                <i class="fa-solid fa-comments" style="color:#ab0e00;"></i> <?php echo $is_en ? 'Quick Contact' : 'Liên hệ nhanh'; ?>
+                                <svg class="svg-icon fa-comments fa-solid" style="color:#ab0e00;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2s0 0 0 0s0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.2-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9c0 0 0 0 0 0s0 0 0 0l-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></svg> <?php echo $is_en ? 'Quick Contact' : 'Liên hệ nhanh'; ?>
                             </h3>
                             <p style="font-size:0.82rem; color:#4b5563; margin: 0 0 16px; line-height: 1.5;"><?php echo $is_en ? 'If you need to discuss immediately, you can chat via Zalo or schedule a video counseling session.' : 'Nếu cần trao đổi ngay, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video.'; ?></p>
                             <div class="contact-action-row">
@@ -919,7 +919,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const originalBtnHtml = btn.innerHTML;
                 btn.disabled = true;
                 btn.style.opacity = '0.7';
-                btn.innerHTML = `<span><i class="fa-solid fa-spinner fa-spin"></i> ${isEnMode ? 'Submitting...' : 'Đang gửi...'}</span>`;
+                btn.innerHTML = `<span><svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg> ${isEnMode ? 'Submitting...' : 'Đang gửi...'}</span>`;
 
                 try {
                     const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {

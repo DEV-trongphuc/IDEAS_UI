@@ -567,7 +567,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="podcast-hero-overlay"></div>
             <div class="podcast-hero-container">
                 <span class="podcast-hero-badge">
-                    <i class="fa-solid fa-microphone-lines"></i> Podcast Series 01
+                    <svg class="svg-icon fa-microphone-lines fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 96l0 160c0 53 43 96 96 96s96-43 96-96l-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0 0-32-80 0c-8.8 0-16-7.2-16-16s7.2-16 16-16l80 0c0-53-43-96-96-96S96 43 96 96zM320 240l0 16c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c0 89.1 66.2 162.7 152 174.4l0 33.6-48 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l72 0 72 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-33.6c85.8-11.7 152-85.3 152-174.4l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 24z"/></svg> Podcast Series 01
                 </span>
                 <h1><?php echo $is_en ? 'Overcoming English Barriers <br><span>by Applying AI</span>' : 'Vượt rào cản tiếng Anh <br><span>bằng cách ứng dụng AI</span>'; ?></h1>
                 <p><?php echo $is_en ? 'Discover how to use Artificial Intelligence to overcome language barriers and improve international standard learning performance with IDEAS' : 'Khám phá cách thức sử dụng Trí Tuệ Nhân Tạo để khắc phục rào cản ngoại ngữ, nâng cao hiệu suất học\n                    tập chuẩn quốc tế cùng IDEAS'; ?></p>
@@ -588,11 +588,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <h2 id="current-video-title"><?php echo $is_en ? 'Loading video...' : 'Đang tải video...'; ?></h2>
                         <div class="meta-row">
                             <div class="meta-item">
-                                <i class="fa-regular fa-clock"></i>
+                                <svg class="svg-icon fa-clock fa-regular" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
                                 <span id="current-video-duration">-</span>
                             </div>
                             <div class="meta-item">
-                                <i class="fa-solid fa-headphones"></i>
+                                <svg class="svg-icon fa-headphones fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 80C149.9 80 62.4 159.4 49.6 262c9.4-3.8 19.6-6 30.4-6c26.5 0 48 21.5 48 48l0 128c0 26.5-21.5 48-48 48c-44.2 0-80-35.8-80-80l0-16 0-48 0-48C0 146.6 114.6 32 256 32s256 114.6 256 256l0 48 0 48 0 16c0 44.2-35.8 80-80 80c-26.5 0-48-21.5-48-48l0-128c0-26.5 21.5-48 48-48c10.8 0 21 2.1 30.4 6C449.6 159.4 362.1 80 256 80z"/></svg>
                                 <span><?php echo $is_en ? 'High-quality Audio' : 'Âm thanh chất lượng cao'; ?></span>
                             </div>
                         </div>
@@ -602,7 +602,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Right: Playlist Sidebar -->
                 <div class="playlist-column">
                     <div class="playlist-header">
-                        <h3><i class="fa-solid fa-headphones"></i> <?php echo $is_en ? 'Playlist' : 'Danh sách phát'; ?></h3>
+                        <h3><svg class="svg-icon fa-headphones fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 80C149.9 80 62.4 159.4 49.6 262c9.4-3.8 19.6-6 30.4-6c26.5 0 48 21.5 48 48l0 128c0 26.5-21.5 48-48 48c-44.2 0-80-35.8-80-80l0-16 0-48 0-48C0 146.6 114.6 32 256 32s256 114.6 256 256l0 48 0 48 0 16c0 44.2-35.8 80-80 80c-26.5 0-48-21.5-48-48l0-128c0-26.5 21.5-48 48-48c10.8 0 21 2.1 30.4 6C449.6 159.4 362.1 80 256 80z"/></svg> <?php echo $is_en ? 'Playlist' : 'Danh sách phát'; ?></h3>
                         <span class="video-count-badge" id="video-count"><?php echo $is_en ? '0 videos' : '0 video'; ?></span>
                     </div>
                     <div class="playlist-scroll" data-lenis-prevent>
@@ -617,7 +617,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <!-- Cooperation Block -->
         <section class="podcast-coop">
             <div class="coop-container">
-                <h2 class="coop-title"><i class="fa-solid fa-handshake-simple"></i> <?php echo $is_en ? 'Co-producing <b>Partners</b>' : 'Đơn vị <b>Đồng hành</b>'; ?></h2>
+                <h2 class="coop-title"><svg class="svg-icon fa-handshake-simple fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L550.2 352l41.8 0c26.5 0 48-21.5 48-48l0-128c0-26.5-21.5-48-48-48l-76 0-4 0-.7 0-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48-80 0c-26.5 0-48 21.5-48 48L0 304c0 26.5 21.5 48 48 48l108.2 0 91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123z"/></svg> <?php echo $is_en ? 'Co-producing <b>Partners</b>' : 'Đơn vị <b>Đồng hành</b>'; ?></h2>
                 <p class="coop-sub"><?php echo $is_en ? 'Academic sponsors and co-producers of the Podcast program' : 'Các đơn vị tài trợ học thuật và đồng sản xuất chương trình Podcast'; ?></p>
 
                 <div class="coop-grid">
@@ -700,7 +700,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li data-index="${index}" class="${index === 0 ? "active" : ""}">
                             <p class="title">${index + 1}. ${item.title}</p>
                             <p class="details">
-                                <span><i class="fa-solid fa-play"></i> ${item.duration}</span>
+                                <span><svg class="svg-icon fa-play fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg> ${item.duration}</span>
                                 <span>${item.type}</span>
                             </p>
                         </li>

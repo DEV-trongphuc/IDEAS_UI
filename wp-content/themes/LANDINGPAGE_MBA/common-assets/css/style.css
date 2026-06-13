@@ -13826,3 +13826,25 @@ body .cta-headline {
   z-index: 2147483647 !important;
 }
 
+
+/* ==========================================================================
+   CUSTOM SVG ICONS HELPER STYLES (FontAwesome CDN Replacement)
+   ========================================================================== */
+.svg-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    overflow: visible;
+}
+.fa-spin {
+    animation: fa-spin 2s infinite linear;
+}
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

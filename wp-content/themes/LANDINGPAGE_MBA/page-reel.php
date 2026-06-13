@@ -392,7 +392,7 @@ $reels = [
 
     <!-- Back Button -->
     <a href="<?php echo home_url('/'); ?>" class="reel-back-btn" aria-label="<?php echo $is_en ? 'Home' : 'Trang chủ'; ?>">
-        <i class="fa-solid fa-arrow-left"></i>
+        <svg class="svg-icon fa-arrow-left fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
     </a>
 
     <!-- central viewport frame -->
@@ -401,7 +401,7 @@ $reels = [
             <?php foreach ($reels as $index => $r): ?>
                 <div class="reel-slide" data-index="<?php echo $index; ?>" data-reel-id="<?php echo esc_attr($r['id']); ?>">
                     <div class="reel-video-loading">
-                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
                     </div>
                     <div class="fb-reel-wrapper">
                         <!-- Dynamically loaded iframe goes here -->
@@ -409,7 +409,7 @@ $reels = [
                     <div class="reel-info-overlay">
                         <button class="reel-info-cta" onclick="showform('Reel Page - <?php echo esc_js($r['title']); ?>')">
                             <span><?php echo $is_en ? 'Free Counseling' : 'Nhận tư vấn ngay'; ?></span>
-                            <i class="fa-solid fa-chevron-right"></i>
+                            <svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </button>
                     </div>
                 </div>
@@ -418,10 +418,10 @@ $reels = [
         
         <!-- chevrons -->
         <button id="reel-btn-prev" class="reel-nav-arrow prev" aria-label="Previous Video">
-            <i class="fa-solid fa-chevron-up"></i>
+            <svg class="svg-icon fa-chevron-up fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
         </button>
         <button id="reel-btn-next" class="reel-nav-arrow next" aria-label="Next Video">
-            <i class="fa-solid fa-chevron-down"></i>
+            <svg class="svg-icon fa-chevron-down fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </button>
     </div>
 

@@ -50,19 +50,19 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                 </a>
                 <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" class="social-icon facebook"
                     rel="nofollow noopener noreferrer" title="Facebook" aria-label="Facebook IDEAS">
-                    <i class="fa-brands fa-facebook-f"></i>
+                    <svg class="svg-icon fa-facebook-f fa-brands" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg>
                 </a>
                 <a target="_blank" href="https://www.youtube.com/c/Vi%E1%BB%87nIDEAS" class="social-icon youtube"
                     rel="nofollow noopener noreferrer" title="YouTube" aria-label="YouTube IDEAS">
-                    <i class="fa-brands fa-youtube"></i>
+                    <svg class="svg-icon fa-youtube fa-brands" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
                 </a>
                 <a target="_blank" href="https://www.linkedin.com/company/ideasinstitute/" class="social-icon linkedin"
                     rel="nofollow noopener noreferrer" title="LinkedIn" aria-label="LinkedIn IDEAS">
-                    <i class="fa-brands fa-linkedin-in"></i>
+                    <svg class="svg-icon fa-linkedin-in fa-brands" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
                 </a>
                 <a target="_blank" href="https://www.tiktok.com/@ideas_institute" class="social-icon tiktok"
                     rel="nofollow noopener noreferrer" title="TikTok" aria-label="TikTok IDEAS">
-                    <i class="fa-brands fa-tiktok"></i>
+                    <svg class="svg-icon fa-tiktok fa-brands" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
                 </a>
             </div>
         </div>
@@ -94,16 +94,16 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
         <div class="footer-col-contact">
             <h3><?php echo $is_en ? 'Contact' : 'Liên hệ'; ?></h3>
             <p class="contact-item">
-                <i class="fa-solid fa-phone"></i>
+                <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                 <span>028 2244 2244</span>
             </p>
             <p class="contact-item">
-                <i class="fa-solid fa-envelope"></i>
+                <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                 <span>info@ideas.edu.vn</span>
             </p>
             <p class="contact-item" style="display: block !important;">
                 <span style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
-                    <i class="fa-solid fa-file-invoice"></i>
+                    <svg class="svg-icon fa-file-invoice fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM80 64l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L80 96c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm16 96l192 0c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32L96 352c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32zm0 32l0 64 192 0 0-64L96 256zM240 416l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
                     <span><?php echo $is_en ? 'Tax ID: 0318949449' : 'MST: 0318949449'; ?></span>
                 </span>
                 <span style="display: block; font-size: 0.8rem; opacity: 0.75; padding-left: 26px; line-height: 1.4; margin-bottom: 4px;">
@@ -126,7 +126,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
     <div class="footer-middle-row">
         <div class="footer-addresses">
             <p class="address-item">
-                <i class="fa-solid fa-location-dot"></i>
+                <svg class="svg-icon fa-location-dot fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
                 <span>
                     <strong><?php echo $is_en ? 'Office:' : 'Văn phòng:'; ?></strong> 
                     <?php if ($is_en): ?>
@@ -156,12 +156,12 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
         <div class="footer-bottom-right">
             <div class="footer-bottom-links">
                 <a target="_blank" href="/dieu-khoan-su-dung">
-                    <i class="fa-solid fa-lock"></i>
+                    <svg class="svg-icon fa-lock fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>
                     <span><?php echo $is_en ? 'Terms & Privacy' : 'Điều khoản - bảo mật'; ?></span>
                 </a>
                 <span class="divider">|</span>
                 <a target="_blank" href="/trach-nhiem-mien-tru">
-                    <i class="fa-solid fa-shield-halved"></i>
+                    <svg class="svg-icon fa-shield-halved fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8l0 378.1C394 378 431.1 230.1 432 141.4L256 66.8s0 0 0 0z"/></svg>
                     <span><?php echo $is_en ? 'Disclaimer' : 'Trách nhiệm miễn trừ'; ?></span>
                 </a>
             </div>

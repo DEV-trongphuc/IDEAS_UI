@@ -869,7 +869,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="faculty-hero-overlay"></div>
         <div class="faculty-hero-content">
             <div class="faculty-hero-badge">
-                <i class="fa-solid fa-user-graduate"></i>
+                <svg class="svg-icon fa-user-graduate fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M219.3 .5c3.1-.6 6.3-.6 9.4 0l200 40C439.9 42.7 448 52.6 448 64s-8.1 21.3-19.3 23.5L352 102.9l0 57.1c0 70.7-57.3 128-128 128s-128-57.3-128-128l0-57.1L48 93.3l0 65.1 15.7 78.4c.9 4.7-.3 9.6-3.3 13.3s-7.6 5.9-12.4 5.9l-32 0c-4.8 0-9.3-2.1-12.4-5.9s-4.3-8.6-3.3-13.3L16 158.4l0-71.8C6.5 83.3 0 74.3 0 64C0 52.6 8.1 42.7 19.3 40.5l200-40zM111.9 327.7c10.5-3.4 21.8 .4 29.4 8.5l71 75.5c6.3 6.7 17 6.7 23.3 0l71-75.5c7.6-8.1 18.9-11.9 29.4-8.5C401 348.6 448 409.4 448 481.3c0 17-13.8 30.7-30.7 30.7L30.7 512C13.8 512 0 498.2 0 481.3c0-71.9 47-132.7 111.9-153.6z"/></svg>
                 <?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?>
             </div>
             <h1><?php echo $is_en ? 'Leading <em>Experts &amp; Specialists</em><br>at IDEAS' : 'Đội Ngũ <em>Chuyên Gia</em><br>Hàng Đầu Của IDEAS'; ?></h1>
@@ -896,7 +896,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <div class="section-header">
             <div class="section-badge">
-                <i class="fa-solid fa-graduation-cap"></i>
+                <svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
                 <?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?>
             </div>
             <h2 class="section-title"><?php echo $is_en ? 'Meet Our <em>Faculty Board &amp; Team</em>' : 'Gặp gỡ <em>Đội Ngũ Giảng Viên</em> của Chúng Tôi'; ?></h2>
@@ -906,15 +906,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <!-- Tab Navigation -->
         <div class="tab-nav" id="faculty-tabs" role="tablist">
             <button class="tab-btn active" id="tab-gv" data-tab="gv" role="tab" aria-selected="true">
-                <i class="fa-solid fa-chalkboard-user"></i> <?php echo $is_en ? 'Lecturers' : 'Giảng viên'; ?>
+                <svg class="svg-icon fa-chalkboard-user fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M160 64c0-35.3 28.7-64 64-64L576 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64l-239.2 0c-11.8-25.5-29.9-47.5-52.4-64l99.6 0 0-32c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 32 64 0 0-288L224 64l0 49.1C205.2 102.2 183.3 96 160 96l0-32zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352l53.3 0C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7L26.7 512C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg> <?php echo $is_en ? 'Lecturers' : 'Giảng viên'; ?>
                 <span class="tab-count" id="count-gv">15</span>
             </button>
             <button class="tab-btn" id="tab-cv" data-tab="cv" role="tab" aria-selected="false">
-                <i class="fa-solid fa-globe"></i> <?php echo $is_en ? 'International Advisors' : 'Cố vấn Quốc tế'; ?>
+                <svg class="svg-icon fa-globe fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z"/></svg> <?php echo $is_en ? 'International Advisors' : 'Cố vấn Quốc tế'; ?>
                 <span class="tab-count" id="count-cv">15</span>
             </button>
             <button class="tab-btn" id="tab-umef" data-tab="umef" role="tab" aria-selected="false">
-                <i class="fa-solid fa-building-columns"></i> <?php echo $is_en ? 'Swiss UMEF' : 'Swiss UMEF'; ?>
+                <svg class="svg-icon fa-building-columns fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg> <?php echo $is_en ? 'Swiss UMEF' : 'Swiss UMEF'; ?>
                 <span class="tab-count" id="count-umef">51</span>
             </button>
         </div>
@@ -933,7 +933,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="faculty-modal-cover-pattern"></div>
                 </div>
                 <button class="faculty-modal-close" id="modal-close" aria-label="<?php echo $is_en ? 'Close' : 'Đóng'; ?>">
-                    <i class="fa-solid fa-xmark"></i>
+                    <svg class="svg-icon fa-xmark fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
                 </button>
             </div>
             <div class="faculty-modal-body">
@@ -2322,7 +2322,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             grid.innerHTML = '';
 
             if (!list || list.length === 0) {
-                grid.innerHTML = '<div class="faculty-empty"><i class="fa-solid fa-users-slash" style="font-size:3rem;margin-bottom:16px;display:block;"></i>Chưa có dữ liệu</div>';
+                grid.innerHTML = '<div class="faculty-empty"><svg class="svg-icon fa-users-slash fa-solid" style="font-size:3rem;margin-bottom:16px;display:block;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L440.6 320l178.1 0c11.8 0 21.3-9.6 21.3-21.3C640 239.8 592.2 192 533.3 192l-42.7 0c-15.9 0-31 3.5-44.6 9.7c1.3 7.2 1.9 14.7 1.9 22.3c0 30.2-10.5 58-28 79.9l-25.2-19.7C408.1 267.7 416 246.8 416 224c0-53-43-96-96-96c-31.1 0-58.7 14.8-76.3 37.7l-40.6-31.8c13-14.2 20.9-33.1 20.9-53.9c0-44.2-35.8-80-80-80C116.3 0 91.9 14.1 77.5 35.5L38.8 5.1zM106.7 192C47.8 192 0 239.8 0 298.7C0 310.4 9.6 320 21.3 320l213.3 0c.2 0 .4 0 .7 0c-20.6-18.2-35.2-42.8-40.8-70.8L121.8 192l-15.2 0zM261.3 352C187.7 352 128 411.7 128 485.3c0 14.7 11.9 26.7 26.7 26.7l330.7 0c10.5 0 19.5-6 23.9-14.8L324.9 352l-63.6 0zM512 160A80 80 0 1 0 512 0a80 80 0 1 0 0 160z"/></svg>Chưa có dữ liệu</div>';
                 return;
             }
 
@@ -2339,7 +2339,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="faculty-card-img-wrap">
                     ${hasRealAvatar
                         ? `<img src="${person.avatar}" alt="${person.name}" loading="lazy" decoding="async">`
-                        : `<div class="faculty-avatar-placeholder"><i class="fa-solid fa-user-tie"></i></div>`
+                        : `<div class="faculty-avatar-placeholder"><svg class="svg-icon fa-user-tie fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z"/></svg></div>`
                     }
                 </div>
                 <div class="faculty-card-body">
@@ -2347,7 +2347,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="faculty-card-name">
                         ${person.name}
                         ${person.linkedin
-                            ? `<a href="${person.linkedin}" target="_blank" rel="noopener noreferrer" class="faculty-card-linkedin" onclick="event.stopPropagation();" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>`
+                            ? `<a href="${person.linkedin}" target="_blank" rel="noopener noreferrer" class="faculty-card-linkedin" onclick="event.stopPropagation();" aria-label="LinkedIn Profile"><svg class="svg-icon fa-linkedin fa-brands" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>`
                             : ''
                         }
                         ${person.website
@@ -2442,7 +2442,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const ph = document.createElement('div');
                 ph.className = 'faculty-modal-avatar-placeholder';
                 ph.id = 'modal-avatar-placeholder';
-                ph.innerHTML = '<i class="fa-solid fa-user-tie"></i>';
+                ph.innerHTML = '<svg class="svg-icon fa-user-tie fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zm94.5 200.2l18.6 31L175.8 483.1l-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7l131.7 0c0 0 0 0 .1 0l5.5 0 112 0 5.5 0c0 0 0 0 .1 0l131.7 0c17 0 30.7-13.8 30.7-30.7c0-75.5-51.9-138.9-121.9-156.4c-8.1-2-15.9 3.3-17.9 11.3l-36 146.9L238.9 359.2l18.6-31c6.4-10.7-1.3-24.2-13.7-24.2L224 304l-19.7 0c-12.4 0-20.1 13.6-13.7 24.2z"/></svg>';
                 cover.appendChild(ph);
             }
 
@@ -2452,7 +2452,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             coverName.innerHTML = `
                 ${person.name}
                 ${person.linkedin
-                    ? `<a href="${person.linkedin}" target="_blank" rel="noopener noreferrer" class="faculty-modal-linkedin" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>`
+                    ? `<a href="${person.linkedin}" target="_blank" rel="noopener noreferrer" class="faculty-modal-linkedin" aria-label="LinkedIn Profile"><svg class="svg-icon fa-linkedin fa-brands" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>`
                     : ''
                 }
                 ${person.website
@@ -2462,7 +2462,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             `;
             cover.appendChild(coverName);
 
-            document.getElementById('modal-tag').innerHTML = `<i class="fa-solid fa-certificate"></i> ${person.tag}`;
+            document.getElementById('modal-tag').innerHTML = `<svg class="svg-icon fa-certificate fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M211 7.3C205 1 196-1.4 187.6 .8s-14.9 8.9-17.1 17.3L154.7 80.6l-62-17.5c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l17.5 62L18.1 170.6c-8.4 2.1-15 8.7-17.3 17.1S1 205 7.3 211l46.2 45L7.3 301C1 307-1.4 316 .8 324.4s8.9 14.9 17.3 17.1l62.5 15.8-17.5 62c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l62-17.5 15.8 62.5c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l45-46.2 45 46.2c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3l15.8-62.5 62 17.5c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-17.5-62 62.5-15.8c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-46.2-45 46.2-45c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-62.5-15.8 17.5-62c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1l-62 17.5L341.4 18.1c-2.1-8.4-8.7-15-17.1-17.3S307 1 301 7.3L256 53.5 211 7.3z"/></svg> ${person.tag}`;
             document.getElementById('modal-name').textContent = person.name; // hidden via CSS but kept for a11y
             document.getElementById('modal-job').textContent = person.job;
 
@@ -2475,7 +2475,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 desList.style.display = '';
                 person.des.forEach(line => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<i class="fa-solid fa-check-circle"></i><span>${line}</span>`;
+                    li.innerHTML = `<svg class="svg-icon fa-check-circle fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>${line}</span>`;
                     desList.appendChild(li);
                 });
             } else {

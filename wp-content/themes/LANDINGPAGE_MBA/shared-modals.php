@@ -182,12 +182,12 @@ if ($is_en) {
             <?php if (is_single()) : ?>
                 <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-card">
                     <div class="reel-promo-icon">
-                        <i class="fa-solid fa-play"></i>
+                        <svg class="svg-icon fa-play fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                     </div>
                     <div class="reel-promo-info">
                         <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
                         <span class="reel-promo-link">
-                            <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
+                            <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </span>
                     </div>
                 </a>
@@ -354,12 +354,12 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
             <?php if (is_single()) : ?>
                 <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-card" style="margin-left: 20px; margin-right: 20px; width: calc(100% - 40px);">
                     <div class="reel-promo-icon">
-                        <i class="fa-solid fa-play"></i>
+                        <svg class="svg-icon fa-play fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
                     </div>
                     <div class="reel-promo-info">
                         <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
                         <span class="reel-promo-link">
-                            <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
+                            <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
                         </span>
                     </div>
                 </a>
@@ -560,7 +560,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 <div class="bk-confirm-item-data">
                     <span class="bk-confirm-lbl"><?php echo $is_en ? 'Appointment Time' : 'Lịch tư vấn'; ?></span>
                     <div class="bk-confirm-val">
-                        <i class="fa-regular fa-calendar-check"></i>
+                        <svg class="svg-icon fa-calendar-check fa-regular" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zM329 305c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-95 95-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L329 305z"/></svg>
                         <span id="bk-confirm-date">-</span> &nbsp;<?php echo $is_en ? 'at' : 'lúc'; ?>&nbsp;
                         <span id="bk-confirm-time">-</span>
                     </div>
@@ -843,7 +843,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 btn.disabled = true;
                 btn.style.opacity = '0.7';
                 originalBtnHtml = btn.innerHTML;
-                btn.innerHTML = isEnMode ? '<span><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>' : '<span><i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...</span>';
+                btn.innerHTML = isEnMode ? '<span><svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg> Sending...</span>' : '<span><svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg> Đang gửi...</span>';
             }
 
             try {
@@ -925,7 +925,7 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
         </div>
         <div class="accred-modal-video-pane" id="accred-video-pane">
             <div class="accred-video-loading">
-                <i class="fa-solid fa-spinner fa-spin"></i>
+                <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
             </div>
             <iframe id="accred-video-iframe" src="" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
         </div>
@@ -947,12 +947,12 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
         <button class="fb-reel-modal-close" aria-label="<?php echo $is_en ? 'Close' : 'Đóng'; ?>">&times;</button>
         <div class="fb-reel-video-wrapper">
             <div class="fb-reel-video-loading">
-                <i class="fa-solid fa-spinner fa-spin"></i>
+                <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
             </div>
             <iframe id="fb-reel-iframe" src="" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; encrypted-media; picture-in-picture"></iframe>
         </div>
         <a href="<?php echo $is_en ? home_url('/en/reel') : home_url('/reel'); ?>" class="fb-reel-more-btn" id="fb-reel-more-btn">
-            <span><?php echo $is_en ? 'Explore More Reels' : 'Khám phá thêm Reels tư vấn'; ?></span> <i class="fa-solid fa-chevron-right"></i>
+            <span><?php echo $is_en ? 'Explore More Reels' : 'Khám phá thêm Reels tư vấn'; ?></span> <svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
         </a>
     </div>
 </div>
@@ -964,6 +964,6 @@ $is_reel_page = (strpos($current_uri, '/reel') !== false);
 if (!$is_reel_page):
 ?>
 <a href="<?php echo $is_en ? home_url('/en/reel') : home_url('/reel'); ?>" class="global-floating-reel-btn" aria-label="<?php echo $is_en ? 'Watch Reels' : 'Xem Reels'; ?>">
-    <i class="fa-solid fa-circle-play"></i>
+    <svg class="svg-icon fa-circle-play fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
 </a>
 <?php endif; ?>

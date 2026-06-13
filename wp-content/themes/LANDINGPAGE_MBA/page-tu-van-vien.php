@@ -1054,7 +1054,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="verify-hero-overlay"></div>
         <div class="verify-hero-container">
             <span class="verify-badge">
-                <i class="fa-solid fa-user-shield"></i>
+                <svg class="svg-icon fa-user-shield fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c1.8 0 3.5-.2 5.3-.5c-76.3-55.1-99.8-141-103.1-200.2c-16.1-4.8-33.1-7.3-50.7-7.3l-91.4 0zm308.8-78.3l-120 48C358 277.4 352 286.2 352 296c0 63.3 25.9 168.8 134.8 214.2c5.9 2.5 12.6 2.5 18.5 0C614.1 464.8 640 359.3 640 296c0-9.8-6-18.6-15.1-22.3l-120-48c-5.7-2.3-12.1-2.3-17.8 0zM591.4 312c-3.9 50.7-27.2 116.7-95.4 149.7l0-187.8L591.4 312z"/></svg>
                 <?php echo $is_en ? 'Security & Transparency' : 'Bảo Mật &amp; Minh Bạch'; ?>
             </span>
             <h1><?php echo $is_en ? 'Verify <span>Admissions Advisors</span>' : 'Xác Thực <span>Tư Vấn Viên Tuyển Sinh</span>'; ?></h1>
@@ -1068,11 +1068,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <label for="advisor-search" class="search-label"><?php echo $is_en ? 'Enter the full phone number of the advisor to verify:' : 'Nhập đầy đủ số điện thoại tư vấn viên cần kiểm tra:'; ?></label>
             <div class="search-input-wrap">
                 <div class="search-input-box">
-                    <i class="fa-solid fa-phone search-icon-decor"></i>
+                    <svg class="svg-icon fa-phone fa-solid search-icon-decor" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                     <input type="text" id="advisor-search" class="search-input-field" placeholder="<?php echo $is_en ? 'e.g. 0901234017 or enter only the last 3 digits like 017' : 'Ví dụ: 0901234017 hoặc chỉ nhập 3 số đuôi như 017'; ?>">
                 </div>
                 <button type="button" id="btn-verify" class="btn-search-verify">
-                    <i class="fa-solid fa-user-check"></i>
+                    <svg class="svg-icon fa-user-check fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM625 177L497 305c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L591 143c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                     <?php echo $is_en ? 'Verify Now' : 'Kiểm tra ngay'; ?>
                 </button>
             </div>
@@ -1085,7 +1085,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <!-- Warning Notice Bar -->
         <div class="warning-notice-bar">
-            <i class="fa-solid fa-triangle-exclamation"></i>
+            <svg class="svg-icon fa-triangle-exclamation fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
             <div>
                 <h2><?php echo $is_en ? 'Fraud Prevention Alert' : 'Cảnh báo phòng tránh mạo danh'; ?></h2>
                 <p><?php echo $is_en ? 'There are cases of fraudsters pretending to be IDEAS staff to contact students and provide misleading information. Please remain highly vigilant against calls, messages, or contacts from unrecognized numbers not listed below.' : 'Hiện nay có tình trạng mạo danh nhân viên IDEAS để tiếp cận và cung cấp thông tin sai lệch đến học viên. Quý học viên hãy hết sức cảnh giác trước các cuộc gọi, tin nhắn hoặc liên hệ từ các số điện thoại lạ không nằm trong danh sách tư vấn viên chính thức.'; ?></p>
@@ -1109,11 +1109,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3 class="consultant-card-name">Lưu Phan Hoàng Phúc</h3>
                 <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone">
-                    <i class="fa-solid fa-phone"></i>
+                    <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                     <span>*********<strong>017</strong></span>
                 </div>
                 <div class="consultant-card-email">
-                    <i class="fa-solid fa-envelope"></i>
+                    <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                     <span>phuclph@ideas.edu.vn</span>
                 </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_phuc')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
@@ -1128,16 +1128,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone" style="display: inline-flex; flex-direction: column; gap: 6px; align-items: flex-start; padding: 8px 16px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <i class="fa-solid fa-phone"></i>
+                        <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                         <span>*********<strong>953</strong></span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 8px; border-top: 1px dashed rgba(203, 213, 225, 0.6); padding-top: 4px; width: 100%;">
-                        <i class="fa-solid fa-phone"></i>
+                        <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                         <span>*********<strong>427</strong></span>
                     </div>
                 </div>
                 <div class="consultant-card-email">
-                    <i class="fa-solid fa-envelope"></i>
+                    <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                     <span>danntl@ideas.edu.vn</span>
                 </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_dan')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
@@ -1151,11 +1151,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3 class="consultant-card-name">Lê Đinh Ý Nhi</h3>
                 <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone">
-                    <i class="fa-solid fa-phone"></i>
+                    <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                     <span>*********<strong>486</strong></span>
                 </div>
                 <div class="consultant-card-email">
-                    <i class="fa-solid fa-envelope"></i>
+                    <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                     <span>nhildy@ideas.edu.vn</span>
                 </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_nhi')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
@@ -1169,11 +1169,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3 class="consultant-card-name">Nguyễn Phương Uyên</h3>
                 <span class="consultant-card-role"><?php echo $is_en ? 'Admissions Advisor' : 'Tư vấn viên tuyển sinh'; ?></span>
                 <div class="consultant-card-phone">
-                    <i class="fa-solid fa-phone"></i>
+                    <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                     <span>*********<strong>935</strong></span>
                 </div>
                 <div class="consultant-card-email">
-                    <i class="fa-solid fa-envelope"></i>
+                    <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                     <span>uyennp@ideas.edu.vn</span>
                 </div>
                 <button type="button" class="btn-card-action" onclick="showform('tu_van_uyen')"><?php echo $is_en ? 'Get Counseling' : 'Nhận tư vấn'; ?></button>
@@ -1190,15 +1190,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p><?php echo $is_en ? 'IDEAS implements transparent and strict financial controls to secure information and maximize the legal rights of students:' : 'IDEAS áp dụng quy trình kiểm soát tài chính minh bạch và chặt chẽ nhằm bảo mật thông tin và bảo vệ quyền lợi hợp pháp tối đa cho học viên:'; ?></p>
                     <ul class="guidelines-list">
                         <li>
-                            <i class="fa-solid fa-circle-check"></i>
+                            <svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <span><?php echo $is_en ? 'All tuition collection accounts must belong to the corporate entity: <strong>IDEAS International Business Academy Joint Stock Company</strong>.' : 'Tất cả các tài khoản nhận đóng học phí đều phải trực thuộc pháp nhân của <strong>Công ty Cổ phần Học viện Kinh doanh Quốc Tế IDEAS</strong>.'; ?></span>
                         </li>
                         <li>
-                            <i class="fa-solid fa-circle-check"></i>
+                            <svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <span><?php echo $is_en ? 'When paying tuition via Sacombank installments, procedures are officially detailed in writing or contract.' : 'Khi đóng phí qua trả góp liên kết Sacombank, các thủ tục được hướng dẫn cụ thể qua văn bản hoặc hợp đồng chính thức.'; ?></span>
                         </li>
                         <li>
-                            <i class="fa-solid fa-circle-check"></i>
+                            <svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <span><?php echo $is_en ? 'All tuition receipts are sent directly from the official IDEAS email domain (ending with <strong>@ideas.edu.vn</strong>).' : 'Mọi biên nhận đóng học phí đều được gửi trực tiếp từ hệ thống email chính thức của IDEAS (có đuôi <strong>@ideas.edu.vn</strong>).'; ?></span>
                         </li>
                     </ul>
@@ -1206,7 +1206,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 <div class="bank-details-card">
                     <div class="bank-header">
-                        <i class="fa-solid fa-building-columns bank-logo"></i>
+                        <svg class="svg-icon fa-building-columns fa-solid bank-logo" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
                         <div>
                             <div class="bank-name">HD Bank</div>
                             <div style="font-size:0.85rem; color:#64748b; font-weight:600;"><?php echo $is_en ? 'Nhon Trach Branch' : 'Chi nhánh Nhơn Trạch'; ?></div>
@@ -1338,7 +1338,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         resultsContainer.innerHTML = `
                             <div class="result-card success">
                                 <div class="result-status-header">
-                                    <i class="fa-solid fa-circle-check"></i>
+                                    <svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                                     <span>${isEnMode ? 'Verification Successful' : 'Xác thực thành công'}</span>
                                 </div>
                                 <div class="result-desc">
@@ -1350,16 +1350,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <h4 class="matched-name">${matchedAdvisor.name}</h4>
                                         <span class="matched-role">${matchedAdvisor.role}</span>
                                         <div class="matched-phone">
-                                            <i class="fa-solid fa-phone"></i>
+                                            <svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
                                             <span>${isEnMode ? 'Phone Number:' : 'Số điện thoại:'} <strong>${maskedNum}</strong></span>
                                         </div>
                                         <div class="matched-email" style="display: flex; align-items: center; gap: 6px; font-size: 0.9rem; color: #475569; margin-top: 6px;">
-                                            <i class="fa-solid fa-envelope" style="color: #ab0e00;"></i>
+                                            <svg class="svg-icon fa-envelope fa-solid" style="color: #ab0e00;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                             <span>Email: <strong>${matchedAdvisor.email}</strong></span>
                                         </div>
                                         <div style="margin-top: 8px;">
                                             <span class="verified-badge-pill">
-                                                <i class="fa-solid fa-shield-halved"></i>
+                                                <svg class="svg-icon fa-shield-halved fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8l0 378.1C394 378 431.1 230.1 432 141.4L256 66.8s0 0 0 0z"/></svg>
                                                 Official Staff Verified
                                             </span>
                                         </div>
@@ -1372,7 +1372,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         resultsContainer.innerHTML = `
                             <div class="result-card error">
                                 <div class="result-status-header">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <svg class="svg-icon fa-triangle-exclamation fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
                                     <span>${isEnMode ? 'Impersonation Alert' : 'Cảnh báo mạo danh'}</span>
                                 </div>
                                 <div class="result-desc">
