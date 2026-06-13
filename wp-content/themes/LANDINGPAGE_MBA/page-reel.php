@@ -35,6 +35,12 @@ $reels = [
         'title' => $is_en ? 'Learning Experience at IDEAS' : 'Trải nghiệm học tập tại IDEAS',
         'desc' => $is_en ? 'Student feedback on the training quality and modern learning methods.' : 'Cảm nhận thực tế của học viên về chất lượng đào tạo và phương pháp học tập hiện đại.',
         'cover' => 'https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp'
+    ],
+    [
+        'id' => 'K6yEPI_t2Xk',
+        'title' => $is_en ? 'Because a career doesn\'t stop at "fine"' : 'Vì sự nghiệp không dừng lại ở “ổn”',
+        'desc' => $is_en ? 'Break your limits, elevate your knowledge, and expand your career opportunities with IDEAS.' : 'Bứt phá giới hạn bản thân, nâng tầm tri thức và mở rộng cơ hội thăng tiến cùng Viện IDEAS.',
+        'cover' => 'https://i.ytimg.com/vi/K6yEPI_t2Xk/hqdefault.jpg'
     ]
 ];
 ?>
