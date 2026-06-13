@@ -113,16 +113,15 @@ $reels = [
             z-index: 100;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 22px;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 100px;
+            border-radius: 50%;
             color: #fff;
-            font-size: 0.9rem;
-            font-weight: 700;
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -131,12 +130,12 @@ $reels = [
         .reel-back-btn:hover {
             background: rgba(171, 14, 0, 0.85);
             border-color: rgba(171, 14, 0, 0.95);
-            transform: translateX(-4px);
+            transform: scale(1.08) translateX(-2px);
             box-shadow: 0 8px 30px rgba(171, 14, 0, 0.4);
         }
 
         .reel-back-btn i {
-            font-size: 14px;
+            font-size: 18px;
             transition: transform 0.2s;
         }
 
@@ -340,18 +339,18 @@ $reels = [
         /* Responsive Overrides */
         @media (max-width: 992px) {
             .reel-nav-arrow {
-                right: 16px;
-                width: 38px;
-                height: 38px;
-                font-size: 14px;
+                right: 16px !important;
+                width: 38px !important;
+                height: 38px !important;
+                font-size: 14px !important;
             }
             .reel-nav-arrow.prev {
-                top: auto;
-                bottom: 110px;
+                top: calc(50% - 28px) !important;
+                bottom: auto !important;
             }
             .reel-nav-arrow.next {
-                top: auto;
-                bottom: 60px;
+                top: calc(50% + 28px) !important;
+                bottom: auto !important;
             }
         }
 
@@ -359,7 +358,7 @@ $reels = [
             .reel-app-frame {
                 max-width: 100% !important;
                 max-height: 100% !important;
-                height: 100dvh !important; /* DVH support to prevent clipping on mobile browser navbars */
+                height: 100dvh !important;
                 border-radius: 0 !important;
                 border: none !important;
                 top: 0 !important;
@@ -369,13 +368,16 @@ $reels = [
                 padding: 20px 20px calc(env(safe-area-inset-bottom) + 24px) !important;
             }
             .reel-nav-arrow {
-                right: 12px;
+                right: 12px !important;
             }
             .reel-back-btn {
-                top: 16px;
-                left: 16px;
-                padding: 8px 16px;
-                font-size: 0.8rem;
+                top: 16px !important;
+                left: 16px !important;
+                width: 38px !important;
+                height: 38px !important;
+            }
+            .reel-back-btn i {
+                font-size: 16px !important;
             }
         }
 
@@ -389,8 +391,8 @@ $reels = [
     <div class="reel-page-overlay"></div>
 
     <!-- Back Button -->
-    <a href="<?php echo home_url('/'); ?>" class="reel-back-btn">
-        <i class="fa-solid fa-arrow-left"></i> <span><?php echo $is_en ? 'Home' : 'Trang chủ'; ?></span>
+    <a href="<?php echo home_url('/'); ?>" class="reel-back-btn" aria-label="<?php echo $is_en ? 'Home' : 'Trang chủ'; ?>">
+        <i class="fa-solid fa-arrow-left"></i>
     </a>
 
     <!-- central viewport frame -->
