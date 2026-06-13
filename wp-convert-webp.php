@@ -111,19 +111,35 @@ if (isset($_GET['action'])) {
     // A. Scan uploads for WebP conversion
     if ($_GET['action'] === 'scan') {
         $images = [];
+        $already_converted = 0;
         if (is_dir($upload_dir)) {
             $it = new RecursiveDirectoryIterator($upload_dir);
             $display = new RecursiveIteratorIterator($it);
             foreach ($display as $file) {
                 if ($file->isFile()) {
-                    $ext = strtolower(pathinfo($file->getPathname(), PATHINFO_EXTENSION));
+                    $pathname = $file->getPathname();
+                    $ext = strtolower(pathinfo($pathname, PATHINFO_EXTENSION));
                     if (in_array($ext, ['jpg', 'jpeg', 'png'])) {
-                        $images[] = str_replace('\\', '/', $file->getPathname());
+                        $dir = pathinfo($pathname, PATHINFO_DIRNAME);
+                        $filename = pathinfo($pathname, PATHINFO_FILENAME);
+                        $destination = $dir . '/' . $filename . '.webp';
+                        
+                        if (file_exists($destination) && filesize($destination) > 0) {
+                            $already_converted++;
+                        } else {
+                            $images[] = str_replace('\\', '/', $pathname);
+                        }
                     }
                 }
             }
         }
-        echo json_encode(['success' => true, 'total' => count($images), 'images' => $images]);
+        echo json_encode([
+            'success' => true, 
+            'total' => count($images) + $already_converted, 
+            'already_converted' => $already_converted,
+            'need_conversion' => count($images),
+            'images' => $images
+        ]);
         exit;
     }
     
@@ -710,9 +726,9 @@ if (isset($_GET['action'])) {
             document.getElementById(tabId).classList.add('active');
         }
 
-        // --- WebP Conversion Logic ---
         let imageList = [];
         let currentIndex = 0;
+        let alreadyConvertedCount = 0;
         let isProcessing = false;
         let totalSavings = 0;
         let consecutiveErrors = 0; // Đếm số lỗi liên tiếp để dừng nếu hệ thống sập hoàn toàn
@@ -749,9 +765,15 @@ if (isset($_GET['action'])) {
                 const data = await res.json();
                 if (data.success) {
                     imageList = data.images;
-                    statTotal.textContent = imageList.length;
-                    addLog(`Quét hoàn tất. Tìm thấy ${imageList.length} ảnh cần tối ưu.`, 'success');
-                    if (imageList.length > 0) btnStart.disabled = false;
+                    alreadyConvertedCount = data.already_converted || 0;
+                    statTotal.textContent = data.total;
+                    statProcessed.textContent = alreadyConvertedCount;
+                    addLog(`Quét hoàn tất. Tổng số: ${data.total} ảnh. Đã chuyển đổi trước đó: ${alreadyConvertedCount} ảnh. Cần xử lý tiếp: ${imageList.length} ảnh.`, 'success');
+                    if (imageList.length > 0) {
+                        btnStart.disabled = false;
+                    } else {
+                        addLog(`Tất cả ${data.total} ảnh đã có phiên bản WebP! Không cần chạy thêm.`, 'success');
+                    }
                 } else {
                     addLog("Quét thất bại: " + data.message, 'error');
                 }
@@ -810,11 +832,11 @@ if (isset($_GET['action'])) {
             }
 
             const img = imageList[currentIndex];
-            const percent = Math.round((currentIndex / imageList.length) * 100);
+            const percent = Math.round(((currentIndex + alreadyConvertedCount) / (imageList.length + alreadyConvertedCount)) * 100);
             
             progressFill.style.width = `${percent}%`;
             progressPercent.textContent = `${percent}%`;
-            progressLabel.textContent = `Đang xử lý (${currentIndex + 1}/${imageList.length}): ${img.split('/').pop()}`;
+            progressLabel.textContent = `Đang xử lý (${currentIndex + alreadyConvertedCount + 1}/${imageList.length + alreadyConvertedCount}): ${img.split('/').pop()}`;
 
             // Thiết lập timeout 25 giây cho mỗi yêu cầu để tránh bị treo vô hạn
             const controller = new AbortController();
@@ -852,12 +874,12 @@ if (isset($_GET['action'])) {
                     }
                     consecutiveErrors = 0; // Reset số lỗi liên tiếp khi thành công
                     currentIndex++;
-                    statProcessed.textContent = currentIndex;
+                    statProcessed.textContent = currentIndex + alreadyConvertedCount;
                 } else {
                     addLog(`Lỗi xử lý ${img.split('/').pop()}: ${data.message}`, 'error');
                     consecutiveErrors = 0; // Server vẫn phản hồi JSON hợp lệ, không tính là lỗi sập
                     currentIndex++;
-                    statProcessed.textContent = currentIndex;
+                    statProcessed.textContent = currentIndex + alreadyConvertedCount;
                 }
             } catch (err) {
                 clearTimeout(timeoutId);
@@ -867,7 +889,7 @@ if (isset($_GET['action'])) {
                 
                 consecutiveErrors++;
                 currentIndex++; // BỎ QUA ảnh bị lỗi để tiếp tục hàng đợi!
-                statProcessed.textContent = currentIndex;
+                statProcessed.textContent = currentIndex + alreadyConvertedCount;
 
                 if (consecutiveErrors >= 5) {
                     isProcessing = false;
