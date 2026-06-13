@@ -5512,7 +5512,7 @@ button.nav-link {
 }
 
 .mobile-dropdown.expanded .mobile-dropdown-content {
-  max-height: 500px;
+  max-height: 2000px;
   padding: 12px 16px;
   margin-top: 4px;
   margin-bottom: 8px;
@@ -11499,10 +11499,12 @@ body .pain-card-desc {
   color: var(--clr-primary, #ab0e00);
 }
 
-.dropdown-item-simple i {
-  width: 18px;
+.dropdown-item-simple i,
+.dropdown-item-simple .svg-icon {
+  width: 14px !important;
+  height: 14px !important;
   font-size: 0.95rem;
-  color: var(--clr-primary, #ab0e00);
+  color: var(--clr-primary, #ab0e00) !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -11538,10 +11540,12 @@ body .pain-card-desc {
   color: var(--clr-primary, #ab0e00);
 }
 
-.dropdown-item-submenu .submenu-title i:first-child {
-  width: 18px;
+.dropdown-item-submenu .submenu-title i:first-child,
+.dropdown-item-submenu .submenu-title .svg-icon:first-child {
+  width: 14px !important;
+  height: 14px !important;
   font-size: 0.95rem;
-  color: var(--clr-primary, #ab0e00);
+  color: var(--clr-primary, #ab0e00) !important;
   margin-right: 12px;
 }
 
@@ -11606,9 +11610,11 @@ body .pain-card-desc {
   background-color: rgba(171, 14, 0, 0.05) !important;
 }
 
-.mobile-dropdown-item-simple i {
+.mobile-dropdown-item-simple i,
+.mobile-dropdown-item-simple .svg-icon {
   color: var(--clr-primary, #ab0e00) !important;
-  width: 18px !important;
+  width: 14px !important;
+  height: 14px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
