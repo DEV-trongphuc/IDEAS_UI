@@ -412,9 +412,6 @@ $reels = [
                     </div>
                     <div class="fb-reel-wrapper">
                         <!-- Dynamically loaded iframe goes here -->
-                        <?php if (!empty($r['cover'])): ?>
-                            <img class="reel-cover-placeholder" src="<?php echo esc_url($r['cover']); ?>" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; transition: opacity 0.3s;" alt="">
-                        <?php endif; ?>
                     </div>
                     <div class="reel-info-overlay">
                         <button class="reel-info-cta" onclick="showform('Reel Page - <?php echo esc_js($r['title']); ?>')">
@@ -484,10 +481,6 @@ $reels = [
                         if (iframe) {
                             iframe.remove();
                         }
-                        var cover = wrapper.querySelector('.reel-cover-placeholder');
-                        if (cover) {
-                            cover.style.opacity = '1';
-                        }
                     }
                     if (loading) {
                         loading.style.display = 'block';
@@ -543,12 +536,6 @@ $reels = [
                             if (currentActiveIndex === index) {
                                 if (loading) loading.style.display = 'none';
                                 iframe.style.opacity = '1';
-                                
-                                var cover = wrapper.querySelector('.reel-cover-placeholder');
-                                if (cover) {
-                                    cover.style.opacity = '0';
-                                }
-                                
                                 sendPlayerCommand(iframe, 'unMute');
                                 sendPlayerCommand(iframe, 'playVideo');
                             }
@@ -562,12 +549,6 @@ $reels = [
                     } else {
                         if (loading) loading.style.display = 'none';
                         iframe.style.opacity = '1';
-                        
-                        var cover = wrapper.querySelector('.reel-cover-placeholder');
-                        if (cover) {
-                            cover.style.opacity = '0';
-                        }
-                        
                         sendPlayerCommand(iframe, 'unMute');
                         sendPlayerCommand(iframe, 'playVideo');
                     }
