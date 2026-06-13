@@ -13816,8 +13816,13 @@ body .cta-headline {
 .fb-reel-more-btn:hover i {
   transform: translateX(3px) !important;
 }
-.cache-buster-rule-1781320002 {
-  order: 0;
+
+/* --- Modals z-index overrides to stay above all floating buttons and chat widgets --- */
+.fb-reel-modal,
+.accred-modal,
+.reg-modal,
+.bk-modal,
+.lightbox {
+  z-index: 2147483647 !important;
 }
-/* cache-bust: 1781320001 */
 

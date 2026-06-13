@@ -100,7 +100,7 @@ injection_block = """<!-- Facebook Reel Modal & Trigger Integration -->
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    z-index: 999999 !important;
+    z-index: 2147483647 !important;
     display: none;
     align-items: center !important;
     justify-content: center !important;
