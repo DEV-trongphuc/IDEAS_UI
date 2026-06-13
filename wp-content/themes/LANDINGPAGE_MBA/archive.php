@@ -740,17 +740,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                     </a>
+                    <!-- Mobile-only Reel Banner under first content post (Featured Post on Page 1) -->
+                    <div class="reel-explorer-banner mobile-only-banner" style="margin-top: 24px !important; margin-bottom: 24px !important;">
+                        <div class="reel-banner-backdrop"></div>
+                        <div class="reel-banner-content">
+                            <span class="reel-banner-tag"><i class="fa-solid fa-circle-play"></i> <?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></span>
+                            <h3><?php echo $is_en ? 'Explore IDEAS Short Video Reels' : 'Khám phá video chia sẻ ngắn từ IDEAS'; ?></h3>
+                            <p><?php echo $is_en ? 'Watch highlight videos about students, alumni, and academic experiences at IDEAS.' : 'Xem ngay các thước phim ngắn chia sẻ thực tế của học viên, cựu học viên và chuyên gia học thuật tại IDEAS.'; ?></p>
+                            <a href="<?php echo home_url('/reel'); ?>" class="reel-banner-btn">
+                                <span><?php echo $is_en ? 'Watch Reels Now' : 'Xem Reels ngay'; ?></span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                        </div>
+                    </div>
                     <?php
                 }
 
                 // 2. Render Post Grid for the rest
                 echo '<div class="blog-grid-inner">';
+                $grid_post_counter = 0;
                 while (have_posts()):
                     the_post();
                     // Skip the featured post we already rendered
                     if (get_the_ID() === $featured_id) {
                         continue;
                     }
+                    $grid_post_counter++;
 
                     $post_img = get_the_post_thumbnail_url(get_the_ID(), 'medium_large');
                     if (!$post_img) {
@@ -790,6 +805,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </a>
                     <?php
+                    // If page > 1 and it is the first item in the grid, output mobile-only banner
+                    if ($current_page > 1 && $grid_post_counter === 1) {
+                        ?>
+                        <!-- Mobile-only Reel Banner under first content post of page 2+ -->
+                        <div class="reel-explorer-banner mobile-only-banner" style="grid-column: 1 / -1; margin-top: 12px !important; margin-bottom: 24px !important;">
+                            <div class="reel-banner-backdrop"></div>
+                            <div class="reel-banner-content">
+                                <span class="reel-banner-tag"><i class="fa-solid fa-circle-play"></i> <?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></span>
+                                <h3><?php echo $is_en ? 'Explore IDEAS Short Video Reels' : 'Khám phá video chia sẻ ngắn từ IDEAS'; ?></h3>
+                                <p><?php echo $is_en ? 'Watch highlight videos about students, alumni, and academic experiences at IDEAS.' : 'Xem ngay các thước phim ngắn chia sẻ thực tế của học viên, cựu học viên và chuyên gia học thuật tại IDEAS.'; ?></p>
+                                <a href="<?php echo home_url('/reel'); ?>" class="reel-banner-btn">
+                                    <span><?php echo $is_en ? 'Watch Reels Now' : 'Xem Reels ngay'; ?></span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <?php
+                    }
                 endwhile;
                 echo '</div>'; // End Grid
             
@@ -902,7 +935,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     transform: translateX(3px) !important;
                 }
                 </style>
-                <div class="reel-explorer-banner">
+                <div class="reel-explorer-banner desktop-only-banner">
                     <div class="reel-banner-backdrop"></div>
                     <div class="reel-banner-content">
                         <span class="reel-banner-tag"><i class="fa-solid fa-circle-play"></i> <?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></span>
@@ -957,17 +990,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 <!-- Standalone IDEAS Reel Promo Card Widget -->
                 <div class="sidebar-widget reel-sidebar-promo-widget" style="padding: 0; background: transparent; border: none; box-shadow: none; margin-top: 0 !important; margin-bottom: 0 !important;">
-                    <div class="reel-promo-card" style="margin: 0 !important;">
+                    <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-card" style="margin: 0 !important;">
                         <div class="reel-promo-icon">
                             <i class="fa-solid fa-play"></i>
                         </div>
                         <div class="reel-promo-info">
                             <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
-                            <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-link">
+                            <span class="reel-promo-link">
                                 <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
-                            </a>
+                            </span>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <!-- Suggested Programs Widget -->

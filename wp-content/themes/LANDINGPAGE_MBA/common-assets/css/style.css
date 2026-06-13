@@ -5522,7 +5522,7 @@ button.nav-link {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .mobile-section-title {
@@ -5535,18 +5535,25 @@ button.nav-link {
 }
 
 .mobile-dropdown-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 12px 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+  text-align: left !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
   font-size: 0.92rem;
   font-weight: 600;
   color: #475569;
-  padding: 6px 0;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
 }
 
 .mobile-dropdown-item:hover,
 .mobile-dropdown-item:active {
-  color: #ab0e00;
+  color: #ab0e00 !important;
+  background-color: rgba(171, 14, 0, 0.05) !important;
 }
 
 /* ═══════════════════════════════════════
@@ -8018,6 +8025,37 @@ h6,
 
   .mobile-menu.open .nav-cta {
     transition-delay: 0.28s !important;
+  }
+
+  /* Full-width clickable target areas for mobile menu */
+  .mobile-menu .mobile-dropdown {
+    width: 100% !important;
+    align-self: stretch !important;
+    align-items: stretch !important;
+  }
+  .mobile-menu .mobile-dropdown-toggle {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    align-self: stretch !important;
+    padding: 12px 10px !important;
+    box-sizing: border-box !important;
+  }
+  .mobile-menu .mobile-dropdown-content {
+    width: 100% !important;
+    align-self: stretch !important;
+    align-items: stretch !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .mobile-menu .mobile-dropdown-item,
+  .mobile-menu .mobile-dropdown-item-simple {
+    display: flex !important;
+    width: 100% !important;
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+    padding: 12px 16px !important;
   }
 }
 
@@ -13472,29 +13510,36 @@ body .cta-headline {
 
 /* ─── STANDALONE SIDEBAR REEL PROMO CARD ─── */
 .reel-promo-card {
+  position: relative !important;
   display: flex !important;
   align-items: center !important;
   gap: 14px !important;
   padding: 16px 20px !important;
-  background: linear-gradient(135deg, rgba(171, 14, 0, 0.05) 0%, rgba(171, 14, 0, 0.01) 100%) !important;
-  border: 1px solid rgba(171, 14, 0, 0.15) !important;
+  background: #0d0607 !important;
+  border: 1px solid rgba(171, 14, 0, 0.2) !important;
   border-radius: 16px !important;
   margin-bottom: 20px !important;
-  box-shadow: 0 4px 15px rgba(171, 14, 0, 0.02) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   text-align: left !important;
   width: 100% !important;
   box-sizing: border-box !important;
   cursor: pointer !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
 }
-.reel-promo-card:hover {
-  background: linear-gradient(135deg, rgba(171, 14, 0, 0.09) 0%, rgba(171, 14, 0, 0.03) 100%) !important;
-  border-color: rgba(171, 14, 0, 0.35) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 25px rgba(171, 14, 0, 0.08) !important;
+.reel-promo-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(171, 14, 0, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(171, 14, 0, 0.15) 0%, transparent 55%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
 }
 .reel-promo-icon {
-  background: #ab0e00 !important;
+  background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
   color: #ffffff !important;
   width: 40px !important;
   height: 40px !important;
@@ -13504,25 +13549,26 @@ body .cta-headline {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 4px 10px rgba(171, 14, 0, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(171, 14, 0, 0.4) !important;
   transition: all 0.3s ease !important;
   padding-left: 2px !important;
   box-sizing: border-box !important;
+  z-index: 2 !important;
 }
 .reel-promo-card:hover .reel-promo-icon {
-  transform: scale(1.1) rotate(15deg) !important;
-  background: #c21302 !important;
-  box-shadow: 0 6px 14px rgba(171, 14, 0, 0.4) !important;
+  transform: scale(1.08) rotate(15deg) !important;
+  box-shadow: 0 6px 18px rgba(171, 14, 0, 0.6) !important;
 }
 .reel-promo-info {
   display: flex !important;
   flex-direction: column !important;
   gap: 3px !important;
+  z-index: 2 !important;
 }
 .reel-promo-tag {
   font-size: 9px !important;
   font-weight: 800 !important;
-  color: #ab0e00 !important;
+  color: #ff8e8e !important;
   letter-spacing: 0.08em !important;
   line-height: 1 !important;
   text-transform: uppercase !important;
@@ -13530,20 +13576,93 @@ body .cta-headline {
 .reel-promo-link {
   font-size: 13.5px !important;
   font-weight: 700 !important;
-  color: #1e293b !important;
+  color: #ffffff !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
   line-height: 1.2 !important;
+  transition: color 0.2s !important;
 }
 .reel-promo-link i {
   font-size: 10px !important;
   transition: transform 0.2s !important;
-  color: #ab0e00 !important;
+  color: #ff8e8e !important;
+}
+.reel-promo-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(171, 14, 0, 0.4) !important;
+  box-shadow: 0 12px 35px rgba(171, 14, 0, 0.2) !important;
+}
+.reel-promo-card:hover .reel-promo-link {
+  color: #ff8e8e !important;
 }
 .reel-promo-card:hover .reel-promo-link i {
   transform: translateX(3px) !important;
+}
+
+/* ─── GLOBAL FLOATING REEL PLAY BUTTON ─── */
+.global-floating-reel-btn {
+  position: fixed !important;
+  bottom: 96px !important;
+  right: 24px !important;
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4) !important;
+  z-index: 99999 !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.global-floating-reel-btn i {
+  font-size: 24px !important;
+  transition: transform 0.3s ease !important;
+}
+.global-floating-reel-btn:hover {
+  transform: scale(1.1) translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(171, 14, 0, 0.6) !important;
+  color: #ffffff !important;
+}
+.global-floating-reel-btn:hover i {
+  transform: scale(1.1) !important;
+}
+
+/* ─── MOBILE HIDE DUPLICATE CARD & REORDER BANNER ─── */
+.desktop-only-banner {
+  display: flex !important;
+}
+.mobile-only-banner {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .global-floating-reel-btn {
+    bottom: 90px !important;
+    right: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .global-floating-reel-btn i {
+    font-size: 20px !important;
+  }
+  
+  .reel-sidebar-promo-widget {
+    display: none !important;
+  }
+  
+  .desktop-only-banner {
+    display: none !important;
+  }
+  .mobile-only-banner {
+    display: flex !important;
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+  }
 }
 
 /* ─── MOBILE HERO TEXT CONTRAST ENHANCEMENTS ─── */

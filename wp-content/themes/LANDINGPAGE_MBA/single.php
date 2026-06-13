@@ -1337,17 +1337,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                 <!-- Standalone IDEAS Reel Promo Card Widget -->
                                 <div class="sidebar-widget reel-sidebar-promo-widget" style="padding: 0; background: transparent; border: none; box-shadow: none; margin-top: 0 !important; margin-bottom: 0 !important;">
-                                    <div class="reel-promo-card" style="margin: 0 !important;">
+                                    <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-card" style="margin: 0 !important;">
                                         <div class="reel-promo-icon">
                                             <i class="fa-solid fa-play"></i>
                                         </div>
                                         <div class="reel-promo-info">
                                             <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
-                                            <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-link">
+                                            <span class="reel-promo-link">
                                                 <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
-                                            </a>
+                                            </span>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
 
                                 <!-- Recent Posts Widget -->

@@ -172,82 +172,7 @@ if ($is_en) {
     <div class="reg-modal-container" data-lenis-prevent>
         <button class="reg-modal-close" id="reg-modal-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
         <div class="reg-modal-content">
-            <style>
-            .reel-promo-card {
-                display: flex !important;
-                align-items: center !important;
-                gap: 14px !important;
-                padding: 16px 20px !important;
-                background: linear-gradient(135deg, rgba(171, 14, 0, 0.05) 0%, rgba(171, 14, 0, 0.01) 100%) !important;
-                border: 1px solid rgba(171, 14, 0, 0.15) !important;
-                border-radius: 16px !important;
-                margin-bottom: 20px !important;
-                box-shadow: 0 4px 15px rgba(171, 14, 0, 0.02) !important;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-                text-align: left !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-                cursor: pointer !important;
-            }
-            .reel-promo-card:hover {
-                background: linear-gradient(135deg, rgba(171, 14, 0, 0.09) 0%, rgba(171, 14, 0, 0.03) 100%) !important;
-                border-color: rgba(171, 14, 0, 0.35) !important;
-                transform: translateY(-2px) !important;
-                box-shadow: 0 8px 25px rgba(171, 14, 0, 0.08) !important;
-            }
-            .reel-promo-icon {
-                background: #ab0e00 !important;
-                color: #ffffff !important;
-                width: 40px !important;
-                height: 40px !important;
-                border-radius: 50% !important;
-                font-size: 14px !important;
-                flex-shrink: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                box-shadow: 0 4px 10px rgba(171, 14, 0, 0.3) !important;
-                transition: all 0.3s ease !important;
-                padding-left: 2px !important;
-                box-sizing: border-box !important;
-            }
-            .reel-promo-card:hover .reel-promo-icon {
-                transform: scale(1.1) rotate(15deg) !important;
-                background: #c21302 !important;
-                box-shadow: 0 6px 14px rgba(171, 14, 0, 0.4) !important;
-            }
-            .reel-promo-info {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 3px !important;
-            }
-            .reel-promo-tag {
-                font-size: 9px !important;
-                font-weight: 800 !important;
-                color: #ab0e00 !important;
-                letter-spacing: 0.08em !important;
-                line-height: 1 !important;
-                text-transform: uppercase !important;
-            }
-            .reel-promo-link {
-                font-size: 13.5px !important;
-                font-weight: 700 !important;
-                color: #1e293b !important;
-                text-decoration: none !important;
-                display: inline-flex !important;
-                align-items: center !important;
-                gap: 6px !important;
-                line-height: 1.2 !important;
-            }
-            .reel-promo-link i {
-                font-size: 10px !important;
-                transition: transform 0.2s !important;
-                color: #ab0e00 !important;
-            }
-            .reel-promo-card:hover .reel-promo-link i {
-                transform: translateX(3px) !important;
-            }
-            </style>
+
             <header class="modal-form-header">
                 <div class="modal-badge"><?php echo esc_html($modal_badge); ?></div>
                 <h3><?php echo $modal_title; ?></h3>
@@ -255,17 +180,17 @@ if ($is_en) {
             </header>
 
             <?php if (is_single()) : ?>
-                <div class="reel-promo-card">
+                <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-card">
                     <div class="reel-promo-icon">
                         <i class="fa-solid fa-play"></i>
                     </div>
                     <div class="reel-promo-info">
                         <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
-                        <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-link">
+                        <span class="reel-promo-link">
                             <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
-                        </a>
+                        </span>
                     </div>
-                </div>
+                </a>
             <?php endif; ?>
 
             <form class="cta-form modal-form" id="modal-cta-form" data-submit-handler-registered="true" novalidate>
@@ -427,17 +352,17 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
             </div>
 
             <?php if (is_single()) : ?>
-                <div class="reel-promo-card" style="margin-left: 20px; margin-right: 20px; width: calc(100% - 40px);">
+                <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-card" style="margin-left: 20px; margin-right: 20px; width: calc(100% - 40px);">
                     <div class="reel-promo-icon">
                         <i class="fa-solid fa-play"></i>
                     </div>
                     <div class="reel-promo-info">
                         <div class="reel-promo-tag"><?php echo $is_en ? 'NEW DISCOVERY' : 'MỚI KHÁM PHÁ'; ?></div>
-                        <a href="<?php echo home_url('/reel'); ?>" class="reel-promo-link">
+                        <span class="reel-promo-link">
                             <?php echo $is_en ? 'Explore IDEAS Reel Counseling' : 'Khám phá IDEAS Reel Tư vấn'; ?> <i class="fa-solid fa-chevron-right"></i>
-                        </a>
+                        </span>
                     </div>
-                </div>
+                </a>
             <?php endif; ?>
 
             <form class="bk-form" id="bk-form-1" novalidate>
@@ -1014,3 +939,8 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
         <img id="lightbox-img" src="" alt="">
     </div>
 </div>
+
+<!-- Global Floating Play Button for Reels -->
+<a href="<?php echo home_url('/reel'); ?>" class="global-floating-reel-btn" aria-label="<?php echo $is_en ? 'Watch Reels' : 'Xem Reels'; ?>">
+    <i class="fa-solid fa-circle-play"></i>
+</a>
