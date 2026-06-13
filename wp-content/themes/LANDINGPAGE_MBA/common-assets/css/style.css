@@ -13832,9 +13832,9 @@ body .cta-headline {
    ========================================================================== */
 .svg-icon {
     display: inline-block;
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.125em;
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: -0.25em;
     overflow: visible;
 }
 .fa-spin {
