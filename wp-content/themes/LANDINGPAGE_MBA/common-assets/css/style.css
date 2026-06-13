@@ -13281,7 +13281,7 @@ body .cta-headline {
 }
 
 .accred-modal-container.video-expanded {
-  max-width: 960px;
+  max-width: 960px !important;
 }
 
 .accred-modal-content {
@@ -13379,6 +13379,9 @@ body .cta-headline {
     max-width: 450px !important;
     max-height: 90vh !important;
     overflow-y: auto !important;
+  }
+  .accred-modal-container.video-expanded {
+    max-width: 450px !important;
   }
   .accred-modal-video-pane {
     width: 100% !important;

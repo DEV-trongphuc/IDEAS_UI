@@ -13214,7 +13214,7 @@
         const loading = modal ? modal.querySelector('.fb-reel-video-loading') : null;
         if (!modal || !iframe) return;
 
-        const embedUrl = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&mute=1&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
+        const embedUrl = 'https://www.youtube.com/embed/' + reelId + '?autoplay=1&mute=0&loop=1&playlist=' + reelId + '&controls=1&rel=0&playsinline=1';
         iframe.src = embedUrl;
         modal.style.display = 'flex';
         setTimeout(function() {
