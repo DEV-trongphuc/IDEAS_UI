@@ -35,7 +35,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <meta property="og:type" content="article" />
         <meta property="og:title" content="<?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?> – Đội ngũ Giảng viên IDEAS" />
         <meta property="og:description"
-            content="Gặp gỡ các chuyên gia, giáo sư và giảng viên hàng đầu của IDEAS – những người dẫn dắt chương trình MBA, DBA và MSc AI đẳng cấp quốc tế." />
+            content="<?php echo $is_en ? 'Meet the leading experts, professors, and lecturers of IDEAS – those who guide the international standard MBA, DBA, and MSc AI programs.' : 'Gặp gỡ các chuyên gia, giáo sư và giảng viên hàng đầu của IDEAS – những người dẫn dắt chương trình MBA, DBA và MSc AI đẳng cấp quốc tế.'; ?>" />
         <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?><style>

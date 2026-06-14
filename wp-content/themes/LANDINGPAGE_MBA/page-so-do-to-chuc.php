@@ -982,7 +982,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- LEVEL 1: Viện Trưởng -->
                     <div class="org-node">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp"
-                            class="org-node-avatar" alt="Viện trưởng IDEAS - TS. Phạm Quang Vinh">
+                            class="org-node-avatar" alt="<?php echo $is_en ? 'Director of IDEAS - Dr. Pham Quang Vinh' : 'Viện trưởng IDEAS - TS. Phạm Quang Vinh'; ?>">
                         <div class="org-node-body">
                             <div class="org-node-role"><?php echo $is_en ? 'Dean / Director' : 'Viện Trưởng'; ?></div>
                             <h3 class="org-node-name">TS. Phạm Quang Vinh</h3>
@@ -1000,14 +1000,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                         <!-- Side Branch: Hội đồng chuyên môn -->
                         <div class="org-side-branch-left">
-                            <a href="/doi-ngu-giang-vien" title="Hội đồng chuyên môn IDEAS"
+                            <a href="/doi-ngu-giang-vien" title="<?php echo $is_en ? 'IDEAS Academic Board' : 'Hội đồng chuyên môn IDEAS'; ?>"
                                 class="org-node org-node-link">
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp"
-                                    class="org-node-avatar" alt="Hội đồng chuyên môn">
+                                    class="org-node-avatar" alt="<?php echo $is_en ? 'Academic Board' : 'Hội đồng chuyên môn'; ?>">
                                 <div class="org-node-body-horizontal">
                                     <div class="org-node-role" style="margin-bottom:2px;"><?php echo $is_en ? 'Academic Board' : 'Hội đồng chuyên môn'; ?></div>
-                                    <div class="org-node-name" style="margin-bottom:0; font-size:0.95rem;"><svg class="svg-icon fa-user-group fa-solid" style="font-size:0.85rem; color:#ab0e00; margin-right:4px;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM609.3 512l-137.8 0c5.4-9.4 8.6-20.3 8.6-32l0-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2l61.4 0C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"/></svg> Giảng viên
-                                        – cố vấn</div>
+                                    <div class="org-node-name" style="margin-bottom:0; font-size:0.95rem;"><svg class="svg-icon fa-user-group fa-solid" style="font-size:0.85rem; color:#ab0e00; margin-right:4px;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM609.3 512l-137.8 0c5.4-9.4 8.6-20.3 8.6-32l0-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2l61.4 0C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"/></svg> <?php echo $is_en ? 'Faculty &amp; Advisors' : 'Giảng viên – cố vấn'; ?></div>
                                 </div>
                                 <svg class="svg-icon fa-angle-right fa-solid org-node-arrow" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
                             </a>
@@ -1028,8 +1027,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
                                     <h3 class="org-node-name">Mai Nữ</h3>
                                     <div class="org-node-role"
-                                        style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Kinh
-                                        <?php echo $is_en ? 'Business & Student Experience' : 'Doanh &amp; Trải Nghiệm Học Viên'; ?></div>
+                                        style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;"><?php echo $is_en ? 'Business &amp; Student Experience' : 'Kinh Doanh &amp; Trải Nghiệm Học Viên'; ?></div>
                                     <div class="org-node-info">
                                         <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                         <a href="mailto:info@ideas.edu.vn">info@ideas.edu.vn</a>
@@ -1139,8 +1137,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
                                     <h3 class="org-node-name">Phạm Thị Phương Lan</h3>
                                     <div class="org-node-role"
-                                        style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Quản
-                                        Trị &amp; Hậu Cần</div>
+                                        style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;"><?php echo $is_en ? 'Administration &amp; Logistics' : 'Quản Trị &amp; Hậu Cần'; ?></div>
                                     <div class="org-node-info">
                                         <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                         <a href="mailto:lanptp@ideas.edu.vn">lanptp@ideas.edu.vn</a>
@@ -1184,8 +1181,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
                                     <h3 class="org-node-name">Võ Trùng Dương</h3>
                                     <div class="org-node-role"
-                                        style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;">Tăng
-                                        Trưởng &amp; Công Nghệ</div>
+                                        style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;"><?php echo $is_en ? 'Growth &amp; Technology' : 'Tăng Trưởng &amp; Công Nghệ'; ?></div>
                                     <div class="org-node-info">
                                         <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
                                         <a href="mailto:duongvt@ideas.edu.vn">duongvt@ideas.edu.vn</a>

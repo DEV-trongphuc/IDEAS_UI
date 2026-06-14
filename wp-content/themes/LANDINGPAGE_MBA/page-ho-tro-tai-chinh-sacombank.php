@@ -981,7 +981,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="scb-benefits-split">
                     <div class="scb-benefits-visual">
                         <img src="/wp-content/uploads/external-migrated/Homepage_20DN_Sp_20noi_20bat_New_13_04_469353da.webp"
-                            alt="Thẻ tín dụng doanh nghiệp cá nhân Sacombank" />
+                            alt="<?php echo $is_en ? 'Sacombank personal and corporate credit cards' : 'Thẻ tín dụng doanh nghiệp cá nhân Sacombank'; ?>" />
                     </div>
                     <div class="scb-benefits-content">
                         <span class="scb-section-tag"><svg class="svg-icon fa-credit-card fa-solid" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64 32C28.7 32 0 60.7 0 96l0 32 576 0 0-32c0-35.3-28.7-64-64-64L64 32zM576 224L0 224 0 416c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-192zM112 352l64 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm112 16c0-8.8 7.2-16 16-16l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16z"/></svg> <?php echo $is_en ? 'Exclusive Privileges' : 'Đặc quyền'; ?></span>
@@ -1194,7 +1194,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon4.webp"
-                                alt="Bước 1 Tiếp nhận hồ sơ" />
+                                alt="<?php echo $is_en ? 'Step 1 Application intake' : 'Bước 1 Tiếp nhận hồ sơ'; ?>" />
                         </div>
                         <h4><?php echo $is_en ? '1. Application Intake' : '1. Tiếp nhận hồ sơ'; ?></h4>
                         <p><?php echo $is_en ? 'Students provide National ID, phone number, and desired tuition amount for installment setup.' : 'Học viên cung cấp CCCD, Số điện thoại và số tiền học phí mong muốn làm thủ tục trả góp.'; ?></p>
@@ -1204,7 +1204,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon3.webp"
-                                alt="Bước 2 Xác nhận ngân hàng" />
+                                alt="<?php echo $is_en ? 'Step 2 Bank verification' : 'Bước 2 Xác nhận ngân hàng'; ?>" />
                         </div>
                         <h4><?php echo $is_en ? '2. Bank Verification' : '2. Ngân hàng xác nhận'; ?></h4>
                         <p><?php echo $is_en ? 'Sacombank receives info and conducts a preliminary credit limit check for the student.' : 'Sacombank tiếp nhận thông tin và kiểm tra sơ bộ điều kiện cấp hạn mức tín dụng cho học viên.'; ?></p>
@@ -1214,7 +1214,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon1.webp"
-                                alt="Bước 3 Xử lý hồ sơ" />
+                                alt="<?php echo $is_en ? 'Step 3 Processing profile' : 'Bước 3 Xử lý hồ sơ'; ?>" />
                         </div>
                         <h4><?php echo $is_en ? '3. Processing &amp; Issuance' : '3. Xử lý &amp; Phát hành'; ?></h4>
                         <p><?php echo $is_en ? 'Credit specialist contacts and guides the student through rapid on-site card issuance signing.' : 'Chuyên viên tín dụng liên hệ, hướng dẫn học viên ký hồ sơ phát hành thẻ tận nơi nhanh chóng.'; ?></p>
@@ -1224,7 +1224,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="scb-timeline-step">
                         <div class="scb-step-icon-wrap">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2022/02/icon2.webp"
-                                alt="Bước 4 Thanh toán học phí" />
+                                alt="<?php echo $is_en ? 'Step 4 Tuition payment' : 'Bước 4 Thanh toán học phí'; ?>" />
                         </div>
                         <h4><?php echo $is_en ? '4. Tuition Payment' : '4. Thanh toán học phí'; ?></h4>
                         <p><?php echo $is_en ? 'Pay tuition package via card, and IDEAS activates the official LMS account to start learning immediately.' : 'Thực hiện thanh toán gói học qua thẻ, IDEAS kích hoạt tài khoản LMS chính thức bắt đầu học ngay.'; ?></p>

@@ -460,7 +460,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <?php echo $is_en ? 'Expanding international academic collaboration' : 'Mở rộng hợp tác đào tạo quốc tế'; ?></li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="/wp-content/uploads/external-migrated/IBM_da6cdc09.webp" alt="Viện IBM" />
+                        <img class="wlogo" src="/wp-content/uploads/external-migrated/IBM_da6cdc09.webp" alt="<?php echo $is_en ? 'IBM Institute' : 'Viện IBM'; ?>" />
                     </div>
                 </div>
             </div>
@@ -479,7 +479,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </ul>
                     <div class="timeline-images">
                         <img src="/wp-content/uploads/external-migrated/hinh-1-1681901533615728171371_f7674a7c.webp"
-                            alt="Hợp tác UBIS" />
+                            alt="<?php echo $is_en ? 'UBIS Collaboration' : 'Hợp tác UBIS'; ?>" />
                     </div>
                 </div>
             </div>
@@ -491,9 +491,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="timeline-card">
                     <span class="timeline-card-year"><?php echo $is_en ? 'Year 2016' : 'Năm 2016'; ?></span>
                     <h3><?php echo $is_en ? 'Strategic Academic Partner in Asia' : 'Đối tác khoa học chiến lược tại Châu Á'; ?></h3>
-                    <p>Vị thế của Viện tiếp tục được củng cố vượt bậc khi được các trường Đại học Polonia (Ba Lan), Học
-                        viện Quản Lý và Luật St. Petersburg (Nga) và Học viện quản lý các dự án giáo dục (Nga) công nhận
-                        là đối tác khoa học quan trọng nhất tại Việt Nam và Châu Á.</p>
+                    <p><?php echo $is_en ? 'The Institute’s position was further strengthened when Polonia University (Poland), St. Petersburg Academy of Management and Law (Russia), and the Academy of Management of Educational Projects (Russia) recognized it as their most important academic partner in Vietnam and Asia.' : 'Vị thế của Viện tiếp tục được củng cố vượt bậc khi được các trường Đại học Polonia (Ba Lan), Học viện Quản Lý và Luật St. Petersburg (Nga) và Học viện quản lý các dự án giáo dục (Nga) công nhận là đối tác khoa học quan trọng nhất tại Việt Nam và Châu Á.'; ?></p>
                     <ul>
                         <li><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <?php echo $is_en ? 'Providing European-standard MBA training programs' : 'Cung cấp chương trình đào tạo MBA chuẩn Châu Âu'; ?></li>
                         <li><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <?php echo $is_en ? 'Perfecting meeting the learning needs of Vietnamese students' : 'Đáp ứng hoàn hảo nhu cầu học tập của học viên Việt Nam'; ?></li>
@@ -517,7 +515,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/ideas_ubis_2021.webp"
                             alt="IDEAS UBIS 2021" />
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/16206769212.webp"
-                            alt="Lễ tốt nghiệp UBIS" />
+                            alt="<?php echo $is_en ? 'UBIS Graduation Ceremony' : 'Lễ tốt nghiệp UBIS'; ?>" />
                     </div>
                 </div>
             </div>
@@ -540,7 +538,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="timeline-images" style="margin-top: 15px;">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2024/01/416256674_837845658141991_5379123310787471174_n.webp"
-                            alt="Lễ tốt nghiệp Ascencia 2024" />
+                            alt="<?php echo $is_en ? 'Ascencia Graduation Ceremony 2024' : 'Lễ tốt nghiệp Ascencia 2024'; ?>" />
                     </div>
                 </div>
             </div>
@@ -569,9 +567,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="timeline-images" style="margin-top: 15px;">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2024/11/8X1A9328-1-1.webp"
-                            alt="Sự kiện ký kết" />
+                            alt="<?php echo $is_en ? 'Signing Ceremony' : 'Sự kiện ký kết'; ?>" />
                         <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp"
-                            alt="Lễ tốt nghiệp UMEF" />
+                            alt="<?php echo $is_en ? 'UMEF Graduation Ceremony' : 'Lễ tốt nghiệp UMEF'; ?>" />
                     </div>
                 </div>
             </div>
@@ -589,7 +587,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <?php echo $is_en ? 'Expanding diverse training from Bachelor to Master &amp; Doctor of Technology' : 'Mở rộng đào tạo đa dạng từ Cử nhân đến Thạc sĩ &amp; Tiến sĩ\n                            công nghệ'; ?></li>
                     </ul>
                     <div class="timeline-images">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/AI.webp" alt="Trí tuệ nhân tạo AI" />
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/04/AI.webp" alt="<?php echo $is_en ? 'Artificial Intelligence AI' : 'Trí tuệ nhân tạo AI'; ?>" />
                     </div>
                     <div class="timeline-images wlogos" style="margin-top: 15px;">
                         <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2025/03/estiam.webp"

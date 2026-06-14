@@ -38,8 +38,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Xác thực tư vấn viên tuyển sinh | IDEAS",
-      "description": "Trang xác thực danh tính tư vấn viên tuyển sinh chính thức của IDEAS. Kiểm tra nhanh số điện thoại tránh mạo danh và lừa đảo học viên.",
+      "name": "<?php echo $is_en ? 'Admissions Advisor Verification | IDEAS' : 'Xác thực tư vấn viên tuyển sinh | IDEAS'; ?>",
+      "description": "<?php echo $is_en ? 'Official identity verification page for IDEAS admissions advisors. Check phone numbers quickly to prevent spoofing and fraud.' : 'Trang xác thực danh tính tư vấn viên tuyển sinh chính thức của IDEAS. Kiểm tra nhanh số điện thoại tránh mạo danh và lừa đảo học viên.'; ?>",
       "url": "<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>",
       "publisher": {
         "@type": "Organization",

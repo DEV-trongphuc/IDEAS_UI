@@ -2156,7 +2156,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     </section>
 
     <!-- Ported Accreditations & Quality Verification Section -->
-    <section class="acc-section" id="kiem-dinh-quoc-te" aria-label="Kiểm định & Công nhận Quốc tế">
+    <section class="acc-section" id="kiem-dinh-quoc-te" aria-label="<?php echo $is_en ? 'Accreditation &amp; International Recognition' : 'Kiểm định &amp; Công nhận Quốc tế'; ?>">
         <div class="acc-orb acc-orb-1"></div>
         <div class="acc-orb acc-orb-2"></div>
         <div class="acc-orb acc-orb-3"></div>
@@ -2229,7 +2229,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <a href="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
                             target="_blank" rel="noopener noreferrer" class="acc-sac-cert-link">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
-                                class="acc-sac-cert-img" alt="Chứng nhận SAC - Swiss Accreditation Council"
+                                class="acc-sac-cert-img" alt="<?php echo $is_en ? 'SAC Certificate - Swiss Accreditation Council' : 'Chứng nhận SAC - Swiss Accreditation Council'; ?>"
                                 loading="lazy" decoding="async" />
                         </a>
                         <div class="acc-sac-logo-text">
@@ -2239,10 +2239,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
                                     title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss
                                     Accreditation Council <svg class="svg-icon fa-up-right-from-square fa-solid" style="font-size: 0.75em;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a></div>
-                            <p>Cơ quan kiểm định liên bang Thụy
-                                Sĩ<br><?php echo $is_en ? 'Official Recognition from Swiss Government' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?>
-                                Thụy Sĩ
-                            </p>
+                            <p><?php echo $is_en ? 'Swiss Federal Accreditation Council<br>Official Recognition from the Swiss Government' : 'Cơ quan kiểm định liên bang Thụy Sĩ<br>Công nhận chính thức từ Hội đồng Giáo dục Thụy Sĩ'; ?></p>
                         </div>
                     </div>
                     <ul class="acc-sac-points">
@@ -2278,7 +2275,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="acc-card" data-accred="chea">
                     <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp"
                         alt="CHEA" loading="lazy" decoding="async" />
-                    <h4>CHEA – Hoa Kỳ</h4>
+                    <h4><?php echo $is_en ? 'CHEA – USA' : 'CHEA – Hoa Kỳ'; ?></h4>
                     <p><?php echo $is_en ? 'The leading higher education accreditation council in the United States, ensuring international recognition standards.' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?>
                     </p>
                 </div>
@@ -2397,7 +2394,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <?php echo $is_en ? 'Featured' : 'Nổi bật'; ?></span>
                     <img loading="lazy" decoding="async"
                         src="https://ideas.edu.vn/wp-content/uploads/2025/08/btc_umef.webp"
-                        alt="Phái đoàn Bộ Tài Chính Việt Nam ghé thăm Swiss UMEF tại Geneva">
+                        alt="<?php echo $is_en ? 'Vietnam Ministry of Finance delegation visiting Swiss UMEF in Geneva' : 'Phái đoàn Bộ Tài Chính Việt Nam ghé thăm Swiss UMEF tại Geneva'; ?>">
                 </div>
                 <div class="umef_news_card_body">
                     <div class="umef_news_card_tag"><svg class="svg-icon fa-newspaper fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 96c0-35.3 28.7-64 64-64l288 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L80 480c-44.2 0-80-35.8-80-80L0 128c0-17.7 14.3-32 32-32s32 14.3 32 32l0 272c0 8.8 7.2 16 16 16s16-7.2 16-16L96 96zm64 24l0 80c0 13.3 10.7 24 24 24l112 0c13.3 0 24-10.7 24-24l0-80c0-13.3-10.7-24-24-24L184 96c-13.3 0-24 10.7-24 24zm208-8c0 8.8 7.2 16 16 16l48 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16l48 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-48 0c-8.8 0-16 7.2-16 16zM160 304c0 8.8 7.2 16 16 16l256 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-256 0c-8.8 0-16 7.2-16 16zm0 96c0 8.8 7.2 16 16 16l256 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-256 0c-8.8 0-16 7.2-16 16z"/></svg>
@@ -2424,7 +2421,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="umef_news_card_img umef_news_card_img--sm">
                     <img loading="lazy" decoding="async"
                         src="https://ideas.edu.vn/wp-content/uploads/2024/10/NHP_3982-1.webp"
-                        alt="Swiss UMEF cam kết đồng hành cùng học viên Việt Nam">
+                        alt="<?php echo $is_en ? 'Swiss UMEF commits to accompanying Vietnamese students' : 'Swiss UMEF cam kết đồng hành cùng học viên Việt Nam'; ?>">
                 </div>
                 <div class="umef_news_card_body">
                     <div class="umef_news_card_tag"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
@@ -2447,7 +2444,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 target="_blank" data-wpel-link="internal">
                 <div class="umef_news_card_img umef_news_card_img--sm">
                     <img loading="lazy" decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/ctqh.webp"
-                        alt="Chủ tịch Quốc hội Trần Thanh Mẫn dự Tọa đàm">
+                        alt="<?php echo $is_en ? 'National Assembly Chairman Tran Thanh Man attending the seminar' : 'Chủ tịch Quốc hội Trần Thanh Mẫn dự Tọa đàm'; ?>">
                 </div>
                 <div class="umef_news_card_body">
                     <div class="umef_news_card_tag"><svg class="svg-icon fa-calendar-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zM329 305c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-95 95-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L329 305z"/></svg>
@@ -2487,7 +2484,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="prog-card-badge">MBA</span>
                         <div class="prog-card-school">
                             <svg class="svg-icon fa-building-columns fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
-                            <span>Swiss UMEF | Thụy Sĩ</span>
+                            <span>Swiss UMEF | <?php echo $is_en ? 'Switzerland' : 'Thụy Sĩ'; ?></span>
                         </div>
                     </div>
                     <div class="prog-avatar-container">
@@ -2501,9 +2498,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
                     <p class="prog-card-desc-new">
-                        <?php echo $is_en ? 'Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh'; ?> trực
-                        tuyến chuẩn Thụy Sĩ, tối ưu hóa cho
-                        nhà quản lý bận rộn với học vụ bổ trợ 100% tiếng Việt.</p>
+                        <?php echo $is_en ? 'Swiss-standard Online Master of Business Administration program, optimized for busy managers with support from Vietnamese advisors.' : 'Thạc sĩ Quản trị Kinh doanh trực tuyến chuẩn Thụy Sĩ, tối ưu hóa cho nhà quản lý bận rộn với học vụ bổ trợ 100% tiếng Việt.'; ?></p>
                 </div>
                 <div>
                     <div class="prog-card-specs">
@@ -2533,7 +2528,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="prog-card-badge">MBA</span>
                         <div class="prog-card-school">
                             <svg class="svg-icon fa-building-columns fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
-                            <span>Swiss UMEF | Thụy Sĩ</span>
+                            <span>Swiss UMEF | <?php echo $is_en ? 'Switzerland' : 'Thụy Sĩ'; ?></span>
                         </div>
                     </div>
                     <div class="prog-avatar-container">
@@ -2578,7 +2573,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="prog-card-badge">MSc</span>
                         <div class="prog-card-school">
                             <svg class="svg-icon fa-building-columns fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
-                            <span>Swiss UMEF | Thụy Sĩ</span>
+                            <span>Swiss UMEF | <?php echo $is_en ? 'Switzerland' : 'Thụy Sĩ'; ?></span>
                         </div>
                     </div>
                     <div class="prog-avatar-container">
@@ -2623,7 +2618,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="prog-card-badge">MBA</span>
                         <div class="prog-card-school">
                             <svg class="svg-icon fa-building-columns fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
-                            <span>Swiss UMEF | Thụy Sĩ</span>
+                            <span>Swiss UMEF | <?php echo $is_en ? 'Switzerland' : 'Thụy Sĩ'; ?></span>
                         </div>
                     </div>
                     <div class="prog-avatar-container">
@@ -2669,7 +2664,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="prog-card-badge">BBA</span>
                         <div class="prog-card-school">
                             <svg class="svg-icon fa-building-columns fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
-                            <span>Swiss UMEF | Thụy Sĩ</span>
+                            <span>Swiss UMEF | <?php echo $is_en ? 'Switzerland' : 'Thụy Sĩ'; ?></span>
                         </div>
                     </div>
                     <div class="prog-avatar-container">
@@ -2774,7 +2769,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="umef-video-card umef-video-carousel-slide">
                         <div class="umef-video-wrapper">
                             <iframe src="https://www.youtube.com/embed/uahEcE84M2s"
-                                title="Lắng nghe học viên chia sẻ | Chu Hoàng Thái - Executive MBA Swiss UMEF"
+                                title="<?php echo $is_en ? 'Student Testimonial | Chu Hoang Thai - Executive MBA Swiss UMEF' : 'Lắng nghe học viên chia sẻ | Chu Hoàng Thái - Executive MBA Swiss UMEF'; ?>"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
                         </div>
@@ -2792,7 +2787,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="umef-video-card umef-video-carousel-slide">
                         <div class="umef-video-wrapper">
                             <iframe src="https://www.youtube.com/embed/z8PpCgGmBs8"
-                                title="Lắng nghe học viên chia sẻ | Lê Ngọc Thương - Executive MBA Swiss UMEF 2024"
+                                title="<?php echo $is_en ? 'Student Testimonial | Le Ngoc Thuong - Executive MBA Swiss UMEF 2024' : 'Lắng nghe học viên chia sẻ | Lê Ngọc Thương - Executive MBA Swiss UMEF 2024'; ?>"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowfullscreen></iframe>
                         </div>
@@ -2833,7 +2828,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </p>
                 <div class="testi-author">
                     <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
-                        class="testi-author-img" alt="Học viên UMEF" />
+                        class="testi-author-img" alt="<?php echo $is_en ? 'UMEF Student' : 'Học viên UMEF'; ?>" />
                     <div class="testi-author-info">
                         <h4>Nguyễn Hoàng Minh</h4>
                         <p><?php echo $is_en ? 'Student of Executive MBA Class of 2024' : 'Học viên lớp Executive MBA khóa 2024'; ?>

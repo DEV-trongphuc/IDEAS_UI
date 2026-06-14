@@ -2622,11 +2622,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="umef-stat-lbl"><?php echo $is_en ? 'Online Study' : 'Học Online'; ?></span>
                     </div>
                     <div class="umef-stat-card">
-                        <span class="umef-stat-num">Linh hoạt</span>
+                        <span class="umef-stat-num"><?php echo $is_en ? 'Flexible' : 'Linh hoạt'; ?></span>
                         <span class="umef-stat-lbl"><?php echo $is_en ? '12 - 36 Months' : '12 - 36 Tháng'; ?></span>
                     </div>
                     <div class="umef-stat-card">
-                        <span class="umef-stat-num">Thụy Sĩ</span>
+                        <span class="umef-stat-num"><?php echo $is_en ? 'Switzerland' : 'Thụy Sĩ'; ?></span>
                         <span
                             class="umef-stat-lbl"><?php echo $is_en ? 'International Degrees' : 'Bằng Cấp Quốc Tế'; ?></span>
                     </div>
@@ -2857,7 +2857,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </section>
 
         <!-- ACCREDITATIONS & QUALITY VERIFICATION -->
-        <section class="acc-section" id="kiem-dinh-quoc-te" aria-label="Kiểm định & Công nhận Quốc tế">
+        <section class="acc-section" id="kiem-dinh-quoc-te" aria-label="<?php echo $is_en ? 'Accreditation &amp; International Recognition' : 'Kiểm định &amp; Công nhận Quốc tế'; ?>">
             <div class="acc-orb acc-orb-1"></div>
             <div class="acc-orb acc-orb-2"></div>
             <div class="acc-orb acc-orb-3"></div>
@@ -2928,7 +2928,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <a href="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
                                 target="_blank" rel="noopener noreferrer" class="acc-sac-cert-link">
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/5158dd02-aad4-411e-9917-2cf1e287dc1d.webp"
-                                    class="acc-sac-cert-img" alt="Chứng nhận SAC - Swiss Accreditation Council"
+                                    class="acc-sac-cert-img" alt="<?php echo $is_en ? 'SAC Certificate - Swiss Accreditation Council' : 'Chứng nhận SAC - Swiss Accreditation Council'; ?>"
                                     loading="lazy" decoding="async" />
                             </a>
                             <div class="acc-sac-logo-text">
@@ -2975,7 +2975,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="acc-card" data-accred="chea">
                         <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp"
                             alt="CHEA" loading="lazy" decoding="async" />
-                        <h4>CHEA – Hoa Kỳ</h4>
+                        <h4><?php echo $is_en ? 'CHEA – USA' : 'CHEA – Hoa Kỳ'; ?></h4>
                         <p><?php echo $is_en ? 'Council for Higher Education Accreditation (USA), ensuring international recognition' : 'Hội đồng kiểm định giáo dục đại học hàng đầu Hoa Kỳ, đảm bảo tiêu chuẩn công nhận quốc tế'; ?>
                         </p>
                     </div>
@@ -3245,7 +3245,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="prog-spec-item">
                                 <span
                                     class="prog-spec-label"><?php echo $is_en ? 'Curriculum:' : 'Cấu trúc môn:'; ?></span>
-                                <strong class="prog-spec-value">60 ECTS - 10 môn học &amp; Luận văn</strong>
+                                <strong class="prog-spec-value"><?php echo $is_en ? '60 ECTS - 10 courses &amp; Thesis' : '60 ECTS - 10 môn học &amp; Luận văn'; ?></strong>
                             </div>
                         </div>
                         <div class="prog-card-actions">
