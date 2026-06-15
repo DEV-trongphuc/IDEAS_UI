@@ -1075,7 +1075,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </article>
 
                                         <article class="consultant-card">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/cdan.webp"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/linhdan.jpg"
                                                 class="consultant-avatar" alt="Nguyễn Thị Linh Đan" loading="lazy" decoding="async">
                                             <div class="consultant-body">
                                                 <h4 class="consultant-name">Nguyễn Thị Linh Đan</h4>
