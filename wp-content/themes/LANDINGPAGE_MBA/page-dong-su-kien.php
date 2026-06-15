@@ -1539,10 +1539,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             // Scroll smoothly to start of filter bar
             const targetSection = document.querySelector('.events-filter-bar');
             if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 120,
-                    behavior: 'smooth'
-                });
+                if (window.lenis) {
+                    window.lenis.scrollTo(targetSection, {
+                        offset: -120,
+                        duration: 1.2,
+                        immediate: false
+                    });
+                } else {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                }
             }
         };
 

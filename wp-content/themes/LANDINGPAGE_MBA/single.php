@@ -1553,10 +1553,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 const elementPosition = targetElement.getBoundingClientRect().top;
                                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                                window.scrollTo({
-                                    top: offsetPosition,
-                                    behavior: 'smooth'
-                                });
+                                if (window.lenis) {
+                                    window.lenis.scrollTo(targetElement, {
+                                        offset: -100,
+                                        duration: 1.2,
+                                        immediate: false
+                                    });
+                                } else {
+                                    window.scrollTo({
+                                        top: offsetPosition,
+                                        behavior: 'smooth'
+                                    });
+                                }
 
                                 // Push hash history quietly without jumps
                                 history.pushState(null, null, `#${heading.id}`);
