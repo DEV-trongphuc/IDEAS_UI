@@ -2135,6 +2135,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
             <h1><?php echo $is_en ? 'First private university <span>in Geneva</span> <br />officially accredited in the <span>Swiss higher education system</span>' : 'Đại học tư thục <span>đầu tiên tại Geneva</span> <br />được công nhận chính thức trong <span>hệ thống\n                    giáo dục Thụy Sĩ</span>'; ?>
             </h1>
+            <div class="verify-slogan">
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+            </div>
+
             <p><?php echo $is_en ? 'Swiss UMEF – established in 1984, is accredited by the Swiss Accreditation Council (SAC) and is listed among the official Swiss higher education institutions under Swissuniversities.' : 'Swiss UMEF – thành lập 1984, được công nhận bởi Hội đồng Kiểm định Thụy Sĩ SAC (Swiss Accreditation\n                Council) và nằm trong danh sách các cơ sở giáo dục đại học chính thức thuộc Swissuniversities.'; ?>
             </p>
             <div class="umef-hero-stats">

@@ -631,6 +631,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="contact-hero-container">
                 <span class="contact-hero-badge"><svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg> <?php echo $is_en ? 'Contact Admissions &amp; Feedback' : 'Liên hệ tuyển sinh'; ?></span>
                 <h1><span><?php echo $is_en ? 'CONTACT FOR COUNSELING' : 'LIÊN HỆ TƯ VẤN'; ?></span> <br><?php echo $is_en ? '1:1 Academic Support' : 'Hỗ trợ học vụ 1:1'; ?></h1>
+            <div class="verify-slogan">
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+            </div>
+
                 <p><?php echo $is_en ? 'Connect directly with the Admissions Board &amp; Academic Specialists of IDEAS to receive scholarship details and optimal learning roadmaps.' : 'Kết nối trực tiếp với Ban tuyển sinh &amp; Chuyên viên học vụ của Viện IDEAS để nhận thông tin học bổng, lộ trình học tập tối ưu.'; ?></p>
             </div>
         </section>

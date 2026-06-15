@@ -392,6 +392,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <svg class="svg-icon fa-sitemap fa-solid" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M208 80c0-26.5 21.5-48 48-48l64 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-8 0 0 40 152 0c30.9 0 56 25.1 56 56l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-4.4-3.6-8-8-8l-152 0 0 40 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-40-152 0c-4.4 0-8 3.6-8 8l0 32 8 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-64 0c-26.5 0-48-21.5-48-48l0-64c0-26.5 21.5-48 48-48l8 0 0-32c0-30.9 25.1-56 56-56l152 0 0-40-8 0c-26.5 0-48-21.5-48-48l0-64z"/></svg> <?php echo $is_en ? 'Sitemap / Navigation' : 'Sơ đồ trang web'; ?>
                 </span>
                 <h1><span><?php echo $is_en ? 'WEBSITE SITEMAP' : 'SƠ ĐỒ TRANG WEB'; ?></span> <br>Website Sitemap</h1>
+            <div class="verify-slogan">
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+            </div>
+
                 <p><?php echo $is_en ? 'Explore the entire website structure, easily navigate and quickly access academic programs, support policies &amp; activities of IDEAS.' : 'Khám phá toàn bộ cấu trúc website, dễ dàng định hướng và truy cập nhanh các chương trình đào tạo,\n                    chính sách hỗ trợ &amp; hoạt động của Viện IDEAS.'; ?></p>
             </div>
         </section>

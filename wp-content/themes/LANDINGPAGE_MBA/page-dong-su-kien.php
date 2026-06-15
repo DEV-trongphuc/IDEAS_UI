@@ -702,6 +702,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 IDEAS Events
             </div>
             <h1><?php echo $is_en ? 'Events <span>Timeline</span>' : 'Dòng <span>Sự Kiện</span>'; ?></h1>
+            <div class="verify-slogan">
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+            </div>
+
             <p><?php echo $is_en ? 'Discover recent practical highlights, prestigious graduation ceremonies, academic seminars, and international study tours.' : 'Khám phá các hoạt động thực tế nổi bật gần đây, lễ tốt nghiệp danh giá, các buổi hội thảo khoa học và các\n                chuyến đi kiến tập thực tế.'; ?></p>
         </div>
     </section>

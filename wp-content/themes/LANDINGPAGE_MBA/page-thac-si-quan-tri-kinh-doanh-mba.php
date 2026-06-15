@@ -2614,6 +2614,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <?php echo $is_en ? 'Swiss Bachelor &amp; Master' : 'Cử nhân &amp; Thạc sĩ Thụy Sĩ'; ?></div>
                 <h1><?php echo $is_en ? 'Study Swiss BBA &amp; <br /><span>Online MBA</span> in Vietnam' : 'Học Cử nhân BBA &amp; Thạc sĩ <br /><span>MBA Online Thụy Sĩ</span> tại Việt Nam'; ?>
                 </h1>
+            <div class="verify-slogan">
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+            </div>
+
                 <p><?php echo $is_en ? 'Gateway to international standard online Bachelor (BBA) and Master (MBA, MSc) programs from prestigious Swiss universities. An elite, highly flexible learning solution dedicated to busy professionals.' : 'Cổng kết nối các chương trình đào tạo Cử nhân (BBA) và Thạc sĩ (MBA, MSc) trực tuyến chuẩn quốc tế từ các trường Đại học danh tiếng của Thụy Sĩ. Giải pháp học tập tinh hoa, linh hoạt tối đa dành riêng cho người bận rộn.'; ?>
                 </p>
                 <div class="umef-hero-stats">
