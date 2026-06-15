@@ -40,7 +40,7 @@
 
   /* Typography */
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Plus Jakarta Sans', sans-serif;
 
   /* Spacing */
   --section-py: 96px;

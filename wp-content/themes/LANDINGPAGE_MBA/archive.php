@@ -94,7 +94,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* Modern Archive UI/UX Styles */
         body {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #f8fafc;
             color: #1e293b;
         }
