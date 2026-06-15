@@ -3,48 +3,7 @@
 @ini_set('memory_limit', '512M');
 @set_time_limit(180);
 
-// 0. Handle backup restore ZIP uploads (pre-auth via secret token)
-if (isset($_GET['action'])) {
-    header('Content-Type: text/plain');
-    echo "Action is: " . $_GET['action'] . "\n";
-    echo "Secret is: " . (isset($_GET['secret']) ? $_GET['secret'] : 'not set') . "\n";
-    exit;
-}
-    
-    header('Content-Type: application/json');
-    if (!isset($_FILES['zipfile'])) {
-        echo json_encode(['success' => false, 'message' => 'Missing zipfile.']);
-        exit;
-    }
-    
-    $file = $_FILES['zipfile'];
-    if ($file['error'] !== UPLOAD_ERR_OK) {
-        echo json_encode(['success' => false, 'message' => 'Upload error code: ' . $file['error']]);
-        exit;
-    }
-    
-    $temp_zip = __DIR__ . '/restored_uploads.tmp.zip';
-    if (!move_uploaded_file($file['tmp_name'], $temp_zip)) {
-        echo json_encode(['success' => false, 'message' => 'Failed to save uploaded ZIP file.']);
-        exit;
-    }
-    
-    $zip = new ZipArchive;
-    if ($zip->open($temp_zip) === TRUE) {
-        $zip->extractTo(__DIR__);
-        $zip->close();
-        @unlink($temp_zip);
-        echo json_encode(['success' => true, 'message' => 'Upload and extraction completed successfully!']);
-        exit;
-    } else {
-        @unlink($temp_zip);
-        echo json_encode(['success' => false, 'message' => 'Failed to open ZIP archive.']);
-        exit;
-    }
-}
-
 /**
-
  * Standalone Utility: Batch WebP Converter & Media Database Cleaner
  * Path: /wp-convert-webp.php
  * 
@@ -546,12 +505,15 @@ if (isset($_GET['action'])) {
         foreach ($attachments as $att) {
             $id = intval($att['ID']);
             $filename = basename($att['guid']);
+            $webp_filename = preg_replace('/\.(png|jpe?g)$/i', '.webp', $filename);
             
-            // Safeguard: Check if filename, URL, or raw attachment ID is referenced in posts, options or postmeta
+            // Safeguard: Check if filename, WebP filename, or raw attachment ID is referenced
             $is_used = (strpos($all_references_text, $filename) !== false) || 
+                        (strpos($all_references_text, $webp_filename) !== false) ||
                         (strpos($all_references_text, '"' . $id . '"') !== false) ||
                         (strpos($all_references_text, ':' . $id . ';') !== false) ||
-                        (strpos($all_references_text, '>' . $id . '<') !== false);
+                        (strpos($all_references_text, '>' . $id . '<') !== false) ||
+                        preg_match('/(?<!\d)' . $id . '(?!\d)/', $all_references_text);
             
             // Nếu kiểm tra tên gốc chưa ra, quét tiếp các kích thước thumbnail (medium, large, v.v...) của ảnh đó
             if (!$is_used) {
@@ -559,7 +521,9 @@ if (isset($_GET['action'])) {
                 if (!empty($meta['sizes'])) {
                     foreach ($meta['sizes'] as $size => $size_info) {
                         if (!empty($size_info['file'])) {
-                            if (strpos($all_references_text, $size_info['file']) !== false) {
+                            $thumb_filename = $size_info['file'];
+                            $webp_thumb_filename = preg_replace('/\.(png|jpe?g)$/i', '.webp', $thumb_filename);
+                            if (strpos($all_references_text, $thumb_filename) !== false || strpos($all_references_text, $webp_thumb_filename) !== false) {
                                 $is_used = true;
                                 break;
                             }
