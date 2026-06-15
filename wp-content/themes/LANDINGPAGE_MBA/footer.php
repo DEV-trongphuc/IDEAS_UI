@@ -151,7 +151,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
     <div class="footer-bottom-row">
         <p class="copyright-text">
             © <span class="copyright-year"><?php echo date('Y'); ?></span> 
-            <?php echo $is_en ? 'IDEAS - Supporting global education.' : 'IDEAS - Đồng hành cùng tri thức toàn cầu.'; ?>
+            <?php echo $is_en ? 'IDEAS - Original Knowledge - Local Companionship' : 'IDEAS - Tri thức Nguyên bản - Đồng hành Bản địa'; ?>
         </p>
         <div class="footer-bottom-right">
             <div class="footer-bottom-links">
