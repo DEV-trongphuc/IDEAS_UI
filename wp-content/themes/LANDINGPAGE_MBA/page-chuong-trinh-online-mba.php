@@ -64,7 +64,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         html, body {
             overflow-x: clip !important;
             scroll-behavior: smooth;
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #fdfdfd;
             color: #1e293b;
         }

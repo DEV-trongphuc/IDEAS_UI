@@ -65,7 +65,7 @@ $reels = [
             height: 100vh !important;
             overflow: hidden !important;
             background-color: #080203 !important;
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
         }
 
         /* Hide global scrollbar for this page */

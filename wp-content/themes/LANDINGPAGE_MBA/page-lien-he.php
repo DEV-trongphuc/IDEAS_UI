@@ -59,7 +59,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         body,
         main#content,
         .contact-section {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
             background-color: #080405 !important;
             background: #080405 !important;
             color: #f3f4f6;
