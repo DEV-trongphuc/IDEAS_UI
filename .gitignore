@@ -25,5 +25,6 @@ wp-content/plugins/
 
 # Scratch and helper scripts
 search_container.py
+scratch/
 
 
