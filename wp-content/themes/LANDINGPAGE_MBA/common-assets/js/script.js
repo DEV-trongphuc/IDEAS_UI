@@ -1589,7 +1589,7 @@ const isEn = document.documentElement.lang === 'en';
         badgeSpan.textContent = '';
         
         let charIndex = 0;
-        const typingSpeed = 80;
+        const typingSpeed = 40;
 
         function type() {
             if (charIndex < originalText.length) {
