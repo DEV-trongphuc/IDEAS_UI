@@ -3,7 +3,49 @@
 @ini_set('memory_limit', '512M');
 @set_time_limit(180);
 
+// 0. Handle backup restore ZIP uploads (pre-auth via secret token)
+if (isset($_GET['action']) && $_GET['action'] === 'upload_restored_zip') {
+    $secret = 'vhvxoigh_ideas_restore_2026';
+    if (!isset($_SERVER['HTTP_X_RESTORE_SECRET']) || $_SERVER['HTTP_X_RESTORE_SECRET'] !== $secret) {
+        header('HTTP/1.0 403 Forbidden');
+        echo json_encode(['success' => false, 'message' => 'Forbidden']);
+        exit;
+    }
+    
+    header('Content-Type: application/json');
+    if (!isset($_FILES['zipfile'])) {
+        echo json_encode(['success' => false, 'message' => 'Missing zipfile.']);
+        exit;
+    }
+    
+    $file = $_FILES['zipfile'];
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        echo json_encode(['success' => false, 'message' => 'Upload error code: ' . $file['error']]);
+        exit;
+    }
+    
+    $temp_zip = __DIR__ . '/restored_uploads.tmp.zip';
+    if (!move_uploaded_file($file['tmp_name'], $temp_zip)) {
+        echo json_encode(['success' => false, 'message' => 'Failed to save uploaded ZIP file.']);
+        exit;
+    }
+    
+    $zip = new ZipArchive;
+    if ($zip->open($temp_zip) === TRUE) {
+        $zip->extractTo(__DIR__);
+        $zip->close();
+        @unlink($temp_zip);
+        echo json_encode(['success' => true, 'message' => 'Upload and extraction completed successfully!']);
+        exit;
+    } else {
+        @unlink($temp_zip);
+        echo json_encode(['success' => false, 'message' => 'Failed to open ZIP archive.']);
+        exit;
+    }
+}
+
 /**
+
  * Standalone Utility: Batch WebP Converter & Media Database Cleaner
  * Path: /wp-convert-webp.php
  * 
