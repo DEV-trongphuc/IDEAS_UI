@@ -2858,7 +2858,7 @@ function initHomepageToastPopup() {
             letter-spacing: 0.05em;
         }
         .ideas-toast-title {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.88rem;
             font-weight: 600;
             line-height: 1.4;
