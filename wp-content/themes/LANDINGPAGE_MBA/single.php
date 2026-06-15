@@ -1593,7 +1593,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 if (cachedSummary) {
                     summaryResult.innerHTML = cachedSummary;
                     summaryResult.style.display = 'block';
-                    btnSummarize.innerHTML = `<span>\${isEnMode ? 'AI Summarized' : 'Đã tóm tắt bằng AI'}</span><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
+                    btnSummarize.innerHTML = `<span>${isEnMode ? 'AI Summarized' : 'Đã tóm tắt bằng AI'}</span><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
                     btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
                     btnSummarize.disabled = true;
                 }
@@ -1606,7 +1606,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     // Disable button and update UI state
                     btnSummarize.disabled = true;
                     const originalBtnContent = '<span><?php echo $is_en ? 'Summarize with AI' : 'Tóm tắt bằng AI'; ?></span><svg class="svg-icon fa-bolt fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288l111.5 0L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7l-111.5 0L349.4 44.6z"/></svg>';
-                    btnSummarize.innerHTML = `<span>\${isEnMode ? 'Analyzing...' : 'Đang phân tích...'}</span><svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>`;
+                    btnSummarize.innerHTML = `<span>${isEnMode ? 'Analyzing...' : 'Đang phân tích...'}</span><svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>`;
                     btnSummarize.style.background = ''; // reset to default red gradient while loading
 
                     // Inject loading shimmer animation
@@ -1638,7 +1638,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                 // Render AI summary list
                                 summaryResult.innerHTML = res.data;
-                                btnSummarize.innerHTML = `<span>\${isEnMode ? 'Summary Complete!' : 'Tóm tắt thành công!'}</span><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
+                                btnSummarize.innerHTML = `<span>${isEnMode ? 'Summary Complete!' : 'Tóm tắt thành công!'}</span><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>`;
                                 btnSummarize.style.background = 'linear-gradient(135deg, #10b981, #059669)'; // Green success
 
                                 // Change text to "Đã tóm tắt bằng AI" after 2 seconds but keep disabled
