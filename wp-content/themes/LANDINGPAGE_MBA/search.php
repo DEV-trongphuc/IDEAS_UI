@@ -187,6 +187,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #ffffff;
         }
 
+        .verify-slogan {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffcccc;
+            margin-top: 10px;
+            margin-bottom: 18px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            position: relative;
+            z-index: 3;
+        }
+
         .blog-archive-hero p {
             font-size: 1.05rem;
             color: rgba(255, 255, 255, 0.85);
@@ -617,6 +631,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 padding: 120px 16px 50px !important;
             }
 
+            .verify-slogan {
+                font-size: 0.95rem !important;
+                margin-top: 6px;
+                margin-bottom: 12px;
+                letter-spacing: 0.05em;
+            }
+
             .post-layout-wrapper {
                 padding: 0 16px !important;
                 margin-top: 24px !important;
@@ -649,6 +670,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
         <div class="container" style="position: relative; z-index: 3;">
             <h1><?php echo $is_en ? 'Search Results' : 'Kết quả tìm kiếm'; ?></h1>
+            <div class="verify-slogan">
+                <?php echo $is_en ? 'Original Knowledge - Local Companionship' : 'Tri thức Bản nguyên - Đồng hành Bản địa'; ?>
+            </div>
             <p><?php echo $is_en ? 'Found ' . $wp_query->found_posts . ' articles matching keyword: "<strong>' . esc_html(get_search_query()) . '</strong>"' : 'Tìm thấy ' . $wp_query->found_posts . ' bài viết khớp với từ khóa: "<strong>' . esc_html(get_search_query()) . '</strong>"'; ?></p>
 
             <!-- Search bar -->
