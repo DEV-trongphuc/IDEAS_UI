@@ -941,6 +941,16 @@ button.nav-link {
   white-space: normal;
 }
 
+.hero-badge span:last-of-type {
+  border-right: 2px solid var(--clr-primary);
+  padding-right: 3px;
+  animation: caret-blink 0.75s step-end infinite;
+}
+
+@keyframes caret-blink {
+  50% { border-color: transparent; }
+}
+
 .badge-dot {
   width: 8px;
   height: 8px;

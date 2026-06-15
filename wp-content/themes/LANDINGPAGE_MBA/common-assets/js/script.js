@@ -1578,6 +1578,30 @@ const isEn = document.documentElement.lang === 'en';
         });
     }
 
+    /* ─── Hero Badge Typing Effect ─── */
+    function initHeroBadgeTyping() {
+        const badgeSpan = document.querySelector('.hero-badge span:last-of-type');
+        if (!badgeSpan) return;
+
+        const originalText = badgeSpan.textContent.trim();
+        if (!originalText.toLowerCase().includes('tri thức nguyên bản')) return;
+
+        badgeSpan.textContent = '';
+        
+        let charIndex = 0;
+        const typingSpeed = 80;
+
+        function type() {
+            if (charIndex < originalText.length) {
+                badgeSpan.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            }
+        }
+
+        type();
+    }
+
     // Initialize everything when DOM is ready
     function initialize() {
         initBackToTop();
@@ -1585,6 +1609,7 @@ const isEn = document.documentElement.lang === 'en';
         // initCustomSelects(); // Disabled to prevent duplicate dropdown triggers in CTA/modal forms
         initMobileSliders();
         initScrollDots();
+        initHeroBadgeTyping();
     }
 
     if (document.readyState === 'loading') {
