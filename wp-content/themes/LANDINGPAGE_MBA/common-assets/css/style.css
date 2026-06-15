@@ -39,7 +39,7 @@
   --grad-text: linear-gradient(135deg, #8c1000 0%, #ab0e00 100%);
 
   /* Typography */
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
 
   /* Spacing */
