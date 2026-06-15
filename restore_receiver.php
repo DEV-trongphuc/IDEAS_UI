@@ -1,20 +1,20 @@
 <?php
 /**
  * restore_receiver.php
- * Standalone tool to extract restored_uploads.zip on the server.
- * Upload this script and restored_uploads.zip to the website root, then access it.
+ * Standalone tool to extract restored_in_use_images.zip on the server.
+ * Upload this script and restored_in_use_images.zip to the website root, then access it.
  */
 
 // Passcode to prevent unauthorized execution
 define('ACCESS_PASS', 'ideas_restore_2026');
 
 if (isset($_GET['run']) && $_GET['run'] === ACCESS_PASS) {
-    $zip_file = __DIR__ . '/restored_uploads.zip';
+    $zip_file = __DIR__ . '/restored_in_use_images.zip';
     if (!file_exists($zip_file)) {
-        die("<h3>Lỗi: Không tìm thấy file 'restored_uploads.zip' ở thư mục gốc. Vui lòng upload file zip trước!</h3>");
+        die("<h3>Lỗi: Không tìm thấy file 'restored_in_use_images.zip' ở thư mục gốc. Vui lòng upload file zip trước!</h3>");
     }
     
-    echo "<h3>Bắt đầu giải nén restored_uploads.zip...</h3>";
+    echo "<h3>Bắt đầu giải nén restored_in_use_images.zip...</h3>";
     $zip = new ZipArchive;
     if ($zip->open($zip_file) === TRUE) {
         $zip->extractTo(__DIR__);
@@ -48,7 +48,7 @@ if (isset($_GET['run']) && $_GET['run'] === ACCESS_PASS) {
 <body>
     <div class="card">
         <h2>Khôi phục Ảnh từ Backup</h2>
-        <p>1. Upload file <strong>restored_uploads.zip</strong> lên thư mục gốc website bằng cPanel File Manager.</p>
+        <p>1. Upload file <strong>restored_in_use_images.zip</strong> lên thư mục gốc website bằng cPanel File Manager.</p>
         <p>2. Upload file <strong>restore_receiver.php</strong> này lên cùng thư mục gốc.</p>
         <p>3. Nhấp vào nút phía dưới để giải nén tự động.</p>
         <a href="?run=<?php echo ACCESS_PASS; ?>" class="btn">Bắt đầu giải nén & Khôi phục</a>
