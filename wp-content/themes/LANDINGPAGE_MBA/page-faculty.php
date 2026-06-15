@@ -855,6 +855,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .verify-slogan {
             font-size: 1.15rem;
             font-weight: 700;
+            font-style: italic;
             color: #ffcccc;
             margin-top: 10px;
             margin-bottom: 18px;
