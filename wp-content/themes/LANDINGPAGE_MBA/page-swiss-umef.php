@@ -2188,11 +2188,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="acc-sac-badge-dot"></span>
                         <?php echo $is_en ? 'Official Recognition from Swiss Government' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?>
                     </div>
-                    <h3 class="acc-sac-name"><a href="javascript:void(0)" class="accred-trigger" data-accred="sac"
-                            style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;"
+                    <h3 class="acc-sac-name"><button type="button" class="accred-trigger" data-accred="sac"
+                            style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s; background: none; border: none; padding: 0; font: inherit; cursor: pointer;"
                             onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
                             title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss
-                            Accreditation Council <svg class="svg-icon fa-up-right-from-square fa-solid" style="font-size: 0.75em;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a>
+                            Accreditation Council <svg class="svg-icon fa-up-right-from-square fa-solid" style="font-size: 0.75em;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button>
                     </h3>
                     <p class="acc-sac-tagline">
                         <?php echo $is_en ? 'Swiss Federal Accreditation Authority. Swiss UMEF is the first private university <strong>in Geneva</strong> to be officially accredited in the Swiss higher education system.' : 'Cơ quan kiểm định liên bang Thụy Sĩ. Swiss UMEF là trường đại học tư thục\n                        <strong>đầu tiên tại Geneva</strong> được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ.'; ?>
@@ -2233,12 +2233,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 loading="lazy" decoding="async" />
                         </a>
                         <div class="acc-sac-logo-text">
-                            <div class="acc-sac-logo-title"><a href="javascript:void(0)" class="accred-trigger"
+                            <div class="acc-sac-logo-title"><button type="button" class="accred-trigger"
                                     data-accred="sac"
-                                    style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s;"
+                                    style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s; background: none; border: none; padding: 0; font: inherit; cursor: pointer;"
                                     onmouseover="this.style.color='#ab0e00'" onmouseout="this.style.color='inherit'"
                                     title="<?php echo $is_en ? 'View SAC Accreditation Details' : 'Xem chi tiết Kiểm định SAC'; ?>">Swiss
-                                    Accreditation Council <svg class="svg-icon fa-up-right-from-square fa-solid" style="font-size: 0.75em;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></a></div>
+                                    Accreditation Council <svg class="svg-icon fa-up-right-from-square fa-solid" style="font-size: 0.75em;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg></button></div>
                             <p><?php echo $is_en ? 'Swiss Federal Accreditation Council<br>Official Recognition from the Swiss Government' : 'Cơ quan kiểm định liên bang Thụy Sĩ<br>Công nhận chính thức từ Hội đồng Giáo dục Thụy Sĩ'; ?></p>
                         </div>
                     </div>

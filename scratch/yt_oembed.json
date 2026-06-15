@@ -1,0 +1,15 @@
+{
+    "title": "Vì sự nghiệp không dừng lại ở “ổn”",
+    "author_name": "Viện IDEAS ",
+    "author_url": "https://www.youtube.com/@Vi%E1%BB%87nIDEAS",
+    "type": "video",
+    "height": 200,
+    "width": 113,
+    "version": "1.0",
+    "provider_name": "YouTube",
+    "provider_url": "https://www.youtube.com/",
+    "thumbnail_height": 360,
+    "thumbnail_width": 480,
+    "thumbnail_url": "https://i.ytimg.com/vi/K6yEPI_t2Xk/hq2.jpg",
+    "html": "<iframe width=\"113\" height=\"200\" src=\"https://www.youtube.com/embed/K6yEPI_t2Xk?feature=oembed\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen title=\"Vì sự nghiệp không dừng lại ở “ổn”\"></iframe>"
+}

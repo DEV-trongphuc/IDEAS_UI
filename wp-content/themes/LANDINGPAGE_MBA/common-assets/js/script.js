@@ -2801,7 +2801,8 @@ function initHomepageToastPopup() {
             display: flex;
             align-items: center;
             gap: 16px;
-            padding: 16px;
+            padding: 16px 8px 16px 16px;
+            margin-right: 48px;
             text-decoration: none;
             color: inherit;
         }
@@ -2845,32 +2846,33 @@ function initHomepageToastPopup() {
         }
         .ideas-toast-close {
             position: absolute;
-            top: 10px;
-            right: 12px;
+            top: 0;
+            right: 0;
+            width: 48px;
+            height: 48px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            padding: 0;
+        }
+        .ideas-toast-close span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            border: none;
             background: rgba(15, 23, 42, 0.05);
             color: #64748b;
             font-size: 14px;
             line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
             transition: all 0.2s ease;
-            z-index: 10001;
         }
-        .ideas-toast-close::after {
-            content: '';
-            position: absolute;
-            top: -14px;
-            left: -14px;
-            right: -14px;
-            bottom: -14px;
-        }
-        .ideas-toast-close:hover {
+        .ideas-toast-close:hover span {
             background: rgba(171, 14, 0, 0.1);
             color: #ab0e00;
             transform: rotate(90deg);
@@ -2891,7 +2893,7 @@ function initHomepageToastPopup() {
     toast.className = 'ideas-toast-popup';
     toast.id = 'ideas-toast-popup';
     toast.innerHTML = `
-        <button class="ideas-toast-close" id="ideas-toast-close" aria-label="Close popup">&times;</button>
+        <button class="ideas-toast-close" id="ideas-toast-close" aria-label="Close popup"><span>&times;</span></button>
         <a href="https://ideas.edu.vn/tin-tuc-moi/chuong-trinh-thac-si-swiss-umef.html" class="ideas-toast-content">
             <img src="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" alt="Avatar" class="ideas-toast-avatar">
             <div class="ideas-toast-body">
