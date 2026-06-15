@@ -895,7 +895,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
             <h1><?php echo $is_en ? 'Leading <em>Experts &amp; Specialists</em><br>at IDEAS' : 'Đội Ngũ <em>Chuyên Gia</em><br>Hàng Đầu Của IDEAS'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? 'Original Knowledge - Local Companionship' : 'Tri thức Bản nguyên - Đồng hành Bản địa'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
             <p><?php echo $is_en ? 'Gathering top professors, doctors, and specialists with extensive hands-on experience in business administration, finance, technology, and global education.' : 'Tập hợp những giáo sư, tiến sĩ và chuyên gia hàng đầu với nhiều năm kinh nghiệm thực tiễn trong quản trị\n                kinh doanh, tài chính, công nghệ và giáo dục quốc tế.'; ?></p>
             <div class="hero-stats">

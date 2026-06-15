@@ -671,7 +671,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="container" style="position: relative; z-index: 3;">
             <h1><?php echo $is_en ? 'Search Results' : 'Kết quả tìm kiếm'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? 'Original Knowledge - Local Companionship' : 'Tri thức Bản nguyên - Đồng hành Bản địa'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
             <p><?php echo $is_en ? 'Found ' . $wp_query->found_posts . ' articles matching keyword: "<strong>' . esc_html(get_search_query()) . '</strong>"' : 'Tìm thấy ' . $wp_query->found_posts . ' bài viết khớp với từ khóa: "<strong>' . esc_html(get_search_query()) . '</strong>"'; ?></p>
 

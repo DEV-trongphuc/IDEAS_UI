@@ -687,7 +687,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="container" style="position: relative; z-index: 3;">
             <h1><?php echo $is_en ? 'News &amp; Events' : 'Tin Tức &amp; Sự Kiện'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? 'Original Knowledge - Local Companionship' : 'Tri thức Bản nguyên - Đồng hành Bản địa'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
             <p><?php echo $is_en ? 'Stay updated with the latest admissions information, student activities, and academic articles shared by the IDEAS Academic Council.' : 'Cập nhật những thông tin tuyển sinh mới nhất, hoạt động của học viên và bài viết chia sẻ tri thức chuyên môn từ Hội đồng Học thuật IDEAS.'; ?></p>
 

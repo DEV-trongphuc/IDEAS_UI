@@ -923,7 +923,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
             <h1><?php echo $is_en ? 'LMS System <br /> Along with a <span>Learning Ecosystem.</span>' : 'Hệ thống LMS <br /> Cùng <span>hệ sinh thái học tập.</span>'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? 'Original Knowledge - Local Companionship' : 'Tri thức Bản nguyên - Đồng hành Bản địa'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
             <p><?php echo $is_en ? 'Accompanying professional academic support, a comprehensive digital learning solution optimizing time and enhancing knowledge absorption efficiency for students.' : 'Đồng hành hỗ trợ học vụ chuyên nghiệp, giải pháp học tập số toàn diện giúp tối ưu hóa thời gian và nâng cao hiệu quả tiếp thu kiến thức cho học viên.'; ?></p>
             <div class="lms-hero-actions">
