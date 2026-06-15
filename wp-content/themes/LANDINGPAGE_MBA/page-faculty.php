@@ -860,7 +860,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 10px;
             margin-bottom: 18px;
             letter-spacing: 0.08em;
-            text-transform: uppercase;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
             display: inline-block;
         }
