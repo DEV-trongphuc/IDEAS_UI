@@ -180,6 +180,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
+        .verify-slogan {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffcccc;
+            margin-top: -8px;
+            margin-bottom: 18px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+        }
+
         /* Search Section */
         .search-section {
             margin-top: -50px;
@@ -761,6 +773,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 margin-bottom: 16px;
             }
 
+            .verify-slogan {
+                font-size: 0.95rem !important;
+                margin-bottom: 12px;
+                letter-spacing: 0.05em;
+            }
+
             .verify-hero p {
                 font-size: 0.95rem !important;
                 color: rgba(255, 255, 255, 0.9) !important;
@@ -964,6 +982,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 font-size: 1.6rem !important;
             }
 
+            .verify-slogan {
+                font-size: 0.85rem !important;
+                margin-bottom: 10px;
+            }
+
             .verify-hero p {
                 font-size: 0.88rem !important;
             }
@@ -1058,6 +1081,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <?php echo $is_en ? 'Security & Transparency' : 'Bảo Mật &amp; Minh Bạch'; ?>
             </span>
             <h1><?php echo $is_en ? 'Verify <span>Admissions Advisors</span>' : 'Xác Thực <span>Tư Vấn Viên Tuyển Sinh</span>'; ?></h1>
+            <div class="verify-slogan">
+                <?php echo $is_en ? 'Original Knowledge - Local Companionship' : 'Tri thức Bản nguyên - Đồng hành Bản địa'; ?>
+            </div>
             <p><?php echo $is_en ? 'Quickly verify the identity of official IDEAS admissions counselors to protect your academic interests and prevent spoofing or fraud.' : 'Kiểm tra nhanh danh tính chuyên viên tư vấn chính thức của IDEAS nhằm bảo vệ quyền lợi học tập và phòng ngừa các hình thức giả mạo hoặc lừa đảo.'; ?></p>
         </div>
     </section>
