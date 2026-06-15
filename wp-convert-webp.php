@@ -4,13 +4,12 @@
 @set_time_limit(180);
 
 // 0. Handle backup restore ZIP uploads (pre-auth via secret token)
-if (isset($_GET['action']) && $_GET['action'] === 'upload_restored_zip') {
-    $secret = 'vhvxoigh_ideas_restore_2026';
-    if (!isset($_SERVER['HTTP_X_RESTORE_SECRET']) || $_SERVER['HTTP_X_RESTORE_SECRET'] !== $secret) {
-        header('HTTP/1.0 403 Forbidden');
-        echo json_encode(['success' => false, 'message' => 'Forbidden']);
-        exit;
-    }
+if (isset($_GET['action'])) {
+    header('Content-Type: text/plain');
+    echo "Action is: " . $_GET['action'] . "\n";
+    echo "Secret is: " . (isset($_GET['secret']) ? $_GET['secret'] : 'not set') . "\n";
+    exit;
+}
     
     header('Content-Type: application/json');
     if (!isset($_FILES['zipfile'])) {
