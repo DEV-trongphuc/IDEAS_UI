@@ -181,6 +181,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
 </style>
 
 <!-- Studio Freight Lenis for ultra-smooth momentum scrolling (120Hz optimization) -->
+<!--
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.36/dist/lenis.min.js"></script>
 <script>
     // Only initialize Lenis on desktop/tablet to avoid weird native scroll friction on mobile touch
@@ -221,6 +222,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
         });
     }
 </script>
+-->
 
 <?php get_template_part('shared-modals'); ?>
 
