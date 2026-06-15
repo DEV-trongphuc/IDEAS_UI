@@ -965,6 +965,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="eco-header">
                 <div class="eco-label-light"><?php echo $is_en ? 'LEARNING ECOSYSTEM' : 'HỆ SINH THÁI HỌC TẬP'; ?></div>
                 <h3 class="ecosystem-title"><?php echo $is_en ? 'Comprehensive Learning Ecosystem<br /><span class="eco-title-accent">always accompanying you</span>' : 'Hệ sinh thái học tập toàn diện<br /><span class="eco-title-accent">luôn đồng hành cùng bạn</span>'; ?></h3>
+                <p class="eco-slogan" style="font-style: italic; font-size: 1.1rem; font-weight: 600; color: #ff6b6b; margin-top: 12px; margin-bottom: 12px; text-align: center;">
+                    <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                </p>
                 <p class="ecosystem-sub"><?php echo $is_en ? 'IDEAS is the official admissions partner of Swiss UMEF, building a comprehensive learning ecosystem for Vietnamese learners.' : 'IDEAS là đối tác tuyển sinh chính thức của Swiss UMEF, xây dựng hệ sinh thái\n                    học tập toàn diện cho người học Việt Nam.'; ?></p>
             </div>
 
