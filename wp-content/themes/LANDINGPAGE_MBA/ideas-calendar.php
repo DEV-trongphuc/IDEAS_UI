@@ -25,16 +25,6 @@ function ideas_register_editorial_calendar_page()
         'dashicons-calendar-alt',
         6 // Right below Posts menu (position 5)
     );
-
-    // Also register as a submenu under Posts (edit.php) so it appears in the expanded Posts menu
-    add_submenu_page(
-        'edit.php',
-        'Calender',
-        'Calender',
-        'edit_posts',
-        'ideas-editorial-calendar',
-        'ideas_render_editorial_calendar_page'
-    );
 }
 
 // Render Calendar Page

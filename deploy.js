@@ -87,8 +87,11 @@ try {
     console.log('\n3. Đang chạy: git push origin main');
     execSync('git push origin main', { stdio: 'inherit' });
     
+    console.log('\n4. Đang chạy: git push cpanel main');
+    execSync('git push cpanel main', { stdio: 'inherit' });
+    
     console.log(`\n==================================================`);
-    console.log(`Đã push thành công lên origin/main!`);
+    console.log(`Đã push thành công lên origin/main và cpanel/main!`);
     console.log(`cPanel sẽ tự động thực hiện deploy qua .cpanel.yml`);
     console.log(`==================================================`);
 } catch (error) {
