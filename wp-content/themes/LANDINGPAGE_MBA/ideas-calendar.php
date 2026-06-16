@@ -1655,6 +1655,10 @@ function ideas_ajax_get_ai_recommendations_handler()
         $is_duplicate = false;
 
         foreach ($existing_titles as $ext) {
+            $ext = trim($ext);
+            if (empty($ext)) {
+                continue;
+            }
             if (strpos($ext, $title_lower) !== false || strpos($title_lower, $ext) !== false) {
                 $is_duplicate = true;
                 break;
@@ -1675,20 +1679,96 @@ function ideas_ajax_get_ai_recommendations_handler()
     shuffle($filtered);
     $results = array_slice($filtered, 0, 10);
 
-    // Dynamic fallback if too empty
-    if (empty($results)) {
-        $random_id = rand(100, 999);
-        $cat_lbl = $category !== 'all' ? ($category === 'mba' ? 'Thạc sĩ MBA' : ($category === 'swiss-umef' ? 'Đại học Swiss UMEF' : 'Cao học IDEAS')) : 'Cao học IDEAS';
-        $theme_lbl = $theme !== 'all' ? ($theme === 'academic' ? 'Học thuật' : 'Sự nghiệp') : 'Chủ đề Mới';
-        
-        $results[] = array(
-            'category' => $category !== 'all' ? $category : 'mba',
-            'category_label' => $cat_lbl,
-            'theme' => $theme !== 'all' ? $theme : 'academic',
-            'theme_label' => $theme_lbl,
-            'title' => 'Chủ đề nghiên cứu mới trong lĩnh vực kinh tế số và chuyển đổi mô hình kinh doanh #' . $random_id,
-            'explanation' => 'Đề xuất động từ trợ lý AI dựa trên nhu cầu nghiên cứu xu hướng thị trường kinh tế số hiện nay.'
+    // If the results are fewer than 10, fill the rest with unique fallback templates dynamically
+    if (count($results) < 10) {
+        $fallback_ideas = array(
+            array(
+                'title' => 'Ứng dụng chuyển đổi số và công nghệ mới trong giảng dạy MBA quốc tế',
+                'explanation' => 'Xu hướng kết hợp EdTech giúp nâng cao trải nghiệm tự học và thảo luận nhóm trực tuyến.'
+            ),
+            array(
+                'title' => 'Vai trò của ESG (Môi trường, Xã hội, Quản trị) trong chiến lược kinh doanh hiện đại',
+                'explanation' => 'Đề tài nóng hổi được nhiều CEO và học viên cao học quan tâm nghiên cứu.'
+            ),
+            array(
+                'title' => 'Kỹ năng quản trị khủng hoảng truyền thông cho doanh nghiệp vừa và nhỏ',
+                'explanation' => 'Cung cấp bộ quy tắc ứng xử thực tế giúp doanh nghiệp bảo vệ uy tín thương hiệu.'
+            ),
+            array(
+                'title' => 'Tại sao các nhà lãnh đạo cần trang bị tư duy dữ liệu (Data-driven Mindset)?',
+                'explanation' => 'Khai thác tầm quan trọng của việc phân tích số liệu kinh doanh trước khi đưa ra quyết định.'
+            ),
+            array(
+                'title' => 'Xu hướng học tập suốt đời (Lifelong Learning) và lộ trình phát triển sự nghiệp bền vững',
+                'explanation' => 'Truyền cảm hứng nâng cấp tri thức cho các cấp quản lý và nhân sự chuyên môn.'
+            ),
+            array(
+                'title' => 'Nghệ thuật phân quyền và truyền cảm hứng cho nhân viên cấp dưới',
+                'explanation' => 'Bài viết tập trung vào kỹ năng lãnh đạo không độc đoán, xây dựng lòng tin trong tổ chức.'
+            ),
+            array(
+                'title' => 'Chiến lược quản trị tài chính cá nhân dành cho các nhà quản lý trẻ',
+                'explanation' => 'Cách tối ưu nguồn thu nhập và lập kế hoạch tài chính dài hạn hiệu quả.'
+            ),
+            array(
+                'title' => 'Làm thế nào để xây dựng thương hiệu cá nhân chuyên nghiệp trên LinkedIn?',
+                'explanation' => 'Hướng dẫn tối ưu trang cá nhân, viết bài chia sẻ giá trị để mở rộng cơ hội sự nghiệp.'
+            ),
+            array(
+                'title' => 'Tối ưu hóa năng suất làm việc của đội nhóm thông qua các mô hình Agile/Scrum',
+                'explanation' => 'Giới thiệu phương pháp làm việc linh hoạt từ lĩnh vực phần mềm ứng dụng sang kinh doanh.'
+            ),
+            array(
+                'title' => 'Bí quyết cân bằng giữa áp lực doanh số và sức khỏe tinh thần của nhà quản lý',
+                'explanation' => 'Giải pháp phòng ngừa Burnout và duy trì năng lượng tích cực khi làm việc cường độ cao.'
+            )
         );
+        
+        shuffle($fallback_ideas);
+        
+        foreach ($fallback_ideas as $fb) {
+            if (count($results) >= 10) {
+                break;
+            }
+            
+            // Check if duplicate of existing titles
+            $fb_title_lower = mb_strtolower($fb['title']);
+            $is_duplicate = false;
+            foreach ($existing_titles as $ext) {
+                $ext = trim($ext);
+                if (empty($ext)) {
+                    continue;
+                }
+                if (strpos($ext, $fb_title_lower) !== false || strpos($fb_title_lower, $ext) !== false) {
+                    $is_duplicate = true;
+                    break;
+                }
+                similar_text($ext, $fb_title_lower, $percent);
+                if ($percent > 65) {
+                    $is_duplicate = true;
+                    break;
+                }
+            }
+            
+            // Check if already in results
+            foreach ($results as $res) {
+                if ($res['title'] === $fb['title']) {
+                    $is_duplicate = true;
+                    break;
+                }
+            }
+            
+            if (!$is_duplicate) {
+                $results[] = array(
+                    'category' => $category !== 'all' ? $category : 'mba',
+                    'category_label' => $category !== 'all' ? ($category === 'mba' ? 'Thạc sĩ MBA' : ($category === 'swiss-umef' ? 'Đại học Swiss UMEF' : 'Cao học IDEAS')) : 'Cao học IDEAS',
+                    'theme' => $theme !== 'all' ? $theme : 'academic',
+                    'theme_label' => $theme !== 'all' ? ($theme === 'academic' ? 'Học thuật' : 'Sự nghiệp') : 'Chủ đề Mới',
+                    'title' => $fb['title'],
+                    'explanation' => $fb['explanation']
+                );
+            }
+        }
     }
 
     wp_send_json_success($results);
