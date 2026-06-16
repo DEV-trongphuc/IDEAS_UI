@@ -923,7 +923,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "Ho Chi Minh City",
-            avatar: "./assets/ltn27122025.webp",
+            avatar: "/assets/ltn27122025.webp",
             school: "Swiss UMEF",
             name: "MBA/EMBA",
             time: "27/12/2025",
@@ -932,7 +932,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "Geneva - Switzerland",
-            avatar: "./assets/ltnumef10202501.webp",
+            avatar: "/assets/ltnumef10202501.webp",
             school: "Swiss UMEF",
             name: "MBA/EMBA/MSc AI",
             time: "29/10/2025",
@@ -941,16 +941,16 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "Eden Star Hotel - HCMC",
-            avatar: "./assets/ltn72025.webp",
+            avatar: "/assets/ltn72025.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "26/07/2025",
-            link: "./assets/ltn72025.webp",
+            link: "/assets/ltn72025.webp",
         },
         {
             title: "Graduation Ceremony",
             location: "Paris - France",
-            avatar: "./assets/quangnon_cdp.webp",
+            avatar: "/assets/quangnon_cdp.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "02/07/2025",
@@ -959,7 +959,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "IDEAS - Vietnam",
-            avatar: "./assets/8X1A9328-1-1.webp",
+            avatar: "/assets/8X1A9328-1-1.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "23/11/2024",

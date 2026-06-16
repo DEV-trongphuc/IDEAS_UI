@@ -1563,7 +1563,7 @@ const IDEAS_DATA = {
             title: "Lễ tốt nghiệp",
             location: "Tp. Hồ Chí Minh",
             avatar:
-                "./assets/ltn27122025.webp",
+                "/assets/ltn27122025.webp",
             school: "Swiss UMEF",
             name: "MBA/EMBA",
             time: "27/12/2025",
@@ -1573,7 +1573,7 @@ const IDEAS_DATA = {
             title: "Lễ tốt nghiệp",
             location: "Geneva - Thụy Sĩ",
             avatar:
-                "./assets/ltnumef10202501.webp",
+                "/assets/ltnumef10202501.webp",
             school: "Swiss UMEF",
             name: "MBA/EMBA/MSc AI",
             time: "29/10/2025",
@@ -1582,17 +1582,17 @@ const IDEAS_DATA = {
         {
             title: "Lễ tốt nghiệp",
             location: "Eden Star Hotel - HCMC",
-            avatar: "./assets/ltn72025.webp",
+            avatar: "/assets/ltn72025.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "26/07/2025",
-            link: "./assets/ltn72025.webp",
+            link: "/assets/ltn72025.webp",
         },
         {
             title: "Lễ tốt nghiệp",
             location: "Paris - Pháp",
             avatar:
-                "./assets/quangnon_cdp.webp",
+                "/assets/quangnon_cdp.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "02/07/2025",
@@ -1602,7 +1602,7 @@ const IDEAS_DATA = {
             title: "Lễ tốt nghiệp",
             location: "IDEAS - Việt Nam",
             avatar:
-                "./assets/8X1A9328-1-1.webp",
+                "/assets/8X1A9328-1-1.webp",
             school: "Ascencia Business School",
             name: "Global MBA - DBA",
             time: "23/11/2024",
