@@ -1395,6 +1395,14 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'mba',
             'category_label' => 'Thạc sĩ MBA',
+            'theme' => 'academic',
+            'theme_label' => 'Học thuật & Đào tạo',
+            'title' => 'Tổng quan các môn học cốt lõi trong chương trình đào tạo MBA quốc tế tại IDEAS',
+            'explanation' => 'Cung cấp góc nhìn bao quát về những kiến thức quản trị, tài chính và marketing hiện đại sẽ được giảng dạy.'
+        ),
+        array(
+            'category' => 'mba',
+            'category_label' => 'Thạc sĩ MBA',
             'theme' => 'career',
             'theme_label' => 'Cơ hội Sự nghiệp',
             'title' => 'Học MBA có thực sự giúp bạn thăng tiến nhanh hơn trong các tập đoàn đa quốc gia?',
@@ -1411,6 +1419,14 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'mba',
             'category_label' => 'Thạc sĩ MBA',
+            'theme' => 'career',
+            'theme_label' => 'Cơ hội Sự nghiệp',
+            'title' => 'Khai phá tiềm năng khởi nghiệp sau khi hoàn thành khóa học Thạc sĩ Quản trị Kinh doanh (MBA)',
+            'explanation' => 'Chủ đề phù hợp cho những học viên có định hướng tự doanh, mong muốn xây dựng doanh nghiệp từ nền tảng quản trị vững chắc.'
+        ),
+        array(
+            'category' => 'mba',
+            'category_label' => 'Thạc sĩ MBA',
             'theme' => 'admission',
             'theme_label' => 'Tuyển sinh & Học bổng',
             'title' => 'Bí quyết chuẩn bị hồ sơ ứng tuyển Thạc sĩ MBA để đạt cơ hội trúng tuyển cao nhất',
@@ -1419,10 +1435,26 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'mba',
             'category_label' => 'Thạc sĩ MBA',
+            'theme' => 'admission',
+            'theme_label' => 'Tuyển sinh & Học bổng',
+            'title' => 'Học bổng MBA tại IDEAS: Cơ hội nâng tầm tri thức cho các nhà quản lý trẻ',
+            'explanation' => 'Tổng hợp chính sách học bổng và các điều kiện cần có để đạt được suất học bổng giá trị cao.'
+        ),
+        array(
+            'category' => 'mba',
+            'category_label' => 'Thạc sĩ MBA',
             'theme' => 'experience',
             'theme_label' => 'Trải nghiệm Học viên',
             'title' => 'Cân bằng công việc bận rộn và việc học Thạc sĩ MBA: Chia sẻ từ những người đi trước',
             'explanation' => 'Đề xuất nội dung dưới dạng phỏng vấn thực tế một học viên đang đi làm quản lý, chia sẻ cách họ quản lý quỹ thời gian biểu.'
+        ),
+        array(
+            'category' => 'mba',
+            'category_label' => 'Thạc sĩ MBA',
+            'theme' => 'experience',
+            'theme_label' => 'Trải nghiệm Học viên',
+            'title' => 'Trải nghiệm học tập Hybrid MBA: Tiện lợi, linh hoạt và hiệu quả tối đa',
+            'explanation' => 'Đánh giá mô hình học tập kết hợp trực tiếp và trực tuyến, phù hợp cho học viên bận rộn hoặc ở tỉnh xa.'
         ),
         
         // Category: Swiss UMEF
@@ -1445,10 +1477,26 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'swiss-umef',
             'category_label' => 'Đại học Swiss UMEF',
+            'theme' => 'academic',
+            'theme_label' => 'Học thuật & Đào tạo',
+            'title' => 'Học thuyết quản trị hiện đại áp dụng trong chương trình liên kết Thạc sĩ Swiss UMEF',
+            'explanation' => 'Giới thiệu tính cập nhật và thực tiễn của hệ thống lý thuyết quản lý Châu Âu được giảng dạy.'
+        ),
+        array(
+            'category' => 'swiss-umef',
+            'category_label' => 'Đại học Swiss UMEF',
             'theme' => 'career',
             'theme_label' => 'Cơ hội Sự nghiệp',
             'title' => 'Mở rộng cơ hội việc làm quốc tế sau tốt nghiệp chương trình Thạc sĩ Swiss UMEF',
             'explanation' => 'Phân tích khả năng cạnh tranh trên thị trường lao động nước ngoài hoặc các vị trí quản lý cao cấp nhờ bằng cấp chuẩn Châu Âu.'
+        ),
+        array(
+            'category' => 'swiss-umef',
+            'category_label' => 'Đại học Swiss UMEF',
+            'theme' => 'career',
+            'theme_label' => 'Cơ hội Sự nghiệp',
+            'title' => 'Cộng đồng cựu học viên Swiss UMEF: Nơi hội tụ các nhà quản trị và CEO danh tiếng',
+            'explanation' => 'Chia sẻ về các cựu học viên thành đạt, tạo niềm tin lớn cho học viên mới về mạng lưới quan hệ trong tương lai.'
         ),
         array(
             'category' => 'swiss-umef',
@@ -1461,10 +1509,26 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'swiss-umef',
             'category_label' => 'Đại học Swiss UMEF',
+            'theme' => 'admission',
+            'theme_label' => 'Tuyển sinh & Học bổng',
+            'title' => 'Chính sách ưu đãi học phí và hỗ trợ trả góp linh hoạt cho chương trình Swiss UMEF',
+            'explanation' => 'Cung cấp các giải pháp tài chính và ưu đãi nhập học giúp học viên giảm bớt áp lực kinh tế.'
+        ),
+        array(
+            'category' => 'swiss-umef',
+            'category_label' => 'Đại học Swiss UMEF',
             'theme' => 'experience',
             'theme_label' => 'Trải nghiệm Học viên',
             'title' => 'Học Thạc sĩ chuẩn Thụy Sĩ ngay tại Việt Nam: Trải nghiệm chuẩn quốc tế không cần du học',
             'explanation' => 'Khai thác khía cạnh tiết kiệm chi phí nhưng vẫn được học với giảng viên nước ngoài và thụ hưởng giáo trình quốc tế.'
+        ),
+        array(
+            'category' => 'swiss-umef',
+            'category_label' => 'Đại học Swiss UMEF',
+            'theme' => 'experience',
+            'theme_label' => 'Trải nghiệm Học viên',
+            'title' => 'Nhật ký học viên: Một ngày học tập chương trình Swiss UMEF diễn ra thế nào?',
+            'explanation' => 'Đề xuất góc nhìn thực tế về quy trình học, tương tác lớp học và các hoạt động thảo luận nhóm.'
         ),
         
         // Category: LMS
@@ -1479,10 +1543,42 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'lms',
             'category_label' => 'Quản lý Học tập LMS',
+            'theme' => 'academic',
+            'theme_label' => 'Học thuật & Đào tạo',
+            'title' => 'Ứng dụng trí tuệ nhân tạo (AI) trong việc cá nhân hóa lộ trình học tập trên nền tảng LMS',
+            'explanation' => 'Phân tích xu hướng chuyển đổi số trong giáo dục và cách LMS hỗ trợ theo sát điểm mạnh yếu của từng học viên.'
+        ),
+        array(
+            'category' => 'lms',
+            'category_label' => 'Quản lý Học tập LMS',
             'theme' => 'experience',
             'theme_label' => 'Trải nghiệm Học viên',
             'title' => 'Hướng dẫn sử dụng hệ thống LMS của IDEAS cho học viên mới nhập học',
             'explanation' => 'Chủ đề hỗ trợ thiết thực, hướng dẫn chi tiết các tính năng như tải tài liệu, thảo luận nhóm, xem lại bài giảng cũ.'
+        ),
+        array(
+            'category' => 'lms',
+            'category_label' => 'Quản lý Học tập LMS',
+            'theme' => 'experience',
+            'theme_label' => 'Trải nghiệm Học viên',
+            'title' => 'Học tập không giới hạn: Trải nghiệm ứng dụng LMS di động của IDEAS trên điện thoại',
+            'explanation' => 'Nhấn mạnh tính linh hoạt của hệ thống cho phép học viên truy cập kho tri thức mọi lúc mọi nơi.'
+        ),
+        array(
+            'category' => 'lms',
+            'category_label' => 'Quản lý Học tập LMS',
+            'theme' => 'career',
+            'theme_label' => 'Cơ hội Sự nghiệp',
+            'title' => 'Nâng cao kỹ năng tự quản lý dự án nhờ phương pháp theo dõi tiến độ trên hệ thống LMS',
+            'explanation' => 'Hướng dẫn ứng dụng các công cụ theo dõi hạn chót bài tập trên LMS vào thói quen quản lý dự án thực tế.'
+        ),
+        array(
+            'category' => 'lms',
+            'category_label' => 'Quản lý Học tập LMS',
+            'theme' => 'admission',
+            'theme_label' => 'Tuyển sinh & Học bổng',
+            'title' => 'Trải nghiệm học thử miễn phí hệ thống quản lý học tập LMS của IDEAS',
+            'explanation' => 'Gợi ý một chương trình phễu thu hút học viên trải nghiệm giao diện và bài giảng mẫu trước khi đăng ký chính thức.'
         ),
 
         // Category: Experience / Skills
@@ -1497,6 +1593,22 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'experience',
             'category_label' => 'Kinh nghiệm & Kỹ năng',
+            'theme' => 'career',
+            'theme_label' => 'Cơ hội Sự nghiệp',
+            'title' => 'Làm thế nào để chuyển đổi nghề nghiệp thành công sang lĩnh vực quản trị cấp cao?',
+            'explanation' => 'Lời khuyên từ chuyên gia về việc trang bị kiến thức nền tảng và kỹ năng tư duy chiến lược khi thay đổi vai trò.'
+        ),
+        array(
+            'category' => 'experience',
+            'category_label' => 'Kinh nghiệm & Kỹ năng',
+            'theme' => 'career',
+            'theme_label' => 'Cơ hội Sự nghiệp',
+            'title' => 'Kỹ năng đàm phán và thuyết phục đối tác kinh doanh: Bài học từ các chuyên gia hàng đầu',
+            'explanation' => 'Chia sẻ các nghệ thuật thương lượng đỉnh cao được lồng ghép trong các case study thực tế.'
+        ),
+        array(
+            'category' => 'experience',
+            'category_label' => 'Kinh nghiệm & Kỹ năng',
             'theme' => 'academic',
             'theme_label' => 'Học thuật & Đào tạo',
             'title' => 'Phương pháp nghiên cứu khoa học và viết luận văn tốt nghiệp hiệu quả cho học viên cao học',
@@ -1505,10 +1617,26 @@ function ideas_ajax_get_ai_recommendations_handler()
         array(
             'category' => 'experience',
             'category_label' => 'Kinh nghiệm & Kỹ năng',
+            'theme' => 'academic',
+            'theme_label' => 'Học thuật & Đào tạo',
+            'title' => 'Tầm quan trọng của tư duy phản biện (Critical Thinking) trong nghiên cứu khoa học cấp cao học',
+            'explanation' => 'Giúp học viên nhận thức được tầm quan trọng của việc đặt câu hỏi và nhìn nhận đa chiều mọi luận điểm khoa học.'
+        ),
+        array(
+            'category' => 'experience',
+            'category_label' => 'Kinh nghiệm & Kỹ năng',
             'theme' => 'experience',
             'theme_label' => 'Trải nghiệm Học viên',
             'title' => '5 Thói quen giúp bạn tự học và nghiên cứu thành công khi học chương trình cao học',
             'explanation' => 'Bài viết truyền động lực và chia sẻ các mẹo quản lý quỹ thời gian cá nhân cực hữu ích cho người vừa đi làm vừa đi học.'
+        ),
+        array(
+            'category' => 'experience',
+            'category_label' => 'Kinh nghiệm & Kỹ năng',
+            'theme' => 'experience',
+            'theme_label' => 'Trải nghiệm Học viên',
+            'title' => 'Vượt qua áp lực thi cử và làm tiểu luận cuối kỳ: Cẩm nang từ học viên thủ khoa',
+            'explanation' => 'Các chiến thuật ôn tập, hệ thống hóa kiến thức môn học hiệu quả không gây quá tải.'
         )
     );
 
@@ -1543,9 +1671,9 @@ function ideas_ajax_get_ai_recommendations_handler()
         }
     }
 
-    // Shuffle and slice to get max 5 items
+    // Shuffle and slice to get max 10 items
     shuffle($filtered);
-    $results = array_slice($filtered, 0, 5);
+    $results = array_slice($filtered, 0, 10);
 
     // Dynamic fallback if too empty
     if (empty($results)) {
