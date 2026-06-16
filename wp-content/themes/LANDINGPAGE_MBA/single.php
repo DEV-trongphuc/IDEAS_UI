@@ -202,6 +202,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
+        .article-hero .verify-slogan {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #64748b;
+            text-shadow: none;
+            margin-top: -12px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .article-hero .verify-slogan {
+                font-size: 0.85rem;
+                margin-top: -16px;
+                margin-bottom: 16px;
+            }
+        }
+
         .article-meta-row {
             display: flex;
             align-items: center;

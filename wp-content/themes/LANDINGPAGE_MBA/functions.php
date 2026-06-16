@@ -5586,3 +5586,6 @@ function ideas_get_latest_news_cached() {
     
     return new WP_REST_Response($data, 200);
 }
+
+// Include custom editorial calendar page feature
+require_once get_template_directory() . '/ideas-calendar.php';
