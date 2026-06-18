@@ -262,9 +262,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1781682505" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1781682505" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1781682505" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1781749407" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1781749407" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1781749407" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -3517,13 +3517,14 @@
             padding-top: 140px !important;
             padding-bottom: 90px !important;
             color: var(--clr-navy) !important;
+            z-index: 1;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            z-index: 0;
+            z-index: -2;
         }
 
         /* Beautiful dotted mesh overlay for hero */
@@ -3691,7 +3692,7 @@
             position: absolute;
             inset: -40px;
             pointer-events: none;
-            z-index: 1;
+            z-index: -1;
             overflow: visible;
         }
 
@@ -6064,42 +6065,42 @@
                 <div class="hero-orb hero-orb-1"></div>
                 <div class="hero-orb hero-orb-2"></div>
                 <div class="hero-grid"></div>
-                <!-- Flying Avatars Background Layer -->
-                <div class="hero-flying-avatars"
-                    style="position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: visible;">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp"
-                        alt="Flying Student 1" class="flying-avatar fa-1" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp"
-                        alt="Flying Student 2" class="flying-avatar fa-2" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp"
-                        alt="Flying Student 3" class="flying-avatar fa-3" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
-                        alt="Flying Student 4" class="flying-avatar fa-4" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/173.webp" alt="Flying Student 5"
-                        class="flying-avatar fa-5" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp"
-                        alt="Flying Student 6" class="flying-avatar fa-6" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
-                        alt="Flying Student 7" class="flying-avatar fa-7" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp"
-                        alt="Flying Student 8" class="flying-avatar fa-8" decoding="async" />
-                </div>
+            </div>
+            <!-- Flying Avatars Background Layer -->
+            <div class="hero-flying-avatars"
+                style="position: absolute; inset: 0; pointer-events: none; z-index: -1; overflow: visible;">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp"
+                    alt="Flying Student 1" class="flying-avatar fa-1" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp"
+                    alt="Flying Student 2" class="flying-avatar fa-2" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp"
+                    alt="Flying Student 3" class="flying-avatar fa-3" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
+                    alt="Flying Student 4" class="flying-avatar fa-4" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/173.webp" alt="Flying Student 5"
+                    class="flying-avatar fa-5" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp"
+                    alt="Flying Student 6" class="flying-avatar fa-6" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp"
+                    alt="Flying Student 7" class="flying-avatar fa-7" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp"
+                    alt="Flying Student 8" class="flying-avatar fa-8" decoding="async" />
+            </div>
 
-                <!-- Floating Photo Cards on Left/Right Empty Spaces -->
-                <div class="floating-photos-container">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
-                        alt="Floating Card 1" class="floating-photo-card floating-photo-1" loading="lazy"
-                        decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp" alt="Floating Card 2"
-                        class="floating-photo-card floating-photo-2" loading="lazy" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.webp" alt="Floating Card 3"
-                        class="floating-photo-card floating-photo-3" loading="lazy" decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp"
-                        alt="Floating Card 4" class="floating-photo-card floating-photo-4" loading="lazy"
-                        decoding="async" />
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp" alt="Floating Card 5"
-                        class="floating-photo-card floating-photo-5" loading="lazy" decoding="async" />
-                </div>
+            <!-- Floating Photo Cards on Left/Right Empty Spaces -->
+            <div class="floating-photos-container">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/ltnumef10202501.webp"
+                    alt="Floating Card 1" class="floating-photo-card floating-photo-1" loading="lazy"
+                    decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/11/DSCF6777.webp" alt="Floating Card 2"
+                    class="floating-photo-card floating-photo-2" loading="lazy" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.webp" alt="Floating Card 3"
+                    class="floating-photo-card floating-photo-3" loading="lazy" decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp"
+                    alt="Floating Card 4" class="floating-photo-card floating-photo-4" loading="lazy"
+                    decoding="async" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp" alt="Floating Card 5"
+                    class="floating-photo-card floating-photo-5" loading="lazy" decoding="async" />
             </div>
 
             <div class="container hero-layout-new"
@@ -10436,8 +10437,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1781682505" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1781682505" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1781749407" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1781749407" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -11774,12 +11775,12 @@
 
     <!-- Pathfinder Selection Result Modal -->
     <div class="pathfinder-modal" id="pathfinder-modal" role="dialog" aria-modal="true"
-        style="display: none; position: fixed; inset: 0; z-index: 10002; align-items: center; justify-content: center;">
+        style="display: none; position: fixed; inset: 0; z-index: 10002; flex-direction: column; align-items: center; justify-content: flex-start; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 40px 0;">
         <div class="pathfinder-modal-overlay" onclick="closePathfinderModal()"
-            style="position: absolute; inset: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+            style="position: fixed; inset: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1;">
         </div>
         <div class="pathfinder-modal-container" id="pathfinder-modal-container"
-            style="position: relative; background: #fff; border-radius: 24px; width: 90%; max-width: 640px; max-height: 85vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25); z-index: 10003; padding: 36px; display: flex; flex-direction: column; gap: 20px; animation: modal-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;"
+            style="position: relative; background: #fff; border-radius: 24px; width: 90%; max-width: 640px; margin: auto; box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25); z-index: 2; padding: 36px; display: flex; flex-direction: column; gap: 20px; animation: modal-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;"
             data-lenis-prevent>
             <button onclick="closePathfinderModal()"
                 style="position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; color: #64748b;"
@@ -11806,12 +11807,12 @@
 
     <!-- Comparison Matrix Modal -->
     <div class="compare-modal" id="compare-modal" role="dialog" aria-modal="true"
-        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 10000; align-items: center; justify-content: center;">
+        style="display: none; position: fixed; inset: 0; z-index: 10000; flex-direction: column; align-items: center; justify-content: flex-start; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 40px 0;">
         <div class="compare-modal-overlay" onclick="closeCompareModal()"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.6); backdrop-filter: blur(4px);">
+            style="position: fixed; inset: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(4px); z-index: 1;">
         </div>
         <div class="compare-modal-container"
-            style="position: relative; background: #fff; border-radius: 24px; width: 90%; max-width: 1200px; max-height: 85vh; overflow-y: auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); z-index: 10001; padding: 40px; display: flex; flex-direction: column; gap: 24px;"
+            style="position: relative; background: #fff; border-radius: 24px; width: 90%; max-width: 1200px; margin: auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); z-index: 2; padding: 40px; display: flex; flex-direction: column; gap: 24px;"
             data-lenis-prevent>
             <button onclick="closeCompareModal()"
                 style="position: absolute; top: 20px; right: 20px; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: #64748b; font-weight: 700; z-index: 10;">✕</button>
