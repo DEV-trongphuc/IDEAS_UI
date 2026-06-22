@@ -1,0 +1,25 @@
+                               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            </svg>
+                            <span class="sol-v2-stat-val">10 môn</span>
+                            <span class="sol-v2-stat-lbl">Không luận văn</span>
+                        </div>
+                        <div class="sol-v2-stat">
+                         
+
+---
+
+  <div class="container">
+                <div class="section-label reveal-up">CHƯƠNG TRÌNH HỌC</div>
+                <h2 class="section-title reveal-up" id="curriculum-headline">
+                    10 môn học chuyên sâu<br />
+                    <span class="gradient-text">tập trung vào giải quyết tình huống thực tế (60 ECTS)</span>
+                </h2>
+                <p class="solution-intro 
+
+---
+
+v class="curri-cta reveal-up" style="margin-top: 40px; text-align: center;">
+                    <a href="#dang-ky" class="btn btn-primary bk-open-btn">
+                        Nhận chi tiết lộ trình 10 môn học EMBA
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke="currentColor" stroke-linecap="round" s
