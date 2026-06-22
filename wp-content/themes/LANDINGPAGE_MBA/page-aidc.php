@@ -45,7 +45,7 @@ foreach ($all_events as $event) {
 
     <style>
         /* ══════════════════════════════════════
-           AIDC COOPERATION PAGE – PREMIUM DARK
+           AIDC COOPERATION PAGE – PREMIUM LIGHT
            ══════════════════════════════════════ */
         html,
         body {
@@ -55,37 +55,25 @@ foreach ($all_events as $event) {
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #080405;
-            color: #f3f4f6;
+            background-color: #fafbfc;
+            color: #1e293b;
             background-image:
-                radial-gradient(circle at 10% 20%, rgba(185, 14, 0, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 90% 70%, rgba(185, 14, 0, 0.08) 0%, transparent 45%),
-                radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 28px 28px;
+                radial-gradient(circle at 10% 20%, rgba(171, 14, 0, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at 90% 70%, rgba(171, 14, 0, 0.03) 0%, transparent 45%),
+                radial-gradient(rgba(171, 14, 0, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 24px 24px;
             background-attachment: scroll, scroll, fixed;
         }
 
         /* ── Hero Section ──────────────────── */
         .aidc-hero {
             position: relative;
-            padding: 165px 20px 90px;
+            padding: 165px 20px 70px;
             overflow: hidden;
             background: transparent;
             min-height: 480px;
             display: flex;
             align-items: center;
-        }
-
-        .aidc-hero-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            will-change: transform;
-            transform: scale(1.05);
-            z-index: 1;
-            opacity: 0.12;
-            filter: blur(8px);
         }
 
         .aidc-hero-overlay {
@@ -94,10 +82,10 @@ foreach ($all_events as $event) {
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.90) 0%,
-                    rgba(80, 6, 0, 0.25) 60%,
-                    #080405 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.15) 0%, transparent 70%);
+                    rgba(250, 251, 252, 0.95) 0%,
+                    rgba(255, 235, 235, 0.35) 60%,
+                    #fafbfc 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.04) 0%, transparent 70%);
         }
 
         .aidc-hero-container {
@@ -107,8 +95,8 @@ foreach ($all_events as $event) {
             margin: 0 auto;
             width: 100%;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
             align-items: center;
         }
 
@@ -116,16 +104,16 @@ foreach ($all_events as $event) {
             .aidc-hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 30px;
+                gap: 40px;
             }
         }
 
         .aidc-hero-badge {
-            background: rgba(171, 14, 0, 0.2);
-            border: 1px solid rgba(255, 77, 77, 0.35);
+            background: rgba(171, 14, 0, 0.06);
+            border: 1px solid rgba(171, 14, 0, 0.15);
             padding: 8px 22px;
             border-radius: 100px;
-            color: #ffcccc;
+            color: #ab0e00;
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -137,61 +125,116 @@ foreach ($all_events as $event) {
             backdrop-filter: blur(12px);
         }
 
+        @media (max-width: 992px) {
+            .aidc-hero-badge {
+                justify-content: center;
+            }
+        }
+
         .aidc-hero h1 {
-            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
             font-weight: 800;
             margin-bottom: 20px;
             letter-spacing: -0.02em;
             line-height: 1.2;
-            color: #ffffff !important;
+            color: #0f172a !important;
         }
 
         .aidc-hero h1 span {
-            background: linear-gradient(135deg, #ff8e8e 0%, #ff4f4f 100%) !important;
+            background: linear-gradient(135deg, #ab0e00 0%, #ff3b30 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
         }
 
         .aidc-hero p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8) !important;
+            font-size: 1.05rem;
+            color: #475569 !important;
             max-width: 600px;
             line-height: 1.7;
             margin-bottom: 30px;
         }
 
-        /* ── Hero Image Frame ──────────────── */
-        .aidc-hero-img-wrap {
+        @media (max-width: 992px) {
+            .aidc-hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* ── Hero Cooperation Logos ────────── */
+        .aidc-coop-hero-logos {
             position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 28px;
+            padding: 35px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
             box-shadow:
-                0 30px 60px rgba(0, 0, 0, 0.7),
-                0 0 30px rgba(171, 14, 0, 0.2);
-            aspect-ratio: 16 / 10;
-            background: #11080a;
+                0 20px 40px rgba(15, 23, 42, 0.04),
+                0 0 1px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
         }
 
-        .aidc-hero-img-wrap:hover {
-            border-color: rgba(255, 59, 48, 0.4);
-            transform: translateY(-5px);
+        .aidc-coop-hero-logos:hover {
+            transform: translateY(-4px);
+            border-color: rgba(171, 14, 0, 0.12);
             box-shadow:
-                0 35px 70px rgba(0, 0, 0, 0.8),
-                0 0 40px rgba(171, 14, 0, 0.3);
+                0 25px 50px rgba(15, 23, 42, 0.06),
+                0 0 15px rgba(171, 14, 0, 0.04);
         }
 
-        .aidc-hero-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero-logo-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            padding: 15px;
+            border-radius: 18px;
+            background: #f8fafc;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .hero-logo-card:hover {
+            background: #ffffff;
+            border-color: rgba(171, 14, 0, 0.08);
+        }
+
+        .hero-logo-card.aidc-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+        }
+
+        .hero-logo-card.ideas-logo img {
+            max-width: 100%;
+            max-height: 55px;
+            object-fit: contain;
+        }
+
+        .hero-logo-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #ab0e00;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(171, 14, 0, 0.25);
+            flex-shrink: 0;
         }
 
         /* ── Main Layout Sections ──────────── */
         .aidc-main-section {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px 20px 80px;
             position: relative;
@@ -199,14 +242,14 @@ foreach ($all_events as $event) {
         }
 
         .section-header {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             position: relative;
         }
 
         .section-header h2 {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #0f172a;
             letter-spacing: -0.01em;
             display: inline-flex;
             align-items: center;
@@ -219,7 +262,7 @@ foreach ($all_events as $event) {
             position: absolute;
             bottom: -8px;
             left: 0;
-            width: 60px;
+            width: 50px;
             height: 3px;
             background: #ab0e00;
             border-radius: 2px;
@@ -228,66 +271,66 @@ foreach ($all_events as $event) {
         /* ── Events Grid & Cards ───────────── */
         .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 35px;
             margin-bottom: 70px;
         }
 
-        @media (max-width: 480px) {
-            .events-grid {
+        .event-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        @media (max-width: 768px) {
+            .event-card {
                 grid-template-columns: 1fr;
             }
         }
 
-        .event-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(12px);
-        }
-
         .event-card.upcoming {
-            border-color: rgba(255, 77, 77, 0.15);
+            border-color: rgba(171, 14, 0, 0.08);
         }
 
         .event-card.upcoming:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 59, 48, 0.4);
+            transform: translateY(-5px);
+            border-color: rgba(171, 14, 0, 0.22);
             box-shadow:
-                0 25px 50px rgba(0, 0, 0, 0.4),
-                0 0 25px rgba(171, 14, 0, 0.25);
+                0 20px 40px rgba(15, 23, 42, 0.05),
+                0 0 20px rgba(171, 14, 0, 0.03);
         }
 
         .event-card.past {
-            opacity: 0.85;
+            opacity: 0.9;
         }
 
         .event-card.past:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            border-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.03);
             opacity: 1;
         }
 
         /* Card Image Cover */
         .event-img-wrap {
             position: relative;
-            aspect-ratio: 16 / 9;
+            height: 100%;
+            min-height: 240px;
             overflow: hidden;
-            background: #150a0c;
+            background: #f8fafc;
         }
 
-        .event-img-wrap::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(8, 4, 5, 0.6) 0%, transparent 60%);
+        @media (max-width: 768px) {
+            .event-img-wrap {
+                aspect-ratio: 16 / 9;
+                min-height: auto;
+            }
         }
 
         .event-img-wrap img {
@@ -298,7 +341,7 @@ foreach ($all_events as $event) {
         }
 
         .event-card:hover .event-img-wrap img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .event-badge {
@@ -312,87 +355,99 @@ foreach ($all_events as $event) {
             padding: 5px 12px;
             border-radius: 100px;
             letter-spacing: 0.05em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .event-badge.ongoing {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: #ffffff;
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.2);
         }
 
         .event-badge.upcoming-tag {
             background: linear-gradient(135deg, #ef4444 0%, #ab0e00 100%);
             color: #ffffff;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+            border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
         .event-badge.past-tag {
-            background: rgba(255, 255, 255, 0.15);
-            color: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #e2e8f0;
+            color: #475569;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         /* Card Body */
         .event-body {
-            padding: 24px;
+            padding: 28px 30px;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+            .event-body {
+                padding: 20px;
+            }
         }
 
         .event-title {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            color: #ffffff;
-            line-height: 1.4;
-            margin: 0 0 12px 0;
+            color: #0f172a;
+            line-height: 1.3;
+            margin: 0 0 10px 0;
             transition: color 0.3s ease;
         }
 
         .event-card:hover .event-title {
-            color: #ff6b6b;
+            color: #ab0e00;
         }
 
         .event-desc {
-            font-size: 0.88rem;
+            font-size: 0.92rem;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.65);
+            color: #475569;
             margin-bottom: 20px;
-            flex-grow: 1;
         }
 
-        /* Card Meta List */
+        /* Card Meta Grid (Horizontal flow on desktop) */
         .event-meta {
             list-style: none;
             padding: 0;
             margin: 0 0 24px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
             padding-top: 18px;
+        }
+
+        @media (max-width: 992px) {
+            .event-meta {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
         }
 
         .event-meta-item {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 8px;
             font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: #475569;
             line-height: 1.4;
         }
 
         .event-meta-item svg {
-            color: #ff4d4d;
+            color: #ab0e00;
             margin-top: 2px;
             flex-shrink: 0;
         }
 
         .event-meta-item strong {
-            color: #ffffff;
-            margin-right: 4px;
+            color: #0f172a;
+            display: block;
+            margin-bottom: 2px;
         }
 
         /* Card Action Buttons */
@@ -413,19 +468,20 @@ foreach ($all_events as $event) {
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            padding: 12px 20px;
+            padding: 12px 28px;
             border-radius: 12px;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.25);
+            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.15);
             transition: all 0.25s ease;
             text-align: center;
             border: none;
             cursor: pointer;
+            width: fit-content;
         }
 
         .btn-primary:hover {
             background: linear-gradient(135deg, #c01000 0%, #ff5247 100%);
-            box-shadow: 0 6px 20px rgba(171, 14, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(171, 14, 0, 0.25);
             transform: translateY(-1px);
         }
 
@@ -434,80 +490,39 @@ foreach ($all_events as $event) {
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.9) !important;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: #475569 !important;
             font-weight: 700;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            padding: 11px 20px;
+            padding: 11px 24px;
             border-radius: 12px;
             text-decoration: none;
             transition: all 0.25s ease;
             text-align: center;
+            width: fit-content;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
-            color: #ffffff !important;
-        }
-
-        .social-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .btn-social {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 9px 12px;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-
-        .btn-social.zalo {
-            background: rgba(0, 104, 255, 0.1);
-            border: 1px solid rgba(0, 104, 255, 0.2);
-            color: #7ab3ff !important;
-        }
-
-        .btn-social.zalo:hover {
-            background: rgba(0, 104, 255, 0.2);
-            border-color: rgba(0, 104, 255, 0.4);
-            color: #ffffff !important;
-        }
-
-        .btn-social.whatsapp {
-            background: rgba(37, 211, 102, 0.1);
-            border: 1px solid rgba(37, 211, 102, 0.2);
-            color: #79f29d !important;
-        }
-
-        .btn-social.whatsapp:hover {
-            background: rgba(37, 211, 102, 0.2);
-            border-color: rgba(37, 211, 102, 0.4);
-            color: #ffffff !important;
+            background: #f8fafc;
+            border-color: rgba(0, 0, 0, 0.12);
+            color: #0f172a !important;
         }
 
         /* ── Cooperation Banner Box ────────── */
         .coop-summary-box {
-            background: linear-gradient(135deg, rgba(171, 14, 0, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(171, 14, 0, 0.2);
+            background: linear-gradient(135deg, rgba(171, 14, 0, 0.03) 0%, rgba(255, 255, 255, 0.9) 100%);
+            border: 1px solid rgba(171, 14, 0, 0.08);
             border-radius: 28px;
             padding: 40px;
             display: flex;
             align-items: center;
             gap: 40px;
-            margin-bottom: 70px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
         }
 
         @media (max-width: 768px) {
@@ -528,7 +543,8 @@ foreach ($all_events as $event) {
             justify-content: center;
             min-width: 160px;
             height: 80px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             flex-shrink: 0;
         }
 
@@ -539,16 +555,16 @@ foreach ($all_events as $event) {
         }
 
         .coop-summary-text h3 {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #0f172a;
             margin: 0 0 12px 0;
         }
 
         .coop-summary-text p {
             font-size: 0.92rem;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.7);
+            color: #475569;
             margin: 0;
         }
 
@@ -556,11 +572,11 @@ foreach ($all_events as $event) {
         .empty-grid-msg {
             grid-column: 1 / -1;
             text-align: center;
-            padding: 60px 20px;
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px dashed rgba(255, 255, 255, 0.08);
+            padding: 50px 20px;
+            background: #ffffff;
+            border: 1px dashed rgba(0, 0, 0, 0.1);
             border-radius: 20px;
-            color: rgba(255, 255, 255, 0.45);
+            color: #64748b;
             font-weight: 500;
             font-size: 0.95rem;
         }
@@ -573,7 +589,7 @@ foreach ($all_events as $event) {
         @keyframes cardFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
 
             to {
@@ -592,7 +608,6 @@ foreach ($all_events as $event) {
 
     <!-- Hero Banner -->
     <section class="aidc-hero" id="aidc-hero-top">
-        <div class="aidc-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp');"></div>
         <div class="aidc-hero-overlay"></div>
         <div class="aidc-hero-container">
             <div class="aidc-hero-content">
@@ -602,15 +617,21 @@ foreach ($all_events as $event) {
                 </span>
                 <h1>AIDC &amp; IDEAS <br><span><?php echo $is_en ? 'Cooperation Events' : 'Sự kiện Hợp tác'; ?></span></h1>
                 <p>
-                    <?php echo $is_en ? 'Promoting science, technology, AI, and advanced data center infrastructure research. We co-organize high-level workshops, seminars, and intensive academic programs for leaders and digital economy professionals in Vietnam.' : 'Thúc đẩy nghiên cứu khoa học, công nghệ, AI và hạ tầng trung tâm dữ liệu tiên tiến. Phối hợp tổ chức các buổi hội thảo chuyên đề cao cấp và chương trình đào tạo chuyên sâu dành cho nhà quản lý và chuyên gia kinh tế số tại Việt Nam.'; ?>
+                     <?php echo $is_en ? 'Promoting science, technology, AI, and advanced data center infrastructure research. We co-organize high-level workshops, seminars, and intensive academic programs for leaders and digital economy professionals in Vietnam.' : 'Thúc đẩy nghiên cứu khoa học, công nghệ, AI và hạ tầng trung tâm dữ liệu tiên tiến. Phối hợp tổ chức các buổi hội thảo chuyên đề cao cấp và chương trình đào tạo chuyên sâu dành cho nhà quản lý và chuyên gia kinh tế số tại Việt Nam.'; ?>
                 </p>
                 <a href="#events-main-section" class="btn-primary">
                     <?php echo $is_en ? 'View Events' : 'Khám phá sự kiện'; ?>
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" xmlns="http://www.w3.org/2000/svg"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" xmlns="http://www.w3.org/2000/svg" style="margin-left: 4px;"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
             </div>
-            <div class="aidc-hero-img-wrap">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp" alt="AIDC &amp; IDEAS Cooperation banner" fetchpriority="high" />
+            <div class="aidc-coop-hero-logos">
+                <div class="hero-logo-card aidc-logo">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp" alt="AIDC Logo" />
+                </div>
+                <div class="hero-logo-divider">x</div>
+                <div class="hero-logo-card ideas-logo">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/05/ideas-02.webp" alt="IDEAS Logo" />
+                </div>
             </div>
         </div>
     </section>
@@ -663,48 +684,33 @@ foreach ($all_events as $event) {
                             
                             <ul class="event-meta">
                                 <li class="event-meta-item">
-                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.3L11 13.5V7h1.5v5.8l3.7 2.2-.7 1.3z"/></svg>
-                                    <strong><?php echo $is_en ? 'Date:' : 'Thời gian:'; ?></strong>
-                                    <span><?php echo esc_html($is_en ? $event['date_str'] : $event['date_str_vi']); ?></span>
+                                    <div>
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.3L11 13.5V7h1.5v5.8l3.7 2.2-.7 1.3z"/></svg>
+                                        <strong><?php echo $is_en ? 'Date' : 'Thời gian'; ?></strong>
+                                        <span><?php echo esc_html($is_en ? $event['date_str'] : $event['date_str_vi']); ?></span>
+                                    </div>
                                 </li>
                                 <li class="event-meta-item">
-                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <strong><?php echo $is_en ? 'Location:' : 'Địa điểm:'; ?></strong>
-                                    <span><?php echo esc_html($is_en ? $event['location'] : $event['location_vi']); ?></span>
+                                    <div>
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                        <strong><?php echo $is_en ? 'Location' : 'Địa điểm'; ?></strong>
+                                        <span><?php echo esc_html($is_en ? $event['location'] : $event['location_vi']); ?></span>
+                                    </div>
                                 </li>
                                 <li class="event-meta-item">
-                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                                    <strong><?php echo $is_en ? 'Open to:' : 'Đối tượng:'; ?></strong>
-                                    <span><?php echo esc_html($is_en ? $event['open_to'] : $event['open_to_vi']); ?></span>
+                                    <div>
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                                        <strong><?php echo $is_en ? 'Open to' : 'Đối tượng'; ?></strong>
+                                        <span><?php echo esc_html($is_en ? $event['open_to'] : $event['open_to_vi']); ?></span>
+                                    </div>
                                 </li>
                             </ul>
 
                             <div class="event-actions">
                                 <?php if (!empty($event['agenda_url'])): ?>
                                     <a href="<?php echo esc_url($event['agenda_url']); ?>" class="btn-primary" target="_blank" rel="noopener noreferrer">
-                                        <?php echo $is_en ? 'Register &amp; Agenda' : 'Đăng ký &amp; Nội dung'; ?>
-                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91v6.27h2V9L12 3z"/></svg>
-                                    </a>
-                                <?php endif; ?>
-
-                                <?php if (!empty($event['zalo_url']) || !empty($event['whatsapp_url'])): ?>
-                                    <div class="social-row">
-                                        <?php if (!empty($event['zalo_url'])): ?>
-                                            <a href="<?php echo esc_url($event['zalo_url']); ?>" class="btn-social zalo" target="_blank" rel="nofollow noopener noreferrer">
-                                                <span>Zalo Group</span>
-                                            </a>
-                                        <?php endif; ?>
-                                        <?php if (!empty($event['whatsapp_url'])): ?>
-                                            <a href="<?php echo esc_url($event['whatsapp_url']); ?>" class="btn-social whatsapp" target="_blank" rel="nofollow noopener noreferrer">
-                                                <span>WhatsApp</span>
-                                            </a>
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endif; ?>
-                                
-                                <?php if (!empty($event['cert_url'])): ?>
-                                    <a href="<?php echo esc_url($event['cert_url']); ?>" class="btn-secondary" style="font-size: 0.76rem; padding: 8px 12px; border-radius: 10px;" target="_blank" rel="noopener noreferrer">
-                                        <?php echo $is_en ? 'View Certificate Info' : 'Thông tin Chứng nhận'; ?>
+                                        <?php echo $is_en ? 'Register to Attend' : 'Đăng ký tham gia'; ?>
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 4px;"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91v6.27h2V9L12 3z"/></svg>
                                     </a>
                                 <?php endif; ?>
                             </div>
@@ -739,19 +745,23 @@ foreach ($all_events as $event) {
                             </span>
                         </div>
                         <div class="event-body">
-                            <h3 class="event-title" style="font-size: 1.15rem;"><?php echo esc_html($is_en ? $event['title'] : $event['title_vi']); ?></h3>
-                            <p class="event-desc" style="font-size: 0.84rem;"><?php echo esc_html($is_en ? $event['desc'] : $event['desc_vi']); ?></p>
+                            <h3 class="event-title"><?php echo esc_html($is_en ? $event['title'] : $event['title_vi']); ?></h3>
+                            <p class="event-desc"><?php echo esc_html($is_en ? $event['desc'] : $event['desc_vi']); ?></p>
                             
-                            <ul class="event-meta" style="margin-bottom: 18px; padding-top: 14px;">
+                            <ul class="event-meta">
                                 <li class="event-meta-item">
-                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.3L11 13.5V7h1.5v5.8l3.7 2.2-.7 1.3z"/></svg>
-                                    <strong><?php echo $is_en ? 'Concluded date:' : 'Thời gian:'; ?></strong>
-                                    <span><?php echo esc_html($is_en ? $event['date_str'] : $event['date_str_vi']); ?></span>
+                                    <div>
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm3.3 14.3L11 13.5V7h1.5v5.8l3.7 2.2-.7 1.3z"/></svg>
+                                        <strong><?php echo $is_en ? 'Concluded Date' : 'Thời gian kết thúc'; ?></strong>
+                                        <span><?php echo esc_html($is_en ? $event['date_str'] : $event['date_str_vi']); ?></span>
+                                    </div>
                                 </li>
                                 <li class="event-meta-item">
-                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                                    <strong><?php echo $is_en ? 'Location:' : 'Địa điểm:'; ?></strong>
-                                    <span><?php echo esc_html($is_en ? $event['location'] : $event['location_vi']); ?></span>
+                                    <div>
+                                        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                                        <strong><?php echo $is_en ? 'Location' : 'Địa điểm'; ?></strong>
+                                        <span><?php echo esc_html($is_en ? $event['location'] : $event['location_vi']); ?></span>
+                                    </div>
                                 </li>
                             </ul>
 
