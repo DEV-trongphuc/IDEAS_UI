@@ -77,7 +77,7 @@ foreach ($all_events as $event) {
             will-change: transform;
             transform: scale(1.05);
             z-index: 1;
-            opacity: 0.35;
+            opacity: 0.22;
         }
 
         .aidc-hero-overlay {
