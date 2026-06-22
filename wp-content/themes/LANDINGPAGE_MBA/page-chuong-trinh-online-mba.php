@@ -817,7 +817,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="card-stats">
                         <div class="stat-item">
                             <span class="stat-lbl"><?php echo $is_en ? 'Duration' : 'Thời gian học'; ?></span>
-                            <span class="stat-val"><?php echo $is_en ? '12 Months' : '12 Tháng'; ?></span>
+                            <span class="stat-val"><?php echo $is_en ? '14 Months' : '14 Tháng'; ?></span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-lbl"><?php echo $is_en ? 'Format' : 'Hình thức học'; ?></span>
