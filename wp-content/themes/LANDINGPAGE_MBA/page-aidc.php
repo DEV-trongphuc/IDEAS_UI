@@ -36,7 +36,7 @@ foreach ($all_events as $event) {
     <?php get_template_part('shared-head'); ?>
 
     <!-- Preload hero background or logos if needed -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp" />
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" />
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title><?php echo $is_en ? 'AIDC & IDEAS Cooperation Events | IDEAS' : 'Sự kiện Hợp tác AIDC & IDEAS | IDEAS'; ?></title>
@@ -180,8 +180,8 @@ foreach ($all_events as $event) {
         }
 
         .logo-box {
-            background: #11080a;
-            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
             padding: 16px;
             border-radius: 20px;
             display: flex;
@@ -190,7 +190,7 @@ foreach ($all_events as $event) {
             width: 150px;
             height: 95px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
         }
 
@@ -308,8 +308,8 @@ foreach ($all_events as $event) {
         .event-card-banner-fallback {
             position: relative;
             aspect-ratio: 16 / 9;
-            background: linear-gradient(135deg, #800600 0%, #d32f2f 40%, #ff5252 70%, #ab0e00 100%);
-            background-size: 300% 300%;
+            background: linear-gradient(135deg, #400000 0%, #660000 50%, #880000 100%);
+            background-size: 200% 200%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -333,7 +333,7 @@ foreach ($all_events as $event) {
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
             z-index: 1;
             pointer-events: none;
             animation: fallbackLightSweep 8s infinite linear;
@@ -351,7 +351,7 @@ foreach ($all_events as $event) {
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 24px 24px;
+            background-size: 20px 20px;
             pointer-events: none;
             z-index: 1;
             animation: fallbackGridPulse 4s infinite ease-in-out;
@@ -362,53 +362,17 @@ foreach ($all_events as $event) {
             50% { opacity: 0.85; }
         }
 
-        .event-card-banner-fallback .scan-line {
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
-            z-index: 2;
-            opacity: 0.8;
-            pointer-events: none;
-            animation: fallbackScanMove 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-
-        @keyframes fallbackScanMove {
-            0% { top: 0%; }
-            50% { top: 100%; }
-            100% { top: 0%; }
-        }
-
-        .event-card-banner-fallback .banner-title-wrap {
-            z-index: 3;
-            background: rgba(15, 23, 42, 0.55);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 16px 20px;
-            border-radius: 16px;
-            width: 85%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .event-card:hover .event-card-banner-fallback .banner-title-wrap {
-            background: rgba(15, 23, 42, 0.65);
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: scale(1.02);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-        }
-
         .event-card-banner-fallback .banner-title {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 800;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: -0.01em;
-            line-height: 1.35;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            z-index: 2;
+            padding: 0 16px;
+            max-width: 90%;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -683,7 +647,7 @@ foreach ($all_events as $event) {
 
     <!-- Hero Banner (Dark Theme) -->
     <section class="aidc-hero" id="aidc-hero-top">
-        <div class="aidc-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp');"></div>
+        <div class="aidc-hero-bg" style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp');"></div>
         <div class="aidc-hero-overlay"></div>
         <div class="aidc-hero-container">
             <div class="aidc-hero-content">
@@ -760,13 +724,10 @@ foreach ($all_events as $event) {
                                 <!-- Premium red gradient banner fallback -->
                                 <div class="event-card-banner-fallback">
                                     <div class="grid-overlay"></div>
-                                    <div class="scan-line"></div>
                                     <span class="event-badge <?php echo $is_ongoing ? 'ongoing' : 'upcoming-tag'; ?>">
                                         <?php echo $is_ongoing ? ($is_en ? 'Ongoing' : 'Đang diễn ra') : ($is_en ? 'Upcoming' : 'Sắp diễn ra'); ?>
                                     </span>
-                                    <div class="banner-title-wrap">
-                                        <div class="banner-title"><?php echo esc_html($is_en ? $event['title'] : $event['title_vi']); ?></div>
-                                    </div>
+                                    <div class="banner-title"><?php echo esc_html($is_en ? $event['title'] : $event['title_vi']); ?></div>
                                 </div>
                             <?php else: ?>
                                 <div class="event-img-wrap">
@@ -840,13 +801,10 @@ foreach ($all_events as $event) {
                                 <!-- Premium red gradient banner fallback -->
                                 <div class="event-card-banner-fallback">
                                     <div class="grid-overlay"></div>
-                                    <div class="scan-line"></div>
                                     <span class="event-badge past-tag">
                                         <?php echo $is_en ? 'Concluded' : 'Đã kết thúc'; ?>
                                     </span>
-                                    <div class="banner-title-wrap">
-                                        <div class="banner-title"><?php echo esc_html($is_en ? $event['title'] : $event['title_vi']); ?></div>
-                                    </div>
+                                    <div class="banner-title"><?php echo esc_html($is_en ? $event['title'] : $event['title_vi']); ?></div>
                                 </div>
                             <?php else: ?>
                                 <div class="event-img-wrap">
