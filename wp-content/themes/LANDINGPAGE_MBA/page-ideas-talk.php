@@ -580,7 +580,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
-                <p><?php echo $is_en ? '#IDEAS Monthly AI Workshop – Sharing breakthrough learning &amp; working methods with Artificial Intelligence' : '#IDEAS Monthly AI Workshop – Chia sẻ phương pháp sáng tạo học tập &amp; làm việc đột phá cùng Trí Tuệ\n                    Nhân Tạo'; ?></p>
+                <p><?php echo $is_en ? '#IDEAS Monthly AI Workshop – Sharing breakthrough learning &amp; working methods with Artificial Intelligence' : '#IDEAS Monthly AI Workshop – Chia sẻ phương pháp sáng tạo học tập &amp; làm việc đột phá cùng Trí Tuệ Nhân Tạo'; ?></p>
             </div>
         </section>
 

@@ -968,7 +968,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <p class="eco-slogan" style="font-style: italic; font-size: 1.1rem; font-weight: 600; color: #ff6b6b; margin-top: 12px; margin-bottom: 12px; text-align: center;">
                     <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
                 </p>
-                <p class="ecosystem-sub"><?php echo $is_en ? 'IDEAS is the official admissions partner of Swiss UMEF, building a comprehensive learning ecosystem for Vietnamese learners.' : 'IDEAS là đối tác tuyển sinh chính thức của Swiss UMEF, xây dựng hệ sinh thái\n                    học tập toàn diện cho người học Việt Nam.'; ?></p>
+                <p class="ecosystem-sub"><?php echo $is_en ? 'IDEAS is the official admissions partner of Swiss UMEF, building a comprehensive learning ecosystem for Vietnamese learners.' : 'IDEAS là đối tác tuyển sinh chính thức của Swiss UMEF, xây dựng hệ sinh thái học tập toàn diện cho người học Việt Nam.'; ?></p>
             </div>
 
             <div class="ecosystem-grid-v2">
@@ -981,7 +981,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="eco-card-v2-body">
                         <h4 class="eco-card-v2-title">LMS Powered by Moodle</h4>
-                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Modern learning platform supporting lecture videos, documents, and assignments - accessible 24/7 anytime, anywhere.' : 'Nền tảng học tập hiện đại, hỗ trợ video bài giảng, tài liệu và bài\n                            tập - truy cập 24/7 mọi lúc, mọi nơi.'; ?></p>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Modern learning platform supporting lecture videos, documents, and assignments - accessible 24/7 anytime, anywhere.' : 'Nền tảng học tập hiện đại, hỗ trợ video bài giảng, tài liệu và bài tập - truy cập 24/7 mọi lúc, mọi nơi.'; ?></p>
                     </div>
                 </article>
 
@@ -994,7 +994,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="eco-card-v2-body">
                         <h4 class="eco-card-v2-title">IDEAS AI Platform</h4>
-                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'AI assistant supporting knowledge explanation, literature research, and optimizing effective study time.' : 'Trợ lý AI hỗ trợ giải thích kiến thức, nghiên cứu tài liệu và tối ưu\n                            thời gian học tập hiệu quả.'; ?></p>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'AI assistant supporting knowledge explanation, literature research, and optimizing effective study time.' : 'Trợ lý AI hỗ trợ giải thích kiến thức, nghiên cứu tài liệu và tối ưu thời gian học tập hiệu quả.'; ?></p>
                     </div>
                 </article>
 
@@ -1008,7 +1008,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="eco-card-v2-body">
                         <h4 class="eco-card-v2-title"><?php echo $is_en ? 'Cengage Library' : 'Thư viện Cengage'; ?></h4>
-                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Free access to over 1,000 leading academic books in business and management worldwide.' : 'Miễn phí truy cập hơn 1.000 đầu sách học thuật chuyên ngành kinh\n                            doanh và quản trị hàng đầu thế giới.'; ?></p>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Free access to over 1,000 leading academic books in business and management worldwide.' : 'Miễn phí truy cập hơn 1.000 đầu sách học thuật chuyên ngành kinh doanh và quản trị hàng đầu thế giới.'; ?></p>
                     </div>
                 </a>
 
@@ -1020,7 +1020,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="eco-card-v2-body">
                         <h4 class="eco-card-v2-title"><?php echo $is_en ? 'Supplemental Seminars' : 'Lớp chuyên đề bổ trợ'; ?></h4>
-                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Weekend supplemental seminars with lecturers and leading experts, connecting MBA knowledge with reality.' : 'Các buổi chuyên đề cuối tuần cùng giảng viên và chuyên gia đầu\n                            ngành, kết nối kiến thức MBA với thực tiễn.'; ?></p>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Weekend supplemental seminars with lecturers and leading experts, connecting MBA knowledge with reality.' : 'Các buổi chuyên đề cuối tuần cùng giảng viên và chuyên gia đầu ngành, kết nối kiến thức MBA với thực tiễn.'; ?></p>
                     </div>
                 </article>
             </div>
@@ -1034,7 +1034,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="platform-text">
                 <span class="platform-text-badge"><?php echo $is_en ? 'Core Platform' : 'Nền tảng chính'; ?></span>
                 <h3>LMS Powered by Moodle</h3>
-                <p><?php echo $is_en ? 'Moodle is the world\'s leading popular learning management system (LMS) used by prestigious universities. At IDEAS, Moodle is smartly configured and maximized visually to accompany students throughout their learning journey:' : 'Moodle là hệ thống quản lý học tập (LMS) phổ biến hàng đầu thế giới được sử dụng bởi các trường đại\n                    học danh tiếng. Tại IDEAS, hệ thống Moodle được cấu hình thông minh và trực quan hóa tối đa để đồng\n                    hành cùng học viên trong suốt chặng đường học tập:'; ?></p>
+                <p><?php echo $is_en ? 'Moodle is the world\'s leading popular learning management system (LMS) used by prestigious universities. At IDEAS, Moodle is smartly configured and maximized visually to accompany students throughout their learning journey:' : 'Moodle là hệ thống quản lý học tập (LMS) phổ biến hàng đầu thế giới được sử dụng bởi các trường đại học danh tiếng. Tại IDEAS, hệ thống Moodle được cấu hình thông minh và trực quan hóa tối đa để đồng hành cùng học viên trong suốt chặng đường học tập:'; ?></p>
                 <ul class="platform-features-list">
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Watch high-quality recorded lecture videos anytime, anywhere.' : 'Xem video bài giảng ghi hình chất lượng cao mọi lúc mọi nơi.'; ?></li>
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Download study materials, curriculum, and lecture slides directly.' : 'Tải tài liệu học tập, giáo trình, slide bài giảng trực tiếp.'; ?></li>
@@ -1053,7 +1053,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="platform-text">
                 <span class="platform-text-badge"><?php echo $is_en ? 'Academic Assistant 4.0' : 'Trợ lý học thuật 4.0'; ?></span>
                 <h3>IDEAS AI Platform</h3>
-                <p><?php echo $is_en ? 'An academic support platform integrated with smart Large Language Models (LLM) trained specifically for graduate study environments, helping students resolve academic challenges quickly:' : 'Nền tảng hỗ trợ học vụ tích hợp mô hình ngôn ngữ lớn (LLM) thông minh được huấn luyện chuyên sâu cho\n                    môi trường học tập sau đại học, giúp học viên giải quyết nhanh chóng các khó khăn học thuật:'; ?></p>
+                <p><?php echo $is_en ? 'An academic support platform integrated with smart Large Language Models (LLM) trained specifically for graduate study environments, helping students resolve academic challenges quickly:' : 'Nền tảng hỗ trợ học vụ tích hợp mô hình ngôn ngữ lớn (LLM) thông minh được huấn luyện chuyên sâu cho môi trường học tập sau đại học, giúp học viên giải quyết nhanh chóng các khó khăn học thuật:'; ?></p>
                 <ul class="platform-features-list">
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Explain specialized economic and financial terminology in English/Vietnamese.' : 'Giải thích các thuật ngữ chuyên ngành kinh tế, tài chính bằng tiếng Việt.'; ?></li>
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Summarize reference materials hundreds of pages long quickly.' : 'Tóm tắt nội dung tài liệu tham khảo dài hàng trăm trang nhanh chóng.'; ?></li>
@@ -1072,7 +1072,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="platform-text">
                 <span class="platform-text-badge"><?php echo $is_en ? 'Global Digital Library' : 'Thư viện số toàn cầu'; ?></span>
                 <h3><?php echo $is_en ? 'Cengage Digital Library' : 'Thư viện số Cengage'; ?></h3>
-                <p><?php echo $is_en ? 'Cengage Learning is one of the world\'s largest educational publishers. Students at IDEAS are granted free access to a massive digital library:' : 'Cengage Learning là một trong những nhà xuất bản giáo dục lớn nhất thế giới. Học viên tại IDEAS được\n                    cấp quyền truy cập miễn phí vào kho tàng tri thức số khổng lồ:'; ?></p>
+                <p><?php echo $is_en ? 'Cengage Learning is one of the world\'s largest educational publishers. Students at IDEAS are granted free access to a massive digital library:' : 'Cengage Learning là một trong những nhà xuất bản giáo dục lớn nhất thế giới. Học viên tại IDEAS được cấp quyền truy cập miễn phí vào kho tàng tri thức số khổng lồ:'; ?></p>
                 <ul class="platform-features-list">
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Over 1,000+ original English academic books specialized in Economics.' : 'Hơn 1.000+ đầu sách học thuật nguyên bản tiếng Anh chuyên ngành Kinh tế.'; ?></li>
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'The latest updated textbooks serving MBA/DBA courses.' : 'Các giáo trình cập nhật mới nhất phục vụ cho các môn học MBA/DBA.'; ?></li>

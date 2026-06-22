@@ -897,7 +897,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="verify-slogan">
                 <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
-            <p><?php echo $is_en ? 'Gathering top professors, doctors, and specialists with extensive hands-on experience in business administration, finance, technology, and global education.' : 'Tập hợp những giáo sư, tiến sĩ và chuyên gia hàng đầu với nhiều năm kinh nghiệm thực tiễn trong quản trị\n                kinh doanh, tài chính, công nghệ và giáo dục quốc tế.'; ?></p>
+            <p><?php echo $is_en ? 'Gathering top professors, doctors, and specialists with extensive hands-on experience in business administration, finance, technology, and global education.' : 'Tập hợp những giáo sư, tiến sĩ và chuyên gia hàng đầu với nhiều năm kinh nghiệm thực tiễn trong quản trị kinh doanh, tài chính, công nghệ và giáo dục quốc tế.'; ?></p>
             <div class="hero-stats">
                 <div class="hero-stat">
                     <div class="hero-stat-number">15<span>+</span></div>
@@ -924,7 +924,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <?php echo $is_en ? 'Academic Board' : 'Hội đồng Chuyên môn'; ?>
             </div>
             <h2 class="section-title"><?php echo $is_en ? 'Meet Our <em>Faculty Board &amp; Team</em>' : 'Gặp gỡ <em>Đội Ngũ Giảng Viên</em> của Chúng Tôi'; ?></h2>
-            <p class="section-subtitle"><?php echo $is_en ? 'Distinguished experts guiding world-class MBA, MSc AI, and DBA programs at IDEAS.' : 'Những chuyên gia dẫn dắt chương trình MBA, MSc AI và DBA đẳng cấp quốc tế tại\n                IDEAS.'; ?></p>
+            <p class="section-subtitle"><?php echo $is_en ? 'Distinguished experts guiding world-class MBA, MSc AI, and DBA programs at IDEAS.' : 'Những chuyên gia dẫn dắt chương trình MBA, MSc AI và DBA đẳng cấp quốc tế tại IDEAS.'; ?></p>
         </div>
 
         <!-- Tab Navigation -->
