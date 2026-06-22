@@ -5589,3 +5589,155 @@ function ideas_get_latest_news_cached() {
 
 // Include custom editorial calendar page feature
 require_once get_template_directory() . '/ideas-calendar.php';
+
+/**
+ * AIDC & IDEAS Cooperation Events Helpers
+ */
+function ideas_get_aidc_events() {
+    $events = [
+        [
+            'id' => 'digital-transformation-leaders',
+            'title' => 'Digital Transformation for Leaders',
+            'title_vi' => 'Chương trình Chuyển đổi số cho Nhà lãnh đạo',
+            'desc' => 'Online Zoom Webinar. 2-month program featuring 8-sessions. Learn from Academic Trainers & AI Experts. Attend via Zalo and WhatsApp. Receive a certificate upon full attendance.',
+            'desc_vi' => 'Chương trình trực tuyến qua Zoom kéo dài 2 tháng gồm 8 buổi học. Học hỏi từ các giảng viên học thuật & chuyên gia AI hàng đầu. Tham gia qua Zalo và WhatsApp. Nhận chứng chỉ hoàn thành khi tham gia đầy đủ.',
+            'start_date' => '2026-04-25',
+            'end_date' => '2026-06-27',
+            'date_str' => 'April 25, 2026 – June 27, 2026',
+            'date_str_vi' => '25/04/2026 – 27/06/2026',
+            'agenda_url' => 'https://www.aidcvietnam.org/digitaltransformationleaders',
+            'zalo_url' => 'https://zalo.me/g/fyrlda429',
+            'whatsapp_url' => 'https://chat.whatsapp.com/FJBBJogpMNuFfMTNWC9l28',
+            'cert_url' => 'https://www.aidcvietnam.org/certificateofcompletionai',
+            'open_to' => 'Leaders, Managers',
+            'open_to_vi' => 'Nhà lãnh đạo, Quản lý',
+            'location' => 'Online Zoom Webinar',
+            'location_vi' => 'Hội thảo trực tuyến qua Zoom',
+            'image' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp'
+        ],
+        [
+            'id' => 'ai-robotics',
+            'title' => 'AI & Robotics',
+            'title_vi' => 'Chương trình AI & Robotics',
+            'desc' => 'Online Zoom Webinar. 2-month program featuring 8-sessions. Learn from Academic Trainers & AI Experts. Attend via Zalo and WhatsApp. Receive a certificate upon full attendance.',
+            'desc_vi' => 'Chương trình trực tuyến qua Zoom kéo dài 2 tháng gồm 8 buổi học. Học hỏi từ các giảng viên học thuật & chuyên gia AI hàng đầu. Tham gia qua Zalo và WhatsApp. Nhận chứng chỉ hoàn thành khi tham gia đầy đủ.',
+            'start_date' => '2026-06-27',
+            'end_date' => '2026-08-16',
+            'date_str' => 'June 27, 2026 – Aug 16, 2026',
+            'date_str_vi' => '27/06/2026 – 16/08/2026',
+            'agenda_url' => 'https://www.aidcvietnam.org/digitaltransformationleaders-1',
+            'zalo_url' => 'https://zalo.me/g/fyrlda429',
+            'whatsapp_url' => 'https://chat.whatsapp.com/FJBBJogpMNuFfMTNWC9l28',
+            'cert_url' => 'https://www.aidcvietnam.org/certificateofcompletionai',
+            'open_to' => 'Leaders, Managers',
+            'open_to_vi' => 'Nhà lãnh đạo, Quản lý',
+            'location' => 'Online Zoom Webinar',
+            'location_vi' => 'Hội thảo trực tuyến qua Zoom',
+            'image' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp'
+        ],
+        [
+            'id' => 'ai-business',
+            'title' => 'AI for Business',
+            'title_vi' => 'AI cho Doanh nghiệp: AI-Driven Enterprise',
+            'desc' => 'Mastering the Agentic Economy & Emerging Tech. Online Zoom Webinar. 2-month program featuring 8-sessions. Learn from Academic Trainers & AI Experts. Attend via Zalo and WhatsApp. Receive a certificate upon full attendance.',
+            'desc_vi' => 'Làm chủ nền kinh tế tự động (Agentic Economy) & Công nghệ mới nổi. Trực tuyến qua Zoom. Chương trình 2 tháng với 8 buổi học. Nhận chứng chỉ khi tham gia đầy đủ.',
+            'start_date' => '2026-02-07',
+            'end_date' => '2026-04-18',
+            'date_str' => 'February 07, 2026 – April 18, 2026',
+            'date_str_vi' => '07/02/2026 – 18/04/2026',
+            'agenda_url' => 'https://www.aidcvietnam.org/aiforbusinessagenda',
+            'zalo_url' => 'https://zalo.me/g/fyrlda429',
+            'whatsapp_url' => 'https://chat.whatsapp.com/FJBBJogpMNuFfMTNWC9l28',
+            'cert_url' => 'https://www.aidcvietnam.org/certificateofcompletionai',
+            'open_to' => 'Leaders, Managers',
+            'open_to_vi' => 'Nhà lãnh đạo, Quản lý',
+            'location' => 'Online Zoom Webinar',
+            'location_vi' => 'Hội thảo trực tuyến qua Zoom',
+            'image' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp'
+        ],
+        [
+            'id' => 'uel-seminar',
+            'title' => 'UEL Seminar',
+            'title_vi' => 'Hội thảo Khoa học tại UEL',
+            'desc' => 'Applied Research Directions in Graduate Education and Research in Information Systems and E-Commerce hosted by the Faculty of Information Systems.',
+            'desc_vi' => 'Hướng nghiên cứu ứng dụng trong đào tạo sau đại học và nghiên cứu Hệ thống thông tin & Thương mại điện tử, do Khoa Hệ thống thông tin tổ chức.',
+            'start_date' => '2025-03-21',
+            'end_date' => '2025-03-21',
+            'date_str' => 'Saturday, March 21, 2025 – 1:00 PM',
+            'date_str_vi' => 'Thứ Bảy, 21/03/2025 – 13:00',
+            'agenda_url' => 'https://DrThinhDuong.wixforms.com/f/7440066100512949599',
+            'zalo_url' => '',
+            'whatsapp_url' => '',
+            'cert_url' => '',
+            'open_to' => 'Postgraduate researchers, industry professionals',
+            'open_to_vi' => 'Nghiên cứu sinh, học viên cao học, chuyên gia ngành',
+            'location' => 'Hall A, UEL Campus, Thu Duc District, Ho Chi Minh City',
+            'location_vi' => 'Hội trường A, Trường Đại học Kinh tế - Luật (UEL), TP. Thủ Đức',
+            'image' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp'
+        ],
+        [
+            'id' => 'founder-workshop',
+            'title' => 'Free Founder Workshop',
+            'title_vi' => 'Workshop miễn phí dành cho Nhà sáng lập',
+            'desc' => 'Free, in-person workshop for startup founders in Ho Chi Minh City, organized by AdoptoMedia (Estonia), AIDC, and High-Tech Agriculture. Covering sales, marketing, and valuation for fundraising readiness. The program concludes with a light dinner and networking session. Limited to 20 startup companies and 30 participants.',
+            'desc_vi' => 'Workshop trực tiếp miễn phí cho các nhà sáng lập startup tại TP.HCM, do AdoptoMedia (Estonia), AIDC và High-Tech Agriculture phối hợp tổ chức. Nội dung: bán hàng, marketing, định giá gọi vốn. Kết thúc bằng tiệc tối nhẹ & giao lưu kết nối.',
+            'start_date' => '2026-03-03',
+            'end_date' => '2026-03-03',
+            'date_str' => 'March 03, 2026',
+            'date_str_vi' => '03/03/2026',
+            'agenda_url' => 'https://www.aidcvietnam.org/adoptomediaworkshopagenda',
+            'zalo_url' => '',
+            'whatsapp_url' => '',
+            'cert_url' => '',
+            'open_to' => 'Startup Founders',
+            'open_to_vi' => 'Nhà sáng lập Startup',
+            'location' => 'Ho Chi Minh City (In-Person)',
+            'location_vi' => 'TP. Hồ Chí Minh (Trực tiếp)',
+            'image' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp'
+        ],
+        [
+            'id' => 'dc-fundamentals',
+            'title' => 'Data Center Fundamentals',
+            'title_vi' => 'Nguyên lý cơ bản về Trung tâm Dữ liệu',
+            'desc' => 'Online webinar. 2-month program featuring 8-session. Learn from academic trainers and data center industry experts. Attend conveniently via Zalo and WhatsApp. Attendant will receive a certificate upon full attendance.',
+            'desc_vi' => 'Hội thảo trực tuyến kéo dài 2 tháng gồm 8 buổi học. Học hỏi từ các giảng viên học thuật và chuyên gia trong lĩnh vực trung tâm dữ liệu. Nhận chứng chỉ hoàn thành khi tham gia đầy đủ.',
+            'start_date' => '2025-12-14',
+            'end_date' => '2026-01-31',
+            'date_str' => 'December 14, 2025 – January 31, 2026',
+            'date_str_vi' => '14/12/2025 – 31/01/2026',
+            'agenda_url' => 'https://www.aidcvietnam.org/dcinfrastructurefundamental',
+            'zalo_url' => 'https://zalo.me/g/fyrlda429',
+            'whatsapp_url' => 'https://chat.whatsapp.com/FJBBJogpMNuFfMTNWC9l28',
+            'cert_url' => 'https://www.aidcvietnam.org/certificateofcompletionai',
+            'open_to' => 'Professionals and Leaders',
+            'open_to_vi' => 'Chuyên viên, Nhà quản lý',
+            'location' => 'Online Webinar',
+            'location_vi' => 'Hội thảo trực tuyến',
+            'image' => 'https://ideas.edu.vn/wp-content/uploads/2026/06/AIDC.webp'
+        ]
+    ];
+    return $events;
+}
+
+function ideas_get_upcoming_aidc_events_count() {
+    $cache_key = 'ideas_upcoming_aidc_events_count';
+    $count = get_transient($cache_key);
+    
+    if ($count !== false) {
+        return (int)$count;
+    }
+    
+    $events = ideas_get_aidc_events();
+    $today = date('Y-m-d');
+    $count = 0;
+    
+    foreach ($events as $event) {
+        if ($event['end_date'] >= $today) {
+            $count++;
+        }
+    }
+    
+    set_transient($cache_key, $count, 6 * HOUR_IN_SECONDS);
+    
+    return $count;
+}
