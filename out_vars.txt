@@ -1,0 +1,34 @@
+emba.webp.webp",
+            name: "Executive MBA",
+            school: "Swiss UMEF",
+            subjects: "<b>60</b> tín chỉ ECTS - <b>10</b> môn không luận văn",
+            duration: "14-16 tháng",
+            country: "Thuỵ Sĩ",
+            experience: [
+                "Tốt nghiệp cử nhân",
+                "Tối thiểu 2 năm kinh nghiệm làm việc",
+                "Tiếng Anh giao tiếp tốt hoặc bằng cấp tương đương IELTS 6.0",
+            ],
+            test: {
+                high: [
+                    "Lớp học tương tác trực tiếp, được trao đổi và thảo luận cùng Giảng viên và học viên",
+                    "Kiến thức hướng đến thực hành giải quyết các vấn đề quản lý chuyên sâu",
+                    "Lộ trình học tinh gọn 10 môn - không làm luận văn",
+                    "Học phí linh hoạt chia nhỏ hoặc trả góp",
+                ],
+                stand: [
+                    "Thời gian học tập, nghiên cứu tự sắp xếp linh hoạt, hỗ trợ bởi các giảng viên Việt Nam trong quá trình học",
+                    "Kiến thức hướng đến thực hành giải quyết các vấn đề quản lý chuyên sâu",
+                    "Lộ trình học tinh gọn 10 môn - không làm luận văn",
+                    "Học phí linh hoạt chia nhỏ hoặc trả góp",
+                ],
+            },
+            highlight: [
+                "Trực tuyến 100%",
+                "Thạc sĩ (Master)",
+                "20:00 - 23:00 (Vietnam)",
+                "2 buổi chuyên đề/môn (Chủ nhật)",
+            ],
+            tagline:
+                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ",
+            link: "/e
