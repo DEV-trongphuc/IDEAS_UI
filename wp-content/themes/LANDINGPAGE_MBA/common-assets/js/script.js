@@ -2790,11 +2790,17 @@ function initMobileTopSheet() {
 
 function initHomepageToastPopup() {
     const path = window.location.pathname.toLowerCase();
-    const isHomepage = path === '/' || path === '/index.html' || path === '/index.php' || path.endsWith('/landingpage_mba/') || path.endsWith('/landingpage_mba/index.html');
-    const isEn = path.includes('/en/') || path.includes('/en');
-    
-    if (!isHomepage || isEn) return;
+    const isReelPage = path.includes('/reel');
+    if (isReelPage) return;
     if (sessionStorage.getItem('ideas-toast-dismissed')) return;
+
+    const isEn = path.includes('/en/') || path.includes('/en') || path.startsWith('/en');
+    const toastLink = isEn ? '/en/tri-tue-song-hanh' : '/tri-tue-song-hanh';
+    const toastTag = isEn ? 'SPECIAL PROMOTION' : 'ƯU ĐÃI ĐẶC BIỆT';
+    const toastTitle = isEn 
+        ? 'Shared Intelligence Program: Free In-house AI Corporate Training & AI Agents' 
+        : 'Chương trình Trí tuệ song hành: Học Thạc sĩ tặng Gói Đào tạo AI Doanh nghiệp 50M';
+    const toastImage = 'https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp';
 
     // Inject CSS
     const style = document.createElement('style');
@@ -2923,11 +2929,11 @@ function initHomepageToastPopup() {
     toast.id = 'ideas-toast-popup';
     toast.innerHTML = `
         <button class="ideas-toast-close" id="ideas-toast-close" aria-label="Close popup"><span>&times;</span></button>
-        <a href="https://ideas.edu.vn/tin-tuc-moi/chuong-trinh-thac-si-swiss-umef.html" class="ideas-toast-content">
-            <img src="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" alt="Avatar" class="ideas-toast-avatar">
+        <a href="${toastLink}" class="ideas-toast-content">
+            <img src="${toastImage}" alt="Avatar" class="ideas-toast-avatar">
             <div class="ideas-toast-body">
-                <span class="ideas-toast-tag">Tin tức nổi bật</span>
-                <p class="ideas-toast-title">Swiss UMEF hợp tác IDEAS đưa chương trình Thạc sĩ Thụy Sĩ đến Việt Nam</p>
+                <span class="ideas-toast-tag">${toastTag}</span>
+                <p class="ideas-toast-title">${toastTitle}</p>
             </div>
         </a>
     `;
