@@ -772,6 +772,11 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 typeVal = "fees_page_registration";
                 notePrefix = "Đăng ký từ trang Học phí";
                 chuongTrinhVal = "Các khoản chi phí";
+            } else if (path.includes("tri-tue-song-hanh")) {
+                sourceVal = "Landing_Tri_Tue_Song_Hanh";
+                typeVal = "tri_tue_song_hanh_registration";
+                notePrefix = "Đăng ký chương trình Trí tuệ song hành";
+                chuongTrinhVal = "Trí tuệ song hành";
             }
 
             // Override notePrefix dynamically with the page title and program name

@@ -2792,7 +2792,7 @@ function initHomepageToastPopup() {
     const path = window.location.pathname.toLowerCase();
     const isReelPage = path.includes('/reel');
     if (isReelPage) return;
-    if (sessionStorage.getItem('ideas-toast-dismissed')) return;
+    if (sessionStorage.getItem('ideas-toast-dismissed-tri-tue')) return;
 
     const isEn = path.includes('/en/') || path.includes('/en') || path.startsWith('/en');
     const toastLink = isEn ? '/en/tri-tue-song-hanh' : '/tri-tue-song-hanh';
@@ -2947,7 +2947,7 @@ function initHomepageToastPopup() {
             e.preventDefault();
             e.stopPropagation();
             toast.classList.remove('show');
-            sessionStorage.setItem('ideas-toast-dismissed', 'true');
+            sessionStorage.setItem('ideas-toast-dismissed-tri-tue', 'true');
             setTimeout(() => {
                 toast.remove();
             }, 500);
@@ -2957,15 +2957,6 @@ function initHomepageToastPopup() {
     // Delay show after 3 seconds
     setTimeout(() => {
         toast.classList.add('show');
-        // Auto hide after 10 seconds
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.classList.remove('show');
-                setTimeout(() => {
-                    toast.remove();
-                }, 500);
-            }
-        }, 10000);
     }, 3000);
 }
 
