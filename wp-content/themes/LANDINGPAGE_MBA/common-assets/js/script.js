@@ -3217,7 +3217,7 @@ function initGlobalReelsModal() {
         if (path.indexOf('sacombank') !== -1) {
             reelId = 'tfSh3cVhvR8';
         } else if (path.indexOf('bba') !== -1 && path.indexOf('fullbba') === -1) {
-            reelId = 'FMJ-j-bzn4A';
+            reelId = 'YgF77KEghOI';
         } else if (path.indexOf('mba') !== -1 || path.indexOf('emba') !== -1 || path.indexOf('dba') !== -1 || path.indexOf('mscai') !== -1 || path.indexOf('mbainai') !== -1) {
             reelId = 'rXWWEC2LJJM';
         }

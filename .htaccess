@@ -47,11 +47,11 @@ RewriteRule ^su-kien/?$ /dong-su-kien [R=301,L,NC]
 
 # Redirect direct access to physical Vietnamese .html files under wp-content
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^/?wp-content/new_public/LANDINGPAGE_MBA/(mba|mscai|emba|bba|fullbba|mbainai|dual-dba|dat-lich)\.html$ /$1 [R=301,L,NC]
+RewriteRule ^/?wp-content/new_public/LANDINGPAGE_MBA/(mba|mscai|emba|bba|fullbba|mbainai|dual-dba|dat-lich|uu-dai-doanh-nghiep)\.html$ /$1 [R=301,L,NC]
 
 # Redirect direct access to physical English .html files under wp-content
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
-RewriteRule ^/?wp-content/new_public/LANDINGPAGE_MBA/en/(mba|mscai|emba|bba|fullbba|mbainai|dual-dba|dat-lich)\.html$ /en/$1 [R=301,L,NC]
+RewriteRule ^/?wp-content/new_public/LANDINGPAGE_MBA/en/(mba|mscai|emba|bba|fullbba|mbainai|dual-dba|dat-lich|uu-dai-doanh-nghiep)\.html$ /en/$1 [R=301,L,NC]
 
 # Redirect direct access to physical English index.html under wp-content
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
@@ -99,6 +99,7 @@ RewriteRule ^fullbba/?$ /wp-content/new_public/LANDINGPAGE_MBA/fullbba.html [L]
 RewriteRule ^(mba-in-ai|mbainai)/?$ /wp-content/new_public/LANDINGPAGE_MBA/mbainai.html [L,NC]
 RewriteRule ^dual-dba(-estiam-rb)?/?$ /wp-content/new_public/LANDINGPAGE_MBA/dual-dba.html [L,NC]
 RewriteRule ^dat-lich/?$ /wp-content/new_public/LANDINGPAGE_MBA/dat-lich.html [L]
+RewriteRule ^uu-dai-doanh-nghiep/?$ /wp-content/new_public/LANDINGPAGE_MBA/uu-dai-doanh-nghiep.html [L]
 
 # English clean URLs
 RewriteCond %{THE_REQUEST} ![?&]s=
@@ -111,6 +112,7 @@ RewriteRule ^en/fullbba/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/fullbba.htm
 RewriteRule ^en/(mba-in-ai|mbainai)/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/mbainai.html [L,NC]
 RewriteRule ^en/dual-dba(-estiam-rb)?/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/dual-dba.html [L,NC]
 RewriteRule ^en/dat-lich/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/dat-lich.html [L]
+RewriteRule ^en/uu-dai-doanh-nghiep/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/uu-dai-doanh-nghiep.html [L]
 
 
 

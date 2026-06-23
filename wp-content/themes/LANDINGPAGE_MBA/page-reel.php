@@ -7,6 +7,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
 $reels = [
     [
+        'id' => 'YgF77KEghOI',
+        'title' => $is_en ? 'Second Degree / Top-up BBA' : 'Văn bằng 2 - Liên thông Cử nhân Quản trị Kinh doanh',
+        'desc' => $is_en ? 'Acquire a prestigious Swiss Bachelor degree via the second degree or transfer pathway.' : 'Sở hữu bằng Cử nhân Quản trị Kinh doanh chuẩn quốc tế cấp từ Thụy Sĩ qua hệ Văn bằng 2 hoặc Liên thông.',
+        'cover' => 'https://i.ytimg.com/vi/YgF77KEghOI/hqdefault.jpg'
+    ],
+    [
         'id' => 'FMJ-j-bzn4A',
         'title' => $is_en ? 'Top-up BBA (12 months)' : 'Cử nhân Liên thông 12 tháng (BBA Top-up)',
         'desc' => $is_en ? 'International standard Bachelor degree from Swiss UMEF Switzerland.' : 'Chương trình Cử nhân Liên thông Quản trị Kinh doanh cấp bằng từ Swiss UMEF Thụy Sĩ. Nhận bằng chính quy chuẩn quốc tế.',

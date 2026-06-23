@@ -290,7 +290,7 @@ injection_block = """<!-- Facebook Reel Modal & Trigger Integration -->
         if (currentPath.indexOf('sacombank') !== -1) {
             reelId = 'tfSh3cVhvR8';
         } else if (currentPath.indexOf('bba') !== -1 && currentPath.indexOf('fullbba') === -1) {
-            reelId = 'FMJ-j-bzn4A';
+            reelId = 'YgF77KEghOI';
         } else if (currentPath.indexOf('mba') !== -1 || currentPath.indexOf('emba') !== -1 || currentPath.indexOf('dba') !== -1 || currentPath.indexOf('mscai') !== -1 || currentPath.indexOf('mbainai') !== -1) {
             reelId = 'rXWWEC2LJJM';
         }
