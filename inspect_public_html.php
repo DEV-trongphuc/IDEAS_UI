@@ -70,6 +70,22 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
+    // Read admin/module-settings.php around line 3788
+    echo "\n=== Reading admin/module-settings.php around line 3788 ===\n";
+    $settings_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/admin/module-settings.php';
+    if (file_exists($settings_file)) {
+        $content = file_get_contents($settings_file);
+        $lines = explode("\n", $content);
+        $start = max(0, 3770);
+        $end = min(count($lines), 3820);
+        echo "Lines $start to $end:\n";
+        for ($i = $start; $i < $end; $i++) {
+            echo "  " . ($i + 1) . ": " . $lines[$i] . "\n";
+        }
+    } else {
+        echo "Settings file not found\n";
+    }
+
     // Find element_pack_is_widget_enabled function definition
     echo "\n=== Finding element_pack_is_widget_enabled definition ===\n";
     $ep_dir = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/';
