@@ -260,9 +260,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1782265902" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782265902" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782265902" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1782266425" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782266425" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782266425" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -5590,10 +5590,10 @@
     <style>
         /* Custom Campaign Styles */
         .hero-corporate {
-            background: radial-gradient(circle at 10% 20%, rgba(26, 15, 48, 0.95) 0%, rgba(11, 15, 25, 1) 90%);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             position: relative;
             padding: 100px 0 80px;
-            color: #ffffff;
+            color: #0f172a;
             overflow: hidden;
             min-height: 100vh;
             display: flex;
@@ -5606,8 +5606,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             background-position: center;
             pointer-events: none;
@@ -5618,7 +5618,7 @@
             width: 400px;
             height: 400px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(171, 14, 0, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(171, 14, 0, 0.05) 0%, transparent 70%);
             filter: blur(60px);
             pointer-events: none;
         }
@@ -5669,14 +5669,15 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid rgba(171, 14, 0, 0.15);
             padding: 12px 18px;
             border-radius: 16px;
             font-size: 0.95rem;
-            color: #e2e8f0;
+            color: #334155;
             margin-bottom: 24px;
             text-align: left;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
         }
 
         .goal-dot {
@@ -5697,11 +5698,11 @@
         }
 
         .hero-mockup {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 24px;
             padding: 12px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(171, 14, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08), 0 0 40px rgba(171, 14, 0, 0.05);
             backdrop-filter: blur(10px);
             width: 100%;
             max-width: 600px;
@@ -5715,7 +5716,7 @@
             border-radius: 16px;
             display: block;
             object-fit: cover;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid #e2e8f0;
         }
 
         @keyframes float {
@@ -5733,11 +5734,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 50%;
             padding: 8px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             box-sizing: border-box;
@@ -5799,15 +5800,15 @@
 
         .float-badge {
             position: absolute;
-            background: rgba(15, 23, 42, 0.9) !important;
-            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            background: #ffffff !important;
+            border: 1px solid #e2e8f0 !important;
             backdrop-filter: blur(12px) !important;
             padding: 10px 16px !important;
             border-radius: 14px !important;
             display: flex !important;
             align-items: center !important;
             gap: 10px !important;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4) !important;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06) !important;
             z-index: 10 !important;
             box-sizing: border-box !important;
         }
@@ -5854,14 +5855,14 @@
             margin: 0;
             font-size: 0.82rem;
             font-weight: 800;
-            color: #ffcccc;
+            color: #ab0e00;
             line-height: 1.2;
         }
 
         .float-badge-text p {
             margin: 0;
             font-size: 0.75rem;
-            color: #e2e8f0;
+            color: #475569;
             line-height: 1.2;
         }
 
@@ -5910,13 +5911,13 @@
 
         .hero-corporate .hero-cta .btn-outline {
             background: transparent !important;
-            color: #ffffff !important;
-            border: 2px solid rgba(255, 255, 255, 0.5) !important;
+            color: #0f172a !important;
+            border: 2px solid rgba(15, 23, 42, 0.25) !important;
         }
 
         .hero-corporate .hero-cta .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border-color: rgba(255, 255, 255, 0.8) !important;
+            background: rgba(15, 23, 42, 0.04) !important;
+            border-color: rgba(15, 23, 42, 0.6) !important;
             transform: translateY(-2px) !important;
         }
 
@@ -5931,7 +5932,7 @@
         }
         
         .hero-corporate .cta-gradient {
-            text-shadow: 0 0 20px rgba(171, 14, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 8px rgba(171, 14, 0, 0.15);
         }
 
         /* Gifts Highlights Section */
@@ -5958,7 +5959,7 @@
         }
 
         .gift-highlight-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 24px 32px;
@@ -5970,10 +5971,10 @@
         }
 
         .gift-highlight-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(171, 14, 0, 0.3);
+            background: rgba(171, 14, 0, 0.1);
+            border-color: rgba(171, 14, 0, 0.35);
             transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 16px 48px rgba(171, 14, 0, 0.15);
         }
 
         .gift-highlight-icon-wrap {
@@ -6808,11 +6809,11 @@
             <div class="container">
                 <div class="hero-corporate-inner">
                     <div class="hero-left reveal-up">
-                        <div class="sub-headline" style="font-size: clamp(0.95rem, 1.6vw, 1.15rem); font-weight: 700; color: #ffcccc; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid #ab0e00; padding-left: 12px; text-align: left;">
+                        <div class="sub-headline" style="font-size: clamp(0.95rem, 1.6vw, 1.15rem); font-weight: 700; color: #ab0e00; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1.5px; border-left: 3px solid #ab0e00; padding-left: 12px; text-align: left;">
                             International Master Program — Free In-house AI Corporate Training
                         </div>
-                        <h1 class="hero-headline" style="font-size: clamp(2rem, 4.2vw, 3.4rem); font-weight: 900; line-height: 1.25; margin-bottom: 24px; font-family: var(--font-serif); color: #fff; text-align: left;">
-                            <span style="display: block; font-size: clamp(0.85rem, 1.4vw, 1.05rem); font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px;">Program</span>
+                        <h1 class="hero-headline" style="font-size: clamp(2rem, 4.2vw, 3.4rem); font-weight: 900; line-height: 1.25; margin-bottom: 24px; font-family: var(--font-serif); color: #0f172a; text-align: left;">
+                            <span style="display: block; font-size: clamp(0.85rem, 1.4vw, 1.05rem); font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px;">Program</span>
                             <span class="cta-gradient underline-highlight">Shared Intelligence - Living and Working with AI</span>
                         </h1>
                         
@@ -6821,16 +6822,48 @@
                             <span>Goal: <strong>Apply AI to boost productivity across all business operations</strong></span>
                         </div>
 
-                        <p style="font-size: clamp(1rem, 1.8vw, 1.15rem); color: #cbd5e1; line-height: 1.65; margin-bottom: 36px; max-width: 650px;">
+                        <p style="font-size: clamp(1rem, 1.8vw, 1.15rem); color: #475569; line-height: 1.65; margin-bottom: 36px; max-width: 650px;">
                             Upgrade your strategic capabilities with a Master's degree (MBA, EMBA, MSc AI) while empowering your team to operate efficiently with artificial intelligence.
                         </p>
                         <div class="hero-cta">
                             <a href="#dang-ky" class="btn btn-primary">Get Promotion Now</a>
                             <a href="javascript:void(0)" class="btn btn-outline bk-open-btn">Book 1:1 Consultation</a>
                         </div>
+
+                        <!-- Compact English Gift Highlights Box (Moved here, emoji-free) -->
+                        <div class="gift-highlight-card-light" style="background: #ffffff; border: 1.5px dashed rgba(171, 14, 0, 0.25); border-radius: 16px; padding: 20px 24px; box-shadow: 0 10px 25px rgba(171,14,0,0.03); margin-top: 28px; display: flex; flex-direction: column; justify-content: center; text-align: left;">
+                            <h4 style="font-size: 0.95rem; font-weight: 800; color: #ab0e00; margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
+                                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px; color: #ab0e00;"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                                SPECIAL BONUS GIFT FOR JULY REGISTRATION:
+                            </h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                                <li style="display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; color: #334155; line-height: 1.45;">
+                                    <span style="color: #ab0e00; font-weight: bold; margin-top: -1px;">•</span>
+                                    <span>Exclusively for the <strong>first 50 registered students</strong>: Receive <strong>01 Custom AI Agent Package</strong> tailor-made and optimized to apply directly to your daily work.</span>
+                                </li>
+                                <li style="display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; color: #334155; line-height: 1.45;">
+                                    <span style="color: #ab0e00; font-weight: bold; margin-top: -1px;">•</span>
+                                    <span><strong>Plus, choose 01 of the following 03 exclusive benefits:</strong></span>
+                                </li>
+                                <li style="margin-left: 14px; padding-left: 0; display: flex; flex-direction: column; gap: 6px;">
+                                    <div style="display: flex; gap: 6px; align-items: flex-start; font-size: 0.85rem; color: #475569; line-height: 1.4;">
+                                        <span style="color: #64748b;">-</span>
+                                        <span>01 In-house Corporate AI Training package valued at <strong>$2,000</strong> (2 days).</span>
+                                    </div>
+                                    <div style="display: flex; gap: 6px; align-items: flex-start; font-size: 0.85rem; color: #475569; line-height: 1.4;">
+                                        <span style="color: #64748b;">-</span>
+                                        <span>01 Academic Scholarship Voucher of <strong>2,000 CHF</strong> for your next program (transferable).</span>
+                                    </div>
+                                    <div style="display: flex; gap: 6px; align-items: flex-start; font-size: 0.85rem; color: #475569; line-height: 1.4;">
+                                        <span style="color: #64748b;">-</span>
+                                        <span>01 Study trip experience & graduation ceremony attendance in <strong>Switzerland</strong>.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="hero-right reveal-up">
-                        <div class="hero-image-wrapper" style="flex-direction: column;">
+                    <div class="hero-right reveal-up" style="display: flex; flex-direction: column; gap: 24px;">
+                        <div class="hero-image-wrapper">
                             <div class="hero-mockup">
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" alt="Shared Intelligence - Living and Working with AI" loading="lazy">
                                 
@@ -6868,88 +6901,41 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Hero English Countdown Timer (Moved below image) -->
+                        <div class="countdown-container-light" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 20px 24px; text-align: center; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04); display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; max-width: 600px; margin: 0 auto; box-sizing: border-box;">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
+                                <span style="display: inline-block; width: 8px; height: 8px; background-color: #ef4444; border-radius: 50%; box-shadow: 0 0 8px #ef4444, 0 0 15px rgba(239, 68, 68, 0.6); animation: badge-pulse 2s infinite;"></span>
+                                <span style="font-size: 0.8rem; font-weight: 800; color: #dc2626; text-transform: uppercase; letter-spacing: 1.5px;">PROMOTION ONLY VALID BEFORE JULY 16:</span>
+                            </div>
+                            <div class="countdown-timer" id="hero-countdown" style="display: flex; justify-content: center; align-items: center; gap: 12px;">
+                                <div class="countdown-item">
+                                    <span class="countdown-num" id="cd-days" style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 8px rgba(171,14,0,0.08); font-family: var(--font-sans, sans-serif);">00</span>
+                                    <span class="countdown-label" style="display: block; font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 2px; letter-spacing: 0.5px;">Days</span>
+                                </div>
+                                <span class="countdown-colon" style="font-size: 1.8rem; font-weight: 900; color: #ab0e00; opacity: 0.8; transform: translateY(-4px);">:</span>
+                                <div class="countdown-item">
+                                    <span class="countdown-num" id="cd-hours" style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 8px rgba(171,14,0,0.08); font-family: var(--font-sans, sans-serif);">00</span>
+                                    <span class="countdown-label" style="display: block; font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 2px; letter-spacing: 0.5px;">Hours</span>
+                                </div>
+                                <span class="countdown-colon" style="font-size: 1.8rem; font-weight: 900; color: #ab0e00; opacity: 0.8; transform: translateY(-4px);">:</span>
+                                <div class="countdown-item">
+                                    <span class="countdown-num" id="cd-mins" style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 8px rgba(171,14,0,0.08); font-family: var(--font-sans, sans-serif);">00</span>
+                                    <span class="countdown-label" style="display: block; font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 2px; letter-spacing: 0.5px;">Minutes</span>
+                                </div>
+                                <span class="countdown-colon" style="font-size: 1.8rem; font-weight: 900; color: #ab0e00; opacity: 0.8; transform: translateY(-4px);">:</span>
+                                <div class="countdown-item">
+                                    <span class="countdown-num" id="cd-secs" style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 8px rgba(171,14,0,0.08); font-family: var(--font-sans, sans-serif);">00</span>
+                                    <span class="countdown-label" style="display: block; font-size: 0.7rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 2px; letter-spacing: 0.5px;">Seconds</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Special Campaign Promotion & Countdown Section (Light Theme) -->
-        <section class="campaign-promo-section" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); padding: 56px 0; border-bottom: 1px solid #e2e8f0; position: relative; z-index: 10;">
-            <div class="container">
-                <div class="promo-grid" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: stretch;">
-                    
-                    <!-- Left: Countdown Card (Light Theme) -->
-                    <div class="countdown-container-light" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 32px; text-align: center; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04); display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 16px;">
-                            <span style="display: inline-block; width: 8px; height: 8px; background-color: #ef4444; border-radius: 50%; box-shadow: 0 0 8px #ef4444, 0 0 15px rgba(239, 68, 68, 0.6); animation: badge-pulse 2s infinite;"></span>
-                            <span style="font-size: 0.85rem; font-weight: 800; color: #dc2626; text-transform: uppercase; letter-spacing: 2px;">PROMOTION ONLY VALID BEFORE JULY 16:</span>
-                        </div>
-                        <div class="countdown-timer" id="hero-countdown" style="display: flex; justify-content: center; align-items: center; gap: 16px;">
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-days" style="font-size: 2.8rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 10px rgba(171,14,0,0.1); font-family: var(--font-sans, sans-serif);">00</span>
-                                <span class="countdown-label" style="display: block; font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 4px; letter-spacing: 0.5px;">Days</span>
-                            </div>
-                            <span class="countdown-colon" style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; opacity: 0.8; transform: translateY(-6px);">:</span>
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-hours" style="font-size: 2.8rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 10px rgba(171,14,0,0.1); font-family: var(--font-sans, sans-serif);">00</span>
-                                <span class="countdown-label" style="display: block; font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 4px; letter-spacing: 0.5px;">Hours</span>
-                            </div>
-                            <span class="countdown-colon" style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; opacity: 0.8; transform: translateY(-6px);">:</span>
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-mins" style="font-size: 2.8rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 10px rgba(171,14,0,0.1); font-family: var(--font-sans, sans-serif);">00</span>
-                                <span class="countdown-label" style="display: block; font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 4px; letter-spacing: 0.5px;">Minutes</span>
-                            </div>
-                            <span class="countdown-colon" style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; opacity: 0.8; transform: translateY(-6px);">:</span>
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-secs" style="font-size: 2.8rem; font-weight: 900; color: #ab0e00; text-shadow: 0 2px 10px rgba(171,14,0,0.1); font-family: var(--font-sans, sans-serif);">00</span>
-                                <span class="countdown-label" style="display: block; font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 700; margin-top: 4px; letter-spacing: 0.5px;">Seconds</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Right: Gift Highlight Card (Light Theme) -->
-                    <div class="gift-highlight-card-light" style="background: #ffffff; border: 1.5px dashed rgba(171, 14, 0, 0.25); border-radius: 20px; padding: 28px 32px; box-shadow: 0 10px 30px rgba(171,14,0,0.02); display: flex; flex-direction: column; justify-content: center;">
-                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #ab0e00; margin: 0 0 16px; display: flex; align-items: center; gap: 8px;">
-                            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px; color: #ab0e00;"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
-                            SPECIAL BONUS GIFT FOR JULY REGISTRATION:
-                        </h4>
-                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
-                            <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 0.95rem; color: #334155; line-height: 1.55;">
-                                <span style="font-size: 1.2rem; line-height: 1; margin-top: 1px;">🎁</span>
-                                <span>Exclusively for the <strong>first 50 registered students</strong>: Receive <strong>01 Custom AI Agent Package</strong> tailor-made and optimized to apply directly to your daily work.</span>
-                            </li>
-                            <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 0.95rem; color: #334155; line-height: 1.55;">
-                                <span style="font-size: 1.2rem; line-height: 1; margin-top: 1px;">🎁</span>
-                                <span><strong>Plus, choose 01 of the following 03 exclusive benefits:</strong></span>
-                            </li>
-                            <li style="margin-left: 28px; padding-left: 0; display: flex; flex-direction: column; gap: 10px;">
-                                <div style="display: flex; gap: 8px; align-items: flex-start; font-size: 0.9rem; color: #475569;">
-                                    <span style="color: #ab0e00;">✦</span>
-                                    <span>01 In-house Corporate AI Training package valued at <strong>$2,000</strong> (2 days).</span>
-                                </div>
-                                <div style="display: flex; gap: 8px; align-items: flex-start; font-size: 0.9rem; color: #475569;">
-                                    <span style="color: #ab0e00;">✦</span>
-                                    <span>01 Academic Scholarship Voucher of <strong>2,000 CHF</strong> for your next program (transferable).</span>
-                                </div>
-                                <div style="display: flex; gap: 8px; align-items: flex-start; font-size: 0.9rem; color: #475569;">
-                                    <span style="color: #ab0e00;">✦</span>
-                                    <span>01 Study trip experience & graduation ceremony attendance in <strong>Switzerland</strong>.</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <style>
-                @media (max-width: 991px) {
-                    .promo-grid {
-                        grid-template-columns: 1fr !important;
-                        gap: 24px !important;
-                    }
-                }
-            </style>
-        </section>
 
         <!-- ══════════════════════════════════════════
          SECTION 4: SOLUTION
@@ -7309,6 +7295,17 @@
                                 <p class="trainer-bio-text">Directly trained and consulted for major corporations: <strong>Vietnam Airlines, HDBank, Toshiba, Canon, Abbott...</strong></p>
                             </li>
                         </ul>
+                        <!-- Client Logos Showcase -->
+                        <div class="trainer-clients" style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed rgba(255, 255, 255, 0.15);">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: #ffcccc; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Trained &amp; consulted at:</div>
+                            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; background: #ffffff; padding: 10px 16px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-VNA-V.png" alt="Vietnam Airlines" style="height: 18px; width: auto; object-fit: contain;" />
+                                <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-hdbank-inkythuatso-06-18-11-25.jpg" alt="HDBank" style="height: 18px; width: auto; object-fit: contain;" />
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/TOSHIBA_Logo.png" alt="Toshiba" style="height: 11px; width: auto; object-fit: contain;" />
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Canon_logo.svg/3840px-Canon_logo.svg.png" alt="Canon" style="height: 12px; width: auto; object-fit: contain;" />
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Abbott_Laboratories_logo.svg" alt="Abbott" style="height: 12px; width: auto; object-fit: contain;" />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -8380,8 +8377,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1782265902" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1782265902" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1782266425" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1782266425" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
