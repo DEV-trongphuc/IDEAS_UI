@@ -70,18 +70,38 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Check BDThemes Element Pack options
-    echo "\n=== Element Pack Options ===\n";
-    $ep_active = get_option('element_pack_active_modules');
-    if (is_array($ep_active)) {
-        echo "Active modules keys:\n";
-        ksort($ep_active);
-        foreach ($ep_active as $k => $v) {
-            echo "  - $k: " . var_export($v, true) . "\n";
+    // Scan bdthemes-element-pack plugin directory for tutor-related files or code
+    echo "\n=== Scanning bdthemes-element-pack for tutor references ===\n";
+    $ep_dir = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/';
+    if (is_dir($ep_dir)) {
+        $di = new RecursiveDirectoryIterator($ep_dir);
+        $it = new RecursiveIteratorIterator($di);
+        $count = 0;
+        foreach ($it as $file) {
+            if ($file->isFile() && $file->getExtension() === 'php') {
+                $content = file_get_contents($file->getPathname());
+                if (strpos($content, 'tutor-lms') !== false || strpos($content, 'bdt-tutor-lms') !== false) {
+                    $rel_path = str_replace($ep_dir, '', $file->getPathname());
+                    echo "- File: $rel_path\n";
+                    // Find matching line
+                    $lines = explode("\n", $content);
+                    foreach ($lines as $num => $line) {
+                        if (strpos($line, 'tutor-lms') !== false || strpos($line, 'bdt-tutor-lms') !== false) {
+                            echo "  Line " . ($num + 1) . ": " . trim($line) . "\n";
+                        }
+                    }
+                    $count++;
+                    if ($count > 10) {
+                        echo "... and more files\n";
+                        break;
+                    }
+                }
+            }
         }
     } else {
-        echo "element_pack_active_modules is not an array: " . var_export($ep_active, true) . "\n";
+        echo "Element Pack directory not found\n";
     }
+
 
 
 } else {
