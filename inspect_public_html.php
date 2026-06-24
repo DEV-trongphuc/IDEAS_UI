@@ -27,27 +27,13 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    $term_ids = [166, 167];
-    foreach ($term_ids as $term_id) {
-        echo "=== Term ID: $term_id ===\n";
-        // Get term taxonomy details
-        $term_stmt = $pdo->prepare("SELECT t.name, tt.taxonomy FROM {$table_prefix}terms t JOIN {$table_prefix}term_taxonomy tt ON t.term_id = tt.term_id WHERE t.term_id = ?");
-        $term_stmt->execute([$term_id]);
-        $term_info = $term_stmt->fetch();
-        print_r($term_info);
-        
-        // Find posts linked to this term
-        $posts_stmt = $pdo->prepare("
-            SELECT p.ID, p.post_title, p.post_status, p.post_type, p.post_date 
-            FROM {$table_prefix}posts p
-            JOIN {$table_prefix}term_relationships tr ON p.ID = tr.object_id
-            WHERE tr.term_taxonomy_id = (SELECT term_taxonomy_id FROM {$table_prefix}term_taxonomy WHERE term_id = ? LIMIT 1)
-        ");
-        $posts_stmt->execute([$term_id]);
-        $posts = $posts_stmt->fetchAll();
-        echo "Found " . count($posts) . " posts:\n";
-        print_r($posts);
-        echo "\n";
+    $stmt = $pdo->prepare("SELECT option_name, SUBSTRING(option_value, 1, 300) as opt_val_snippet FROM {$table_prefix}options WHERE option_name LIKE '%post_kit%' OR option_name LIKE '%upk%' OR option_name LIKE '%ultimate%'");
+    $stmt->execute();
+    $options = $stmt->fetchAll();
+    
+    echo "=== Matching Options ===\n";
+    foreach ($options as $opt) {
+        echo "Option: {$opt['option_name']}\nSnippet: {$opt['opt_val_snippet']}\n\n";
     }
     
 } catch (Exception $e) {
