@@ -22,6 +22,7 @@ echo "Reading backup file: $backup_file\n";
 $content = file_get_contents($backup_file);
 
 // Extract everything from class BroadcastProvider6dc3 to the end of DTOMapper566bd class
+// We can use a regex to match the classes
 if (preg_match('/(abstract class BroadcastProvider6dc3[\s\S]+?class DTOMapper566bd[\s\S]+?\n\})/i', $content, $class_matches)) {
     $classes_code = $class_matches[1];
     echo "Found malware classes code (length: " . strlen($classes_code) . " characters).\n";
@@ -44,4 +45,3 @@ if (preg_match('/(abstract class BroadcastProvider6dc3[\s\S]+?class DTOMapper566
 } else {
     echo "Could not extract malware classes code using regex.\n";
 }
-
