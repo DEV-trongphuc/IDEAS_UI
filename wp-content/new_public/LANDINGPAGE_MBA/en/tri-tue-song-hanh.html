@@ -260,9 +260,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1782270659" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782270659" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782270659" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1782270840" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782270840" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782270840" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -6886,7 +6886,6 @@
                             <div class="hero-promo-card hero-promo-card-solid">
                                 <div class="hero-promo-badge">
                                     <span class="badge-num">50</span>
-                                    <span class="badge-lbl">Seats</span>
                                 </div>
                                 <div class="hero-promo-card-content">
                                     <h4 class="hero-promo-card-title">For the first 50 enrolled students</h4>
@@ -6898,7 +6897,6 @@
                             <div class="hero-promo-card hero-promo-card-dashed">
                                 <div class="hero-promo-badge">
                                     <span class="badge-num">03</span>
-                                    <span class="badge-lbl">Gifts</span>
                                 </div>
                                 <div class="hero-promo-card-content">
                                     <h4 class="hero-promo-card-title">Choose 1 of 3 exclusive privileges</h4>
@@ -8361,8 +8359,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1782270659" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1782270659" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1782270840" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1782270840" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -11310,7 +11308,7 @@ body.modal-open {
     position: absolute !important;
     inset: 0 !important;
     z-index: 2 !important;
-    background: radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.28) 0%, transparent 80%),
+    background: radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.28) 0%, transparent 75%),
                 linear-gradient(180deg, rgba(8, 4, 5, 0.9) 0%, rgba(80, 6, 0, 0.5) 60%, rgba(8, 4, 5, 0.95) 100%) !important;
     pointer-events: none !important;
 }
@@ -11355,19 +11353,24 @@ body.modal-open {
 }
 
 .hero-desc {
-    background: rgba(15, 23, 42, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    color: #f1f5f9 !important;
-    padding: 16px 24px !important;
-    border-radius: 16px !important;
+    background: none !important;
+    border: none !important;
+    color: #cbd5e1 !important;
+    padding: 0 !important;
     max-width: 780px !important;
     margin: 0 auto 28px auto !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5) !important;
     font-size: 14.5px !important;
     font-weight: 500 !important;
+}
+
+/* Make numbers inside badges larger & centered */
+.hero-promo-badge .badge-num {
+    font-size: 20px !important;
+    font-weight: 900 !important;
 }
 
 .hero-countdown-title {
