@@ -70,19 +70,40 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Read first 50 lines of tutor-lms-course-grid.php
-    echo "\n=== Reading tutor-lms-course-grid.php header ===\n";
-    $widget_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/modules/tutor-lms-course-grid/widgets/tutor-lms-course-grid.php';
-    if (file_exists($widget_file)) {
-        $content = file_get_contents($widget_file);
-        $lines = explode("\n", $content);
-        echo "Lines 1 to 50:\n";
-        for ($i = 0; $i < min(count($lines), 50); $i++) {
-            echo "    " . ($i + 1) . ": " . $lines[$i] . "\n";
+    // Read settings of widget ac2f29f
+    echo "\n=== Settings of Widget ac2f29f ===\n";
+    $meta_val = $wpdb->get_var($wpdb->prepare(
+        "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = %d AND meta_key = '_elementor_data'",
+        4468
+    ));
+    if ($meta_val) {
+        $data = json_decode($meta_val, true);
+        if (json_last_error() === JSON_ERROR_NONE) {
+            function find_widget_settings($elements, $target_id) {
+                foreach ($elements as $el) {
+                    if (isset($el['id']) && $el['id'] === $target_id) {
+                        return $el['settings'] ?? [];
+                    }
+                    if (isset($el['elements']) && is_array($el['elements'])) {
+                        $res = find_widget_settings($el['elements'], $target_id);
+                        if ($res) return $res;
+                    }
+                }
+                return null;
+            }
+            $settings = find_widget_settings($data, 'ac2f29f');
+            if ($settings) {
+                echo var_export($settings, true) . "\n";
+            } else {
+                echo "Widget settings not found for ID ac2f29f\n";
+            }
+        } else {
+            echo "Failed to decode JSON\n";
         }
     } else {
-        echo "Widget file not found\n";
+        echo "No elementor data found\n";
     }
+
 } else {
     echo "Failed to find wp-load.php at $wp_load_path\n";
 }
