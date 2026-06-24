@@ -2801,7 +2801,7 @@ function initHomepageToastPopup() {
     const toastTitle = isEn 
         ? 'Shared Intelligence Program: Free In-house AI Corporate Training & AI Agents' 
         : 'Chương trình Trí tuệ song hành: Học Thạc sĩ tặng Gói Đào tạo AI Doanh nghiệp 50M';
-    const toastImage = 'https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp';
+    const toastImage = 'https://ideas.edu.vn/wp-content/uploads/2026/06/song_ai.webp';
 
     // Inject CSS
     const style = document.createElement('style');
@@ -2843,8 +2843,8 @@ function initHomepageToastPopup() {
             color: inherit;
         }
         .ideas-toast-avatar {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 12px;
             object-fit: cover;
             flex-shrink: 0;
