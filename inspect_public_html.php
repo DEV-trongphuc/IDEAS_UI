@@ -37,16 +37,16 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    // Get _elementor_data
-    $stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = 4468 AND meta_key = '_elementor_data'");
-    $stmt->execute();
-    $meta = $stmt->fetch();
-    
-    if ($meta && !empty($meta['meta_value'])) {
-        echo "=== RAW ELEMENTOR DATA ===\n";
-        echo $meta['meta_value'] . "\n";
-    } else {
-        echo "No Elementor data metadata found for page 4468.\n";
+    // Find in postmeta
+    echo "=== SEARCHING FOR KEYWORDS IN POSTMETA (_elementor_data) ===\n";
+    $stmt = $pdo->query("SELECT pm.post_id, p.post_title, p.post_name, p.post_type, pm.meta_key 
+                         FROM {$table_prefix}postmeta pm 
+                         INNER JOIN {$table_prefix}posts p ON pm.post_id = p.ID 
+                         WHERE pm.meta_key = '_elementor_data' 
+                         AND (pm.meta_value LIKE '%AI News%' OR pm.meta_value LIKE '%MSc AI%' OR pm.meta_value LIKE '%Podcast%')");
+    $results = $stmt->fetchAll();
+    foreach ($results as $r) {
+        echo "Post ID: {$r['post_id']} | Slug: {$r['post_name']} | Title: {$r['post_title']} | Type: {$r['post_type']}\n";
     }
     
 } catch (Exception $e) {
