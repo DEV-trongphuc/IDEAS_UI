@@ -2791,7 +2791,8 @@ function initMobileTopSheet() {
 function initHomepageToastPopup() {
     const path = window.location.pathname.toLowerCase();
     const isReelPage = path.includes('/reel');
-    if (isReelPage) return;
+    const isTriTuePage = path.includes('tri-tue-song-hanh');
+    if (isReelPage || isTriTuePage) return;
     if (sessionStorage.getItem('ideas-toast-dismissed-tri-tue')) return;
 
     const isEn = path.includes('/en/') || path.includes('/en') || path.startsWith('/en');
