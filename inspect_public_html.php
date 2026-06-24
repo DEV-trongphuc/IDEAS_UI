@@ -27,86 +27,34 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    // Get front page ID
-    $stmt = $pdo->prepare("SELECT option_value FROM {$table_prefix}options WHERE option_name = 'page_on_front'");
-    $stmt->execute();
-    $front_page_id = $stmt->fetchColumn();
+    $pid = 93; // Front Page
+    $meta_stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = ? AND meta_key = '_elementor_data'");
+    $meta_stmt->execute([$pid]);
+    $elem_data_str = $meta_stmt->fetchColumn();
     
-    echo "=== Front Page ID: $front_page_id ===\n";
-    
-    $pages_to_inspect = [];
-    if ($front_page_id) {
-        $pages_to_inspect[] = $front_page_id;
+    if (!$elem_data_str) {
+        die("No _elementor_data found for page $pid\n");
     }
     
-    // Also inspect Page ID 4468 (khoa-hoc-online)
-    $pages_to_inspect[] = 4468;
+    $elem_data = json_decode($elem_data_str, true);
     
-    function print_elements($elements, $depth = 0) {
-        $indent = str_repeat("  ", $depth);
+    $target_ids = ['7060231', '2b601b7'];
+    
+    function find_and_dump_elements($elements, $target_ids) {
         foreach ($elements as $el) {
-            $id = $el['id'] ?? 'unknown';
-            $elType = $el['elType'] ?? 'unknown';
-            $widgetType = $el['widgetType'] ?? '';
-            
-            echo $indent . "- [$elType] id: $id";
-            if ($widgetType) {
-                echo ", widgetType: $widgetType";
+            $id = $el['id'] ?? '';
+            if (in_array($id, $target_ids)) {
+                echo "=== Widget ID: $id, Type: {$el['widgetType']} ===\n";
+                print_r($el['settings']);
+                echo "\n";
             }
-            echo "\n";
-            
-            // Print settings we might care about
-            $settings = $el['settings'] ?? [];
-            $relevant_settings = [];
-            foreach ($settings as $key => $val) {
-                if (strpos($key, 'query_') !== false || strpos($key, 'template_id') !== false || $key === 'posts_per_page' || $key === 'post_type' || strpos($key, 'taxonomy') !== false || strpos($key, 'posts_post_type') !== false) {
-                    if (is_array($val)) {
-                        $relevant_settings[$key] = json_encode($val);
-                    } else {
-                        $relevant_settings[$key] = $val;
-                    }
-                }
-            }
-            if (!empty($relevant_settings)) {
-                echo $indent . "  Settings:\n";
-                foreach ($relevant_settings as $key => $val) {
-                    echo $indent . "    * $key: $val\n";
-                }
-            }
-            
             if (isset($el['elements']) && is_array($el['elements'])) {
-                print_elements($el['elements'], $depth + 1);
+                find_and_dump_elements($el['elements'], $target_ids);
             }
         }
     }
     
-    foreach ($pages_to_inspect as $pid) {
-        $stmt = $pdo->prepare("SELECT ID, post_title, post_name, post_status, post_type FROM {$table_prefix}posts WHERE ID = ?");
-        $stmt->execute([$pid]);
-        $post = $stmt->fetch();
-        if ($post) {
-            echo "\n==================================================\n";
-            echo "PAGE ID: {$post['ID']}, Title: {$post['post_title']}, Slug: {$post['post_name']}\n";
-            echo "==================================================\n";
-            
-            $meta_stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = ? AND meta_key = '_elementor_data'");
-            $meta_stmt->execute([$pid]);
-            $elem_data_str = $meta_stmt->fetchColumn();
-            
-            if ($elem_data_str) {
-                $elem_data = json_decode($elem_data_str, true);
-                if (json_last_error() === JSON_ERROR_NONE) {
-                    print_elements($elem_data);
-                } else {
-                    echo "JSON decode error: " . json_last_error_msg() . "\n";
-                }
-            } else {
-                echo "No _elementor_data found.\n";
-            }
-        } else {
-            echo "Post ID $pid not found.\n";
-        }
-    }
+    find_and_dump_elements($elem_data, $target_ids);
     
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";
