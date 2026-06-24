@@ -67,6 +67,9 @@ if (file_exists($wp_load_path)) {
     // Check if there are other statuses
     $all_courses_count = $wpdb->get_results("SELECT post_status, COUNT(*) as count FROM {$wpdb->posts} WHERE post_type = 'courses' GROUP BY post_status", ARRAY_A);
     foreach ($all_courses_count as $c) {
+        echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
+    }
+
     // Check if element_pack_is_widget_enabled returns true or false
     echo "\n=== Element Pack Widget Check ===\n";
     if (function_exists('element_pack_is_widget_enabled')) {
@@ -82,21 +85,7 @@ if (file_exists($wp_load_path)) {
     // Let's print out what element_pack_third_party_widget option holds
     $third_party = get_option('element_pack_third_party_widget');
     echo "\n=== element_pack_third_party_widget option value ===\n";
-    var_dump($third_party);
-    
-    // Let's check ModuleService class if we can
-    if (class_exists('ElementPack\ModuleService')) {
-        echo "\n=== ModuleService is active ===\n";
-        $options = get_option('element_pack_third_party_widget', []);
-        $is_active = \ElementPack\ModuleService::is_module_active('tutor-lms-course-grid', $options);
-        echo "ModuleService::is_module_active('tutor-lms-course-grid'): " . ($is_active ? 'true' : 'false') . "\n";
-    } else {
-        echo "\nModuleService class not found\n";
-    }
-
-
-
-
+    echo var_export($third_party, true) . "\n";
 
 } else {
     echo "Failed to find wp-load.php at $wp_load_path\n";
