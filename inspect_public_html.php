@@ -72,13 +72,10 @@ if (file_exists($wp_load_path)) {
 
     // Instantiate and debug TutorLms_Course_Grid widget query
     echo "\n=== Debugging TutorLms_Course_Grid Widget Query ===\n";
-    $widget_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/modules/tutor-lms-course-grid/widgets/tutor-lms-course-grid.php';
-    if (file_exists($widget_file)) {
-        require_once $widget_file;
-        $class_name = '\\ElementPack\\Modules\\TutorLmsCourseGrid\\Widgets\\TutorLms_Course_Grid';
-        if (class_exists($class_name)) {
-            echo "Class exists. Instantiating...\n";
-            // Construct with dummy ID and data
+    $class_name = '\\ElementPack\\Modules\\TutorLmsCourseGrid\\Widgets\\TutorLms_Course_Grid';
+    if (class_exists($class_name)) {
+        echo "Class exists. Instantiating...\n";
+        try {
             $widget = new $class_name([
                 'id' => 'ac2f29f',
                 'elType' => 'widget',
@@ -88,33 +85,44 @@ if (file_exists($wp_load_path)) {
                 ]
             ], null);
             
-            // Set settings
             $widget->set_settings([
                 'posts_per_page' => 100,
             ]);
             
             echo "Calling query_posts...\n";
-            try {
-                $widget->query_posts(100);
-                $query = $widget->get_query();
-                if ($query) {
-                    echo "WP_Query args:\n";
-                    echo var_export($query->query_vars, true) . "\n";
-                    echo "SQL Query executed:\n";
-                    echo $query->request . "\n";
-                    echo "Found posts count: " . $query->found_posts . "\n";
-                } else {
-                    echo "Query is null\n";
-                }
-            } catch (\Exception $e) {
-                echo "Exception during query: " . $e->getMessage() . "\n";
+            $widget->query_posts(100);
+            $query = $widget->get_query();
+            if ($query) {
+                echo "WP_Query args:\n";
+                echo var_export($query->query_vars, true) . "\n";
+                echo "SQL Query executed:\n";
+                echo $query->request . "\n";
+                echo "Found posts count: " . $query->found_posts . "\n";
+            } else {
+                echo "Query is null\n";
             }
-        } else {
-            echo "Class $class_name not found\n";
+        } catch (\Exception $e) {
+            echo "Exception during query: " . $e->getMessage() . "\n";
         }
     } else {
-        echo "Widget file not found\n";
+        echo "Class $class_name not found. Let's run a direct WP_Query for courses:\n";
+        $direct_query = new \WP_Query([
+            'post_type' => 'courses',
+            'posts_per_page' => 10,
+            'post_status' => 'publish'
+        ]);
+        echo "Direct WP_Query found posts count: " . $direct_query->found_posts . "\n";
+        if ($direct_query->have_posts()) {
+            while ($direct_query->have_posts()) {
+                $direct_query->the_post();
+                echo "  - Course ID: " . get_the_ID() . ", Title: " . get_the_title() . "\n";
+            }
+            wp_reset_postdata();
+        } else {
+            echo "  No courses found via direct WP_Query\n";
+        }
     }
+
 } else {
     echo "Failed to find wp-load.php at $wp_load_path\n";
 }
