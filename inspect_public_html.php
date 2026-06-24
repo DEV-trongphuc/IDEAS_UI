@@ -1,45 +1,31 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-$config_path = '/home/vhvxoigh/public_html/wp-config.php';
-if (!file_exists($config_path)) {
-    die("wp-config.php not found at $config_path");
+define('WP_USE_THEMES', false);
+$wp_load_path = '/home/vhvxoigh/public_html/wp-load.php';
+
+if (!file_exists($wp_load_path)) {
+    die("wp-load.php not found at $wp_load_path");
 }
 
-$config_content = file_get_contents($config_path);
+require_once $wp_load_path;
 
-// Parse DB credentials using regex
-preg_match("/define\(\s*['\"]DB_NAME['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_name_matches);
-preg_match("/define\(\s*['\"]DB_USER['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_user_matches);
-preg_match("/define\(\s*['\"]DB_PASSWORD['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_password_matches);
-preg_match("/define\(\s*['\"]DB_HOST['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_host_matches);
-preg_match("/\\\$table_prefix\s*=\s*['\"](.*?)['\"]/", $config_content, $prefix_matches);
+echo "=== WordPress Environment Loaded ===\n";
+echo "Active Theme: " . wp_get_theme()->get('Name') . "\n";
+echo "Active Stylesheet: " . wp_get_theme()->get_stylesheet() . "\n";
+echo "Active Template: " . wp_get_theme()->get_template() . "\n\n";
 
-$db_name = $db_name_matches[1] ?? '';
-$db_user = $db_user_matches[1] ?? '';
-$db_password = $db_password_matches[1] ?? '';
-$db_host = $db_host_matches[1] ?? 'localhost';
-$table_prefix = $prefix_matches[1] ?? 'wp_';
+echo "=== Active Plugins List ===\n";
+$active_plugins = get_option('active_plugins');
+print_r($active_plugins);
 
-try {
-    $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-    
-    $stmt = $pdo->prepare("SELECT option_value FROM {$table_prefix}options WHERE option_name = 'ultimate_post_kit_active_modules'");
-    $stmt->execute();
-    $val = $stmt->fetchColumn();
-    
-    echo "Raw value: " . var_export($val, true) . "\n\n";
-    if ($val) {
-        $data = unserialize($val);
-        echo "=== Unserialized Modules ===\n";
-        print_r($data);
-    } else {
-        echo "Option is empty or false.\n";
-    }
-    
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage() . "\n";
+echo "\n=== Class checks ===\n";
+$classes_to_check = [
+    'Ultimate_Post_Kit' => 'Ultimate Post Kit',
+    'TutorLMS' => 'Tutor LMS',
+    'Elementor\Plugin' => 'Elementor',
+    'BDThemes_Element_Pack' => 'Element Pack'
+];
+foreach ($classes_to_check as $class => $name) {
+    echo "$name class ($class): " . (class_exists($class) ? 'EXISTS' : 'NOT FOUND') . "\n";
 }
