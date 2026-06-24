@@ -70,30 +70,28 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Scan bdthemes-element-pack plugin directory for tutor-related files or code
-    echo "\n=== Scanning bdthemes-element-pack for tutor references ===\n";
+    // Find element_pack_is_widget_enabled function definition
+    echo "\n=== Finding element_pack_is_widget_enabled definition ===\n";
     $ep_dir = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/';
     if (is_dir($ep_dir)) {
         $di = new RecursiveDirectoryIterator($ep_dir);
         $it = new RecursiveIteratorIterator($di);
-        $count = 0;
         foreach ($it as $file) {
             if ($file->isFile() && $file->getExtension() === 'php') {
                 $content = file_get_contents($file->getPathname());
-                if (strpos($content, 'tutor-lms') !== false || strpos($content, 'bdt-tutor-lms') !== false) {
+                if (strpos($content, 'function element_pack_is_widget_enabled') !== false) {
                     $rel_path = str_replace($ep_dir, '', $file->getPathname());
                     echo "- File: $rel_path\n";
-                    // Find matching line
+                    // Find matching line and print surrounding 20 lines
                     $lines = explode("\n", $content);
                     foreach ($lines as $num => $line) {
-                        if (strpos($line, 'tutor-lms') !== false || strpos($line, 'bdt-tutor-lms') !== false) {
-                            echo "  Line " . ($num + 1) . ": " . trim($line) . "\n";
+                        if (strpos($line, 'function element_pack_is_widget_enabled') !== false) {
+                            echo "  Lines " . ($num - 2) . " to " . ($num + 25) . ":\n";
+                            for ($i = max(0, $num - 2); $i < min(count($lines), $num + 25); $i++) {
+                                echo "    " . ($i + 1) . ": " . $lines[$i] . "\n";
+                            }
+                            break;
                         }
-                    }
-                    $count++;
-                    if ($count > 10) {
-                        echo "... and more files\n";
-                        break;
                     }
                 }
             }
@@ -101,6 +99,7 @@ if (file_exists($wp_load_path)) {
     } else {
         echo "Element Pack directory not found\n";
     }
+
 
 
 
