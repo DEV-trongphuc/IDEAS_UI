@@ -1,24 +1,25 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-$mu_dir = '/home/vhvxoigh/public_html/wp-content/mu-plugins/';
-
-$backdoor_files = ['site-compat-layer.php', 'wp-compat-layer.php'];
-
-echo "=== Deactivating Remaining Backdoors ===\n";
-foreach ($backdoor_files as $file) {
-    $path = $mu_dir . $file;
-    if (file_exists($path)) {
-        $disabled_path = $path . '.disabled';
-        if (rename($path, $disabled_path)) {
-            echo "Successfully deactivated: $file\n";
-        } else {
-            echo "Failed to deactivate: $file\n";
+// List all directories in plugins directory
+echo "=== Plugins Directory ===\n";
+$plugins_dir = '/home/vhvxoigh/public_html/wp-content/plugins/';
+if (is_dir($plugins_dir)) {
+    $files = scandir($plugins_dir);
+    foreach ($files as $file) {
+        if ($file !== '.' && $file !== '..') {
+            $path = $plugins_dir . $file;
+            if (is_dir($path)) {
+                echo "[DIR] $file\n";
+            } else {
+                echo "[FILE] $file\n";
+            }
         }
-    } else {
-        echo "File not found: $file (already disabled)\n";
     }
+} else {
+    echo "Plugins directory not found\n";
 }
+
 
 // Now trigger a request to the courses page internally to get any PHP errors logged
 echo "\n=== Triggering /khoa-hoc-online/ Request ===\n";
