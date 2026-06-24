@@ -269,9 +269,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1782266851" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782266851" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782266851" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1782266949" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782266949" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782266949" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -9553,8 +9553,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1782266851" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1782266851" defer></script>
+    <script src="common-assets/js/script.min.js?v=1782266949" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1782266949" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -11825,254 +11825,281 @@ body.modal-open {
 }
 
 .july-offer-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2147483647;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 2147483647 !important;
     display: none;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .july-offer-modal.open {
-    opacity: 1;
-    pointer-events: all;
+    opacity: 1 !important;
+    pointer-events: all !important;
 }
 
 .july-offer-modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(15, 23, 42, 0.7) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    z-index: 1 !important;
 }
 
 .july-offer-modal-container {
-    position: relative;
-    z-index: 2;
-    width: 95%;
-    max-width: 500px;
-    background: #ffffff;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(15, 23, 42, 0.08);
+    position: relative !important;
+    z-index: 2 !important;
+    width: 92% !important;
+    max-width: 480px !important;
+    background: #ffffff !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3) !important;
+    transform: scale(0.92) !important;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border: 1px solid rgba(15, 23, 42, 0.05) !important;
 }
 
 .july-offer-modal.open .july-offer-modal-container {
-    transform: scale(1);
+    transform: scale(1) !important;
 }
 
 .july-offer-modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #475569;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    color: #475569 !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
 }
 
 .july-offer-modal-close:hover {
-    background: #ab0e00;
-    color: #ffffff;
-    border-color: #ab0e00;
-    transform: rotate(90deg);
+    background: #ab0e00 !important;
+    color: #ffffff !important;
+    border-color: #ab0e00 !important;
+    transform: rotate(90deg) scale(1.05) !important;
+    box-shadow: 0 4px 15px rgba(171, 14, 0, 0.3) !important;
 }
 
 .july-offer-banner {
-    background: #ab0e00;
-    color: #ffffff;
-    padding: 24px 20px;
-    text-align: center;
-    position: relative;
+    background: linear-gradient(135deg, #8a0b00 0%, #ab0e00 60%, #c91100 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 24px !important;
+    text-align: center !important;
+    position: relative !important;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.15) !important;
 }
 
 .july-offer-banner-tag {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
+    display: inline-block !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffe4e1 !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    padding: 4px 14px !important;
+    border-radius: 9999px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
 }
 
 .july-offer-banner-title {
-    font-size: 20px;
-    font-weight: 800;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    line-height: 1.3;
+    font-size: 21px !important;
+    font-weight: 900 !important;
+    margin: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    color: #ffffff !important;
 }
 
 .july-offer-body {
-    padding: 24px 24px 28px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    padding: 24px 24px 28px 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    background: #ffffff !important;
 }
 
 .july-offer-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 16px;
-    position: relative;
-    box-sizing: border-box;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding: 18px !important;
+    border-radius: 18px !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    transition: all 0.3s ease !important;
+}
+
+.july-offer-card:hover {
+    transform: translateY(-2px) !important;
 }
 
 .july-offer-card-solid {
-    background: rgba(171, 14, 0, 0.04);
-    border: 1.5px solid rgba(171, 14, 0, 0.15);
+    background: linear-gradient(135deg, rgba(171, 14, 0, 0.02) 0%, rgba(171, 14, 0, 0.06) 100%) !important;
+    border: 1.5px solid rgba(171, 14, 0, 0.12) !important;
+    box-shadow: 0 4px 15px rgba(171, 14, 0, 0.02) !important;
 }
 
 .july-offer-card-dashed {
-    background: #ffffff;
-    border: 1.5px dashed #ab0e00;
+    background: #fbfbfb !important;
+    border: 1.5px dashed rgba(171, 14, 0, 0.35) !important;
 }
 
 .july-offer-card-badge {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #ab0e00;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 16px;
-    box-shadow: 0 4px 10px rgba(171, 14, 0, 0.2);
-    line-height: 1.1;
+    flex-shrink: 0 !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #ab0e00 0%, #c91100 100%) !important;
+    color: #ffffff !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 900 !important;
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.25), 0 6px 15px rgba(171, 14, 0, 0.25) !important;
+    line-height: 1.05 !important;
 }
 
-.july-offer-card-badge span {
-    font-size: 9px;
-    font-weight: 500;
-    text-transform: uppercase;
-    opacity: 0.9;
+.july-offer-card-badge .badge-num {
+    font-size: 18px !important;
+    font-weight: 900 !important;
+    display: block !important;
+}
+
+.july-offer-card-badge .badge-lbl {
+    font-size: 8px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 1px !important;
+    opacity: 0.95 !important;
 }
 
 .july-offer-card-content {
-    flex: 1;
+    flex: 1 !important;
+    text-align: left !important;
 }
 
 .july-offer-card-title {
-    font-weight: 700;
-    font-size: 14px;
-    color: #0f172a;
-    margin: 0 0 4px 0;
-    text-transform: uppercase;
+    font-weight: 800 !important;
+    font-size: 13.5px !important;
+    color: #0f172a !important;
+    margin: 0 0 5px 0 !important;
+    text-transform: uppercase !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
 }
 
 .july-offer-card-desc {
-    font-size: 13px;
-    color: #475569;
-    margin: 0;
-    line-height: 1.4;
+    font-size: 13px !important;
+    color: #475569 !important;
+    margin: 0 !important;
+    line-height: 1.45 !important;
+    text-align: left !important;
 }
 
 .july-offer-card-desc strong {
-    color: #ab0e00;
+    color: #ab0e00 !important;
+    font-weight: 700 !important;
 }
 
 .july-offer-pill-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: #f1f5f9;
-    border-radius: 9999px;
-    padding: 8px 16px;
-    font-size: 12.5px;
-    color: #475569;
-    font-weight: 600;
-    margin-top: 4px;
-    border: 1px solid rgba(15, 23, 42, 0.03);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    background: #f8fafc !important;
+    border-radius: 9999px !important;
+    padding: 10px 18px !important;
+    font-size: 12.5px !important;
+    color: #475569 !important;
+    font-weight: 700 !important;
+    margin-top: 2px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.02) !important;
 }
 
 .july-offer-pill-icon {
-    display: flex;
-    align-items: center;
-    color: #ab0e00;
-    font-size: 14px;
-    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    color: #ab0e00 !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
 }
 
 .july-offer-pill-text {
-    line-height: 1.2;
-    text-align: center;
+    line-height: 1.3 !important;
+    text-align: center !important;
 }
 
 .july-offer-disclaimer {
-    font-size: 11px;
-    color: #64748b;
-    text-align: center;
-    margin: 0;
-    font-style: italic;
-    line-height: 1.4;
+    font-size: 11px !important;
+    color: #64748b !important;
+    text-align: center !important;
+    margin: 0 !important;
+    font-style: italic !important;
+    line-height: 1.4 !important;
 }
 
 .july-offer-cta {
-    display: block;
-    width: 100%;
-    padding: 14px 24px;
-    background: #ab0e00;
-    color: #ffffff;
-    border: none;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 15px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(171, 14, 0, 0.3);
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    margin-top: 8px;
-    text-transform: uppercase;
-    box-sizing: border-box;
+    display: block !important;
+    width: 100% !important;
+    padding: 16px 24px !important;
+    background: linear-gradient(135deg, #ab0e00 0%, #c91100 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 14px !important;
+    font-weight: 800 !important;
+    font-size: 15px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 20px rgba(171, 14, 0, 0.35) !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    margin-top: 6px !important;
+    text-transform: uppercase !important;
+    box-sizing: border-box !important;
+    letter-spacing: 0.5px !important;
 }
 
 .july-offer-cta:hover {
-    background: #c21000;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(171, 14, 0, 0.45);
+    background: linear-gradient(135deg, #c91100 0%, #ab0e00 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(171, 14, 0, 0.5) !important;
     color: #ffffff !important;
 }
 
 .july-offer-cta:active {
-    transform: translateY(0);
+    transform: translateY(0) !important;
 }
 </style>
 
@@ -12090,8 +12117,8 @@ body.modal-open {
             <!-- Solid Card: First 50 students -->
             <div class="july-offer-card july-offer-card-solid">
                 <div class="july-offer-card-badge">
-                    50
-                    <span>Học viên</span>
+                    <span class="badge-num">50</span>
+                    <span class="badge-lbl">Học viên</span>
                 </div>
                 <div class="july-offer-card-content">
                     <h4 class="july-offer-card-title">Dành cho 50 học viên đăng ký sớm nhất</h4>
@@ -12102,8 +12129,8 @@ body.modal-open {
             <!-- Dashed Card: Choose 1 of 3 exclusive privileges -->
             <div class="july-offer-card july-offer-card-dashed">
                 <div class="july-offer-card-badge">
-                    03
-                    <span>Đặc quyền</span>
+                    <span class="badge-num">03</span>
+                    <span class="badge-lbl">Đặc quyền</span>
                 </div>
                 <div class="july-offer-card-content">
                     <h4 class="july-offer-card-title">Được lựa chọn 1 trong 3 đặc quyền</h4>
@@ -12129,8 +12156,7 @@ body.modal-open {
         </div>
     </div>
 </div>
-
-<div class="fb-reel-modal" id="fb-reel-modal" style="display: none;">
+\n\n<div class="fb-reel-modal" id="fb-reel-modal" style="display: none;">
     <div class="fb-reel-modal-overlay"></div>
     <div class="fb-reel-modal-container">
         <button class="fb-reel-modal-close" aria-label="Close">&times;</button>
