@@ -27,23 +27,17 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    // Find post with slug 'khoa-hoc-online'
-    $stmt = $pdo->prepare("SELECT ID, post_title, post_name, post_status, post_type FROM {$table_prefix}posts WHERE post_name = 'khoa-hoc-online'");
+    // Get active_plugins
+    $stmt = $pdo->prepare("SELECT option_value FROM {$table_prefix}options WHERE option_name = 'active_plugins'");
     $stmt->execute();
-    $posts = $stmt->fetchAll();
+    $serialized_plugins = $stmt->fetchColumn();
     
-    if (empty($posts)) {
-        echo "No post found with slug 'khoa-hoc-online'\n";
+    if ($serialized_plugins) {
+        $plugins = unserialize($serialized_plugins);
+        echo "=== Active Plugins ===\n";
+        print_r($plugins);
     } else {
-        foreach ($posts as $post) {
-            $post_id = $post['ID'];
-            echo "=== Page: {$post['post_title']} (ID: $post_id) ===\n";
-            $meta_stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = ? AND meta_key = '_elementor_data'");
-            $meta_stmt->execute([$post_id]);
-            $elem_data = $meta_stmt->fetchColumn();
-            echo "--- _elementor_data ---\n";
-            echo $elem_data . "\n";
-        }
+        echo "No active plugins option found.\n";
     }
     
 } catch (Exception $e) {
