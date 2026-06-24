@@ -37,24 +37,24 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    // Check active theme
-    echo "=== ACTIVE THEME ===\n";
-    $stmt = $pdo->query("SELECT option_value FROM {$table_prefix}options WHERE option_name IN ('template', 'stylesheet')");
-    $themes = $stmt->fetchAll();
-    foreach ($themes as $t) {
-        echo "Theme option: {$t['option_value']}\n";
+    echo "=== CATEGORIES & POST COUNTS IN CHIEFAIOFFICER.VN ===\n";
+    $sql = "SELECT t.term_id, t.name, t.slug, tt.count 
+            FROM {$table_prefix}terms t 
+            INNER JOIN {$table_prefix}term_taxonomy tt ON t.term_id = tt.term_id 
+            WHERE tt.taxonomy = 'category' 
+            ORDER BY tt.count DESC";
+    $stmt = $pdo->query($sql);
+    $categories = $stmt->fetchAll();
+    foreach ($categories as $cat) {
+        echo "ID: {$cat['term_id']} | Name: {$cat['name']} | Slug: {$cat['slug']} | Count: {$cat['count']}\n";
     }
     echo "\n";
 
-    // Query _wp_page_template for page 4468
-    echo "=== PAGE 4468 TEMPLATE ===\n";
-    $stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = 4468 AND meta_key = '_wp_page_template'");
-    $stmt->execute();
-    $meta = $stmt->fetch();
-    if ($meta) {
-        echo "Template: " . $meta['meta_value'] . "\n";
-    } else {
-        echo "No custom template metadata found.\n";
+    echo "=== RECENT POSTS ===\n";
+    $stmt = $pdo->query("SELECT ID, post_title, post_date, post_status FROM {$table_prefix}posts WHERE post_type = 'post' ORDER BY post_date DESC LIMIT 10");
+    $posts = $stmt->fetchAll();
+    foreach ($posts as $p) {
+        echo "ID: {$p['ID']} | Title: {$p['post_title']} | Date: {$p['post_date']} | Status: {$p['post_status']}\n";
     }
     
 } catch (Exception $e) {
