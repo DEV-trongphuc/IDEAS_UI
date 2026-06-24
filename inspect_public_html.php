@@ -8,7 +8,6 @@ if (!file_exists($wp_config_pub)) {
 
 $conf = file_get_contents($wp_config_pub);
 
-// Extract DB credentials
 $db_name = '';
 $db_user = '';
 $db_pass = '';
@@ -38,20 +37,24 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    echo "=== SEARCHING ALL PUBLISHED PAGES ===\n";
-    $stmt = $pdo->query("SELECT ID, post_title, post_name, post_type FROM {$table_prefix}posts WHERE post_status = 'publish' AND post_type = 'page' ORDER BY post_title ASC");
-    $pages = $stmt->fetchAll();
-    foreach ($pages as $p) {
-        echo "ID: {$p['ID']} | Slug: {$p['post_name']} | Title: {$p['post_title']}\n";
+    // Check active theme
+    echo "=== ACTIVE THEME ===\n";
+    $stmt = $pdo->query("SELECT option_value FROM {$table_prefix}options WHERE option_name IN ('template', 'stylesheet')");
+    $themes = $stmt->fetchAll();
+    foreach ($themes as $t) {
+        echo "Theme option: {$t['option_value']}\n";
     }
     echo "\n";
-    
-    echo "=== SEARCHING FOR PAGES CONTAINING SPECIFIC KEYWORDS ===\n";
-    $stmt = $pdo->query("SELECT ID, post_title, post_name, post_content FROM {$table_prefix}posts WHERE post_status = 'publish' AND (post_content LIKE '%AI News%' OR post_content LIKE '%MSc AI%' OR post_content LIKE '%Podcast%')");
-    $matched = $stmt->fetchAll();
-    foreach ($matched as $m) {
-        echo "ID: {$m['ID']} | Slug: {$m['post_name']} | Title: {$m['post_title']} | Type: {$m['post_type']}\n";
-        echo "Content Snippet: " . substr(strip_tags($m['post_content']), 0, 200) . "...\n\n";
+
+    // Query _wp_page_template for page 4468
+    echo "=== PAGE 4468 TEMPLATE ===\n";
+    $stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = 4468 AND meta_key = '_wp_page_template'");
+    $stmt->execute();
+    $meta = $stmt->fetch();
+    if ($meta) {
+        echo "Template: " . $meta['meta_value'] . "\n";
+    } else {
+        echo "No custom template metadata found.\n";
     }
     
 } catch (Exception $e) {
