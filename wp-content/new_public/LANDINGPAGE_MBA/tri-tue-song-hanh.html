@@ -269,9 +269,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1782269729" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782269729" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782269729" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1782269955" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782269955" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782269955" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -9517,8 +9517,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1782269729" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1782269729" defer></script>
+    <script src="common-assets/js/script.min.js?v=1782269955" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1782269955" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -12528,7 +12528,7 @@ body.modal-open {
 /* --- Premium Dark Hero Theme Overrides --- */
 .hero-corporate {
     position: relative !important;
-    background-color: #080405 !important;
+    background-color: #040203 !important;
     color: #f3f4f6 !important;
     overflow: hidden !important;
 }
@@ -12541,7 +12541,7 @@ body.modal-open {
     background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp') !important;
     background-size: cover !important;
     background-position: center !important;
-    opacity: 0.45 !important;
+    opacity: 0.22 !important;
     transform: scale(1.1) !important;
     pointer-events: none !important;
 }
@@ -12551,9 +12551,22 @@ body.modal-open {
     position: absolute !important;
     inset: 0 !important;
     z-index: 2 !important;
-    background: linear-gradient(180deg, rgba(8, 4, 5, 0.9) 0%, rgba(80, 6, 0, 0.5) 60%, rgba(8, 4, 5, 0.95) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.28) 0%, transparent 75%) !important;
+    background: linear-gradient(180deg, rgba(4, 2, 3, 0.95) 0%, rgba(35, 3, 0, 0.7) 60%, rgba(4, 2, 3, 0.98) 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.2) 0%, transparent 75%) !important;
     pointer-events: none !important;
+}
+
+/* High Contrast booking button for dark hero theme */
+.hero-corporate .hero-cta .btn-outline {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.35) !important;
+}
+
+.hero-corporate .hero-cta .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-color: rgba(255, 255, 255, 0.75) !important;
+    color: #ffffff !important;
 }
 
 .hero-corporate .container {
