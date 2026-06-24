@@ -27,30 +27,20 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    // Find post with slug 'khoa-hoc-online'
-    $stmt = $pdo->prepare("SELECT ID, post_title, post_name, post_status, post_type FROM {$table_prefix}posts WHERE post_name = 'khoa-hoc-online'");
+    // Get front page ID
+    $stmt = $pdo->prepare("SELECT option_value FROM {$table_prefix}options WHERE option_name = 'page_on_front'");
     $stmt->execute();
-    $posts = $stmt->fetchAll();
+    $front_page_id = $stmt->fetchColumn();
     
-    if (empty($posts)) {
-        die("No post found with slug 'khoa-hoc-online'\n");
+    echo "=== Front Page ID: $front_page_id ===\n";
+    
+    $pages_to_inspect = [];
+    if ($front_page_id) {
+        $pages_to_inspect[] = $front_page_id;
     }
     
-    $post_id = $posts[0]['ID'];
-    echo "=== Page ID: $post_id, Title: {$posts[0]['post_title']} ===\n";
-    
-    $meta_stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = ? AND meta_key = '_elementor_data'");
-    $meta_stmt->execute([$post_id]);
-    $elem_data_str = $meta_stmt->fetchColumn();
-    
-    if (!$elem_data_str) {
-        die("No _elementor_data found for page $post_id\n");
-    }
-    
-    $elem_data = json_decode($elem_data_str, true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        die("JSON decode error: " . json_last_error_msg() . "\n");
-    }
+    // Also inspect Page ID 4468 (khoa-hoc-online)
+    $pages_to_inspect[] = 4468;
     
     function print_elements($elements, $depth = 0) {
         $indent = str_repeat("  ", $depth);
@@ -65,11 +55,11 @@ try {
             }
             echo "\n";
             
-            // Print settings we might care about (e.g. query settings, post type, taxonomies, template_id)
+            // Print settings we might care about
             $settings = $el['settings'] ?? [];
             $relevant_settings = [];
             foreach ($settings as $key => $val) {
-                if (strpos($key, 'query_') !== false || strpos($key, 'template_id') !== false || $key === 'posts_per_page' || $key === 'post_type' || strpos($key, 'taxonomy') !== false) {
+                if (strpos($key, 'query_') !== false || strpos($key, 'template_id') !== false || $key === 'posts_per_page' || $key === 'post_type' || strpos($key, 'taxonomy') !== false || strpos($key, 'posts_post_type') !== false) {
                     if (is_array($val)) {
                         $relevant_settings[$key] = json_encode($val);
                     } else {
@@ -90,7 +80,33 @@ try {
         }
     }
     
-    print_elements($elem_data);
+    foreach ($pages_to_inspect as $pid) {
+        $stmt = $pdo->prepare("SELECT ID, post_title, post_name, post_status, post_type FROM {$table_prefix}posts WHERE ID = ?");
+        $stmt->execute([$pid]);
+        $post = $stmt->fetch();
+        if ($post) {
+            echo "\n==================================================\n";
+            echo "PAGE ID: {$post['ID']}, Title: {$post['post_title']}, Slug: {$post['post_name']}\n";
+            echo "==================================================\n";
+            
+            $meta_stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = ? AND meta_key = '_elementor_data'");
+            $meta_stmt->execute([$pid]);
+            $elem_data_str = $meta_stmt->fetchColumn();
+            
+            if ($elem_data_str) {
+                $elem_data = json_decode($elem_data_str, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    print_elements($elem_data);
+                } else {
+                    echo "JSON decode error: " . json_last_error_msg() . "\n";
+                }
+            } else {
+                echo "No _elementor_data found.\n";
+            }
+        } else {
+            echo "Post ID $pid not found.\n";
+        }
+    }
     
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . "\n";
