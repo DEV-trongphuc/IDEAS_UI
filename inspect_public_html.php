@@ -73,19 +73,31 @@ if (file_exists($wp_load_path)) {
     // Check if element_pack_is_widget_enabled returns true or false
     echo "\n=== Element Pack Widget Check ===\n";
     if (function_exists('element_pack_is_widget_enabled')) {
-        $enabled = element_pack_is_widget_enabled('tutor-lms-course-grid');
-        echo "element_pack_is_widget_enabled('tutor-lms-course-grid'): " . ($enabled ? 'true' : 'false') . "\n";
-        
-        $carousel_enabled = element_pack_is_widget_enabled('tutor-lms-course-carousel');
-        echo "element_pack_is_widget_enabled('tutor-lms-course-carousel'): " . ($carousel_enabled ? 'true' : 'false') . "\n";
+    // Read tutor-lms-course-grid.php render function
+    echo "\n=== Reading tutor-lms-course-grid.php render function ===\n";
+    $widget_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/modules/tutor-lms-course-grid/widgets/tutor-lms-course-grid.php';
+    if (file_exists($widget_file)) {
+        $content = file_get_contents($widget_file);
+        $lines = explode("\n", $content);
+        $render_start = -1;
+        foreach ($lines as $num => $line) {
+            if (strpos($line, 'protected function render(') !== false || strpos($line, 'public function render(') !== false) {
+                $render_start = $num;
+                break;
+            }
+        }
+        if ($render_start !== -1) {
+            echo "Render function found at line " . ($render_start + 1) . ". Printing 80 lines:\n";
+            for ($i = $render_start; $i < min(count($lines), $render_start + 80); $i++) {
+                echo "    " . ($i + 1) . ": " . $lines[$i] . "\n";
+            }
+        } else {
+            echo "Render function not found in widget file\n";
+        }
     } else {
-        echo "element_pack_is_widget_enabled function not found\n";
+        echo "Widget file not found\n";
     }
 
-    // Let's print out what element_pack_third_party_widget option holds
-    $third_party = get_option('element_pack_third_party_widget');
-    echo "\n=== element_pack_third_party_widget option value ===\n";
-    echo var_export($third_party, true) . "\n";
 
 } else {
     echo "Failed to find wp-load.php at $wp_load_path\n";
