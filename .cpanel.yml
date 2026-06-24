@@ -16,6 +16,7 @@ deployment:
     - cp clean_public_html.php $DEPLOYPATH/clean_public_html.php
     - cp inspect_functions.php $DEPLOYPATH/inspect_functions.php
     - cp inspect_plugins.php $DEPLOYPATH/inspect_plugins.php
+    - cp inspect_db.php $DEPLOYPATH/inspect_db.php
     # Deploy landing pages
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)
