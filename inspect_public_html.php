@@ -31,36 +31,29 @@ if (preg_match('/\$table_prefix\s*=\s*\'([^\']+)\'/', $conf, $m)) {
     $table_prefix = $m[1];
 }
 
-echo "DB Host: $db_host\n";
-echo "DB Name: $db_name\n";
-echo "DB User: $db_user\n";
-echo "Table Prefix: $table_prefix\n";
-
 try {
     $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
     $pdo = new PDO($dsn, $db_user, $db_pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
-    echo "Connected successfully to chiefaiofficer.vn database!\n\n";
     
-    // Find the post/page with slug 'khoa-hoc-online'
-    $stmt = $pdo->prepare("SELECT ID, post_title, post_content, post_status, post_type FROM {$table_prefix}posts WHERE post_name = ? AND post_status = 'publish'");
-    $stmt->execute(['khoa-hoc-online']);
-    $post = $stmt->fetch();
-    
-    if ($post) {
-        echo "=== Page Found ===\n";
-        echo "ID: " . $post['ID'] . "\n";
-        echo "Title: " . $post['post_title'] . "\n";
-        echo "Type: " . $post['post_type'] . "\n";
-        echo "Status: " . $post['post_status'] . "\n";
-        echo "=== Content ===\n";
-        echo $post['post_content'] . "\n";
-        echo "===============\n";
-    } else {
-        echo "Page with slug 'khoa-hoc-online' not found in posts table.\n";
+    echo "=== SEARCHING ALL PUBLISHED PAGES ===\n";
+    $stmt = $pdo->query("SELECT ID, post_title, post_name, post_type FROM {$table_prefix}posts WHERE post_status = 'publish' AND post_type = 'page' ORDER BY post_title ASC");
+    $pages = $stmt->fetchAll();
+    foreach ($pages as $p) {
+        echo "ID: {$p['ID']} | Slug: {$p['post_name']} | Title: {$p['post_title']}\n";
     }
+    echo "\n";
+    
+    echo "=== SEARCHING FOR PAGES CONTAINING SPECIFIC KEYWORDS ===\n";
+    $stmt = $pdo->query("SELECT ID, post_title, post_name, post_content FROM {$table_prefix}posts WHERE post_status = 'publish' AND (post_content LIKE '%AI News%' OR post_content LIKE '%MSc AI%' OR post_content LIKE '%Podcast%')");
+    $matched = $stmt->fetchAll();
+    foreach ($matched as $m) {
+        echo "ID: {$m['ID']} | Slug: {$m['post_name']} | Title: {$m['post_title']} | Type: {$m['post_type']}\n";
+        echo "Content Snippet: " . substr(strip_tags($m['post_content']), 0, 200) . "...\n\n";
+    }
+    
 } catch (Exception $e) {
     echo "Database Error: " . $e->getMessage() . "\n";
 }
