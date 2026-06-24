@@ -70,43 +70,32 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Read settings of widget ac2f29f
-    echo "\n=== Settings of Widget ac2f29f ===\n";
-    $meta_val = $wpdb->get_var($wpdb->prepare(
-        "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = %d AND meta_key = '_elementor_data'",
-        4468
-    ));
-    if ($meta_val) {
-        $data = json_decode($meta_val, true);
-        if (json_last_error() === JSON_ERROR_NONE) {
-            function find_widget_settings($elements, $target_id) {
-                foreach ($elements as $el) {
-                    if (isset($el['id']) && $el['id'] === $target_id) {
-                        return $el['settings'] ?? [];
-                    }
-                    if (isset($el['elements']) && is_array($el['elements'])) {
-                        $res = find_widget_settings($el['elements'], $target_id);
-                        if ($res) return $res;
-                    }
-                }
-                return null;
+    // Find getGroupControlQueryArgs definition
+    echo "\n=== Finding getGroupControlQueryArgs definition ===\n";
+    $query_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/includes/controls/group-query/group-control-query.php';
+    if (file_exists($query_file)) {
+        $content = file_get_contents($query_file);
+        $lines = explode("\n", $content);
+        $found = -1;
+        foreach ($lines as $num => $line) {
+            if (strpos($line, 'function getGroupControlQueryArgs') !== false) {
+                $found = $num;
+                break;
             }
-            $settings = find_widget_settings($data, 'ac2f29f');
-            if ($settings) {
-                echo var_export($settings, true) . "\n";
-            } else {
-                echo "Widget settings not found for ID ac2f29f\n";
+        }
+        if ($found !== -1) {
+            echo "getGroupControlQueryArgs found at line " . ($found + 1) . ". Printing 60 lines:\n";
+            for ($i = $found; $i < min(count($lines), $found + 60); $i++) {
+                echo "    " . ($i + 1) . ": " . $lines[$i] . "\n";
             }
         } else {
-            echo "Failed to decode JSON\n";
+            echo "getGroupControlQueryArgs function not found\n";
         }
     } else {
-        echo "No elementor data found\n";
+        echo "Group query file not found\n";
     }
-
-} else {
-    echo "Failed to find wp-load.php at $wp_load_path\n";
 }
+
 
 
 
