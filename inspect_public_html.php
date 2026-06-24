@@ -1,41 +1,67 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-// List all directories in plugins directory
-echo "=== Plugins Directory ===\n";
-$plugins_dir = '/home/vhvxoigh/public_html/wp-content/plugins/';
-if (is_dir($plugins_dir)) {
-    $files = scandir($plugins_dir);
-    foreach ($files as $file) {
-        if ($file !== '.' && $file !== '..') {
-            $path = $plugins_dir . $file;
-            if (is_dir($path)) {
-                echo "[DIR] $file\n";
-            } else {
-                echo "[FILE] $file\n";
-            }
+// Load WordPress
+echo "=== Loading WordPress ===\n";
+define('WP_USE_THEMES', false);
+$wp_load_path = '/home/vhvxoigh/public_html/wp-load.php';
+if (file_exists($wp_load_path)) {
+    require_once $wp_load_path;
+    echo "WordPress loaded successfully.\n";
+    
+    // Active plugins
+    echo "\n=== Active Plugins ===\n";
+    $active_plugins = get_option('active_plugins');
+    if (is_array($active_plugins)) {
+        foreach ($active_plugins as $plugin) {
+            echo "- $plugin\n";
         }
+    } else {
+        echo "No active plugins found or not array: " . var_export($active_plugins, true) . "\n";
+    }
+    
+    // Check post ID 4468 elementor data
+    echo "\n=== Elementor Data for Post ID 4468 ===\n";
+    global $wpdb;
+    $meta_val = $wpdb->get_var($wpdb->prepare(
+        "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = %d AND meta_key = '_elementor_data'",
+        4468
+    ));
+    if ($meta_val) {
+        echo "Found elementor data (" . strlen($meta_val) . " bytes)\n";
+        $data = json_decode($meta_val, true);
+        if (json_last_error() === JSON_ERROR_NONE) {
+            // Let's traverse the layout to find all widgets
+            function find_widgets($elements, &$widgets = []) {
+                foreach ($elements as $el) {
+                    if (isset($el['elType']) && $el['elType'] === 'widget') {
+                        $widgets[] = [
+                            'id' => $el['id'] ?? '',
+                            'widgetType' => $el['widgetType'] ?? '',
+                            'settings' => $el['settings'] ?? []
+                        ];
+                    }
+                    if (isset($el['elements']) && is_array($el['elements'])) {
+                        find_widgets($el['elements'], $widgets);
+                    }
+                }
+                return $widgets;
+            }
+            $widgets = find_widgets($data);
+            echo "List of widgets in the page layout:\n";
+            foreach ($widgets as $w) {
+                echo "  - Widget ID: {$w['id']}, Type: {$w['widgetType']}\n";
+            }
+        } else {
+            echo "Failed to decode JSON: " . json_last_error_msg() . "\n";
+        }
+    } else {
+        echo "No _elementor_data found for Post ID 4468\n";
     }
 } else {
-    echo "Plugins directory not found\n";
+    echo "Failed to find wp-load.php at $wp_load_path\n";
 }
 
-
-// Now trigger a request to the courses page internally to get any PHP errors logged
-echo "\n=== Triggering /khoa-hoc-online/ Request ===\n";
-$courses_url = 'https://chiefaiofficer.vn/khoa-hoc-online/';
-$context = stream_context_create([
-    'http' => [
-        'header' => "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\r\n",
-        'timeout' => 15
-    ]
-]);
-$html = @file_get_contents($courses_url, false, $context);
-if ($html === false) {
-    echo "Request failed or returned an error.\n";
-} else {
-    echo "Courses page loaded internally: " . strlen($html) . " bytes\n";
-}
 
 // Print last 40 lines of error log to capture any errors
 $log_path = '/home/vhvxoigh/public_html/error_log';
