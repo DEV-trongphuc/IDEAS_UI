@@ -269,9 +269,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1782266949" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782266949" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782266949" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1782267052" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782267052" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782267052" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -7595,39 +7595,49 @@
                             <a href="javascript:void(0)" class="btn btn-outline bk-open-btn">Đặt lịch tư vấn 1:1</a>
                         </div>
 
-                        <!-- Compact Gift Highlights Box (Moved here, emoji-free) -->
-                        <div class="gift-highlight-card-light" style="background: #ffffff; border: 1.5px dashed rgba(171, 14, 0, 0.25); border-radius: 16px; padding: 20px 24px; box-shadow: 0 10px 25px rgba(171,14,0,0.03); margin-top: 28px; display: flex; flex-direction: column; justify-content: center; text-align: left;">
-                            <h4 style="font-size: 0.95rem; font-weight: 800; color: #ab0e00; margin: 0 0 10px; display: flex; align-items: center; gap: 6px;">
+                        <!-- Compact Gift Highlights Box (Premium Card Style) -->
+                        <div class="gift-highlight-container" style="margin-top: 28px; display: flex; flex-direction: column; gap: 16px;">
+                            <h4 style="font-size: 0.95rem; font-weight: 800; color: #ab0e00; margin: 0 0 4px; display: flex; align-items: center; gap: 8px;">
                                 <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px; color: #ab0e00;"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
                                 QUÀ TẶNG KÈM ĐẶC BIỆT TRONG THÁNG 7:
                             </h4>
-                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                                <li style="display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; color: #334155; line-height: 1.45;">
-                                    <span style="color: #ab0e00; font-weight: bold; margin-top: -1px;">•</span>
-                                    <span>Dành riêng cho <strong>50 HỌC VIÊN đăng ký sớm nhất</strong>: Nhận ngay <strong>01 Bộ AI Agent chuyên dụng</strong> được thiết kế tối ưu, ứng dụng trực tiếp vào công việc hàng ngày.</span>
-                                </li>
-                                <li style="display: flex; gap: 8px; align-items: flex-start; font-size: 0.88rem; color: #334155; line-height: 1.45;">
-                                    <span style="color: #ab0e00; font-weight: bold; margin-top: -1px;">•</span>
-                                    <span><strong>Được tự do lựa chọn 01 trong 03 đặc quyền:</strong></span>
-                                </li>
-                                <li style="margin-left: 14px; padding-left: 0; display: flex; flex-direction: column; gap: 6px;">
-                                    <div style="display: flex; gap: 6px; align-items: flex-start; font-size: 0.85rem; color: #475569; line-height: 1.4;">
-                                        <span style="color: #64748b;">-</span>
-                                        <span>01 Khóa đào tạo AI Doanh nghiệp In-house trị giá <strong>2.000 USD</strong> (2 ngày).</span>
-                                    </div>
-                                    <div style="display: flex; gap: 6px; align-items: flex-start; font-size: 0.85rem; color: #475569; line-height: 1.4;">
-                                        <span style="color: #64748b;">-</span>
-                                        <span>01 Học bổng Voucher <strong>2.000 CHF</strong> cho chương trình tiếp theo (được chuyển nhượng).</span>
-                                    </div>
-                                    <div style="display: flex; gap: 6px; align-items: flex-start; font-size: 0.85rem; color: #475569; line-height: 1.4;">
-                                        <span style="color: #64748b;">-</span>
-                                        <span>01 Chuyến đi trải nghiệm thực tế và tham dự Lễ Tốt Nghiệp tại <strong>Thụy Sĩ</strong>.</span>
-                                    </div>
-                                </li>
-                            </ul>
+                            
+                            <!-- Card 1: Solid -->
+                            <div class="july-offer-card july-offer-card-solid">
+                                <div class="july-offer-card-badge">
+                                    <span class="badge-num">50</span>
+                                    <span class="badge-lbl">Học viên</span>
+                                </div>
+                                <div class="july-offer-card-content">
+                                    <h4 class="july-offer-card-title">Dành cho 50 học viên đăng ký sớm nhất</h4>
+                                    <p class="july-offer-card-desc">Nhận ngay <strong>01 Bộ AI Agent chuyên dụng</strong> được thiết kế tối ưu hóa cho công việc.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2: Dashed -->
+                            <div class="july-offer-card july-offer-card-dashed">
+                                <div class="july-offer-card-badge">
+                                    <span class="badge-num">03</span>
+                                    <span class="badge-lbl">Đặc quyền</span>
+                                </div>
+                                <div class="july-offer-card-content">
+                                    <h4 class="july-offer-card-title">Được lựa chọn 1 trong 3 đặc quyền</h4>
+                                    <p class="july-offer-card-desc">Khóa đào tạo In-house tại công ty trị giá <strong>$2.000</strong> (2 ngày), Học bổng <strong>2.000 CHF</strong>, hoặc Chuyến đi học tập & trải nghiệm Thụy Sĩ.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Pill Container -->
+                            <div class="july-offer-pill-container" style="justify-content: flex-start;">
+                                <div class="july-offer-pill-icon">
+                                    <svg class="svg-icon" viewBox="0 0 448 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                                    </svg>
+                                </div>
+                                <span class="july-offer-pill-text" style="text-align: left;">Tư vấn lộ trình học tập & ứng dụng AI 1:1 cùng chuyên gia</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="hero-right reveal-up" style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="hero-right            <div class="hero-right reveal-up" style="display: flex; flex-direction: column; gap: 24px;">
                         <div class="hero-image-wrapper">
                             <div class="hero-mockup">
                                 <img src="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp"
@@ -9553,8 +9563,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1782266949" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1782266949" defer></script>
+    <script src="common-assets/js/script.min.js?v=1782267052" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1782267052" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
