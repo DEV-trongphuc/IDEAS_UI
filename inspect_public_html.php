@@ -37,16 +37,30 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    // Find in postmeta
-    echo "=== SEARCHING FOR KEYWORDS IN POSTMETA (_elementor_data) ===\n";
-    $stmt = $pdo->query("SELECT pm.post_id, p.post_title, p.post_name, p.post_type, pm.meta_key 
-                         FROM {$table_prefix}postmeta pm 
-                         INNER JOIN {$table_prefix}posts p ON pm.post_id = p.ID 
-                         WHERE pm.meta_key = '_elementor_data' 
-                         AND (pm.meta_value LIKE '%AI News%' OR pm.meta_value LIKE '%MSc AI%' OR pm.meta_value LIKE '%Podcast%')");
-    $results = $stmt->fetchAll();
-    foreach ($results as $r) {
-        echo "Post ID: {$r['post_id']} | Slug: {$r['post_name']} | Title: {$r['post_title']} | Type: {$r['post_type']}\n";
+    // Check Trang chủ (ID 93) _elementor_data
+    $stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = 93 AND meta_key = '_elementor_data'");
+    $stmt->execute();
+    $meta = $stmt->fetch();
+    
+    if ($meta && !empty($meta['meta_value'])) {
+        $json_data = $meta['meta_value'];
+        echo "Trang chu Elementor Data contains 'AI News': " . (strpos($json_data, 'AI News') !== false ? 'YES' : 'NO') . "\n";
+        echo "Trang chu Elementor Data contains 'MSc AI': " . (strpos($json_data, 'MSc AI') !== false ? 'YES' : 'NO') . "\n";
+        echo "Trang chu Elementor Data contains 'Podcast': " . (strpos($json_data, 'Podcast') !== false ? 'YES' : 'NO') . "\n";
+        echo "Trang chu Elementor Data contains 'Tin tức mới nhất': " . (strpos($json_data, 'Tin tức mới nhất') !== false ? 'YES' : 'NO') . "\n";
+    } else {
+        echo "No Elementor data for page 93.\n";
+    }
+    
+    // Query another page: ID 6140 (podcasts)
+    $stmt = $pdo->prepare("SELECT meta_value FROM {$table_prefix}postmeta WHERE post_id = 6140 AND meta_key = '_elementor_data'");
+    $stmt->execute();
+    $meta = $stmt->fetch();
+    if ($meta && !empty($meta['meta_value'])) {
+        $json_data = $meta['meta_value'];
+        echo "Podcasts page Elementor Data contains 'AI News': " . (strpos($json_data, 'AI News') !== false ? 'YES' : 'NO') . "\n";
+        echo "Podcasts page Elementor Data contains 'MSc AI': " . (strpos($json_data, 'MSc AI') !== false ? 'YES' : 'NO') . "\n";
+        echo "Podcasts page Elementor Data contains 'Podcast': " . (strpos($json_data, 'Podcast') !== false ? 'YES' : 'NO') . "\n";
     }
     
 } catch (Exception $e) {
