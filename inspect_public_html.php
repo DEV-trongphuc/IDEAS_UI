@@ -43,66 +43,8 @@ try {
     $meta = $stmt->fetch();
     
     if ($meta && !empty($meta['meta_value'])) {
-        $json_data = $meta['meta_value'];
-        echo "Elementor data size: " . strlen($json_data) . " bytes\n";
-        
-        // Let's decode the JSON and search for widget settings
-        $data = json_decode($json_data, true);
-        if ($data === null) {
-            echo "JSON decoding failed: " . json_last_error_msg() . "\n";
-        } else {
-            // Recursive function to search widgets
-            function find_widgets($elements, &$results) {
-                foreach ($elements as $el) {
-                    if (isset($el['elType']) && $el['elType'] === 'widget') {
-                        $results[] = $el;
-                    }
-                    if (isset($el['elements']) && is_array($el['elements'])) {
-                        find_widgets($el['elements'], $results);
-                    }
-                }
-            }
-            
-            $widgets = [];
-            find_widgets($data, $widgets);
-            echo "Found " . count($widgets) . " Elementor widgets on the page.\n\n";
-            
-            foreach ($widgets as $idx => $w) {
-                $widgetType = isset($w['widgetType']) ? $w['widgetType'] : 'unknown';
-                $settings = isset($w['settings']) ? $w['settings'] : [];
-                
-                // Let's check if this widget has settings related to query or title
-                $has_heading = false;
-                $heading_text = '';
-                foreach ($settings as $k => $v) {
-                    if (is_string($v) && (strpos($v, 'News') !== false || strpos($v, 'MSc') !== false || strpos($v, 'Podcast') !== false || strpos($v, 'Tin tức') !== false)) {
-                        $has_heading = true;
-                        $heading_text = $v;
-                    }
-                }
-                
-                if ($has_heading || $widgetType === 'posts' || $widgetType === 'loop-grid' || $widgetType === 'archive-posts' || strpos($widgetType, 'post') !== false) {
-                    echo "Widget #$idx | Type: $widgetType\n";
-                    if ($has_heading) {
-                        echo "  Heading Text/Content: " . strip_tags($heading_text) . "\n";
-                    }
-                    // Print query settings if they exist
-                    $query_keys = ['posts_post_type', 'posts_category', 'posts_posts_per_page', 'query_args', 'posts_query_id', 'select_post_type', 'posts_include', 'posts_exclude', 'post_type', 'posts_order_by', 'posts_order'];
-                    foreach ($query_keys as $qk) {
-                        if (isset($settings[$qk])) {
-                            echo "  $qk: " . (is_array($settings[$qk]) ? json_encode($settings[$qk]) : $settings[$qk]) . "\n";
-                        }
-                    }
-                    // Look for any keys containing 'query' or 'categories'
-                    foreach ($settings as $sk => $sv) {
-                        if (strpos($sk, 'query') !== false || strpos($sk, 'categories') !== false || strpos($sk, 'taxonomy') !== false || strpos($sk, 'term') !== false) {
-                            echo "  $sk: " . (is_array($sv) ? json_encode($sv) : $sv) . "\n";
-                        }
-                    }
-                    echo "\n";
-                }
-            }
-        }
+        echo "=== RAW ELEMENTOR DATA ===\n";
+        echo $meta['meta_value'] . "\n";
     } else {
         echo "No Elementor data metadata found for page 4468.\n";
     }
