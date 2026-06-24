@@ -269,9 +269,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1782266425" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782266425" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782266425" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1782266851" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782266851" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782266851" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -6667,6 +6667,223 @@
             font-size: 0.9rem;
             line-height: 1.6;
         }
+
+        /* July Offer Popup Modal Styles */
+        .july-offer-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .july-offer-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .july-offer-modal-container {
+            background: #ffffff;
+            width: 92%;
+            max-width: 480px;
+            border-radius: 24px;
+            padding: 36px 32px;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.15);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .july-offer-modal-overlay.active .july-offer-modal-container {
+            transform: scale(1);
+        }
+        .july-offer-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            color: #64748b;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .july-offer-modal-close:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+        .july-offer-modal-header {
+            margin-bottom: 24px;
+        }
+        .july-offer-tag {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #ab0e00;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .july-offer-title {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin: 0;
+            font-family: var(--font-serif);
+            line-height: 1.3;
+        }
+        .july-offer-modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .july-offer-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            border-radius: 18px;
+            text-align: left;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .july-offer-item-solid {
+            background: linear-gradient(135deg, rgba(171, 14, 0, 0.9) 0%, rgba(171, 14, 0, 1) 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(171, 14, 0, 0.2);
+        }
+        .july-offer-item-dashed {
+            background: #ffffff;
+            border: 2px dashed rgba(171, 14, 0, 0.3);
+            color: #0f172a;
+        }
+        .july-offer-circle-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+        .july-offer-item-solid .july-offer-circle-icon {
+            background: #ffffff;
+            color: #ab0e00;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+        .july-offer-item-dashed .july-offer-circle-icon {
+            background: rgba(171, 14, 0, 0.08);
+            color: #ab0e00;
+            border: 1px solid rgba(171, 14, 0, 0.15);
+        }
+        .july-offer-item-info {
+            flex: 1;
+        }
+        .july-offer-item-info h4 {
+            margin: 0 0 4px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        .july-offer-item-solid .july-offer-item-info h4 {
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .july-offer-item-dashed .july-offer-item-info h4 {
+            color: #ab0e00;
+        }
+        .july-offer-item-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        .july-offer-item-solid .july-offer-item-info p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .july-offer-item-dashed .july-offer-item-info p {
+            color: #475569;
+        }
+        .july-offer-pill {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 18px;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #475569;
+            box-sizing: border-box;
+        }
+        .july-offer-pill svg {
+            color: #ab0e00;
+            flex-shrink: 0;
+        }
+        .july-offer-disclaimer {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.4;
+        }
+        .july-offer-limit-badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #ab0e00;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            margin-top: 4px;
+        }
+        .july-offer-limit-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #ef4444;
+            display: inline-block;
+        }
+        .july-offer-btn-register {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ab0e00;
+            color: #ffffff !important;
+            width: 100%;
+            height: 52px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(171, 14, 0, 0.3);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+        .july-offer-btn-register:hover {
+            background: #ff3333;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.4);
+        }
     </style>
 
 </head>
@@ -9336,8 +9553,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1782266425" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1782266425" defer></script>
+    <script src="common-assets/js/script.min.js?v=1782266851" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1782266851" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -11601,8 +11818,317 @@
 .fb-reel-more-btn:hover i {
     transform: translateX(3px) !important;
 }
+
+/* --- July Offer Modal Styling --- */
+body.modal-open {
+    overflow: hidden !important;
+}
+
+.july-offer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2147483647;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.july-offer-modal.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.july-offer-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.july-offer-modal-container {
+    position: relative;
+    z-index: 2;
+    width: 95%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.july-offer-modal.open .july-offer-modal-container {
+    transform: scale(1);
+}
+
+.july-offer-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #475569;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.july-offer-modal-close:hover {
+    background: #ab0e00;
+    color: #ffffff;
+    border-color: #ab0e00;
+    transform: rotate(90deg);
+}
+
+.july-offer-banner {
+    background: #ab0e00;
+    color: #ffffff;
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.july-offer-banner-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.july-offer-banner-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+}
+
+.july-offer-body {
+    padding: 24px 24px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.july-offer-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 16px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.july-offer-card-solid {
+    background: rgba(171, 14, 0, 0.04);
+    border: 1.5px solid rgba(171, 14, 0, 0.15);
+}
+
+.july-offer-card-dashed {
+    background: #ffffff;
+    border: 1.5px dashed #ab0e00;
+}
+
+.july-offer-card-badge {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ab0e00;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(171, 14, 0, 0.2);
+    line-height: 1.1;
+}
+
+.july-offer-card-badge span {
+    font-size: 9px;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.july-offer-card-content {
+    flex: 1;
+}
+
+.july-offer-card-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    text-transform: uppercase;
+}
+
+.july-offer-card-desc {
+    font-size: 13px;
+    color: #475569;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.july-offer-card-desc strong {
+    color: #ab0e00;
+}
+
+.july-offer-pill-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #f1f5f9;
+    border-radius: 9999px;
+    padding: 8px 16px;
+    font-size: 12.5px;
+    color: #475569;
+    font-weight: 600;
+    margin-top: 4px;
+    border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+.july-offer-pill-icon {
+    display: flex;
+    align-items: center;
+    color: #ab0e00;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.july-offer-pill-text {
+    line-height: 1.2;
+    text-align: center;
+}
+
+.july-offer-disclaimer {
+    font-size: 11px;
+    color: #64748b;
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.july-offer-cta {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    background: #ab0e00;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(171, 14, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-top: 8px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+.july-offer-cta:hover {
+    background: #c21000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(171, 14, 0, 0.45);
+    color: #ffffff !important;
+}
+
+.july-offer-cta:active {
+    transform: translateY(0);
+}
 </style>
 
+
+<!-- July Offer Promotion Modal -->
+<div class="july-offer-modal" id="july-offer-modal" style="display: none;">
+    <div class="july-offer-modal-overlay"></div>
+    <div class="july-offer-modal-container">
+        <button class="july-offer-modal-close" aria-label="Close">&times;</button>
+        <div class="july-offer-banner">
+            <span class="july-offer-banner-tag">Ưu đãi đặc biệt tháng 7</span>
+            <h3 class="july-offer-banner-title">Chương trình khuyến học MBA in AI</h3>
+        </div>
+        <div class="july-offer-body">
+            <!-- Solid Card: First 50 students -->
+            <div class="july-offer-card july-offer-card-solid">
+                <div class="july-offer-card-badge">
+                    50
+                    <span>Học viên</span>
+                </div>
+                <div class="july-offer-card-content">
+                    <h4 class="july-offer-card-title">Dành cho 50 học viên đăng ký sớm nhất</h4>
+                    <p class="july-offer-card-desc">Nhận ngay <strong>01 Bộ AI Agent chuyên dụng</strong> được thiết kế tối ưu hóa cho công việc.</p>
+                </div>
+            </div>
+            
+            <!-- Dashed Card: Choose 1 of 3 exclusive privileges -->
+            <div class="july-offer-card july-offer-card-dashed">
+                <div class="july-offer-card-badge">
+                    03
+                    <span>Đặc quyền</span>
+                </div>
+                <div class="july-offer-card-content">
+                    <h4 class="july-offer-card-title">Được lựa chọn 1 trong 3 đặc quyền</h4>
+                    <p class="july-offer-card-desc">Khóa đào tạo In-house tại công ty trị giá <strong>$2.000</strong> (2 ngày), Học bổng <strong>2.000 CHF</strong>, hoặc Chuyến đi học tập & trải nghiệm Thụy Sĩ.</p>
+                </div>
+            </div>
+            
+            <!-- Pill icon/text container -->
+            <div class="july-offer-pill-container">
+                <div class="july-offer-pill-icon">
+                    <svg class="svg-icon" viewBox="0 0 448 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/>
+                    </svg>
+                </div>
+                <span class="july-offer-pill-text">Tư vấn lộ trình học tập & ứng dụng AI 1:1 cùng chuyên gia</span>
+            </div>
+            
+            <!-- Disclaimer -->
+            <p class="july-offer-disclaimer">* Chương trình áp dụng có điều kiện cho học viên hoàn tất thủ tục sớm nhất.</p>
+            
+            <!-- CTA Button -->
+            <button class="july-offer-cta">Đăng ký nhận ưu đãi ngay</button>
+        </div>
+    </div>
+</div>
 
 <div class="fb-reel-modal" id="fb-reel-modal" style="display: none;">
     <div class="fb-reel-modal-overlay"></div>
@@ -11758,6 +12284,62 @@
             document.getElementById("cd-mins").textContent = mins.toString().padStart(2, '0');
             document.getElementById("cd-secs").textContent = secs.toString().padStart(2, '0');
         }, 1000);
+
+        // July Offer Popup Logic (Triggers exactly 15 seconds after DOMContentLoaded)
+        const JULY_POPUP_SESSION_KEY = 'julyOfferPopupShown';
+        
+        function openJulyPopup() {
+            const modal = document.getElementById('july-offer-modal');
+            if (!modal) return;
+            
+            modal.style.display = 'flex';
+            setTimeout(function() {
+                modal.classList.add('open');
+            }, 50);
+            
+            document.body.classList.add('modal-open');
+        }
+        
+        function closeJulyPopup() {
+            const modal = document.getElementById('july-offer-modal');
+            if (!modal) return;
+            
+            modal.classList.remove('open');
+            setTimeout(function() {
+                modal.style.display = 'none';
+            }, 400);
+            document.body.classList.remove('modal-open');
+        }
+        
+        if (!sessionStorage.getItem(JULY_POPUP_SESSION_KEY)) {
+            setTimeout(function() {
+                openJulyPopup();
+                sessionStorage.setItem(JULY_POPUP_SESSION_KEY, 'true');
+            }, 15000);
+        }
+        
+        const modalElement = document.getElementById('july-offer-modal');
+        if (modalElement) {
+            modalElement.querySelector('.july-offer-modal-close')?.addEventListener('click', closeJulyPopup);
+            modalElement.querySelector('.july-offer-modal-overlay')?.addEventListener('click', closeJulyPopup);
+            
+            const ctaBtn = modalElement.querySelector('.july-offer-cta');
+            if (ctaBtn) {
+                ctaBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeJulyPopup();
+                    
+                    const targetEl = document.getElementById('dang-ky');
+                    if (targetEl) {
+                        if (window.lenis) {
+                            window.lenis.scrollTo('#dang-ky');
+                        } else {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            }
+        }
     });
 })();
 </script>
