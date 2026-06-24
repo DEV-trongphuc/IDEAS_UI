@@ -70,36 +70,54 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Find getGroupControlQueryArgs definition
-    echo "\n=== Finding getGroupControlQueryArgs definition ===\n";
-    $query_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/includes/controls/group-query/group-control-query.php';
-    if (file_exists($query_file)) {
-        $content = file_get_contents($query_file);
-        $lines = explode("\n", $content);
-        $found = -1;
-        foreach ($lines as $num => $line) {
-            if (strpos($line, 'function getGroupControlQueryArgs') !== false) {
-                $found = $num;
-                break;
-            }
-        }
-        if ($found !== -1) {
-            echo "getGroupControlQueryArgs found at line " . ($found + 1) . ". Printing 60 lines:\n";
-            for ($i = $found; $i < min(count($lines), $found + 60); $i++) {
-                echo "    " . ($i + 1) . ": " . $lines[$i] . "\n";
+    // Instantiate and debug TutorLms_Course_Grid widget query
+    echo "\n=== Debugging TutorLms_Course_Grid Widget Query ===\n";
+    $widget_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/modules/tutor-lms-course-grid/widgets/tutor-lms-course-grid.php';
+    if (file_exists($widget_file)) {
+        require_once $widget_file;
+        $class_name = '\\ElementPack\\Modules\\TutorLmsCourseGrid\\Widgets\\TutorLms_Course_Grid';
+        if (class_exists($class_name)) {
+            echo "Class exists. Instantiating...\n";
+            // Construct with dummy ID and data
+            $widget = new $class_name([
+                'id' => 'ac2f29f',
+                'elType' => 'widget',
+                'widgetType' => 'bdt-tutor-lms-course-grid',
+                'settings' => [
+                    'posts_per_page' => 100,
+                ]
+            ], null);
+            
+            // Set settings
+            $widget->set_settings([
+                'posts_per_page' => 100,
+            ]);
+            
+            echo "Calling query_posts...\n";
+            try {
+                $widget->query_posts(100);
+                $query = $widget->get_query();
+                if ($query) {
+                    echo "WP_Query args:\n";
+                    echo var_export($query->query_vars, true) . "\n";
+                    echo "SQL Query executed:\n";
+                    echo $query->request . "\n";
+                    echo "Found posts count: " . $query->found_posts . "\n";
+                } else {
+                    echo "Query is null\n";
+                }
+            } catch (\Exception $e) {
+                echo "Exception during query: " . $e->getMessage() . "\n";
             }
         } else {
-            echo "getGroupControlQueryArgs function not found\n";
+            echo "Class $class_name not found\n";
         }
     } else {
-        echo "Group query file not found\n";
+        echo "Widget file not found\n";
     }
+} else {
+    echo "Failed to find wp-load.php at $wp_load_path\n";
 }
-
-
-
-
-
 
 // Print last 40 lines of error log to capture any errors
 $log_path = '/home/vhvxoigh/public_html/error_log';
