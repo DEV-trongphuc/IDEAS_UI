@@ -1,24 +1,79 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-$plugins_dir = '/home/vhvxoigh/public_html/wp-content/plugins/';
-$target_folders = ['tutor', 'tutor-pro', 'ultimate-post-kit', 'ultimate-post-kit-pro'];
+$config_path = '/home/vhvxoigh/public_html/wp-config.php';
+if (!file_exists($config_path)) {
+    die("wp-config.php not found at $config_path");
+}
 
-foreach ($target_folders as $folder) {
-    $path = $plugins_dir . $folder;
-    if (file_exists($path) && is_dir($path)) {
-        echo "=== Folder: $folder ===\n";
-        $files = scandir($path);
-        foreach ($files as $file) {
-            if (pathinfo($file, PATHINFO_EXTENSION) === 'php') {
-                // Check if it has a plugin header
-                $content = file_get_contents($path . '/' . $file);
-                if (strpos($content, 'Plugin Name:') !== false) {
-                    echo "  Plugin Entry: $folder/$file\n";
-                }
-            }
-        }
-    } else {
-        echo "Folder $folder not found.\n";
+$config_content = file_get_contents($config_path);
+
+// Parse DB credentials using regex
+preg_match("/define\(\s*['\"]DB_NAME['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_name_matches);
+preg_match("/define\(\s*['\"]DB_USER['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_user_matches);
+preg_match("/define\(\s*['\"]DB_PASSWORD['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_password_matches);
+preg_match("/define\(\s*['\"]DB_HOST['\"]\s*,\s*['\"](.*?)['\"]\s*\)/", $config_content, $db_host_matches);
+preg_match("/\\\$table_prefix\s*=\s*['\"](.*?)['\"]/", $config_content, $prefix_matches);
+
+$db_name = $db_name_matches[1] ?? '';
+$db_user = $db_user_matches[1] ?? '';
+$db_password = $db_password_matches[1] ?? '';
+$db_host = $db_host_matches[1] ?? 'localhost';
+$table_prefix = $prefix_matches[1] ?? 'wp_';
+
+try {
+    $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8mb4", $db_user, $db_password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+    
+    // Get active_plugins
+    $stmt = $pdo->prepare("SELECT option_value FROM {$table_prefix}options WHERE option_name = 'active_plugins'");
+    $stmt->execute();
+    $serialized_plugins = $stmt->fetchColumn();
+    
+    if (!$serialized_plugins) {
+        die("Error: active_plugins option not found in database.\n");
     }
+    
+    $plugins = unserialize($serialized_plugins);
+    if (!is_array($plugins)) {
+        die("Error: active_plugins is not a serialized array.\n");
+    }
+    
+    echo "=== Current Active Plugins ===\n";
+    print_r($plugins);
+    
+    $plugins_to_add = [
+        'tutor/tutor.php',
+        'tutor-pro/tutor-pro.php',
+        'ultimate-post-kit/ultimate-post-kit.php',
+        'ultimate-post-kit-pro/ultimate-post-kit-pro.php'
+    ];
+    
+    $modified = false;
+    foreach ($plugins_to_add as $plugin) {
+        if (!in_array($plugin, $plugins)) {
+            $plugins[] = $plugin;
+            echo "Adding plugin to active list: $plugin\n";
+            $modified = true;
+        } else {
+            echo "Plugin already active: $plugin\n";
+        }
+    }
+    
+    // Re-index array keys to be 0, 1, 2...
+    $plugins = array_values($plugins);
+    
+    if ($modified) {
+        $new_serialized = serialize($plugins);
+        $update_stmt = $pdo->prepare("UPDATE {$table_prefix}options SET option_value = ? WHERE option_name = 'active_plugins'");
+        $update_stmt->execute([$new_serialized]);
+        echo "Successfully updated active_plugins in database!\n";
+    } else {
+        echo "No changes made (plugins were already active).\n";
+    }
+    
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage() . "\n";
 }
