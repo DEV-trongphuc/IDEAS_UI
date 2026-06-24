@@ -27,13 +27,17 @@ try {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
     
-    $stmt = $pdo->prepare("SELECT option_name, SUBSTRING(option_value, 1, 300) as opt_val_snippet FROM {$table_prefix}options WHERE option_name LIKE '%post_kit%' OR option_name LIKE '%upk%' OR option_name LIKE '%ultimate%'");
+    $stmt = $pdo->prepare("SELECT option_value FROM {$table_prefix}options WHERE option_name = 'ultimate_post_kit_active_modules'");
     $stmt->execute();
-    $options = $stmt->fetchAll();
+    $val = $stmt->fetchColumn();
     
-    echo "=== Matching Options ===\n";
-    foreach ($options as $opt) {
-        echo "Option: {$opt['option_name']}\nSnippet: {$opt['opt_val_snippet']}\n\n";
+    echo "Raw value: " . var_export($val, true) . "\n\n";
+    if ($val) {
+        $data = unserialize($val);
+        echo "=== Unserialized Modules ===\n";
+        print_r($data);
+    } else {
+        echo "Option is empty or false.\n";
     }
     
 } catch (Exception $e) {
