@@ -1,42 +1,66 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-$paths = [
-    '/home/vhvxoigh/public_html/khoa-hoc-online',
-    '/home/vhvxoigh/public_html/wp-content/themes',
-];
-
-foreach ($paths as $path) {
-    echo "=== INSPECTING: $path ===\n";
-    if (file_exists($path)) {
-        if (is_dir($path)) {
-            $files = scandir($path);
-            foreach ($files as $file) {
-                if ($file === '.' || $file === '..') continue;
-                $full = $path . '/' . $file;
-                echo "  " . (is_dir($full) ? "[DIR] " : "[FILE] ") . $file . " (" . (is_dir($full) ? "" : filesize($full) . " bytes") . ")\n";
-            }
-        } else {
-            echo "  Is a file: " . filesize($path) . " bytes\n";
-        }
-    } else {
-        echo "  Not found.\n";
-    }
-    echo "\n";
+$wp_config_pub = '/home/vhvxoigh/public_html/wp-config.php';
+if (!file_exists($wp_config_pub)) {
+    die("ERROR: public_html/wp-config.php not found.\n");
 }
 
-// Also check the database prefix or config of chiefaiofficer.vn
-$wp_config_pub = '/home/vhvxoigh/public_html/wp-config.php';
-if (file_exists($wp_config_pub)) {
-    echo "=== PUBLIC_HTML wp-config.php ===\n";
-    $conf = file_get_contents($wp_config_pub);
-    // Print DB settings and table prefix without password if possible, or just extract DB_NAME and prefix
-    if (preg_match('/define\(\s*\'DB_NAME\'\s*,\s*\'([^\']+)\'\s*\)/', $conf, $m1)) {
-        echo "  DB_NAME: " . $m1[1] . "\n";
+$conf = file_get_contents($wp_config_pub);
+
+// Extract DB credentials
+$db_name = '';
+$db_user = '';
+$db_pass = '';
+$db_host = 'localhost';
+$table_prefix = 'wp_';
+
+if (preg_match('/define\(\s*\'DB_NAME\'\s*,\s*\'([^\']+)\'\s*\)/', $conf, $m)) {
+    $db_name = $m[1];
+}
+if (preg_match('/define\(\s*\'DB_USER\'\s*,\s*\'([^\']+)\'\s*\)/', $conf, $m)) {
+    $db_user = $m[1];
+}
+if (preg_match('/define\(\s*\'DB_PASSWORD\'\s*,\s*\'([^\']+)\'\s*\)/', $conf, $m)) {
+    $db_pass = $m[1];
+}
+if (preg_match('/define\(\s*\'DB_HOST\'\s*,\s*\'([^\']+)\'\s*\)/', $conf, $m)) {
+    $db_host = $m[1];
+}
+if (preg_match('/\$table_prefix\s*=\s*\'([^\']+)\'/', $conf, $m)) {
+    $table_prefix = $m[1];
+}
+
+echo "DB Host: $db_host\n";
+echo "DB Name: $db_name\n";
+echo "DB User: $db_user\n";
+echo "Table Prefix: $table_prefix\n";
+
+try {
+    $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
+    $pdo = new PDO($dsn, $db_user, $db_pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+    echo "Connected successfully to chiefaiofficer.vn database!\n\n";
+    
+    // Find the post/page with slug 'khoa-hoc-online'
+    $stmt = $pdo->prepare("SELECT ID, post_title, post_content, post_status, post_type FROM {$table_prefix}posts WHERE post_name = ? AND post_status = 'publish'");
+    $stmt->execute(['khoa-hoc-online']);
+    $post = $stmt->fetch();
+    
+    if ($post) {
+        echo "=== Page Found ===\n";
+        echo "ID: " . $post['ID'] . "\n";
+        echo "Title: " . $post['post_title'] . "\n";
+        echo "Type: " . $post['post_type'] . "\n";
+        echo "Status: " . $post['post_status'] . "\n";
+        echo "=== Content ===\n";
+        echo $post['post_content'] . "\n";
+        echo "===============\n";
+    } else {
+        echo "Page with slug 'khoa-hoc-online' not found in posts table.\n";
     }
-    if (preg_match('/\$table_prefix\s*=\s*\'([^\']+)\'/', $conf, $m2)) {
-        echo "  table_prefix: " . $m2[1] . "\n";
-    }
-} else {
-    echo "=== PUBLIC_HTML wp-config.php not found ===\n";
+} catch (Exception $e) {
+    echo "Database Error: " . $e->getMessage() . "\n";
 }
