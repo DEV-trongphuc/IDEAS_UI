@@ -70,37 +70,23 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Find query_posts definition in the plugin files
-    echo "\n=== Finding query_posts definition ===\n";
-    $ep_dir = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/';
-    if (is_dir($ep_dir)) {
-        $di = new RecursiveDirectoryIterator($ep_dir);
-        $it = new RecursiveIteratorIterator($di);
-        foreach ($it as $file) {
-            if ($file->isFile() && $file->getExtension() === 'php') {
-                $content = file_get_contents($file->getPathname());
-                if (strpos($content, 'function query_posts') !== false) {
-                    $rel_path = str_replace($ep_dir, '', $file->getPathname());
-                    echo "- File: $rel_path\n";
-                    $lines = explode("\n", $content);
-                    foreach ($lines as $num => $line) {
-                        if (strpos($line, 'function query_posts') !== false) {
-                            echo "  Lines " . ($num - 2) . " to " . ($num + 20) . ":\n";
-                            for ($i = max(0, $num - 2); $i < min(count($lines), $num + 20); $i++) {
-                                echo "    " . ($i + 1) . ": " . $lines[$i] . "\n";
-                            }
-                            break;
-                        }
-                    }
-                }
-            }
+    // Read first 50 lines of tutor-lms-course-grid.php
+    echo "\n=== Reading tutor-lms-course-grid.php header ===\n";
+    $widget_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/modules/tutor-lms-course-grid/widgets/tutor-lms-course-grid.php';
+    if (file_exists($widget_file)) {
+        $content = file_get_contents($widget_file);
+        $lines = explode("\n", $content);
+        echo "Lines 1 to 50:\n";
+        for ($i = 0; $i < min(count($lines), 50); $i++) {
+            echo "    " . ($i + 1) . ": " . $lines[$i] . "\n";
         }
     } else {
-        echo "Element Pack directory not found\n";
+        echo "Widget file not found\n";
     }
 } else {
     echo "Failed to find wp-load.php at $wp_load_path\n";
 }
+
 
 
 
