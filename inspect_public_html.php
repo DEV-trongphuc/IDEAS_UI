@@ -70,38 +70,69 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Debug Tutor LMS courses directly
-    echo "\n=== Direct Tutor LMS Courses Debug ===\n";
-    $query = new \WP_Query([
-        'post_type' => 'courses',
-        'posts_per_page' => 10,
-        'post_status' => 'publish'
-    ]);
-    
-    echo "Found published courses: " . $query->found_posts . "\n";
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $id = get_the_ID();
-            echo "- Course ID: $id, Title: " . get_the_title() . "\n";
-            
-            // Get all taxonomies for this post
-            $taxonomies = get_post_taxonomies($id);
-            if (!empty($taxonomies)) {
-                echo "  Taxonomies:\n";
-                foreach ($taxonomies as $tax) {
-                    $terms = wp_get_post_terms($id, $tax, ['fields' => 'all']);
-                    if (!is_wp_error($terms) && !empty($terms)) {
-                        $term_names = array_map(function($t) { return $t->name . ' (ID: ' . $t->term_id . ')'; }, $terms);
-                        echo "    * $tax: " . implode(', ', $term_names) . "\n";
+    // Debug Tutor LMS courses directly via Elementor's registered widget
+    echo "\n=== Elementor Widget Query Debug ===\n";
+    if (class_exists('\\Elementor\\Plugin')) {
+        echo "Elementor class exists.\n";
+        // Initialize Elementor if not already
+        $elementor = \Elementor\Plugin::instance();
+        if ($elementor && isset($elementor->widgets_manager)) {
+            $widget = $elementor->widgets_manager->get_widget_types('bdt-tutor-lms-course-grid');
+            if ($widget) {
+                echo "Successfully retrieved bdt-tutor-lms-course-grid widget instance!\n";
+                // Get the settings from the DB we extracted earlier
+                $meta_val = $wpdb->get_var($wpdb->prepare(
+                    "SELECT meta_value FROM {$wpdb->postmeta} WHERE post_id = %d AND meta_key = '_elementor_data'",
+                    4468
+                ));
+                $data = json_decode($meta_val, true);
+                
+                function find_widget_data($elements, $target_id) {
+                    foreach ($elements as $el) {
+                        if (isset($el['id']) && $el['id'] === $target_id) {
+                            return $el;
+                        }
+                        if (isset($el['elements']) && is_array($el['elements'])) {
+                            $res = find_widget_data($el['elements'], $target_id);
+                            if ($res) return $res;
+                        }
                     }
+                    return null;
                 }
+                
+                $widget_data = find_widget_data($data, 'ac2f29f');
+                $settings = $widget_data['settings'] ?? [];
+                echo "Saved Widget Settings:\n" . var_export($settings, true) . "\n";
+                
+                // Set settings on the widget
+                // Elementor widgets have set_settings_by_control or we can use set_settings
+                $widget->set_settings($settings);
+                
+                // Let's run query_posts
+                echo "Running query_posts with widget settings...\n";
+                try {
+                    $widget->query_posts(100);
+                    $query = $widget->get_query();
+                    if ($query) {
+                        echo "WP_Query args:\n" . var_export($query->query_vars, true) . "\n";
+                        echo "SQL Query executed:\n" . $query->request . "\n";
+                        echo "Found posts count: " . $query->found_posts . "\n";
+                    } else {
+                        echo "Query is null\n";
+                    }
+                } catch (\Exception $e) {
+                    echo "Exception during query execution: " . $e->getMessage() . "\n";
+                }
+            } else {
+                echo "Widget bdt-tutor-lms-course-grid not registered in Elementor.\n";
             }
+        } else {
+            echo "Elementor widgets_manager not available.\n";
         }
-        wp_reset_postdata();
     } else {
-        echo "No courses found via direct WP_Query\n";
+        echo "Elementor class not found.\n";
     }
+
 
 
 } else {
