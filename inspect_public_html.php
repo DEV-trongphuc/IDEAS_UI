@@ -70,9 +70,6 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Check if element_pack_is_widget_enabled returns true or false
-    echo "\n=== Element Pack Widget Check ===\n";
-    if (function_exists('element_pack_is_widget_enabled')) {
     // Read tutor-lms-course-grid.php render function
     echo "\n=== Reading tutor-lms-course-grid.php render function ===\n";
     $widget_file = '/home/vhvxoigh/public_html/wp-content/plugins/bdthemes-element-pack/modules/tutor-lms-course-grid/widgets/tutor-lms-course-grid.php';
@@ -97,11 +94,10 @@ if (file_exists($wp_load_path)) {
     } else {
         echo "Widget file not found\n";
     }
-
-
 } else {
     echo "Failed to find wp-load.php at $wp_load_path\n";
 }
+
 
 
 // Print last 40 lines of error log to capture any errors
