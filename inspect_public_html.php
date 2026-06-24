@@ -70,58 +70,39 @@ if (file_exists($wp_load_path)) {
         echo "- Status: {$c['post_status']}, Count: {$c['count']}\n";
     }
 
-    // Instantiate and debug TutorLms_Course_Grid widget query
-    echo "\n=== Debugging TutorLms_Course_Grid Widget Query ===\n";
-    $class_name = '\\ElementPack\\Modules\\TutorLmsCourseGrid\\Widgets\\TutorLms_Course_Grid';
-    if (class_exists($class_name)) {
-        echo "Class exists. Instantiating...\n";
-        try {
-            $widget = new $class_name([
-                'id' => 'ac2f29f',
-                'elType' => 'widget',
-                'widgetType' => 'bdt-tutor-lms-course-grid',
-                'settings' => [
-                    'posts_per_page' => 100,
-                ]
-            ], null);
+    // Debug Tutor LMS courses directly
+    echo "\n=== Direct Tutor LMS Courses Debug ===\n";
+    $query = new \WP_Query([
+        'post_type' => 'courses',
+        'posts_per_page' => 10,
+        'post_status' => 'publish'
+    ]);
+    
+    echo "Found published courses: " . $query->found_posts . "\n";
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $id = get_the_ID();
+            echo "- Course ID: $id, Title: " . get_the_title() . "\n";
             
-            $widget->set_settings([
-                'posts_per_page' => 100,
-            ]);
-            
-            echo "Calling query_posts...\n";
-            $widget->query_posts(100);
-            $query = $widget->get_query();
-            if ($query) {
-                echo "WP_Query args:\n";
-                echo var_export($query->query_vars, true) . "\n";
-                echo "SQL Query executed:\n";
-                echo $query->request . "\n";
-                echo "Found posts count: " . $query->found_posts . "\n";
-            } else {
-                echo "Query is null\n";
+            // Get all taxonomies for this post
+            $taxonomies = get_post_taxonomies($id);
+            if (!empty($taxonomies)) {
+                echo "  Taxonomies:\n";
+                foreach ($taxonomies as $tax) {
+                    $terms = wp_get_post_terms($id, $tax, ['fields' => 'all']);
+                    if (!is_wp_error($terms) && !empty($terms)) {
+                        $term_names = array_map(function($t) { return $t->name . ' (ID: ' . $t->term_id . ')'; }, $terms);
+                        echo "    * $tax: " . implode(', ', $term_names) . "\n";
+                    }
+                }
             }
-        } catch (\Exception $e) {
-            echo "Exception during query: " . $e->getMessage() . "\n";
         }
+        wp_reset_postdata();
     } else {
-        echo "Class $class_name not found. Let's run a direct WP_Query for courses:\n";
-        $direct_query = new \WP_Query([
-            'post_type' => 'courses',
-            'posts_per_page' => 10,
-            'post_status' => 'publish'
-        ]);
-        echo "Direct WP_Query found posts count: " . $direct_query->found_posts . "\n";
-        if ($direct_query->have_posts()) {
-            while ($direct_query->have_posts()) {
-                $direct_query->the_post();
-                echo "  - Course ID: " . get_the_ID() . ", Title: " . get_the_title() . "\n";
-            }
-            wp_reset_postdata();
-        } else {
-            echo "  No courses found via direct WP_Query\n";
-        }
+        echo "No courses found via direct WP_Query\n";
     }
+
 
 } else {
     echo "Failed to find wp-load.php at $wp_load_path\n";
