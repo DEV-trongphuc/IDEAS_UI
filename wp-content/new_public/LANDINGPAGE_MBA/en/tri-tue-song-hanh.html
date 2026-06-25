@@ -260,9 +260,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1782352746" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782352746" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782352746" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1782353402" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782353402" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782353402" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -8403,8 +8403,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1782352746" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1782352746" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1782353402" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1782353402" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -11452,6 +11452,64 @@ body.modal-open {
     }
 }
 
+/* Campaign Mobile UI Optimizations */
+@media (max-width: 768px) {
+    /* Countdown Timer Mobile spacing & sizing */
+    .hero-countdown-boxes {
+        gap: 8px !important;
+    }
+    .hero-countdown-box {
+        min-width: 68px !important;
+        padding: 10px 6px !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(171, 14, 0, 0.15) !important;
+    }
+    .hero-countdown-val {
+        font-size: 24px !important;
+    }
+    .hero-countdown-lbl {
+        font-size: 8px !important;
+        margin-top: 2px !important;
+    }
+
+    /* Promo Card Screen Spacing & Fit */
+    .hero-promo-panel-wrapper {
+        width: calc(100% - 32px) !important;
+        margin: 20px auto 24px !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+    .hero-promo-card {
+        padding: 14px 18px !important;
+        gap: 12px !important;
+        border-radius: 16px !important;
+    }
+    .hero-promo-badge {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    .hero-promo-badge .badge-num {
+        font-size: 16px !important;
+    }
+    .hero-promo-badge .badge-lbl {
+        font-size: 7px !important;
+    }
+    .hero-promo-card-title {
+        font-size: 12.5px !important;
+    }
+
+    /* Floating play button positioning to prevent overlap with chat widget on right */
+    .global-floating-reel-btn {
+        bottom: 20px !important;
+        left: 20px !important;
+        right: auto !important;
+    }
+
+    /* Push CTA buttons higher to clear the chatbot widget at the bottom right */
+    .hero-corporate {
+        padding-bottom: 120px !important;
+    }
+}
 </style>
 
 
