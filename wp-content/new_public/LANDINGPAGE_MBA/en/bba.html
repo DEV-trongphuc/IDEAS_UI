@@ -194,9 +194,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1782371150" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782371150" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782371150" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1782371811" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782371811" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782371811" media="print"
         onload="this.media='all'" />
     <style>
         /* ═══════════════════════════════════════
@@ -5896,6 +5896,74 @@
             </h3>
 
             <!-- Scholarship Banner -->
+                    <!-- Tuition Support Card -->
+                    <style>
+                        .tuition-support-card {
+                            max-width: 980px;
+                            margin: 0 auto 2.5rem auto;
+                            background: #ffffff;
+                            border: 1px solid #e2e8f0;
+                            border-radius: 16px;
+                            padding: 24px;
+                            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+                            display: flex;
+                            align-items: center;
+                            gap: 24px;
+                            text-align: left;
+                            position: relative;
+                            overflow: hidden;
+                            box-sizing: border-box;
+                        }
+                        .tuition-support-card::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 4px;
+                            height: 100%;
+                            background: #ab0e00;
+                        }
+                        .tuition-school-logo {
+                            flex-shrink: 0;
+                            width: 80px;
+                            height: 80px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: #f8fafc;
+                            border-radius: 12px;
+                            padding: 8px;
+                            border: 1px solid #edf2f7;
+                        }
+                        .tuition-support-info {
+                            flex-grow: 1;
+                        }
+                        @media (max-width: 640px) {
+                            .tuition-support-card {
+                                flex-direction: column !important;
+                                text-align: center !important;
+                                padding: 20px !important;
+                                gap: 16px !important;
+                            }
+                            .tuition-support-card::before {
+                                width: 100% !important;
+                                height: 4px !important;
+                                left: 0 !important;
+                                top: 0 !important;
+                            }
+                        }
+                    </style>
+                    <div class="tuition-support-card">
+                        <div class="tuition-school-logo">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/external-migrated/images_b4d597a4.webp" alt="Swiss UMEF Logo" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                        </div>
+                        <div class="tuition-support-info">
+                            <div style="display: inline-block; background: rgba(171, 14, 0, 0.08); color: #ab0e00; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; margin-bottom: 8px; letter-spacing: 0.05em; text-transform: uppercase;">International Support Policy</div>
+                            <h4 style="margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 800; color: #0f172a;">Tuition Support Program for Vietnam</h4>
+                            <p style="margin: 0; font-size: 0.95rem; color: #475569; line-height: 1.5; font-weight: 400;">The official on-campus tuition fee in Switzerland is <strong style="color: #ab0e00;">19,900 CHF</strong>. However, due to the <strong>online delivery format</strong> and <strong>special support policy for Vietnamese learners</strong>, you are eligible for the optimized tuition rates shown below, including flexible installment options and 0% interest payment plans via Sacombank.</p>
+                        </div>
+                    </div>
+
             <div class="scholarship-banner-new">
                 <div
                     style="background: #ab0e00; color: #fff; font-size: 0.85rem; font-weight: 800; padding: 8px 16px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;">
@@ -7021,8 +7089,8 @@
         </div>
     </div>
 
-    <script src="../common-assets/js/script.min.js?v=1782371150" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1782371150" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1782371811" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1782371811" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
