@@ -393,7 +393,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </span>
                 <h1><span><?php echo $is_en ? 'WEBSITE SITEMAP' : 'SƠ ĐỒ TRANG WEB'; ?></span> <br>Website Sitemap</h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
                 <p><?php echo $is_en ? 'Explore the entire website structure, easily navigate and quickly access academic programs, support policies &amp; activities of IDEAS.' : 'Khám phá toàn bộ cấu trúc website, dễ dàng định hướng và truy cập nhanh các chương trình đào tạo, chính sách hỗ trợ &amp; hoạt động của Viện IDEAS.'; ?></p>

@@ -964,7 +964,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
         <h1><?php echo $is_en ? 'Organizational Structure &amp; <span>Staff Chart</span>' : 'Cơ Cấu Tổ Chức &amp; <span>Sơ Đồ Nhân Sự</span>'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
         <p><?php echo $is_en ? 'Scientific operating regulations, a streamlined management structure, and a team of professional academic specialists accompanying IDEAS students.' : 'Quy chế hoạt động khoa học, bộ máy quản lý tinh gọn cùng đội ngũ chuyên viên học vụ chuyên nghiệp đồng hành cùng học viên IDEAS.'; ?></p>

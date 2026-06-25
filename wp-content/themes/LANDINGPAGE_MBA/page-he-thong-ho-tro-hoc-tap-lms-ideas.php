@@ -923,7 +923,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
             <h1><?php echo $is_en ? 'LMS System <br /> Along with a <span>Learning Ecosystem.</span>' : 'Hệ thống LMS <br /> Cùng <span>hệ sinh thái học tập.</span>'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
             <p><?php echo $is_en ? 'Accompanying professional academic support, a comprehensive digital learning solution optimizing time and enhancing knowledge absorption efficiency for students.' : 'Đồng hành hỗ trợ học vụ chuyên nghiệp, giải pháp học tập số toàn diện giúp tối ưu hóa thời gian và nâng cao hiệu quả tiếp thu kiến thức cho học viên.'; ?></p>
             <div class="lms-hero-actions">
@@ -966,7 +966,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="eco-label-light"><?php echo $is_en ? 'LEARNING ECOSYSTEM' : 'HỆ SINH THÁI HỌC TẬP'; ?></div>
                 <h3 class="ecosystem-title"><?php echo $is_en ? 'Comprehensive Learning Ecosystem<br /><span class="eco-title-accent">always accompanying you</span>' : 'Hệ sinh thái học tập toàn diện<br /><span class="eco-title-accent">luôn đồng hành cùng bạn</span>'; ?></h3>
                 <p class="eco-slogan" style="font-style: italic; font-size: 1.1rem; font-weight: 600; color: #ff6b6b; margin-top: 12px; margin-bottom: 12px; text-align: center;">
-                    <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                    <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
                 </p>
                 <p class="ecosystem-sub"><?php echo $is_en ? 'IDEAS is the official admissions partner of Swiss UMEF, building a comprehensive learning ecosystem for Vietnamese learners.' : 'IDEAS là đối tác tuyển sinh chính thức của Swiss UMEF, xây dựng hệ sinh thái học tập toàn diện cho người học Việt Nam.'; ?></p>
             </div>

@@ -1169,7 +1169,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                 <h1 class="article-main-title"><?php the_title(); ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
 

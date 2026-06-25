@@ -439,7 +439,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
             <h1><?php echo $is_en ? 'Development <span>Journey</span>' : 'Hành Trình <span>Phát Triển</span>'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
             <p><?php echo $is_en ? 'Over 15 years of experience accompanying Vietnamese students to conquer postgraduate programs at prestigious international universities.' : 'Hơn 15 năm kinh nghiệm đồng hành cùng học viên Việt Nam chinh phục các chương trình sau Đại học tại các trường đại học quốc tế danh tiếng.'; ?></p>

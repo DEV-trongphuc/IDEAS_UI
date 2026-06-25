@@ -571,7 +571,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </span>
                 <h1><?php echo $is_en ? 'Overcoming English Barriers <br><span>by Applying AI</span>' : 'Vượt rào cản tiếng Anh <br><span>bằng cách ứng dụng AI</span>'; ?></h1>
             <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Local Companionship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
                 <p><?php echo $is_en ? 'Discover how to use Artificial Intelligence to overcome language barriers and improve international standard learning performance with IDEAS' : 'Khám phá cách thức sử dụng Trí Tuệ Nhân Tạo để khắc phục rào cản ngoại ngữ, nâng cao hiệu suất học tập chuẩn quốc tế cùng IDEAS'; ?></p>
