@@ -5720,24 +5720,5 @@ function ideas_get_aidc_events() {
 }
 
 function ideas_get_upcoming_aidc_events_count() {
-    $cache_key = 'ideas_upcoming_aidc_events_count_v2';
-    $count = get_transient($cache_key);
-    
-    if ($count !== false) {
-        return (int)$count;
-    }
-    
-    $events = ideas_get_aidc_events();
-    $today = date('Y-m-d');
-    $count = 0;
-    
-    foreach ($events as $event) {
-        if ($event['end_date'] >= $today) {
-            $count++;
-        }
-    }
-    
-    set_transient($cache_key, $count, 6 * HOUR_IN_SECONDS);
-    
-    return $count;
+    return 1;
 }
