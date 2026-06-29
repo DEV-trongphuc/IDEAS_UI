@@ -3242,7 +3242,7 @@ if (document.readyState === 'loading') {
         initCountersParallax();
         initReadingProgressAndSideNav();
         initMobileTopSheet();
-        initHomepageToastPopup();
+        // initHomepageToastPopup();
         initCustomDropdowns();
         initGlobalReelsModal();
     });
@@ -3258,7 +3258,7 @@ if (document.readyState === 'loading') {
     initCountersParallax();
     initReadingProgressAndSideNav();
     initMobileTopSheet();
-    initHomepageToastPopup();
+    // initHomepageToastPopup();
     initCustomDropdowns();
     initGlobalReelsModal();
 }
