@@ -254,30 +254,6 @@ if ($is_en) {
                     </svg>
                 </button>
 
-                <div class="modal-zalo-section">
-                    <div class="modal-zalo-divider">
-                        <span><?php echo $is_en ? 'Or connect via' : 'Hoặc chọn cách liên hệ'; ?></span>
-                    </div>
-                    <div class="modal-zalo-row">
-                        <a href="https://zalo.me/3857867121882640296" target="_blank" class="modal-zalo-btn"
-                            aria-label="Chat Zalo với IDEAS">
-                            <img decoding="async"
-                                src="/wp-content/uploads/external-migrated/zalo-oa-icon-unplated_82aad094.webp"
-                                alt="Zalo Logo IDEAS" width="20" height="20" loading="lazy">
-                            <span>Chat Zalo</span>
-                        </a>
-                        <button type="button" class="modal-booking-btn" id="modal-open-booking"
-                            aria-label="<?php echo $is_en ? 'Book a counseling appointment' : 'Đặt lịch hẹn tư vấn'; ?>">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span><?php echo $is_en ? 'Book Appointment' : 'Đặt lịch tư vấn'; ?></span>
-                        </button>
-                    </div>
-                </div>
-
                 <p class="form-privacy"><?php echo $is_en ? 'Your information is kept secure & private' : 'Cam kết bảo mật thông tin'; ?></p>
             </form>
 
