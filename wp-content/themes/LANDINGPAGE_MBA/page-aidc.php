@@ -849,6 +849,15 @@ foreach ($all_events as $event) {
         </main>
     </div>
 
+    <!-- Main scripts minified imports -->
+    <?php
+    $js_path = get_stylesheet_directory() . '/common-assets/js/script.min.js';
+    $js_version = file_exists($js_path) ? filemtime($js_path) : time();
+    ?>
+    <script
+        src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>"
+        defer></script>
+
     <!-- Shared Footer & Modals -->
     <?php get_footer(); ?>
 </body>

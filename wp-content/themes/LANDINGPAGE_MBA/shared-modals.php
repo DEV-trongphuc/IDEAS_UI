@@ -168,9 +168,9 @@ if ($is_en) {
 
 <!-- 1. Generic Registration Popup Modal -->
 <div class="reg-modal" id="reg-modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
-    <div class="reg-modal-overlay" id="reg-modal-overlay"></div>
+    <div class="reg-modal-overlay" id="reg-modal-overlay" onclick="closeRegModal()"></div>
     <div class="reg-modal-container" data-lenis-prevent>
-        <button class="reg-modal-close" id="reg-modal-close" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
+        <button class="reg-modal-close" id="reg-modal-close" onclick="closeRegModal()" aria-label="<?php echo $is_en ? 'Close modal' : 'Đóng modal'; ?>">✕</button>
         <div class="reg-modal-content">
 
             <header class="modal-form-header">
