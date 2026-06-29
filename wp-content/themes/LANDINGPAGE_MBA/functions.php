@@ -5720,7 +5720,7 @@ function ideas_get_aidc_events() {
 }
 
 function ideas_get_upcoming_aidc_events_count() {
-    $cache_key = 'ideas_upcoming_aidc_events_count';
+    $cache_key = 'ideas_upcoming_aidc_events_count_v2';
     $count = get_transient($cache_key);
     
     if ($count !== false) {
