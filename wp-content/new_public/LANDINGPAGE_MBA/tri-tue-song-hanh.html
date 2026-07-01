@@ -269,9 +269,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1782893874" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782893874" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782893874" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1782893924" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782893924" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782893924" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -7842,11 +7842,11 @@
                         <div class="hero-promo-panel-wrapper" style="margin: 0; width: 100%; box-sizing: border-box;">
                             <div class="hero-promo-card hero-promo-card-solid" style="background: rgba(171, 14, 0, 0.1); border: 1.5px solid rgba(171, 14, 0, 0.3); border-radius: 16px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; text-align: left;">
                                 <div class="hero-promo-badge" style="width: 56px; height: 56px; border-radius: 12px; background: #ab0e00; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800;">
-                                    <span class="badge-num" style="font-size: 1.3rem; line-height: 1;">50</span>
+                                    <span class="badge-num" id="hero-slots-num" style="font-size: 1.3rem; line-height: 1;">39</span>
                                     <span class="badge-lbl" style="font-size: 0.6rem; text-transform: uppercase;">Suất</span>
                                 </div>
                                 <div class="hero-promo-card-content">
-                                    <h4 class="hero-promo-card-title" style="font-size: 0.92rem; font-weight: 700; color: #ffcccc; margin: 0; line-height: 1.4;">cho các nhà lãnh đạo tiên phong về AI đăng ký sớm nhất.</h4>
+                                    <h4 class="hero-promo-card-title" style="font-size: 0.92rem; font-weight: 700; color: #ffcccc; margin: 0; line-height: 1.4;">Suất ưu đãi đặc biệt còn lại dành cho các nhà lãnh đạo đăng ký sớm nhất.</h4>
                                 </div>
                             </div>
                         </div>
@@ -8249,7 +8249,7 @@
                                         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                                     </svg></div>
-                                <p class="trainer-bio-text"><strong>20+ năm kinh nghiệm</strong> tư vấn và triển khai các giải pháp Marketing, Công nghệ và Chuyển đổi số. Đồng hành cùng nhiều doanh nghiệp trong việc xây dựng chiến lược tăng trưởng và ứng dụng AI vào thực tiễn.</p>
+                                <p class="trainer-bio-text"><strong>20+ năm kinh nghiệm</strong> tư vấn và triển khai các giải pháp Marketing, Công nghệ và Chuyển đổi số. Đồng hành cùng many doanh nghiệp trong việc xây dựng chiến lược tăng trưởng và ứng dụng AI vào thực tiễn.</p>
                             </li>
                             <li class="trainer-bio-item">
                                 <div class="trainer-bio-icon"><svg class="campaign-svg-icon svg-icon"
@@ -9456,8 +9456,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1782893874" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1782893874" defer></script>
+    <script src="common-assets/js/script.min.js?v=1782893924" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1782893924" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -12857,10 +12857,12 @@
                     const percentage = (registeredSlots / totalSlots) * 100;
                     
                     const slotsNumEl = document.getElementById("scarcity-slots-num");
+                    const heroSlotsNumEl = document.getElementById("hero-slots-num");
                     const registeredNumEl = document.getElementById("scarcity-registered-num");
                     const progressBarEl = document.getElementById("scarcity-progress-bar");
                     
                     if (slotsNumEl) slotsNumEl.textContent = remainingSlots;
+                    if (heroSlotsNumEl) heroSlotsNumEl.textContent = remainingSlots;
                     if (registeredNumEl) registeredNumEl.textContent = registeredSlots;
                     if (progressBarEl) {
                         progressBarEl.style.width = percentage + "%";
