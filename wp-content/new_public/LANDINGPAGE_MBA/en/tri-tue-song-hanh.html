@@ -260,9 +260,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1782890945" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782890945" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782890945" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1782891325" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782891325" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782891325" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -7291,9 +7291,58 @@
          SECTION 1: HERO
         ══════════════════════════════════════════ -->
                                                 <section class="hero-corporate" id="trang-chu">
+            <style>
+                .hero-corporate-grid {
+                    display: flex;
+                    gap: 48px;
+                    align-items: center;
+                    justify-content: space-between;
+                    text-align: left;
+                    padding: 40px 0;
+                    width: 100%;
+                }
+                .hero-col-left {
+                    flex: 1.1;
+                    min-width: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                .hero-col-right {
+                    flex: 0.9;
+                    max-width: 440px;
+                    background: rgba(255, 255, 255, 0.03);
+                    backdrop-filter: blur(16px);
+                    -webkit-backdrop-filter: blur(16px);
+                    border: 1.5px solid rgba(255, 255, 255, 0.08);
+                    border-radius: 24px;
+                    padding: 32px 24px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 24px;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                    text-align: center;
+                }
+                @media (max-width: 991px) {
+                    .hero-corporate-grid {
+                        flex-direction: column !important;
+                        text-align: center !important;
+                        padding: 20px 0;
+                    }
+                    .hero-col-left {
+                        text-align: center !important;
+                        align-items: center !important;
+                    }
+                    .hero-col-right {
+                        width: 100% !important;
+                        max-width: 480px !important;
+                        margin: 0 auto !important;
+                    }
+                }
+            </style>
             <div class="hero-orb hero-orb-1"></div>
             <div class="hero-orb hero-orb-2"></div>
-            
+
             <!-- Floating AI Logos -->
             <div class="hero-floating-logos">
                 <div class="floating-logo-item logo-l1" title="Google Gemini">
@@ -7314,168 +7363,104 @@
             </div>
 
             <div class="container">
-                <div class="hero-corporate-inner-centered">
-                    <!-- Context Badge -->
-                    <div class="hero-badge" style="max-width: 600px; line-height: 1.5; padding: 8px 18px; border-radius: 99px;">
-                        Register now for a Master's program at IDEAS, get a Corporate AI package worth 50M VND
-                    </div>
-                    
-                    <!-- Main Headline (Màu đỏ theo yêu cầu) -->
-                    <h1 class="hero-title">
-                        Shared Intelligence
-                    </h1>
-                    
-                    <!-- Secondary Value Proposition -->
-                    <h2 class="hero-subtitle">
-                        Free AI Agent Package &amp; In-house Corporate Training
-                    </h2>
-                    
-                    <!-- Slogan Capsule -->
-                    <div class="hero-slogan">
-                        Living and Working with AI
-                    </div>
+                <div class="hero-corporate-grid">
+                    <!-- Left Column: Value Proposition -->
+                    <div class="hero-col-left">
+                        <!-- Context Badge -->
+                        <div class="hero-badge" style="background: rgba(171, 14, 0, 0.1); color: #ff8a80; border: 1px solid rgba(171, 14, 0, 0.2); padding: 8px 18px; border-radius: 99px; font-size: 0.88rem; font-weight: 700; display: inline-block; align-self: flex-start; margin-bottom: 8px; line-height: 1.4; text-align: left;">
+                            Register now for a Master's program at IDEAS, get a Corporate AI package worth 50M VND
+                        </div>
 
-                    <!-- Description (Chữ nhỏ lại theo yêu cầu) -->
-                    <p class="hero-desc" style="max-width: 760px; margin-bottom: 20px;">
-                        Studying the MBA in AI program from Swiss UMEF not only helps leaders improve management thinking with AI, but also grants an immediate Corporate AI package to build synchronized and methodical AI applications in the organization.
-                    </p>
-                    <div class="hero-bullets-wrap" style="max-width: 600px; margin: 0 auto 24px auto; text-align: left; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); padding: 18px 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 8px;">
-                        <div style="display: flex; gap: 10px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
-                            <span style="color: #4ade80; font-weight: 900;">✔</span>
-                            <span>01 day of direct hands-on AI training for your team</span>
-                        </div>
-                        <div style="display: flex; gap: 10px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
-                            <span style="color: #4ade80; font-weight: 900;">✔</span>
-                            <span>01 Coaching 1:1 session to build an AI roadmap for business owners</span>
-                        </div>
-                        <div style="display: flex; gap: 10px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
-                            <span style="color: #4ade80; font-weight: 900;">✔</span>
-                            <span>01 set of specialized AI Agents for departments (HR, Finance, Marketing, Operations)</span>
-                        </div>
-                    </div>
+                        <!-- Main Headline -->
+                        <h1 class="hero-title" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 900; line-height: 1.1; color: #ffffff; font-family: var(--font-serif); margin: 0;">
+                            Trí tuệ song hành
+                        </h1>
 
-                    <!-- Countdown Timer (To hơn theo yêu cầu) -->
-                    <div class="hero-countdown-wrapper">
-                        <div class="hero-countdown-title">
-                            <span style="display: inline-block; width: 6px; height: 6px; background-color: #ab0e00; border-radius: 50%; margin-right: 6px; vertical-align: middle;"></span>
-                            Offer valid until July 25, 2026:
+                        <!-- Secondary Value Proposition -->
+                        <h2 class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 800; color: #ffcccc; margin: 0; line-height: 1.3;">
+                            GET CORPORATE AI PACKAGE AND DIRECT TRAINING
+                        </h2>
+
+                        <!-- Description -->
+                        <p class="hero-desc" style="font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+                            Studying the MBA in AI program from Swiss UMEF not only helps leaders improve management thinking with AI, but also grants an immediate Corporate AI package to build synchronized and methodical AI applications in the organization.
+                        </p>
+
+                        <!-- Checklist Box -->
+                        <div class="hero-bullets-wrap" style="display: flex; flex-direction: column; gap: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 20px 24px; width: 100%; box-sizing: border-box;">
+                            <div style="display: flex; gap: 12px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                                <span style="color: #4ade80; font-weight: 900; font-size: 1.1rem; line-height: 1;">✔</span>
+                                <span>01 day of direct hands-on AI training for your team</span>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                                <span style="color: #4ade80; font-weight: 900; font-size: 1.1rem; line-height: 1;">✔</span>
+                                <span>01 Coaching 1:1 session to build an AI roadmap for business owners</span>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                                <span style="color: #4ade80; font-weight: 900; font-size: 1.1rem; line-height: 1;">✔</span>
+                                <span>01 set of specialized AI Agents for departments (HR, Finance, Marketing, Operations)</span>
+                            </div>
                         </div>
-                        <div class="hero-countdown-boxes">
-                            <div class="hero-countdown-box">
-                                <div id="cd-days" class="hero-countdown-val">00</div>
-                                <span class="hero-countdown-lbl">Days</span>
-                            </div>
-                            <div class="hero-countdown-box">
-                                <div id="cd-hours" class="hero-countdown-val">00</div>
-                                <span class="hero-countdown-lbl">Hours</span>
-                            </div>
-                            <div class="hero-countdown-box">
-                                <div id="cd-mins" class="hero-countdown-val">00</div>
-                                <span class="hero-countdown-lbl">Mins</span>
-                            </div>
-                            <div class="hero-countdown-box">
-                                <div id="cd-secs" class="hero-countdown-val" style="color: #ffffff;">00</div>
-                                <span class="hero-countdown-lbl" style="color: #ffffff;">Secs</span>
-                            </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="hero-cta" style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
+                            <a href="#dang-ky" class="btn btn-primary" style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px; background: #ab0e00; border-color: #ab0e00; color: #ffffff;">Get Offer Now &rarr;</a>
+                            <a href="javascript:void(0)" class="btn btn-outline bk-open-btn" style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px; border: 1.5px solid rgba(255,255,255,0.3); color: #ffffff; background: transparent;">Register for 1:1 Consultation</a>
                         </div>
                     </div>
 
-                    <!-- Verify Slogan -->
-                    <div class="verify-slogan" style="font-size: 1.1rem; font-weight: 700; font-style: italic; color: #ffcccc; margin-top: 15px; margin-bottom: 10px; letter-spacing: 0.05em; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
-                        "Original Knowledge - Localized Mentorship"
-                    </div>
+                    <!-- Right Column: Scarcity & urgency elements -->
+                    <div class="hero-col-right">
+                        <!-- Slogan Capsule -->
+                        <div class="hero-slogan" style="background: linear-gradient(135deg, #ef4444, #ab0e00); color: #ffffff; padding: 8px 20px; border-radius: 99px; font-size: 0.9rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; display: inline-block; margin: 0 auto; box-shadow: 0 4px 15px rgba(171, 14, 0, 0.4);">
+                            Living and Working with AI
+                        </div>
 
-                    <!-- Two Highlight Cards (July Offer Style) -->
-                    <div class="hero-promo-panel-wrapper">
-                        <div class="hero-promo-grid" style="grid-template-columns: 1fr !important; max-width: 480px; margin: 0 auto;">
-                            <!-- Card 1: Solid -->
-                            <div class="hero-promo-card hero-promo-card-solid">
-                                <div class="hero-promo-badge">
-                                    <span class="badge-num">50</span>
-                                    <span class="badge-lbl">Slots</span>
+                        <!-- Countdown Timer -->
+                        <div class="hero-countdown-wrapper" style="background: rgba(0,0,0,0.2); border-radius: 16px; padding: 20px 16px; border: 1px solid rgba(255,255,255,0.05); margin: 0; width: 100%; box-sizing: border-box;">
+                            <div class="hero-countdown-title" style="font-size: 0.88rem; color: #ffcccc; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; display: block;">
+                                <span style="display: inline-block; width: 6px; height: 6px; background-color: #ff4d4d; border-radius: 50%; margin-right: 6px; vertical-align: middle;"></span>
+                                Offer valid until July 25, 2026:
+                            </div>
+                            <div class="hero-countdown-boxes" style="display: flex; justify-content: center; gap: 12px;">
+                                <div class="hero-countdown-box" style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="cd-days" class="hero-countdown-val" style="font-size: 1.8rem; font-weight: 900; color: #ffffff;">00</div>
+                                    <span class="hero-countdown-lbl" style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Days</span>
+                                </div>
+                                <div class="hero-countdown-box" style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="cd-hours" class="hero-countdown-val" style="font-size: 1.8rem; font-weight: 900; color: #ffffff;">00</div>
+                                    <span class="hero-countdown-lbl" style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Hours</span>
+                                </div>
+                                <div class="hero-countdown-box" style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="cd-mins" class="hero-countdown-val" style="font-size: 1.8rem; font-weight: 900; color: #ffffff;">00</div>
+                                    <span class="hero-countdown-lbl" style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Mins</span>
+                                </div>
+                                <div class="hero-countdown-box" style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="cd-secs" class="hero-countdown-val" style="font-size: 1.8rem; font-weight: 900; color: #ff6b6b;">00</div>
+                                    <span class="hero-countdown-lbl" style="font-size: 0.72rem; color: #ff8585; text-transform: uppercase;">Secs</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scarcity Badge Card -->
+                        <div class="hero-promo-panel-wrapper" style="margin: 0; width: 100%; box-sizing: border-box;">
+                            <div class="hero-promo-card hero-promo-card-solid" style="background: rgba(171, 14, 0, 0.1); border: 1.5px solid rgba(171, 14, 0, 0.3); border-radius: 16px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; text-align: left;">
+                                <div class="hero-promo-badge" style="width: 56px; height: 56px; border-radius: 12px; background: #ab0e00; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800;">
+                                    <span class="badge-num" style="font-size: 1.3rem; line-height: 1;">50</span>
+                                    <span class="badge-lbl" style="font-size: 0.6rem; text-transform: uppercase;">Slots</span>
                                 </div>
                                 <div class="hero-promo-card-content">
-                                    <h4 class="hero-promo-card-title">50 slots for the earliest AI leaders</h4>
+                                    <h4 class="hero-promo-card-title" style="font-size: 0.92rem; font-weight: 700; color: #ffcccc; margin: 0; line-height: 1.4;">50 slots for the earliest AI leaders</h4>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- CTA Buttons -->
-                    <div class="hero-cta" style="display: flex; justify-content: center; gap: 16px; width: 100%; flex-wrap: wrap;">
-                        <a href="#dang-ky" class="btn btn-primary" style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px;">Get Promotion Now &rarr;</a>
-                        <a href="javascript:void(0)" class="btn btn-outline bk-open-btn" style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px;">Register for 1:1 Consultation</a>
-                    </div>
-                </div>
-
-                <!-- Additional Faculty Carousel -->
-                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
-                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Academic Board &amp; Associated Experts</h3>
-                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Outstanding panel of PhDs, Professors and Industry Experts supporting your learning journey.</p>
-                    
-                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
-                        <!-- Prev Button -->
-                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
-                        
-                        <!-- Carousel viewport -->
-                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
-                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
-                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
-                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="Dr. Duong Van Thinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                                </div>
-                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">Dr. Duong Van Thinh</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">PhD in Business Administration (France)</div>
-                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. PhD specializing in AI Research &amp; Data Centers (Ascencia, France).</p>
-                            </div>
-                            
-                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
-                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
-                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="Dr. Nguyen Thanh Binh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                                </div>
-                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">Dr. Nguyen Thanh Binh</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">PhD in Information Technology</div>
-                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Director of Information &amp; Environment Technology Institute. Over 20 years of research and teaching in Computer Science &amp; AI.</p>
-                            </div>
-                            
-                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
-                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
-                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
-                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
-                                </div>
-                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">Dr. Pham Phi Vu</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">PhD in Computer Science &amp; AI</div>
-                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Expert in Machine Learning and enterprise workflow optimization using Artificial Intelligence.</p>
-                            </div>
-                            
-                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
-                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
-                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="Dr. Pham Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
-                                </div>
-                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">Dr. Pham Quang Vinh</h4>
-                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">PhD in Business Administration (USA)</div>
-                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Director of IDEAS. Over 25 years of teaching and consulting on Marketing strategies, Management, and Digital Transformation.</p>
-                            </div>
+                        <!-- Verify Slogan -->
+                        <div class="verify-slogan" style="font-size: 1.1rem; font-weight: 700; font-style: italic; color: #ffcccc; letter-spacing: 0.05em; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin: 0;">
+                            "Original Knowledge - Localized Mentorship"
                         </div>
-                        
-                        <!-- Next Button -->
-                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </button>
                     </div>
                 </div>
-                
-                <script>
-                    function scrollFaculty(direction) {
-                        const container = document.getElementById('faculty-carousel-viewport');
-                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
-                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-                    }
-                </script>
             </div>
         </section>
 
@@ -7739,69 +7724,7 @@
         <!-- ══════════════════════════════════════════
          SECTION 3: PAIN POINTS
         ══════════════════════════════════════════ -->
-        <section class="pain-section" id="thach-thuc" aria-labelledby="pain-headline">
-            <div class="pain-bg-decoration">
-                <div class="pain-bg-orb pain-orb-1"></div>
-                <div class="pain-bg-orb pain-orb-2"></div>
-            </div>
-            <div class="container">
-                <div class="pain-header reveal-up" style="text-align: center; margin-bottom: 56px;">
-                    <div class="pain-label-badge">
-                        <span class="pain-label-dot"></span>
-                        Barriers to Enterprise AI Adoption
-                    </div>
-                    <h2 class="pain-headline" id="pain-headline">
-                        What Challenges Do You Face When<br>
-                        <span class="pain-headline-accent">Introducing AI to Your Business?</span>
-                    </h2>
-                    <p class="pain-sub" style="max-width: 800px; margin: 0 auto;">
-                        Many leaders recognize the immense potential of AI, but face fatal bottlenecks during actual execution:
-                    </p>
-                </div>
-
-                <div class="pain-cards-4 reveal-up" style="margin-bottom: 56px;">
-                    <!-- Pain 1 -->
-                    <div class="pain-card-v2">
-                        <div class="pain-card-num">01 / FRAGMENTATION</div>
-                        <div class="pain-card-body">
-                            <div class="pain-card-icon"><svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><circle cx="19" cy="5" r="3"></circle><circle cx="5" cy="19" r="3"></circle><circle cx="19" cy="19" r="3"></circle><line x1="12" y1="12" x2="19" y2="5"></line><line x1="12" y1="12" x2="5" y2="19"></line><line x1="12" y1="12" x2="19" y2="19"></line></svg></div>
-                            <p><strong>Staff use AI individually with no standards:</strong> Everyone uses different tools and prompts, leading to inconsistent outputs and wasted corporate resources.</p>
-                        </div>
-                    </div>
-                    <!-- Pain 2 -->
-                    <div class="pain-card-v2">
-                        <div class="pain-card-num">02 / DATA LEAKAGE</div>
-                        <div class="pain-card-body">
-                            <div class="pain-card-icon"><svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-                            <p><strong>High risk of internal data leakage:</strong> Employees uploading confidential documents and reports to public AI tools without any data encryption or administrative controls.</p>
-                        </div>
-                    </div>
-                    <!-- Pain 3 -->
-                    <div class="pain-card-v2">
-                        <div class="pain-card-num">03 / IMPRACTICAL OUTPUTS</div>
-                        <div class="pain-card-body">
-                            <div class="pain-card-icon"><svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5.5 5.5 0 0 0 7.5 8c0 1.3.5 2.6 1.5 3.5.7.8 1.3 1.5 1.5 2.5"></path><path d="M9 18h6M10 22h4"></path></svg></div>
-                            <p><strong>Generic and hollow AI results:</strong> Only knowing basic short prompts, returning shallow outcomes that cannot be applied to real operational workflows.</p>
-                        </div>
-                    </div>
-                    <!-- Pain 4 -->
-                    <div class="pain-card-v2">
-                        <div class="pain-card-num">04 / DISCONNECTED WORKFLOWS</div>
-                        <div class="pain-card-body">
-                            <div class="pain-card-icon"><svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M12 8v4M12 12H5v4M12 12h7v4"></path></svg></div>
-                            <p><strong>AI remains a mere "chatbox" for casual tasks:</strong> Staff have not integrated virtual assistants into their daily operational workflows to maximize productivity.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pain-warning-v2 reveal-up" style="max-width: 900px; margin: 0 auto 40px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 8px; vertical-align: middle; display: inline-block;">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"></path>
-                    </svg>
-                    <span style="vertical-align: middle;"><strong>This is when leaders need a systematic solution:</strong> Upgrade personal strategic thinking while standardizing execution capabilities for the entire system!</span>
-                </div>
-            </div>
-        </section>
+        
 
 
 
@@ -9480,8 +9403,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1782890945" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1782890945" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1782891325" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1782891325" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -12720,7 +12643,7 @@ body.modal-open {
         }
 
         // Countdown Timer for July 16, 2026 00:00:00
-        const targetDate = new Date("2026-07-16T00:00:00").getTime();
+        const targetDate = new Date("2026-07-26T00:00:00").getTime();
         const interval = setInterval(function() {
             const now = new Date().getTime();
             const distance = targetDate - now;
