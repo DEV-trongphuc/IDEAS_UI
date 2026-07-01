@@ -269,9 +269,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1782890221" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782890221" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782890221" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1782890945" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782890945" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782890945" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -7325,6 +7325,119 @@
         }
     </style>
 
+    <style>
+        /* ═══════════════════════════════════════
+           PREMIUM HERO ANIMATIONS (WOW EFFECTS)
+        ═══════════════════════════════════════ */
+        @keyframes fadeInUpCustom {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleInCustom {
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes titleGlowCustom {
+            0% {
+                text-shadow: 0 0 10px rgba(171, 14, 0, 0.1), 0 2px 4px rgba(0,0,0,0.5);
+            }
+            50% {
+                text-shadow: 0 0 24px rgba(171, 14, 0, 0.4), 0 2px 4px rgba(0,0,0,0.5);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(171, 14, 0, 0.1), 0 2px 4px rgba(0,0,0,0.5);
+            }
+        }
+
+        @keyframes floatSlowCustom {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Initial state of hero children to enable staggered fade-in */
+        .hero-corporate-inner-centered > * {
+            opacity: 0;
+            animation-fill-mode: forwards !important;
+        }
+
+        /* Staggered load animation */
+        .hero-corporate-inner-centered .hero-badge {
+            animation: scaleInCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+        }
+
+        .hero-corporate-inner-centered .hero-title {
+            animation: fadeInUpCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s/titleGlowCustom 3s infinite ease-in-out 1s;
+            animation-fill-mode: forwards !important;
+        }
+
+        /* Combined shorthand for multiple animations (compatibility fallback) */
+        .hero-corporate-inner-centered .hero-title {
+            animation: fadeInUpCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards, titleGlowCustom 3s infinite ease-in-out 1s;
+        }
+
+        .hero-corporate-inner-centered .hero-subtitle {
+            animation: fadeInUpCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+        }
+
+        .hero-corporate-inner-centered .hero-slogan {
+            animation: scaleInCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards, floatSlowCustom 4s infinite ease-in-out 1.25s;
+        }
+
+        .hero-corporate-inner-centered .hero-desc {
+            animation: fadeInUpCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+        }
+
+        .hero-corporate-inner-centered .hero-bullets-wrap {
+            animation: fadeInUpCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+        }
+
+        .hero-corporate-inner-centered .hero-countdown-wrapper {
+            animation: scaleInCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+        }
+
+        .hero-corporate-inner-centered .verify-slogan {
+            animation: fadeInUpCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+        }
+
+        .hero-corporate-inner-centered .hero-promo-panel-wrapper {
+            animation: scaleInCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards;
+        }
+
+        .hero-corporate-inner-centered .hero-cta {
+            animation: scaleInCustom 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.05s forwards;
+        }
+
+        /* Floating AI logos subtle breathing float */
+        .hero-floating-logos .floating-logo-item {
+            animation: floatSlowCustom 5s infinite ease-in-out !important;
+        }
+        .hero-floating-logos .floating-logo-item.logo-l1 { animation-delay: 0s !important; }
+        .hero-floating-logos .floating-logo-item.logo-l2 { animation-delay: 1s !important; }
+        .hero-floating-logos .floating-logo-item.logo-l3 { animation-delay: 2s !important; }
+        .hero-floating-logos .floating-logo-item.logo-r1 { animation-delay: 0.5s !important; }
+        .hero-floating-logos .floating-logo-item.logo-r2 { animation-delay: 1.5s !important; }
+        </style>
 </head>
 
 <body>
@@ -8031,8 +8144,8 @@
             <div class="container">
                 <div class="hero-corporate-inner-centered">
                     <!-- Context Badge -->
-                    <div class="hero-badge">
-                        Chương trình đồng hành
+                    <div class="hero-badge" style="max-width: 600px; line-height: 1.5; padding: 8px 18px; border-radius: 99px;">
+                        Đăng ký ngay chương trình Thạc sĩ tại IDEAS, nhận gói AI Doanh Nghiệp trị giá 50 triệu
                     </div>
 
                     <!-- Main Headline (Màu đỏ theo yêu cầu) -->
@@ -8051,18 +8164,30 @@
                     </div>
 
                     <!-- Description (Chữ nhỏ lại theo yêu cầu) -->
-                    <p class="hero-desc">
-                        Đăng ký học Thạc sĩ tại IDEAS nhận ngay khóa huấn luyện thực chiến
-                        in-house cho đội ngũ và bộ AI Agent chuyên dụng. Ứng dụng AI nâng cao hiệu suất trong toàn bộ
-                        các hoạt động doanh nghiệp của bạn.
+                    <p class="hero-desc" style="max-width: 760px; margin-bottom: 20px;">
+                        Học chương trình MBA in AI từ Swiss UMEF không chỉ giúp nhà lãnh đạo nâng cao tư duy quản trị với AI, mà còn nhận ngay gói AI Doanh Nghiệp giúp xây dựng năng lực ứng dụng AI đồng bộ và bài bản trong tổ chức.
                     </p>
+                    <div class="hero-bullets-wrap" style="max-width: 600px; margin: 0 auto 24px auto; text-align: left; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); padding: 18px 24px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 8px;">
+                        <div style="display: flex; gap: 10px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                            <span style="color: #4ade80; font-weight: 900;">✔</span>
+                            <span>01 ngày đào tạo ứng dụng AI trực tiếp tại doanh nghiệp cho đội ngũ</span>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                            <span style="color: #4ade80; font-weight: 900;">✔</span>
+                            <span>01 buổi Coaching 1:1 xây dựng lộ trình ứng dụng AI dành cho chủ doanh nghiệp</span>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                            <span style="color: #4ade80; font-weight: 900;">✔</span>
+                            <span>01 bộ AI Agent chuyên dụng cho các phòng ban (HR, Finance, Marketing, Operations)</span>
+                        </div>
+                    </div>
 
                     <!-- Countdown Timer (To hơn theo yêu cầu) -->
                     <div class="hero-countdown-wrapper">
                         <div class="hero-countdown-title">
                             <span
                                 style="display: inline-block; width: 6px; height: 6px; background-color: #ab0e00; border-radius: 50%; margin-right: 6px; vertical-align: middle;"></span>
-                            Ưu đãi chỉ áp dụng đến hết ngày 15/07:
+                            Ưu đãi chỉ áp dụng đến hết ngày 25/07/2026:
                         </div>
                         <div class="hero-countdown-boxes">
                             <div class="hero-countdown-box">
@@ -8100,7 +8225,7 @@
                                     <span class="badge-lbl">Suất</span>
                                 </div>
                                 <div class="hero-promo-card-content">
-                                    <h4 class="hero-promo-card-title">CHO NHÀ LÃNH ĐẠO ĐĂNG KÝ SỚM NHẤT</h4>
+                                    <h4 class="hero-promo-card-title">cho các nhà lãnh đạo AI đăng ký sớm nhất</h4>
                                 </div>
                             </div>
                         </div>
@@ -8113,10 +8238,78 @@
                             style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px;">Nhận
                             ưu đãi ngay &rarr;</a>
                         <a href="javascript:void(0)" class="btn btn-outline bk-open-btn"
-                            style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px;">Đặt
-                            lịch tư vấn 1:1</a>
+                            style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px;">Đăng ký tư vấn 1:1</a>
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -8129,24 +8322,22 @@
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="8 12 11 15 16 10"></polyline>
-                        </svg> Đầu tư chiến lược kép
+                        </svg> Khóa đào tạo trực tiếp tại doanh nghiệp
                     </div>
                     <h2
                         style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.18; color: #111729; margin-top: 16px; font-family: var(--font-serif);">
-                        Nâng cấp tư duy Quản trị <br /> <span style="color: #ab0e00;">Nhân đôi hiệu suất đội ngũ cùng
-                            AI</span>
+                        Chuyển đổi tư duy Quản trị - <span style="color: #ab0e00;">Nhân đôi hiệu suất đội ngũ cùng AI</span>
                     </h2>
                     <p
-                        style="font-size: 1.05rem; color: #475569; max-width: 850px; margin: 20px auto 0; line-height: 1.75;">
-                        Một Người Học – Cả Doanh Nghiệp Cùng Phát Triển
+                        style="font-size: 1.35rem; color: #ab0e00; font-weight: 800; max-width: 850px; margin: 20px auto 0; line-height: 1.75; letter-spacing: 0.5px; text-transform: uppercase;">
+                        Một người học - Cả doanh nghiệp cùng phát triển
                     </p>
                 </div>
 
                 <div class="sol-v2-wrap reveal-up">
                     <div class="sol-v2-left" style="text-align: left;">
                         <p class="sol-v2-desc">
-                            Sau <strong>02 ngày đào tạo trực tiếp</strong> ứng dụng AI tại doanh nghiệp, đội ngũ
-                            của bạn không chỉ biết "dùng tool", mà có khả năng làm chủ các công cụ AI chuyên sâu:
+                            Sau <strong>01 ngày đào tạo trực tiếp</strong> tại doanh nghiệp, đội ngũ của bạn không chỉ biết "dùng tool", mà có khả năng làm chủ các công cụ AI chuyên sâu:
                         </p>
 
                         <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px;">
@@ -8166,9 +8357,7 @@
                                 <div>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 4px;">
                                         Xây dựng năng lực AI nội bộ</h4>
-                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Hình
-                                        thành tư duy đúng đắn về AI tạo sinh, khai mở cơ hội chuyển đổi mô hình làm
-                                        việc.</p>
+                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Hiểu đúng bản chất AI, xây dựng phương pháp làm việc hiệu quả giữa con người và AI.</p>
                                 </div>
                             </div>
                             <!-- Bullet 2 -->
@@ -8189,9 +8378,7 @@
                                 <div>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 4px;">
                                         Tạo AI Agent cho từng bộ phận</h4>
-                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Đóng gói
-                                        các trợ lý ảo chuyên biệt cho Sales, Marketing, CSKH, HR, phục vụ trơn tru mọi
-                                        tác vụ.</p>
+                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Thiết kế trợ lý ảo chuyên biệt cho từng bộ phận, hỗ trợ tự động hóa tác vụ và chuẩn hóa quy trình.</p>
                                 </div>
                             </div>
                             <!-- Bullet 3 -->
@@ -8208,9 +8395,7 @@
                                 <div>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 4px;">
                                         Chuẩn hóa quy trình làm việc với AI</h4>
-                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Tích hợp
-                                        các công cụ AI thẳng vào dòng công việc hằng ngày (Email, soạn thảo văn bản, báo
-                                        cáo).</p>
+                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Tích hợp các công cụ AI vào công việc hằng ngày (Email, soạn thảo văn bản, báo cáo).</p>
                                 </div>
                             </div>
                             <!-- Bullet 4 -->
@@ -8228,8 +8413,7 @@
                                 <div>
                                     <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 4px;">
                                         Bảo mật dữ liệu doanh nghiệp</h4>
-                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Nắm vững
-                                        và thực hành kỹ thuật ẩn danh thông tin mật trước khi giao tiếp với AI.</p>
+                                    <p style="font-size: 0.9rem; color: #475569; margin: 0; line-height: 1.55;">Nắm vững các kỹ thuật bảo mật và ẩn danh dữ liệu trước khi sử dụng AI.</p>
                                 </div>
                             </div>
                         </div>
@@ -8264,6 +8448,75 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -8341,6 +8594,75 @@
                             chiến.</p>
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -8524,6 +8846,75 @@
 
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -8645,6 +9036,75 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -8803,6 +9263,75 @@
                         <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/qsranking.png" alt="QS Stars" class="accred-logo-simple" title="QS Stars - 5 Stars">
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -8829,10 +9358,18 @@
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                             </svg> Chuyên gia bảo chứng chất lượng
                         </div>
-                        <h3>ThS. Võ Trùng Dương</h3>
-                        <div class="trainer-title">Chuyên gia thực chiến hàng đầu về Marketing &amp; Công nghệ</div>
+                        <h3>Nghiên cứu sinh. Võ Trùng Dương</h3>
+                        <div class="trainer-title">Chuyên gia thực chiến hàng đầu về Marketing, Công nghệ &amp; Chuyển đổi số</div>
 
                         <ul class="trainer-bio">
+                            <li class="trainer-bio-item">
+                                <div class="trainer-bio-icon"><svg class="campaign-svg-icon svg-icon"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                                    </svg></div>
+                                <p class="trainer-bio-text"><strong>Sở hữu bằng Thạc sĩ AI</strong> từ Swiss UMEF.</p>
+                            </li>
                             <li class="trainer-bio-item">
                                 <div class="trainer-bio-icon"><svg class="campaign-svg-icon svg-icon"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -8840,18 +9377,7 @@
                                         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                                     </svg></div>
-                                <p class="trainer-bio-text"><strong>20+ năm kinh nghiệm</strong> thực chiến tư vấn và
-                                    triển khai giải pháp Marketing, Công nghệ, và Chuyển đổi số.</p>
-                            </li>
-                            <li class="trainer-bio-item">
-                                <div class="trainer-bio-icon"><svg class="campaign-svg-icon svg-icon"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="8" r="7"></circle>
-                                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                                    </svg></div>
-                                <p class="trainer-bio-text"><strong>Trưởng Ban Chuyển Đổi Số</strong> Hội Truyền Thông
-                                    Số Việt Nam - Chi hội Miền Nam.</p>
+                                <p class="trainer-bio-text"><strong>20+ năm kinh nghiệm</strong> tư vấn và triển khai các giải pháp Marketing, Công nghệ và Chuyển đổi số. Đồng hành cùng nhiều doanh nghiệp trong việc xây dựng chiến lược tăng trưởng và ứng dụng AI vào thực tiễn.</p>
                             </li>
                             <li class="trainer-bio-item">
                                 <div class="trainer-bio-icon"><svg class="campaign-svg-icon svg-icon"
@@ -8861,9 +9387,7 @@
                                         <circle cx="9" cy="7" r="4"></circle>
                                         <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
                                     </svg></div>
-                                <p class="trainer-bio-text">Đã trực tiếp đào tạo cho các tập đoàn uy tín:
-                                    <strong>Vietnam Airlines, HDBank, Toshiba, Canon, Abbott…</strong>
-                                </p>
+                                <p class="trainer-bio-text">Đã trực tiếp đào tạo và tư vấn cho nhiều tập đoàn: <strong>Hoa tiêu Tân cảng, Nomura, Lĩnh Phong Conic, KNA Group, LP Group, Đoàn Luật Sư Cần Thơ, Phường Bến Thành - TpHCM, Xã Thái Mỹ - TpHCM, Phường Tân An - TP Cần Thơ, Toshiba, Louis Vuitton, Canon, Vietnam Airlines, Creatory, VNPT Đắk Lắk, AmperSand, Mega WeCare, HDBank, IDICO, Abbott, Francia Beauty Group.</strong></p>
                             </li>
                         </ul>
                         <!-- Client Logos Showcase -->
@@ -8888,6 +9412,75 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -8991,6 +9584,75 @@
                             sự.</p>
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -9008,104 +9670,62 @@
 
                 <div class="cta-left reveal-up" style="text-align: left;">
                     <h2 class="cta-headline" id="cta-headline"
-                        style="margin-top: 20px; font-family: var(--font-serif);">
-                        HỌC THẠC SĨ QUỐC TẾ<br />
-                        <span class="cta-gradient underline-highlight">NHẬN GÓI AI DOANH NGHIỆP</span>
+                        style="margin-top: 20px; font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem); line-height: 1.2;">
+                        HỌC THẠC SĨ QUỐC TẾ,<br />
+                        <span class="cta-gradient underline-highlight">NHẬN GÓI AI DOANH NGHIỆP TRỊ GIÁ 50 TRIỆU</span>
                     </h2>
 
-                    <ul class="cta-checklist" aria-label="Điểm nổi bật chương trình" style="margin-top: 32px;">
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
+                    <ul class="cta-checklist" aria-label="Điểm nổi bật chương trình" style="margin-top: 32px; display: flex; flex-direction: column; gap: 16px; padding-left: 0; list-style: none;">
+                        <li style="display: flex; gap: 12px; align-items: flex-start;">
+                            <div class="cta-check-v2" style="width: 24px; height: 24px; border-radius: 50%; background: #ab0e00; color: #ffffff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
-                            <p>Khóa đào tạo trực tiếp (02 ngày) ứng dụng AI tại doanh nghiệp</p>
+                            <p style="margin: 0; font-size: 0.95rem; color: #334155; line-height: 1.5;">Khóa đào tạo AI ứng dụng AI trực tiếp tại doanh nghiệp (01 ngày)</p>
                         </li>
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
+                        <li style="display: flex; gap: 12px; align-items: flex-start;">
+                            <div class="cta-check-v2" style="width: 24px; height: 24px; border-radius: 50%; background: #ab0e00; color: #ffffff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
-                            <p>Tặng kèm bộ <strong>AI Agent chuyên dụng</strong> tối ưu hóa cho công việc</p>
+                            <p style="margin: 0; font-size: 0.95rem; color: #334155; line-height: 1.5;">Coaching 1:1 xây dựng lộ trình ứng dụng AI dành cho doanh nghiệp</p>
                         </li>
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
+                        <li style="display: flex; gap: 12px; align-items: flex-start;">
+                            <div class="cta-check-v2" style="width: 24px; height: 24px; border-radius: 50%; background: #ab0e00; color: #ffffff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
-                            <p>Chỉ dành cho <strong>50 nhà lãnh đạo</strong> đăng ký sớm nhất trước
-                                <strong>15/07/2026</strong>
+                            <p style="margin: 0; font-size: 0.95rem; color: #334155; line-height: 1.5;">Bộ AI Agent chuyên dụng dành cho các phòng ban (HR, Finance, Marketing, Operations)</p>
+                        </li>
+                        <li style="display: flex; gap: 12px; align-items: flex-start; background: rgba(171, 14, 0, 0.05); padding: 12px 16px; border-radius: 12px; border-left: 4px solid #ab0e00;">
+                            <p style="margin: 0; font-size: 0.88rem; color: #7f1d1d; line-height: 1.5; font-weight: 600;">
+                                Ưu đãi chỉ dành cho 50 nhà lãnh đạo AI đăng ký sớm nhất. Đăng ký học chương trình Thạc sĩ tại IDEAS trước ngày 25/07/2026.
                             </p>
                         </li>
                     </ul>
 
-                    <!-- Nested FAQ Accordion -->
-                    <div class="faq-accordion" style="margin-top: 40px;">
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>Làm sao để nhận được khóa đào tạo AI doanh nghiệp?</span>
-                                <svg class="svg-icon fa-chevron-down fa-solid"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"
-                                    viewBox="0 0 512 512" width="16" height="16" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                                </svg>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">Khi đăng ký học bất kỳ chương trình Thạc
-                                    sĩ quốc tế nào tại IDEAS (MBA, EMBA, MBA in AI, MSc AI) trong thời gian ưu đãi, bạn
-                                    sẽ được tặng kèm khóa học đào tạo AI in-house cho đội ngũ của mình.</p>
-                            </div>
+                    <!-- Remaining Spots & Timeline Box (FAQ replacement) -->
+                    <style>
+                        @keyframes pulse {
+                            0% { opacity: 0.4; }
+                            50% { opacity: 1; }
+                            100% { opacity: 0.4; }
+                        }
+                    </style>
+                    <div class="slots-countdown-box" style="margin-top: 36px; padding: 24px; background: rgba(15, 23, 42, 0.04); border: 1.5px solid rgba(15, 23, 42, 0.08); border-radius: 20px; text-align: left;">
+                        <h4 style="font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px;">
+                            <span style="display: inline-block; width: 10px; height: 10px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 1.8s infinite; vertical-align: middle;"></span>
+                            Số suất ưu đãi còn lại
+                        </h4>
+                        <div class="progress-bar-wrap" style="height: 10px; background: rgba(15, 23, 42, 0.08); border-radius: 99px; overflow: hidden; margin-bottom: 12px; position: relative;">
+                            <div class="progress-bar-fill" style="width: 16%; height: 100%; background: linear-gradient(90deg, #ef4444, #ab0e00); border-radius: 99px;"></div>
                         </div>
-
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>Khóa đào tạo In-house diễn ra như thế nào?</span>
-                                <svg class="svg-icon fa-chevron-down fa-solid"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"
-                                    viewBox="0 0 512 512" width="16" height="16" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                                </svg>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">Khóa học diễn ra trực tiếp tại trụ sở/văn
-                                    phòng doanh nghiệp của bạn trong vòng 1 ngày (6 giờ huấn luyện chuyên sâu), do
-                                    Chuyên gia Võ Trùng Dương trực tiếp dẫn dắt thực chiến.</p>
-                            </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; color: #475569; font-size: 0.88rem; margin-bottom: 20px; font-weight: 600;">
+                            <span>Đã đăng ký: 42 / 50 suất</span>
+                            <span style="color: #b91c1c; font-weight: 800; text-transform: uppercase;">Chỉ còn 8 suất trống!</span>
                         </div>
-
-                        <div class="faq-item">
-                            <button type="button" class="faq-trigger"
-                                style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: none; border: none; font-size: 0.95rem; font-weight: 700; color: #1e293b; text-align: left; cursor: pointer; outline: none;">
-                                <span>Bằng thạc sĩ quốc tế do ai cấp và học như thế nào?</span>
-                                <svg class="svg-icon fa-chevron-down fa-solid"
-                                    style="font-size: 0.75rem; transition: transform 0.3s; color: #64748b;"
-                                    viewBox="0 0 512 512" width="16" height="16" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
-                                </svg>
-                            </button>
-                            <div class="faq-content"
-                                style="max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; padding: 0 20px; color: #475569; font-size: 0.88rem; line-height: 1.6;">
-                                <p style="margin-bottom: 16px; margin-top: 0;">Chương trình đào tạo thạc sĩ do các
-                                    trường đại học châu Âu danh giá (Swiss UMEF Thụy Sĩ, Estiam/Ascencia Pháp) trực tiếp
-                                    cấp bằng. Học viên học 100% online linh hoạt qua LMS, được hỗ trợ học tập liên tục
-                                    bởi IDEAS.</p>
-                            </div>
+                        
+                        <div style="border-top: 1px dashed rgba(15, 23, 42, 0.15); padding-top: 16px;">
+                            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #334155; font-weight: 700; text-align: center; font-style: italic;">
+                                "IDEAS đồng hành cùng doanh nghiệp trong đào tạo và phát triển nguồn nhân lực"
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -9211,6 +9831,75 @@
                             xác nhận thông tin ưu đãi.</p>
                     </div>
                 </div>
+
+                <!-- Additional Faculty Carousel -->
+                <div class="faculty-carousel-wrapper reveal-up" style="margin-top: 64px; text-align: center;">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 8px; font-family: var(--font-serif);">Hội Đồng Giảng Viên &amp; Chuyên Gia Đồng Hành</h3>
+                    <p style="color: #64748b; font-size: 1rem; max-width: 600px; margin: 0 auto 32px auto;">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                    
+                    <div class="carousel-container-outer" style="position: relative; max-width: 1000px; margin: 0 auto; padding: 0 40px;">
+                        <!-- Prev Button -->
+                        <button class="carousel-nav-btn btn-prev" aria-label="Previous Slide" onclick="scrollFaculty(-1)" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        
+                        <!-- Carousel viewport -->
+                        <div id="faculty-carousel-viewport" class="carousel-viewport" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 12px 4px 24px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+                            <!-- Faculty 1: TS. Dương Văn Thịnh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Dương Văn Thịnh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
+                            
+                            <!-- Faculty 2: TS. Nguyễn Thanh Bình -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Nguyễn Thanh Bình</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 3: TS. Phạm Phi Vũ -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00; background: #f8fafc; display: flex; align-items: center; justify-content: center;">
+                                    <svg width="48" height="48" fill="none" stroke="#ab0e00" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Phi Vũ</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Khoa Học Máy Tính &amp; AI</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
+                            
+                            <!-- Faculty 4: TS. Phạm Quang Vinh -->
+                            <div class="carousel-slide-item" style="flex: 0 0 calc(33.333% - 16px); min-width: 280px; scroll-snap-align: start; background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 20px; padding: 32px 24px; text-align: center; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center;">
+                                <div class="fac-avatar-wrap" style="position: relative; width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; border: 3px solid #ab0e00;">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                                </div>
+                                <h4 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px;">TS. Phạm Quang Vinh</h4>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p style="font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0;">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển độ số.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Next Button -->
+                        <button class="carousel-nav-btn btn-next" aria-label="Next Slide" onclick="scrollFaculty(1)" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; z-index: 10;">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <script>
+                    function scrollFaculty(direction) {
+                        const container = document.getElementById('faculty-carousel-viewport');
+                        const cardWidth = container.querySelector('.carousel-slide-item').offsetWidth + 24;
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    }
+                </script>
             </div>
         </section>
 
@@ -10044,8 +10733,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1782890221" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1782890221" defer></script>
+    <script src="common-assets/js/script.min.js?v=1782890945" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1782890945" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
