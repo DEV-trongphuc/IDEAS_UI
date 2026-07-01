@@ -212,9 +212,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1782895529" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782895529" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782895529" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1782896781" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1782896781" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1782896781" media="print"
         onload="this.media='all'" />
     <style>
         /* ═══════════════════════════════════════
@@ -7691,275 +7691,272 @@
         
 
 
+        
         <!-- ══════════════════════════════════════════
-         SECTION: IDEAS AI PROMO ("TRÍ TUỆ SONG HÀNH")
+         SECTION: IDEAS AI PROMO ("TRÍ TUỆ SONG HÀNH" - HERO STYLE)
         ══════════════════════════════════════════ -->
-        <section class="ideas-promo-section" id="uu-dai-tri-tue-song-hanh" style="padding: 80px 0; background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; position: relative; overflow: hidden; text-align: left;">
+        <section class="ideas-promo-hero-section" id="uu-dai-tri-tue-song-hanh" style="padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; position: relative; overflow: hidden; text-align: left;">
             <style>
-                .ideas-promo-grid {
-                    display: grid;
-                    grid-template-columns: 1.1fr 0.9fr;
+                .promo-hero-grid {
+                    display: flex;
                     gap: 48px;
                     align-items: center;
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    padding: 0 20px;
+                    justify-content: space-between;
+                    text-align: left;
+                    width: 100%;
                 }
-                .ideas-promo-left {
+                .promo-hero-left {
+                    flex: 1.1;
+                    min-width: 0;
                     display: flex;
                     flex-direction: column;
                     gap: 20px;
                 }
-                .ideas-promo-badge {
-                    background: rgba(171, 14, 0, 0.06);
-                    color: #ab0e00;
-                    border: 1px solid rgba(171, 14, 0, 0.15);
-                    padding: 6px 16px;
-                    border-radius: 99px;
-                    font-size: 0.75rem;
-                    font-weight: 800;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 8px;
-                    width: fit-content;
-                }
-                .ideas-promo-title {
-                    font-size: clamp(1.8rem, 3.5vw, 2.3rem);
-                    font-weight: 900;
-                    line-height: 1.25;
-                    color: #0f172a;
-                    font-family: var(--font-serif);
-                    margin: 0;
-                }
-                .ideas-promo-subtitle {
-                    font-size: 1.15rem;
-                    color: #475569;
-                    line-height: 1.6;
-                    margin: 0;
-                }
-                .ideas-promo-list {
+                .promo-hero-right {
+                    flex: 0.9;
+                    max-width: 440px;
+                    background: rgba(255, 255, 255, 0.03);
+                    backdrop-filter: blur(16px);
+                    -webkit-backdrop-filter: blur(16px);
+                    border: 1.5px solid rgba(255, 255, 255, 0.08);
+                    border-radius: 24px;
+                    padding: 32px 24px;
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
-                    margin-top: 10px;
+                    gap: 20px;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                    text-align: center;
+                    align-self: center;
+                    height: fit-content;
                 }
-                .ideas-promo-item {
-                    display: flex;
-                    gap: 16px;
-                    align-items: flex-start;
+                .promo-hero-right .promo-slogan {
+                    margin: 0 !important;
                 }
-                .ideas-promo-icon-wrap {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 50%;
-                    background: rgba(171, 14, 0, 0.08);
-                    color: #ab0e00;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-shrink: 0;
-                    margin-top: 2px;
+                .promo-hero-right .promo-countdown-wrapper {
+                    margin: 0 !important;
                 }
-                .ideas-promo-item-title {
-                    font-size: 1.05rem;
-                    font-weight: 800;
-                    color: #0f172a;
-                    margin: 0 0 4px;
+                .promo-hero-right .promo-promo-panel-wrapper {
+                    margin: 0 !important;
                 }
-                .ideas-promo-item-desc {
-                    font-size: 0.9rem;
-                    color: #475569;
-                    margin: 0;
-                    line-height: 1.55;
-                }
-                .ideas-promo-right {
-                    position: relative;
-                }
-                .ideas-promo-photo-grid {
-                    position: relative;
-                    width: 100%;
-                    height: 380px;
-                }
-                .ideas-promo-photo-main {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 70%;
-                    height: 280px;
-                    border-radius: 20px;
-                    overflow: hidden;
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-                    border: 4px solid #ffffff;
-                    z-index: 2;
-                }
-                .ideas-promo-photo-main img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-                .ideas-promo-photo-sm-1 {
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    width: 50%;
-                    height: 190px;
-                    border-radius: 16px;
-                    overflow: hidden;
-                    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-                    border: 4px solid #ffffff;
-                    z-index: 3;
-                }
-                .ideas-promo-photo-sm-1 img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-                .ideas-promo-photo-sm-2 {
-                    position: absolute;
-                    top: 40px;
-                    right: 40px;
-                    width: 45%;
-                    height: 170px;
-                    border-radius: 16px;
-                    overflow: hidden;
-                    box-shadow: 0 15px 30px rgba(0,0,0,0.06);
-                    border: 4px solid #ffffff;
-                    z-index: 1;
-                }
-                .ideas-promo-photo-sm-2 img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-                .ideas-promo-photo-badge {
-                    position: absolute;
-                    background: rgba(15, 23, 42, 0.8);
-                    backdrop-filter: blur(4px);
-                    -webkit-backdrop-filter: blur(4px);
-                    color: #ffffff;
-                    font-size: 0.72rem;
-                    font-weight: 700;
-                    padding: 6px 14px;
-                    border-radius: 99px;
-                    z-index: 10;
-                }
-                .ideas-promo-badge-tl {
-                    top: 16px;
-                    left: 16px;
-                }
-                .ideas-promo-badge-br {
-                    bottom: 16px;
-                    right: 16px;
+                @keyframes promoPulseRed {
+                    0% {
+                        transform: scale(1);
+                        box-shadow: 0 0 0 0 rgba(171, 14, 0, 0.7);
+                    }
+                    70% {
+                        transform: scale(1.03);
+                        box-shadow: 0 0 0 10px rgba(171, 14, 0, 0);
+                    }
+                    100% {
+                        transform: scale(1);
+                        box-shadow: 0 0 0 0 rgba(171, 14, 0, 0);
+                    }
                 }
                 @media (max-width: 991px) {
-                    .ideas-promo-grid {
-                        grid-template-columns: 1fr;
-                        gap: 40px;
-                        text-align: center;
+                    .promo-hero-grid {
+                        flex-direction: column !important;
+                        text-align: center !important;
+                        padding: 20px 0;
                     }
-                    .ideas-promo-badge {
-                        margin: 0 auto;
+                    .promo-hero-left {
+                        text-align: center !important;
+                        align-items: center !important;
                     }
-                    .ideas-promo-item {
-                        text-align: left;
-                    }
-                    .ideas-promo-photo-grid {
-                        height: 320px;
-                        max-width: 500px;
-                        margin: 0 auto;
-                    }
-                    .ideas-promo-photo-main {
-                        height: 240px;
-                    }
-                    .ideas-promo-photo-sm-1 {
-                        height: 160px;
-                    }
-                    .ideas-promo-photo-sm-2 {
-                        height: 140px;
+                    .promo-hero-right {
+                        width: 100% !important;
+                        max-width: 480px !important;
+                        margin: 0 auto !important;
                     }
                 }
             </style>
+            
             <div class="container">
-                <div class="ideas-promo-grid">
-                    <div class="ideas-promo-left reveal-up">
-                        <div class="ideas-promo-badge">
-                            <svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="8 12 11 15 16 10"></polyline>
-                            </svg> Đặc quyền "Trí tuệ song hành"
+                <div class="promo-hero-grid">
+                    <!-- Left Column: Value Proposition -->
+                    <div class="promo-hero-left">
+                        <!-- Context Badge -->
+                        <div style="background: rgba(171, 14, 0, 0.1); color: #ff8a80; border: 1px solid rgba(171, 14, 0, 0.2); padding: 8px 18px; border-radius: 99px; font-size: 0.88rem; font-weight: 700; display: inline-block; align-self: flex-start; margin-bottom: 8px; line-height: 1.4;">
+                            Đặc quyền "Trí tuệ song hành" tại IDEAS
                         </div>
-                        <h3 class="ideas-promo-title">
-                            Học Thạc Sĩ Quốc Tế<br />
-                            <span style="color: #ab0e00;">Nhận Gói AI Doanh Nghiệp Trị Giá 50 Triệu</span>
-                        </h3>
-                        <p class="ideas-promo-subtitle">
-                            Khi đăng ký học chương trình Thạc sĩ tại IDEAS, quý nhà lãnh đạo sẽ được tặng kèm gói giải pháp và đào tạo AI in-house, giúp chuyển đổi số toàn diện và tối ưu hóa hiệu suất doanh nghiệp:
-                        </p>
 
-                        <div class="ideas-promo-list">
-                            <div class="ideas-promo-item">
-                                <div class="ideas-promo-icon-wrap">
-                                    <svg class="campaign-svg-icon svg-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="9" cy="7" r="4"></circle>
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="ideas-promo-item-title">01 Ngày Đào Tạo AI Trực Tiếp Tại Doanh Nghiệp</h4>
-                                    <p class="ideas-promo-item-desc">Đào tạo in-house trực tiếp cho đội ngũ nhân sự, hướng dẫn cách sử dụng AI và tích hợp quy trình làm việc để nâng cao hiệu suất.</p>
-                                </div>
+                        <!-- Main Headline -->
+                        <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.35; color: #ffffff; font-family: var(--font-serif); margin: 0; padding-bottom: 8px;">
+                            Trí tuệ song hành
+                        </h2>
+
+                        <!-- Secondary Value Proposition -->
+                        <h3 style="font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 700; color: #ffcccc; margin: 0; line-height: 1.5; text-transform: none !important;">
+                            Đăng ký ngay chương trình <span style="background: linear-gradient(135deg, #ff8a80, #ff3d00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; display: inline-block;">MSc AI</span> tại IDEAS,<br />nhận gói AI Doanh Nghiệp trị giá:
+                            <br />
+                            <span style="display: inline-block; margin-top: 12px; color: #ff8a80; font-size: 1.55em; font-weight: 900; background: rgba(171, 14, 0, 0.35); padding: 6px 22px; border-radius: 8px; border: 1.5px solid rgba(255,138,128,0.4); display: inline-block; box-shadow: 0 4px 20px rgba(171, 14, 0, 0.4); letter-spacing: 0.5px;">50.000.000đ</span>
+                        </h3>
+
+                        <!-- AI Logos Row -->
+                        <div style="display: flex; align-items: center; gap: 12px; margin-top: 4px; flex-wrap: wrap;">
+                            <span style="font-size: 0.8rem; color: #ffcccc; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Học và thực hành trực tiếp:</span>
+                            <div style="display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.05); padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(255, 255, 255, 0.08);">
+                                <img src="https://static.vecteezy.com/system/resources/previews/022/227/364/non_2x/openai-chatgpt-logo-icon-free-png.png" alt="ChatGPT" style="height: 18px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));" />
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSvH1y5H8cFr_7VPNWPNXAX_qGKwg6XzIPpIf3ymZMTZxw4lRIp-iUFck&s=10" alt="Gemini" style="height: 18px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));" />
+                                <img src="https://bizweb.dktcdn.net/100/543/817/themes/1000289/assets/claude_ai_logo.jpg?1782109452204" alt="Claude" style="height: 18px; width: auto; object-fit: contain; border-radius: 3px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));" />
+                                <img src="https://bizweb.dktcdn.net/100/543/817/themes/1000289/assets/codex.png?1782109452204" alt="Codex" style="height: 18px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));" />
+                                <img src="https://bizweb.dktcdn.net/thumb/small/100/543/817/themes/1000289/assets/logo_openclaw.png" alt="Openclaw" style="height: 18px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));" />
                             </div>
-                            <div class="ideas-promo-item">
-                                <div class="ideas-promo-icon-wrap">
-                                    <svg class="campaign-svg-icon svg-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="ideas-promo-item-title">Coaching 1:1 Với Chuyên Gia Xây Dựng Lộ Trình AI</h4>
-                                    <p class="ideas-promo-item-desc">Chuyên gia Võ Trùng Dương trực tiếp đồng hành 1:1, xây dựng chiến lược ứng dụng AI thực tiễn cho mô hình doanh nghiệp của bạn.</p>
-                                </div>
+                        </div>
+
+                        <!-- Checklist Box -->
+                        <div style="display: flex; flex-direction: column; gap: 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 20px 24px; width: 100%; box-sizing: border-box; margin-top: 8px;">
+                            <div style="display: flex; gap: 12px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                                <span style="color: #4ade80; font-weight: 900; font-size: 1.1rem; line-height: 1;">✔</span>
+                                <span>01 ngày đào tạo ứng dụng AI trực tiếp tại doanh nghiệp cho đội ngũ</span>
                             </div>
-                            <div class="ideas-promo-item">
-                                <div class="ideas-promo-icon-wrap">
-                                    <svg class="campaign-svg-icon svg-icon" style="width: 18px; height: 18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="11" width="18" height="10" rx="2"></rect>
-                                        <circle cx="12" cy="5" r="2"></circle>
-                                        <path d="M12 7v4"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h4 class="ideas-promo-item-title">Tặng Bộ AI Agent Chuyên Biệt Cho Các Phòng Ban</h4>
-                                    <p class="ideas-promo-item-desc">Thiết lập các trợ lý AI thông minh chuyên dụng cho Nhân sự, Tài chính, Marketing, và Vận hành của riêng doanh nghiệp.</p>
-                                </div>
+                            <div style="display: flex; gap: 12px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                                <span style="color: #4ade80; font-weight: 900; font-size: 1.1rem; line-height: 1;">✔</span>
+                                <span>01 buổi Coaching 1:1 xây dựng lộ trình ứng dụng AI dành cho chủ doanh nghiệp</span>
+                            </div>
+                            <div style="display: flex; gap: 12px; align-items: flex-start; color: #ffffff; font-size: 0.92rem; line-height: 1.4;">
+                                <span style="color: #4ade80; font-weight: 900; font-size: 1.1rem; line-height: 1;">✔</span>
+                                <span>01 bộ AI Agent chuyên dụng cho các phòng ban (HR, Finance, Marketing, Operations)</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="ideas-promo-right reveal-up">
-                        <div class="ideas-promo-photo-grid">
-                            <div class="ideas-promo-photo-main">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" alt="AI in Enterprise Training" loading="lazy">
-                                <div class="ideas-promo-photo-badge ideas-promo-badge-tl">Đào tạo In-house</div>
+                    <!-- Right Column: Scarcity & urgency elements -->
+                    <div class="promo-hero-right">
+                        <!-- Slogan Capsule -->
+                        <div class="promo-slogan" style="background: linear-gradient(135deg, #ef4444, #ab0e00); color: #ffffff; padding: 8px 20px; border-radius: 99px; font-size: 0.9rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; display: inline-block; margin: 0 auto; box-shadow: 0 4px 15px rgba(171, 14, 0, 0.4);">
+                            Sống và làm việc cùng AI
+                        </div>
+
+                        <!-- Countdown Timer -->
+                        <div class="promo-countdown-wrapper" style="background: rgba(0,0,0,0.2); border-radius: 16px; padding: 20px 16px; border: 1px solid rgba(255,255,255,0.05); margin: 0; width: 100%; box-sizing: border-box;">
+                            <div style="font-size: 0.88rem; color: #ffcccc; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; display: block;">
+                                <span style="display: inline-block; width: 6px; height: 6px; background-color: #ff4d4d; border-radius: 50%; margin-right: 6px; vertical-align: middle;"></span>
+                                Ưu đãi chỉ áp dụng đến hết ngày 25/07/2026:
                             </div>
-                            <div class="ideas-promo-photo-sm-2">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/tablet.webp" alt="Swiss MBA Degree" loading="lazy">
-                                <div class="ideas-promo-photo-badge ideas-promo-badge-tl">AI Platform</div>
+                            <div style="display: flex; justify-content: center; gap: 12px;">
+                                <div style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="promo-cd-days-MSc-AI" style="font-size: 1.8rem; font-weight: 900; color: #ffffff;">00</div>
+                                    <span style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Ngày</span>
+                                </div>
+                                <div style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="promo-cd-hours-MSc-AI" style="font-size: 1.8rem; font-weight: 900; color: #ffffff;">00</div>
+                                    <span style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Giờ</span>
+                                </div>
+                                <div style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="promo-cd-mins-MSc-AI" style="font-size: 1.8rem; font-weight: 900; color: #ffffff;">00</div>
+                                    <span style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Phút</span>
+                                </div>
+                                <div style="display: flex; flex-direction: column; align-items: center; min-width: 56px;">
+                                    <div id="promo-cd-secs-MSc-AI" style="font-size: 1.8rem; font-weight: 900; color: #ff6b6b;">00</div>
+                                    <span style="font-size: 0.72rem; color: #ff8585; text-transform: uppercase;">Giây</span>
+                                </div>
                             </div>
-                            <div class="ideas-promo-photo-sm-1">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/ws_offline.webp" alt="AI Agents Implementation" loading="lazy">
-                                <div class="ideas-promo-photo-badge ideas-promo-badge-br">AI Agents</div>
+                        </div>
+
+                        <!-- Scarcity Badge Card -->
+                        <div class="promo-promo-panel-wrapper" style="margin: 0; width: 100%; box-sizing: border-box;">
+                            <div style="background: rgba(171, 14, 0, 0.1); border: 1.5px solid rgba(171, 14, 0, 0.3); border-radius: 16px; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px; text-align: left;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="width: 48px; height: 48px; border-radius: 10px; background: #ab0e00; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 800;">
+                                        <span style="font-size: 1.15rem; line-height: 1;">50</span>
+                                        <span style="font-size: 0.55rem; text-transform: uppercase;">Suất</span>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 0.88rem; font-weight: 700; color: #ffcccc; margin: 0; line-height: 1.35;">cho các nhà lãnh đạo tiên phong AI đăng ký sớm nhất</h4>
+                                    </div>
+                                </div>
+                                <!-- Progress Bar Wrapper -->
+                                <div style="width: 100%; box-sizing: border-box;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-size: 0.8rem;">
+                                        <span style="color: #ffcccc; font-weight: 600;">Số suất còn lại:</span>
+                                        <strong style="color: #ffffff;" id="promo-slots-text-MSc-AI">Chỉ còn 39 / 50 Suất</strong>
+                                    </div>
+                                    <div style="background: rgba(255, 255, 255, 0.15); height: 6px; border-radius: 99px; overflow: hidden; width: 100%;">
+                                        <div id="promo-progress-bar-MSc-AI" style="background: linear-gradient(90deg, #ef4444, #ab0e00); width: 22%; height: 100%; border-radius: 99px; transition: width 0.8s ease;"></div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+
+                        <!-- CTA Button (XEM CHI TIẾT) -->
+                        <a href="/tri-tue-song-hanh" class="btn btn-primary" style="padding: 14px 28px; font-weight: 800; font-size: 15px; border-radius: 12px; letter-spacing: 0.5px; background: #ab0e00; border-color: #ab0e00; color: #ffffff; animation: promoPulseRed 2s infinite; display: flex; align-items: center; justify-content: center; margin: 0; text-transform: uppercase; text-decoration: none; box-shadow: 0 4px 20px rgba(171, 14, 0, 0.4); gap: 8px;">
+                            <span>Xem chi tiết &rarr;</span>
+                        </a>
+
+                        <!-- Slogan Quote -->
+                        <div style="font-size: 0.85rem; font-weight: 700; font-style: italic; color: #ffcccc; letter-spacing: 0.03em; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.5); margin: 0; line-height: 1.3; white-space: nowrap;">
+                            "Tri thức Nguyên bản - Đồng hành Bản địa"
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <script>
+                (function() {
+                    const promoTargetDate = new Date("2026-07-26T00:00:00").getTime();
+                    const pName = "MSc-AI";
+                    
+                    function updatePromoCountdown() {
+                        const now = new Date().getTime();
+                        const difference = promoTargetDate - now;
+                        
+                        if (difference <= 0) {
+                            const daysEl = document.getElementById("promo-cd-days-" + pName);
+                            const hoursEl = document.getElementById("promo-cd-hours-" + pName);
+                            const minsEl = document.getElementById("promo-cd-mins-" + pName);
+                            const secsEl = document.getElementById("promo-cd-secs-" + pName);
+                            if (daysEl) daysEl.textContent = "00";
+                            if (hoursEl) hoursEl.textContent = "00";
+                            if (minsEl) minsEl.textContent = "00";
+                            if (secsEl) secsEl.textContent = "00";
+                            return;
+                        }
+                        
+                        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                        
+                        const daysEl = document.getElementById("promo-cd-days-" + pName);
+                        const hoursEl = document.getElementById("promo-cd-hours-" + pName);
+                        const minsEl = document.getElementById("promo-cd-mins-" + pName);
+                        const secsEl = document.getElementById("promo-cd-secs-" + pName);
+                        
+                        if (daysEl) daysEl.textContent = days.toString().padStart(2, "0");
+                        if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, "0");
+                        if (minsEl) minsEl.textContent = minutes.toString().padStart(2, "0");
+                        if (secsEl) secsEl.textContent = seconds.toString().padStart(2, "0");
+                    }
+                    
+                    setInterval(updatePromoCountdown, 1000);
+                    updatePromoCountdown();
+                    
+                    // Dynamic Scarcity Slots Calculation
+                    const now = new Date();
+                    const startOfPromo = new Date("2026-07-01T00:00:00");
+                    const diffTime = now.getTime() - startOfPromo.getTime();
+                    const diffDays = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
+                    
+                    let remainingSlots = 39 - diffDays;
+                    if (remainingSlots < 8) {
+                        remainingSlots = 8;
+                    }
+                    
+                    const totalSlots = 50;
+                    const registeredSlots = totalSlots - remainingSlots;
+                    const percentage = (registeredSlots / totalSlots) * 100;
+                    
+                    const promoSlotsTextEl = document.getElementById("promo-slots-text-" + pName);
+                    const promoProgressBarEl = document.getElementById("promo-progress-bar-" + pName);
+                    
+                    if (promoSlotsTextEl) promoSlotsTextEl.textContent = `Chỉ còn ${remainingSlots} / 50 Suất`;
+                    if (promoProgressBarEl) {
+                        promoProgressBarEl.style.width = percentage + "%";
+                    }
+                })();
+            </script>
         </section>
+
 
 <section class="cta-section" id="dang-ky" aria-labelledby="cta-headline">
             <div class="cta-bg">
@@ -9065,8 +9062,8 @@
         </div>
     </div>
 
-    <script src="common-assets/js/script.min.js?v=1782895529" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1782895529" defer></script>
+    <script src="common-assets/js/script.min.js?v=1782896781" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1782896781" defer></script>
 
 
 
