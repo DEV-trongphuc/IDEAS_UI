@@ -478,7 +478,7 @@
         let sourceVal = "Landing_MBA";
         let chuongTrinhVal = "Online MBA";
         const path = window.location.pathname.toLowerCase();
-        if (path.includes("mbainai")) {
+        if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
             sourceVal = "Landing_MBA_AI";
             chuongTrinhVal = "Online MBA in AI";
         } else if (path.includes("mscinai") || path.includes("mscai")) {

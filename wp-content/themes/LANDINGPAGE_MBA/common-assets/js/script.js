@@ -576,7 +576,7 @@ const isEn = document.documentElement.lang === 'en';
                     }
                 } else {
                     const path = window.location.pathname.toLowerCase();
-                    if (path.includes("mbainai")) {
+                    if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
                         resolvedProgramKey = 'IDEAS05';
                     } else if (path.includes("mscinai") || path.includes("mscai")) {
                         resolvedProgramKey = 'IDEAS04';
@@ -778,7 +778,7 @@ const isEn = document.documentElement.lang === 'en';
             const path = window.location.pathname.toLowerCase();
             if (path.includes('mscai')) {
                 programKey = 'IDEAS04';
-            } else if (path.includes('mbainai')) {
+            } else if (path.includes('mbainai') || path.includes('tri-tue-song-hanh')) {
                 programKey = 'IDEAS05';
             } else if (path.includes('emba')) {
                 programKey = 'IDEAS03';
@@ -2617,7 +2617,7 @@ function initMobileTopSheet() {
     let programSub = "";
     let avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp";
 
-    if (path.includes("mbainai")) {
+    if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
         programName = "MBA in AI";
         programSub = isEn ? "Swiss Applied AI Master's" : "Thạc sĩ QTKD Ứng dụng AI";
         avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp";
@@ -3216,7 +3216,7 @@ function initGlobalReelsModal() {
             reelId = 'tfSh3cVhvR8';
         } else if (path.indexOf('bba') !== -1 && path.indexOf('fullbba') === -1) {
             reelId = 'YgF77KEghOI';
-        } else if (path.indexOf('mba') !== -1 || path.indexOf('emba') !== -1 || path.indexOf('dba') !== -1 || path.indexOf('mscai') !== -1 || path.indexOf('mbainai') !== -1) {
+        } else if (path.indexOf('mba') !== -1 || path.indexOf('emba') !== -1 || path.indexOf('dba') !== -1 || path.indexOf('mscai') !== -1 || path.indexOf('mbainai') !== -1 || path.indexOf('tri-tue-song-hanh') !== -1) {
             reelId = 'rXWWEC2LJJM';
         }
 
