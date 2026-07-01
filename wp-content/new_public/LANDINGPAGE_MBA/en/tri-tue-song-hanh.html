@@ -260,9 +260,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1782708275" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782708275" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782708275" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1782890221" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782890221" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782890221" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -6267,6 +6267,380 @@
             font-size: 0.9rem;
             line-height: 1.6;
         }
+
+        /* Programs Split Layout Styles */
+        .programs-split-layout {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 32px;
+            align-items: stretch;
+        }
+        
+        .prog-featured-card {
+            background: #ffffff;
+            border: 2.5px solid #ab0e00;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            text-align: left;
+        }
+        
+        .prog-featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 50px rgba(171, 14, 0, 0.15);
+        }
+        
+        .prog-featured-header-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ab0e00;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 99px;
+            letter-spacing: 1px;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .prog-featured-img-wrap {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prog-featured-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .prog-featured-card:hover .prog-featured-img-wrap img {
+            transform: scale(1.05);
+        }
+        
+        .prog-school-tag {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .prog-featured-content {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .prog-badge-type {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #ab0e00;
+            background: rgba(171, 14, 0, 0.08);
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        
+        .prog-badge-type.small {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+        }
+        
+        .prog-featured-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 12px 0 8px 0;
+            font-family: var(--font-serif);
+            line-height: 1.3;
+        }
+        
+        .prog-featured-desc {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+            flex-grow: 1;
+        }
+        
+        .prog-featured-specs {
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .prog-featured-spec-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+        }
+        
+        .prog-featured-spec-item .spec-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .prog-featured-spec-item .spec-val {
+            color: #0f172a;
+            font-weight: 700;
+        }
+        
+        .prog-featured-actions {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .btn-detail-link {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 12px;
+            border: 1.5px solid #e2e8f0;
+            color: #0f172a;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-detail-link:hover {
+            border-color: #0f172a;
+            background: #0f172a;
+            color: #ffffff;
+        }
+        
+        .btn-inquire-link {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border-radius: 12px;
+            background: #ab0e00;
+            color: #ffffff;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.15);
+        }
+        
+        .btn-inquire-link:hover {
+            background: #8e0c00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(171, 14, 0, 0.25);
+            color: #ffffff;
+        }
+        
+        /* Small program list columns */
+        .prog-small-column {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            justify-content: space-between;
+        }
+        
+        .prog-small-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 14px;
+            display: flex;
+            gap: 14px;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .prog-small-card:hover {
+            transform: translateX(6px);
+            border-color: rgba(171, 14, 0, 0.25);
+            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.06);
+        }
+        
+        .prog-small-img-wrap {
+            width: 120px;
+            height: 90px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .prog-small-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .prog-small-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        
+        .prog-small-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .prog-small-school {
+            font-size: 0.68rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+        
+        .prog-small-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 4px 0 0 0;
+            line-height: 1.2;
+        }
+        
+        .prog-small-subtitle {
+            font-size: 0.78rem;
+            color: #ab0e00;
+            font-weight: 700;
+            margin: 2px 0 0 0;
+        }
+        
+        .prog-small-specs-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: #64748b;
+            margin-top: 4px;
+        }
+        
+        .prog-small-specs-row .spec-divider {
+            color: #cbd5e1;
+        }
+        
+        .prog-small-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        
+        .btn-detail-small {
+            padding: 5px 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            color: #0f172a;
+            background: #ffffff;
+            text-decoration: none;
+            transition: all 0.2s;
+            text-align: center;
+            flex: 1;
+            display: inline-block;
+        }
+        
+        .btn-detail-small:hover {
+            border-color: #0f172a;
+            background: #0f172a;
+            color: #ffffff;
+        }
+        
+        .btn-inquire-small {
+            padding: 5px 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 8px;
+            background: #ab0e00;
+            color: #ffffff;
+            border: none;
+            text-decoration: none;
+            transition: all 0.2s;
+            text-align: center;
+            flex: 1;
+            display: inline-block;
+        }
+        
+        .btn-inquire-small:hover {
+            background: #8e0c00;
+            color: #ffffff;
+        }
+        
+        .accreditation-row-simple {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .accred-logo-simple {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.65;
+            transition: all 0.3s ease;
+        }
+        
+        .accred-logo-simple:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 1024px) {
+            .programs-split-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .prog-small-column {
+                gap: 16px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .prog-small-card {
+                flex-direction: column;
+            }
+            .prog-small-img-wrap {
+                width: 100%;
+                height: 140px;
+            }
+            .accreditation-row-simple {
+                gap: 16px;
+            }
+            .accred-logo-simple {
+                height: 30px;
+            }
+        }
     </style>
     
 </head>
@@ -6974,12 +7348,12 @@
                             </div>
                             <!-- Middle Card: Swiss Degree -->
                             <div class="sol-photo-sm">
-                                <img src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/534571967_1238086774784542_3238940185240643366_n.jpg?stp=dst-jpg_tt6&cstp=mx1500x1000&ctp=s1500x1000&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=znSLDCKjBEAQ7kNvwFPDnl0&_nc_oc=AdpPjGSmmh1KAyvfWgu0Np-UTv41JyJ7A7kvr_fXUrONbdC1UhYjY33jdtLsSNDZL2qY4Eiq77J6oS_xXEF6Bj3y&_nc_zt=23&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=4yoJEl43hDY2DFKJ4i6G_Q&_nc_ss=7b2a8&oh=00_Af_mi6EvT22i8G4eKgDnEfPPgkkixEeAfLVT3umvGUR01A&oe=6A412C05" alt="Swiss MBA Degree" loading="lazy">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/ws_offline.webp" alt="Swiss MBA Degree" loading="lazy">
                                 <div class="sol-photo-badge sol-badge-tl">Swiss Degree</div>
                             </div>
                             <!-- Front Card: AI Agents -->
                             <div class="sol-photo-sm">
-                                <img src="https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-6/534676332_1238087744784445_5828571209927179263_n.jpg?stp=dst-jpg_tt6&cstp=mx1500x1000&ctp=s1500x1000&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=1ahmw-KAArsQ7kNvwELO1nz&_nc_oc=AdpZvVoPFiqgulSDNefX4OD8wtHn2xTKmdt01khnpYGCbpLPAjrH829hwkyg_V3DbicwRfhVYzUecPPaYA-8O7d0&_nc_zt=23&_nc_ht=scontent.fsgn8-4.fna&_nc_gid=_DjuaMYNVMY6Xdl-WPaiBQ&_nc_ss=7b2a8&oh=00_Af_pVoWWE5qRUSQZa3Auywtxpp71TJWaKOLCLBmf8qr8eA&oe=6A4120D6" alt="AI Agents Implementation" loading="lazy">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/tablet.webp" alt="AI Agents Implementation" loading="lazy">
                                 <div class="sol-photo-badge sol-badge-br"><svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> AI Agents</div>
                             </div>
                         </div>
@@ -7200,14 +7574,172 @@
         </section>
 
         <!-- ══════════════════════════════════════════
-         SECTION 6: TRAINER PROFILE
+         SECTION 5.5: PROGRAMS LISTING (FEATURED SPLIT)
         ══════════════════════════════════════════ -->
+        <section class="programs-section" id="cac-chuong-trinh" style="padding: 96px 0; background: #ffffff; border-bottom: 1px solid #eef2f6;">
+            <div class="container">
+                <div class="reveal-up" style="text-align: center; margin-bottom: 56px;">
+                    <div class="pain-label-badge" style="background: rgba(171, 14, 0, 0.05); color: #ab0e00; border-color: rgba(171, 14, 0, 0.15); margin: 0 auto; display: inline-flex; align-items: center; gap: 8px;">
+                        <svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg> Master's Programs at IDEAS
+                    </div>
+                    <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; color: #111729; margin: 16px 0 12px 0; font-family: var(--font-serif); line-height: 1.2;">
+                        The offer applies to all Swiss UMEF Master's programs at IDEAS
+                    </h2>
+                </div>
+
+                <div class="programs-split-layout">
+                    <!-- Left: MBA in AI (Featured, Large) -->
+                    <div class="prog-featured-card">
+                        <div class="prog-featured-header-badge">FEATURED CHOICE</div>
+                        <div class="prog-featured-img-wrap">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp" alt="MBA in AI from Swiss UMEF" loading="lazy">
+                            <div class="prog-school-tag">
+                                <svg class="svg-icon" viewBox="0 0 512 512" width="12" height="12" fill="currentColor">
+                                    <path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160l0 8c0 13.3 10.7 24 24 24l400 0c13.3 0 24-10.7 24-24l0-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224l-64 0 0 196.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512l448 0c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1L448 224l-64 0 0 192-40 0 0-192-64 0 0 192-48 0 0-192-64 0 0 192-40 0 0-192zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                                </svg>
+                                <span>Swiss UMEF | Switzerland</span>
+                            </div>
+                        </div>
+                        <div class="prog-featured-content">
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                                <span class="prog-badge-type">MBA</span>
+                            </div>
+                            <h3 class="prog-featured-title">MBA in AI – Program for the New Generation of Leaders</h3>
+                            <p class="prog-featured-desc">
+                                MBA in AI from Swiss UMEF is a program that combines international business administration foundation with AI application capabilities in corporate management. Not only learning how to manage, you also know how to exploit AI to optimize operations, improve team efficiency and lead transformation in the organization.
+                            </p>
+                            <div class="prog-featured-specs">
+                                <div class="prog-featured-spec-item">
+                                    <span class="spec-label">Duration:</span>
+                                    <strong class="spec-val">16 - 18 months</strong>
+                                </div>
+                                <div class="prog-featured-spec-item">
+                                    <span class="spec-label">Structure:</span>
+                                    <strong class="spec-val">90 ECTS - 15 courses & Thesis</strong>
+                                </div>
+                            </div>
+                            <div class="prog-featured-actions">
+                                <a href="/en/mbainai" class="btn-detail-link">See Details</a>
+                                <a href="#dang-ky" class="btn-inquire-link">Get Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: 3 small program cards -->
+                    <div class="prog-small-column">
+                        <!-- Small Card 1: Online MBA -->
+                        <div class="prog-small-card">
+                            <div class="prog-small-img-wrap">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp" alt="Online MBA" loading="lazy">
+                            </div>
+                            <div class="prog-small-info">
+                                <div>
+                                    <div class="prog-small-header">
+                                        <span class="prog-badge-type small">MBA</span>
+                                        <span class="prog-small-school">Swiss UMEF</span>
+                                    </div>
+                                    <h4 class="prog-small-title">Online MBA</h4>
+                                    <p class="prog-small-subtitle">Master of Business Administration</p>
+                                </div>
+                                <div class="prog-small-specs-row">
+                                    <span class="spec-item"><strong>18 months</strong></span>
+                                    <span class="spec-divider">•</span>
+                                    <span class="spec-item">14 courses & Thesis</span>
+                                </div>
+                                <div class="prog-small-actions">
+                                    <a href="/en/mba" class="btn-detail-small">Details</a>
+                                    <a href="#dang-ky" class="btn-inquire-small">Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Small Card 2: Executive MBA -->
+                        <div class="prog-small-card">
+                            <div class="prog-small-img-wrap">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp" alt="Executive MBA" loading="lazy">
+                            </div>
+                            <div class="prog-small-info">
+                                <div>
+                                    <div class="prog-small-header">
+                                        <span class="prog-badge-type small">MBA</span>
+                                        <span class="prog-small-school">Swiss UMEF</span>
+                                    </div>
+                                    <h4 class="prog-small-title">Executive MBA</h4>
+                                    <p class="prog-small-subtitle">Executive MBA</p>
+                                </div>
+                                <div class="prog-small-specs-row">
+                                    <span class="spec-item"><strong>14 - 16 months</strong></span>
+                                    <span class="spec-divider">•</span>
+                                    <span class="spec-item">14 courses & Thesis</span>
+                                </div>
+                                <div class="prog-small-actions">
+                                    <a href="/en/emba" class="btn-detail-small">Details</a>
+                                    <a href="#dang-ky" class="btn-inquire-small">Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Small Card 3: MSc AI -->
+                        <div class="prog-small-card">
+                            <div class="prog-small-img-wrap">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI" loading="lazy">
+                            </div>
+                            <div class="prog-small-info">
+                                <div>
+                                    <div class="prog-small-header">
+                                        <span class="prog-badge-type small">MSc</span>
+                                        <span class="prog-small-school">Swiss UMEF</span>
+                                    </div>
+                                    <h4 class="prog-small-title">MSc AI (Master AI)</h4>
+                                    <p class="prog-small-subtitle">Master of Science in Applied AI</p>
+                                </div>
+                                <div class="prog-small-specs-row">
+                                    <span class="spec-item"><strong>18 months</strong></span>
+                                    <span class="spec-divider">•</span>
+                                    <span class="spec-item">15 courses & Thesis</span>
+                                </div>
+                                <div class="prog-small-actions">
+                                    <a href="/en/mscai" class="btn-detail-small">Details</a>
+                                    <a href="#dang-ky" class="btn-inquire-small">Inquire</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accreditation & Verification info -->
+                <div class="reveal-up" style="margin-top: 56px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; padding-top: 40px; border-top: 1px dashed #e2e8f0;">
+                    <p style="font-size: 1.05rem; line-height: 1.7; color: #334155; font-weight: 600; margin-bottom: 24px;">
+                        The program is taught directly by Swiss UMEF University, officially accredited in the Swiss education system. The Master's degree is widely recognized and valued globally.
+                    </p>
+                    
+                    <div style="font-size: 0.85rem; font-weight: 800; color: #ab0e00; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;">
+                        Swiss UMEF International Accreditation &amp; Recognition
+                    </div>
+                    
+                    <div class="accreditation-row-simple">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/SAC_LOGO.png" alt="SAC" class="accred-logo-simple" title="Swiss Accreditation Council">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp" alt="CHEA" class="accred-logo-simple" title="CHEA - USA">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp" alt="IACBE" class="accred-logo-simple" title="IACBE">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef2.webp" alt="ACBSP" class="accred-logo-simple" title="ACBSP">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp" alt="EduQua" class="accred-logo-simple" title="EduQua">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/qsranking.png" alt="QS Stars" class="accred-logo-simple" title="QS Stars - 5 Stars">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════
+         SECTION 6: TRAINER PROFILE
+         ══════════════════════════════════════════ -->
         <section class="trainer-section" id="giang-vien">
             <div class="container">
                 <div class="trainer-card reveal-up">
                     <div class="trainer-image-wrap">
                         <div class="trainer-image-frame">
-                            <img src="/wp-content/uploads/2026/04/votrungduong.webp" alt="ThS. Võ Trùng Dương" class="trainer-image" loading="lazy">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="ThS. Võ Trùng Dương" class="trainer-image" loading="lazy">
                         </div>
                     </div>
                     <div class="trainer-info">
@@ -7293,100 +7825,7 @@
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════
-         SECTION 7.5: FLEXIBLE BENEFIT CHOICES
-        ══════════════════════════════════════════ -->
-        <section class="alternative-choices-section" id="options-chuyen-doi" style="position: relative; background: linear-gradient(160deg, #f8f9fb 0%, #ffffff 50%, #f4f6ff 100%); padding: 80px 0; border-top: 1px solid rgba(17, 23, 41, 0.05); overflow: hidden;">
-            <!-- Subtle Mesh Overlay -->
-            <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(171, 14, 0, 0.02) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; z-index: 0;"></div>
-            
-            <div class="container" style="position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 0 20px; text-align: center;">
-                <div class="reveal-up" style="margin-bottom: 48px;">
-                    <div class="pain-label-badge" style="background: rgba(171, 14, 0, 0.05); color: #ab0e00; border-color: rgba(171, 14, 0, 0.15); display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 99px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;">
-                        <svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg> Flexible Privileges
-                    </div>
-                    <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; color: #111729; margin: 16px 0 12px 0; font-family: var(--font-serif); line-height: 1.2;">
-                        Alternative Choices for Leaders
-                    </h2>
-                    <p style="font-size: 1rem; color: #475569; max-width: 780px; margin: 0 auto; line-height: 1.7;">
-                        Instead of receiving the in-house corporate AI training package <strong>(02 days of direct hands-on training for your team)</strong>, leaders can flexibly opt for one of the following premium privileges:
-                    </p>
-                </div>
-
-                <div class="gifts-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; text-align: left; margin-bottom: 40px;">
-                    <!-- Option 1 Card -->
-                    <div class="choice-highlight-card reveal-up" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 24px; padding: 36px 30px; display: flex; flex-direction: column; gap: 20px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03); position: relative; overflow: hidden; height: 100%;">
-                        <div class="choice-highlight-icon-wrap" style="width: 52px; height: 52px; background: rgba(171, 14, 0, 0.05); color: #ab0e00; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; transition: all 0.3s ease;">
-                            <svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
-                                <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
-                                <line x1="2" y1="10" x2="22" y2="10"></line>
-                                <line x1="2" y1="14" x2="22" y2="14"></line>
-                                <line x1="6" y1="6" x2="6" y2="18"></line>
-                                <line x1="18" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </div>
-                        <div class="gift-highlight-info">
-                            <h4 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 10px 0; font-family: var(--font-serif); line-height: 1.3;">
-                                Privilege 1: International Learning Voucher
-                            </h4>
-                            <p style="font-size: 0.92rem; color: #475569; line-height: 1.65; margin: 0;">
-                                Receive a voucher worth <strong>2,500 CHF</strong> for your next academic program. This voucher is <strong>fully transferable</strong> to others or business partners.
-                            </p>
-                        </div>
-                        <span style="position: absolute; top: 20px; right: 20px; background: rgba(171, 14, 0, 0.08); color: #ab0e00; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.5px;">Value 2,500 CHF</span>
-                    </div>
-
-                    <!-- Option 2 Card -->
-                    <div class="choice-highlight-card reveal-up" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 24px; padding: 36px 30px; display: flex; flex-direction: column; gap: 20px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03); position: relative; overflow: hidden; height: 100%;">
-                        <div class="choice-highlight-icon-wrap" style="width: 52px; height: 52px; background: rgba(171, 14, 0, 0.05); color: #ab0e00; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; transition: all 0.3s ease;">
-                            <svg class="campaign-svg-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
-                                <path d="M22 2L11 13"></path>
-                                <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
-                            </svg>
-                        </div>
-                        <div class="gift-highlight-info">
-                            <h4 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 10px 0; font-family: var(--font-serif); line-height: 1.3;">
-                                Privilege 2: Swiss Experiential Trip &amp; Graduation
-                            </h4>
-                            <p style="font-size: 0.92rem; color: #475569; line-height: 1.65; margin: 0;">
-                                Get <strong>01 experiential trip</strong> to Switzerland and the opportunity to directly attend the <strong>formal Graduation Ceremony</strong> at our partner university.
-                            </p>
-                        </div>
-                        <span style="position: absolute; top: 20px; right: 20px; background: #ab0e00; color: #ffffff; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.5px;">Premium Experience</span>
-                    </div>
-                </div>
-
-                <style>
-                    .choice-highlight-card:hover {
-                        transform: translateY(-6px);
-                        border-color: rgba(171, 14, 0, 0.3) !important;
-                        box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08) !important;
-                    }
-                    .choice-highlight-card:hover .choice-highlight-icon-wrap {
-                        background: #ab0e00 !important;
-                        transform: scale(1.08);
-                    }
-                    .choice-highlight-icon-wrap .campaign-svg-icon {
-                        color: #ab0e00 !important;
-                        transition: color 0.3s ease !important;
-                    }
-                    .choice-highlight-card:hover .choice-highlight-icon-wrap .campaign-svg-icon {
-                        color: #ffffff !important;
-                    }
-                    @media (max-width: 768px) {
-                        #options-chuyen-doi .gifts-grid {
-                            grid-template-columns: 1fr !important;
-                            gap: 20px !important;
-                        }
-                    }
-                </style>
-            </div>
-        </section>
+        <!-- Section 7.5: alternative-choices-section removed -->
 
         <!-- ══════════════════════════════════════════
          SECTION 8: REGISTRATION FORM & FAQS
@@ -8362,8 +8801,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1782708275" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1782708275" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1782890221" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1782890221" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
