@@ -260,9 +260,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1782891325" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782891325" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782891325" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1782891387" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1782891387" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1782891387" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -6755,6 +6755,17 @@
         .hero-floating-logos .floating-logo-item.logo-l3 { animation-delay: 2s !important; }
         .hero-floating-logos .floating-logo-item.logo-r1 { animation-delay: 0.5s !important; }
         .hero-floating-logos .floating-logo-item.logo-r2 { animation-delay: 1.5s !important; }
+        
+        /* Hide scrollbars globally for clean carousels and scrollable tabs */
+        .carousel-viewport::-webkit-scrollbar,
+        #faculty-carousel-viewport::-webkit-scrollbar,
+        .talk-video-carousel-track-wrapper::-webkit-scrollbar,
+        [style*="overflow-x: auto"]::-webkit-scrollbar,
+        [style*="overflow-x:auto"]::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
         </style>
 </head>
 
@@ -9403,8 +9414,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1782891325" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1782891325" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1782891387" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1782891387" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
