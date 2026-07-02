@@ -2558,7 +2558,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
                             <strong
-                                class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 15 courses & Thesis' : '90 ECTS - 15 môn học &amp; Luận văn'; ?></strong>
+                                class="prog-spec-value"><?php echo $is_en ? '90 ECTS - 12 courses & Thesis' : '90 ECTS - 12 môn học &amp; Luận văn'; ?></strong>
                         </div>
                     </div>
                     <div class="prog-card-actions">
