@@ -241,7 +241,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                         <div class="dropdown-column-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
                         <a href="<?php echo esc_url($mba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
-                                src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
+                                src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
                                 alt="Online MBA" decoding="async" loading="lazy" />
                             <div class="item-content">
                                 <div class="item-title">Online MBA</div>
@@ -249,7 +249,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                             </div>
                         </a>
                         <a href="<?php echo esc_url($emba_url); ?>" class="dropdown-item">
-                            <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
+                            <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp"
                                 alt="Executive MBA" decoding="async" loading="lazy" />
                             <div class="item-content">
                                 <div class="item-title">Executive MBA</div>
@@ -258,7 +258,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                         </a>
                         <a href="<?php echo esc_url($mscai_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
-                                src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="Master AI"
+                                src="https://ideas.edu.vn/wp-content/uploads/2026/07/8.webp" alt="Master AI"
                                 loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">Master AI (MSc AI)</div>
@@ -552,7 +552,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
             <div class="mobile-dropdown-section">
                 <div class="mobile-section-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
                 <a href="<?php echo esc_url($mba_url); ?>" class="mobile-dropdown-item">
-                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
+                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
                         alt="Online MBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Online MBA</div>
@@ -560,7 +560,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                     </div>
                 </a>
                 <a href="<?php echo esc_url($emba_url); ?>" class="mobile-dropdown-item">
-                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
+                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp"
                         alt="Executive MBA" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Executive MBA</div>
@@ -568,7 +568,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                     </div>
                 </a>
                 <a href="<?php echo esc_url($mscai_url); ?>" class="mobile-dropdown-item">
-                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp"
+                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/07/8.webp"
                         alt="Master AI" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">Master AI (MSc AI)</div>

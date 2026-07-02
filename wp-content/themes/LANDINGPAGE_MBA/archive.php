@@ -1035,14 +1035,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </a>
                         <a href="<?php echo $is_en ? '/en/mba' : '/mba'; ?>" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
                                 alt="Online MBA" class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Online MBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Online MBA' : 'Thạc sĩ QTKD Trực tuyến'; ?></p>
                             </div>
                         </a>
                         <a href="<?php echo $is_en ? '/en/emba' : '/emba'; ?>" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp" alt="Executive MBA"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp" alt="Executive MBA"
                                 class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Executive MBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Executive MBA' : 'Thạc sĩ điều hành QTKD'; ?></p>
@@ -1056,7 +1056,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </a>
                         <a href="<?php echo $is_en ? '/en/mscai' : '/mscai'; ?>" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/8.webp" alt="MSc AI"
                                 class="sidebar-course-img">
                             <div>
                                 <h4 class="sidebar-course-title">Master AI (MSc AI)</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Applied MSc AI' : 'Thạc sĩ AI ứng dụng'; ?></p>

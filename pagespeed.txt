@@ -116,7 +116,7 @@ VIBE CODING - Tự tạo ứng dụng bằng AI
 Tệp hình ảnh này lớn hơn mức cần thiết (870x489) so với kích thước hiển thị (508x333). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
 38,1 KiB
 MSc AI Avatar
-<img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI Avatar" loading="lazy" decoding="async">
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/07/8.webp" alt="MSc AI Avatar" loading="lazy" decoding="async">
 …09/mscai-optimized.webp(ideas.edu.vn)
 63,2 KiB
 35,2 KiB
@@ -181,14 +181,14 @@ Zalo
 Tệp hình ảnh này lớn hơn mức cần thiết (615x615) so với kích thước hiển thị (32x32). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
 13,0 KiB
 Online MBA Avatar
-<img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp" alt="Online MBA Avatar" loading="lazy" decoding="async">
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp" alt="Online MBA Avatar" loading="lazy" decoding="async">
 …09/online-mba-1-optimized.webp(ideas.edu.vn)
 28,7 KiB
 11,7 KiB
 Tệp hình ảnh này lớn hơn mức cần thiết (720x404) so với kích thước hiển thị (539x320). Hãy sử dụng hình ảnh thích ứng để giảm kích thước tải xuống của hình ảnh.
 11,7 KiB
 Executive MBA Avatar
-<img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp" alt="Executive MBA Avatar" loading="lazy" decoding="async">
+<img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp" alt="Executive MBA Avatar" loading="lazy" decoding="async">
 …09/emba-optimized.webp(ideas.edu.vn)
 27,7 KiB
 11,3 KiB

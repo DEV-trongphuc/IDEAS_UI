@@ -3040,7 +3040,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1-optimized.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
                                 alt="Online MBA" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
@@ -3087,7 +3087,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/emba-optimized.webp"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp"
                                 alt="Executive MBA" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
@@ -3133,7 +3133,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/09/mscai-optimized.webp" alt="MSc AI"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/8.webp" alt="MSc AI"
                                 loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
