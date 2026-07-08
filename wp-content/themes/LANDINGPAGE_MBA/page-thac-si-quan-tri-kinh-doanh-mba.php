@@ -3180,7 +3180,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                         <div class="prog-avatar-container">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/MBA-in-AI.png"
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/MBA-in-AI-1.webp"
                                 alt="MBA in AI" loading="lazy" decoding="async" />
                         </div>
                         <div class="prog-card-title-group">
