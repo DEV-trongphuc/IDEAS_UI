@@ -1,22 +1,48 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-echo "=== Staging Uploads Targeted Search ===\n";
+echo "=== Local Production Uploads Copy ===\n";
 
-$dir = '/home/vhvxoigh/workshop.chiefaiofficer.vn/wp-content/uploads';
-if (is_dir($dir)) {
-    $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
-    $count = 0;
-    foreach ($files as $file) {
-        if ($file->isFile()) {
-            $name = $file->getFilename();
-            if (stripos($name, 'DUAL-DEGREE') !== false || stripos($name, 'Erasmus') !== false || stripos($name, 'Estiam-DBA') !== false) {
-                $count++;
-                echo " - " . str_replace('/home/vhvxoigh/workshop.chiefaiofficer.vn/', '', $file->getPathname()) . " (" . $file->getSize() . " bytes)\n";
+$src_dir = '/home/vhvxoigh/ideas.edu.vn/wp-content/uploads/2025/10';
+$dest_dir = '/home/vhvxoigh/ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets';
+
+if (!is_dir($dest_dir)) {
+    mkdir($dest_dir, 0755, true);
+}
+
+if (is_dir($src_dir)) {
+    $files = scandir($src_dir);
+    echo "Files in production uploads/2025/10:\n";
+    foreach ($files as $f) {
+        if ($f !== '.' && $f !== '..') {
+            $src_path = "$src_dir/$f";
+            $size = filesize($src_path);
+            
+            // Check if it's a binary file (not HTML redirect)
+            $is_binary = false;
+            if ($size > 0) {
+                $handle = fopen($src_path, 'r');
+                if ($handle) {
+                    $bytes = fread($handle, 15);
+                    fclose($handle);
+                    if (strpos($bytes, '<!DOCTYPE') === false && strpos($bytes, '<html') === false) {
+                        $is_binary = true;
+                    }
+                }
+            }
+            
+            echo " - $f ($size bytes) - Binary: " . ($is_binary ? 'YES' : 'NO') . "\n";
+            
+            if ($is_binary) {
+                $dest_path = "$dest_dir/$f";
+                if (copy($src_path, $dest_path)) {
+                    echo "   -> Copied to assets successfully!\n";
+                } else {
+                    echo "   -> Copy FAILED.\n";
+                }
             }
         }
     }
-    echo "Total files found: $count\n";
 } else {
-    echo "Staging uploads directory not found.\n";
+    echo "Production uploads/2025/10 directory not found.\n";
 }
