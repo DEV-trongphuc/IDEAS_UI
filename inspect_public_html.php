@@ -54,9 +54,7 @@ try {
     }
 
     echo "Total attachments found: " . count($results) . "\n";
-    foreach ($results as $id => $row) {
-        echo "ID: $id | Title: {$row['post_title']} | Meta: {$row['file_path']} | GUID: {$row['guid']}\n";
-    }
+    echo json_encode(array_values($results), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n";
 
 } catch (PDOException $e) {
     echo "DB Connection Error: " . $e->getMessage() . "\n";
