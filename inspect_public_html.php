@@ -1,83 +1,85 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-echo "Running direct DB query and writing to db_output.txt...\n";
-$config_path = '/home/vhvxoigh/ideas.edu.vn/wp-config.php';
-if (!file_exists($config_path)) {
-    die("wp-config.php not found.\n");
-}
-
-$config = file_get_contents($config_path);
-
-// Match DB constants
-define('MATCH_REGEX', '/define\(\s*\'([^\']+)\'\s*,\s*\'([^\']+)\'\s*\);/');
-preg_match_all(MATCH_REGEX, $config, $matches);
-$db_vars = [];
-if (!empty($matches[1])) {
-    foreach ($matches[1] as $idx => $name) {
-        $db_vars[$name] = $matches[2][$idx];
-    }
-}
-
-$db_host = $db_vars['DB_HOST'] ?? 'localhost';
-$db_name = $db_vars['DB_NAME'] ?? '';
-$db_user = $db_vars['DB_USER'] ?? '';
-$db_pass = $db_vars['DB_PASSWORD'] ?? '';
-
-// Get prefix
-preg_match('/\$table_prefix\s*=\s*\'([^\']+)\';/', $config, $prefix_matches);
-$prefix = $prefix_matches[1] ?? 'wp_';
-
-$output = "=== Direct DB Query Results ===\n";
-
-try {
-    $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
-    $pdo = new PDO($dsn, $db_user, $db_pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]);
-    $output .= "Connected to DB successfully.\n\n";
-
-    $keywords = ['qualiopi', 'rncp', 'asic', 'ukrlp', 'ukr', 'degree', 'erasmus', 'accred', 'estiam', 'rb-dba'];
-    $results = [];
-    foreach ($keywords as $kw) {
-        $like = '%' . $kw . '%';
-        $stmt = $pdo->prepare("
-            SELECT p.ID, p.post_title, p.guid, pm.meta_value as file_path 
-            FROM {$prefix}posts p
-            LEFT JOIN {$prefix}postmeta pm ON p.ID = pm.post_id AND pm.meta_key = '_wp_attached_file'
-            WHERE p.post_type = 'attachment' AND (p.post_title LIKE :kw OR p.guid LIKE :kw OR pm.meta_value LIKE :kw)
-            ORDER BY p.ID DESC
-        ");
-        $stmt->execute(['kw' => $like]);
-        $rows = $stmt->fetchAll();
-        foreach ($rows as $row) {
-            $results[$row['ID']] = $row;
+echo "=== Local Server File Scan ===\n";
+$home = '/home/vhvxoigh';
+if (is_dir($home)) {
+    $dirs = scandir($home);
+    echo "Directories in $home:\n";
+    foreach ($dirs as $d) {
+        if ($d !== '.' && $d !== '..') {
+            echo " - $d\n";
         }
     }
-
-    // Sort by ID desc
-    krsort($results);
-
-    $output .= "Total attachments found: " . count($results) . "\n";
-    try {
-        foreach ($results as $id => $row) {
-            $title = str_replace("\0", "[NULL]", (string)($row['post_title'] ?? ''));
-            $guid = str_replace("\0", "[NULL]", (string)($row['guid'] ?? ''));
-            $file_path = str_replace("\0", "[NULL]", (string)($row['file_path'] ?? ''));
-            $output .= "ID: $id | Title: $title | Meta: $file_path | GUID: $guid\n";
-        }
-    } catch (Throwable $e) {
-        $output .= "Throwable in loop: " . $e->getMessage() . " at " . $e->getFile() . ":" . $e->getLine() . "\n";
-    }
-
-} catch (PDOException $e) {
-    $output .= "DB Connection Error: " . $e->getMessage() . "\n";
+} else {
+    die("Home dir not found.\n");
 }
 
-$html = "<html><body><h1>DB Query Results</h1><pre>" . htmlspecialchars($output) . "</pre></body></html>";
-file_put_contents('/home/vhvxoigh/ideas.edu.vn/db_output.html', $html);
-echo "SUCCESS! Output written to db_output.html\n";
+// Check potential paths for workshop site
+$potential_paths = [
+    '/home/vhvxoigh/workshop.chiefaiofficer.vn/wp-content/uploads/2025/10',
+    '/home/vhvxoigh/public_html/workshop/wp-content/uploads/2025/10',
+    '/home/vhvxoigh/chiefaiofficer.vn/wp-content/uploads/2025/10'
+];
+
+$found_src = null;
+foreach ($potential_paths as $p) {
+    if (is_dir($p)) {
+        echo "\nFound source uploads folder at: $p\n";
+        $found_src = $p;
+        $files = scandir($p);
+        foreach ($files as $f) {
+            if ($f !== '.' && $f !== '..') {
+                echo "   - $f (" . filesize("$p/$f") . " bytes)\n";
+            }
+        }
+    }
+}
+
+if ($found_src) {
+    $dest = '/home/vhvxoigh/ideas.edu.vn/wp-content/uploads/2025/10';
+    if (!is_dir($dest)) {
+        mkdir($dest, 0755, true);
+    }
+    
+    $images_to_copy = [
+        "DUAL-DEGREE-1.webp",
+        "DUAL-DEGREE-2.webp",
+        "DUAL-DEGREE-3.webp",
+        "DUAL-DEGREE4.webp",
+        "DUAL-DEGREE.webp",
+        "Erasmus_Logo.svg.webp",
+        "Estiam-DBA-2.webp"
+    ];
+    
+    echo "\nCopying files...\n";
+    foreach ($images_to_copy as $img) {
+        $src_file = "$found_src/$img";
+        $dest_file = "$dest/$img";
+        if (file_exists($src_file)) {
+            if (copy($src_file, $dest_file)) {
+                echo " - Copied $img successfully (Size: " . filesize($dest_file) . " bytes)\n";
+            } else {
+                echo " - Failed to copy $img\n";
+            }
+        } else {
+            // Check lowercase
+            $src_file_lc = "$found_src/" . strtolower($img);
+            if (file_exists($src_file_lc)) {
+                if (copy($src_file_lc, $dest_file)) {
+                    echo " - Copied $img (from lowercase source) successfully (Size: " . filesize($dest_file) . " bytes)\n";
+                } else {
+                    echo " - Failed to copy $img from lowercase\n";
+                }
+            } else {
+                echo " - Source file $img does not exist.\n";
+            }
+        }
+    }
+} else {
+    echo "\nCould not find any source uploads folder.\n";
+}
+
 
 
 
