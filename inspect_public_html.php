@@ -44,7 +44,7 @@ try {
             SELECT p.ID, p.post_title, p.guid, pm.meta_value as file_path 
             FROM {$prefix}posts p
             LEFT JOIN {$prefix}postmeta pm ON p.ID = pm.post_id AND pm.meta_key = '_wp_attached_file'
-            WHERE p.post_type = 'attachment' AND (p.post_title LIKE :kw OR p.guid LIKE :kw OR pm.meta_value LIKE :kw)
+            WHERE p.post_type = 'attachment' AND p.ID != 3568 AND (p.post_title LIKE :kw OR p.guid LIKE :kw OR pm.meta_value LIKE :kw)
         ");
         $stmt->execute(['kw' => $like]);
         $rows = $stmt->fetchAll();
