@@ -57,9 +57,9 @@ try {
 
     $output .= "Total attachments found: " . count($results) . "\n";
     foreach ($results as $id => $row) {
-        $title = str_replace("\0", "[NULL]", $row['post_title'] ?? '');
-        $guid = str_replace("\0", "[NULL]", $row['guid'] ?? '');
-        $file_path = str_replace("\0", "[NULL]", $row['file_path'] ?? '');
+        $title = str_replace("\0", "[NULL]", (string)($row['post_title'] ?? ''));
+        $guid = str_replace("\0", "[NULL]", (string)($row['guid'] ?? ''));
+        $file_path = str_replace("\0", "[NULL]", (string)($row['file_path'] ?? ''));
         $output .= "ID: $id | Title: $title | Meta: $file_path | GUID: $guid\n";
     }
 
