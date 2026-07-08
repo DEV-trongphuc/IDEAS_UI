@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+	<html lang="vi">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Đăng nhập &lsaquo; Chief AI Officer &#8212; WordPress</title>
+	<meta name='robots' content='max-image-preview:large, noindex, noarchive' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<script type="text/javascript">
+            window._bbssoDOMReady = function (callback) {
+                if ( document.readyState === "complete" || document.readyState === "interactive" ) {
+                    callback();
+                } else {
+                    document.addEventListener( "DOMContentLoaded", callback );
+                }
+            };
+            </script><script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="jquery-migrate-js-after">
+/* <![CDATA[ */
+jQuery(document).ready(function(){ jQuery( "#pass1" ).data( "reveal", 0 ); });
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/magnific-popup.js?ver=2.8.51" id="bp-nouveau-magnific-popup-js"></script>
+<link rel='stylesheet' id='dashicons-css' href='https://workshop.chiefaiofficer.vn/wp-includes/css/dashicons.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='buttons-css' href='https://workshop.chiefaiofficer.vn/wp-includes/css/buttons.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='forms-css' href='https://workshop.chiefaiofficer.vn/wp-admin/css/forms.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='l10n-css' href='https://workshop.chiefaiofficer.vn/wp-admin/css/l10n.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='login-css' href='https://workshop.chiefaiofficer.vn/wp-admin/css/login.min.css?ver=6.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tutor-prism-css-css' href='https://workshop.chiefaiofficer.vn/wp-content/plugins/tutor-pro/assets/lib/codesample/prism.css?ver=3.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='tutor-pro-front-css' href='https://workshop.chiefaiofficer.vn/wp-content/plugins/tutor-pro/assets/css/front.css?ver=3.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-login-css' href='https://workshop.chiefaiofficer.vn/wp-content/themes/buddyboss-theme/assets/css/login.min.css?ver=2.8.41' type='text/css' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-fonts-css' href='https://workshop.chiefaiofficer.vn/wp-content/themes/buddyboss-theme/assets/fonts/fonts.css?ver=2.8.41' type='text/css' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-login-magnific-popup-css' href='https://workshop.chiefaiofficer.vn/wp-content/themes/buddyboss-theme/assets/css/vendors/magnific-popup.min.css?ver=2.8.41' type='text/css' media='all' />
+<link rel='stylesheet' id='bp-nouveau-icons-map-css' href='https://workshop.chiefaiofficer.vn/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/icons-map.min.css?ver=2.8.51' type='text/css' media='all' />
+<link rel='stylesheet' id='bp-nouveau-bb-icons-css' href='https://workshop.chiefaiofficer.vn/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/bb-icons.min.css?ver=1.0.8' type='text/css' media='all' />
+<link rel='stylesheet' id='bp-nouveau-css' href='https://workshop.chiefaiofficer.vn/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/css/buddypress.min.css?ver=2.8.51' type='text/css' media='all' />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Exo:600,500&#038;display=swap&#038;ver=1747581180" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo:600,500&#038;display=swap&#038;ver=1747581180" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo:600,500&#038;display=swap&#038;ver=1747581180" /></noscript>		<script>
+			jQuery( document ).ready( function () {
+				if ( jQuery('.popup-modal-register').length ) {
+					jQuery('.popup-modal-register').magnificPopup({
+						type: 'inline',
+						preloader: false,
+						fixedContentPos: true,
+						modal: true
+					});
+					jQuery('.popup-modal-dismiss').click(function (e) {
+						e.preventDefault();
+						$.magnificPopup.close();
+					});
+				}
+				if ( jQuery('.popup-modal-login').length ) {
+					jQuery('.popup-modal-login').magnificPopup({
+						type: 'inline',
+						preloader: false,
+						fixedBgPos: true,
+						fixedContentPos: true
+					});
+					jQuery('.popup-modal-dismiss').click(function (e) {
+						e.preventDefault();
+						$.magnificPopup.close();
+					});
+				}
+			});
+		</script>
+			<meta name='referrer' content='strict-origin-when-cross-origin' />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/05/cropped-cao-logo-2-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/05/cropped-cao-logo-2-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/05/cropped-cao-logo-2-180x180.png" />
+<meta name="msapplication-TileImage" content="https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/05/cropped-cao-logo-2-270x270.png" />
+<style id="buddyboss_theme_options-dynamic-css" title="dynamic-css" class="redux-options-output">.site-header .site-title{font-family:Exo;font-weight:600;font-style:normal;font-size:30px;font-display:swap;}body{font-family:Exo;font-weight:500;font-style:normal;font-size:16px;font-display:swap;}h1{font-family:Exo;font-weight:600;font-style:normal;font-size:34px;font-display:swap;}h2{font-family:Exo;font-weight:600;font-style:normal;font-size:24px;font-display:swap;}h3{font-family:Exo;font-weight:600;font-style:normal;font-size:20px;font-display:swap;}h4{font-family:Exo;font-weight:600;font-style:normal;font-size:18px;font-display:swap;}h5{font-family:Exo;font-weight:600;font-style:normal;font-size:16px;font-display:swap;}h6{font-family:Exo;font-weight:600;font-style:normal;font-size:12px;font-display:swap;}</style>	<script>
+		jQuery( document ).ready( function () {
+			jQuery( '#loginform label[for="user_login"]' ).attr( 'id', 'user_label' );
+			jQuery( '#loginform label[for="user_pass"]' ).attr( 'id', 'pass_label' );
+			jQuery( '#registerform label[for="user_login"]' ).attr( 'id', 'user_label_register' );
+			jQuery( '#registerform label[for="user_email"]' ).attr( 'id', 'email_label_register' );
+			jQuery( '#lostpasswordform label[for="user_login"]' ).attr( 'id', 'user_label_lost' );
+
+			var $label_user_login = jQuery( 'label#user_label' );
+			$label_user_login.html( '<span class="screen-reader-text">' + $label_user_login.text() + '</span>' );
+
+			var $label_user_pass = jQuery( 'label#pass_label' );
+			$label_user_pass.html( '<span class="screen-reader-text">' + $label_user_pass.text() + '</span>' );
+
+			var $label_user_register = jQuery( 'label#user_label_register' );
+			$label_user_register.html( $label_user_register.find( 'input' ) );
+
+			var $label_email_register = jQuery( 'label#email_label_register' );
+			$label_email_register.html( $label_email_register.find( 'input' ) );
+
+			var $label_user_lost = jQuery( 'label#user_label_lost' );
+			$label_user_lost.html( '<span class="screen-reader-text">' + $label_user_lost.text() + '</span>' );
+
+			var loginform_user_login = 'Email Address';
+			var loginform_user_pass = 'Password';
+
+			jQuery( '#loginform #user_login' ).attr( 'placeholder', jQuery( '<div/>' ).html( loginform_user_login ).text() );
+			jQuery( '#loginform #user_pass' ).attr( 'placeholder', jQuery( '<div/>' ).html( loginform_user_pass ).text() );
+
+			var registerform_user_login = 'Username';
+			var registerform_user_email = 'Email';
+
+			jQuery( '#registerform #user_login' ).attr( 'placeholder', jQuery( '<div/>' ).html( registerform_user_login ).text() );
+			jQuery( '#registerform #user_email' ).attr( 'placeholder', jQuery( '<div/>' ).html( registerform_user_email ).text() );
+
+			var lostpasswordform_user_login = 'Email Address';
+			var resetpassform_pass1 = 'Add new password';
+			var resetpassform_pass2 = 'Retype new password';
+
+			jQuery( '#lostpasswordform #user_login' ).attr( 'placeholder', jQuery( '<div/>' ).html( lostpasswordform_user_login ).text() );
+			jQuery( '#resetpassform #pass1' ).attr( 'placeholder', jQuery( '<div/>' ).html( resetpassform_pass1 ).text() );
+			jQuery( '#resetpassform #bs-pass2' ).attr( 'placeholder', jQuery( '<div/>' ).html( resetpassform_pass2 ).text() );
+
+            jQuery( '.login.bb-login p.message.reset-pass' ).text( "Reset Password" );
+            jQuery( '.login.login-action-lostpassword.bb-login #login > p.message' ).html( '<div>Forgot your password?</div><p class="message">Please enter your email address. You will receive an email with instructions on how to reset your password.</p>' );
+
+            jQuery( '.login.login-action-lostpassword.bb-login #lostpasswordform input#wp-submit' ).attr( 'value', 'Request reset link' );
+            jQuery( '.login.login-action-rp.bb-login #resetpassform input#wp-submit' ).attr( 'value', 'Save' );
+            if(!jQuery('#resetpassform').length) {
+                jQuery( '.login.login-action-resetpass.bb-login p#backtoblog' ).prepend( "<span class='bs-pass-update-msg'>Password has been updated</span>" );
+            }
+
+            var $signIn = jQuery( '.login.login-action-lostpassword.bb-login #login > p#nav > a' ).first().addClass( 'bs-sign-in' ).text( `Back to sign in` );
+            jQuery( 'form#lostpasswordform' ).append( $signIn );
+
+			jQuery( '.login #loginform label#pass_label' ).append( "<span class='label-switch'></span>" );
+
+			var $forgetMeNot = jQuery( '.login.bb-login p.forgetmenot' );
+			var $lostMeNot = jQuery( '.login.bb-login p.lostmenot' );
+			jQuery( $lostMeNot ).before( $forgetMeNot );
+
+			jQuery( document ).on( 'click', '.login .label-switch', function ( e ) {
+				var $this = jQuery( this );
+				var $input = $this.closest( 'label' ).find( 'input#user_pass' );
+				$this.toggleClass( "bb-eye" );
+				if ( $this.hasClass( 'bb-eye' ) ) {
+					$input.attr( "type", "text" );
+				} else {
+					$input.attr( "type", "password" );
+				}
+			} );
+
+			var signinCheckboxes = function() {
+				// Checkbox Styling
+				jQuery('input[type=checkbox]#rememberme').each(function() {
+					var $this = jQuery(this);
+					$this.addClass('checkbox');
+					jQuery('<span class="checkbox"></span>').insertAfter($this);
+					if ($this.is(':checked')) {
+						$this.next('span.checkbox').addClass('on');
+					};
+					$this.fadeTo(0,0);
+					$this.change(function(){
+						$this.next('span.checkbox').toggleClass('on');
+					});
+				});
+			};
+			signinCheckboxes();
+
+			var weakPasswordCheckboxes = function() {
+				// Checkbox Styling
+				jQuery('input[type=checkbox]#pw-weak').each(function() {
+					var $this = jQuery(this);
+					$this.addClass('checkbox');
+					jQuery('<span class="checkbox"></span>').insertAfter($this);
+					if ($this.is(':checked')) {
+						$this.next('span.checkbox').addClass('on');
+					};
+					$this.fadeTo(0,0);
+					$this.change(function(){
+						$this.next('span.checkbox').toggleClass('on');
+					});
+				});
+			};
+			weakPasswordCheckboxes();
+
+			var loginLogoImage = function() {
+				jQuery('.login.bb-login #login > h1 > a').each(function() {
+					var $this = jQuery(this);
+					var bg = $this.css('background-image');
+					bgLogo = bg.replace('url(','').replace(')','').replace(/\"/gi, "");
+												$this.append( '<img class="bs-cs-login-logo private-on" src="' + bgLogo + '" />' );
+							jQuery('#login h1 a img').unwrap();
+											});
+			};
+
+			var loginLogoTitle = function() {
+				jQuery('.login.bb-login #login > h1 > a').each(function() {
+					var $this = jQuery(this);
+												$this.addClass('bb-login-title').append( '<span class="bs-cs-login-title private-on">Chief AI Officer</span>' );
+							jQuery('#login h1 a span').unwrap();
+							
+				});
+			};
+							loginLogoImage();
+			
+			var loginHeight = function() {
+
+				jQuery( 'body.login.login-split-page #login' ).each(function() {
+					var $loginH = jQuery( 'body.login.login-split-page #login' ).height();
+					var $winH = jQuery( window ).height();
+
+					if ( $loginH > $winH ) {
+						jQuery( 'body.login.login-split-page' ).addClass('login-exh');
+					} else {
+						jQuery( 'body.login.login-split-page' ).removeClass('login-exh');
+					}
+				});
+			};
+			loginHeight();
+
+			// Re-position WP Language Switcher below Login Form
+			var langSwitchPosition = function() {
+				var languageSwitch = jQuery( '.language-switcher' );
+				jQuery( 'body.login.login-split-page #login' ).append( languageSwitch );
+			}
+
+			langSwitchPosition();
+
+			var resetTogglePw = function() {
+
+				jQuery( document ).on( 'click', '.button-reset-hide-pw', function ( e ) {
+					var $this = jQuery( this );
+					var $input = $this.closest( '.user-bs-pass2-wrap' ).find( 'input#bs-pass2' );
+					var $icon = $this.find( 'i' );
+					
+					if ( $input.prop( 'type' ) === 'password' ) {
+						$input.prop( 'type', 'text' );
+						$icon.addClass( 'bb-icon-eye-slash' ).removeClass( 'bb-icon-eye' );
+					} else {
+						$input.prop( 'type', 'password' );
+						$icon.addClass( 'bb-icon-eye' ).removeClass( 'bb-icon-eye-slash' );
+					}
+				} );
+			};
+			resetTogglePw();
+
+			if( jQuery( '#login .bs-cs-login-logo' ).length ) {
+				jQuery( '.bs-cs-login-logo' ).load( function() {
+					loginHeight();
+					langSwitchPosition();
+				});
+			}
+
+			jQuery( window ).on( 'resize', function () {
+				loginHeight();
+				langSwitchPosition();
+			} );
+
+		} )
+	</script>
+	<div class="login-split"><div class="login-split__entry"><h1>Chief AI Officer</h1><p>The AI – Powered Executive”, tiên phong cung cấp kiến thức, kỹ năng và nguồn lực cho các nhà lãnh đạo cấp cao (C-level) trong kỷ nguyên trí tuệ nhân tạo (AI).</p></div><div class="split-overlay"></div></div><style>		:root{
+			--bb-primary-color: #C50D25;
+			--bb-primary-color-rgb: 197, 13, 37;
+			--bb-body-background-color: #FAFBFD;
+			--bb-content-background-color: #FFFFFF;
+			--bb-content-alternate-background-color: #F2F4F5;
+			--bb-content-border-color: #D6D9DD;
+			--bb-content-border-color-rgb: 214, 217, 221;
+			--bb-cover-image-background-color: #647385;
+			--bb-headings-color: #1E2132;
+			--bb-body-text-color: #0A0A0A;
+			--bb-alternate-text-color: #0A0909;
+			--bb-alternate-text-color-rgb: 10, 9, 9;
+
+			--bb-primary-button-background-regular: #BA0D3B;
+			--bb-primary-button-background-hover: #BA0D3B;
+			--bb-primary-button-border-regular: #C50D25;
+			--bb-primary-button-border-hover: #BA0D3B;
+			--bb-primary-button-border-hover-rgb: 186, 13, 59;
+			--bb-primary-button-text-regular: #FFFFFF;
+			--bb-primary-button-text-regular-rgb: 255, 255, 255;
+			--bb-primary-button-text-hover: #FFFFFF;
+			--bb-primary-button-text-hover-rgb: 255, 255, 255;
+			--bb-secondary-button-background-regular: #F2F4F5;
+			--bb-secondary-button-background-hover: #BA0D3B;
+			--bb-secondary-button-border-regular: #F2F4F5;
+			--bb-secondary-button-border-hover: #BA0D3B;
+			--bb-secondary-button-border-hover-rgb:  186, 13, 59;
+			--bb-secondary-button-text-regular: #1E2132;
+			--bb-secondary-button-text-hover: #FFFFFF;
+
+			--bb-admin-screen-bgr-color: #FFFFFF;
+			--bb-admin-screen-txt-color: #1E2132;
+			--bb-login-register-link-color-regular: #5A5A5A;
+			--bb-login-register-link-color-hover: #BA0D3B;
+			--bb-login-register-button-background-color-regular: #BA0D3B;
+			--bb-login-register-button-background-color-hover: #BA0D3B;
+			--bb-login-register-button-border-color-regular: #BA0D3B;
+			--bb-login-register-button-border-color-hover: #BA0D3B;
+			--bb-login-register-button-text-color-regular: #FFFFFF;
+			--bb-login-register-button-text-color-hover: #FFFFFF;
+
+			--bb-default-notice-color: #BA0D3B;
+			--bb-default-notice-color-rgb: 186, 13, 59;
+			--bb-success-color: #14B550;
+			--bb-success-color-rgb: 20, 181, 80;
+			--bb-warning-color: #ED9615;
+			--bb-warning-color-rgb: 237, 150, 21;
+			--bb-danger-color: #DB222A;
+			--bb-danger-color-rgb: 219, 34, 42;
+
+			--bb-login-custom-heading-color: #FFFFFF;
+
+			--bb-button-radius: 7px;
+
+			
+							--bb-block-radius: 10px;
+				--bb-block-radius-inner: 6px;
+				--bb-input-radius: 6px;
+				--bb-checkbox-radius: 5.4px;
+				--bb-primary-button-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-primary-button-border-hover-rgb), 0.1);
+				--bb-secondary-button-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-secondary-button-border-hover-rgb), 0.1);
+				--bb-outline-button-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-content-border-color-rgb), 0.1);
+				--bb-input-focus-shadow: 0px 0px 0px 2px rgba(var(--bb-primary-color-rgb), 0.1);
+				--bb-input-focus-border-color: var(--bb-primary-color);
+					}
+						body, body.rtl {
+				font-family: Exo				}
+								h1, .rtl h1 {
+				font-family: Exo				}
+								h2, .rtl h2 {
+				font-family: Exo				}
+							.login h1 a,
+			.login .wp-login-logo a {
+			background-image: url(https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/05/cao-logo-1.png);
+			background-size: contain;
+			width:145px;			}
+
+			.login #login h1 img.bs-cs-login-logo.private-on {
+			width:145px;			}
+						.login-split {
+			background-image: url(https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/05/bg-login.png);
+			background-size: cover;
+			background-position: 50% 50%;
+			}
+						.login.bb-login #pass-strength-result.short,
+			.login.bb-login #pass-strength-result.bad {
+			background-color: #DB222A;
+			border-color: #DB222A;
+			}
+						.login.bb-login #pass-strength-result.strong {
+			background-color: #14B550;
+			border-color: #14B550;
+			}
+						.login.bb-login #pass-strength-result.good {
+			background-color: #ED9615;
+			border-color: #ED9615;
+			}
+						body.login.login-split-page .login-split .split-overlay {
+			opacity: 0.3;
+			}
+			</style>	<script type="text/javascript">sessionStorage.removeItem( 'ONESIGNAL_HTTP_PROMPT_SHOWN' );</script>
+		</head>
+	<body class="login no-js login-action-login wp-core-ui  locale-vi login-split-page bb-login bb-template-v2">
+	<script type="text/javascript">
+/* <![CDATA[ */
+document.body.className = document.body.className.replace('no-js','js');
+/* ]]> */
+</script>
+
+				<h1 class="screen-reader-text">Đăng nhập</h1>
+			<div id="login">
+		<h1 role="presentation" class="wp-login-logo"><a href="#"></a></h1>
+	<div class="login-heading"><h2>Sign in</h2><span><a href="https://workshop.chiefaiofficer.vn/register/">Create an Account</a></span></div>
+<div id="login_error" class="notice notice-error"><p>Please login to access this website.</p></div>
+		<form name="loginform" id="loginform" action="https://workshop.chiefaiofficer.vn/wp-login.php" method="post">
+			<p>
+				<label for="user_login">Email Address</label>
+				<input type="text" name="log" id="user_login" aria-describedby="login_error" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required" />
+			</p>
+
+			<div class="user-pass-wrap">
+				<label for="user_pass">Mật khẩu</label>
+				<div class="wp-pwd">
+					<input type="password" name="pwd" id="user_pass" aria-describedby="login_error" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required" />
+					<button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Hiện mật khẩu">
+						<span class="dashicons dashicons-visibility" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+					<input type="hidden" name="timezone" value="+07:00" />
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const timezone = document.querySelector('input[name="timezone"]');
+				if ( timezone) {
+					const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+					timezone.value = tz
+				}
+			});
+		</script>
+					<p class="lostmenot"><a href="https://workshop.chiefaiofficer.vn/wp-login.php?action=lostpassword">Forgot Password?</a></p>
+						<p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> <label for="rememberme">Tự động đăng nhập</label></p>
+			<p class="submit">
+				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Đăng nhập" />
+									<input type="hidden" name="redirect_to" value="https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/10/DUAL-DEGREE-1.webp" />
+									<input type="hidden" name="testcookie" value="1" />
+			</p>
+		</form>
+
+					<p id="nav">
+				<a class="wp-login-register" href="https://workshop.chiefaiofficer.vn/register/">Đăng ký</a> | <a class="wp-login-lost-password" href="https://workshop.chiefaiofficer.vn/wp-login.php?action=lostpassword">Bạn quên mật khẩu?</a>			</p>
+			<script type="text/javascript">
+/* <![CDATA[ */
+function wp_attempt_focus() {setTimeout( function() {try {d = document.getElementById( "user_login" );d.focus(); d.select();} catch( er ) {}}, 200);}
+wp_attempt_focus();
+if ( typeof wpOnload === 'function' ) { wpOnload() }
+/* ]]> */
+</script>
+		<p id="backtoblog">
+			<a href="https://workshop.chiefaiofficer.vn/">&larr; Quay lại Chief AI Officer</a>		</p>
+		<div class="privacy-policy-page-link"><a class="terms-link popup-modal-login popup-terms" href="#terms-modal">Terms of Service</a><div id="terms-modal" class="mfp-hide login-popup bb-modal"><h1>Terms of Service</h1><button title="Close (Esc)" type="button" class="mfp-close">×</button></div></div>	</div>
+				<div class="language-switcher">
+				<form id="language-switcher" method="get">
+
+					<label for="language-switcher-locales">
+						<span class="dashicons dashicons-translation" aria-hidden="true"></span>
+						<span class="screen-reader-text">
+							Ngôn ngữ						</span>
+					</label>
+
+					<select name="wp_lang" id="language-switcher-locales"><option value="en_US" lang="en" data-installed="1">English (United States)</option>
+<option value="vi" lang="vi" selected='selected' data-installed="1">Tiếng Việt</option></select>
+					
+											<input type="hidden" name="redirect_to" value="https://workshop.chiefaiofficer.vn/wp-content/uploads/2025/10/DUAL-DEGREE-1.webp" />
+					
+											<input type="hidden" name="action" value="bpnoaccess" />
+					
+						<input type="submit" class="button" value="Thay đổi">
+
+					</form>
+				</div>
+			
+	<script type="text/javascript">
+/* <![CDATA[ */
+document.querySelector('form').classList.add('shake');
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-content/plugins/tutor-pro/assets/lib/prism/prism.min.js?ver=3.5.0" id="tutor-prism-js-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-content/plugins/tutor-pro/assets/lib/prism/script.js?ver=3.5.0" id="tutor-prism-script-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" id="tutor-pro-front-js-extra">
+/* <![CDATA[ */
+var _tutorobject = {"ajaxurl":"https:\/\/workshop.chiefaiofficer.vn\/wp-admin\/admin-ajax.php","nonce_key":"_tutor_nonce","_tutor_nonce":"c5c7b7d0cc","current_page":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-content/plugins/tutor-pro/assets/js/front.js?ver=3.5.0" id="tutor-pro-front-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-content/plugins/tutor-pro/assets/js/guest-checkout.js?ver=3.5.0" id="tutor-pro-guest-checkout-js"></script>
+<script type="text/javascript" id="heartbeat-js-extra">
+/* <![CDATA[ */
+var heartbeatSettings = {"ajaxurl":"\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/heartbeat.min.js?ver=6.8.1" id="heartbeat-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/codemirror.min.js?ver=2.8.51" id="bp-nouveau-codemirror-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/css.min.js?ver=2.8.51" id="bp-nouveau-codemirror-css-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/jquery/ui/menu.min.js?ver=1.13.3" id="jquery-ui-menu-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script type="text/javascript" id="wp-a11y-js-translations">
+/* <![CDATA[ */
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2025-04-29 12:00:07+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=1; plural=0;","lang":"vi_VN"},"Notifications":["Th\u00f4ng b\u00e1o"]}},"comment":{"reference":"wp-includes\/js\/dist\/a11y.js"}} );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/dist/a11y.min.js?ver=3156534cc54473497e14" id="wp-a11y-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.13.3" id="jquery-ui-autocomplete-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/clipboard.min.js?ver=2.0.11" id="clipboard-js"></script>
+<script type="text/javascript" id="zxcvbn-async-js-extra">
+/* <![CDATA[ */
+var _zxcvbnSettings = {"src":"https:\/\/workshop.chiefaiofficer.vn\/wp-includes\/js\/zxcvbn.min.js"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/zxcvbn-async.min.js?ver=1.0" id="zxcvbn-async-js"></script>
+<script type="text/javascript" id="password-strength-meter-js-extra">
+/* <![CDATA[ */
+var pwsL10n = {"unknown":"M\u1eadt kh\u1ea9u m\u1ea1nh kh\u00f4ng x\u00e1c \u0111\u1ecbnh","short":"R\u1ea5t y\u1ebfu","bad":"Y\u1ebfu","good":"Trung b\u00ecnh","strong":"M\u1ea1nh","mismatch":"M\u1eadt kh\u1ea9u kh\u00f4ng kh\u1edbp"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="password-strength-meter-js-translations">
+/* <![CDATA[ */
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2025-04-29 12:00:43+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=1; plural=0;","lang":"vi_VN"},"%1$s is deprecated since version %2$s! Use %3$s instead. Please consider writing more inclusive code.":["%1$s \u0111\u00e3 ng\u1eebng ho\u1ea1t \u0111\u1ed9ng t\u1eeb phi\u00ean b\u1ea3n %2$s! S\u1eed d\u1ee5ng thay th\u1ebf b\u1eb1ng %3$s."]}},"comment":{"reference":"wp-admin\/js\/password-strength-meter.js"}} );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-admin/js/password-strength-meter.min.js?ver=6.8.1" id="password-strength-meter-js"></script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-includes/js/wp-util.min.js?ver=6.8.1" id="wp-util-js"></script>
+<script type="text/javascript" id="user-profile-js-extra">
+/* <![CDATA[ */
+var userProfileL10n = {"user_id":"0","nonce":"963afda785"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="user-profile-js-translations">
+/* <![CDATA[ */
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "default", {"translation-revision-date":"2025-04-29 12:00:43+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=1; plural=0;","lang":"vi_VN"},"Application password has been copied to your clipboard.":["M\u1eadt kh\u1ea9u \u1ee9ng d\u1ee5ng \u0111\u00e3 \u0111\u01b0\u1ee3c sao ch\u00e9p v\u00e0o b\u1ea3ng t\u1ea1m c\u1ee7a b\u1ea1n."],"Your new password has not been saved.":["M\u1eadt kh\u1ea9u m\u1edbi c\u1ee7a b\u1ea1n ch\u01b0a \u0111\u01b0\u1ee3c l\u01b0u."],"Hide":["\u1ea8n \u0111i"],"Confirm use of weak password":["Ch\u1ea5p nh\u1eadn s\u1eed d\u1ee5ng m\u1eadt kh\u1ea9u y\u1ebfu."],"Hide password":["\u1ea8n m\u1eadt kh\u1ea9u"],"Show password":["Hi\u1ec7n m\u1eadt kh\u1ea9u"],"Show":["Hi\u1ec7n"],"The changes you made will be lost if you navigate away from this page.":["C\u00e1c thay \u0111\u1ed5i b\u1ea1n v\u1eeba th\u1ef1c hi\u1ec7n s\u1ebd b\u1ecb m\u1ea5t n\u1ebfu b\u1ea1n \u0111i kh\u1ecfi trang n\u00e0y khi ch\u01b0a l\u01b0u b\u00e0i."]}},"comment":{"reference":"wp-admin\/js\/user-profile.js"}} );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://workshop.chiefaiofficer.vn/wp-admin/js/user-profile.min.js?ver=6.8.1" id="user-profile-js"></script>
+	</body>
+	</html>
+	
