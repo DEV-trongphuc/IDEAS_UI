@@ -1,11 +1,10 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-$uploads = '/home/vhvxoigh/ideas.edu.vn/wp-content/uploads';
+$uploads = '/home/vhvxoigh/workshop.chiefaiofficer.vn/wp-content/uploads';
 $results = [];
 
 if (is_dir($uploads)) {
-    // Glob for specific pattern sets
     $patterns = [
         "$uploads/*/*/*erasmus*",
         "$uploads/*/*/*estiam*",
@@ -33,7 +32,7 @@ if (is_dir($uploads)) {
                     
                     if ($is_binary) {
                         $results[] = [
-                            'path' => str_replace('/home/vhvxoigh/ideas.edu.vn/', '', $f),
+                            'path' => str_replace('/home/vhvxoigh/workshop.chiefaiofficer.vn/', '', $f),
                             'size' => $size
                         ];
                     }
@@ -43,7 +42,6 @@ if (is_dir($uploads)) {
     }
 }
 
-// deduplicate results by path
 $unique_results = [];
 $seen = [];
 foreach ($results as $r) {
