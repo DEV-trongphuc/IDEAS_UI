@@ -47,6 +47,7 @@ try {
             FROM {$prefix}posts p
             LEFT JOIN {$prefix}postmeta pm ON p.ID = pm.post_id AND pm.meta_key = '_wp_attached_file'
             WHERE p.post_type = 'attachment' AND (p.post_title LIKE :kw OR p.guid LIKE :kw OR pm.meta_value LIKE :kw)
+            ORDER BY p.ID DESC
         ");
         $stmt->execute(['kw' => $like]);
         $rows = $stmt->fetchAll();
@@ -55,12 +56,19 @@ try {
         }
     }
 
+    // Sort by ID desc
+    krsort($results);
+
     $output .= "Total attachments found: " . count($results) . "\n";
-    foreach ($results as $id => $row) {
-        $title = str_replace("\0", "[NULL]", (string)($row['post_title'] ?? ''));
-        $guid = str_replace("\0", "[NULL]", (string)($row['guid'] ?? ''));
-        $file_path = str_replace("\0", "[NULL]", (string)($row['file_path'] ?? ''));
-        $output .= "ID: $id | Title: $title | Meta: $file_path | GUID: $guid\n";
+    try {
+        foreach ($results as $id => $row) {
+            $title = str_replace("\0", "[NULL]", (string)($row['post_title'] ?? ''));
+            $guid = str_replace("\0", "[NULL]", (string)($row['guid'] ?? ''));
+            $file_path = str_replace("\0", "[NULL]", (string)($row['file_path'] ?? ''));
+            $output .= "ID: $id | Title: $title | Meta: $file_path | GUID: $guid\n";
+        }
+    } catch (Throwable $e) {
+        $output .= "Throwable in loop: " . $e->getMessage() . " at " . $e->getFile() . ":" . $e->getLine() . "\n";
     }
 
 } catch (PDOException $e) {
