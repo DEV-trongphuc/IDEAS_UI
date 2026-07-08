@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-echo "=== Direct DB Query ===\n";
+echo "Running direct DB query and writing to db_output.txt...\n";
 $config_path = '/home/vhvxoigh/ideas.edu.vn/wp-config.php';
 if (!file_exists($config_path)) {
     die("wp-config.php not found.\n");
@@ -28,15 +28,17 @@ $db_pass = $db_vars['DB_PASSWORD'] ?? '';
 preg_match('/\$table_prefix\s*=\s*\'([^\']+)\';/', $config, $prefix_matches);
 $prefix = $prefix_matches[1] ?? 'wp_';
 
+$output = "=== Direct DB Query Results ===\n";
+
 try {
     $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
     $pdo = new PDO($dsn, $db_user, $db_pass, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
     ]);
-    echo "Connected to DB successfully.\n\n";
+    $output .= "Connected to DB successfully.\n\n";
 
-    $keywords = ['qualiopi', 'rncp', 'asic', 'ukrlp', 'ukr', 'degree'];
+    $keywords = ['qualiopi', 'rncp', 'asic', 'ukrlp', 'ukr', 'degree', 'erasmus', 'accred', 'estiam', 'rb-dba'];
     $results = [];
     foreach ($keywords as $kw) {
         $like = '%' . $kw . '%';
@@ -44,7 +46,7 @@ try {
             SELECT p.ID, p.post_title, p.guid, pm.meta_value as file_path 
             FROM {$prefix}posts p
             LEFT JOIN {$prefix}postmeta pm ON p.ID = pm.post_id AND pm.meta_key = '_wp_attached_file'
-            WHERE p.post_type = 'attachment' AND p.ID != 3568 AND (p.post_title LIKE :kw OR p.guid LIKE :kw OR pm.meta_value LIKE :kw)
+            WHERE p.post_type = 'attachment' AND (p.post_title LIKE :kw OR p.guid LIKE :kw OR pm.meta_value LIKE :kw)
         ");
         $stmt->execute(['kw' => $like]);
         $rows = $stmt->fetchAll();
@@ -53,10 +55,16 @@ try {
         }
     }
 
-    echo "Total attachments found: " . count($results) . "\n";
-    echo json_encode(array_values($results), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n";
+    $output .= "Total attachments found: " . count($results) . "\n";
+    foreach ($results as $id => $row) {
+        $output .= "ID: $id | Title: {$row['post_title']} | Meta: {$row['file_path']} | GUID: {$row['guid']}\n";
+    }
 
 } catch (PDOException $e) {
-    echo "DB Connection Error: " . $e->getMessage() . "\n";
+    $output .= "DB Connection Error: " . $e->getMessage() . "\n";
 }
+
+file_put_contents('/home/vhvxoigh/ideas.edu.vn/db_output.txt', $output);
+echo "SUCCESS! Output written to db_output.txt\n";
+
 
