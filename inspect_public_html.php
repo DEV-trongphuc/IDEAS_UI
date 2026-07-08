@@ -57,7 +57,10 @@ try {
 
     $output .= "Total attachments found: " . count($results) . "\n";
     foreach ($results as $id => $row) {
-        $output .= "ID: $id | Title: {$row['post_title']} | Meta: {$row['file_path']} | GUID: {$row['guid']}\n";
+        $title = str_replace("\0", "[NULL]", $row['post_title'] ?? '');
+        $guid = str_replace("\0", "[NULL]", $row['guid'] ?? '');
+        $file_path = str_replace("\0", "[NULL]", $row['file_path'] ?? '');
+        $output .= "ID: $id | Title: $title | Meta: $file_path | GUID: $guid\n";
     }
 
 } catch (PDOException $e) {
