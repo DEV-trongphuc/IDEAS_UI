@@ -28,8 +28,6 @@ $db_pass = $db_vars['DB_PASSWORD'] ?? '';
 preg_match('/\$table_prefix\s*=\s*\'([^\']+)\';/', $config, $prefix_matches);
 $prefix = $prefix_matches[1] ?? 'wp_';
 
-echo "Host: $db_host | DB: $db_name | User: $db_user | Prefix: $prefix\n";
-
 try {
     $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
     $pdo = new PDO($dsn, $db_user, $db_pass, [
