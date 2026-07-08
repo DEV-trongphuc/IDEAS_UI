@@ -61,4 +61,5 @@ foreach ($search_dirs as $label => $sdir) {
 }
 
 $json = json_encode($results);
-echo base64_encode($json);
+$b64 = base64_encode($json);
+echo chunk_split($b64, 76, "\n");
