@@ -1,31 +1,28 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-echo "=== Search All Uploads Subfolders ===\n";
+echo "=== Search Main Site Uploads ===\n";
 
-$uploads = "/home/vhvxoigh/workshop.chiefaiofficer.vn/wp-content/uploads";
+$uploads = "/home/vhvxoigh/chiefaiofficer.vn/wp-content/uploads";
 if (is_dir($uploads)) {
-    // Search recursively for DUAL-DEGREE files in any year/month subfolder
-    $patterns = [
-        "$uploads/*/*/DUAL-DEGREE*",
-        "$uploads/*/*/dual-degree*",
-        "$uploads/*/*/Erasmus*",
-        "$uploads/*/*/erasmus*"
-    ];
-    
-    foreach ($patterns as $pattern) {
-        $found = glob($pattern);
-        if (!empty($found)) {
-            echo "\nPattern: $pattern (Found " . count($found) . " files):\n";
-            foreach ($found as $f) {
-                echo " - " . str_replace('/home/vhvxoigh/workshop.chiefaiofficer.vn/', '', $f) . " (" . filesize($f) . " bytes)\n";
+    $pattern = "$uploads/*/*/DUAL-DEGREE-1.webp";
+    $found = glob($pattern);
+    if (!empty($found)) {
+        echo "Found DUAL-DEGREE-1.webp in: " . dirname($found[0]) . "\n";
+        // List all files in that directory
+        $dir = dirname($found[0]);
+        $files = scandir($dir);
+        foreach ($files as $f) {
+            if ($f !== '.' && $f !== '..') {
+                echo " - $f (" . filesize("$dir/$f") . " bytes)\n";
             }
-        } else {
-            echo "Pattern: $pattern (0 files found)\n";
         }
+    } else {
+        echo "DUAL-DEGREE-1.webp not found in $uploads.\n";
     }
 } else {
-    echo "Uploads directory not found.\n";
+    echo "Main site uploads directory not found.\n";
 }
+
 
 
