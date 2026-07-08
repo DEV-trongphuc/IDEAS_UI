@@ -12,6 +12,7 @@ deployment:
     - cp export_references.php $DEPLOYPATH/export_references.php
     - cp restore_receiver.php $DEPLOYPATH/restore_receiver.php
     - cp check_index_headline.php $DEPLOYPATH/check_index_headline.php
+    - cp run_search_temp_100.php $DEPLOYPATH/run_search_temp_100.php
     # Deploy landing pages
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)
