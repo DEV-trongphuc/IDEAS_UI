@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-echo "=== Search Main Site Uploads ===\n";
+echo "=== Search public_html Uploads ===\n";
 
-$uploads = "/home/vhvxoigh/chiefaiofficer.vn/wp-content/uploads";
+$uploads = "/home/vhvxoigh/public_html/wp-content/uploads";
 if (is_dir($uploads)) {
     $pattern = "$uploads/*/*/DUAL-DEGREE-1.webp";
     $found = glob($pattern);
@@ -21,8 +21,9 @@ if (is_dir($uploads)) {
         echo "DUAL-DEGREE-1.webp not found in $uploads.\n";
     }
 } else {
-    echo "Main site uploads directory not found.\n";
+    echo "public_html uploads directory not found.\n";
 }
+
 
 
 
