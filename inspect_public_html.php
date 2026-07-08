@@ -1,17 +1,18 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-echo "=== Specific File Search ===\n";
+echo "=== Specific File Search (Relative Paths) ===\n";
 
 $search_dirs = [
-    '/home/vhvxoigh/ideas.edu.vn/wp-content',
-    '/home/vhvxoigh/public_html/wp-content',
-    '/home/vhvxoigh/workshop.chiefaiofficer.vn/wp-content'
+    'ideas.edu.vn' => '/home/vhvxoigh/ideas.edu.vn/wp-content',
+    'chiefaiofficer.vn' => '/home/vhvxoigh/public_html/wp-content',
+    'workshop.chief' => '/home/vhvxoigh/workshop.chiefaiofficer.vn/wp-content'
 ];
 
 $found = 0;
-foreach ($search_dirs as $sdir) {
+foreach ($search_dirs as $label => $sdir) {
     if (is_dir($sdir)) {
+        echo "Scanning $label...\n";
         $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($sdir));
         foreach ($iterator as $file) {
             if ($file->isFile()) {
@@ -48,7 +49,8 @@ foreach ($search_dirs as $sdir) {
                     }
                     
                     if ($is_binary) {
-                        echo " - " . $file->getPathname() . " ($size bytes)\n";
+                        $rel_path = str_replace('/home/vhvxoigh/', '', $file->getPathname());
+                        echo " - $rel_path ($size bytes)\n";
                         $found++;
                     }
                 }
