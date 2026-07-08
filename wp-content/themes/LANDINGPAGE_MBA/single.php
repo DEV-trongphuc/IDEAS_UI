@@ -1446,7 +1446,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             </div>
                                         </a>
                                         <a href="<?php echo $is_en ? '/en/mbainai' : '/mbainai'; ?>" class="sidebar-course-item">
-                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
+                                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/MBA-in-AI.png"
                                                 alt="MBA in AI" class="sidebar-course-img">
                                             <div>
                                                 <h4 class="sidebar-course-title">MBA in AI</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'MBA in Applied AI' : 'Thạc sĩ QTKD Ứng dụng AI'; ?></p>

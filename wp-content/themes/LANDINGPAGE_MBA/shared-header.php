@@ -267,7 +267,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                         </a>
                         <a href="<?php echo esc_url($mbainai_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
-                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
+                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/MBA-in-AI.png"
                                 alt="MBA in AI" loading="lazy" decoding="async" />
                             <div class="item-content">
                                 <div class="item-title">MBA in AI</div>
@@ -576,7 +576,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                     </div>
                 </a>
                 <a href="<?php echo esc_url($mbainai_url); ?>" class="mobile-dropdown-item">
-                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai-optimized.webp"
+                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/06/MBA-in-AI.png"
                         alt="MBA in AI" loading="lazy" decoding="async" />
                     <div class="item-content">
                         <div class="item-title">MBA in AI</div>
