@@ -1,18 +1,16 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-echo "=== Specific File Search (Relative Paths) ===\n";
-
 $search_dirs = [
     'ideas.edu.vn' => '/home/vhvxoigh/ideas.edu.vn/wp-content',
     'chiefaiofficer.vn' => '/home/vhvxoigh/public_html/wp-content',
     'workshop.chief' => '/home/vhvxoigh/workshop.chiefaiofficer.vn/wp-content'
 ];
 
-$found = 0;
+$results = [];
+
 foreach ($search_dirs as $label => $sdir) {
     if (is_dir($sdir)) {
-        echo "Scanning $label...\n";
         $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($sdir));
         foreach ($iterator as $file) {
             if ($file->isFile()) {
@@ -50,12 +48,17 @@ foreach ($search_dirs as $label => $sdir) {
                     
                     if ($is_binary) {
                         $rel_path = str_replace('/home/vhvxoigh/', '', $file->getPathname());
-                        echo " - $rel_path ($size bytes)\n";
-                        $found++;
+                        $results[] = [
+                            'site' => $label,
+                            'path' => $rel_path,
+                            'size' => $size
+                        ];
                     }
                 }
             }
         }
     }
 }
-echo "Total matching binary files found: $found\n";
+
+$json = json_encode($results);
+echo base64_encode($json);
