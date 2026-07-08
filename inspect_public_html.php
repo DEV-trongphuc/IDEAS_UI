@@ -75,7 +75,9 @@ try {
     $output .= "DB Connection Error: " . $e->getMessage() . "\n";
 }
 
-file_put_contents('/home/vhvxoigh/ideas.edu.vn/db_output.txt', $output);
-echo "SUCCESS! Output written to db_output.txt\n";
+$html = "<html><body><h1>DB Query Results</h1><pre>" . htmlspecialchars($output) . "</pre></body></html>";
+file_put_contents('/home/vhvxoigh/ideas.edu.vn/db_output.html', $html);
+echo "SUCCESS! Output written to db_output.html\n";
+
 
 
