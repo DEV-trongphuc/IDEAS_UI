@@ -576,7 +576,16 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         <!-- Canvas area -->
         <div class="studio-canvas-area">
             <div class="studio-a4-sheet" id="studioCanvas">
-                <!-- Draggable elements dynamically loaded here -->
+                <div id="studioLayer" style="position: absolute; top:0; left:0; width:100%; height:100%; z-index: 5;"></div>
+                
+                <!-- Alignment Guides -->
+                <div id="hGuideWrap" style="position: absolute; left: 0; width: 100%; height: 1px; border-top: 1px dashed #ef4444; z-index: 999; top: 50%; cursor: row-resize; pointer-events: none;">
+                    <div id="hGuideHitbox" style="position: absolute; top: -8px; height: 16px; width: 100%; pointer-events: auto;"></div>
+                </div>
+                
+                <div id="vGuideWrap" style="position: absolute; top: 0; height: 100%; width: 1px; border-left: 1px dashed #ef4444; z-index: 999; left: 50%; cursor: col-resize; pointer-events: none;">
+                    <div id="vGuideHitbox" style="position: absolute; left: -8px; width: 16px; height: 100%; pointer-events: auto;"></div>
+                </div>
             </div>
         </div>
         
@@ -591,6 +600,17 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
                     <input type="text" id="prop_label" oninput="updateActiveBox()" />
                 </div>
                 
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                    <div class="studio-group-input" style="margin:0;">
+                        <label>Chiều rộng (%)</label>
+                        <input type="number" id="prop_width" min="1" max="100" step="0.1" oninput="updateActiveBox()" />
+                    </div>
+                    <div class="studio-group-input" style="margin:0;">
+                        <label>Chiều cao (%)</label>
+                        <input type="number" id="prop_height" min="1" max="100" step="0.1" oninput="updateActiveBox()" />
+                    </div>
+                </div>
+
                 <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
                     <div class="studio-group-input" style="margin:0;">
                         <label>Cỡ chữ (px)</label>
@@ -622,6 +642,23 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
                         </select>
                     </div>
                 </div>
+
+                <div class="studio-group-input" id="prop_border_group" style="display:none;">
+                    <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+                        <div class="studio-group-input" style="margin:0;">
+                            <label>Bo góc (%)</label>
+                            <input type="number" id="prop_border_radius" min="0" max="50" oninput="updateActiveBox()" />
+                        </div>
+                        <div class="studio-group-input" style="margin:0;">
+                            <label>Độ dày viền (px)</label>
+                            <input type="number" id="prop_border_width" min="0" oninput="updateActiveBox()" />
+                        </div>
+                    </div>
+                    <div class="studio-group-input">
+                        <label>Màu viền</label>
+                        <input type="color" id="prop_border_color" onchange="updateActiveBox()" />
+                    </div>
+                </div>
                 
                 <div class="studio-group-input">
                     <label>Kiểu Font chữ (Font Family)</label>
@@ -633,6 +670,12 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
                         <option value="Pinyon Script, cursive">Pinyon Script (Chữ ký tay)</option>
                         <option value="Roboto, sans-serif">Roboto</option>
                     </select>
+                </div>
+
+                <div style="margin-top: 14px; display:flex; gap: 8px;">
+                    <button type="button" class="button" style="flex:1; border-radius:6px; font-weight:700;" onclick="alignGroup('left')">Căn trái</button>
+                    <button type="button" class="button" style="flex:1; border-radius:6px; font-weight:700;" onclick="alignGroup('center')">Căn giữa</button>
+                    <button type="button" class="button" style="flex:1; border-radius:6px; font-weight:700;" onclick="alignGroup('right')">Căn phải</button>
                 </div>
 
                 <div style="margin-top: 24px;">
@@ -761,6 +804,13 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         }
 
         activeBoxId = null;
+        guideHPos = 50;
+        guideVPos = 50;
+        const hG = document.getElementById('hGuideWrap');
+        const vG = document.getElementById('vGuideWrap');
+        if (hG) hG.style.top = '50%';
+        if (vG) vG.style.left = '50%';
+        
         hidePropertiesPanel();
         renderToolbox();
         renderCanvas();
@@ -856,10 +906,56 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
                 div.innerHTML = `<span style="font-family:${box.fontFamily || 'inherit'}; font-size:${box.fontSize}px; color:${box.color || '#000000'}; font-weight:${box.weight || '600'}; white-space:nowrap;">${box.label}</span>`;
             }
 
+            // Apply custom styles if border properties exist
+            if (key === 'avatar' || key === 'qr_code' || key === 'course_grid') {
+                div.style.borderRadius = (box.borderRadius || 0) + '%';
+                if (box.borderWidth > 0) {
+                    div.style.border = `${box.borderWidth}px solid ${box.borderColor || '#000000'}`;
+                }
+            }
+
             div.addEventListener('mousedown', (e) => startDrag(e, key));
+
+            if (activeBoxId === key) {
+                // Create Resize handle dot at bottom-right corner of selected element
+                const resizer = document.createElement('div');
+                resizer.className = 'studio-resizer';
+                resizer.style.cssText = "position:absolute; bottom:-4px; right:-4px; width:8px; height:8px; background:#ef4444; border-radius:50%; cursor:se-resize; z-index:100;";
+                resizer.addEventListener('mousedown', (e) => {
+                    e.stopPropagation();
+                    const canvas = document.getElementById('studioCanvas');
+                    canvasRect = canvas.getBoundingClientRect();
+                    dragState = {
+                        type: 'resize',
+                        id: key,
+                        startX: e.clientX,
+                        startY: e.clientY,
+                        origWidth: box.width,
+                        origHeight: box.height
+                    };
+                });
+                div.appendChild(resizer);
+            }
 
             canvas.appendChild(div);
         });
+    }
+
+    function startDrag(e, id) {
+        e.stopPropagation();
+        selectBox(id);
+        const box = studioConfig[currentStudioTab][id];
+        const canvas = document.getElementById('studioCanvas');
+        canvasRect = canvas.getBoundingClientRect();
+        
+        dragState = {
+            type: 'move',
+            id: id,
+            startX: e.clientX,
+            startY: e.clientY,
+            origLeft: box.left,
+            origTop: box.top
+        };
     }
 
     function selectBox(id) {
@@ -876,12 +972,24 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         document.getElementById('propertiesForm').style.display = 'block';
 
         document.getElementById('prop_box_id').value = id;
-        document.getElementById('prop_label').value = box.label;
-        document.getElementById('prop_font_size').value = box.fontSize;
-        document.getElementById('prop_color').value = box.color;
-        document.getElementById('prop_weight').value = box.weight;
+        document.getElementById('prop_label').value = box.label || '';
+        document.getElementById('prop_width').value = box.width || '';
+        document.getElementById('prop_height').value = box.height || '';
+        document.getElementById('prop_font_size').value = box.fontSize || 14;
+        document.getElementById('prop_color').value = box.color || '#000000';
+        document.getElementById('prop_weight').value = box.weight || '400';
         document.getElementById('prop_align').value = box.align || 'left';
         document.getElementById('prop_font_family').value = box.fontFamily || "Plus Jakarta Sans, sans-serif";
+
+        const borderGroup = document.getElementById('prop_border_group');
+        if (id === 'avatar' || id === 'qr_code' || id === 'course_grid') {
+            borderGroup.style.display = 'block';
+            document.getElementById('prop_border_radius').value = box.borderRadius !== undefined ? box.borderRadius : 0;
+            document.getElementById('prop_border_width').value = box.borderWidth !== undefined ? box.borderWidth : 0;
+            document.getElementById('prop_border_color').value = box.borderColor || '#000000';
+        } else {
+            borderGroup.style.display = 'none';
+        }
     }
 
     function hidePropertiesPanel() {
@@ -894,11 +1002,19 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         const box = studioConfig[currentStudioTab][activeBoxId];
         
         box.label = document.getElementById('prop_label').value;
+        box.width = parseFloat(document.getElementById('prop_width').value) || box.width;
+        box.height = parseFloat(document.getElementById('prop_height').value) || box.height;
         box.fontSize = parseInt(document.getElementById('prop_font_size').value) || 14;
         box.color = document.getElementById('prop_color').value;
         box.weight = document.getElementById('prop_weight').value;
         box.align = document.getElementById('prop_align').value;
         box.fontFamily = document.getElementById('prop_font_family').value;
+
+        if (activeBoxId === 'avatar' || activeBoxId === 'qr_code' || activeBoxId === 'course_grid') {
+            box.borderRadius = parseInt(document.getElementById('prop_border_radius').value) || 0;
+            box.borderWidth = parseInt(document.getElementById('prop_border_width').value) || 0;
+            box.borderColor = document.getElementById('prop_border_color').value;
+        }
 
         renderCanvas();
     }
@@ -914,48 +1030,98 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         }
     }
 
-    function startDrag(e, id) {
-        selectBox(id);
-        isDragging = true;
-        
-        const boxEl = document.getElementById('studio_box_' + id);
+    function alignGroup(alignType) {
+        if (!activeBoxId) return;
+        const box = studioConfig[currentStudioTab][activeBoxId];
+        if (alignType === 'left') {
+            box.left = 5;
+        } else if (alignType === 'center') {
+            box.left = Math.round(((100 - box.width) / 2) * 10) / 10;
+        } else if (alignType === 'right') {
+            box.left = Math.round((100 - box.width - 5) * 10) / 10;
+        }
+        renderCanvas();
+        showPropertiesPanel(activeBoxId);
+    }
+
+    // --- Guides alignment helpers ---
+    let guideHPos = 50;
+    let guideVPos = 50;
+    let dragState = null;
+
+    document.getElementById('hGuideHitbox').addEventListener('mousedown', (e) => {
+        e.stopPropagation();
         const canvas = document.getElementById('studioCanvas');
         canvasRect = canvas.getBoundingClientRect();
+        dragState = { type: 'guideH', startY: e.clientY, origPos: guideHPos };
+    });
 
-        dragOffset.x = e.clientX - boxEl.getBoundingClientRect().left;
-        dragOffset.y = e.clientY - boxEl.getBoundingClientRect().top;
+    document.getElementById('vGuideHitbox').addEventListener('mousedown', (e) => {
+        e.stopPropagation();
+        const canvas = document.getElementById('studioCanvas');
+        canvasRect = canvas.getBoundingClientRect();
+        dragState = { type: 'guideV', startX: e.clientX, origPos: guideVPos };
+    });
 
-        document.addEventListener('mousemove', dragMove);
-        document.addEventListener('mouseup', stopDrag);
-    }
+    // Custom Drag repisitioning & Resizing Mouse Events on Document
+    document.addEventListener('mousemove', (e) => {
+        if (!dragState) return;
 
-    function dragMove(e) {
-        if (!isDragging || !activeBoxId) return;
+        const canvas = document.getElementById('studioCanvas');
+        const rect = canvas.getBoundingClientRect();
+        const dx = ((e.clientX - dragState.startX) / rect.width) * 100;
+        const dy = ((e.clientY - dragState.startY) / rect.height) * 100;
 
-        const box = studioConfig[currentStudioTab][activeBoxId];
-        
-        const x = e.clientX - canvasRect.left - dragOffset.x;
-        const y = e.clientY - canvasRect.top - dragOffset.y;
+        if (dragState.type === 'guideH') {
+            guideHPos = Math.max(0, Math.min(100, dragState.origPos + dy));
+            document.getElementById('hGuideWrap').style.top = guideHPos + '%';
+            return;
+        }
 
-        let leftPercent = (x / canvasRect.width) * 100;
-        let topPercent = (y / canvasRect.height) * 100;
+        if (dragState.type === 'guideV') {
+            guideVPos = Math.max(0, Math.min(100, dragState.origPos + dx));
+            document.getElementById('vGuideWrap').style.left = guideVPos + '%';
+            return;
+        }
 
-        leftPercent = Math.max(0, Math.min(100 - box.width, leftPercent));
-        topPercent = Math.max(0, Math.min(100 - box.height, topPercent));
+        const box = studioConfig[currentStudioTab][dragState.id];
 
-        box.left = Math.round(leftPercent * 10) / 10;
-        box.top = Math.round(topPercent * 10) / 10;
+        if (dragState.type === 'move') {
+            box.left = Math.round(Math.max(0, Math.min(100 - box.width, dragState.origLeft + dx)) * 10) / 10;
+            box.top = Math.round(Math.max(0, Math.min(100 - box.height, dragState.origTop + dy)) * 10) / 10;
+            const el = document.getElementById('studio_box_' + dragState.id);
+            if (el) {
+                el.style.left = box.left + '%';
+                el.style.top = box.top + '%';
+            }
+        } else if (dragState.type === 'resize') {
+            box.width = Math.round(Math.max(2, Math.min(100 - box.left, dragState.origWidth + dx)) * 10) / 10;
+            box.height = Math.round(Math.max(1, Math.min(100 - box.top, dragState.origHeight + dy)) * 10) / 10;
+            const el = document.getElementById('studio_box_' + dragState.id);
+            if (el) {
+                el.style.width = box.width + '%';
+                el.style.height = box.height + '%';
+            }
+        }
+    });
 
-        const boxEl = document.getElementById('studio_box_' + activeBoxId);
-        boxEl.style.left = box.left + '%';
-        boxEl.style.top = box.top + '%';
-    }
+    document.addEventListener('mouseup', () => {
+        if (dragState) {
+            dragState = null;
+            renderCanvas();
+            showPropertiesPanel(activeBoxId);
+        }
+    });
 
-    function stopDrag() {
-        isDragging = false;
-        document.removeEventListener('mousemove', dragMove);
-        document.removeEventListener('mouseup', stopDrag);
-    }
+    document.addEventListener('mousedown', (e) => {
+        const canvas = document.getElementById('studioCanvas');
+        const layer = document.getElementById('studioLayer');
+        if (e.target === canvas || e.target === layer) {
+            activeBoxId = null;
+            hidePropertiesPanel();
+            renderCanvas();
+        }
+    });
 
     async function saveStudioConfig() {
         if (!activeGroup) return;
