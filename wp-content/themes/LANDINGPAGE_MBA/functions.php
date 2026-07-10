@@ -712,6 +712,8 @@ function ideas_admin_column_styles()
 
         .drag-drop-inside p.drag-drop-buttons {
             margin: 0 !important;
+            text-align: center !important;
+            width: 100% !important;
         }
 
         /* Small divider text "hoặc" */
