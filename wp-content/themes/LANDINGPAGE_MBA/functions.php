@@ -676,6 +676,7 @@ function ideas_admin_column_styles()
             flex-direction: column !important;
             align-items: center !important;
             justify-content: center !important;
+            gap: 16px !important;
         }
 
         /* Inject Cloud Upload Dashicon */
@@ -687,7 +688,7 @@ function ideas_admin_column_styles()
             line-height: 1 !important;
             color: #94a3b8 !important;
             display: block !important;
-            margin: 0 auto 20px auto !important;
+            margin: 0 !important;
             transition: all 0.2s ease !important;
             speak: never !important;
             -webkit-font-smoothing: antialiased !important;
@@ -705,21 +706,22 @@ function ideas_admin_column_styles()
             font-size: 18px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
-            margin: 0 0 8px 0 !important;
+            margin: 0 !important;
             text-align: center !important;
         }
 
         .drag-drop-inside p.drag-drop-buttons {
-            margin: 16px 0 0 0 !important;
+            margin: 0 !important;
         }
 
         /* Small divider text "hoặc" */
         .drag-drop-inside p.drag-drop-info+p {
             font-size: 13px !important;
-            color: #94a3b8 !important;
-            margin: 12px 0 !important;
+            color: #64748b !important;
+            margin: 0 !important;
             text-align: center !important;
             font-family: inherit !important;
+            font-weight: 500 !important;
         }
 
         /* Select File Button */
@@ -728,14 +730,14 @@ function ideas_admin_column_styles()
             background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
             color: #ffffff !important;
             border: none !important;
-            padding: 8px 24px !important;
-            border-radius: 6px !important;
+            padding: 10px 28px !important;
+            border-radius: 8px !important;
             font-weight: 700 !important;
             box-shadow: 0 4px 6px rgba(171, 14, 0, 0.15) !important;
             transition: all 0.2s ease !important;
             height: auto !important;
             line-height: normal !important;
-            font-size: 13px !important;
+            font-size: 14px !important;
             text-shadow: none !important;
             cursor: pointer !important;
             display: inline-block !important;
@@ -754,9 +756,10 @@ function ideas_admin_column_styles()
         .max-upload-size,
         .upload-flash-bypass {
             font-family: 'Plus Jakarta Sans', sans-serif !important;
-            font-size: 12px !important;
+            font-size: 13px !important;
             color: #64748b !important;
-            margin-top: 8px !important;
+            margin-top: 14px !important;
+            display: block !important;
         }
 
         .upload-flash-bypass a {
