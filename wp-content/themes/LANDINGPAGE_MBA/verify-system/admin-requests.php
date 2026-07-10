@@ -180,7 +180,9 @@ $cert_groups = $wpdb->get_results("SELECT id, name FROM $table_groups ORDER BY i
         --text-muted: #64748b;
     }
     .ideas-wrap {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-variant-ligatures: none;
+        -webkit-font-variant-ligatures: none;
         margin: 20px 20px 20px 0;
         color: var(--text-slate);
     }
