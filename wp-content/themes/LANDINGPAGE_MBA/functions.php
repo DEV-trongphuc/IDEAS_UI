@@ -651,6 +651,7 @@ function ideas_admin_column_styles()
             border-radius: 16px !important;
             padding: 50px 20px !important;
             max-width: 900px !important;
+            height: auto !important;
             margin: 20px 0 !important;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02) !important;
             transition: all 0.2s ease-in-out !important;
