@@ -799,6 +799,12 @@ function ideas_admin_column_styles()
             text-decoration: underline !important;
         }
 
+        /* Fix Plupload Moxie Shim alignment overlay */
+        .moxie-shim,
+        .moxie-shim-html5 {
+            z-index: 100000 !important;
+        }
+
         /* Sidebar Logo/Header at the Top */
         .ideas-sidebar-logo {
             padding: 20px 14px !important;
@@ -3074,6 +3080,24 @@ function ideas_admin_sidebar_profile_script()
                 // Append profile at the bottom
                 $('#adminmenuwrap').append(<?php echo wp_json_encode($html); ?>);
             }
+
+            // Fix Plupload uploader shim alignment issues
+            function refreshUploader() {
+                if (typeof uploader !== 'undefined' && uploader.refresh) {
+                    uploader.refresh();
+                }
+            }
+            
+            // Run refresh when window loads (fonts & styles fully loaded)
+            $(window).on('load', refreshUploader);
+            
+            // Run refresh on window resize
+            $(window).on('resize', refreshUploader);
+            
+            // Also run a few delayed refreshes to capture any late layout shifts
+            setTimeout(refreshUploader, 500);
+            setTimeout(refreshUploader, 1500);
+            setTimeout(refreshUploader, 3000);
         });
     </script>
     <?php
