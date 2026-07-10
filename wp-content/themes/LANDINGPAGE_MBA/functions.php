@@ -3303,9 +3303,9 @@ function ideas_get_post_views($post_id)
         }
     }
 
-    // Fallback to deterministic simulation to align with Top 10 Viewed posts logic
+    // Fallback to deterministic simulation to align with Top 10 Viewed posts logic (only for published posts)
     $post = get_post($post_id);
-    if ($post) {
+    if ($post && $post->post_status === 'publish') {
         $base_views = 150 + (($post->ID * 47) % 650);
         $comment_bonus = $post->comment_count * 75;
         return $base_views + $comment_bonus;
