@@ -680,14 +680,14 @@ function ideas_admin_column_styles()
 
         /* Inject Cloud Upload Dashicon */
         .drag-drop-inside::before {
-            content: "\f142" !important;
+            content: "\f13b" !important;
             /* dashicons-cloud-upload */
             font-family: dashicons !important;
             font-size: 56px !important;
             line-height: 1 !important;
             color: #94a3b8 !important;
             display: block !important;
-            margin: 0 auto 16px auto !important;
+            margin: 0 auto 20px auto !important;
             transition: all 0.2s ease !important;
             speak: never !important;
             -webkit-font-smoothing: antialiased !important;
@@ -705,19 +705,19 @@ function ideas_admin_column_styles()
             font-size: 18px !important;
             font-weight: 700 !important;
             color: #0f172a !important;
-            margin: 0 0 4px 0 !important;
+            margin: 0 0 8px 0 !important;
             text-align: center !important;
         }
 
         .drag-drop-inside p.drag-drop-buttons {
-            margin: 10px 0 0 0 !important;
+            margin: 16px 0 0 0 !important;
         }
 
         /* Small divider text "hoặc" */
         .drag-drop-inside p.drag-drop-info+p {
             font-size: 13px !important;
             color: #94a3b8 !important;
-            margin: 8px 0 !important;
+            margin: 12px 0 !important;
             text-align: center !important;
             font-family: inherit !important;
         }
