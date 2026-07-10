@@ -378,14 +378,14 @@ if ($contract_code) {
                     uploadText.textContent = 'Kéo thả ảnh hoặc click để chọn tệp tin (Định dạng PNG/JPG/JPEG, Tối đa 3MB)';
                 } else {
                     statusBox.className = 'status-box error';
-                    statusBox.textContent = '❌ ' + (data.data.error || 'Có lỗi xảy ra. Vui lòng kiểm tra lại.');
+                    statusBox.textContent = (data.data.error || 'Có lỗi xảy ra. Vui lòng kiểm tra lại.');
                     statusBox.style.display = 'block';
                     btnSubmit.disabled = false;
                     btnSubmit.textContent = 'Gửi yêu cầu đăng ký';
                 }
             } catch (err) {
                 statusBox.className = 'status-box error';
-                statusBox.textContent = '⚠️ Lỗi kết nối mạng. Không thể gửi yêu cầu.';
+                statusBox.textContent = 'Lỗi kết nối mạng. Không thể gửi yêu cầu.';
                 statusBox.style.display = 'block';
                 btnSubmit.disabled = false;
                 btnSubmit.textContent = 'Gửi yêu cầu đăng ký';

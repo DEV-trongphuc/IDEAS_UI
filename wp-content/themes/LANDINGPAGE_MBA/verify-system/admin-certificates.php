@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ideas_edit_certificat
         }
 
         $wpdb->query("COMMIT");
-        echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã cập nhật hồ sơ và bảng điểm học viên thành công!</p></div>";
+        echo "<div class='notice notice-success is-dismissible'><p>Đã cập nhật hồ sơ và bảng điểm học viên thành công!</p></div>";
     }
 }
 
@@ -88,7 +88,7 @@ if (isset($_GET['action_type']) && isset($_GET['id'])) {
             $wpdb->delete($table_certs, array('id' => $id));
             $wpdb->delete($table_courses, array('cer_no' => $cer_no));
             $wpdb->query("COMMIT");
-            echo "<div class='notice notice-success is-dismissible'><p>🗑️ Đã xóa chứng chỉ và dữ liệu bảng điểm liên quan thành công.</p></div>";
+            echo "<div class='notice notice-success is-dismissible'><p>Đã xóa chứng chỉ và dữ liệu bảng điểm liên quan thành công.</p></div>";
         }
     }
 }

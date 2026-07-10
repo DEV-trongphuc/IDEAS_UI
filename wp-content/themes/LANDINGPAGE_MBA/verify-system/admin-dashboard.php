@@ -211,7 +211,7 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
 <div class="ideas-wrap">
     <div class="ideas-header">
         <div>
-            <h1>Chứng chỉ & Bảng điểm IDEAS</h1>
+            <h1>Ch&#7913;ng ch&#7881; &amp; B&#7843;ng &#273;i&#7875;m IDEAS</h1>
             <p style="color: var(--text-muted); margin: 6px 0 0 0; font-size: 14px;">Trang tổng quan thống kê số liệu và hồ sơ cấp chứng chỉ số học viện.</p>
         </div>
         <a href="?page=ideas-cert-requests" class="btn-ideas">
@@ -222,28 +222,36 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
     <!-- Stats Grid -->
     <div class="ideas-grid">
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #f0f9ff; color: #0369a1;">🎓</div>
+            <div class="ideas-card-icon" style="background: #f0f9ff; color: #0369a1;">
+                <i class="ph ph-graduation-cap" style="font-size: 28px;"></i>
+            </div>
             <div class="ideas-card-info">
                 <h3>Đã cấp</h3>
                 <p><?php echo esc_html($total_certs); ?></p>
             </div>
         </div>
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #ecfdf5; color: #047857;">✅</div>
+            <div class="ideas-card-icon" style="background: #ecfdf5; color: #047857;">
+                <i class="ph ph-check-circle" style="font-size: 28px;"></i>
+            </div>
             <div class="ideas-card-info">
                 <h3>Hoạt động</h3>
                 <p><?php echo esc_html($active_certs); ?></p>
             </div>
         </div>
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #fffbeb; color: #b45309;">⏳</div>
+            <div class="ideas-card-icon" style="background: #fffbeb; color: #b45309;">
+                <i class="ph ph-hourglass" style="font-size: 28px;"></i>
+            </div>
             <div class="ideas-card-info">
                 <h3>Yêu cầu chờ</h3>
                 <p><?php echo esc_html($pending_reqs); ?></p>
             </div>
         </div>
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #f5f3ff; color: #6d28d9;">🏢</div>
+            <div class="ideas-card-icon" style="background: #f5f3ff; color: #6d28d9;">
+                <i class="ph ph-buildings" style="font-size: 28px;"></i>
+            </div>
             <div class="ideas-card-info">
                 <h3>Hợp đồng đối tác</h3>
                 <p><?php echo esc_html($active_contracts); ?></p>
@@ -253,7 +261,7 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
 
     <!-- Recent Certs Table -->
     <div class="ideas-section">
-        <h2><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Chứng chỉ vừa cấp gần đây</h2>
+        <h2><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Ch&#7913;ng ch&#7881; v&#7915;a c&#7845;p g&#7847;n &#273;&#226;y</h2>
         <?php if (!empty($recent_certs)): ?>
             <table class="ideas-table">
                 <thead>

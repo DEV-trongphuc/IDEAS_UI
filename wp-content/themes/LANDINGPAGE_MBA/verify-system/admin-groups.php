@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ideas_save_group'])) 
                 'bg_transcript' => $bg_transcript,
                 'bg_card' => $bg_card
             ), array('id' => $id));
-            echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã cập nhật nhóm thiết kế thành công!</p></div>";
+            echo "<div class='notice notice-success is-dismissible'><p>Đã cập nhật nhóm thiết kế thành công!</p></div>";
         } else {
             $wpdb->insert($table_groups, array(
                 'name' => $name,
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ideas_save_group'])) 
                 'bg_transcript' => $bg_transcript,
                 'bg_card' => $bg_card
             ));
-            echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã tạo nhóm thiết kế mới thành công!</p></div>";
+            echo "<div class='notice notice-success is-dismissible'><p>Đã tạo nhóm thiết kế mới thành công!</p></div>";
         }
     }
 }
@@ -45,7 +45,7 @@ if (isset($_GET['action_type']) && isset($_GET['id'])) {
 
     if ($action_type === 'delete') {
         $wpdb->delete($table_groups, array('id' => $id));
-        echo "<div class='notice notice-success is-dismissible'><p>🗑️ Đã xóa nhóm thiết kế thành công.</p></div>";
+        echo "<div class='notice notice-success is-dismissible'><p>Đã xóa nhóm thiết kế thành công.</p></div>";
     }
 }
 
@@ -828,7 +828,7 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
             btn.className = 'btn-toolbox';
             btn.innerHTML = `
                 <span>${fields[key]}</span>
-                <span>${added ? '✅' : '➕'}</span>
+                <span>${added ? '<i class="ph ph-check-circle" style="color:#22c55e; font-size:16px;"></i>' : '<i class="ph ph-plus-circle" style="font-size:16px;"></i>'}</span>
             `;
             if (!added) {
                 btn.onclick = () => addBoxToCanvas(key, fields[key]);
@@ -1145,13 +1145,13 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
             });
             const result = await res.json();
             if (result.success) {
-                alert('🎉 Đã lưu cấu hình kéo thả thành công!');
+                alert('Đã lưu cấu hình kéo thả thành công!');
                 location.reload();
             } else {
-                alert('❌ Lỗi: ' + (result.data.error || 'Không thể lưu cấu hình.'));
+                alert('Lỗi: ' + (result.data.error || 'Không thể lưu cấu hình.'));
             }
         } catch(e) {
-            alert('⚠️ Lỗi kết nối mạng khi lưu.');
+            alert('Lỗi kết nối mạng khi lưu.');
         }
     }
 
@@ -1217,13 +1217,13 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
             });
             const result = await res.json();
             if (result.success) {
-                alert(`🎉 Nhập CSV thành công! Đã nhập/cập nhật ${result.data.count} chứng chỉ.`);
+                alert(`Nhập CSV thành công! Đã nhập/cập nhật ${result.data.count} chứng chỉ.`);
                 location.reload();
             } else {
-                alert('❌ Lỗi: ' + (result.data.error || 'Nhập file CSV không thành công.'));
+                alert('Lỗi: ' + (result.data.error || 'Nhập file CSV không thành công.'));
             }
         } catch(e) {
-            alert('⚠️ Lỗi kết nối mạng khi tải lên CSV.');
+            alert('Lỗi kết nối mạng khi tải lên CSV.');
         } finally {
             event.target.value = '';
             csvTargetGroupId = null;

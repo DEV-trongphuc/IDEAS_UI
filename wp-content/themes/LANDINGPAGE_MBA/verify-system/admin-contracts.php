@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ideas_add_contract'])
                 'course_name' => $course,
                 'status' => 'active'
             ));
-            echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã liên kết hợp đồng đối tác mới thành công!</p></div>";
+            echo "<div class='notice notice-success is-dismissible'><p>Đã liên kết hợp đồng đối tác mới thành công!</p></div>";
         } else {
-            echo "<div class='notice notice-error is-dismissible'><p>❌ Lỗi: Mã hợp đồng này đã được sử dụng.</p></div>";
+            echo "<div class='notice notice-error is-dismissible'><p>Lỗi: Mã hợp đồng này đã được sử dụng.</p></div>";
         }
     }
 }
@@ -39,12 +39,12 @@ if (isset($_GET['action_type']) && isset($_GET['id'])) {
 
     if ($action_type === 'delete') {
         $wpdb->delete($table_contracts, array('id' => $id));
-        echo "<div class='notice notice-success is-dismissible'><p>🗑️ Đã xóa hợp đồng thành công.</p></div>";
+        echo "<div class='notice notice-success is-dismissible'><p>Đã xóa hợp đồng thành công.</p></div>";
     } elseif ($action_type === 'toggle_status') {
         $current = $wpdb->get_var($wpdb->prepare("SELECT status FROM $table_contracts WHERE id = %d", $id));
         $new_status = $current === 'active' ? 'expired' : 'active';
         $wpdb->update($table_contracts, array('status' => $new_status), array('id' => $id));
-        echo "<div class='notice notice-success is-dismissible'><p>🔄 Đã cập nhật trạng thái hợp đồng.</p></div>";
+        echo "<div class='notice notice-success is-dismissible'><p>Đã cập nhật trạng thái hợp đồng.</p></div>";
     }
 }
 

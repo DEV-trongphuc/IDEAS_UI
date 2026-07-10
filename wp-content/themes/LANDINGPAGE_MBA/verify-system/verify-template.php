@@ -408,7 +408,7 @@ if (!defined('ABSPATH')) {
                             window.location.href = '?cer_id=' + encodeURIComponent(data.data.cer_no);
                         } else {
                             if (statusEl) {
-                                statusEl.textContent = '❌ ' + ((data.data && data.data.error) || 'Không tìm thấy dữ liệu.');
+                                statusEl.textContent = ((data.data && data.data.error) || 'Không tìm thấy dữ liệu.');
                                 statusEl.style.display = 'block';
                             }
                             btnLookup.disabled = false;
@@ -416,7 +416,7 @@ if (!defined('ABSPATH')) {
                         }
                     } catch (err) {
                         if (statusEl) {
-                            statusEl.textContent = '⚠️ Lỗi kết nối. Thử lại sau.';
+                            statusEl.textContent = 'Lỗi kết nối. Thử lại sau.';
                             statusEl.style.display = 'block';
                         }
                         btnLookup.disabled = false;
@@ -470,7 +470,7 @@ if (!defined('ABSPATH')) {
                         lookupModal.style.display = 'flex';
                         const statusEl = document.getElementById('lookupStatus');
                         if (statusEl) {
-                            statusEl.textContent = '❌ Không tìm thấy dữ liệu chứng chỉ. Bạn hãy thử nhập lại ID.';
+                            statusEl.textContent = 'Không tìm thấy dữ liệu chứng chỉ. Bạn hãy thử nhập lại ID.';
                             statusEl.style.display = 'block';
                         }
                     } else {

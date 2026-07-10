@@ -1,0 +1,26 @@
+admin-certificates.php:75: ['🎉'] -> echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã cập nhật hồ sơ và bảng điểm học viên thành công!</p></div>";
+admin-contracts.php:28: ['🎉'] -> echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã liên kết hợp đồng đối tác mới thành công!</p></div>";
+admin-contracts.php:30: ['❌'] -> echo "<div class='notice notice-error is-dismissible'><p>❌ Lỗi: Mã hợp đồng này đã được sử dụng.</p></div>";
+admin-dashboard.php:225: ['🎓'] -> <div class="ideas-card-icon" style="background: #f0f9ff; color: #0369a1;">🎓</div>
+admin-dashboard.php:232: ['✅'] -> <div class="ideas-card-icon" style="background: #ecfdf5; color: #047857;">✅</div>
+admin-dashboard.php:239: ['⏳'] -> <div class="ideas-card-icon" style="background: #fffbeb; color: #b45309;">⏳</div>
+admin-dashboard.php:246: ['🏢'] -> <div class="ideas-card-icon" style="background: #f5f3ff; color: #6d28d9;">🏢</div>
+admin-groups.php:28: ['🎉'] -> echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã cập nhật nhóm thiết kế thành công!</p></div>";
+admin-groups.php:36: ['🎉'] -> echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã tạo nhóm thiết kế mới thành công!</p></div>";
+admin-groups.php:831: ['✅', '➕'] -> <span>${added ? '✅' : '➕'}</span>
+admin-groups.php:1148: ['🎉'] -> alert('🎉 Đã lưu cấu hình kéo thả thành công!');
+admin-groups.php:1151: ['❌'] -> alert('❌ Lỗi: ' + (result.data.error || 'Không thể lưu cấu hình.'));
+admin-groups.php:1154: ['⚠️'] -> alert('⚠️ Lỗi kết nối mạng khi lưu.');
+admin-groups.php:1220: ['🎉'] -> alert(`🎉 Nhập CSV thành công! Đã nhập/cập nhật ${result.data.count} chứng chỉ.`);
+admin-groups.php:1223: ['❌'] -> alert('❌ Lỗi: ' + (result.data.error || 'Nhập file CSV không thành công.'));
+admin-groups.php:1226: ['⚠️'] -> alert('⚠️ Lỗi kết nối mạng khi tải lên CSV.');
+admin-requests.php:149: ['🎉'] -> echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã duyệt yêu cầu cấp chứng chỉ và gửi email thông báo học tập thành công!</p></div>";
+request-template.php:381: ['❌'] -> statusBox.textContent = '❌ ' + (data.data.error || 'Có lỗi xảy ra. Vui lòng kiểm tra lại.');
+request-template.php:388: ['⚠️'] -> statusBox.textContent = '⚠️ Lỗi kết nối mạng. Không thể gửi yêu cầu.';
+transcript-template.php:418: ['❌'] -> showStatus('❌ ' + ((data.data && data.data.error) || 'Lỗi gửi mã OTP.'), 'error');
+transcript-template.php:421: ['⚠️'] -> showStatus('⚠️ Lỗi kết nối gửi OTP.', 'error');
+transcript-template.php:452: ['❌'] -> showStatus('❌ ' + ((data.data && data.data.error) || 'Mã OTP không đúng.'), 'error');
+transcript-template.php:457: ['⚠️'] -> showStatus('⚠️ Lỗi xác thực OTP.', 'error');
+verify-template.php:411: ['❌'] -> statusEl.textContent = '❌ ' + ((data.data && data.data.error) || 'Không tìm thấy dữ liệu.');
+verify-template.php:419: ['⚠️'] -> statusEl.textContent = '⚠️ Lỗi kết nối. Thử lại sau.';
+verify-template.php:473: ['❌'] -> statusEl.textContent = '❌ Không tìm thấy dữ liệu chứng chỉ. Bạn hãy thử nhập lại ID.';

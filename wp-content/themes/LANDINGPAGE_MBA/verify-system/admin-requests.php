@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ideas_approve_request
         $headers = array('Content-Type: text/html; charset=UTF-8');
         wp_mail($email, $subject, $body, $headers);
 
-        echo "<div class='notice notice-success is-dismissible'><p>🎉 Đã duyệt yêu cầu cấp chứng chỉ và gửi email thông báo học tập thành công!</p></div>";
+        echo "<div class='notice notice-success is-dismissible'><p>Đã duyệt yêu cầu cấp chứng chỉ và gửi email thông báo học tập thành công!</p></div>";
     }
 }
 
@@ -157,10 +157,10 @@ if (isset($_GET['action_type']) && isset($_GET['id'])) {
 
     if ($action_type === 'reject') {
         $wpdb->update($table_requests, array('status' => 'rejected'), array('id' => $id));
-        echo "<div class='notice notice-success is-dismissible'><p>🚫 Đã từ chối yêu cầu cấp chứng chỉ của học viên.</p></div>";
+        echo "<div class='notice notice-success is-dismissible'><p>Đã từ chối yêu cầu cấp chứng chỉ của học viên.</p></div>";
     } elseif ($action_type === 'delete') {
         $wpdb->delete($table_requests, array('id' => $id));
-        echo "<div class='notice notice-success is-dismissible'><p>🗑️ Đã xóa yêu cầu đăng ký.</p></div>";
+        echo "<div class='notice notice-success is-dismissible'><p>Đã xóa yêu cầu đăng ký.</p></div>";
     }
 }
 

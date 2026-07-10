@@ -415,10 +415,10 @@ $cer_id = sanitize_text_field($_GET['cer_id'] ?? '');
                 if (data.success && data.data) {
                     showStatus(data.data.message || 'Mã OTP đã gửi thành công!', 'success');
                 } else {
-                    showStatus('❌ ' + ((data.data && data.data.error) || 'Lỗi gửi mã OTP.'), 'error');
+                    showStatus(((data.data && data.data.error) || 'Lỗi gửi mã OTP.'), 'error');
                 }
             } catch(e) {
-                showStatus('⚠️ Lỗi kết nối gửi OTP.', 'error');
+                showStatus('Lỗi kết nối gửi OTP.', 'error');
             } finally {
                 if (resendLnk) resendLnk.style.pointerEvents = 'auto';
             }
@@ -449,12 +449,12 @@ $cer_id = sanitize_text_field($_GET['cer_id'] ?? '');
                     showStatus('Xác thực thành công! Đang tải bảng điểm...', 'success');
                     await loadTranscriptData();
                 } else {
-                    showStatus('❌ ' + ((data.data && data.data.error) || 'Mã OTP không đúng.'), 'error');
+                    showStatus(((data.data && data.data.error) || 'Mã OTP không đúng.'), 'error');
                     verifyBtn.disabled = false;
                     verifyBtn.textContent = 'Xác thực mã OTP';
                 }
             } catch(e) {
-                showStatus('⚠️ Lỗi xác thực OTP.', 'error');
+                showStatus('Lỗi xác thực OTP.', 'error');
                 verifyBtn.disabled = false;
                 verifyBtn.textContent = 'Xác thực mã OTP';
             }
