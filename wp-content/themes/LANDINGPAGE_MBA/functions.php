@@ -645,6 +645,10 @@ function ideas_admin_column_styles()
         }
 
         /* --- PREMIUM DRAG & DROP UPLOADER --- */
+        #plupload-upload-ui {
+            position: relative !important;
+        }
+
         #drag-drop-area {
             border: 2px dashed #cbd5e1 !important;
             background: #f8fafc !important;
