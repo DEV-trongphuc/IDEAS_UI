@@ -4932,17 +4932,52 @@ function ideas_ajax_increment_post_views()
     wp_send_json_error();
 }
 
-/**
- * Display the view count badge next to the post title in WP Admin lists
- */
 add_filter('display_post_states', 'ideas_add_views_to_post_states', 10, 2);
 function ideas_add_views_to_post_states($post_states, $post)
 {
+    $draft_badge = '';
+    $pending_badge = '';
+    $views_badge = '';
+
+    // 1. Get draft badge
+    if (isset($post_states['draft'])) {
+        $draft_badge = '<span style="font-size: 11px; font-weight: 600; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; vertical-align: middle; margin-right: 6px;"><span class="dashicons dashicons-edit" style="font-size: 14px; width: 14px; height: 14px; color: #b45309; line-height: 1; vertical-align: middle; margin-right: 4px;"></span>Bản nháp</span>';
+        unset($post_states['draft']);
+    }
+
+    // 2. Get pending badge
+    if (isset($post_states['pending'])) {
+        $pending_badge = '<span style="font-size: 11px; font-weight: 600; color: #1d4ed8; background: #dbeafe; border: 1px solid #bfdbfe; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; vertical-align: middle; margin-right: 6px;"><span class="dashicons dashicons-clock" style="font-size: 14px; width: 14px; height: 14px; color: #1d4ed8; line-height: 1; vertical-align: middle; margin-right: 4px;"></span>Chờ duyệt</span>';
+        unset($post_states['pending']);
+    }
+
+    // 3. Get views badge
     if ($post->post_type === 'post') {
         $views = ideas_get_post_views($post->ID);
-        $post_states['views'] = '<span style="font-size: 11px; font-weight: 600; color: #475569; background: #f1f5f9; padding: 2px 6px; border-radius: 6px; display: inline-flex; align-items: center; vertical-align: middle;"><span class="dashicons dashicons-visibility" style="font-size: 14px; width: 14px; height: 14px; color: #ab0e00; line-height: 1; vertical-align: middle; margin-right: 4px;"></span>' . number_format($views) . ' lượt xem</span>';
+        $views_badge = '<span style="font-size: 11px; font-weight: 600; color: #475569; background: #f1f5f9; padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; vertical-align: middle;"><span class="dashicons dashicons-visibility" style="font-size: 14px; width: 14px; height: 14px; color: #ab0e00; line-height: 1; vertical-align: middle; margin-right: 4px;"></span>' . number_format($views) . ' lượt xem</span>';
+        if (isset($post_states['views'])) {
+            unset($post_states['views']);
+        }
     }
+
+    // Combine them into a single state entry to prevent WordPress from inserting commas between them!
+    $combined = '';
+    if ($draft_badge) {
+        $combined .= $draft_badge;
+    }
+    if ($pending_badge) {
+        $combined .= $pending_badge;
+    }
+    if ($views_badge) {
+        $combined .= $combined ? ' ' . $views_badge : $views_badge;
+    }
+
+    if ($combined) {
+        $post_states['ideas_custom_states'] = $combined;
+    }
+
     return $post_states;
+}
 }
 
 /**
