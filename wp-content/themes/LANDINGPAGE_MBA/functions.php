@@ -677,6 +677,7 @@ function ideas_admin_column_styles()
             align-items: center !important;
             justify-content: center !important;
             gap: 16px !important;
+            width: 100% !important;
         }
 
         /* Inject Cloud Upload Dashicon */
