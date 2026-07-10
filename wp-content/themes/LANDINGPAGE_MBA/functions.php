@@ -710,10 +710,13 @@ function ideas_admin_column_styles()
             text-align: center !important;
         }
 
-        .drag-drop-inside p.drag-drop-buttons {
+        #drag-drop-area .drag-drop-buttons {
             margin: 0 !important;
+            padding: 0 !important;
             text-align: center !important;
             width: 100% !important;
+            display: block !important;
+            float: none !important;
         }
 
         /* Small divider text "hoặc" */
@@ -727,6 +730,7 @@ function ideas_admin_column_styles()
         }
 
         /* Select File Button */
+        #plupload-browse-button,
         .drag-drop-inside input[type="button"],
         .drag-drop-inside .button {
             background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
@@ -743,9 +747,12 @@ function ideas_admin_column_styles()
             text-shadow: none !important;
             cursor: pointer !important;
             display: inline-block !important;
+            float: none !important;
+            margin: 0 auto !important;
             outline: none !important;
         }
 
+        #plupload-browse-button:hover,
         .drag-drop-inside input[type="button"]:hover,
         .drag-drop-inside .button:hover {
             transform: translateY(-1px) !important;
