@@ -3081,10 +3081,60 @@ function ideas_admin_sidebar_profile_script()
                 $('#adminmenuwrap').append(<?php echo wp_json_encode($html); ?>);
             }
 
+            // Debugging script for uploader layout styles
+            function debugUploaderStyles() {
+                var button = $('#plupload-browse-button');
+                var parent = button.parent();
+                var inside = $('.drag-drop-inside');
+                var area = $('#drag-drop-area');
+                var ui = $('#plupload-upload-ui');
+                var shim = $('.moxie-shim, .moxie-shim-html5, div[id*="html5_"]');
+                
+                console.log('%c--- DEBUG UPLOADER STYLES ---', 'color: #ff3600; font-weight: bold; font-size: 14px;');
+                
+                var elements = [
+                    { name: 'Button (#plupload-browse-button)', el: button },
+                    { name: 'Parent (.drag-drop-buttons)', el: parent },
+                    { name: 'Inside Container (.drag-drop-inside)', el: inside },
+                    { name: 'Area (#drag-drop-area)', el: area },
+                    { name: 'UI Wrapper (#plupload-upload-ui)', el: ui },
+                    { name: 'Shim Container (.moxie-shim)', el: shim }
+                ];
+                
+                var data = [];
+                elements.forEach(function(item) {
+                    if (item.el && item.el.length) {
+                        var el = item.el[0];
+                        var rect = el.getBoundingClientRect();
+                        var computed = window.getComputedStyle(el);
+                        data.push({
+                            'Element': item.name,
+                            'Display': computed.display,
+                            'Position': computed.position,
+                            'Float': computed.float,
+                            'Z-Index': computed.zIndex,
+                            'Left': computed.left,
+                            'Top': computed.top,
+                            'Width': computed.width,
+                            'Height': computed.height,
+                            'Rect Left': Math.round(rect.left),
+                            'Rect Top': Math.round(rect.top)
+                        });
+                    } else {
+                        data.push({
+                            'Element': item.name,
+                            'Display': 'NOT FOUND'
+                        });
+                    }
+                });
+                console.table(data);
+            }
+
             // Fix Plupload uploader shim alignment issues
             function refreshUploader() {
                 if (typeof uploader !== 'undefined' && uploader.refresh) {
                     uploader.refresh();
+                    debugUploaderStyles();
                 }
             }
             
