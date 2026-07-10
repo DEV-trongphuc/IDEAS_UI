@@ -650,7 +650,7 @@ function ideas_admin_column_styles()
             background: #f8fafc !important;
             border-radius: 16px !important;
             padding: 50px 20px !important;
-            max-width: 900px !important;
+            max-width: 100% !important;
             height: auto !important;
             margin: 20px auto !important;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02) !important;
