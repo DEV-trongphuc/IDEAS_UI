@@ -148,10 +148,10 @@ foreach ($all_courses_raw as $c) {
     .ideas-header h1 {
         font-size: 28px;
         font-weight: 800;
-        background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #0f172a;
         margin: 0 0 6px 0;
+        line-height: 1.3;
+        padding: 4px 0;
     }
     .ideas-header p {
         font-size: 14px;

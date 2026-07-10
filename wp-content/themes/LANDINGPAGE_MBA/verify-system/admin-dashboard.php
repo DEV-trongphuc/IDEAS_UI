@@ -43,10 +43,10 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
     .ideas-header h1 {
         font-size: 28px;
         font-weight: 800;
-        background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #0f172a;
         margin: 0;
+        line-height: 1.3;
+        padding: 4px 0;
     }
     .ideas-grid {
         display: grid;
@@ -213,7 +213,7 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
 <div class="ideas-wrap">
     <div class="ideas-header">
         <div>
-            <h1>Ch&#7913;ng ch&#7881; &amp; B&#7843;ng &#273;i&#7875;m IDEAS</h1>
+            <h1>Chứng chỉ & Bảng điểm IDEAS</h1>
             <p style="color: var(--text-muted); margin: 6px 0 0 0; font-size: 14px;">Trang tổng quan thống kê số liệu và hồ sơ cấp chứng chỉ số học viện.</p>
         </div>
         <a href="?page=ideas-cert-requests" class="btn-ideas">
@@ -263,7 +263,7 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
 
     <!-- Recent Certs Table -->
     <div class="ideas-section">
-        <h2><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Ch&#7913;ng ch&#7881; v&#7915;a c&#7845;p g&#7847;n &#273;&#226;y</h2>
+        <h2><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Chứng chỉ vừa cấp gần đây</h2>
         <?php if (!empty($recent_certs)): ?>
             <table class="ideas-table">
                 <thead>
