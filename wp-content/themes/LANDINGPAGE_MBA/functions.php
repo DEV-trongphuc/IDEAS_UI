@@ -4978,7 +4978,6 @@ function ideas_add_views_to_post_states($post_states, $post)
 
     return $post_states;
 }
-}
 
 /**
  * AJAX Live Search Handler
