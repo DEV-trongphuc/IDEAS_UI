@@ -34,7 +34,9 @@ if ($contract_code) {
     <style>
         :root {
             --red: #ab0e00;
-            --red-dark: #8c0c00;
+            --red-light: #e11d48;
+            --primary-gradient: linear-gradient(135deg, #ab0e00 0%, #e11d48 100%);
+            --bg-slate: #f8fafc;
         }
         * {
             margin: 0;
@@ -42,7 +44,8 @@ if ($contract_code) {
             box-sizing: border-box;
         }
         body {
-            background-color: #f8fafc;
+            background-color: #f1f5f9;
+            background-image: radial-gradient(at 0% 0%, rgba(225, 29, 72, 0.03) 0, transparent 50%), radial-gradient(at 50% 0%, rgba(171, 14, 0, 0.02) 0, transparent 50%);
             font-family: 'Plus Jakarta Sans', sans-serif;
             min-height: 100vh;
             display: flex;
@@ -52,33 +55,46 @@ if ($contract_code) {
         }
         .container {
             background: white;
-            padding: 40px;
-            border-radius: 16px;
-            max-width: 600px;
+            padding: 50px 40px;
+            border-radius: 20px;
+            max-width: 650px;
             width: 100%;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-            border: 1px solid #f1f5f9;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.01), inset 0 1px 0 0 rgba(255,255,255,0.6);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--primary-gradient);
+            border-radius: 20px 20px 0 0;
         }
         .logo-wrap {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
         .logo-wrap img {
-            height: 50px;
+            height: 52px;
+            object-fit: contain;
         }
         h2 {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 800;
             color: #0f172a;
             text-align: center;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
         .subtitle {
             font-size: 14px;
             color: #64748b;
             text-align: center;
-            margin-bottom: 30px;
-            line-height: 1.5;
+            margin-bottom: 36px;
+            line-height: 1.6;
         }
         .form-row {
             display: grid;
@@ -105,9 +121,9 @@ if ($contract_code) {
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
+            font-weight: 700;
             color: #334155;
-            font-size: 14px;
+            font-size: 13.5px;
         }
         label span {
             color: var(--red);
@@ -116,30 +132,32 @@ if ($contract_code) {
             width: 100%;
             padding: 12px 16px;
             border: 1.5px solid #cbd5e1;
-            border-radius: 8px;
+            border-radius: 10px;
             font-family: inherit;
             font-size: 15px;
             outline: none;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             background: #f8fafc;
+            color: #1e293b;
         }
         input:focus, select:focus {
-            border-color: var(--red);
+            border-color: var(--red-light);
             background: white;
-            box-shadow: 0 0 0 3px rgba(171, 14, 0, 0.1);
+            box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
         }
         .avatar-upload-box {
             border: 2px dashed #cbd5e1;
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 24px;
             text-align: center;
             background: #f8fafc;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             position: relative;
         }
         .avatar-upload-box:hover {
-            border-color: var(--red);
+            border-color: var(--red-light);
+            background: #fffbeb;
         }
         .avatar-upload-box input[type="file"] {
             position: absolute;
@@ -151,51 +169,52 @@ if ($contract_code) {
             cursor: pointer;
         }
         .avatar-preview-img {
-            max-width: 120px;
-            max-height: 160px;
+            max-width: 110px;
+            max-height: 146px;
             object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            border: 2px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
             display: none;
-            margin: 10px auto 0;
+            margin: 14px auto 0;
         }
         .upload-icon {
-            font-size: 28px;
-            color: #64748b;
+            font-size: 32px;
             margin-bottom: 8px;
             display: block;
         }
         .btn-submit {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, var(--red), #d42a1a);
+            background: var(--primary-gradient);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             font-family: inherit;
-            box-shadow: 0 6px 20px rgba(171, 14, 0, 0.2);
-            transition: all 0.25s;
+            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.2);
+            transition: all 0.25s ease;
         }
         .btn-submit:hover {
             transform: translateY(-1px);
-            box-shadow: 0 10px 24px rgba(171, 14, 0, 0.3);
+            box-shadow: 0 12px 28px rgba(171, 14, 0, 0.3);
         }
         .btn-submit:disabled {
-            background: #94a3b8;
+            background: #cbd5e1;
             box-shadow: none;
             cursor: not-allowed;
             transform: none;
         }
         .status-box {
-            padding: 14px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 14.5px;
+            font-weight: 600;
             display: none;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            line-height: 1.5;
         }
         .status-box.error {
             background: #fee2e2;
@@ -212,11 +231,12 @@ if ($contract_code) {
             border: 1px solid #bfdbfe;
             color: #1e40af;
             font-weight: 700;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 50px;
             display: inline-block;
-            margin-bottom: 20px;
-            font-size: 13px;
+            margin-bottom: 24px;
+            font-size: 13.5px;
+            box-shadow: 0 2px 4px rgba(30, 64, 175, 0.05);
         }
     </style>
 </head>
@@ -236,7 +256,7 @@ if ($contract_code) {
         </div>
     <?php endif; ?>
     
-    <p class="subtitle">Vui lòng nhập chính xác thông tin cá nhân dưới đây. Thông tin này sẽ được in trực tiếp lên chứng chỉ và bảng điểm chính thức của bạn.</p>
+    <p class="subtitle">Vui lòng kiểm tra và nhập chính xác thông tin cá nhân của bạn dưới đây. Các thông tin này sẽ hiển thị chính thức trên chứng chỉ và bảng điểm.</p>
 
     <div id="statusBox" class="status-box"></div>
 
@@ -246,26 +266,26 @@ if ($contract_code) {
 
         <?php if (empty($contract_code)): ?>
         <div class="form-group">
-            <label for="contract_code_input">Mã lớp học / Mã liên kết <span>*</span></label>
-            <input type="text" id="contract_code_input" name="contract_code" required placeholder="Nhập mã lớp học (được cung cấp)" />
+            <label for="contract_code_input">Mã lớp học / Mã liên kết đào tạo <span>*</span></label>
+            <input type="text" id="contract_code_input" name="contract_code" required placeholder="Nhập mã lớp học được cung cấp..." />
         </div>
         <?php endif; ?>
 
         <div class="form-row">
             <div class="form-group">
-                <label for="name">Họ và tên <span>*</span></label>
+                <label for="name">Họ và tên học viên <span>*</span></label>
                 <input type="text" id="name" name="name" required placeholder="Ví dụ: NGUYỄN VĂN A" style="text-transform: uppercase;" />
             </div>
             <div class="form-group">
-                <label for="student_id">Số CCCD / ID Học viên <span>*</span></label>
+                <label for="student_id">Số CCCD / Mã ID Học viên <span>*</span></label>
                 <input type="text" id="student_id" name="student_id" required placeholder="Nhập số CCCD hoặc ID học viên" />
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <label for="email">Email nhận chứng chỉ <span>*</span></label>
-                <input type="email" id="email" name="email" required placeholder="Nhập email của bạn" />
+                <label for="email">Email liên hệ nhận chứng chỉ <span>*</span></label>
+                <input type="email" id="email" name="email" required placeholder="Ví dụ: name@domain.com" />
             </div>
             <div class="form-group">
                 <label for="dob">Ngày sinh</label>
@@ -276,7 +296,7 @@ if ($contract_code) {
         <div class="form-row">
             <div class="form-group">
                 <label for="sex">Giới tính</label>
-                <select id="sex" name="sex">
+                <select id="sex" name="sex" style="cursor: pointer;">
                     <option value="">-- Chọn giới tính --</option>
                     <option value="Nam">Nam</option>
                     <option value="Nữ">Nữ</option>
@@ -290,16 +310,16 @@ if ($contract_code) {
         </div>
 
         <div class="form-group">
-            <label>Ảnh thẻ 3x4 (Tải lên làm ảnh hồ sơ bảng điểm)</label>
+            <label>Ảnh chân dung 3x4 (Tải lên làm ảnh thẻ bảng điểm)</label>
             <div class="avatar-upload-box" id="uploadBox">
                 <span class="upload-icon">📤</span>
-                <span id="uploadText">Kéo thả ảnh vào đây hoặc click để chọn tệp tin (Tối đa 3MB)</span>
+                <span id="uploadText" style="font-size:13.5px; color:#64748b; font-weight:600;">Kéo thả ảnh hoặc click để chọn tệp tin (Định dạng PNG/JPG/JPEG, Tối đa 3MB)</span>
                 <input type="file" id="avatarFile" name="avatar" accept="image/png, image/jpeg, image/jpg" />
                 <img id="avatarPreview" class="avatar-preview-img" alt="Preview ảnh thẻ" />
             </div>
         </div>
 
-        <button type="submit" id="btnSubmit" class="btn-submit">Gửi yêu cầu đăng ký</button>
+        <button type="submit" id="btnSubmit" class="btn-submit" style="margin-top: 10px;">Gửi yêu cầu đăng ký</button>
     </form>
 </div>
 
@@ -319,7 +339,7 @@ if ($contract_code) {
                 reader.onload = (e) => {
                     preview.src = e.target.result;
                     preview.style.display = 'block';
-                    uploadText.textContent = `Tệp tin: ${file.name}`;
+                    uploadText.textContent = `Đã chọn: ${file.name}`;
                 };
                 reader.readAsDataURL(file);
             }
@@ -332,12 +352,11 @@ if ($contract_code) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             btnSubmit.disabled = true;
-            btnSubmit.textContent = 'Đang gửi đăng ký...';
+            btnSubmit.textContent = 'Đang gửi thông tin đăng ký...';
             statusBox.style.display = 'none';
 
             const formData = new FormData(form);
 
-            // Wait! If contract_code was empty in main hidden field, get from input
             const contractInput = document.getElementById('contract_code_input');
             if (contractInput) {
                 formData.set('contract_code', contractInput.value.trim());
@@ -356,7 +375,7 @@ if ($contract_code) {
                     statusBox.style.display = 'block';
                     form.reset();
                     preview.style.display = 'none';
-                    uploadText.textContent = 'Kéo thả ảnh vào đây hoặc click để chọn tệp tin (Tối đa 3MB)';
+                    uploadText.textContent = 'Kéo thả ảnh hoặc click để chọn tệp tin (Định dạng PNG/JPG/JPEG, Tối đa 3MB)';
                 } else {
                     statusBox.className = 'status-box error';
                     statusBox.textContent = '❌ ' + (data.data.error || 'Có lỗi xảy ra. Vui lòng kiểm tra lại.');

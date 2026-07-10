@@ -323,3 +323,126 @@ function ideas_verify_save_group_config_handler() {
         wp_send_json_error(array('error' => 'Nhóm chứng chỉ không hợp lệ.'));
     }
 }
+
+// 7. Bulk Upload Certificates via CSV (Admin only)
+add_action('wp_ajax_ideas_verify_upload_csv', 'ideas_verify_upload_csv_handler');
+function ideas_verify_upload_csv_handler() {
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error(array('error' => 'Bạn không có quyền thực hiện chức năng này.'));
+    }
+
+    $group_id = intval($_POST['group_id'] ?? 0);
+    if ($group_id <= 0) {
+        wp_send_json_error(array('error' => 'Nhóm thiết kế không hợp lệ.'));
+    }
+
+    if (!isset($_FILES['csv_file']) || $_FILES['csv_file']['error'] !== UPLOAD_ERR_OK) {
+        wp_send_json_error(array('error' => 'File lỗi hoặc không tồn tại.'));
+    }
+
+    $file = $_FILES['csv_file']['tmp_name'];
+    $handle = fopen($file, "r");
+
+    if ($handle !== FALSE) {
+        // Detect UTF-8 BOM and skip it
+        $bom = fread($handle, 3);
+        if ($bom !== "\xEF\xBB\xBF") {
+            rewind($handle);
+        }
+
+        $headers = fgetcsv($handle, 1000, ",");
+        if (!$headers) {
+            wp_send_json_error(array('error' => 'File CSV trống hoặc sai định dạng.'));
+            exit;
+        }
+
+        // Clean headers (remove spaces, quotes)
+        $headers = array_map(function($h) {
+            return trim(str_replace(array('"', "'"), '', $h));
+        }, $headers);
+
+        $cer_no_idx = array_search('cer_no', $headers);
+        $name_idx = array_search('name', $headers);
+
+        if ($cer_no_idx === false || $name_idx === false) {
+            wp_send_json_error(array('error' => "File CSV bắt buộc phải có cột 'cer_no' và 'name'."));
+            exit;
+        }
+
+        global $wpdb;
+        $table_certs = $wpdb->prefix . 'ideas_certificates';
+        $table_courses = $wpdb->prefix . 'ideas_transcript_courses';
+
+        $count = 0;
+        $wpdb->query("START TRANSACTION");
+
+        try {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                // map data to headers
+                $row = array();
+                foreach ($headers as $i => $h) {
+                    $row[$h] = isset($data[$i]) ? trim($data[$i]) : '';
+                }
+
+                $cer_no = $row['cer_no'] ?? '';
+                if (empty($cer_no)) {
+                    continue;
+                }
+
+                $name = $row['name'] ?? '';
+                $student_id = $row['student_id'] ?? '';
+                $dob = !empty($row['dob']) ? date('Y-m-d', strtotime(str_replace('/', '-', $row['dob']))) : null;
+                $sex = $row['sex'] ?? null;
+                $nationality = !empty($row['nationality']) ? $row['nationality'] : 'Viet Nam';
+                $email = $row['email'] ?? null;
+                $date = date('Y-m-d');
+
+                // Insert or update certificate
+                $wpdb->replace($table_certs, array(
+                    'cer_no' => $cer_no,
+                    'student_id' => $student_id,
+                    'name' => $name,
+                    'date' => $date,
+                    'email' => $email ?: null,
+                    'dob' => $dob,
+                    'sex' => $sex ?: null,
+                    'nationality' => $nationality,
+                    'group_id' => $group_id,
+                    'status' => 'active'
+                ));
+
+                // Clear old courses
+                $wpdb->delete($table_courses, array('cer_no' => $cer_no));
+
+                // Import up to 10 courses
+                for ($i = 1; $i <= 10; $i++) {
+                    $ctitle = $row["course{$i}_title"] ?? '';
+                    $cgrade = $row["course{$i}_grade"] ?? '';
+                    $ccredits = $row["course{$i}_credits"] ?? '4.0';
+                    $cpercent = $row["course{$i}_percentage"] ?? '80%';
+
+                    if (!empty($ctitle)) {
+                        $wpdb->insert($table_courses, array(
+                            'cer_no' => $cer_no,
+                            'course_title' => $ctitle,
+                            'credits' => $ccredits,
+                            'percentage' => $cpercent,
+                            'grade' => $cgrade,
+                            'sort_order' => $i
+                        ));
+                    }
+                }
+                $count++;
+            }
+            $wpdb->query("COMMIT");
+            fclose($handle);
+            wp_send_json_success(array('count' => $count));
+        } catch (Exception $e) {
+            $wpdb->query("ROLLBACK");
+            fclose($handle);
+            wp_send_json_error(array('error' => $e->getMessage()));
+        }
+    } else {
+        wp_send_json_error(array('error' => 'Không thể đọc file CSV.'));
+    }
+}

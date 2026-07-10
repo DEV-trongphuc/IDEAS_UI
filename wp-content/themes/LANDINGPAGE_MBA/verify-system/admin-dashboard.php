@@ -20,26 +20,36 @@ $active_contracts = $wpdb->get_var("SELECT COUNT(*) FROM $table_contracts WHERE 
 $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $table_certs ORDER BY id DESC LIMIT 5");
 ?>
 <style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #ab0e00 0%, #e11d48 100%);
+        --primary-hover: linear-gradient(135deg, #991b1b 0%, #be123c 100%);
+        --border-slate: #e2e8f0;
+        --text-slate: #1e293b;
+        --text-muted: #64748b;
+    }
     .ideas-wrap {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        margin: 20px 20px 0 0;
+        margin: 20px 20px 20px 0;
+        color: var(--text-slate);
     }
     .ideas-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 24px;
+        margin-bottom: 28px;
     }
     .ideas-header h1 {
-        font-size: 26px;
+        font-size: 28px;
         font-weight: 800;
-        color: #0f172a;
+        background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         margin: 0;
     }
     .ideas-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        gap: 24px;
         margin-bottom: 30px;
     }
     @media screen and (max-width: 992px) {
@@ -55,157 +65,187 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
     .ideas-card {
         background: white;
         padding: 24px;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border-radius: 16px;
+        border: 1px solid var(--border-slate);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02), 0 4px 6px -4px rgba(0, 0, 0, 0.02);
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 20px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.25s ease;
+    }
+    .ideas-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
     }
     .ideas-card-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 8px;
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 24px;
-        font-weight: bold;
+        font-size: 26px;
+        flex-shrink: 0;
+        transition: all 0.25s ease;
+    }
+    .ideas-card:hover .ideas-card-icon {
+        transform: scale(1.05);
     }
     .ideas-card-info h3 {
-        margin: 0 0 4px 0;
-        font-size: 13px;
-        color: #64748b;
-        font-weight: 600;
+        margin: 0 0 6px 0;
+        font-size: 12px;
+        color: var(--text-muted);
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
     }
     .ideas-card-info p {
         margin: 0;
-        font-size: 24px;
+        font-size: 28px;
         font-weight: 800;
         color: #0f172a;
-        line-height: 1;
+        line-height: 1.1;
     }
     .ideas-section {
         background: white;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        padding: 24px;
+        border-radius: 16px;
+        border: 1px solid var(--border-slate);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02), 0 4px 6px -4px rgba(0, 0, 0, 0.02);
+        padding: 28px;
         margin-bottom: 30px;
     }
     .ideas-section h2 {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 800;
         color: #0f172a;
         margin: 0 0 20px 0;
         border-bottom: 1px solid #f1f5f9;
-        padding-bottom: 12px;
+        padding-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
     .ideas-table {
         width: 100%;
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0;
         text-align: left;
     }
     .ideas-table th {
-        padding: 12px;
+        padding: 14px 16px;
         border-bottom: 2px solid #e2e8f0;
         color: #475569;
         font-weight: 700;
         font-size: 13px;
+        background: #f8fafc;
     }
     .ideas-table td {
-        padding: 14px 12px;
+        padding: 16px;
         border-bottom: 1px solid #f1f5f9;
         color: #334155;
         font-size: 14px;
+        vertical-align: middle;
     }
-    .ideas-table tr:hover {
-        background: #f8fafc;
+    .ideas-table tr:hover td {
+        background: #fafafa;
+    }
+    .ideas-table tr:last-child td {
+        border-bottom: none;
     }
     .badge-active {
-        background: #d1fae5;
+        background: #ecfdf5;
         color: #065f46;
-        padding: 4px 8px;
-        border-radius: 4px;
+        padding: 4px 10px;
+        border-radius: 50px;
         font-size: 12px;
         font-weight: 700;
+        border: 1px solid #a7f3d0;
+        display: inline-block;
     }
     .badge-paused {
-        background: #fef3c7;
-        color: #92400e;
-        padding: 4px 8px;
-        border-radius: 4px;
+        background: #fffbeb;
+        color: #b45309;
+        padding: 4px 10px;
+        border-radius: 50px;
         font-size: 12px;
         font-weight: 700;
+        border: 1px solid #fde68a;
+        display: inline-block;
     }
     .badge-locked {
-        background: #fee2e2;
+        background: #fef2f2;
         color: #991b1b;
-        padding: 4px 8px;
-        border-radius: 4px;
+        padding: 4px 10px;
+        border-radius: 50px;
         font-size: 12px;
         font-weight: 700;
+        border: 1px solid #fca5a5;
+        display: inline-block;
     }
     .btn-ideas {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        background: linear-gradient(135deg, #ab0e00, #d42a1a);
-        color: white;
+        justify-content: center;
+        gap: 8px;
+        background: var(--primary-gradient);
+        color: white !important;
         border: none;
-        padding: 10px 20px;
-        border-radius: 6px;
+        padding: 12px 24px;
+        border-radius: 8px;
         font-weight: 700;
-        font-size: 13px;
+        font-size: 14px;
         text-decoration: none;
         cursor: pointer;
         box-shadow: 0 4px 12px rgba(171, 14, 0, 0.15);
-        transition: all 0.2s;
+        transition: all 0.2s ease;
     }
     .btn-ideas:hover {
-        color: white;
+        background: var(--primary-hover);
         transform: translateY(-1px);
-        box-shadow: 0 6px 16px rgba(171, 14, 0, 0.2);
+        box-shadow: 0 6px 16px rgba(171, 14, 0, 0.25);
     }
 </style>
 
 <div class="ideas-wrap">
     <div class="ideas-header">
-        <h1>Tổng quan Xác thực Chứng chỉ</h1>
+        <div>
+            <h1>Chứng chỉ & Bảng điểm IDEAS</h1>
+            <p style="color: var(--text-muted); margin: 6px 0 0 0; font-size: 14px;">Trang tổng quan thống kê số liệu và hồ sơ cấp chứng chỉ số học viện.</p>
+        </div>
         <a href="?page=ideas-cert-requests" class="btn-ideas">
-            <span class="dashicons dashicons-welcome-write-blog" style="margin-top: -2px;"></span> Xem Yêu cầu Chờ duyệt (<?php echo esc_html($pending_reqs); ?>)
+            <span class="dashicons dashicons-welcome-write-blog" style="margin-top: 1px;"></span> Xem Yêu cầu Chờ duyệt (<?php echo esc_html($pending_reqs); ?>)
         </a>
     </div>
 
     <!-- Stats Grid -->
     <div class="ideas-grid">
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #e0f2fe; color: #0369a1;">🎓</div>
+            <div class="ideas-card-icon" style="background: #f0f9ff; color: #0369a1;">🎓</div>
             <div class="ideas-card-info">
                 <h3>Đã cấp</h3>
                 <p><?php echo esc_html($total_certs); ?></p>
             </div>
         </div>
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #d1fae5; color: #047857;">✅</div>
+            <div class="ideas-card-icon" style="background: #ecfdf5; color: #047857;">✅</div>
             <div class="ideas-card-info">
                 <h3>Hoạt động</h3>
                 <p><?php echo esc_html($active_certs); ?></p>
             </div>
         </div>
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #fef3c7; color: #b45309;">⏳</div>
+            <div class="ideas-card-icon" style="background: #fffbeb; color: #b45309;">⏳</div>
             <div class="ideas-card-info">
                 <h3>Yêu cầu chờ</h3>
                 <p><?php echo esc_html($pending_reqs); ?></p>
             </div>
         </div>
         <div class="ideas-card">
-            <div class="ideas-card-icon" style="background: #eff6ff; color: #1d4ed8;">🏢</div>
+            <div class="ideas-card-icon" style="background: #f5f3ff; color: #6d28d9;">🏢</div>
             <div class="ideas-card-info">
-                <h3>Đơn vị liên kết</h3>
+                <h3>Hợp đồng đối tác</h3>
                 <p><?php echo esc_html($active_contracts); ?></p>
             </div>
         </div>
@@ -213,7 +253,7 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
 
     <!-- Recent Certs Table -->
     <div class="ideas-section">
-        <h2>Chứng chỉ vừa cấp gần đây</h2>
+        <h2><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Chứng chỉ vừa cấp gần đây</h2>
         <?php if (!empty($recent_certs)): ?>
             <table class="ideas-table">
                 <thead>
@@ -228,9 +268,9 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
                 <tbody>
                     <?php foreach ($recent_certs as $c): ?>
                         <tr>
-                            <td><strong><?php echo esc_html($c->cer_no); ?></strong></td>
-                            <td><?php echo esc_html($c->name); ?></td>
-                            <td><?php echo esc_html(date('d/m/Y', strtotime($c->date))); ?></td>
+                            <td><strong style="color: #ab0e00; font-size: 15px;"><?php echo esc_html($c->cer_no); ?></strong></td>
+                            <td><strong style="text-transform: uppercase; color: #0f172a;"><?php echo esc_html($c->name); ?></strong></td>
+                            <td style="color: var(--text-muted);"><?php echo esc_html(date('d/m/Y', strtotime($c->date))); ?></td>
                             <td>
                                 <?php if ($c->status === 'active'): ?>
                                     <span class="badge-active">Hoạt động</span>
@@ -241,14 +281,14 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, date, status FROM $tabl
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <a href="/verify/?cer_id=<?php echo urlencode($c->cer_no); ?>" target="_blank" style="text-decoration: none; color: #2563eb; font-weight: 600;">Xem chi tiết &rarr;</a>
+                                <a href="/verify/?cer_id=<?php echo urlencode($c->cer_no); ?>" target="_blank" class="button button-secondary" style="font-weight: 700; border-radius: 6px;">Tra cứu trực tuyến &rarr;</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         <?php else: ?>
-            <p style="color: #64748b; font-style: italic;">Chưa có chứng chỉ nào được cấp gần đây.</p>
+            <p style="color: #64748b; font-style: italic; padding: 10px 0;">Chưa có chứng chỉ nào được cấp gần đây.</p>
         <?php endif; ?>
     </div>
 </div>
