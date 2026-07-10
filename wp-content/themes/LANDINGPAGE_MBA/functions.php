@@ -5862,3 +5862,6 @@ function ideas_get_aidc_events() {
 function ideas_get_upcoming_aidc_events_count() {
     return 1;
 }
+
+// Load IDEAS Certificate & Verification System
+require_once get_template_directory() . '/verify-system/verify-system.php';
