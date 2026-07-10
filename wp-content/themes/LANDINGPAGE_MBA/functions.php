@@ -710,17 +710,33 @@ function ideas_admin_column_styles()
             text-align: center !important;
         }
 
-        #drag-drop-area .drag-drop-buttons {
+        #drag-drop-area,
+        #drag-drop-area * {
+            text-align: center !important;
+        }
+
+        #drag-drop-area .drag-drop-inside {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 16px !important;
             margin: 0 !important;
             padding: 0 !important;
-            text-align: center !important;
+        }
+
+        #drag-drop-area .drag-drop-buttons {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
             width: 100% !important;
-            display: block !important;
+            margin: 0 !important;
+            padding: 0 !important;
             float: none !important;
         }
 
         /* Small divider text "hoặc" */
-        .drag-drop-inside p.drag-drop-info+p {
+        #drag-drop-area p.drag-drop-info+p {
             font-size: 13px !important;
             color: #64748b !important;
             margin: 0 !important;
@@ -731,8 +747,9 @@ function ideas_admin_column_styles()
 
         /* Select File Button */
         #plupload-browse-button,
-        .drag-drop-inside input[type="button"],
-        .drag-drop-inside .button {
+        #drag-drop-area input[type="button"],
+        #drag-drop-area button,
+        #drag-drop-area .button {
             background: linear-gradient(135deg, #ab0e00, #ff3600) !important;
             color: #ffffff !important;
             border: none !important;
@@ -753,8 +770,9 @@ function ideas_admin_column_styles()
         }
 
         #plupload-browse-button:hover,
-        .drag-drop-inside input[type="button"]:hover,
-        .drag-drop-inside .button:hover {
+        #drag-drop-area input[type="button"]:hover,
+        #drag-drop-area button:hover,
+        #drag-drop-area .button:hover {
             transform: translateY(-1px) !important;
             box-shadow: 0 6px 12px rgba(171, 14, 0, 0.25) !important;
             background: linear-gradient(135deg, #c01000, #ff4c1a) !important;
