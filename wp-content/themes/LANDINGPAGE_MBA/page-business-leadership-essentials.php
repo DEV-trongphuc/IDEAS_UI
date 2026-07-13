@@ -851,7 +851,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-db-info-col:hover .ble-db-info-value {
-            color: #ffeb3b;
+            color: #ffffff;
         }
 
         .ble-db-actions {
@@ -2383,6 +2383,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 display: none;
             }
         }
+
+        /* Prevent form card stretching and style bottom disclaimer */
+        .cta-section .cta-inner {
+            align-items: start !important;
+        }
+        .cta-form-wrapper {
+            height: auto !important;
+            min-height: auto !important;
+            padding-bottom: 30px !important;
+        }
     </style>
 
     <?php wp_head(); ?>
@@ -2477,12 +2487,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
 
                             <div class="db-progress-card">
-                                <div class="db-progress-lbl">
-                                    <span>Tiến độ học tập</span>
-                                    <span>75% Hoàn thành</span>
+                                <h6>Tiến độ học tập</h6>
+                                <div class="db-bar-container">
+                                    <div class="db-bar-fill"></div>
                                 </div>
-                                <div class="db-progress-bar">
-                                    <div class="db-progress-fill"></div>
+                                <div class="db-progress-meta">
+                                    <span>75% Hoàn thành</span>
                                 </div>
                             </div>
 
@@ -2560,80 +2570,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 1B. ABOUT SWISS UMEF BLE SECTION (Cloned & Customized from index.html) -->
-        <section class="about-section" id="gioi-thieu" style="padding: 80px 0; background: #fff; position: relative; overflow: hidden;">
-            <!-- Localized Background Decor -->
-            <div class="section-bg-decor">
-                <svg class="svg-icon fa-book fa-solid bg-decor-icon decor-lg" style="position: absolute; top: 15%; left: 3%; opacity: 0.04; animation: float-slow 25s ease-in-out infinite; color: #ef4444; pointer-events: none;" viewBox="0 0 448 512" width="60" height="60" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
-                <svg class="svg-icon fa-globe fa-solid bg-decor-icon decor-sm" style="position: absolute; top: 60%; right: 4%; opacity: 0.04; animation: float-slow 31s ease-in-out infinite; color: #ef4444; pointer-events: none;" viewBox="0 0 512 512" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z"/></svg>
-            </div>
-            <div class="ble-container">
-                <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 60px;">
-                    <div class="reveal-up">
-                        <div class="section-label" style="font-size: 0.72rem; font-weight: 800; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">GIỚI THIỆU CHƯƠNG TRÌNH</div>
-                        <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.3rem); color: #0f172a; line-height: 1.35; font-weight: 800; margin-top: 10px; margin-bottom: 24px;">
-                            <span class="brand-red-text" style="color: #ab0e00;">Swiss UMEF</span> – Đào tạo chuẩn Thụy Sĩ thiết kế cho Lãnh đạo thực chiến
-                        </h2>
-                        <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-top: 24px;">
-                            Chương trình Business Leadership Essentials được chuyển giao học thuật từ Swiss UMEF (Geneva, Thụy Sĩ), thiết kế tinh gọn gồm 3 môn học cốt lõi giúp học viên thấu hiểu tổ chức, dẫn dắt đội ngũ và quản trị nguồn nhân lực hiệu quả.
-                        </p>
-                        <p style="font-size: 1rem; color: #475569; line-height: 1.7; margin-top: 16px;">
-                            Với sự đồng hành hỗ trợ học thuật toàn diện từ IDEAS, học viên dễ dàng vượt qua các rào cản về ngôn ngữ, thời gian và phương pháp học thông qua các buổi học phụ đạo cuối tuần và hệ sinh thái hỗ trợ chuẩn quốc tế.
-                        </p>
-                        <p style="font-size: 1.05rem; font-weight: 600; color: #ab0e00; font-style: italic; margin-top: 20px; margin-bottom: 20px;">
-                            "Nâng tầm năng lực lãnh đạo – Chuyển hóa tư duy quản trị"
-                        </p>
-                        <div class="ideas_follow_inner" style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-                            <div class="ideas_follow" style="display: flex; gap: 10px; align-items: center;">
-                                <p style="margin: 0; font-weight: 700; font-size: 0.85rem; color: #0f172a; text-transform: uppercase;">Follow</p>
-                                <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" aria-label="Facebook IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a>
-                                <a target="_blank" href="https://www.youtube.com/c/Vi%E1%BB%87nIDEAS" aria-label="YouTube IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 576 512" width="16" height="16" fill="currentColor"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
-                                <a target="_blank" href="https://www.linkedin.com/company/ideasinstitute/" aria-label="LinkedIn IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
-                                <a target="_blank" href="https://www.tiktok.com/@ideas_institute" aria-label="TikTok IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a>
-                                <a target="_blank" href="https://zalo.me/3857867121882640296" aria-label="Zalo IDEAS" style="color: #475569; transition: color 0.2s;"><img loading="lazy" decoding="async" alt="Zalo" width="18" height="18" src="/wp-content/uploads/external-migrated/zalo-icon_3f4c0a22.webp" style="vertical-align: middle; border-radius: 4px;"></a>
-                                <a target="_blank" href="https://www.instagram.com/ideas.edu.vn/" aria-label="Instagram IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M194.4 211.7a53.3 53.3 0 1 0 59.3 88.7 53.3 53.3 0 1 0 -59.3-88.7zm142.3-68.4c-5.2-5.2-11.5-9.3-18.4-12c-18.1-7.1-57.6-6.8-83.1-6.5c-4.1 0-7.9 .1-11.2 .1c-3.3 0-7.2 0-11.4-.1c-25.5-.3-64.8-.7-82.9 6.5c-6.9 2.7-13.1 6.8-18.4 12s-9.3 11.5-12 18.4c-7.1 18.1-6.7 57.7-6.5 83.2c0 4.1 .1 7.9 .1 11.1s0 7-.1 11.1c-.2 25.5-.6 65.1 6.5 83.2c2.7 6.9 6.8 13.1 12 18.4s11.5 9.3 18.4 12c18.1 7.1 57.6 6.8 83.1 6.5c4.1 0 7.9-.1 11.2-.1c3.3 0 7.2 0 11.4 .1c25.5 .3 64.8 .7 82.9-6.5c6.9-2.7 13.1-6.8 18.4-12s9.3-11.5 12-18.4c7.2-18 6.8-57.4 6.5-83c0-4.2-.1-8.1-.1-11.4s0-7.1 .1-11.4c.3-25.5 .7-64.9-6.5-83l0 0c-2.7-6.9-6.8-13.1-12-18.4zm-67.1 44.5A82 82 0 1 1 178.4 324.2a82 82 0 1 1 91.1-136.4zm29.2-1.3c-3.1-2.1-5.6-5.1-7.1-8.6s-1.8-7.3-1.1-11.1s2.6-7.1 5.2-9.8s6.1-4.5 9.8-5.2s7.6-.4 11.1 1.1s6.5 3.9 8.6 7s3.2 6.8 3.2 10.6c0 2.5-.5 5-1.4 7.3s-2.4 4.4-4.1 6.2s-3.9 3.2-6.2 4.2s-4.8 1.5-7.3 1.5l0 0c-3.8 0-7.5-1.1-10.6-3.2zM448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM357 389c-18.7 18.7-41.4 24.6-67 25.9c-26.4 1.5-105.6 1.5-132 0c-25.6-1.3-48.3-7.2-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6 0-132c1.3-25.6 7.1-48.3 25.8-67s41.5-24.6 67-25.8c26.4-1.5 105.6-1.5 132 0c25.6 1.3 48.3 7.1 67 25.8s24.6 41.4 25.8 67c1.5 26.3 1.5 105.4 0 131.9c-1.3 25.6-7.1 48.3-25.8 67z"/></svg></a>
-                            </div>
-                            <div class="ideas_follow group" style="display: flex; gap: 10px; align-items: center; margin-left: 20px;">
-                                <p style="margin: 0; font-weight: 700; font-size: 0.85rem; color: #0f172a; text-transform: uppercase;">Community</p>
-                                <a target="_blank" href="https://chiefaiofficer.vn/" rel="noopener nofollow external noreferrer" style="display: inline-block;"><img loading="lazy" decoding="async" alt="Chief AI Officer" width="70" height="29" src="https://ideas.edu.vn/wp-content/uploads/2025/09/cao-logo-1.png.webp" style="vertical-align: middle;"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reveal-up" style="position: relative;">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp" alt="Buổi hướng dẫn học viên IDEAS" width="1024" height="774" style="width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);" loading="lazy" decoding="async" />
-                        <div class="about-badge" style="position: absolute; bottom: -20px; left: -20px; background: #ab0e00; color: #fff; padding: 20px 24px; border-radius: 16px; box-shadow: 0 10px 25px rgba(171,14,0,0.3); font-weight: 700; width: 170px; text-align: center;">
-                            <span style="font-size: 2.2rem; color: #ffffff; display: block; line-height: 1; font-weight: 900; margin-bottom: 6px;">15+</span>
-                            <span style="font-size: 0.78rem; font-weight: 600; display: block; line-height: 1.3; color: rgba(255,255,255,0.95);">Đồng hành cùng học viên Việt Nam</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="competency-grid reveal-up">
-                    <div class="competency-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        </div>
-                        <div class="comp-number">01</div>
-                        <h3 class="comp-title">Kiến thức chuẩn Thụy Sĩ</h3>
-                        <p class="comp-desc">Chương trình đào tạo chuyển giao học thuật từ Swiss UMEF (Geneva, Thụy Sĩ), tập trung hoàn toàn vào các mô hình và framework quản trị thực chiến.</p>
-                    </div>
-                    <div class="competency-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        </div>
-                        <div class="comp-number">02</div>
-                        <h3 class="comp-title">Bổ trợ chuyên sâu cuối tuần</h3>
-                        <p class="comp-desc">Các buổi hướng dẫn tiếng Việt cuối tuần giúp làm rõ các nội dung học thuật phức tạp, định hướng ôn tập và chuẩn bị tốt cho các bài thi (Final Exam).</p>
-                    </div>
-                    <div class="competency-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        </div>
-                        <div class="comp-number">03</div>
-                        <h3 class="comp-title">Hệ thống học tập & AI Tutors</h3>
-                        <p class="comp-desc">Truy cập nền tảng eAcademy tích hợp trợ lý học tập AI chuyên biệt, hỗ trợ học viên giải đáp thắc mắc tài liệu học mọi lúc mọi nơi.</p>
-                    </div>
-                    <div class="competency-card">
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
                         </div>
