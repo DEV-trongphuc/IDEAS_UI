@@ -438,7 +438,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-left: 0 !important;
             margin-right: auto !important;
             margin-bottom: 35px;
-            max-width: 960px;
+            max-width: 820px;
             width: 100%;
             box-shadow: 0 4px 15px rgba(15, 23, 42, 0.015);
         }
@@ -520,7 +520,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-left: 0 !important;
             margin-right: auto !important;
             margin-bottom: 36px;
-            max-width: 960px;
+            max-width: 820px;
             width: 100%;
             box-sizing: border-box;
             animation: pulse-promo-glow 2s infinite alternate;
