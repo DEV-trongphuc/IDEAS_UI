@@ -1626,7 +1626,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-panel-title-wrap {
-            max-width: 75%;
+            max-width: 100%;
         }
 
         .curr-panel-title {
@@ -3992,9 +3992,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 <div class="ble-audience-split">
                     <!-- Left: Showcase Image -->
+                    <!-- Left: Overlapping Image Stack (Flora style) -->
                     <div class="ble-audience-visual">
-                        <div class="ble-audience-img-wrapper">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase.png" alt="Doanh nhân thảo luận quản trị doanh nghiệp">
+                        <div class="value-image-group">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase.png" alt="Không khí thảo luận lãnh đạo 1" class="value-float-img img-1" style="border-radius: 18px !important;" />
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_2.png" alt="Không khí thảo luận lãnh đạo 2" class="value-float-img img-2" style="border-radius: 18px !important;" />
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_3.png" alt="Không khí thảo luận lãnh đạo 3" class="value-float-img img-3" style="border-radius: 18px !important;" />
                         </div>
                     </div>
 
