@@ -872,6 +872,76 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
+        /* ── Wow Stat Card on Left Column of Pain Points ── */
+        .pain-stat-card {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1.5px solid rgba(171, 14, 0, 0.12);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.02);
+            margin-top: 36px;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .pain-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #ab0e00;
+        }
+
+        .pain-stat-number-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(171, 14, 0, 0.05);
+            border-radius: 16px;
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+
+        .pain-stat-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ab0e00;
+            line-height: 1;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .pain-stat-label {
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: #ab0e00;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        .pain-stat-info h5 {
+            font-size: 1rem;
+            font-weight: 850;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+            line-height: 1.35;
+        }
+
+        .pain-stat-info p {
+            font-size: 0.85rem;
+            line-height: 1.45;
+            color: #64748b !important;
+            margin: 0;
+        }
+
         /* ── 8 Core Competencies (Contrast Accent Border Top) ── */
         .comp-grid {
             display: grid;
@@ -2125,13 +2195,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <div class="ble-container">
                 <div class="pain-split-layout">
-                    <!-- Left Column: Big Editorial Heading -->
+                    <!-- Left Column: Big Editorial Heading with Statistics Card -->
                     <div class="pain-left-col">
                         <span class="ble-section-tag">
                             <span class="dot"></span> Thách thức thực tế
                         </span>
                         <h2 class="ble-section-title" style="text-align: left;">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ</h2>
-                        <p class="ble-section-subtitle" style="text-align: left; max-width: 480px;">Có đến 85% quản lý mới gặp khó khăn khi chuyển đổi vai trò. Đây là những rào cản thực tế bạn đang đối mặt:</p>
+                        
+                        <!-- Wow Stat Card -->
+                        <div class="pain-stat-card">
+                            <div class="pain-stat-number-box">
+                                <span class="pain-stat-number">85%</span>
+                                <span class="pain-stat-label">Quản lý</span>
+                            </div>
+                            <div class="pain-stat-info">
+                                <h5>Gặp khó khăn khi chuyển đổi vai trò</h5>
+                                <p>Tỷ lệ quản lý mới được bổ nhiệm gặp rào cản lớn trong việc chuyển từ làm chuyên môn sang điều hành và quản trị nhân sự.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Right Column: Numbered List Items -->
@@ -2184,8 +2265,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <div class="ble-title-badge-red">8 ĐIỀU "CẦM VỀ"</div>
-                    <p class="ble-section-subtitle" style="margin-top: 10px;">8 năng lực cốt lõi bạn sẽ nhận được sau khi hoàn thành khóa học</p>
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Năng lực đầu ra
+                    </span>
+                    <h2 class="ble-section-title">8 Điều Học Viên <span class="ble-gradient-text">"Cầm Về"</span></h2>
+                    <p class="ble-section-subtitle" style="max-width: 680px; margin: 0 auto;">Chương trình đào tạo thiết kế chuẩn quốc tế, giúp chuyển hóa toàn diện năng lực và tư duy của nhà quản lý thông qua 8 trụ cột cốt lõi:</p>
                 </div>
 
                 <div class="comp-grid">
