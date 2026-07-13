@@ -408,61 +408,60 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-hero-desc {
             font-size: 0.95rem;
-            line-height: 1.6;
-            color: #334155;
-            margin-bottom: 40px;
+            line-height: 1.65;
+            color: #475569;
+            margin-bottom: 30px;
             max-width: 600px;
         }
 
-        .ble-hero-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-
-        .ble-hero-feature-item {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 16px;
-            border: 1.5px solid #cbd5e1; /* no top border */
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+        .ble-hero-meta-row {
             display: flex;
-            flex-direction: column;
-            gap: 6px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
         }
 
-        .ble-hero-feature-item:hover {
-            border-color: #ab0e00;
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08);
-        }
-
-        .ble-hero-feature-item .feat-lbl {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .ble-hero-feature-item .feat-val {
+        .ble-hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.88rem;
-            font-weight: 800;
+            color: #475569;
+        }
+
+        .ble-hero-meta-item svg {
+            color: #ab0e00;
+            flex-shrink: 0;
+        }
+
+        .ble-hero-meta-item strong {
             color: #0f172a;
-            line-height: 1.35;
+            font-weight: 800;
         }
 
         .ble-hero-promo {
             display: flex;
             align-items: center;
             gap: 16px;
-            background: rgba(171, 14, 0, 0.04);
-            border: 1.5px dashed rgba(171, 14, 0, 0.25);
-            padding: 18px 24px;
+            background: linear-gradient(90deg, rgba(171, 14, 0, 0.05) 0%, rgba(255, 82, 82, 0.05) 100%);
+            border: 1.5px dashed rgba(171, 14, 0, 0.35);
+            padding: 16px 24px;
             border-radius: 16px;
             margin-bottom: 36px;
+            max-width: 600px;
+            animation: pulse-promo-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-promo-glow {
+            0% {
+                border-color: rgba(171, 14, 0, 0.3);
+                box-shadow: 0 0 0 rgba(171, 14, 0, 0);
+            }
+            100% {
+                border-color: rgba(171, 14, 0, 0.7);
+                box-shadow: 0 4px 15px rgba(171, 14, 0, 0.04);
+            }
         }
 
         .ble-hero-promo-icon {
@@ -473,7 +472,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-promo-text {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 750;
             color: #8c1000;
             line-height: 1.4;
@@ -1952,8 +1951,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .ble-hero-features {
-                grid-template-columns: 1fr;
-                gap: 16px;
+                display: none;
+            }
+
+            .ble-hero-meta-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 12px;
             }
 
             .ble-hero-actions {
@@ -2136,19 +2141,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <h1 class="ble-hero-title">Business Leadership <span class="ble-gradient-text">Essentials</span></h1>
                         <p class="ble-hero-desc">Giải quyết vấn đề lãnh đạo và quản lý đội ngũ trong doanh nghiệp của bạn. Khóa học giúp nhà quản lý xây dựng tư duy lãnh đạo hiện đại, phát triển đội ngũ, tạo văn hóa làm việc tích cực và nâng cao hiệu suất tổ chức thông qua ba học phần cốt lõi của Swiss UMEF.</p>
 
-                        <!-- Features Grid -->
-                        <div class="ble-hero-features">
-                            <div class="ble-hero-feature-item">
-                                <span class="feat-lbl">Thời lượng</span>
-                                <span class="feat-val">03 - 04 tháng</span>
+                        <!-- Sleek Inline Highlight Row -->
+                        <div class="ble-hero-meta-row">
+                            <div class="ble-hero-meta-item">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Thời lượng: <strong>3 - 4 tháng</strong></span>
                             </div>
-                            <div class="ble-hero-feature-item">
-                                <span class="feat-lbl">Hình thức học</span>
-                                <span class="feat-val">Online, trực tuyến kết hợp tự học</span>
+                            <div class="ble-hero-meta-item">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/></svg>
+                                <span>Hình thức học: <strong>Trực tuyến 100%</strong></span>
                             </div>
-                            <div class="ble-hero-feature-item">
-                                <span class="feat-lbl">Tên chứng nhận</span>
-                                <span class="feat-val">Certificate in Business Leadership Essentials</span>
+                            <div class="ble-hero-meta-item">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                                <span>Chứng nhận: <strong>Swiss UMEF</strong></span>
                             </div>
                         </div>
 
@@ -2157,7 +2162,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="ble-hero-promo-icon">
                                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
                             </div>
-                            <div class="ble-hero-promo-text">Học miễn phí toàn khóa khi đăng ký trong tháng 7</div>
+                            <div class="ble-hero-promo-text"><strong>Ưu đãi duy nhất tháng 7:</strong> Học miễn phí toàn khóa học (Nhận học bổng Learning Grant 100%).</div>
                         </div>
 
                         <!-- Action buttons -->
