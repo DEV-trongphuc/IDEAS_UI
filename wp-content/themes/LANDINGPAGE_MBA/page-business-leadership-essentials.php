@@ -61,7 +61,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background-size: 30px 30px;
         }
 
-        /* ─── Custom Webkit Scrollbar (Flora Reference) ─── */
+        /* ─── Custom Webkit Scrollbar ─── */
         ::-webkit-scrollbar {
             width: 10px;
             height: 10px;
@@ -127,7 +127,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0 auto 60px auto;
         }
 
-        /* ─── Ambient Glow Orbs (Flora Reference) ─── */
+        /* ─── Ambient Glow Orbs ─── */
         .ble-glow-orb {
             position: absolute;
             border-radius: 50%;
@@ -151,7 +151,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: 500px;
         }
 
-        /* ─── Pulsing Premium Badges (Flora Reference) ─── */
+        /* ─── Pulsing Premium Badges ─── */
         .ble-section-tag {
             display: inline-flex;
             align-items: center;
@@ -159,7 +159,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: rgba(171, 14, 0, 0.06);
             color: #ab0e00;
             padding: 8px 20px;
-            border-radius: 100px; /* soft rounded pill */
+            border-radius: 100px;
             font-size: 0.72rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -217,7 +217,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 1.1rem;
             text-transform: uppercase;
             padding: 10px 24px;
-            border-radius: 12px; /* soft rounded */
+            border-radius: 12px;
             letter-spacing: 0.05em;
             margin-bottom: 16px;
         }
@@ -231,7 +231,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-shrink: 0;
         }
 
-        /* ── Buttons (Bezier Easing & Rounded Pill) ── */
+        /* ── Buttons ── */
         .ble-btn {
             display: inline-flex;
             align-items: center;
@@ -250,6 +250,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-decoration: none !important;
             position: relative;
             overflow: hidden;
+            z-index: 5;
         }
 
         .ble-btn::before {
@@ -283,6 +284,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1.5px solid #0f172a;
             box-shadow: none;
             border-radius: 100px;
+            z-index: 5;
         }
 
         .ble-btn-outline:hover {
@@ -291,15 +293,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
         }
 
-        /* ── Hero Section (herobg.webp mesh background) ── */
+        /* ── Hero Section (herobg.webp faded background) ── */
         .ble-hero {
             padding-top: 170px;
             padding-bottom: 120px;
+            background: #ffffff;
+            border-bottom: 1px solid #cbd5e1;
+            position: relative;
+        }
+
+        .ble-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
             background-image: url('https://ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets/herobg.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            border-bottom: 1px solid #cbd5e1;
+            opacity: 0.35; /* faded background overlay */
+            z-index: 1;
+            pointer-events: none;
         }
 
         .ble-hero-grid {
@@ -307,6 +320,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             grid-template-columns: 1.15fr 0.85fr;
             gap: 60px;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .ble-hero-content {
@@ -367,8 +382,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             padding: 20px;
             border-radius: 16px;
-            border: 1px solid #cbd5e1;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            border: 1.5px solid #cbd5e1;
+            border-top: 3.5px solid #ab0e00; /* premium red top line */
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -376,9 +392,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-feature-item:hover {
-            border-color: rgba(171, 14, 0, 0.2);
+            border-color: #ab0e00;
             transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.06);
+            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08);
         }
 
         .ble-hero-feature-item .feat-lbl {
@@ -401,7 +417,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 16px;
             background: rgba(171, 14, 0, 0.04);
-            border: 1px dashed rgba(171, 14, 0, 0.25);
+            border: 1.5px dashed rgba(171, 14, 0, 0.25);
             padding: 18px 24px;
             border-radius: 16px;
             margin-bottom: 36px;
@@ -416,7 +432,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-hero-promo-text {
             font-size: 0.95rem;
-            font-weight: 700;
+            font-weight: 750;
             color: #8c1000;
             line-height: 1.4;
         }
@@ -598,11 +614,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             animation: float-gentle 4s ease-in-out infinite alternate;
         }
 
-        @keyframes float-gentle {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-8px); }
-        }
-
         .db-floating-badge.badge-1 {
             bottom: 20px;
             left: -40px;
@@ -650,7 +661,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-db-grid {
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
+            grid-template-columns: 1.15fr 0.85fr;
             gap: 40px;
             align-items: center;
         }
@@ -670,10 +681,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-bottom: 30px;
         }
 
+        /* Parameter grid with horizontal and vertical white borders */
         .ble-db-info-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            gap: 15px;
             border-top: 1.5px solid rgba(255, 255, 255, 0.2);
             border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
             padding: 22px 0;
@@ -684,6 +696,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             gap: 6px;
+            border-right: 1.5px solid rgba(255, 255, 255, 0.2);
+            padding-right: 15px;
+        }
+
+        .ble-db-info-col:last-child {
+            border-right: none;
+            padding-right: 0;
         }
 
         .ble-db-info-label {
@@ -750,51 +769,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translateY(-2px);
         }
 
-        .ble-db-video-wrapper {
+        /* Large visual card instead of small video */
+        .ble-db-image-container {
             position: relative;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            aspect-ratio: 1.55;
-            background: #1e293b;
-            border: 4px solid #ffffff;
-            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 6px solid #ffffff;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: block;
-        }
-
-        .ble-db-video-wrapper:hover {
-            transform: translateY(-4px);
-        }
-
-        .ble-db-video-wrapper img {
             width: 100%;
-            height: 100%;
+        }
+
+        .ble-db-image-container:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        }
+
+        .ble-db-image-container img {
+            width: 100%;
+            height: auto;
             object-fit: cover;
-            opacity: 0.85;
-        }
-
-        .ble-db-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 68px;
-            height: 46px;
-            background: #ff0000;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .ble-db-video-wrapper:hover .ble-db-play-btn {
-            background: #cc0000;
-            transform: translate(-50%, -50%) scale(1.1);
+            display: block;
         }
 
         /* ── Pain Points Section (Flora Shadow & Bezier) ── */
@@ -807,9 +803,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .pain-card {
             background: #ffffff;
             border-radius: 20px;
-            border: 1px solid #cbd5e1;
+            border: 1.5px solid #cbd5e1;
+            border-left: 4.5px solid #ab0e00; /* left red border contrast */
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             gap: 24px;
@@ -818,9 +815,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .pain-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: #ab0e00;
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.1);
         }
 
         .pain-icon-box {
@@ -857,7 +854,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
-        /* ── 8 Core Competencies (Flora-style Card & Hover) ── */
+        /* ── 8 Core Competencies (Contrast Accent Border Top) ── */
         .comp-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -867,20 +864,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .comp-card {
             background: #ffffff;
             border-radius: 20px;
-            border: 1px solid #cbd5e1;
+            border: 1.5px solid #cbd5e1;
+            border-top: 4.5px solid #ab0e00; /* top red border contrast */
             padding: 32px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
             z-index: 2;
         }
 
         .comp-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: #ab0e00;
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.1);
         }
 
         .comp-icon-box {
@@ -1282,7 +1280,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── IDEAS AI Platform Section ── */
         .ai-grid {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
+            grid-template-columns: 0.8fr 1.2fr; /* wider layout space for chat */
             gap: 60px;
             align-items: center;
         }
@@ -1325,7 +1323,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a;
         }
 
-        /* Chat UI Mockup */
+        /* Chat UI Mockup (Expanded & Wider) */
         .ai-chat-mockup {
             background: #ffffff;
             border-radius: 24px;
@@ -1334,7 +1332,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            aspect-ratio: 1.35;
+            width: 100%;
+            max-width: 620px; /* wider chat assistant box */
+            min-height: 480px; /* taller box */
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -1346,7 +1346,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .chat-header {
             background: #f8fafc;
-            padding: 16px 24px;
+            padding: 18px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1368,13 +1368,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .chat-header-title {
-            font-size: 0.88rem;
+            font-size: 0.95rem;
             font-weight: 800;
             color: #0f172a;
         }
 
         .chat-header-subtitle {
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             color: #64748b;
         }
 
@@ -1392,8 +1392,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             max-width: 80%;
             padding: 14px 18px;
             border-radius: 16px;
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.88rem;
+            line-height: 1.55;
         }
 
         .chat-bubble.student {
@@ -1417,9 +1417,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .chat-bubble-source {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             color: #64748b;
-            margin-top: 6px;
+            margin-top: 8px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -1446,7 +1446,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 100px;
             padding: 10px 18px;
             color: #94a3b8;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             pointer-events: none;
         }
 
@@ -1475,7 +1475,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1px solid #cbd5e1;
             padding: 36px 30px;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1880,7 +1880,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 justify-content: center;
             }
 
-            .ble-db-video-wrapper {
+            .ble-db-image-container {
                 max-width: 480px;
                 margin: 0 auto;
             }
@@ -2028,7 +2028,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span></span> Swiss UMEF Academic Partner
                         </div>
                         <h1 class="ble-hero-title">Business Leadership <span class="ble-gradient-text">Essentials</span></h1>
-                        <p class="ble-hero-desc">Giải quyết triệt để bài toán năng lực lãnh đạo và quản trị con người trong doanh nghiệp. Xây dựng tư duy quản trị hiện đại, dẫn dắt đội ngũ bứt phá hiệu suất.</p>
+                        <p class="ble-hero-desc">Giải quyết vấn đề lãnh đạo và quản lý đội ngũ trong doanh nghiệp của bạn. Khóa học giúp nhà quản lý xây dựng tư duy lãnh đạo hiện đại, phát triển đội ngũ, tạo văn hóa làm việc tích cực và nâng cao hiệu suất tổ chức thông qua ba học phần cốt lõi của Swiss UMEF.</p>
 
                         <!-- Features Grid -->
                         <div class="ble-hero-features">
@@ -2038,11 +2038,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="ble-hero-feature-item">
                                 <span class="feat-lbl">Hình thức học</span>
-                                <span class="feat-val">Online trực tuyến kết hợp tự học</span>
+                                <span class="feat-val">Online, trực tuyến kết hợp tự học</span>
                             </div>
                             <div class="ble-hero-feature-item">
-                                <span class="feat-lbl">Chứng nhận</span>
-                                <span class="feat-val">Business Leadership Essentials</span>
+                                <span class="feat-lbl">Tên chứng nhận</span>
+                                <span class="feat-val">Certificate in Business Leadership Essentials</span>
                             </div>
                         </div>
 
@@ -2051,7 +2051,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="ble-hero-promo-icon">
                                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
                             </div>
-                            <div class="ble-hero-promo-text">Học bổng tháng 7: Đăng ký hôm nay để nhận <strong>Learning Grant 100% học phí</strong> toàn khóa!</div>
+                            <div class="ble-hero-promo-text">Học miễn phí toàn khóa khi đăng ký trong tháng 7</div>
                         </div>
 
                         <!-- Action buttons -->
@@ -2172,13 +2172,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
 
-                    <!-- Right: Mock video player matching screenshot -->
+                    <!-- Right: Large image card instead of small video -->
                     <div class="ble-db-video">
-                        <div class="ble-db-video-wrapper" onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-video'); }">
-                            <img src="/wp-content/uploads/external-migrated/Image-empty-state_d4ff3628.webp" alt="Video Course Preview">
-                            <button class="ble-db-play-btn">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                        <div class="ble-db-image-container" onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-img'); }">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp" alt="Business Leadership Essentials program visual">
                         </div>
                     </div>
                 </div>
@@ -2196,8 +2193,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Thách thức thực tế
                     </span>
-                    <h2 class="ble-section-title">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ!</h2>
-                    <p class="ble-section-subtitle">Phần lớn các nhà quản lý hiện nay đều đang gặp khó khăn ở các khía cạnh cốt lõi này:</p>
+                    <h2 class="ble-section-title">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ</h2>
+                    <p class="ble-section-subtitle">Những nhà quản lý hiện nay phải đối mặt với nhiều vấn đề:</p>
                 </div>
 
                 <div class="pain-grid">
@@ -2207,8 +2204,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
                         </div>
                         <div class="pain-card-content">
-                            <h4>Chưa từng được đào tạo quản lý</h4>
-                            <p>Được bổ nhiệm lên làm quản lý do chuyên môn giỏi, nhưng chưa từng được học phương pháp dẫn dắt, giao việc và điều hành tổ chức.</p>
+                            <h4>Chưa được đào tạo lãnh đạo</h4>
+                            <p>Được bổ nhiệm làm quản lý nhưng chưa từng được đào tạo về năng lực lãnh đạo.</p>
                         </div>
                     </div>
                     <!-- Card 2 -->
@@ -2217,8 +2214,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
                         <div class="pain-card-content">
-                            <h4>Gặp khó khăn khi tạo uy tín</h4>
-                            <p>Chưa biết cách xây dựng sức ảnh hưởng cá nhân và sự tin cậy để đội ngũ cấp dưới tự nguyện cống hiến và đồng hành.</p>
+                            <h4>Chưa xây dựng được uy tín</h4>
+                            <p>Chưa xây dựng được uy tín và niềm tin để đội ngũ sẵn sàng đồng hành.</p>
                         </div>
                     </div>
                     <!-- Card 3 -->
@@ -2227,8 +2224,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 6.1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h4l4 4V18h6a1 1 0 0 0 1-1V7.1a1 1 0 0 0-1-1zM22 2v14"/></svg>
                         </div>
                         <div class="pain-card-content">
-                            <h4>Lúng túng trong Coaching &amp; Phản hồi</h4>
-                            <p>Chưa nắm vững kỹ năng dẫn dắt (coaching) để phát huy tiềm năng của nhân viên, phản hồi chưa mang tính xây dựng làm giảm động lực.</p>
+                            <h4>Chưa biết cách coaching</h4>
+                            <p>Chưa biết cách tạo động lực, coaching và phát triển năng lực của nhân viên.</p>
                         </div>
                     </div>
                     <!-- Card 4 -->
@@ -2237,8 +2234,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                         </div>
                         <div class="pain-card-content">
-                            <h4>Đội ngũ rời rạc, hiệu suất thấp</h4>
-                            <p>Thiếu sự gắn kết và phối hợp ăn ý giữa các thành viên, dẫn đến tình trạng chậm tiến độ và kết quả công việc chưa như kỳ vọng.</p>
+                            <h4>Hiệu suất chưa đạt kỳ vọng</h4>
+                            <p>Đội ngũ thiếu gắn kết, phối hợp rời rạc dẫn đến hiệu suất chưa đạt kỳ vọng.</p>
                         </div>
                     </div>
                 </div>
@@ -2254,7 +2251,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <div class="ble-title-badge-red">8 ĐIỀU "CẦM VỀ"</div>
-                    <p class="ble-section-subtitle" style="margin-top: 10px;">Những giá trị cốt lõi bạn sẽ sở hữu trọn vẹn sau khóa học</p>
+                    <p class="ble-section-subtitle" style="margin-top: 10px;">8 năng lực cốt lõi bạn sẽ nhận được sau khi hoàn thành khóa học</p>
                 </div>
 
                 <div class="comp-grid">
@@ -2264,23 +2261,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .5 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"/></svg>
                         </div>
                         <h4 class="comp-card-caps-title">Leadership Mindset</h4>
-                        <p class="comp-desc">Dịch chuyển tư duy từ quản lý hành chính sự vụ sang dẫn dắt, kiến tạo giá trị và gây ảnh hưởng lên đội ngũ.</p>
+                        <p class="comp-desc">Phát triển tư duy lãnh đạo hiện đại, chuyển từ quản lý công việc sang dẫn dắt và tạo ảnh hưởng đến đội ngũ.</p>
                     </div>
                     <!-- Comp 2 -->
                     <div class="comp-card">
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                         </div>
-                        <h4 class="comp-card-caps-title">Performance Opt.</h4>
-                        <p class="comp-desc">Nắm vững phương pháp thiết lập mục tiêu khoa học, phân chia công việc hiệu quả để tối ưu hiệu suất làm việc.</p>
+                        <h4 class="comp-card-caps-title">Performance Management</h4>
+                        <p class="comp-desc">Biết cách phân công công việc, thiết lập mục tiêu và tối ưu hiệu suất làm việc của đội ngũ.</p>
                     </div>
                     <!-- Comp 3 -->
                     <div class="comp-card">
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <h4 class="comp-card-caps-title">Org. Behaviour</h4>
-                        <p class="comp-desc">Thấu hiểu sâu sắc động cơ và hành vi của nhân viên để xây dựng văn hóa làm việc tích cực, gắn kết lâu dài.</p>
+                        <h4 class="comp-card-caps-title">Organizational Behaviour</h4>
+                        <p class="comp-desc">Hiểu hành vi và động lực của nhân sự để xây dựng môi trường làm việc tích cực và tăng sự gắn kết.</p>
                     </div>
                     <!-- Comp 4 -->
                     <div class="comp-card">
@@ -2288,15 +2285,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         </div>
                         <h4 class="comp-card-caps-title">Coaching &amp; Feedback</h4>
-                        <p class="comp-desc">Làm chủ kỹ năng phản hồi mang tính định hướng và phương pháp coaching thúc đẩy năng lực nhân sự liên tục.</p>
+                        <p class="comp-desc">Phát triển kỹ năng coaching và phản hồi nhằm nâng cao năng lực và hiệu quả làm việc của nhân viên.</p>
                     </div>
                     <!-- Comp 5 -->
                     <div class="comp-card">
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                         </div>
-                        <h4 class="comp-card-caps-title">High-Perf Team</h4>
-                        <p class="comp-desc">Thiết kế quy trình phối hợp nhịp nhàng, kích hoạt sự chủ động của từng thành viên hướng đến mục tiêu chung.</p>
+                        <h4 class="comp-card-caps-title">High-Performance Team</h4>
+                        <p class="comp-desc">Xây dựng đội ngũ chủ động, hợp tác và hướng đến mục tiêu chung với hiệu suất cao.</p>
                     </div>
                     <!-- Comp 6 -->
                     <div class="comp-card">
@@ -2304,7 +2301,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
                         </div>
                         <h4 class="comp-card-caps-title">Talent Management</h4>
-                        <p class="comp-desc">Biết cách phát hiện nhân sự tiềm năng, đào tạo bồi dưỡng và giữ chân nhân tài gắn bó cùng tổ chức.</p>
+                        <p class="comp-desc">Biết cách phát hiện, phát triển và giữ chân nhân tài để xây dựng nguồn lực bền vững cho tổ chức.</p>
                     </div>
                     <!-- Comp 7 -->
                     <div class="comp-card">
@@ -2312,15 +2309,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
                         </div>
                         <h4 class="comp-card-caps-title">Change Leadership</h4>
-                        <p class="comp-desc">Nâng cao năng lực dẫn dắt đội ngũ thích ứng nhanh chóng trước các đổi mới chiến lược của doanh nghiệp.</p>
+                        <p class="comp-desc">Nâng cao năng lực dẫn dắt đội ngũ thích ứng với sự thay đổi và phát triển của doanh nghiệp.</p>
                     </div>
                     <!-- Comp 8 -->
                     <div class="comp-card">
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                         </div>
-                        <h4 class="comp-card-caps-title">Practical Frameworks</h4>
-                        <p class="comp-desc">Ứng dụng ngay các framework quản lý chuẩn mực vào giải quyết bài toán vận hành nhân sự hàng ngày.</p>
+                        <h4 class="comp-card-caps-title">Practical Management Skills</h4>
+                        <p class="comp-desc">Ứng dụng ngay các nguyên tắc lãnh đạo và quản trị nhân sự vào công việc quản lý hằng ngày.</p>
                     </div>
                 </div>
             </div>
@@ -2331,10 +2328,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">
-                        <span class="dot"></span> Đối tượng tham gia
+                        <span class="dot"></span> Ai nên học khóa học này?
                     </span>
-                    <h2 class="ble-section-title">Chương trình này thiết kế dành cho ai?</h2>
-                    <p class="ble-section-subtitle">Phù hợp nhất với các anh/chị đang đảm nhận vị trí quản lý con người trong doanh nghiệp</p>
+                    <h2 class="ble-section-title">Đối tượng đào tạo phù hợp</h2>
+                    <p class="ble-section-subtitle">Chương trình được thiết kế chuẩn hóa cho từng nhóm đối tượng quản trị con người:</p>
                 </div>
 
                 <div class="audience-grid">
@@ -2343,8 +2340,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="audience-icon-box">
                             <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <h4>Trưởng nhóm / Team Lead</h4>
-                        <p>Cần chuẩn bị tốt nền tảng kỹ năng ra quyết định, phân công công việc và xây dựng uy tín đội nhóm.</p>
+                        <h4>Trưởng nhóm</h4>
+                        <p>Dẫn dắt đội ngũ, cần nền tảng để ra quyết định và xây dựng uy tín trong đội.</p>
                     </div>
                     <!-- Item 2 -->
                     <div class="audience-card">
@@ -2352,7 +2349,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.5 2.5 6l6-6L18 4.5c1.5-1.5 3.5-2.5 6-2.5-1.5 2.5-2.5 4.5-4 6l-6.5 6.5-6 6c1.5 1.5 3.5 2.5 6 2.5 5.5 0 10-4.5 10-10 0-1.5-1-3.5-2.5-5z"/></svg>
                         </div>
                         <h4>Nhân sự nguồn (Hi-Po)</h4>
-                        <p>Được doanh nghiệp quy hoạch nâng đỡ, cần sẵn sàng năng lực lãnh đạo trước khi chính thức tiếp quản vai trò mới.</p>
+                        <p>Được doanh nghiệp định hướng lên vị trí quản lý, cần chuẩn bị năng lực trước khi chính thức đảm nhận vai trò.</p>
                     </div>
                     <!-- Item 3 -->
                     <div class="audience-card">
@@ -2360,7 +2357,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M9 15v6l2-2 2 2v-6"/></svg>
                         </div>
                         <h4>Quản lý cấp trung</h4>
-                        <p>Đang trực tiếp quản lý bộ phận chức năng, cần hệ thống hóa lại phương pháp và cập nhật xu hướng lãnh đạo mới.</p>
+                        <p>Đang trực tiếp điều hành đội nhóm, cần hệ thống hóa tư duy lãnh đạo.</p>
                     </div>
                     <!-- Item 4 -->
                     <div class="audience-card">
@@ -2368,7 +2365,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22V18h6v4M8 6h2M14 6h2M8 10h2M14 10h2M8 14h2M14 14h2"/></svg>
                         </div>
                         <h4>Chủ doanh nghiệp SMEs</h4>
-                        <p>Muốn xây dựng một hệ thống quản lý rõ ràng, kiến tạo môi trường và văn hóa làm việc chuyên nghiệp, hạnh phúc.</p>
+                        <p>Trực tiếp quản lý đội ngũ, cần một hệ thống tư duy rõ ràng để xây dựng văn hóa làm việc tích cực.</p>
                     </div>
                 </div>
             </div>
@@ -2382,10 +2379,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">
-                        <span class="dot"></span> Lộ trình học tập
+                        <span class="dot"></span> Chương trình đào tạo
                     </span>
-                    <h2 class="ble-section-title">Chương trình đào tạo chi tiết</h2>
-                    <p class="ble-section-subtitle">Cấu trúc 3 môn học cốt lõi chuyển giao học thuật từ Swiss UMEF University</p>
+                    <h2 class="ble-section-title">Nội dung đào tạo chi tiết</h2>
+                    <p class="ble-section-subtitle">3 môn học chuyên sâu về năng lực lãnh đạo và quản trị con người</p>
                 </div>
 
                 <!-- Cask layout wrapper -->
@@ -2402,7 +2399,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="curr-tab" data-target="course-3">
                             <div class="curr-tab-tag">Môn học 03</div>
-                            <div class="curr-tab-title">Human Capital &amp; Talent Management</div>
+                            <div class="curr-tab-title">Human Capital and Talent Management</div>
                         </div>
                     </div>
 
@@ -2413,7 +2410,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="curr-panel-header">
                                 <div class="curr-panel-title-wrap">
                                     <h3 class="curr-panel-title">Leadership Development</h3>
-                                    <p class="curr-panel-desc">Phát triển tư duy và năng lực lãnh đạo trong môi trường doanh nghiệp hiện đại. Môn học tập trung vào cách dẫn dắt đội ngũ, tạo ảnh hưởng, xây dựng văn hóa tổ chức và thích ứng linh hoạt trước sự thay đổi liên tục.</p>
+                                    <p class="curr-panel-desc">Leadership Development là môn học giúp học viên phát triển tư duy và năng lực lãnh đạo trong môi trường doanh nghiệp hiện đại. Môn học tập trung vào cách dẫn dắt đội ngũ, tạo ảnh hưởng, xây dựng văn hóa tổ chức và thích ứng với sự thay đổi. Thông qua các mô hình lãnh đạo từ nền tảng đến hiện đại, học viên sẽ biết cách lựa chọn phong cách lãnh đạo phù hợp với từng cá nhân, từng tình huống và từng giai đoạn phát triển của tổ chức.</p>
                                 </div>
                                 <button class="curr-toggle-all-btn" onclick="toggleAllAccordions('course-1')">Mở tất cả</button>
                             </div>
@@ -2525,15 +2522,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <ul class="curr-outcomes-list">
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Hiểu rõ cách thức nhà lãnh đạo tạo dựng sức ảnh hưởng và thiết lập văn hóa làm việc hiệu suất.</span>
+                                        <span>Hiểu cách nhà lãnh đạo tạo ảnh hưởng và xây dựng văn hóa tổ chức hiệu quả.</span>
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Thiết lập được chiến lược bồi dưỡng năng lực tự quản và phát triển đội ngũ kế thừa.</span>
+                                        <span>Xây dựng chiến lược phát triển đội ngũ và năng lực lãnh đạo trong tổ chức.</span>
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Chủ động dẫn dắt tổ chức vượt qua các thách thức thay đổi một cách bài bản, trơn tru.</span>
+                                        <span>Dẫn dắt đội ngũ và xây dựng văn hóa tổ chức thích ứng với sự thay đổi.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -2544,7 +2541,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="curr-panel-header">
                                 <div class="curr-panel-title-wrap">
                                     <h3 class="curr-panel-title">Organizational Behaviour</h3>
-                                    <p class="curr-panel-desc">Giải mã cách thức con người suy nghĩ, tương tác và hành động trong môi trường làm việc tập thể. Giúp bạn nhận diện các rào cản tâm lý, quản trị tốt xung đột và xây dựng không gian làm việc đạt hiệu suất cao.</p>
+                                    <p class="curr-panel-desc">Organizational Behaviour giúp học viên hiểu cách con người suy nghĩ, hành động và tương tác trong môi trường tổ chức. Môn học tập trung vào việc phân tích hành vi của cá nhân, đội nhóm và tổ chức nhằm nâng cao hiệu quả quản trị, xây dựng môi trường làm việc tích cực và cải thiện hiệu suất doanh nghiệp. Thông qua các mô hình và nghiên cứu thực tiễn, học viên sẽ biết cách nhận diện nguyên nhân của các vấn đề về con người và đưa ra giải pháp quản trị phù hợp.</p>
                                 </div>
                                 <button class="curr-toggle-all-btn" onclick="toggleAllAccordions('course-2')">Mở tất cả</button>
                             </div>
@@ -2603,7 +2600,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="curr-acc-header" onclick="toggleAccordion(this)">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">03</span>
-                                            <span class="curr-acc-title">Cấu trúc, văn hóa và thay đổi tổ chức (Organization System)</span>
+                                            <span class="curr-acc-title">Cấu trúc, văn hóa và thay đổi tổ chức (Organization System &amp; Change)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
@@ -2632,15 +2629,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <ul class="curr-outcomes-list">
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Nắm chắc các yếu tố cấu thành động lực thúc đẩy cá nhân và tập thể cống hiến tối đa.</span>
+                                        <span>Hiểu cách hành vi của cá nhân, đội nhóm và tổ chức tác động đến hiệu quả làm việc.</span>
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Phân tích được nguyên nhân gốc rễ của các mâu thuẫn, xung đột nội bộ để hóa giải nhanh chóng.</span>
+                                        <span>Phân tích nguyên nhân của các vấn đề về động lực, xung đột và sự gắn kết trong doanh nghiệp.</span>
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Kiến tạo một bầu không khí làm việc gắn kết cao, giúp đẩy mạnh năng suất lao động chung.</span>
+                                        <span>Xây dựng môi trường làm việc và văn hóa tổ chức giúp nâng cao hiệu suất đội ngũ.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -2650,8 +2647,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="curr-panel" id="course-3" style="display:none;">
                             <div class="curr-panel-header">
                                 <div class="curr-panel-title-wrap">
-                                    <h3 class="curr-panel-title">Human Capital &amp; Talent Management</h3>
-                                    <p class="curr-panel-desc">Thiết kế chiến lược quản trị nguồn vốn con người như một lợi thế cạnh tranh lâu dài. Học cách tuyển dụng thông minh, giữ chân người tài, quản lý hiệu suất chuyên nghiệp và định hình tương lai của quản lý nhân sự.</p>
+                                    <h3 class="curr-panel-title">Human Capital and Talent Management</h3>
+                                    <p class="curr-panel-desc">Human Capital and Talent Management giúp học viên xây dựng tư duy quản trị nguồn nhân lực theo hướng chiến lược, xem con người là tài sản quan trọng tạo nên lợi thế cạnh tranh bền vững của doanh nghiệp. Môn học tập trung vào toàn bộ vòng đời của nhân tài, từ thu hút, phát triển, quản lý hiệu suất đến giữ chân nhân sự, giúp nhà quản lý xây dựng đội ngũ có năng lực, gắn kết và phát triển lâu dài.</p>
                                 </div>
                                 <button class="curr-toggle-all-btn" onclick="toggleAllAccordions('course-3')">Mở tất cả</button>
                             </div>
@@ -2662,7 +2659,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="curr-acc-header" onclick="toggleAccordion(this)">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">01</span>
-                                            <span class="curr-acc-title">Quản trị nguồn nhân lực chiến lược (Strategic Human Capital)</span>
+                                            <span class="curr-acc-title">Nền tảng về quản trị nguồn nhân lực chiến lược (Strategic Human Capital)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
@@ -2686,7 +2683,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="curr-acc-header" onclick="toggleAccordion(this)">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">02</span>
-                                            <span class="curr-acc-title">Thu hút và phát triển nhân tài (Talent Acquisition)</span>
+                                            <span class="curr-acc-title">Thu hút và phát triển nhân tài (Talent Acquisition &amp; Development)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
@@ -2710,7 +2707,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="curr-acc-header" onclick="toggleAccordion(this)">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">03</span>
-                                            <span class="curr-acc-title">Quản lý hiệu suất và phát triển đội ngũ (Performance &amp; People)</span>
+                                            <span class="curr-acc-title">Quản lý hiệu suất và phát triển đội ngũ (Performance &amp; People Development)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
@@ -2734,7 +2731,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="curr-acc-header" onclick="toggleAccordion(this)">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">04</span>
-                                            <span class="curr-acc-title">Tương lai của quản trị nhân sự (Future of HR)</span>
+                                            <span class="curr-acc-title">Văn hóa doanh nghiệp và tương lai của quản trị nhân sự (Culture &amp; Future of HR)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 4</span>
@@ -2763,15 +2760,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <ul class="curr-outcomes-list">
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Xây dựng được chính sách quản trị nguồn vốn con người đồng bộ với tầm nhìn chung của doanh nghiệp.</span>
+                                        <span>Hiểu cách xây dựng chiến lược quản trị nguồn nhân lực gắn với mục tiêu phát triển của doanh nghiệp.</span>
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Thiết kế thành công phễu tuyển chọn chất lượng và hệ thống cơ chế giữ chân nhân tài lâu dài.</span>
+                                        <span>Thiết kế hệ thống thu hút, phát triển và giữ chân nhân tài nhằm nâng cao năng lực cạnh tranh của tổ chức.</span>
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
-                                        <span>Hình thành thói quen và kỹ năng đánh giá hiệu suất nhân viên một cách minh bạch, công bằng.</span>
+                                        <span>Xây dựng văn hóa hiệu suất cao và phát triển đội ngũ bền vững thông qua các chính sách quản trị nhân sự hiện đại.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -2791,36 +2788,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Left: Details -->
                     <div class="ai-content">
                         <span class="ble-section-tag">
-                            <span class="dot"></span> Công nghệ dẫn đầu
+                            <span class="dot"></span> IDEAS AI Platform
                         </span>
-                        <h2 class="ble-section-title">Học tập thông minh cùng<br><span class="ble-gradient-text">IDEAS AI Platform</span></h2>
-                        <p class="ble-section-subtitle" style="margin-bottom: 24px;">Học bám sát trọng tâm giáo trình Swiss UMEF. Giải quyết mọi câu hỏi lý thuyết lẫn tình huống quản trị thực tế của riêng doanh nghiệp bạn.</p>
+                        <h2 class="ble-section-title">AI được huấn luyện riêng cho chương trình học</h2>
+                        <p class="ble-section-subtitle" style="margin-bottom: 24px;">Học đúng trọng tâm. Hiểu sâu kiến thức. Nền tảng hỗ trợ học viên học tập mọi lúc, mọi nơi, giúp nâng cao hiệu quả tự học.</p>
 
                         <ul class="ai-features-list">
                             <li>
                                 <span class="ai-feat-icon">
                                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                 </span>
-                                <span class="ai-feat-text"><strong>Cá nhân hóa tối đa:</strong> AI được huấn luyện theo giáo trình chính thức của khóa học.</span>
+                                <span class="ai-feat-text"><strong>Đúng trọng tâm:</strong> Trả lời bám sát nội dung môn học, đúng trọng tâm.</span>
                             </li>
                             <li>
                                 <span class="ai-feat-icon">
                                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                 </span>
-                                <span class="ai-feat-text"><strong>Trích dẫn khoa học:</strong> Cung cấp câu trả lời có nguồn dẫn chuẩn học thuật từ giáo trình.</span>
+                                <span class="ai-feat-text"><strong>Trích dẫn học thuật:</strong> Trích dẫn trực tiếp từ nguồn học thuật trong giáo trình.</span>
                             </li>
                             <li>
                                 <span class="ai-feat-icon">
                                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                 </span>
-                                <span class="ai-feat-text"><strong>Ví dụ thực tiễn:</strong> Minh họa kiến thức bằng các tình huống thực tế của doanh nghiệp Việt.</span>
+                                <span class="ai-feat-text"><strong>Ví dụ thực tiễn:</strong> Diễn giải kiến thức rõ ràng, dễ hiểu và minh họa bằng các ví dụ thực tế.</span>
                             </li>
                         </ul>
 
                         <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-ai'); }" class="ble-btn">Đăng ký dùng thử AI &amp; LMS</button>
                     </div>
 
-                    <!-- Right: Premium Chat UI Mockup (Light Theme) -->
+                    <!-- Right: Premium Chat UI Mockup (Expanded & Wider) -->
                     <div class="ai-visual">
                         <div class="ai-chat-mockup">
                             <div class="chat-header">
@@ -2870,10 +2867,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">
-                        <span class="dot"></span> Đội ngũ chuyên gia
+                        <span class="dot"></span> Giảng viên khóa học
                     </span>
-                    <h2 class="ble-section-title">Giảng viên khóa học</h2>
-                    <p class="ble-section-subtitle">Học tập trực tiếp cùng các giáo sư, chuyên gia tư vấn giàu kinh nghiệm quốc tế</p>
+                    <h2 class="ble-section-title">Đội ngũ chuyên môn</h2>
+                    <p class="ble-section-subtitle">Học tập cùng các giáo sư, chuyên gia tư vấn hàng đầu quốc tế</p>
                 </div>
 
                 <div class="fac-grid">
@@ -2926,7 +2923,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="dot"></span> Chứng nhận tốt nghiệp
                         </span>
                         <h2 class="ble-section-title">Đạt chứng chỉ chuẩn Thụy Sĩ</h2>
-                        <p class="ble-section-subtitle" style="margin-bottom: 24px; color: #4b5563;">Sau khi hoàn thành đầy đủ các học phần và đáp ứng yêu cầu đánh giá chuyên môn, học viên sẽ được cấp <strong>Certificate of Completion</strong> do Viện IDEAS phát hành trên cơ sở chuyển giao học thuật chính thức từ Swiss UMEF.</p>
+                        <p class="ble-section-subtitle" style="margin-bottom: 24px; color: #4b5563;">Sau khi hoàn thành khóa học và đáp ứng các yêu cầu đánh giá, học viên sẽ được cấp <strong>Certificate of Completion</strong> do IDEAS phát hành trên cơ sở chuyển giao học thuật từ EGA.</p>
                         <ul class="ai-features-list" style="margin-bottom: 30px;">
                             <li>
                                 <span class="ai-feat-icon">
@@ -2974,35 +2971,35 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="ble-section bg-soft-cream">
             <div class="ble-container">
                 <div class="cta-banner">
-                    <h2>Nâng tầm năng lực quản lý của bạn ngay hôm nay!</h2>
-                    <p>Đăng ký khóa học Business Leadership Essentials để làm chủ năng lực lãnh đạo đội nhóm, dẫn dắt con người và thúc đẩy hiệu suất doanh nghiệp.</p>
+                    <h2>Business Leadership Essentials</h2>
+                    <p>Phát triển năng lực lãnh đạo, xây dựng đội ngũ và tạo nền tảng cho sự phát triển bền vững của doanh nghiệp.</p>
 
                     <div class="cta-benefits">
                         <div class="cta-benefit-item">
                             <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Certificate of Completion chuẩn Swiss</span>
+                            <span>Được cấp Certificate of Completion sau khi hoàn thành chương trình.</span>
                         </div>
                         <div class="cta-benefit-item">
                             <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Học online linh động 100%</span>
+                            <span>Học trực tuyến 100% trên nền tảng LMS IDEAS.</span>
                         </div>
                         <div class="cta-benefit-item">
                             <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Trợ lý học tập AI bám sát giáo trình</span>
+                            <span>Tham gia Executive Seminar cùng chuyên gia.</span>
                         </div>
                         <div class="cta-benefit-item">
                             <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Cộng đồng IDEAS Alumni rộng mở</span>
+                            <span>Gia nhập cộng đồng IDEAS Alumni.</span>
                         </div>
                     </div>
 
-                    <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-footer-cta'); }" class="ble-btn">Đăng ký ngay hôm nay</button>
+                    <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-footer-cta'); }" class="ble-btn">Đăng ký ngay</button>
 
                     <div class="cta-offer">
                         <span class="cta-offer-icon">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
                         </span>
-                        &nbsp;Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí!
+                        &nbsp;Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí.
                     </div>
                 </div>
             </div>
@@ -3013,10 +3010,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">
-                        <span class="dot"></span> Giải đáp thắc mắc
+                        <span class="dot"></span> FAQ
                     </span>
                     <h2 class="ble-section-title">Câu hỏi thường gặp</h2>
-                    <p class="ble-section-subtitle">Một số thắc mắc phổ biến của các học viên trước khi tham gia khóa học</p>
+                    <p class="ble-section-subtitle">Giải đáp một số thắc mắc phổ biến của các học viên:</p>
                 </div>
 
                 <div class="faq-list">
@@ -3030,7 +3027,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
-                                Đây là ba học phần cốt lõi và nền tảng nhất được Viện IDEAS cùng đối tác lựa chọn trực tiếp từ khung đào tạo của Swiss UMEF, tập trung sát vào 3 mảnh ghép thiết yếu nhất của một nhà quản lý hiện đại: Năng lực lãnh đạo (Leadership Development), Thấu hiểu hành vi tổ chức (Organizational Behaviour) và Quản trị nguồn lực con người (Human Capital &amp; Talent Management). Việc tối giản giúp học viên học nhanh, đúng trọng tâm và ứng dụng được ngay.
+                                Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
                             </div>
                         </div>
                     </div>
@@ -3038,14 +3035,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- FAQ 2 -->
                     <div class="faq-item">
                         <div class="faq-header" onclick="toggleFaq(this)">
-                            <span class="faq-question">2. Mình không làm trong lĩnh vực nhân sự (HR), khóa học có phù hợp không?</span>
+                            <span class="faq-question">2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
                             <span class="faq-arrow">
                                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                             </span>
                         </div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
-                                Hoàn toàn phù hợp. Khóa học này không phải là khóa học nghiệp vụ chuyên sâu dành riêng cho bộ phận nhân sự. Đây là chương trình trang bị năng lực quản lý con người toàn diện dành cho Trưởng nhóm, Quản lý cấp trung thuộc mọi bộ phận chức năng (Sales, Marketing, Kỹ thuật, Vận hành...) và các Chủ doanh nghiệp vừa và nhỏ - những người trực tiếp làm việc và chịu trách nhiệm dẫn dắt hiệu suất của đội ngũ.
+                                Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
                             </div>
                         </div>
                     </div>
@@ -3060,7 +3057,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
-                                Học viên sẽ phát triển toàn diện 8 năng lực cốt lõi về lãnh đạo và quản lý con người theo chuẩn quốc tế, nhận Certificate of Completion do Viện IDEAS cấp trên cơ sở chuyển giao học thuật từ EGA, đồng thời sở hữu tài khoản trải nghiệm hệ thống quản lý học tập LMS cùng Trợ lý AI học thuật chuyên sâu và gia nhập cộng đồng cựu học viên IDEAS Alumni năng động.
+                                Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
                             </div>
                         </div>
                     </div>
