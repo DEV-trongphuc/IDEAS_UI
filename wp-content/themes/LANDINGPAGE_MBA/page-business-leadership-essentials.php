@@ -3266,7 +3266,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Năng lực đầu ra
                     </span>
-                    <h2 class="ble-section-title">8 Điều Học Viên <span class="ble-gradient-text">"Cầm Về"</span></h2>
+                    <h2 class="ble-section-title">8 Năng Lực Kiến Tạo <span class="ble-gradient-text">Bản Lĩnh Lãnh Đạo</span></h2>
                     <p class="ble-section-subtitle" style="max-width: 680px; margin: 0 auto;">Chương trình đào tạo thiết kế chuẩn quốc tế, giúp chuyển hóa toàn diện năng lực và tư duy của nhà quản lý thông qua 8 trụ cột cốt lõi:</p>
                 </div>
 
@@ -3855,7 +3855,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Giảng viên khóa học
                     </span>
-                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">chuyên gia &amp; giảng sư</span></h2>
+                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">chuyên gia</span></h2>
                     <p class="ble-section-subtitle">Học tập cùng các giáo sư, chuyên gia tư vấn hàng đầu quốc tế</p>
                 </div>
 
