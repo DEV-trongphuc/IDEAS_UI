@@ -497,13 +497,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             text-align: left;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             color: #64748b;
             line-height: 1.3;
         }
 
         .ble-hero-meta-item strong {
-            font-size: 0.8rem;
+            font-size: 0.74rem;
             color: #0f172a;
             font-weight: 800;
             margin-top: 1px;
@@ -2635,13 +2635,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .ble-hero-meta-item span {
                 display: flex !important;
                 flex-direction: column !important;
-                font-size: 0.68rem !important;
+                font-size: 0.65rem !important;
                 color: #64748b !important;
                 line-height: 1.3 !important;
                 text-align: left !important;
             }
             .ble-hero-meta-item strong {
-                font-size: 0.8rem !important;
+                font-size: 0.74rem !important;
                 color: #0f172a !important;
                 font-weight: 800 !important;
                 margin-top: 1px !important;
@@ -3060,7 +3060,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-meta-icon-wrapper">
                                     <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M22 10v6M2 10l10-5 10 5-10 5z"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
                                 </div>
-                                <span>Chứng nhận<strong>Swiss UMEF (Thụy Sĩ)</strong></span>
+                                <span>Chứng nhận<strong>Swiss UMEF</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
