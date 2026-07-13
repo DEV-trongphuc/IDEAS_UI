@@ -429,13 +429,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex: 1;
-            justify-content: center;
-            position: relative;
-            padding: 0 25px;
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            flex: 1 !important;
+            justify-content: center !important;
+            position: relative !important;
+            padding: 0 15px !important;
         }
 
         .ble-hero-meta-item:not(:last-child)::after {
@@ -2577,8 +2577,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 margin-bottom: 30px !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                padding: 0 24px !important;
+                padding: 0 16px !important;
                 box-sizing: border-box !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
             }
             .ble-hero-meta-item {
                 display: flex !important;
@@ -3015,19 +3018,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-hero-meta-row">
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
-                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M22 10v6M2 10l10-5 10 5-10 5z"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
                                 </div>
                                 <span>Chứng nhận<strong>Swiss UMEF (Thụy Sĩ)</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
-                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" cx="12" cy="12" r="10"/><circle style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" cx="12" cy="12" r="6"/><circle style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" cx="12" cy="12" r="2"/></svg>
                                 </div>
                                 <span>Phương pháp<strong>Thực chiến &amp; Case-study</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
-                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11l2 2 4-4"/></svg>
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M9 11l2 2 4-4"/></svg>
                                 </div>
                                 <span>Đầu ra<strong>8 năng lực quản lý cốt lõi</strong></span>
                             </div>
