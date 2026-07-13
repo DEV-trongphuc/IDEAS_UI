@@ -61,6 +61,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background-size: 30px 30px;
         }
 
+        /* ─── Custom Webkit Scrollbar (Flora Reference) ─── */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #faf8f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ab0e00;
+            border-radius: 100px;
+            border: 2.5px solid #faf8f5;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8c1000;
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #ab0e00 #faf8f5;
+        }
+
         /* ── Typography & Accents ──────────── */
         .ble-gradient-text {
             background: linear-gradient(135deg, #ab0e00 0%, #d92414 60%, #e11d48 100%);
@@ -70,27 +95,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 850;
         }
 
-        /* ── Sections Common (Light Backgrounds) ── */
+        /* ── Sections Common (Alternating White & Cream) ── */
         .ble-section {
             padding: 100px 20px;
             position: relative;
             background-color: #ffffff;
+            overflow: hidden; /* container for glow orbs */
         }
 
         .ble-section.bg-white {
             background-color: #ffffff;
         }
 
-        .ble-section.bg-light-gray {
-            background-color: #f8fafc;
-            border-top: 1px solid #f1f5f9;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
         .ble-section.bg-soft-cream {
-            background-color: #faf9f6;
-            border-top: 1px solid #f4f2ee;
-            border-bottom: 1px solid #f4f2ee;
+            background-color: #faf8f5;
+            border-top: 1px solid #f2eee9;
+            border-bottom: 1px solid #f2eee9;
         }
 
         .ble-container {
@@ -107,20 +127,70 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0 auto 60px auto;
         }
 
+        /* ─── Ambient Glow Orbs (Flora Reference) ─── */
+        .ble-glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.55;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .ble-glow-orb-primary {
+            background: radial-gradient(circle, rgba(171, 14, 0, 0.07) 0%, transparent 70%);
+            width: 450px;
+            height: 450px;
+        }
+
+        .ble-glow-orb-gold {
+            background: radial-gradient(circle, rgba(217, 159, 56, 0.08) 0%, transparent 70%);
+            width: 500px;
+            height: 500px;
+        }
+
+        /* ─── Pulsing Premium Badges (Flora Reference) ─── */
         .ble-section-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(171, 14, 0, 0.07);
+            background: rgba(171, 14, 0, 0.06);
             color: #ab0e00;
-            padding: 6px 18px;
-            border-radius: 4px;
-            font-size: 0.75rem;
+            padding: 8px 20px;
+            border-radius: 100px; /* soft rounded pill */
+            font-size: 0.72rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             margin-bottom: 18px;
-            border: 1px solid rgba(171, 14, 0, 0.12);
+            border: 1.5px solid rgba(171, 14, 0, 0.15);
+        }
+
+        .ble-section-tag .dot {
+            width: 8px;
+            height: 8px;
+            background: #ab0e00;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px rgba(171, 14, 0, 0.6);
+            animation: pulse-dot-red 1.5s infinite;
+        }
+
+        @keyframes pulse-dot-red {
+            0% {
+                transform: scale(0.85);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.85);
+                opacity: 0.5;
+            }
         }
 
         .ble-section-title {
@@ -147,7 +217,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 1.1rem;
             text-transform: uppercase;
             padding: 10px 24px;
-            border-radius: 4px;
+            border-radius: 12px; /* soft rounded */
             letter-spacing: 0.05em;
             margin-bottom: 16px;
         }
@@ -161,7 +231,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-shrink: 0;
         }
 
-        /* ── Buttons ───────────────────────── */
+        /* ── Buttons (Bezier Easing & Rounded Pill) ── */
         .ble-btn {
             display: inline-flex;
             align-items: center;
@@ -172,20 +242,35 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 750;
             font-size: 0.95rem;
             padding: 16px 38px;
-            border-radius: 4px;
+            border-radius: 100px;
             border: none;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(171, 14, 0, 0.2);
             text-decoration: none !important;
             position: relative;
             overflow: hidden;
         }
 
+        .ble-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: skewX(-25deg);
+            transition: 0.75s;
+        }
+
+        .ble-btn:hover::before {
+            left: 150%;
+        }
+
         .ble-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.35);
-            background: linear-gradient(135deg, #b81405 0%, #9c1200 100%);
+            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.35);
         }
 
         .ble-btn:active {
@@ -197,20 +282,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a !important;
             border: 1.5px solid #0f172a;
             box-shadow: none;
+            border-radius: 100px;
         }
 
         .ble-btn-outline:hover {
-            background: #f8fafc;
+            background: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
         }
 
-        /* ── Hero Section ──────────────────── */
+        /* ── Hero Section (herobg.webp mesh background) ── */
         .ble-hero {
             padding-top: 170px;
             padding-bottom: 120px;
-            background: radial-gradient(120% 120% at 50% 0%, #ffffff 60%, rgba(171, 14, 0, 0.03) 100%);
-            border-bottom: 1px solid #f1f5f9;
+            background-image: url('https://ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets/herobg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid #cbd5e1;
         }
 
         .ble-hero-grid {
@@ -235,18 +324,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            padding: 6px 14px;
-            border-radius: 4px;
+            padding: 8px 18px;
+            border-radius: 100px;
             margin-bottom: 24px;
         }
 
         .ble-hero-tag span {
             display: inline-block;
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: #ab0e00;
-            animation: pulse-dot 1.5s infinite;
+            box-shadow: 0 0 8px rgba(171, 14, 0, 0.6);
+            animation: pulse-dot-red 1.5s infinite;
         }
 
         .ble-hero-title {
@@ -261,7 +351,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hero-desc {
             font-size: clamp(1.05rem, 2.5vw, 1.2rem);
             line-height: 1.6;
-            color: #475569;
+            color: #334155;
             margin-bottom: 40px;
             max-width: 600px;
         }
@@ -276,18 +366,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hero-feature-item {
             background: #ffffff;
             padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
             display: flex;
             flex-direction: column;
             gap: 6px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .ble-hero-feature-item:hover {
             border-color: rgba(171, 14, 0, 0.2);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.06);
         }
 
         .ble-hero-feature-item .feat-lbl {
@@ -312,7 +403,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: rgba(171, 14, 0, 0.04);
             border: 1px dashed rgba(171, 14, 0, 0.25);
             padding: 18px 24px;
-            border-radius: 8px;
+            border-radius: 16px;
             margin-bottom: 36px;
         }
 
@@ -352,14 +443,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-dashboard-preview {
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 28px;
             border: 1px solid #cbd5e1;
-            box-shadow: 0 20px 40px rgba(15,23,42,0.06);
+            box-shadow: 0 10px 30px rgba(15,23,42,0.04);
             width: 100%;
             max-width: 440px;
             padding: 30px;
             position: relative;
             overflow: visible;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ble-dashboard-preview:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
+            border-color: rgba(171, 14, 0, 0.25);
         }
 
         .ble-dashboard-badge {
@@ -369,7 +467,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #10b981;
             color: #ffffff;
             padding: 4px 12px;
-            border-radius: 4px;
+            border-radius: 100px;
             font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.05em;
@@ -414,7 +512,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .db-progress-card {
             background: #f8fafc;
             border: 1px solid #cbd5e1;
-            border-radius: 8px;
+            border-radius: 16px;
             padding: 20px;
             margin-bottom: 20px;
         }
@@ -457,9 +555,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 12px;
             background: #ffffff;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
             padding: 12px 16px;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .db-module-icon {
@@ -489,7 +587,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .db-floating-badge {
             position: absolute;
             background: #ffffff;
-            border-radius: 8px;
+            border-radius: 16px;
             border: 1px solid #cbd5e1;
             padding: 14px 18px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
@@ -497,18 +595,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 12px;
             z-index: 10;
+            animation: float-gentle 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes float-gentle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
         }
 
         .db-floating-badge.badge-1 {
             bottom: 20px;
             left: -40px;
-            animation: float-badge-1 4s ease-in-out infinite;
+            animation-delay: 0s;
         }
 
         .db-floating-badge.badge-2 {
             top: 60px;
             right: -40px;
-            animation: float-badge-2 4.5s ease-in-out infinite;
+            animation-delay: 1.5s;
         }
 
         .db-float-icon {
@@ -535,7 +639,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 600;
         }
 
-        /* ── COURSE DETAILS BANNER (Solid Red Cask.vn Layout) ── */
+        /* ── COURSE DETAILS BANNER (Solid Red Cask.vn Style Layout) ── */
         .ble-details-banner {
             background: #ab0e00;
             padding: 70px 20px;
@@ -608,11 +712,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 800;
             font-size: 0.95rem;
             padding: 15px 32px;
-            border-radius: 4px;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(217, 159, 56, 0.2);
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none !important;
             display: inline-flex;
             align-items: center;
@@ -622,7 +726,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-btn-gold:hover {
             background: #c38c2d;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(217, 159, 56, 0.35);
+            box-shadow: 0 10px 25px rgba(217, 159, 56, 0.35);
         }
 
         .ble-btn-white-outline {
@@ -632,12 +736,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 750;
             font-size: 0.95rem;
             padding: 13px 30px;
-            border-radius: 4px;
+            border-radius: 12px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none !important;
         }
 
@@ -648,14 +752,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-db-video-wrapper {
             position: relative;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             aspect-ratio: 1.55;
             background: #1e293b;
             border: 4px solid #ffffff;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: block;
         }
 
@@ -683,7 +787,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             justify-content: center;
             color: #ffffff;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
@@ -693,7 +797,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translate(-50%, -50%) scale(1.1);
         }
 
-        /* ── Pain Points Section ── */
+        /* ── Pain Points Section (Flora Shadow & Bezier) ── */
         .pain-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -702,29 +806,40 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .pain-card {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 20px;
             border: 1px solid #cbd5e1;
             padding: 40px;
-            box-shadow: 0 4px 15px rgba(15,23,42,0.015);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             gap: 24px;
+            position: relative;
+            z-index: 2;
         }
 
         .pain-card:hover {
             transform: translateY(-4px);
             border-color: #ab0e00;
-            box-shadow: 0 10px 25px rgba(171,14,0,0.05);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
         }
 
         .pain-icon-box {
-            font-size: 2.5rem;
-            font-weight: 950;
-            font-style: italic;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(171, 14, 0, 0.05);
             color: #ab0e00;
-            line-height: 1;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
             flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pain-card:hover .pain-icon-box {
+            background: #ab0e00;
+            color: #ffffff;
+            transform: scale(1.08);
         }
 
         .pain-card-content h4 {
@@ -742,7 +857,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
-        /* ── 8 Core Competencies ── */
+        /* ── 8 Core Competencies (Flora-style Card & Hover) ── */
         .comp-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -751,30 +866,41 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .comp-card {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 20px;
             border: 1px solid #cbd5e1;
             padding: 32px;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 4px 15px rgba(15,23,42,0.01);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            z-index: 2;
         }
 
         .comp-card:hover {
             transform: translateY(-4px);
             border-color: #ab0e00;
-            box-shadow: 0 12px 28px rgba(171,14,0,0.06);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
         }
 
-        .comp-num-large {
-            font-size: 3rem;
-            font-weight: 950;
-            font-style: italic;
+        .comp-icon-box {
             color: #ab0e00;
-            line-height: 1;
-            margin-bottom: 20px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-bottom: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(171, 14, 0, 0.05);
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            align-self: flex-start;
+        }
+
+        .comp-card:hover .comp-icon-box {
+            background: #ab0e00;
+            color: #ffffff;
+            transform: scale(1.08);
         }
 
         .comp-card-caps-title {
@@ -803,11 +929,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .audience-card {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 20px;
             border: 1px solid #cbd5e1;
             padding: 36px 30px;
-            box-shadow: 0 4px 15px rgba(15,23,42,0.01);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -817,13 +943,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .audience-card:hover {
             transform: translateY(-4px);
             border-color: #ab0e00;
-            box-shadow: 0 10px 25px rgba(171,14,0,0.05);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
         }
 
         .audience-icon-box {
             width: 64px;
             height: 64px;
-            border-radius: 8px;
+            border-radius: 12px;
             background: #f8fafc;
             border: 1px solid #cbd5e1;
             display: flex;
@@ -831,12 +957,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             justify-content: center;
             margin-bottom: 24px;
             color: #ab0e00;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .audience-card:hover .audience-icon-box {
             background: rgba(171, 14, 0, 0.05);
             border-color: #ab0e00;
+            transform: scale(1.08);
         }
 
         .audience-card h4 {
@@ -870,11 +997,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-tab {
             background: #ffffff;
             border: 1px solid #cbd5e1;
-            border-radius: 8px;
+            border-radius: 16px;
             padding: 24px;
             cursor: pointer;
             text-align: left;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-left: 4px solid transparent;
             position: relative;
         }
@@ -903,7 +1030,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-tab.active {
             border-left-color: #ab0e00;
             background: #ffffff;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.04);
             border-color: #cbd5e1;
         }
 
@@ -914,12 +1041,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-details {
             width: 68%;
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 24px;
             border: 1px solid #cbd5e1;
             padding: 45px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.015);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 2;
         }
 
         .curr-panel-header {
@@ -955,7 +1084,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a;
             border: 1px solid #cbd5e1;
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 0.8rem;
             font-weight: 700;
             cursor: pointer;
@@ -977,15 +1106,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-acc-item {
             background: #ffffff;
             border: 1px solid #cbd5e1;
-            border-radius: 8px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .curr-acc-item.active {
             border-left: 4px solid #ab0e00;
             border-color: #cbd5e1;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.02);
         }
 
         .curr-acc-header {
@@ -1041,7 +1170,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #475569;
             background: #e2e8f0;
             padding: 4px 10px;
-            border-radius: 4px;
+            border-radius: 8px;
             text-transform: uppercase;
             letter-spacing: 0.02em;
             white-space: nowrap;
@@ -1068,14 +1197,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-acc-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .curr-acc-content-inner {
             padding: 0 24px 24px 62px;
             border-top: 1px solid #f1f5f9;
             padding-top: 20px;
-            background-color: #faf9f6;
+            background-color: #faf8f5;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
         }
 
         .curr-topics-list {
@@ -1106,8 +1237,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-outcomes {
             margin-top: 36px;
-            background: #faf9f6;
-            border-radius: 8px;
+            background: #faf8f5;
+            border-radius: 16px;
             padding: 28px;
             border: 1px dashed #cbd5e1;
         }
@@ -1197,13 +1328,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* Chat UI Mockup */
         .ai-chat-mockup {
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 24px;
             border: 1px solid #cbd5e1;
             box-shadow: 0 15px 30px rgba(15,23,42,0.05);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             aspect-ratio: 1.35;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ai-chat-mockup:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
+            border-color: rgba(171, 14, 0, 0.25);
         }
 
         .chat-header {
@@ -1253,7 +1391,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .chat-bubble {
             max-width: 80%;
             padding: 14px 18px;
-            border-radius: 12px;
+            border-radius: 16px;
             font-size: 0.85rem;
             line-height: 1.5;
         }
@@ -1333,11 +1471,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .fac-card {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 20px;
             border: 1px solid #cbd5e1;
             padding: 36px 30px;
-            box-shadow: 0 4px 15px rgba(15,23,42,0.005);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1347,7 +1485,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .fac-card:hover {
             transform: translateY(-4px);
             border-color: #ab0e00;
-            box-shadow: 0 10px 25px rgba(171,14,0,0.05);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
         }
 
         .fac-avatar-wrap {
@@ -1410,7 +1548,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Certificate Section ────────────── */
         .cert-wrap {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 24px;
             border: 1px solid #cbd5e1;
             box-shadow: 0 10px 40px rgba(0,0,0,0.015);
             padding: 50px;
@@ -1433,8 +1571,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .cert-mockup {
-            background: #faf9f6;
-            border-radius: 8px;
+            background: #faf8f5;
+            border-radius: 20px;
             border: 10px solid #ffffff;
             box-shadow: 0 15px 35px rgba(0,0,0,0.05);
             padding: 30px;
@@ -1456,7 +1594,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             right: 8px;
             bottom: 8px;
             border: 2px solid #cbd5e1;
-            border-radius: 4px;
+            border-radius: 12px;
             pointer-events: none;
         }
 
@@ -1520,7 +1658,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Final CTA Section ─────────────── */
         .cta-banner {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 24px;
             padding: 80px 60px;
             color: #0f172a;
             text-align: center;
@@ -1567,7 +1705,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a;
             background: #f8fafc;
             padding: 8px 18px;
-            border-radius: 4px;
+            border-radius: 100px;
             border: 1px solid #cbd5e1;
         }
 
@@ -1604,7 +1742,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .faq-item {
             background: #ffffff;
-            border-radius: 8px;
+            border-radius: 16px;
             border: 1px solid #cbd5e1;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -2047,11 +2185,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 2. PAIN POINTS SECTION (Light Background, High Contrast) -->
-        <section class="ble-section bg-light-gray">
+        <!-- 2. PAIN POINTS SECTION (White Background, Ambient Glow, Red SVG Icons) -->
+        <section class="ble-section bg-white">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="top: 10%; left: -10%;"></div>
+            <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; right: -15%;"></div>
+
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Thách thức thực tế</span>
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Thách thức thực tế
+                    </span>
                     <h2 class="ble-section-title">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ!</h2>
                     <p class="ble-section-subtitle">Phần lớn các nhà quản lý hiện nay đều đang gặp khó khăn ở các khía cạnh cốt lõi này:</p>
                 </div>
@@ -2059,7 +2203,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="pain-grid">
                     <!-- Card 1 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">1</div>
+                        <div class="pain-icon-box">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+                        </div>
                         <div class="pain-card-content">
                             <h4>Chưa từng được đào tạo quản lý</h4>
                             <p>Được bổ nhiệm lên làm quản lý do chuyên môn giỏi, nhưng chưa từng được học phương pháp dẫn dắt, giao việc và điều hành tổ chức.</p>
@@ -2067,7 +2213,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <!-- Card 2 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">2</div>
+                        <div class="pain-icon-box">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
                         <div class="pain-card-content">
                             <h4>Gặp khó khăn khi tạo uy tín</h4>
                             <p>Chưa biết cách xây dựng sức ảnh hưởng cá nhân và sự tin cậy để đội ngũ cấp dưới tự nguyện cống hiến và đồng hành.</p>
@@ -2075,7 +2223,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <!-- Card 3 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">3</div>
+                        <div class="pain-icon-box">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 6.1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h4l4 4V18h6a1 1 0 0 0 1-1V7.1a1 1 0 0 0-1-1zM22 2v14"/></svg>
+                        </div>
                         <div class="pain-card-content">
                             <h4>Lúng túng trong Coaching &amp; Phản hồi</h4>
                             <p>Chưa nắm vững kỹ năng dẫn dắt (coaching) để phát huy tiềm năng của nhân viên, phản hồi chưa mang tính xây dựng làm giảm động lực.</p>
@@ -2083,7 +2233,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <!-- Card 4 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">4</div>
+                        <div class="pain-icon-box">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
                         <div class="pain-card-content">
                             <h4>Đội ngũ rời rạc, hiệu suất thấp</h4>
                             <p>Thiếu sự gắn kết và phối hợp ăn ý giữa các thành viên, dẫn đến tình trạng chậm tiến độ và kết quả công việc chưa như kỳ vọng.</p>
@@ -2093,8 +2245,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 3. CORE COMPETENCIES SECTION (Light Background - Matching screenshot takeways style) -->
-        <section class="ble-section bg-white">
+        <!-- 3. CORE COMPETENCIES SECTION (Warm Cream Background, Ambient Glow) -->
+        <section class="ble-section bg-soft-cream">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="top: 20%; right: -10%;"></div>
+            <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; left: -15%;"></div>
+
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <div class="ble-title-badge-red">8 ĐIỀU "CẦM VỀ"</div>
@@ -2104,49 +2260,65 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="comp-grid">
                     <!-- Comp 1 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">1</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .5 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"/></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">Leadership Mindset</h4>
                         <p class="comp-desc">Dịch chuyển tư duy từ quản lý hành chính sự vụ sang dẫn dắt, kiến tạo giá trị và gây ảnh hưởng lên đội ngũ.</p>
                     </div>
                     <!-- Comp 2 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">2</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">Performance Opt.</h4>
                         <p class="comp-desc">Nắm vững phương pháp thiết lập mục tiêu khoa học, phân chia công việc hiệu quả để tối ưu hiệu suất làm việc.</p>
                     </div>
                     <!-- Comp 3 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">3</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">Org. Behaviour</h4>
                         <p class="comp-desc">Thấu hiểu sâu sắc động cơ và hành vi của nhân viên để xây dựng văn hóa làm việc tích cực, gắn kết lâu dài.</p>
                     </div>
                     <!-- Comp 4 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">4</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">Coaching &amp; Feedback</h4>
                         <p class="comp-desc">Làm chủ kỹ năng phản hồi mang tính định hướng và phương pháp coaching thúc đẩy năng lực nhân sự liên tục.</p>
                     </div>
                     <!-- Comp 5 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">5</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">High-Perf Team</h4>
                         <p class="comp-desc">Thiết kế quy trình phối hợp nhịp nhàng, kích hoạt sự chủ động của từng thành viên hướng đến mục tiêu chung.</p>
                     </div>
                     <!-- Comp 6 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">6</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">Talent Management</h4>
                         <p class="comp-desc">Biết cách phát hiện nhân sự tiềm năng, đào tạo bồi dưỡng và giữ chân nhân tài gắn bó cùng tổ chức.</p>
                     </div>
                     <!-- Comp 7 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">7</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">Change Leadership</h4>
                         <p class="comp-desc">Nâng cao năng lực dẫn dắt đội ngũ thích ứng nhanh chóng trước các đổi mới chiến lược của doanh nghiệp.</p>
                     </div>
                     <!-- Comp 8 -->
                     <div class="comp-card">
-                        <div class="comp-num-large">8</div>
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
                         <h4 class="comp-card-caps-title">Practical Frameworks</h4>
                         <p class="comp-desc">Ứng dụng ngay các framework quản lý chuẩn mực vào giải quyết bài toán vận hành nhân sự hàng ngày.</p>
                     </div>
@@ -2154,11 +2326,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 4. TARGET AUDIENCE SECTION (Light gray background) -->
-        <section class="ble-section bg-light-gray">
+        <!-- 4. TARGET AUDIENCE SECTION (White Background) -->
+        <section class="ble-section bg-white">
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Đối tượng tham gia</span>
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Đối tượng tham gia
+                    </span>
                     <h2 class="ble-section-title">Chương trình này thiết kế dành cho ai?</h2>
                     <p class="ble-section-subtitle">Phù hợp nhất với các anh/chị đang đảm nhận vị trí quản lý con người trong doanh nghiệp</p>
                 </div>
@@ -2200,11 +2374,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 5. INTERACTIVE CURRICULUM SECTION -->
-        <section class="ble-section bg-white" id="curriculum">
+        <!-- 5. INTERACTIVE CURRICULUM SECTION (Warm Cream Background, Ambient Glow) -->
+        <section class="ble-section bg-soft-cream" id="curriculum">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="bottom: 5%; right: -10%;"></div>
+
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Lộ trình học tập</span>
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Lộ trình học tập
+                    </span>
                     <h2 class="ble-section-title">Chương trình đào tạo chi tiết</h2>
                     <p class="ble-section-subtitle">Cấu trúc 3 môn học cốt lõi chuyển giao học thuật từ Swiss UMEF University</p>
                 </div>
@@ -2602,13 +2781,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 6. IDEAS AI PLATFORM SECTION (Light-gray Background) -->
-        <section class="ble-section bg-light-gray">
+        <!-- 6. IDEAS AI PLATFORM SECTION (White Background, Ambient Glow) -->
+        <section class="ble-section bg-white">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="top: 15%; left: -10%;"></div>
+
             <div class="ble-container">
                 <div class="ai-grid">
                     <!-- Left: Details -->
                     <div class="ai-content">
-                        <span class="ble-section-tag">Công nghệ dẫn đầu</span>
+                        <span class="ble-section-tag">
+                            <span class="dot"></span> Công nghệ dẫn đầu
+                        </span>
                         <h2 class="ble-section-title">Học tập thông minh cùng<br><span class="ble-gradient-text">IDEAS AI Platform</span></h2>
                         <p class="ble-section-subtitle" style="margin-bottom: 24px;">Học bám sát trọng tâm giáo trình Swiss UMEF. Giải quyết mọi câu hỏi lý thuyết lẫn tình huống quản trị thực tế của riêng doanh nghiệp bạn.</p>
 
@@ -2678,11 +2862,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 7. INSTRUCTORS SECTION (White Background) -->
-        <section class="ble-section bg-white">
+        <!-- 7. INSTRUCTORS SECTION (Warm Cream Background, Ambient Glow) -->
+        <section class="ble-section bg-soft-cream">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-gold" style="top: 15%; right: -10%;"></div>
+
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Đội ngũ chuyên gia</span>
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Đội ngũ chuyên gia
+                    </span>
                     <h2 class="ble-section-title">Giảng viên khóa học</h2>
                     <p class="ble-section-subtitle">Học tập trực tiếp cùng các giáo sư, chuyên gia tư vấn giàu kinh nghiệm quốc tế</p>
                 </div>
@@ -2724,13 +2913,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 8. CERTIFICATE SHOWCASE SECTION (Soft Cream Background) -->
-        <section class="ble-section bg-soft-cream">
+        <!-- 8. CERTIFICATE SHOWCASE SECTION (White Background, Ambient Glow) -->
+        <section class="ble-section bg-white">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="bottom: 10%; left: -10%;"></div>
+
             <div class="ble-container">
                 <div class="cert-wrap">
                     <!-- Left: Text Info -->
                     <div class="cert-info">
-                        <span class="ble-section-tag">Chứng nhận tốt nghiệp</span>
+                        <span class="ble-section-tag">
+                            <span class="dot"></span> Chứng nhận tốt nghiệp
+                        </span>
                         <h2 class="ble-section-title">Đạt chứng chỉ chuẩn Thụy Sĩ</h2>
                         <p class="ble-section-subtitle" style="margin-bottom: 24px; color: #4b5563;">Sau khi hoàn thành đầy đủ các học phần và đáp ứng yêu cầu đánh giá chuyên môn, học viên sẽ được cấp <strong>Certificate of Completion</strong> do Viện IDEAS phát hành trên cơ sở chuyển giao học thuật chính thức từ Swiss UMEF.</p>
                         <ul class="ai-features-list" style="margin-bottom: 30px;">
@@ -2776,8 +2970,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 9. FINAL CTA BANNER SECTION -->
-        <section class="ble-section bg-white">
+        <!-- 9. FINAL CTA BANNER SECTION (Warm Cream Background) -->
+        <section class="ble-section bg-soft-cream">
             <div class="ble-container">
                 <div class="cta-banner">
                     <h2>Nâng tầm năng lực quản lý của bạn ngay hôm nay!</h2>
@@ -2814,11 +3008,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 10. FAQS SECTION (Light-gray Background) -->
-        <section class="ble-section bg-light-gray" style="padding-bottom: 120px;">
+        <!-- 10. FAQS SECTION (White Background) -->
+        <section class="ble-section bg-white" style="padding-bottom: 120px;">
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Giải đáp thắc mắc</span>
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Giải đáp thắc mắc
+                    </span>
                     <h2 class="ble-section-title">Câu hỏi thường gặp</h2>
                     <p class="ble-section-subtitle">Một số thắc mắc phổ biến của các học viên trước khi tham gia khóa học</p>
                 </div>
