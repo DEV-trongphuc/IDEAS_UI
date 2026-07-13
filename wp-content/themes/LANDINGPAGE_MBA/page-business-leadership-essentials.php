@@ -912,6 +912,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-db-image-container {
             width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ble-db-image-container:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
         }
 
         .ble-db-image-container img {
@@ -919,6 +929,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: auto;
             object-fit: cover;
             display: block;
+            border-radius: 16px;
         }
 
         /* ── Pain Points Section (Split Layout with Vertical List to prevent repetitive layout) ── */
@@ -1097,22 +1108,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .comp-card {
             background: #ffffff;
-            border-radius: 20px;
-            border: 1.5px solid rgba(15, 23, 42, 0.04);
-            border-top: 4.5px solid #ab0e00;
-            padding: 32px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 24px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 32px 28px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
             z-index: 2;
+            height: 100%;
         }
 
         .comp-card:hover {
-            transform: translateY(-6px);
-            border-color: #ab0e00;
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.1);
+            transform: translateY(-8px);
+            border-color: rgba(171, 14, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08);
         }
 
         .comp-icon-box {
@@ -1121,18 +1132,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(171, 14, 0, 0.05);
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(171, 14, 0, 0.06);
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             align-self: flex-start;
         }
 
         .comp-card:hover .comp-icon-box {
             background: #ab0e00 !important;
             color: #ffffff !important;
-            transform: scale(1.08);
+            transform: scale(1.08) rotate(5deg);
         }
 
         .comp-card:hover .comp-icon-box svg {
@@ -1144,19 +1155,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .comp-card-caps-title {
-            font-size: 0.92rem;
-            font-weight: 900;
+            font-size: 1rem;
+            font-weight: 800;
             color: #0f172a;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.03em;
             margin-bottom: 12px;
             line-height: 1.4;
         }
 
         .comp-desc {
             font-size: 0.88rem;
-            line-height: 1.6;
-            color: #334155 !important; /* High contrast readable dark slate color */
+            line-height: 1.65;
+            color: #1e293b !important; /* Premium high contrast dark slate color */
             margin: 0;
         }
 
@@ -3643,6 +3654,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     }
                 });
             });
+
+            // Auto-open the first FAQ item by default on page load
+            const firstFaqItem = document.querySelector('.faq-item');
+            if (firstFaqItem) {
+                firstFaqItem.classList.add('active');
+                const firstFaqBody = firstFaqItem.querySelector('.faq-body');
+                const firstFaqContent = firstFaqItem.querySelector('.faq-content');
+                if (firstFaqBody && firstFaqContent) {
+                    setTimeout(() => {
+                        firstFaqBody.style.maxHeight = firstFaqContent.scrollHeight + 'px';
+                    }, 100);
+                }
+            }
         });
 
         // 5. AJAX Bottom Form Submit Handler
