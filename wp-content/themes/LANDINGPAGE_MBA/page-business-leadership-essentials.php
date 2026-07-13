@@ -342,7 +342,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Hero Section (herobg.webp faded background) ── */
         .ble-hero {
-            padding-top: 170px;
+            padding-top: 125px;
             padding-bottom: 120px;
             background: #ffffff;
             border-bottom: 1px solid #cbd5e1;
