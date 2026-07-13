@@ -51,45 +51,46 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         html, body {
             overflow-x: clip !important;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
+            background-color: #ffffff;
             color: #334155;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-image: radial-gradient(rgba(171, 14, 0, 0.02) 1.5px, transparent 1.5px);
+            background-image: radial-gradient(rgba(171, 14, 0, 0.015) 1.5px, transparent 1.5px);
             background-size: 30px 30px;
         }
 
         /* ── Typography & Accents ──────────── */
         .ble-gradient-text {
-            background: linear-gradient(135deg, #ab0e00 0%, #ff5252 50%, #e11d48 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #d92414 60%, #e11d48 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 850;
         }
 
-        /* ── Sections Common ────────────────── */
+        /* ── Sections Common (Strictly Light Backgrounds) ── */
         .ble-section {
             padding: 100px 20px;
             position: relative;
+            background-color: #ffffff;
         }
 
-        .ble-section.bg-light {
+        .ble-section.bg-white {
             background-color: #ffffff;
+        }
+
+        .ble-section.bg-light-gray {
+            background-color: #f8fafc;
             border-top: 1px solid #f1f5f9;
             border-bottom: 1px solid #f1f5f9;
         }
 
-        .ble-section.bg-dark {
-            background-color: #0f172a;
-            color: #e2e8f0;
-            border-top: 1px solid #1e293b;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .ble-section.bg-slate {
-            background-color: #f1f5f9;
+        .ble-section.bg-soft-cream {
+            background-color: #faf9f6;
+            border-top: 1px solid #f4f2ee;
+            border-bottom: 1px solid #f4f2ee;
         }
 
         .ble-container {
@@ -110,22 +111,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(171, 14, 0, 0.06);
+            background: rgba(171, 14, 0, 0.07);
             color: #ab0e00;
             padding: 6px 18px;
-            border-radius: 100px;
-            font-size: 0.78rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             margin-bottom: 18px;
-            border: 1px solid rgba(171, 14, 0, 0.1);
-        }
-
-        .ble-section.bg-dark .ble-section-tag {
-            background: rgba(255, 255, 255, 0.06);
-            color: #ff6b6b;
-            border-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(171, 14, 0, 0.12);
         }
 
         .ble-section-title {
@@ -133,22 +128,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 900;
             color: #0f172a;
             margin: 0 0 16px 0;
-            line-height: 1.2;
+            line-height: 1.25;
             letter-spacing: -0.02em;
         }
 
-        .ble-section.bg-dark .ble-section-title {
-            color: #ffffff;
-        }
-
         .ble-section-subtitle {
-            font-size: 1.08rem;
-            color: #64748b;
+            font-size: 1.05rem;
+            color: #475569;
             line-height: 1.6;
         }
 
-        .ble-section.bg-dark .ble-section-subtitle {
-            color: #94a3b8;
+        /* ── Red Box Title Accents (Cask-style) ── */
+        .ble-title-badge-red {
+            display: inline-block;
+            background: #ab0e00;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
         }
 
         /* ── SVG Icons Styling ─────────────── */
@@ -158,26 +159,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             justify-content: center;
             vertical-align: middle;
             flex-shrink: 0;
-        }
-
-        .ble-svg-icon stroke {
-            stroke: currentColor;
-        }
-
-        /* ── Glow Effects ──────────────────── */
-        .ble-glow {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.25;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .ble-glow-red {
-            background: #ab0e00;
-            width: 350px;
-            height: 350px;
         }
 
         /* ── Buttons ───────────────────────── */
@@ -191,63 +172,44 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 750;
             font-size: 0.95rem;
             padding: 16px 38px;
-            border-radius: 100px;
+            border-radius: 4px; /* matching standard theme */
             border: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 6px 20px rgba(171, 14, 0, 0.25);
+            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.2);
             text-decoration: none !important;
             position: relative;
             overflow: hidden;
         }
 
-        .ble-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transform: skewX(-20deg);
-            transition: 0.75s;
-            opacity: 0;
-        }
-
-        .ble-btn:hover::before {
-            left: 120%;
-            opacity: 1;
-        }
-
         .ble-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.35);
             background: linear-gradient(135deg, #b81405 0%, #9c1200 100%);
         }
 
         .ble-btn:active {
-            transform: translateY(-1px);
+            transform: translateY(0);
         }
 
         .ble-btn-outline {
             background: transparent;
             color: #0f172a !important;
-            border: 1.5px solid #cbd5e1;
+            border: 1.5px solid #0f172a;
             box-shadow: none;
         }
 
         .ble-btn-outline:hover {
-            background: #ffffff;
-            border-color: #0f172a;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
+            background: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         /* ── Hero Section ──────────────────── */
         .ble-hero {
             padding-top: 170px;
             padding-bottom: 120px;
-            background: radial-gradient(120% 120% at 50% 0%, #ffffff 50%, rgba(171, 14, 0, 0.05) 100%);
+            background: radial-gradient(120% 120% at 50% 0%, #ffffff 60%, rgba(171, 14, 0, 0.03) 100%);
             border-bottom: 1px solid #f1f5f9;
         }
 
@@ -274,7 +236,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-transform: uppercase;
             letter-spacing: 0.1em;
             padding: 6px 14px;
-            border-radius: 100px;
+            border-radius: 4px;
             margin-bottom: 24px;
         }
 
@@ -314,7 +276,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hero-feature-item {
             background: #ffffff;
             padding: 20px;
-            border-radius: 20px;
+            border-radius: 8px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
             display: flex;
@@ -326,13 +288,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hero-feature-item:hover {
             border-color: rgba(171, 14, 0, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.05);
         }
 
         .ble-hero-feature-item .feat-lbl {
             font-size: 0.7rem;
             font-weight: 800;
-            color: #94a3b8;
+            color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -351,7 +312,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: rgba(171, 14, 0, 0.04);
             border: 1px dashed rgba(171, 14, 0, 0.25);
             padding: 18px 24px;
-            border-radius: 20px;
+            border-radius: 8px;
             margin-bottom: 36px;
         }
 
@@ -360,7 +321,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             justify-content: center;
             color: #ab0e00;
-            animation: pulse-icon 2s infinite;
         }
 
         .ble-hero-promo-text {
@@ -392,9 +352,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-dashboard-preview {
             background: #ffffff;
-            border-radius: 36px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 30px 60px rgba(15,23,42,0.08);
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 20px 40px rgba(15,23,42,0.06);
             width: 100%;
             max-width: 440px;
             padding: 30px;
@@ -404,17 +364,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-dashboard-badge {
             position: absolute;
-            top: -15px;
+            top: -14px;
             right: 20px;
             background: #10b981;
             color: #ffffff;
-            padding: 6px 14px;
-            border-radius: 100px;
+            padding: 4px 12px;
+            border-radius: 4px;
             font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
         }
 
         .db-header {
@@ -430,7 +389,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ab0e00 100%);
+            background: linear-gradient(135deg, #f87171 0%, #ab0e00 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -454,8 +413,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .db-progress-card {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
         }
@@ -482,7 +441,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .db-progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #ab0e00, #ff6b6b);
+            background: #ab0e00;
             width: 75%;
             border-radius: 100px;
         }
@@ -498,10 +457,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 12px;
             background: #ffffff;
-            border: 1px solid #f1f5f9;
+            border: 1px solid #e2e8f0;
             padding: 12px 16px;
-            border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+            border-radius: 8px;
         }
 
         .db-module-icon {
@@ -531,10 +489,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .db-floating-badge {
             position: absolute;
             background: #ffffff;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            padding: 16px 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            padding: 14px 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -561,7 +519,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .db-floating-badge.badge-1 .db-float-icon {
-            color: #fbbf24;
+            color: #ab0e00;
         }
 
         .db-float-text h6 {
@@ -577,7 +535,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 600;
         }
 
-        /* ── Pain Points Section (Dark Slate Background) ── */
+        /* ── Pain Points Section (Light Background, High Contrast) ── */
         .pain-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -585,11 +543,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .pain-card {
-            background: #1e293b;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.06);
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(15,23,42,0.015);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             gap: 24px;
@@ -597,28 +555,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .pain-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(255, 82, 82, 0.3);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border-color: #ab0e00;
+            box-shadow: 0 10px 25px rgba(171,14,0,0.05);
         }
 
         .pain-icon-box {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            background: rgba(255, 82, 82, 0.1);
-            color: #ff5252;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.15rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            font-weight: 950;
+            font-style: italic;
+            color: #ab0e00;
+            line-height: 1;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             flex-shrink: 0;
         }
 
         .pain-card-content h4 {
             font-size: 1.15rem;
-            font-weight: 800;
-            color: #ffffff;
+            font-weight: 850;
+            color: #0f172a;
             margin: 0 0 12px 0;
             line-height: 1.4;
         }
@@ -626,11 +580,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .pain-card-content p {
             font-size: 0.95rem;
             line-height: 1.65;
-            color: #94a3b8;
+            color: #475569;
             margin: 0;
         }
 
-        /* ── Core Competencies Section ──────── */
+        /* ── 8 Core Competencies (6 "CẦM VỀ" style from user screenshot) ── */
         .comp-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -639,69 +593,50 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .comp-card {
             background: #ffffff;
-            border-radius: 22px;
-            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
             padding: 32px;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.008);
-        }
-
-        .comp-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #ab0e00, #ff5252);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(15,23,42,0.01);
         }
 
         .comp-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(15,23,42,0.04);
-            border-color: #cbd5e1;
+            transform: translateY(-4px);
+            border-color: #ab0e00;
+            box-shadow: 0 12px 28px rgba(171,14,0,0.06);
         }
 
-        .comp-card:hover::after {
-            transform: scaleX(1);
-        }
-
-        .comp-num {
-            font-size: 0.85rem;
-            font-weight: 850;
+        .comp-num-large {
+            font-size: 3rem;
+            font-weight: 950;
+            font-style: italic;
             color: #ab0e00;
-            background: rgba(171, 14, 0, 0.06);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .comp-title {
-            font-size: 1.1rem;
-            font-weight: 800;
+        .comp-card-caps-title {
+            font-size: 0.92rem;
+            font-weight: 900;
             color: #0f172a;
-            margin: 0 0 12px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            line-height: 1.4;
         }
 
         .comp-desc {
             font-size: 0.88rem;
             line-height: 1.6;
-            color: #64748b;
+            color: #475569;
             margin: 0;
         }
 
-        /* ── Target Audience Section (Light Gray Background) ── */
+        /* ── Target Audience Section ──────── */
         .audience-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -710,10 +645,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .audience-card {
             background: #ffffff;
-            border-radius: 24px;
-            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
             padding: 36px 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            box-shadow: 0 4px 15px rgba(15,23,42,0.01);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             text-align: center;
             display: flex;
@@ -723,16 +658,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .audience-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(171, 14, 0, 0.15);
-            box-shadow: 0 12px 28px rgba(15,23,42,0.04);
+            border-color: #ab0e00;
+            box-shadow: 0 10px 25px rgba(171,14,0,0.05);
         }
 
         .audience-icon-box {
             width: 64px;
             height: 64px;
-            border-radius: 20px;
+            border-radius: 8px;
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -743,13 +678,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .audience-card:hover .audience-icon-box {
             background: rgba(171, 14, 0, 0.05);
-            border-color: rgba(171, 14, 0, 0.15);
-            transform: scale(1.05);
+            border-color: #ab0e00;
         }
 
         .audience-card h4 {
             font-size: 1.1rem;
-            font-weight: 800;
+            font-weight: 850;
             color: #0f172a;
             margin: 0 0 12px 0;
         }
@@ -757,11 +691,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .audience-card p {
             font-size: 0.88rem;
             line-height: 1.6;
-            color: #64748b;
+            color: #475569;
             margin: 0;
         }
 
-        /* ── Interactive Curriculum Section (Cask style) ── */
+        /* ── Curriculum Section (Cask.vn Screenshot Match) ── */
         .curr-layout {
             display: flex;
             gap: 40px;
@@ -777,8 +711,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-tab {
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             padding: 24px;
             cursor: pointer;
             text-align: left;
@@ -789,8 +723,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-tab-tag {
             font-size: 0.72rem;
-            font-weight: 800;
-            color: #94a3b8;
+            font-weight: 900;
+            color: #ab0e00;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 8px;
@@ -804,21 +738,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-tab:hover {
-            border-color: #cbd5e1;
+            border-color: #ab0e00;
             transform: translateX(4px);
         }
 
         .curr-tab.active {
             border-left-color: #ab0e00;
-            background: rgba(171, 14, 0, 0.02);
-            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.05);
-            border-color: #e2e8f0;
-            border-top-right-radius: 18px;
-            border-bottom-right-radius: 18px;
-        }
-
-        .curr-tab.active .curr-tab-tag {
-            color: #ab0e00;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            border-color: #cbd5e1;
         }
 
         .curr-tab.active .curr-tab-title {
@@ -828,16 +756,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-details {
             width: 68%;
             background: #ffffff;
-            border-radius: 28px;
-            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
             padding: 45px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.015);
             display: flex;
             flex-direction: column;
         }
 
         .curr-panel-header {
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
             padding-bottom: 24px;
             margin-bottom: 24px;
             display: flex;
@@ -860,16 +788,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-panel-desc {
             font-size: 0.92rem;
             line-height: 1.6;
-            color: #64748b;
+            color: #475569;
             margin: 0;
         }
 
         .curr-toggle-all-btn {
-            background: #f8fafc;
-            color: #475569;
-            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
             padding: 8px 16px;
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 700;
             cursor: pointer;
@@ -878,8 +806,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-toggle-all-btn:hover {
-            background: #f1f5f9;
-            color: #0f172a;
+            border-color: #0f172a;
+            background: #f8fafc;
         }
 
         .curr-accordion-list {
@@ -889,17 +817,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-acc-item {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .curr-acc-item.active {
-            border-color: rgba(171, 14, 0, 0.2);
-            background: #ffffff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border-left: 4px solid #ab0e00;
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
         }
 
         .curr-acc-header {
@@ -919,10 +847,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-acc-num {
-            font-size: 1.25rem;
-            font-weight: 850;
-            color: #94a3b8;
+            font-size: 1.4rem;
+            font-weight: 900;
+            font-style: italic;
+            color: #cbd5e1;
             transition: color 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .curr-acc-item.active .curr-acc-num {
@@ -931,8 +861,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-acc-title {
             font-size: 0.95rem;
-            font-weight: 750;
-            color: #334155;
+            font-weight: 850;
+            color: #475569;
             transition: color 0.3s ease;
             line-height: 1.4;
         }
@@ -950,10 +880,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-acc-badge {
             font-size: 0.72rem;
             font-weight: 800;
-            color: #64748b;
+            color: #475569;
             background: #e2e8f0;
             padding: 4px 10px;
-            border-radius: 100px;
+            border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 0.02em;
             white-space: nowrap;
@@ -987,6 +917,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 0 24px 24px 62px;
             border-top: 1px solid #f1f5f9;
             padding-top: 20px;
+            background-color: #faf9f6; /* light beige inside active chapter body */
         }
 
         .curr-topics-list {
@@ -1000,8 +931,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-topics-list li {
             font-size: 0.9rem;
-            color: #475569;
-            line-height: 1.5;
+            color: #334155;
+            line-height: 1.6;
             display: flex;
             align-items: flex-start;
             gap: 10px;
@@ -1017,15 +948,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-outcomes {
             margin-top: 36px;
-            background: #f8fafc;
-            border-radius: 20px;
+            background: #faf9f6;
+            border-radius: 8px;
             padding: 28px;
-            border: 1px dashed #e2e8f0;
+            border: 1px dashed #cbd5e1;
         }
 
         .curr-outcomes-title {
             font-size: 0.95rem;
-            font-weight: 800;
+            font-weight: 900;
             color: #0f172a;
             margin: 0 0 16px 0;
             text-transform: uppercase;
@@ -1033,10 +964,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .curr-outcomes-title svg {
-            color: #ab0e00;
         }
 
         .curr-outcomes-list {
@@ -1063,7 +990,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 3px;
         }
 
-        /* ── IDEAS AI Platform Section ── */
+        /* ── IDEAS AI Platform Section (Light Theme Design) ── */
         .ai-grid {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
@@ -1088,8 +1015,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ai-feat-icon {
             width: 26px;
             height: 26px;
-            background: rgba(255, 82, 82, 0.12);
-            color: #ff5252;
+            background: rgba(171, 14, 0, 0.08);
+            color: #ab0e00;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1102,19 +1029,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ai-feat-text {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #cbd5e1;
+            color: #475569;
         }
 
         .ai-feat-text strong {
-            color: #ffffff;
+            color: #0f172a;
         }
 
-        /* Chat UI Mockup */
+        /* Chat UI Mockup (Light Theme matching sections) */
         .ai-chat-mockup {
-            background: #1e293b;
-            border-radius: 28px;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 15px 30px rgba(15,23,42,0.05);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -1122,12 +1049,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .chat-header {
-            background: #0f172a;
+            background: #f8fafc;
             padding: 16px 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .chat-header-user {
@@ -1141,18 +1068,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: 8px;
             border-radius: 50%;
             background: #10b981;
-            box-shadow: 0 0 10px #10b981;
+            box-shadow: 0 0 10px rgba(16,185,129,0.3);
         }
 
         .chat-header-title {
             font-size: 0.88rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #0f172a;
         }
 
         .chat-header-subtitle {
             font-size: 0.72rem;
-            color: #94a3b8;
+            color: #64748b;
         }
 
         .chat-body {
@@ -1162,40 +1089,40 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-direction: column;
             gap: 18px;
             overflow-y: auto;
-            background: #1e293b;
+            background: #ffffff;
         }
 
         .chat-bubble {
             max-width: 80%;
             padding: 14px 18px;
-            border-radius: 18px;
+            border-radius: 12px;
             font-size: 0.85rem;
             line-height: 1.5;
         }
 
         .chat-bubble.student {
-            background: #334155;
-            color: #f1f5f9;
+            background: #f1f5f9;
+            color: #334155;
             align-self: flex-end;
             border-bottom-right-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.03);
+            border: 1px solid #e2e8f0;
         }
 
         .chat-bubble.ai {
-            background: rgba(171, 14, 0, 0.15);
-            color: #f8fafc;
+            background: rgba(171, 14, 0, 0.03);
+            color: #334155;
             align-self: flex-start;
             border-bottom-left-radius: 4px;
-            border: 1px solid rgba(255, 82, 82, 0.15);
+            border: 1px solid rgba(171, 14, 0, 0.15);
         }
 
         .chat-bubble.ai strong {
-            color: #ff6b6b;
+            color: #ab0e00;
         }
 
         .chat-bubble-source {
             font-size: 0.7rem;
-            color: #94a3b8;
+            color: #64748b;
             margin-top: 6px;
             display: flex;
             align-items: center;
@@ -1204,25 +1131,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .chat-bubble-source svg {
-            color: #ff6b6b;
+            color: #ab0e00;
         }
 
         .chat-input-bar {
-            background: #0f172a;
+            background: #f8fafc;
             padding: 16px 20px;
             display: flex;
             align-items: center;
             gap: 12px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid #e2e8f0;
         }
 
         .chat-input {
             flex-grow: 1;
-            background: #1e293b;
-            border: 1px solid rgba(255,255,255,0.08);
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
             border-radius: 100px;
             padding: 10px 18px;
-            color: #ffffff;
+            color: #94a3b8;
             font-size: 0.82rem;
             pointer-events: none;
         }
@@ -1248,10 +1175,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .fac-card {
             background: #ffffff;
-            border-radius: 24px;
-            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
             padding: 36px 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.005);
+            box-shadow: 0 4px 15px rgba(15,23,42,0.005);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -1261,8 +1188,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .fac-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(171, 14, 0, 0.15);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.02);
+            border-color: #ab0e00;
+            box-shadow: 0 10px 25px rgba(171,14,0,0.05);
         }
 
         .fac-avatar-wrap {
@@ -1301,7 +1228,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .fac-bio {
             font-size: 0.88rem;
             line-height: 1.55;
-            color: #64748b;
+            color: #475569;
             margin: 0 0 20px 0;
             text-align: justify;
         }
@@ -1325,8 +1252,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Certificate Section ────────────── */
         .cert-wrap {
             background: #ffffff;
-            border-radius: 32px;
-            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
             box-shadow: 0 10px 40px rgba(0,0,0,0.015);
             padding: 50px;
             display: grid;
@@ -1348,10 +1275,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .cert-mockup {
-            background: #f8fafc;
-            border-radius: 20px;
+            background: #faf9f6;
+            border-radius: 8px;
             border: 10px solid #ffffff;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
             padding: 30px;
             aspect-ratio: 1.414;
             display: flex;
@@ -1360,7 +1287,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             text-align: center;
             position: relative;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1.5px);
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1.5px);
             background-size: 16px 16px;
         }
 
@@ -1371,7 +1298,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             right: 8px;
             bottom: 8px;
             border: 2px solid #cbd5e1;
-            border-radius: 12px;
+            border-radius: 4px;
             pointer-events: none;
         }
 
@@ -1434,39 +1361,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Final CTA Section ─────────────── */
         .cta-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-radius: 32px;
+            background: #ffffff;
+            border-radius: 12px;
             padding: 80px 60px;
-            color: #ffffff;
+            color: #0f172a;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 20px 50px rgba(15,23,42,0.12);
-        }
-
-        .cta-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(171,14,0,0.08) 0%, transparent 60%);
-            pointer-events: none;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.02);
         }
 
         .cta-banner h2 {
             font-size: clamp(1.8rem, 4vw, 2.6rem);
-            font-weight: 850;
+            font-weight: 900;
             margin: 0 0 16px 0;
             line-height: 1.25;
             letter-spacing: -0.02em;
+            color: #0f172a;
         }
 
         .cta-banner p {
             font-size: 1.05rem;
-            color: #cbd5e1;
+            color: #475569;
             max-width: 600px;
             margin: 0 auto 40px auto;
             line-height: 1.6;
@@ -1488,12 +1405,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 8px;
             font-size: 0.92rem;
-            font-weight: 600;
-            color: #e2e8f0;
-            background: rgba(255, 255, 255, 0.05);
+            font-weight: 700;
+            color: #0f172a;
+            background: #f8fafc;
             padding: 8px 18px;
-            border-radius: 100px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
         }
 
         .cta-benefit-item svg {
@@ -1502,8 +1419,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .cta-offer {
             font-size: 0.95rem;
-            font-weight: 700;
-            color: #ff6b6b;
+            font-weight: 800;
+            color: #ab0e00;
             margin-top: 24px;
             display: flex;
             align-items: center;
@@ -1515,7 +1432,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ff6b6b;
+            color: #ab0e00;
         }
 
         /* ── FAQ Section ───────────────────── */
@@ -1529,14 +1446,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .faq-item {
             background: #ffffff;
-            border-radius: 18px;
-            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .faq-item.active {
-            border-color: rgba(171, 14, 0, 0.15);
+            border-color: #ab0e00;
             box-shadow: 0 4px 15px rgba(0,0,0,0.015);
         }
 
@@ -1582,7 +1499,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding-top: 18px;
             font-size: 0.95rem;
             line-height: 1.6;
-            color: #4b5563;
+            color: #475569;
         }
 
         /* ── Keyframe Animations ────────────── */
@@ -1679,15 +1596,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .curr-tab {
                 min-width: 250px;
                 scroll-snap-align: start;
-                border-left: 1px solid #e2e8f0;
+                border-left: 1px solid #cbd5e1;
                 border-bottom: 4px solid transparent;
             }
 
             .curr-tab.active {
                 border-bottom-color: #ab0e00;
-                border-left-color: #e2e8f0;
-                border-bottom-left-radius: 18px;
-                border-bottom-right-radius: 18px;
+                border-left-color: #cbd5e1;
             }
 
             .curr-details {
@@ -1885,8 +1800,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 2. PAIN POINTS SECTION (Dark Theme Background) -->
-        <section class="ble-section bg-dark">
+        <!-- 2. PAIN POINTS SECTION (Light Background, High Contrast) -->
+        <section class="ble-section bg-light-gray">
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">Thách thức thực tế</span>
@@ -1897,7 +1812,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="pain-grid">
                     <!-- Card 1 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">01</div>
+                        <div class="pain-icon-box">1</div>
                         <div class="pain-card-content">
                             <h4>Chưa từng được đào tạo quản lý</h4>
                             <p>Được bổ nhiệm lên làm quản lý do chuyên môn giỏi, nhưng chưa từng được học phương pháp dẫn dắt, giao việc và điều hành tổ chức.</p>
@@ -1905,7 +1820,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <!-- Card 2 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">02</div>
+                        <div class="pain-icon-box">2</div>
                         <div class="pain-card-content">
                             <h4>Gặp khó khăn khi tạo uy tín</h4>
                             <p>Chưa biết cách xây dựng sức ảnh hưởng cá nhân và sự tin cậy để đội ngũ cấp dưới tự nguyện cống hiến và đồng hành.</p>
@@ -1913,7 +1828,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <!-- Card 3 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">03</div>
+                        <div class="pain-icon-box">3</div>
                         <div class="pain-card-content">
                             <h4>Lúng túng trong Coaching &amp; Phản hồi</h4>
                             <p>Chưa nắm vững kỹ năng dẫn dắt (coaching) để phát huy tiềm năng của nhân viên, phản hồi chưa mang tính xây dựng làm giảm động lực.</p>
@@ -1921,7 +1836,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <!-- Card 4 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">04</div>
+                        <div class="pain-icon-box">4</div>
                         <div class="pain-card-content">
                             <h4>Đội ngũ rời rạc, hiệu suất thấp</h4>
                             <p>Thiếu sự gắn kết và phối hợp ăn ý giữa các thành viên, dẫn đến tình trạng chậm tiến độ và kết quả công việc chưa như kỳ vọng.</p>
@@ -1931,70 +1846,69 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 3. CORE COMPETENCIES SECTION (Light Background) -->
-        <section class="ble-section bg-light">
+        <!-- 3. CORE COMPETENCIES SECTION (Light Background - Matching screenshot takeways style) -->
+        <section class="ble-section bg-white">
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Giá trị nhận được</span>
-                    <h2 class="ble-section-title">Bạn sẽ phát triển những năng lực nào?</h2>
-                    <p class="ble-section-subtitle">8 năng lực cốt lõi bạn sẽ sở hữu trọn vẹn sau khi hoàn thành khóa học</p>
+                    <div class="ble-title-badge-red">8 ĐIỀU "CẦM VỀ"</div>
+                    <p class="ble-section-subtitle" style="margin-top: 10px;">Những giá trị cốt lõi bạn sẽ sở hữu trọn vẹn sau khóa học</p>
                 </div>
 
                 <div class="comp-grid">
                     <!-- Comp 1 -->
                     <div class="comp-card">
-                        <div class="comp-num">01</div>
-                        <h4 class="comp-title">Leadership Mindset</h4>
+                        <div class="comp-num-large">1</div>
+                        <h4 class="comp-card-caps-title">Leadership Mindset</h4>
                         <p class="comp-desc">Dịch chuyển tư duy từ quản lý hành chính sự vụ sang dẫn dắt, kiến tạo giá trị và gây ảnh hưởng lên đội ngũ.</p>
                     </div>
                     <!-- Comp 2 -->
                     <div class="comp-card">
-                        <div class="comp-num">02</div>
-                        <h4 class="comp-title">Performance</h4>
+                        <div class="comp-num-large">2</div>
+                        <h4 class="comp-card-caps-title">Performance Opt.</h4>
                         <p class="comp-desc">Nắm vững phương pháp thiết lập mục tiêu khoa học, phân chia công việc hiệu quả để tối ưu hiệu suất làm việc.</p>
                     </div>
                     <!-- Comp 3 -->
                     <div class="comp-card">
-                        <div class="comp-num">03</div>
-                        <h4 class="comp-title">Org. Behaviour</h4>
+                        <div class="comp-num-large">3</div>
+                        <h4 class="comp-card-caps-title">Org. Behaviour</h4>
                         <p class="comp-desc">Thấu hiểu sâu sắc động cơ và hành vi của nhân viên để xây dựng văn hóa làm việc tích cực, gắn kết lâu dài.</p>
                     </div>
                     <!-- Comp 4 -->
                     <div class="comp-card">
-                        <div class="comp-num">04</div>
-                        <h4 class="comp-title">Coaching &amp; Feedback</h4>
+                        <div class="comp-num-large">4</div>
+                        <h4 class="comp-card-caps-title">Coaching &amp; Feedback</h4>
                         <p class="comp-desc">Làm chủ kỹ năng phản hồi mang tính định hướng và phương pháp coaching thúc đẩy năng lực nhân sự liên tục.</p>
                     </div>
                     <!-- Comp 5 -->
                     <div class="comp-card">
-                        <div class="comp-num">05</div>
-                        <h4 class="comp-title">High-Perf Team</h4>
+                        <div class="comp-num-large">5</div>
+                        <h4 class="comp-card-caps-title">High-Perf Team</h4>
                         <p class="comp-desc">Thiết kế quy trình phối hợp nhịp nhàng, kích hoạt sự chủ động của từng thành viên hướng đến mục tiêu chung.</p>
                     </div>
                     <!-- Comp 6 -->
                     <div class="comp-card">
-                        <div class="comp-num">06</div>
-                        <h4 class="comp-title">Talent Management</h4>
+                        <div class="comp-num-large">6</div>
+                        <h4 class="comp-card-caps-title">Talent Management</h4>
                         <p class="comp-desc">Biết cách phát hiện nhân sự tiềm năng, đào tạo bồi dưỡng và giữ chân nhân tài gắn bó cùng tổ chức.</p>
                     </div>
                     <!-- Comp 7 -->
                     <div class="comp-card">
-                        <div class="comp-num">07</div>
-                        <h4 class="comp-title">Change Leadership</h4>
+                        <div class="comp-num-large">7</div>
+                        <h4 class="comp-card-caps-title">Change Leadership</h4>
                         <p class="comp-desc">Nâng cao năng lực dẫn dắt đội ngũ thích ứng nhanh chóng trước các đổi mới chiến lược của doanh nghiệp.</p>
                     </div>
                     <!-- Comp 8 -->
                     <div class="comp-card">
-                        <div class="comp-num">08</div>
-                        <h4 class="comp-title">Practical Skills</h4>
+                        <div class="comp-num-large">8</div>
+                        <h4 class="comp-card-caps-title">Practical Frameworks</h4>
                         <p class="comp-desc">Ứng dụng ngay các framework quản lý chuẩn mực vào giải quyết bài toán vận hành nhân sự hàng ngày.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. TARGET AUDIENCE SECTION (Warm Slate Background) -->
-        <section class="ble-section ble-section bg-slate">
+        <!-- 4. TARGET AUDIENCE SECTION (Light gray background) -->
+        <section class="ble-section bg-light-gray">
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">Đối tượng tham gia</span>
@@ -2039,8 +1953,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 5. INTERACTIVE CURRICULUM SECTION (Cask.vn Style) -->
-        <section class="ble-section bg-light" id="curriculum">
+        <!-- 5. INTERACTIVE CURRICULUM SECTION (Cask.vn Style matching layout screenshot) -->
+        <section class="ble-section bg-white" id="curriculum">
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">Lộ trình học tập</span>
@@ -2089,7 +2003,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2113,7 +2027,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2137,7 +2051,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2161,7 +2075,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 4</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2177,22 +2091,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
 
-                            <!-- Outcomes block -->
+                            <!-- Outcomes block (Matching layout screenshot bullet styling) -->
                             <div class="curr-outcomes">
                                 <div class="curr-outcomes-title">
-                                    🎯 Kết quả đạt được sau môn học:
+                                    Kết quả đạt được sau môn học:
                                 </div>
                                 <ul class="curr-outcomes-list">
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Hiểu rõ cách thức nhà lãnh đạo tạo dựng sức ảnh hưởng và thiết lập văn hóa làm việc hiệu suất.</span>
                                     </li>
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Thiết lập được chiến lược bồi dưỡng năng lực tự quản và phát triển đội ngũ kế thừa.</span>
                                     </li>
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Chủ động dẫn dắt tổ chức vượt qua các thách thức thay đổi một cách bài bản, trơn tru.</span>
                                     </li>
                                 </ul>
@@ -2220,7 +2134,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2244,7 +2158,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2268,7 +2182,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2287,20 +2201,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Outcomes block -->
                             <div class="curr-outcomes">
                                 <div class="curr-outcomes-title">
-                                    🎯 Kết quả đạt được sau môn học:
+                                    Kết quả đạt được sau môn học:
                                 </div>
                                 <ul class="curr-outcomes-list">
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Nắm chắc các yếu tố cấu thành động lực thúc đẩy cá nhân và tập thể cống hiến tối đa.</span>
                                     </li>
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Phân tích được nguyên nhân gốc rễ của các mâu thuẫn, xung đột nội bộ để hóa giải nhanh chóng.</span>
                                     </li>
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
-                                        <span>Kiên tạo một bầu không khí làm việc gắn kết cao, giúp đẩy mạnh năng suất lao động chung.</span>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                        <span>Kiến tạo một bầu không khí làm việc gắn kết cao, giúp đẩy mạnh năng suất lao động chung.</span>
                                     </li>
                                 </ul>
                             </div>
@@ -2327,7 +2241,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2351,7 +2265,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2375,7 +2289,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2399,7 +2313,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 4</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2418,19 +2332,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Outcomes block -->
                             <div class="curr-outcomes">
                                 <div class="curr-outcomes-title">
-                                    🎯 Kết quả đạt được sau môn học:
+                                    Kết quả đạt được sau môn học:
                                 </div>
                                 <ul class="curr-outcomes-list">
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Xây dựng được chính sách quản trị nguồn vốn con người đồng bộ với tầm nhìn chung của doanh nghiệp.</span>
                                     </li>
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Thiết kế thành công phễu tuyển chọn chất lượng và hệ thống cơ chế giữ chân nhân tài lâu dài.</span>
                                     </li>
                                     <li>
-                                        <svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                         <span>Hình thành thói quen và kỹ năng đánh giá hiệu suất nhân viên một cách minh bạch, công bằng.</span>
                                     </li>
                                 </ul>
@@ -2441,8 +2355,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 6. IDEAS AI PLATFORM SECTION (Dark Slate Background for Technical AI Feel) -->
-        <section class="ble-section bg-dark">
+        <!-- 6. IDEAS AI PLATFORM SECTION (Light-gray Background) -->
+        <section class="ble-section bg-light-gray">
             <div class="ble-container">
                 <div class="ai-grid">
                     <!-- Left: Details -->
@@ -2475,7 +2389,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-ai'); }" class="ble-btn">Đăng ký dùng thử AI &amp; LMS</button>
                     </div>
 
-                    <!-- Right: Premium Chat UI Mockup -->
+                    <!-- Right: Premium Chat UI Mockup (Light Theme) -->
                     <div class="ai-visual">
                         <div class="ai-chat-mockup">
                             <div class="chat-header">
@@ -2517,8 +2431,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 7. INSTRUCTORS SECTION (Light Background) -->
-        <section class="ble-section bg-light">
+        <!-- 7. INSTRUCTORS SECTION (White Background) -->
+        <section class="ble-section bg-white">
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">Đội ngũ chuyên gia</span>
@@ -2563,8 +2477,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 8. CERTIFICATE SHOWCASE SECTION (Warm Slate Background) -->
-        <section class="ble-section bg-slate">
+        <!-- 8. CERTIFICATE SHOWCASE SECTION (Soft Cream Background) -->
+        <section class="ble-section bg-soft-cream">
             <div class="ble-container">
                 <div class="cert-wrap">
                     <!-- Left: Text Info -->
@@ -2616,7 +2530,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </section>
 
         <!-- 9. FINAL CTA BANNER SECTION -->
-        <section class="ble-section">
+        <section class="ble-section bg-white">
             <div class="ble-container">
                 <div class="cta-banner">
                     <h2>Nâng tầm năng lực quản lý của bạn ngay hôm nay!</h2>
@@ -2653,8 +2567,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 10. FAQS SECTION (Light Background) -->
-        <section class="ble-section bg-light" style="padding-bottom: 120px;">
+        <!-- 10. FAQS SECTION (Light-gray Background) -->
+        <section class="ble-section bg-light-gray" style="padding-bottom: 120px;">
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">Giải đáp thắc mắc</span>
