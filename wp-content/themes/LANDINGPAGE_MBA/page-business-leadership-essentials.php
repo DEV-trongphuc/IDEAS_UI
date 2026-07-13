@@ -3232,7 +3232,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <h2 class="ble-section-title" style="text-align: left;">Đảm nhận vai trò quản lý,<br><span class="ble-text-red">năng lực chuyên môn thôi là chưa đủ</span></h2>
                         
                         <!-- Wow Stat Card -->
-                        <div class="pain-stat-card">
+                        <div class="pain-stat-card" style="margin-bottom: 24px;">
                             <div class="pain-stat-number-box">
                                 <span class="pain-stat-number">85%</span>
                                 <span class="pain-stat-label">Quản lý</span>
@@ -3241,6 +3241,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <h5>Gặp khó khăn khi chuyển đổi vai trò</h5>
                                 <p>Tỷ lệ quản lý mới được bổ nhiệm gặp rào cản lớn trong việc chuyển từ làm chuyên môn sang điều hành và quản trị nhân sự.</p>
                             </div>
+                        </div>
+
+                        <!-- Showcase Challenge Image -->
+                        <div class="pain-visual-img-wrap" style="border-radius: 18px !important; overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06); transition: all 0.3s ease;">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_2.png" alt="Thử thách quản lý doanh nghiệp" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.58; border-radius: 14px !important;">
                         </div>
                     </div>
 
@@ -3943,6 +3948,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </li>
                         </ul>
                         <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-cert'); }" class="ble-btn">Đăng ký tư vấn lộ trình</button>
+
+                        <!-- Showcase cohort study image -->
+                        <div class="cert-visual-img-wrap" style="margin-top: 30px; border-radius: 18px !important; overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06);">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_3.png" alt="Không khí học tập và thảo luận dự án" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.62; border-radius: 14px !important;">
+                        </div>
                     </div>
 
                     <!-- Right: Certificate Display Mockup -->
@@ -3991,13 +4001,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <div class="ble-audience-split">
-                    <!-- Left: Showcase Image -->
-                    <!-- Left: Overlapping Image Stack (Flora style) -->
+                    <!-- Left: Showcase Image with rounded border-radius -->
                     <div class="ble-audience-visual">
-                        <div class="value-image-group">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase.png" alt="Không khí thảo luận lãnh đạo 1" class="value-float-img img-1" style="border-radius: 18px !important;" />
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_2.png" alt="Không khí thảo luận lãnh đạo 2" class="value-float-img img-2" style="border-radius: 18px !important;" />
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_3.png" alt="Không khí thảo luận lãnh đạo 3" class="value-float-img img-3" style="border-radius: 18px !important;" />
+                        <div class="ble-audience-img-wrapper" style="border-radius: 18px !important; overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06); width: 100%; transition: all 0.3s ease;">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase.png" alt="Đối tượng đào tạo quản lý nhân sự" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.15; border-radius: 14px !important;">
                         </div>
                     </div>
 
