@@ -415,29 +415,63 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-meta-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px 24px;
+            display: flex;
+            align-items: center;
+            background: #faf8f5;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 100px;
+            padding: 12px 24px;
+            gap: 0;
             margin-bottom: 35px;
-            max-width: 620px;
+            max-width: 760px;
+            width: 100%;
         }
 
         .ble-hero-meta-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.88rem;
-            color: #475569;
+            gap: 12px;
+            flex: 1;
+            justify-content: center;
+            position: relative;
+            padding: 0 15px;
+        }
+
+        .ble-hero-meta-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 24px;
+            background: rgba(15, 23, 42, 0.1);
         }
 
         .ble-hero-meta-item svg {
+            width: 18px;
+            height: 18px;
             color: #ab0e00;
+            background: rgba(171, 14, 0, 0.06);
+            padding: 10px;
+            border-radius: 50%;
             flex-shrink: 0;
         }
 
+        .ble-hero-meta-item span {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-size: 0.74rem;
+            color: #64748b;
+            line-height: 1.35;
+        }
+
         .ble-hero-meta-item strong {
+            font-size: 0.88rem;
             color: #0f172a;
             font-weight: 800;
+            margin-top: 2px;
         }
 
         .ble-hero-promo {
@@ -2737,6 +2771,202 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-lightbox-close:hover {
             color: #ab0e00;
         }
+
+        /* ─── Premium July Promo Modal Styles ─── */
+        .ble-pmodal {
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 16px;
+        }
+        .ble-pmodal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .ble-pmodal-container {
+            position: relative;
+            background: #ffffff;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            padding: 32px 24px;
+            box-sizing: border-box;
+            animation: pmodal-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            overflow: hidden;
+            z-index: 2;
+        }
+        @keyframes pmodal-pop {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .ble-pmodal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: #64748b;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+        .ble-pmodal-close:hover {
+            color: #ab0e00;
+        }
+        .ble-pmodal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .ble-pmodal-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .pmodal-logo-ideas {
+            height: 24px;
+            width: auto;
+        }
+        .pmodal-logo-divider {
+            width: 1px;
+            height: 16px;
+            background: #cbd5e1;
+        }
+        .pmodal-partner-text {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: #64748b;
+            letter-spacing: 0.05em;
+        }
+        .ble-pmodal-divider {
+            width: 100%;
+            border-top: 1px dashed rgba(15, 23, 42, 0.08);
+            margin: 14px 0 20px 0;
+        }
+        .ble-pmodal-gold-badge {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #dfa375 0%, #a77045 50%, #dfa375 100%);
+            border: 4px solid #ffffff;
+            box-shadow: 0 8px 24px rgba(167, 112, 69, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            margin-bottom: 22px;
+        }
+        .ble-pmodal-gold-badge .badge-label {
+            font-size: 0.58rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+        .ble-pmodal-gold-badge .badge-value {
+            font-size: 1.65rem;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+        .ble-pmodal-serif-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.55rem;
+            font-style: italic;
+            color: #a77045;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+        .ble-pmodal-main-title {
+            font-size: 1.1rem;
+            font-weight: 850;
+            color: #0f172a;
+            line-height: 1.35;
+            margin: 0 0 14px 0;
+        }
+        .ble-pmodal-desc {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #475569;
+            margin: 0 0 24px 0;
+        }
+        .ble-pmodal-desc strong {
+            color: #ab0e00;
+            font-weight: 800;
+        }
+        .ble-pmodal-action-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ble-pmodal-btn {
+            width: 100%;
+            background: #ab0e00;
+            color: #ffffff !important;
+            border: none;
+            border-radius: 100px;
+            padding: 14px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(171, 14, 0, 0.2) ;
+            transition: all 0.3s ease;
+            margin-bottom: 12px;
+        }
+        .ble-pmodal-btn:hover {
+            transform: translateY(-2px);
+            background: #900c00;
+            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.3);
+        }
+        .ble-pmodal-link {
+            font-size: 0.8rem;
+            color: #a77045 !important;
+            text-decoration: underline !important;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+        .ble-pmodal-link:hover {
+            color: #ab0e00 !important;
+        }
+        
+        /* State 2: Form Styles */
+        .pmodal-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .pmodal-input {
+            width: 100%;
+            padding: 12px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+            text-align: center;
+        }
+        .pmodal-input:focus {
+            border-color: #ab0e00;
+        }
     </style>
 
     <?php wp_head(); ?>
@@ -2766,19 +2996,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-hero-meta-row">
                             <div class="ble-hero-meta-item">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-                                <span>Chứng nhận: <strong>Swiss UMEF (Thụy Sĩ)</strong></span>
-                            </div>
-                            <div class="ble-hero-meta-item">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                                <span>Công nghệ: <strong>Trợ lý AI hỗ trợ 24/7</strong></span>
+                                <span>Chứng nhận<strong>Swiss UMEF (Thụy Sĩ)</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5v-13A2.5 2.5 0 0 1 6.5 4H20v13H6.5a2.5 2.5 0 0 0-2.5 2.5z"/></svg>
-                                <span>Phương pháp: <strong>Thực chiến &amp; Case-study</strong></span>
+                                <span>Phương pháp<strong>Thực chiến &amp; Case-study</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
-                                <span>Đầu ra: <strong>8 năng lực quản lý cốt lõi</strong></span>
+                                <span>Đầu ra<strong>8 năng lực quản lý cốt lõi</strong></span>
                             </div>
                         </div>
 
