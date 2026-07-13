@@ -417,14 +417,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hero-meta-row {
             display: flex;
             align-items: center;
-            background: #faf8f5;
+            background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.08);
-            border-radius: 100px;
+            border-radius: 16px;
             padding: 12px 24px;
             gap: 0;
             margin-bottom: 35px;
             max-width: 760px;
             width: 100%;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.015);
         }
 
         .ble-hero-meta-item {
@@ -449,29 +450,39 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-meta-item svg {
-            width: 18px;
-            height: 18px;
-            color: #ab0e00;
-            background: rgba(171, 14, 0, 0.06);
-            padding: 10px;
-            border-radius: 50%;
-            flex-shrink: 0;
+            width: 16px !important;
+            height: 16px !important;
+            color: #ab0e00 !important;
+            background: rgba(171, 14, 0, 0.06) !important;
+            padding: 8px !important;
+            border-radius: 50% !important;
+            flex-shrink: 0 !important;
+            display: block !important;
+        }
+
+        .ble-hero-meta-item svg path,
+        .ble-hero-meta-item svg polygon,
+        .ble-hero-meta-item svg circle,
+        .ble-hero-meta-item svg rect {
+            stroke: #ab0e00 !important;
+            stroke-width: 2.5 !important;
+            fill: none !important;
         }
 
         .ble-hero-meta-item span {
             display: flex;
             flex-direction: column;
             text-align: left;
-            font-size: 0.74rem;
+            font-size: 0.68rem;
             color: #64748b;
-            line-height: 1.35;
+            line-height: 1.3;
         }
 
         .ble-hero-meta-item strong {
-            font-size: 0.88rem;
+            font-size: 0.8rem;
             color: #0f172a;
             font-weight: 800;
-            margin-top: 2px;
+            margin-top: 1px;
         }
 
         .ble-hero-promo {
@@ -2569,34 +2580,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 gap: 14px !important;
                 background: #ffffff !important;
                 border: 1px solid rgba(15, 23, 42, 0.06) !important;
-                border-radius: 16px !important;
+                border-radius: 12px !important;
                 padding: 12px 16px !important;
-                box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02) !important;
+                box-shadow: 0 4px 15px rgba(15, 23, 42, 0.015) !important;
                 box-sizing: border-box !important;
                 width: 100% !important;
             }
+            .ble-hero-meta-item::after {
+                display: none !important;
+            }
             .ble-hero-meta-item svg {
-                width: 20px !important;
-                height: 20px !important;
+                width: 16px !important;
+                height: 16px !important;
                 color: #ab0e00 !important;
                 background: rgba(171, 14, 0, 0.06) !important;
-                padding: 10px !important;
+                padding: 8px !important;
                 border-radius: 50% !important;
                 flex-shrink: 0 !important;
             }
             .ble-hero-meta-item span {
                 display: flex !important;
                 flex-direction: column !important;
-                font-size: 0.76rem !important;
+                font-size: 0.68rem !important;
                 color: #64748b !important;
-                line-height: 1.35 !important;
+                line-height: 1.3 !important;
                 text-align: left !important;
             }
             .ble-hero-meta-item strong {
-                font-size: 0.92rem !important;
+                font-size: 0.8rem !important;
                 color: #0f172a !important;
                 font-weight: 800 !important;
-                margin-top: 2px !important;
+                margin-top: 1px !important;
             }
 
             /* AI platform 3 screens mockup mobile scale up overrides */
