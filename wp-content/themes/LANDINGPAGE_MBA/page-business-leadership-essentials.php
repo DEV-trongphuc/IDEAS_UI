@@ -2598,6 +2598,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 display: flex !important;
                 flex-direction: row !important;
                 align-items: center !important;
+                justify-content: flex-start !important;
                 text-align: left !important;
                 gap: 14px !important;
                 background: #ffffff !important;
