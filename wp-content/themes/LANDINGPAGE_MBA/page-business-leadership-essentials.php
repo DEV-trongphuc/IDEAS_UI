@@ -3076,9 +3076,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
-                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M9 11l2 2 4-4"/></svg>
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" cx="9" cy="7" r="4"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M23 21v-2a4 4 0 0 0-3-3.87"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                                 </div>
-                                <span>Bản lĩnh<strong>8 năng lực quản lý cốt lõi</strong></span>
+                                <span>Chuyên gia<strong>Đội ngũ chuyên gia</strong></span>
                             </div>
                         </div>
 
