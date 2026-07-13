@@ -1839,212 +1839,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 600;
         }
 
-        /* ── FAQ & Registration Combined Layout (Cask-style Bottom Section) ── */
-        .faq-form-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 80px;
-            align-items: flex-start;
-        }
-
-        .ble-reg-card {
-            background: #ffffff;
-            border-radius: 28px;
-            border: 1.5px solid #cbd5e1;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
-            text-align: left;
-            position: relative;
-        }
-
-        .ble-reg-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #ab0e00, #ff5252);
-            border-top-left-radius: 28px;
-            border-top-right-radius: 28px;
-        }
-
-        .ble-reg-card-header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .reg-tag-11 {
-            display: inline-block;
-            background: #ab0e00;
-            color: #ffffff;
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 4px 14px;
-            border-radius: 100px;
-            letter-spacing: 0.05em;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
-        .ble-reg-card h3 {
-            font-size: 1.45rem;
-            font-weight: 900;
-            color: #0f172a;
-            margin: 0 0 10px 0;
-            line-height: 1.3;
-            text-align: center;
-        }
-
-        .ble-reg-card p {
-            font-size: 0.85rem;
-            color: #64748b;
-            line-height: 1.5;
-            margin: 0 0 24px 0;
-            text-align: center;
-        }
-
-        .ble-reg-form {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .ble-reg-form .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            text-align: left;
-        }
-
-        .ble-reg-form .form-group label {
-            font-size: 0.78rem;
-            font-weight: 800;
-            color: #475569;
-        }
-
-        .ble-reg-form .form-group input,
-        .ble-reg-form .form-group select,
-        .ble-reg-form .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 10px;
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            color: #0f172a;
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.2s ease;
-            box-sizing: border-box;
-            font-family: inherit;
-        }
-
-        .ble-reg-form .form-group input:focus,
-        .ble-reg-form .form-group select:focus,
-        .ble-reg-form .form-group textarea:focus {
-            border-color: #ab0e00;
-            box-shadow: 0 0 0 3px rgba(171,14,0,0.1);
-        }
-
-        .ble-reg-form .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .ble-btn-submit {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            background: #ab0e00;
-            color: #ffffff !important;
-            font-weight: 800;
-            font-size: 0.95rem;
-            padding: 14px 20px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.15);
-            text-decoration: none !important;
-            z-index: 5;
-            margin-top: 10px;
-            gap: 8px;
-        }
-
-        .ble-btn-submit:hover {
-            background: #8c1000;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.25);
-        }
-
-        /* ── FAQ Section (Inside combined section) ── */
-        .faq-col .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 100%;
-        }
-
-        .faq-item {
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1.5px solid #cbd5e1;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
-        }
-
-        .faq-item.active {
-            border-color: #ab0e00;
-            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.05);
-        }
-
-        .faq-header {
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            user-select: none;
-            gap: 20px;
-        }
-
-        .faq-question {
-            font-size: 0.95rem;
-            font-weight: 750;
-            color: #1e293b;
-        }
-
-        .faq-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-arrow {
-            transform: rotate(180deg);
-            color: #ab0e00;
-        }
-
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .faq-content-inner {
-            padding: 0 24px 20px 24px;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 16px;
-            background-color: #ffffff;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #475569;
-        }
+        /* ── Standard FAQ & Form (Inherited from theme style.min.css) ── */
 
         /* ── Responsive Rules ───────────────── */
         @media (max-width: 991px) {
@@ -2163,10 +1958,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 padding: 30px;
             }
 
-            .faq-form-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
+            /* FAQ Grid removed */
         }
 
         @media (max-width: 640px) {
@@ -2317,9 +2109,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- Main Portal Box -->
                         <div class="ble-dashboard-preview">
                             <div class="db-header">
-                                <div class="db-avatar">LM</div>
+                                <div class="db-avatar">YN</div>
                                 <div class="db-user-info">
-                                    <h5>Lê Minh (Học viên)</h5>
+                                    <h5>Your Name (Học viên)</h5>
                                     <span>Lớp: BLE-K2026</span>
                                 </div>
                             </div>
@@ -3113,7 +2905,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="ble-section-tag">
                             <span class="dot"></span> Chứng nhận tốt nghiệp
                         </span>
-                        <h2 class="ble-section-title">Đạt chứng chỉ chuẩn Thụy Sĩ</h2>
+                        <h2 class="ble-section-title">Đạt chứng chỉ<br>chuẩn <span class="ble-text-red">Thụy Sĩ</span></h2>
                         <p class="ble-section-subtitle" style="margin-bottom: 24px; color: #4b5563;">Sau khi hoàn thành khóa học và đáp ứng các yêu cầu đánh giá, học viên sẽ được cấp <strong>Certificate of Completion</strong> do IDEAS phát hành trên cơ sở chuyển giao học thuật từ EGA.</p>
                         <ul class="ai-features-list" style="margin-bottom: 30px;">
                             <li>
@@ -3206,132 +2998,111 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 9. COMBINED FAQ & REGISTRATION SECTION (Soft Cream Background, Red Accent Form) -->
-        <section class="ble-section bg-soft-cream" style="padding-bottom: 120px;">
-            <div class="ble-container">
-                <div class="faq-form-grid">
-                    <!-- Left: FAQ accordions list -->
-                    <div class="faq-col">
-                        <span class="ble-section-tag">
-                            <span class="dot"></span> FAQ
-                        </span>
-                        <h2 class="ble-section-title" style="text-align: left; margin-bottom: 16px;">Câu hỏi thường gặp</h2>
-                        <p class="ble-section-subtitle" style="margin-bottom: 40px; text-align: left;">Giải đáp một số thắc mắc phổ biến của các học viên:</p>
+        <!-- 9. FAQ SECTION & REGISTRATION FORM (Stacked, Matching mba.html Style) -->
+        <section class="faq-section" id="faq" style="background-color: #faf8f5; padding-top: 100px; padding-bottom: 120px;">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 40px;">
+                    <span class="section-badge">FAQ</span>
+                    <h2 class="section-title">Câu hỏi thường gặp</h2>
+                    <p class="section-desc">Giải đáp một số thắc mắc phổ biến của các học viên:</p>
+                </div>
 
-                        <div class="faq-list">
-                            <!-- FAQ 1 -->
-                            <div class="faq-item">
-                                <div class="faq-header" onclick="toggleFaq(this)">
-                                    <span class="faq-question">1. Vì sao chương trình chỉ gồm 3 môn học?</span>
-                                    <span class="faq-arrow">
-                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                    </span>
-                                </div>
-                                <div class="faq-content">
-                                    <div class="faq-content-inner">
-                                        Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- FAQ 2 -->
-                            <div class="faq-item">
-                                <div class="faq-header" onclick="toggleFaq(this)">
-                                    <span class="faq-question">2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
-                                    <span class="faq-arrow">
-                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                    </span>
-                                </div>
-                                <div class="faq-content">
-                                    <div class="faq-content-inner">
-                                        Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- FAQ 3 -->
-                            <div class="faq-item">
-                                <div class="faq-header" onclick="toggleFaq(this)">
-                                    <span class="faq-question">3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
-                                    <span class="faq-arrow">
-                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                    </span>
-                                </div>
-                                <div class="faq-content">
-                                    <div class="faq-content-inner">
-                                        Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
-                                    </div>
-                                </div>
+                <div class="faq-accordion">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <button type="button" class="faq-trigger" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 20px 24px; cursor: pointer;">
+                            <span style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">1. Vì sao chương trình chỉ gồm 3 môn học?</span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" style="font-size: 0.75rem; transition: transform 0.3s ease; color: #64748b;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </button>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div class="faq-content" style="padding: 0 24px 24px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 0.95rem; color: #475569; line-height: 1.6;">
+                                Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: Registration Form Card aligned with mba.html style -->
-                    <div class="form-col">
-                        <div class="ble-reg-card">
-                            <div class="ble-reg-card-header">
-                                <span class="reg-tag-11">NHẬN TƯ VẤN 1:1</span>
-                                <h3>Khởi đầu hành trình<br><span class="ble-gradient-text">Lãnh đạo thực chiến</span></h3>
-                                <p>Chuyên viên sẽ liên hệ với bạn trong vòng 24h làm việc để tư vấn lộ trình phù hợp.</p>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <button type="button" class="faq-trigger" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 20px 24px; cursor: pointer;">
+                            <span style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" style="font-size: 0.75rem; transition: transform 0.3s ease; color: #64748b;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </button>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div class="faq-content" style="padding: 0 24px 24px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 0.95rem; color: #475569; line-height: 1.6;">
+                                Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
                             </div>
-                            
-                            <form id="ble-bottom-reg-form" class="ble-reg-form" novalidate>
-                                <div class="form-group">
-                                    <label for="reg-name">Họ và tên *</label>
-                                    <input type="text" id="reg-name" name="fullname" placeholder="Họ và tên của bạn" required>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="reg-phone">Số điện thoại *</label>
-                                        <input type="tel" id="reg-phone" name="phone" placeholder="Số điện thoại" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="reg-email">Email *</label>
-                                        <input type="email" id="reg-email" name="email" placeholder="Địa chỉ email" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="reg-education">Trình độ học vấn *</label>
-                                        <select id="reg-education" name="education" required>
-                                            <option value="">-- Chọn trình độ --</option>
-                                            <option value="highschool">THPT</option>
-                                            <option value="college">Cao đẳng</option>
-                                            <option value="bachelor">Cử nhân</option>
-                                            <option value="master">Thạc sĩ</option>
-                                            <option value="other">Khác</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="reg-english">Trình độ Tiếng Anh *</label>
-                                        <select id="reg-english" name="english" required>
-                                            <option value="">-- Chọn trình độ --</option>
-                                            <option value="below-5.0">Dưới IELTS 5.0</option>
-                                            <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
-                                            <option value="6.0-plus">IELTS 6.0+</option>
-                                            <option value="other">Khác / Chưa thi</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="reg-message">Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1</label>
-                                    <textarea id="reg-message" name="message" placeholder="Ví dụ: Tôi muốn tìm hiểu về lộ trình học tập, thời gian khai giảng..." rows="3"></textarea>
-                                </div>
-
-                                <button type="submit" class="ble-btn-submit">
-                                    <span>Gửi thông tin đăng ký</span>
-                                    <svg class="btn-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="color: #ffffff;">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                                
-                                <p class="form-privacy">Cam kết bảo mật thông tin</p>
-                            </form>
                         </div>
                     </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <button type="button" class="faq-trigger" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 20px 24px; cursor: pointer;">
+                            <span style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" style="font-size: 0.75rem; transition: transform 0.3s ease; color: #64748b;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </button>
+                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                            <div class="faq-content" style="padding: 0 24px 24px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 0.95rem; color: #475569; line-height: 1.6;">
+                                Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Form block, stacked vertically below the accordion -->
+                <div class="cta-form-wrapper reveal-up" id="form-wrapper" style="margin-top: 60px;">
+                    <div class="form-header">
+                        <div class="form-header-badge">NHẬN TƯ VẤN 1:1</div>
+                        <h3>Khởi đầu hành trình<br><span class="gradient-text">Lãnh đạo thực chiến</span></h3>
+                        <p>Chuyên viên sẽ liên hệ với bạn trong vòng 24h làm việc để tư vấn lộ trình phù hợp.</p>
+                    </div>
+
+                    <form class="cta-form" id="ble-bottom-reg-form" novalidate aria-label="Form đăng ký tư vấn BLE">
+                        <div class="form-group">
+                            <label for="reg-name">Họ và tên *</label>
+                            <input type="text" id="reg-name" name="fullname" placeholder="Họ và tên của bạn" required />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-phone">Số điện thoại *</label>
+                                <input type="tel" id="reg-phone" name="phone" placeholder="Số điện thoại" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-email">Email *</label>
+                                <input type="email" id="reg-email" name="email" placeholder="Địa chỉ email" required />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-education">Trình độ học vấn *</label>
+                                <select id="reg-education" name="education" required>
+                                    <option value="">-- Chọn trình độ --</option>
+                                    <option value="highschool">THPT</option>
+                                    <option value="college">Cao đẳng</option>
+                                    <option value="bachelor">Cử nhân</option>
+                                    <option value="master">Thạc sĩ</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-english">Trình độ Tiếng Anh *</label>
+                                <select id="reg-english" name="english" required>
+                                    <option value="">-- Chọn trình độ --</option>
+                                    <option value="below-5.0">Dưới IELTS 5.0</option>
+                                    <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
+                                    <option value="6.0-plus">IELTS 6.0+</option>
+                                    <option value="other">Khác / Chưa thi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-message">Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1</label>
+                            <textarea id="reg-message" name="message" rows="3" placeholder="Ví dụ: Tôi muốn tìm hiểu lộ trình học tập, thời gian khai giảng..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit" style="background: #ab0e00; color: #fff; font-weight: 800; border-radius: 12px; border: none; padding: 16px; cursor: pointer; transition: all 0.3s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            Gửi thông tin đăng ký <svg class="svg-icon fa-circle-arrow-right fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM297 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L120 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l214.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L409 239c9.4 9.4 9.4 24.6 0 33.9L297 385z"/></svg>
+                        </button>
+                    </form>
+                    <p class="form-disclaimer" style="text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 15px;">Cam kết bảo mật thông tin</p>
                 </div>
             </div>
         </section>
@@ -3440,19 +3211,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         // 4. FAQ Accordion Toggle
-        function toggleFaq(headerElement) {
-            const item = headerElement.parentElement;
-            const content = item.querySelector('.faq-content');
-            const isActive = item.classList.contains('active');
-
-            if (isActive) {
-                content.style.maxHeight = '0';
-                item.classList.remove('active');
-            } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
-                item.classList.add('active');
-            }
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqTriggers = document.querySelectorAll('.faq-trigger');
+            faqTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const item = trigger.closest('.faq-item');
+                    const body = item.querySelector('.faq-body');
+                    const content = item.querySelector('.faq-content');
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    document.querySelectorAll('.faq-item').forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                        const otherBody = otherItem.querySelector('.faq-body');
+                        if (otherBody) otherBody.style.maxHeight = '0px';
+                    });
+                    
+                    if (!isActive) {
+                        item.classList.add('active');
+                        if (body && content) {
+                            body.style.maxHeight = content.scrollHeight + 'px';
+                        }
+                    }
+                });
+            });
+        });
 
         // 5. AJAX Bottom Form Submit Handler
         document.addEventListener('DOMContentLoaded', () => {
