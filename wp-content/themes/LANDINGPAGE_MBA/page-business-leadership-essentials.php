@@ -820,10 +820,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             gap: 6px;
-            border-right: 1.5px solid rgba(255, 255, 255, 0.2);
             padding: 10px 15px;
             border-radius: 12px;
+            position: relative;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ble-db-info-col::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15%;
+            height: 70%;
+            width: 1.5px;
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .ble-db-info-col:hover {
@@ -831,8 +841,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translateY(-2px);
         }
 
+        .ble-db-info-col:last-child::after {
+            display: none;
+        }
+
         .ble-db-info-col:last-child {
-            border-right: none;
             padding-right: 0;
         }
 
