@@ -2388,9 +2388,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
             .comp-card,
             .fac-card {
-                flex: 0 0 85% !important;
-                width: 85% !important;
+                flex: 0 0 82% !important;
+                width: 82% !important;
+                max-width: 82% !important;
                 scroll-snap-align: center !important;
+                box-sizing: border-box !important;
             }
 
             /* Separator border lines in grid resets */
@@ -2400,6 +2402,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .ble-db-info-row {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 16px !important;
+                padding: 16px 0 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
             .ble-db-info-col {
                 padding: 12px 10px !important;
@@ -2415,6 +2420,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
             .ble-db-info-col:last-child {
                 padding-right: 10px !important;
+            }
+
+            /* Prevent overflow on mobile layouts */
+            .ble-details-banner {
+                padding: 45px 16px !important;
+                box-sizing: border-box !important;
+            }
+            .ble-section {
+                padding: 50px 16px !important;
+                box-sizing: border-box !important;
+            }
+            .ble-container {
+                padding: 0 !important;
+                box-sizing: border-box !important;
             }
 
             /* Responsive typography scale */
@@ -2449,9 +2468,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: 100%;
             }
 
-            .comp-grid,
-            .audience-grid,
-            .fac-grid {
+            .audience-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }

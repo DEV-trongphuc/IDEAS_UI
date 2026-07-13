@@ -2615,7 +2615,7 @@ function initMobileTopSheet() {
 
     let programName = "";
     let programSub = "";
-    let avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp";
+    let avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp";
 
     if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
         programName = "MBA in AI";
@@ -2648,7 +2648,7 @@ function initMobileTopSheet() {
     } else {
         programName = isEn ? "IDEAS" : "IDEAS";
         programSub = isEn ? "Admissions & Scholarship Roadmaps" : "Tư vấn lộ trình phù hợp";
-        avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg.webp";
+        avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp";
     }
 
     // Create elements
