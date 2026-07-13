@@ -361,7 +361,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hero-grid {
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 60px;
+            gap: 90px;
             align-items: center;
             position: relative;
             z-index: 2;
@@ -499,7 +499,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-dashboard-preview {
-            background: linear-gradient(135deg, #ab0e00 0%, #7a0900 100%);
+            background: linear-gradient(135deg, #5c0800 0%, #1f0300 100%);
             border-radius: 28px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 50px rgba(171, 14, 0, 0.25);
@@ -620,17 +620,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .db-module-icon {
             width: 24px;
             height: 24px;
-            background: rgba(16, 185, 129, 0.1);
+            background: #ffffff;
             color: #10b981;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.72rem;
+            font-weight: 900;
         }
 
         .db-module-icon.pending {
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.2);
             color: #ffffff;
         }
 
@@ -724,7 +725,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-db-info-row {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             border-top: 1.5px solid rgba(255, 255, 255, 0.2);
             border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
@@ -1108,7 +1109,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Curriculum Section ── */
         .curr-layout {
             display: flex;
-            gap: 40px;
+            gap: 65px;
             margin-top: 40px;
         }
 
@@ -1787,7 +1788,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .faq-form-grid {
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 50px;
+            gap: 80px;
             align-items: flex-start;
         }
 
@@ -2144,16 +2145,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- Sleek Inline Highlight Row -->
                         <div class="ble-hero-meta-row">
                             <div class="ble-hero-meta-item">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                                <span>Thời lượng: <strong>3 - 4 tháng</strong></span>
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                <span>Chứng nhận: <strong>Swiss UMEF (Thụy Sĩ)</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/></svg>
-                                <span>Hình thức học: <strong>Trực tuyến 100%</strong></span>
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                <span>Công nghệ: <strong>Trợ lý AI hỗ trợ 24/7</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                                <span>Chứng nhận: <strong>Swiss UMEF</strong></span>
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
+                                <span>Đầu ra: <strong>8 năng lực quản lý cốt lõi</strong></span>
                             </div>
                         </div>
 
@@ -2267,10 +2268,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="ble-db-info-col">
                                 <span class="ble-db-info-label">Giờ học</span>
                                 <span class="ble-db-info-value">Tự chọn 24/7</span>
-                            </div>
-                            <div class="ble-db-info-col">
-                                <span class="ble-db-info-label">Hình thức</span>
-                                <span class="ble-db-info-value">Hybrid (Online + Mentor)</span>
                             </div>
                         </div>
                         
