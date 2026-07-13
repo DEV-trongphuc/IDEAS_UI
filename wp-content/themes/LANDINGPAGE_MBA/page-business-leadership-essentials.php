@@ -1804,7 +1804,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .wrap-sub {
-            width: 32%;
+            width: 38%;
             right: -5%;
             bottom: 2%;
             z-index: 3;
@@ -2499,6 +2499,73 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 text-align: left !important;
                 align-self: stretch !important;
             }
+
+            /* FAQ body text left-aligned on mobile */
+            .faq-body,
+            .faq-content {
+                text-align: left !important;
+            }
+
+            /* Curriculum accordion body full-height fix */
+            .curr-acc-item.active .curr-acc-content {
+                max-height: 800px !important;
+            }
+
+            /* Hero highlights grid positioning and alignment on mobile */
+            .ble-hero-meta-row {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                gap: 16px 12px !important;
+                margin-top: 24px !important;
+                margin-bottom: 30px !important;
+                max-width: 100% !important;
+            }
+            .ble-hero-meta-item {
+                display: flex !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                gap: 8px !important;
+                font-size: 0.78rem !important;
+                line-height: 1.35 !important;
+            }
+
+            /* AI platform 3 screens mockup mobile scale up overrides */
+            .wrap-sub {
+                width: 44% !important;
+                right: -6% !important;
+                bottom: 2% !important;
+            }
+            .wrap-login {
+                width: 52% !important;
+                left: -8% !important;
+                bottom: 5% !important;
+            }
+
+            /* Target Audience scroll-snap slider on mobile */
+            .audience-grid {
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                gap: 16px !important;
+                padding: 10px 16px 20px 16px !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                box-sizing: border-box !important;
+            }
+            .audience-card {
+                flex: 0 0 82% !important;
+                width: 82% !important;
+                max-width: 82% !important;
+                scroll-snap-align: center !important;
+                box-sizing: border-box !important;
+                margin-bottom: 0 !important;
+            }
+            .aud-dots {
+                display: flex !important;
+            }
         }
 
         @media (max-width: 640px) {
@@ -2524,11 +2591,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 font-size: 0.8rem !important;
                 white-space: nowrap !important;
                 box-sizing: border-box !important;
-            }
-
-            .audience-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
             }
 
             .curr-tab {
@@ -2590,6 +2652,56 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: auto !important;
             min-height: auto !important;
             padding-bottom: 30px !important;
+        }
+
+        /* Zoom Lightbox Modal */
+        .ble-lightbox {
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .ble-lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .ble-lightbox-img {
+            max-width: 95%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.96);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .ble-lightbox.active .ble-lightbox-img {
+            transform: scale(1);
+        }
+        .ble-lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 38px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .ble-lightbox-close:hover {
+            color: #ab0e00;
         }
     </style>
 
@@ -3620,6 +3732,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <p>Trực tiếp quản lý đội ngũ, cần một hệ thống tư duy rõ ràng để xây dựng văn hóa làm việc tích cực.</p>
                     </div>
                 </div>
+                
+                <!-- Target Audience slide dots on mobile -->
+                <div class="mobile-dots-container aud-dots" style="display: none;">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                    <div class="dot" data-index="3"></div>
+                </div>
             </div>
         </section>
 
@@ -3924,7 +4044,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 grid.addEventListener('scroll', () => {
                     const scrollLeft = grid.scrollLeft;
-                    const firstCard = grid.querySelector('.comp-card, .fac-card');
+                    const firstCard = grid.querySelector('.comp-card, .fac-card, .audience-card');
                     if (!firstCard) return;
                     const cardWidth = firstCard.clientWidth + 16;
                     const activeIndex = Math.round(scrollLeft / cardWidth);
@@ -3941,6 +4061,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             
             initMobileSlider('.comp-grid', '.comp-dots');
             initMobileSlider('.fac-grid', '.fac-dots');
+            initMobileSlider('.audience-grid', '.aud-dots');
+        });
+
+        // 4C. Image Lightbox Zoom Modal Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('ble-lightbox');
+            const lightboxImg = lightbox.querySelector('.ble-lightbox-img');
+            if (!lightbox || !lightboxImg) return;
+            
+            const zoomables = document.querySelectorAll('.ble-db-image-container img, .ai-screen-card img');
+            zoomables.forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('active');
+                });
+            });
         });
 
         // 5. AJAX Bottom Form Submit Handler
@@ -4050,6 +4188,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         });
     </script>
+
+    <!-- Lightbox Zoom Modal for screenshots -->
+    <div id="ble-lightbox" class="ble-lightbox" onclick="this.classList.remove('active')">
+        <span class="ble-lightbox-close">&times;</span>
+        <img class="ble-lightbox-img" src="" alt="Zoomed view">
+    </div>
 </body>
 
 </html>
