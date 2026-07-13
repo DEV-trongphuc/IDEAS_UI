@@ -422,6 +422,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 12px;
             padding: 12px 24px;
             gap: 0;
+            margin-left: 0 !important;
+            margin-right: auto !important;
             margin-bottom: 35px;
             max-width: 760px;
             width: 100%;
@@ -449,14 +451,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: rgba(15, 23, 42, 0.1);
         }
 
-        .ble-hero-meta-item svg {
+        .ble-meta-icon-wrapper {
+            width: 32px !important;
+            height: 32px !important;
+            background: #ab0e00 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
+        }
+
+        .ble-meta-icon-wrapper svg {
             width: 16px !important;
             height: 16px !important;
             color: #ffffff !important;
-            background: #ab0e00 !important;
-            padding: 8px !important;
-            border-radius: 50% !important;
-            flex-shrink: 0 !important;
             display: block !important;
         }
 
@@ -495,6 +504,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1.5px dashed rgba(171, 14, 0, 0.35);
             padding: 16px 24px;
             border-radius: 12px;
+            margin-left: 0 !important;
+            margin-right: auto !important;
             margin-bottom: 36px;
             max-width: 760px;
             width: 100%;
