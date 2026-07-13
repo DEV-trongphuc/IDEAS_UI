@@ -415,11 +415,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-meta-row {
-            display: flex;
-            align-items: center;
-            gap: 24px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px 24px;
             margin-bottom: 35px;
-            flex-wrap: wrap;
+            max-width: 620px;
         }
 
         .ble-hero-meta-item {
@@ -2215,7 +2215,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <h1 class="ble-hero-title">Business Leadership <span class="ble-gradient-text">Essentials</span></h1>
                         <p class="ble-hero-desc">Giải quyết vấn đề lãnh đạo và quản lý đội ngũ trong doanh nghiệp của bạn. Khóa học giúp nhà quản lý xây dựng tư duy lãnh đạo hiện đại, phát triển đội ngũ, tạo văn hóa làm việc tích cực và nâng cao hiệu suất tổ chức thông qua ba học phần cốt lõi của Swiss UMEF.</p>
 
-                        <!-- Sleek Inline Highlight Row -->
+                        <!-- Sleek Inline Highlight Grid (2x2) -->
                         <div class="ble-hero-meta-row">
                             <div class="ble-hero-meta-item">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
@@ -2224,6 +2224,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="ble-hero-meta-item">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                                 <span>Công nghệ: <strong>Trợ lý AI hỗ trợ 24/7</strong></span>
+                            </div>
+                            <div class="ble-hero-meta-item">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5v-13A2.5 2.5 0 0 1 6.5 4H20v13H6.5a2.5 2.5 0 0 0-2.5 2.5z"/></svg>
+                                <span>Phương pháp: <strong>Thực chiến &amp; Case-study</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
