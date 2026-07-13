@@ -3087,7 +3087,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="ble-hero-promo-icon">
                                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
                             </div>
-                            <div class="ble-hero-promo-text"><strong>Học bổng đặc quyền tháng 7:</strong> Học miễn phí toàn khóa học (Nhận học bổng Learning Grant 100%).</div>
+                            <div class="ble-hero-promo-text">Học miễn phí toàn khóa khi đăng ký trong tháng 7</div>
                         </div>
 
                         <!-- Action buttons -->
