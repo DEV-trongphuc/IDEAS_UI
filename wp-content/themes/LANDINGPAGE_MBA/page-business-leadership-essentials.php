@@ -1598,6 +1598,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: rgba(255, 255, 255, 0.9) !important;
         }
 
+        .curr-sidebar-visual {
+            margin-top: 15px;
+            border-radius: 18px !important;
+            overflow: hidden;
+            border: 4px solid #ffffff;
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.05);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .curr-sidebar-visual img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1.25;
+            border-radius: 14px !important;
+        }
+
         .curr-tab.active .curr-tab-title {
             color: #ffffff !important;
         }
@@ -2433,6 +2451,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .curr-sidebar::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            .curr-sidebar-visual {
                 display: none !important;
             }
 
@@ -3432,6 +3454,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="curr-tab" data-target="course-3">
                             <div class="curr-tab-tag">Môn học 03</div>
                             <div class="curr-tab-title">Human Capital and Talent Management</div>
+                        </div>
+                        
+                        <!-- Sidebar Illustration on Desktop -->
+                        <div class="curr-sidebar-visual">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_curriculum_side.png" alt="Thảo luận chương trình đào tạo">
                         </div>
                     </div>
 
