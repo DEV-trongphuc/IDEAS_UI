@@ -120,6 +120,11 @@ $pages = [
         'title' => 'Sự kiện AIDC',
         'template' => 'page-aidc.php'
     ],
+    [
+        'slug' => 'business-leadership-essentials',
+        'title' => 'Business Leadership Essentials',
+        'template' => 'page-business-leadership-essentials.php'
+    ],
 ];
 
 echo "<div style='font-family:monospace;padding:20px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:8px;max-width:800px;margin:20px auto;'>";

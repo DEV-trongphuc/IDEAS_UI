@@ -32,6 +32,9 @@ if ($is_en) {
     } elseif (is_page('cac-khoan-chi-phi')) {
         $modal_title = 'Get details on <br><span class="gradient-text" id="modal-program-title">Tuition & Offers</span>';
         $modal_subtitle = 'An admissions counselor will contact you to send the detailed fee schedule.';
+    } elseif (is_page('business-leadership-essentials')) {
+        $modal_title = 'Register to receive <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
+        $modal_subtitle = 'Fill in your details below to receive the 100% tuition grant for July.';
     }
 } else {
     $modal_title = 'Đăng ký tìm hiểu <br><span class="gradient-text" id="modal-program-title">Hành Trình Học Tập</span>';
@@ -57,6 +60,9 @@ if ($is_en) {
     } elseif (is_page('cac-khoan-chi-phi')) {
         $modal_title = 'Nhận thông tin <br><span class="gradient-text" id="modal-program-title">Học Phí & Ưu Đãi</span>';
         $modal_subtitle = 'Chuyên viên tư vấn tuyển sinh sẽ liên hệ gửi biểu phí chi tiết.';
+    } elseif (is_page('business-leadership-essentials')) {
+        $modal_title = 'Đăng ký nhận <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
+        $modal_subtitle = 'Điền thông tin bên dưới để nhận suất học bổng 100% học phí trong tháng 7.';
     }
 }
 
@@ -103,6 +109,12 @@ if ($is_en) {
     } elseif (is_page('cac-khoan-chi-phi')) {
         $program_options = [
             ['value' => 'Các khoản chi phí', 'label' => 'Tuition & Fees', 'desc' => 'Detailed breakdown of fees', 'icon' => '💵'],
+            ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('business-leadership-essentials')) {
+        $program_options = [
+            ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Swiss UMEF short course', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
         ];
@@ -153,6 +165,12 @@ if ($is_en) {
     } elseif (is_page('cac-khoan-chi-phi')) {
         $program_options = [
             ['value' => 'Các khoản chi phí', 'label' => 'Học phí & Lệ phí', 'desc' => 'Chi tiết các khoản phí', 'icon' => '💵'],
+            ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
+            ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('business-leadership-essentials')) {
+        $program_options = [
+            ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Khóa ngắn hạn Swiss UMEF', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
         ];
