@@ -3093,7 +3093,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- Action buttons -->
                         <div class="ble-hero-actions">
                             <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-hero'); }" class="ble-btn">Đăng ký ngay</button>
-                            <a href="#curriculum" class="ble-btn ble-btn-outline">Xem chương trình</a>
+                            <a href="#curriculum" class="ble-btn ble-btn-outline">Xem khóa học</a>
                         </div>
                     </div>
 
