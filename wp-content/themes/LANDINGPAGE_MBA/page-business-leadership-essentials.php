@@ -1762,17 +1762,45 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ai-screens-container {
             position: relative;
             width: 100%;
-            max-width: 580px;
-            height: 480px;
+            max-width: 680px;
+            height: 520px;
             margin: 0 auto;
         }
 
-        .ai-screen-card {
+        .ai-screen-wrapper {
             position: absolute;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Floating animations on wrappers */
+        .wrap-login {
+            width: 50%;
+            left: 0;
+            top: 20%;
+            z-index: 1;
+            animation: float-screen-1 8s ease-in-out infinite;
+        }
+
+        .wrap-main {
+            width: 72%;
+            left: 18%;
+            top: 5%;
+            z-index: 2;
+            animation: float-screen-2 10s ease-in-out infinite;
+        }
+
+        .wrap-sub {
+            width: 36%;
+            right: 0;
+            bottom: 5%;
+            z-index: 3;
+            animation: float-screen-3 7s ease-in-out infinite;
+        }
+
+        .ai-screen-card {
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-            border: 1.5px solid rgba(15, 23, 42, 0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             background: #ffffff;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -1783,28 +1811,73 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: auto;
         }
 
-        /* Web / Desktop interface (behind) */
-        .card-main {
-            width: 78%;
-            left: 2%;
-            top: 5%;
-            z-index: 1;
-            transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) rotateZ(-1deg);
+        /* Initial static transforms for perspective */
+        .card-login {
+            transform: perspective(1000px) rotateY(-8deg) rotateX(4deg) rotateZ(-2deg);
         }
 
-        /* Mobile interface (overlapping on top) */
+        .card-main {
+            transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) rotateZ(-1deg);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+        }
+
         .card-sub {
-            width: 42%;
-            right: 2%;
-            bottom: 5%;
-            z-index: 2;
-            transform: perspective(1000px) rotateY(4deg) rotateX(-2deg) rotateZ(1deg) translateY(5px);
+            transform: perspective(1000px) rotateY(6deg) rotateX(-4deg) rotateZ(2deg);
             box-shadow: 0 25px 55px rgba(0, 0, 0, 0.18);
         }
 
         /* Hover interactions */
+        .ai-screens-container:hover .wrap-login {
+            transform: translate(-15px, -10px);
+        }
+        .ai-screens-container:hover .card-login {
+            transform: perspective(1000px) rotateY(-2deg) rotateX(2deg) rotateZ(-1deg) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .ai-screens-container:hover .wrap-main {
+            transform: translateY(-15px);
+        }
         .ai-screens-container:hover .card-main {
-            transform: perspective(1000px) rotateY(-1deg) rotateX(1deg) rotateZ(0deg) scale(1.02);
+            transform: perspective(1000px) rotateY(-1deg) rotateX(1deg) rotateZ(0deg) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+        }
+
+        .ai-screens-container:hover .wrap-sub {
+            transform: translate(20px, 10px);
+        }
+        .ai-screens-container:hover .card-sub {
+            transform: perspective(1000px) rotateY(2deg) rotateX(-2deg) rotateZ(1deg) scale(1.06);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.28);
+        }
+
+        @keyframes float-screen-1 {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes float-screen-2 {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes float-screen-3 {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Responsive scale */
+        @media (max-width: 991px) {
+            .ai-screens-container {
+                height: 420px;
+            }
+        }
+        @media (max-width: 768px) {
+            .ai-screens-container {
+                height: 320px;
+            }
+        }
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
         }
 
@@ -3132,11 +3205,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Right: Overlapping AI Platform Screenshots -->
                     <div class="ai-visual">
                         <div class="ai-screens-container">
-                            <div class="ai-screen-card card-main">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/aiplatform-1.webp" alt="IDEAS AI Platform Web Interface">
+                            <div class="ai-screen-wrapper wrap-login">
+                                <div class="ai-screen-card card-login">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/ai_login.webp" alt="IDEAS AI Platform Login">
+                                </div>
                             </div>
-                            <div class="ai-screen-card card-sub">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/aiplatform-2.webp" alt="IDEAS AI Platform Mobile Interface">
+                            <div class="ai-screen-wrapper wrap-main">
+                                <div class="ai-screen-card card-main">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/aiplatform-1.webp" alt="IDEAS AI Platform Web Dashboard">
+                                </div>
+                            </div>
+                            <div class="ai-screen-wrapper wrap-sub">
+                                <div class="ai-screen-card card-sub">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/aiplatform-2.webp" alt="IDEAS AI Platform Mobile Assistant">
+                                </div>
                             </div>
                         </div>
                     </div>
