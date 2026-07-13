@@ -734,27 +734,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 16px;
         }
 
-        .ble-btn-gold {
-            background: #d99f38;
+        .ble-btn-white-outline {
+            background: transparent;
             color: #ffffff !important;
+            border: 1.5px solid #ffffff;
             font-weight: 800;
             font-size: 0.95rem;
-            padding: 15px 32px;
+            padding: 13.5px 30px;
             border-radius: 12px;
-            border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(217, 159, 56, 0.2);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none !important;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
+            box-shadow: none;
         }
 
-        .ble-btn-gold:hover {
-            background: #c38c2d;
+        .ble-btn-white-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(217, 159, 56, 0.35);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
         }
 
         /* Solid White Button with Red Text for high contrast */
@@ -2098,8 +2099,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         
                         <div class="ble-db-actions">
-                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-consult'); }" class="ble-btn-gold">Đăng Ký Tư Vấn</button>
-                            <a href="tel:02822442244" class="ble-btn-white">
+                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-consult'); }" class="ble-btn-white">Đăng Ký Tư Vấn</button>
+                            <a href="tel:02822442244" class="ble-btn-white-outline">
                                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 Hotline: 028 2244 2244
                             </a>
