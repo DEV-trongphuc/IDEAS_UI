@@ -496,6 +496,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             justify-content: center;
             align-items: center;
+            perspective: 1200px;
+        }
+
+        .ble-hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(171, 14, 0, 0.12) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .ble-dashboard-preview {
@@ -508,12 +522,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 30px;
             position: relative;
             overflow: visible;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+            transform: rotateY(-8deg) rotateX(4deg) scale(0.98);
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .ble-dashboard-preview:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 60px rgba(171, 14, 0, 0.4);
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+            box-shadow: 0 30px 70px rgba(171, 14, 0, 0.4);
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -568,40 +585,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .db-progress-card {
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
+            border-radius: 18px;
             padding: 20px;
-            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 24px;
         }
 
-        .db-progress-lbl {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 10px;
+        .db-progress-card h6 {
+            margin: 0 0 8px 0;
+            font-size: 0.82rem;
+            font-weight: 750;
+            color: rgba(255, 255, 255, 0.95);
         }
 
-        .db-progress-lbl span:last-child {
-            color: #ffffff;
-        }
-
-        .db-progress-bar {
+        .db-bar-container {
             height: 8px;
             background: rgba(255, 255, 255, 0.15);
             border-radius: 100px;
+            margin-bottom: 12px;
             overflow: hidden;
         }
 
-        .db-progress-fill {
+        .db-bar-fill {
             height: 100%;
-            background: #ffffff;
-            width: 75%;
+            background: linear-gradient(90deg, #ff8a00, #ffc000);
             border-radius: 100px;
+            width: 75%;
         }
 
-        .db-module-list {
+        .db-progress-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 600;
+        }
+
+        .db-modules-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -610,23 +630,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .db-module-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 16px;
-            border-radius: 12px;
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 14px 18px;
+            border: 1.5px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
 
         .db-module-icon {
-            width: 24px;
-            height: 24px;
-            background: #ffffff;
-            color: #10b981;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.72rem;
+            color: #ffffff;
+            font-size: 0.85rem;
             font-weight: 900;
         }
 
@@ -683,14 +704,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: absolute;
             background: #ffffff;
             border-radius: 16px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid rgba(15, 23, 42, 0.08);
             padding: 14px 18px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.05);
             display: flex;
             align-items: center;
             gap: 12px;
             z-index: 10;
             animation: float-gentle 4s ease-in-out infinite alternate;
+            transition: all 0.3s ease;
+        }
+
+        .db-floating-badge:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(171, 14, 0, 0.12);
         }
 
         .db-floating-badge.badge-1 {
@@ -703,6 +730,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             top: 60px;
             right: -40px;
             animation-delay: 1.5s;
+        }
+
+        @keyframes float-gentle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
         }
 
         .db-float-icon {
@@ -731,11 +763,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── COURSE DETAILS BANNER (Solid Red Cask.vn Style Layout) ── */
         .ble-details-banner {
-            background: linear-gradient(135deg, #ab0e00 0%, #7a0900 60%, #4d0000 100%);
+            background: linear-gradient(135deg, #7a0900 0%, #ab0e00 50%, #7a0900 100%);
             padding: 70px 20px;
             color: #ffffff;
             border-top: 1px solid #4d0000;
             border-bottom: 1px solid #4d0000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ble-details-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .ble-db-grid {
@@ -775,7 +820,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-direction: column;
             gap: 6px;
             border-right: 1.5px solid rgba(255, 255, 255, 0.2);
-            padding-right: 15px;
+            padding: 10px 15px;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ble-db-info-col:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
         }
 
         .ble-db-info-col:last-child {
@@ -795,6 +847,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.95rem;
             font-weight: 800;
             color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .ble-db-info-col:hover .ble-db-info-value {
+            color: #ffeb3b;
         }
 
         .ble-db-actions {
@@ -822,9 +879,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-btn-white-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            color: #ab0e00 !important;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
         }
 
         /* Solid White Button with Red Text for high contrast */
@@ -853,19 +910,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-db-image-container {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            border: 6px solid #ffffff;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: block;
             width: 100%;
-        }
-
-        .ble-db-image-container:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
         }
 
         .ble-db-image-container img {
@@ -891,6 +936,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             gap: 20px;
+            position: relative;
+        }
+
+        .pain-right-col::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            bottom: 40px;
+            left: 52px;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(171, 14, 0, 0.2), rgba(171, 14, 0, 0.02));
+            z-index: 1;
         }
 
         .pain-list-item {
@@ -899,31 +956,42 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             padding: 24px 30px;
             border-radius: 20px;
-            border: 1.5px solid rgba(171, 14, 0, 0.12);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.015);
+            border: 1.5px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.01);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             align-items: flex-start;
+            position: relative;
+            z-index: 2;
         }
 
         .pain-list-item:hover {
-            border-color: #ab0e00;
+            border-color: rgba(171, 14, 0, 0.12);
             transform: translateX(6px);
             box-shadow: 0 15px 35px rgba(171, 14, 0, 0.05);
         }
 
         .pain-number {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: rgba(171, 14, 0, 0.15);
-            line-height: 1;
-            font-style: italic;
-            transition: color 0.3s ease;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff5f5;
+            border: 1.5px solid rgba(171, 14, 0, 0.1);
+            color: #ab0e00;
+            font-weight: 800;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            margin-top: 2px;
         }
 
         .pain-list-item:hover .pain-number {
-            color: #ab0e00;
+            background: #ab0e00;
+            color: #ffffff;
+            border-color: #ab0e00;
+            box-shadow: 0 0 0 5px rgba(171, 14, 0, 0.15);
         }
 
         .pain-info h4 {
@@ -937,24 +1005,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .pain-info p {
             font-size: 0.9rem;
             line-height: 1.55;
-            color: #334155 !important;
+            color: #475569 !important;
             margin: 0;
         }
 
         /* ── Wow Stat Card on Left Column of Pain Points ── */
         .pain-stat-card {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
             border-radius: 24px;
-            border: 1.5px solid rgba(171, 14, 0, 0.12);
-            padding: 24px;
+            border: 1.5px solid rgba(171, 14, 0, 0.08);
+            padding: 28px;
             display: flex;
             align-items: center;
             gap: 20px;
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.02);
+            box-shadow: 0 15px 35px rgba(171, 14, 0, 0.03);
             margin-top: 36px;
             position: relative;
             overflow: hidden;
             text-align: left;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .pain-stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.06);
+            border-color: rgba(171, 14, 0, 0.15);
         }
 
         .pain-stat-card::before {
@@ -1021,14 +1097,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .comp-card {
             background: #ffffff;
             border-radius: 20px;
-            border: 1.5px solid rgba(171, 14, 0, 0.15); /* red border for competencies as well */
+            border: 1.5px solid rgba(15, 23, 42, 0.04);
             border-top: 4.5px solid #ab0e00;
             padding: 32px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
             z-index: 2;
         }
 
@@ -1170,6 +1246,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-align: left;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overflow: hidden;
+        }
+
+        .curr-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            background: #ffeb3b;
+            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top-left-radius: 16px;
+            border-bottom-left-radius: 16px;
         }
 
         .curr-tab-tag {
@@ -1179,6 +1269,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
         }
 
         .curr-tab-title {
@@ -1186,6 +1278,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 800;
             color: #475569;
             line-height: 1.35;
+            position: relative;
+            z-index: 2;
         }
 
         .curr-tab:hover {
@@ -1197,6 +1291,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ab0e00;
             box-shadow: 0 10px 30px rgba(171, 14, 0, 0.2);
             border-color: #ab0e00;
+        }
+
+        .curr-tab.active::before {
+            width: 6px;
         }
 
         .curr-tab.active .curr-tab-tag {
@@ -1273,16 +1371,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-acc-item {
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+            border: 1.5px solid rgba(15, 23, 42, 0.04);
             border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .curr-acc-item.active {
-            border-color: #ab0e00; /* Red active border on all sides */
-            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.02);
+            border-color: rgba(171, 14, 0, 0.2);
+            background: #ffffff;
+            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.03);
         }
 
         .curr-acc-header {
@@ -1509,23 +1608,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* Chat UI Mockup (Expanded & Wider) */
         .ai-chat-mockup {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
             border-radius: 24px;
-            border: 1px solid #cbd5e1;
-            box-shadow: 0 15px 30px rgba(15,23,42,0.05);
+            border: 1.5px solid rgba(15, 23, 42, 0.06);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.02);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             width: 100%;
             max-width: 620px;
             min-height: 480px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .ai-chat-mockup:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
-            border-color: rgba(171, 14, 0, 0.25);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 55px rgba(171, 14, 0, 0.08);
+            border-color: rgba(171, 14, 0, 0.18);
+        }
+
+        @keyframes pulse-dot-green {
+            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
 
         .chat-header {
@@ -1548,7 +1654,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: 8px;
             border-radius: 50%;
             background: #10b981;
-            box-shadow: 0 0 10px rgba(16,185,129,0.3);
+            box-shadow: 0 0 12px #10b981;
+            animation: pulse-dot-green 1.5s infinite;
         }
 
         .chat-header-title {
@@ -1655,11 +1762,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .fac-card {
             background: #ffffff;
-            border-radius: 20px;
-            border: 1px solid #cbd5e1;
-            padding: 36px 30px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
-            transition: all 0.3s ease;
+            border-radius: 24px;
+            border: 1.5px solid rgba(15, 23, 42, 0.04);
+            padding: 40px 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1667,9 +1774,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .fac-card:hover {
-            transform: translateY(-4px);
-            border-color: #ab0e00;
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
+            transform: translateY(-8px);
+            border-color: rgba(171, 14, 0, 0.15);
+            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.08);
         }
 
         .fac-avatar-wrap {
@@ -1677,13 +1784,35 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-bottom: 24px;
         }
 
+        .fac-avatar-wrap::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border: 2px solid rgba(171, 14, 0, 0.15);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .fac-card:hover .fac-avatar-wrap::before {
+            border-color: #ab0e00;
+            transform: scale(1.05);
+        }
+
         .fac-avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid #f8fafc;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .fac-card:hover .fac-avatar {
+            transform: scale(1.03);
         }
 
         .fac-name {
@@ -1769,6 +1898,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
             background-image: radial-gradient(#cbd5e1 1px, transparent 1.5px);
             background-size: 16px 16px;
+            transform: perspective(1000px) rotateY(-8deg) rotateX(4deg);
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        .cert-wrap:hover .cert-mockup {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.03);
+            box-shadow: 0 25px 50px rgba(171, 14, 0, 0.1);
         }
 
         .cert-mockup-border {
@@ -1839,7 +1977,89 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 600;
         }
 
-        /* ── Standard FAQ & Form (Inherited from theme style.min.css) ── */
+        /* ── Standard FAQ & Form (Aesthetic Style Upgrades) ── */
+        .ble-decor-shape {
+            z-index: 1;
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 40px auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .faq-item {
+            border: 1.5px solid rgba(15, 23, 42, 0.05) !important;
+            background: #ffffff !important;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid transparent !important;
+            color: #475569 !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.005) !important;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(171, 14, 0, 0.15) !important;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03) !important;
+        }
+
+        .faq-item.active {
+            border-left: 4px solid #ab0e00 !important;
+            border-color: rgba(171, 14, 0, 0.15) !important;
+            background: #ffffff !important;
+            box-shadow: 0 12px 25px rgba(171, 14, 0, 0.05) !important;
+        }
+
+        .faq-trigger {
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            padding: 22px 24px;
+            cursor: pointer;
+            font-weight: 750;
+            color: #0f172a !important;
+            font-size: 1.02rem;
+            outline: none;
+        }
+
+        .faq-arrow {
+            font-size: 0.8rem;
+            color: #64748b;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-arrow {
+            transform: rotate(180deg);
+            color: #ab0e00 !important;
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.92rem;
+            color: #475569 !important;
+            line-height: 1.65;
+        }
+
+        .faq-content {
+            padding: 0 24px 24px;
+            border-top: 1px solid #f1f5f9 !important;
+            padding-top: 16px;
+        }
+
+        @keyframes float-slow {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
 
         /* ── Responsive Rules ───────────────── */
         @media (max-width: 991px) {
@@ -2999,7 +3219,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </section>
 
         <!-- 9. FAQ SECTION & REGISTRATION FORM (Stacked, Matching mba.html Style) -->
-        <section class="faq-section" id="faq" style="background-color: #faf8f5; padding-top: 100px; padding-bottom: 120px;">
+        <section class="faq-section" id="faq" style="background-color: #faf8f5; padding-top: 100px; padding-bottom: 120px; position: relative; overflow: hidden;">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="top: 10%; left: -10%;"></div>
+            <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; right: -10%;"></div>
+            
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 15%; right: 5%; opacity: 0.15; animation: float-slow 8s ease-in-out infinite; pointer-events: none;">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#ab0e00" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 25%; left: 5%; opacity: 0.12; animation: float-slow 12s ease-in-out infinite; pointer-events: none;">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ab0e00" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
             <div class="container">
                 <div class="text-center" style="margin-bottom: 40px;">
                     <span class="section-badge">FAQ</span>
@@ -3010,12 +3241,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="faq-accordion">
                     <!-- FAQ 1 -->
                     <div class="faq-item">
-                        <button type="button" class="faq-trigger" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 20px 24px; cursor: pointer;">
-                            <span style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">1. Vì sao chương trình chỉ gồm 3 môn học?</span>
-                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" style="font-size: 0.75rem; transition: transform 0.3s ease; color: #64748b;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        <button type="button" class="faq-trigger">
+                            <span>1. Vì sao chương trình chỉ gồm 3 môn học?</span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
                         </button>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div class="faq-content" style="padding: 0 24px 24px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 0.95rem; color: #475569; line-height: 1.6;">
+                        <div class="faq-body">
+                            <div class="faq-content">
                                 Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
                             </div>
                         </div>
@@ -3023,12 +3254,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                     <!-- FAQ 2 -->
                     <div class="faq-item">
-                        <button type="button" class="faq-trigger" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 20px 24px; cursor: pointer;">
-                            <span style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
-                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" style="font-size: 0.75rem; transition: transform 0.3s ease; color: #64748b;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        <button type="button" class="faq-trigger">
+                            <span>2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
                         </button>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div class="faq-content" style="padding: 0 24px 24px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 0.95rem; color: #475569; line-height: 1.6;">
+                        <div class="faq-body">
+                            <div class="faq-content">
                                 Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
                             </div>
                         </div>
@@ -3036,12 +3267,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                     <!-- FAQ 3 -->
                     <div class="faq-item">
-                        <button type="button" class="faq-trigger" style="width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 20px 24px; cursor: pointer;">
-                            <span style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
-                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" style="font-size: 0.75rem; transition: transform 0.3s ease; color: #64748b;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        <button type="button" class="faq-trigger">
+                            <span>3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
                         </button>
-                        <div class="faq-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                            <div class="faq-content" style="padding: 0 24px 24px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 0.95rem; color: #475569; line-height: 1.6;">
+                        <div class="faq-body">
+                            <div class="faq-content">
                                 Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
                             </div>
                         </div>
