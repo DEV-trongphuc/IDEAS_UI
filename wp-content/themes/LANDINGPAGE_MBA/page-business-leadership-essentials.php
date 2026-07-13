@@ -56,17 +56,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         body {
-            background-image:
-                radial-gradient(circle at 5% 15%, rgba(171, 14, 0, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 95% 80%, rgba(171, 14, 0, 0.02) 0%, transparent 40%),
-                radial-gradient(rgba(15, 23, 42, 0.015) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 24px 24px;
-            background-attachment: scroll, scroll, fixed;
+            background-image: radial-gradient(rgba(171, 14, 0, 0.02) 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
         }
 
         /* ── Typography & Accents ──────────── */
         .ble-gradient-text {
-            background: linear-gradient(135deg, #8c1000 0%, #ab0e00 50%, #ff5252 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #ff5252 50%, #e11d48 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -81,12 +77,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-section.bg-light {
             background-color: #ffffff;
+            border-top: 1px solid #f1f5f9;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .ble-section.bg-dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            border-top: 1px solid #1e293b;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .ble-section.bg-slate {
+            background-color: #f1f5f9;
         }
 
         .ble-container {
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
 
         .ble-title-wrap {
@@ -111,19 +122,62 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1px solid rgba(171, 14, 0, 0.1);
         }
 
+        .ble-section.bg-dark .ble-section-tag {
+            background: rgba(255, 255, 255, 0.06);
+            color: #ff6b6b;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
         .ble-section-title {
-            font-size: clamp(2rem, 4vw, 2.6rem);
-            font-weight: 850;
+            font-size: clamp(2.2rem, 4.5vw, 2.8rem);
+            font-weight: 900;
             color: #0f172a;
             margin: 0 0 16px 0;
-            line-height: 1.25;
+            line-height: 1.2;
             letter-spacing: -0.02em;
         }
 
+        .ble-section.bg-dark .ble-section-title {
+            color: #ffffff;
+        }
+
         .ble-section-subtitle {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: #64748b;
             line-height: 1.6;
+        }
+
+        .ble-section.bg-dark .ble-section-subtitle {
+            color: #94a3b8;
+        }
+
+        /* ── SVG Icons Styling ─────────────── */
+        .ble-svg-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        .ble-svg-icon stroke {
+            stroke: currentColor;
+        }
+
+        /* ── Glow Effects ──────────────────── */
+        .ble-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ble-glow-red {
+            background: #ab0e00;
+            width: 350px;
+            height: 350px;
         }
 
         /* ── Buttons ───────────────────────── */
@@ -134,126 +188,160 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 10px;
             background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
             color: #ffffff !important;
-            font-weight: 700;
+            font-weight: 750;
             font-size: 0.95rem;
-            padding: 16px 36px;
+            padding: 16px 38px;
             border-radius: 100px;
             border: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(171, 14, 0, 0.25);
             text-decoration: none !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ble-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(-20deg);
+            transition: 0.75s;
+            opacity: 0;
+        }
+
+        .ble-btn:hover::before {
+            left: 120%;
+            opacity: 1;
         }
 
         .ble-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(171, 14, 0, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.4);
             background: linear-gradient(135deg, #b81405 0%, #9c1200 100%);
         }
 
         .ble-btn:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
         }
 
         .ble-btn-outline {
             background: transparent;
             color: #0f172a !important;
-            border: 1.5px solid #e2e8f0;
+            border: 1.5px solid #cbd5e1;
             box-shadow: none;
         }
 
         .ble-btn-outline:hover {
-            background: #f8fafc;
-            border-color: #cbd5e1;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            background: #ffffff;
+            border-color: #0f172a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.03);
         }
 
         /* ── Hero Section ──────────────────── */
         .ble-hero {
-            padding-top: 160px;
+            padding-top: 170px;
             padding-bottom: 120px;
-            overflow: hidden;
+            background: radial-gradient(120% 120% at 50% 0%, #ffffff 50%, rgba(171, 14, 0, 0.05) 100%);
+            border-bottom: 1px solid #f1f5f9;
         }
 
         .ble-hero-grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1.15fr 0.85fr;
             gap: 60px;
             align-items: center;
         }
 
         .ble-hero-content {
-            z-index: 2;
+            z-index: 5;
         }
 
-        .ble-hero-badge {
+        .ble-hero-tag {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: #ffffff;
-            color: #0f172a;
-            padding: 8px 16px;
+            gap: 8px;
+            background: rgba(171, 14, 0, 0.08);
+            border: 1px solid rgba(171,14,0,0.15);
+            color: #ab0e00;
+            font-weight: 800;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
             border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 750;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            border: 1px solid #e2e8f0;
             margin-bottom: 24px;
         }
 
-        .ble-hero-badge span {
-            color: #ab0e00;
-            font-weight: 800;
+        .ble-hero-tag span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ab0e00;
+            animation: pulse-dot 1.5s infinite;
         }
 
         .ble-hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
             font-weight: 900;
             color: #0f172a;
-            line-height: 1.15;
+            line-height: 1.1;
             letter-spacing: -0.03em;
-            margin: 0 0 20px 0;
+            margin: 0 0 24px 0;
         }
 
         .ble-hero-desc {
-            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
             line-height: 1.6;
-            color: #4b5563;
-            margin-bottom: 36px;
+            color: #475569;
+            margin-bottom: 40px;
+            max-width: 600px;
         }
 
         .ble-hero-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 16px;
             margin-bottom: 40px;
-            background: #ffffff;
-            padding: 24px;
-            border-radius: 24px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
         }
 
         .ble-hero-feature-item {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015);
             display: flex;
             flex-direction: column;
             gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .ble-hero-feature-item:hover {
+            border-color: rgba(171, 14, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.05);
         }
 
         .ble-hero-feature-item .feat-lbl {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #64748b;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
         .ble-hero-feature-item .feat-val {
             font-size: 0.88rem;
-            font-weight: 750;
+            font-weight: 800;
             color: #0f172a;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         .ble-hero-promo {
@@ -261,26 +349,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 16px;
             background: rgba(171, 14, 0, 0.04);
-            border: 1px dashed rgba(171, 14, 0, 0.2);
-            padding: 16px 24px;
-            border-radius: 16px;
-            margin-bottom: 30px;
+            border: 1px dashed rgba(171, 14, 0, 0.25);
+            padding: 18px 24px;
+            border-radius: 20px;
+            margin-bottom: 36px;
         }
 
         .ble-hero-promo-icon {
-            font-size: 1.6rem;
-            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ab0e00;
+            animation: pulse-icon 2s infinite;
         }
 
         .ble-hero-promo-text {
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            color: #ab0e00;
+            color: #8c1000;
             line-height: 1.4;
         }
 
         .ble-hero-promo-text strong {
-            font-weight: 850;
+            font-weight: 900;
+            color: #ab0e00;
         }
 
         .ble-hero-actions {
@@ -289,74 +381,203 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 16px;
         }
 
+        /* Hero Right Column: Dashboard Mockup Design */
         .ble-hero-visual {
             position: relative;
+            z-index: 5;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .ble-hero-image-wrap {
-            position: relative;
-            width: 100%;
-            max-width: 480px;
-            aspect-ratio: 1;
-            background: radial-gradient(circle, rgba(171,14,0,0.12) 0%, transparent 70%);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .ble-hero-card {
+        .ble-dashboard-preview {
             background: #ffffff;
-            border-radius: 32px;
+            border-radius: 36px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 20px 40px rgba(15,23,42,0.06);
-            width: 85%;
-            padding: 40px;
+            box-shadow: 0 30px 60px rgba(15,23,42,0.08);
+            width: 100%;
+            max-width: 440px;
+            padding: 30px;
             position: relative;
-            z-index: 2;
+            overflow: visible;
+        }
+
+        .ble-dashboard-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #10b981;
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+        }
+
+        .db-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 20px;
+        }
+
+        .db-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ab0e00 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .db-user-info h5 {
+            margin: 0 0 4px 0;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .db-user-info span {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .db-progress-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .db-progress-lbl {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #475569;
+            margin-bottom: 10px;
+        }
+
+        .db-progress-lbl span:last-child {
+            color: #ab0e00;
+        }
+
+        .db-progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 100px;
             overflow: hidden;
         }
 
-        .ble-hero-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
+        .db-progress-fill {
             height: 100%;
-            background: #ab0e00;
+            background: linear-gradient(90deg, #ab0e00, #ff6b6b);
+            width: 75%;
+            border-radius: 100px;
         }
 
-        .ble-hero-card-icon {
-            width: 64px;
-            height: 64px;
-            background: rgba(171, 14, 0, 0.06);
-            color: #ab0e00;
-            border-radius: 18px;
+        .db-module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .db-module-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            padding: 12px 16px;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+        }
+
+        .db-module-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 24px;
+            font-size: 0.7rem;
         }
 
-        .ble-hero-card-title {
-            font-size: 1.4rem;
-            font-weight: 850;
+        .db-module-icon.pending {
+            background: rgba(171, 14, 0, 0.08);
+            color: #ab0e00;
+        }
+
+        .db-module-title {
+            font-size: 0.82rem;
+            font-weight: 750;
+            color: #334155;
+        }
+
+        /* Floating Badge in Hero visual */
+        .db-floating-badge {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            padding: 16px 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .db-floating-badge.badge-1 {
+            bottom: 20px;
+            left: -40px;
+            animation: float-badge-1 4s ease-in-out infinite;
+        }
+
+        .db-floating-badge.badge-2 {
+            top: 60px;
+            right: -40px;
+            animation: float-badge-2 4.5s ease-in-out infinite;
+        }
+
+        .db-float-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ab0e00;
+        }
+
+        .db-floating-badge.badge-1 .db-float-icon {
+            color: #fbbf24;
+        }
+
+        .db-float-text h6 {
+            margin: 0 0 2px 0;
+            font-size: 0.8rem;
+            font-weight: 800;
             color: #0f172a;
-            margin-bottom: 12px;
         }
 
-        .ble-hero-card-meta {
-            font-size: 0.88rem;
+        .db-float-text span {
+            font-size: 0.65rem;
             color: #64748b;
-            line-height: 1.5;
+            font-weight: 600;
         }
 
-        /* ── Pain Points Section ───────────── */
+        /* ── Pain Points Section (Dark Slate Background) ── */
         .pain-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -364,47 +585,48 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .pain-card {
-            background: #ffffff;
+            background: #1e293b;
             border-radius: 24px;
-            border: 1px solid #e2e8f0;
-            padding: 36px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.01);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
-            gap: 20px;
+            gap: 24px;
         }
 
         .pain-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(171, 14, 0, 0.15);
-            box-shadow: 0 10px 30px rgba(171,14,0,0.03);
+            transform: translateY(-4px);
+            border-color: rgba(255, 82, 82, 0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
         }
 
         .pain-icon-box {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            background: rgba(171, 14, 0, 0.05);
-            color: #ab0e00;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(255, 82, 82, 0.1);
+            color: #ff5252;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.15rem;
+            font-weight: 800;
             flex-shrink: 0;
         }
 
         .pain-card-content h4 {
-            font-size: 1.12rem;
+            font-size: 1.15rem;
             font-weight: 800;
-            color: #0f172a;
-            margin: 0 0 10px 0;
+            color: #ffffff;
+            margin: 0 0 12px 0;
             line-height: 1.4;
         }
 
         .pain-card-content p {
             font-size: 0.95rem;
-            line-height: 1.6;
-            color: #64748b;
+            line-height: 1.65;
+            color: #94a3b8;
             margin: 0;
         }
 
@@ -417,14 +639,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .comp-card {
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: 22px;
             border: 1px solid #e2e8f0;
-            padding: 30px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 32px;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.008);
         }
 
         .comp-card::after {
@@ -433,16 +656,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: #ab0e00;
+            height: 4px;
+            background: linear-gradient(90deg, #ab0e00, #ff5252);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.3s ease;
         }
 
         .comp-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.03);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(15,23,42,0.04);
             border-color: #cbd5e1;
         }
 
@@ -452,33 +675,33 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .comp-num {
             font-size: 0.85rem;
-            font-weight: 800;
+            font-weight: 850;
             color: #ab0e00;
-            background: rgba(171, 14, 0, 0.05);
-            width: 28px;
-            height: 28px;
+            background: rgba(171, 14, 0, 0.06);
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .comp-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: #0f172a;
-            margin: 0 0 10px 0;
+            margin: 0 0 12px 0;
         }
 
         .comp-desc {
             font-size: 0.88rem;
-            line-height: 1.55;
+            line-height: 1.6;
             color: #64748b;
             margin: 0;
         }
 
-        /* ── Target Audience Section ────────── */
+        /* ── Target Audience Section (Light Gray Background) ── */
         .audience-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -487,11 +710,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .audience-card {
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: 24px;
             border: 1px solid #e2e8f0;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.005);
-            transition: all 0.3s ease;
+            padding: 36px 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -499,21 +722,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .audience-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(171, 14, 0, 0.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            transform: translateY(-4px);
+            border-color: rgba(171, 14, 0, 0.15);
+            box-shadow: 0 12px 28px rgba(15,23,42,0.04);
         }
 
-        .audience-icon {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+        .audience-icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: #ab0e00;
+            transition: all 0.3s ease;
+        }
+
+        .audience-card:hover .audience-icon-box {
+            background: rgba(171, 14, 0, 0.05);
+            border-color: rgba(171, 14, 0, 0.15);
+            transform: scale(1.05);
         }
 
         .audience-card h4 {
             font-size: 1.1rem;
             font-weight: 800;
             color: #0f172a;
-            margin: 0 0 10px 0;
+            margin: 0 0 12px 0;
         }
 
         .audience-card p {
@@ -727,7 +965,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-acc-arrow {
-            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #64748b;
             transition: transform 0.3s ease;
         }
@@ -823,21 +1063,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 3px;
         }
 
-        /* ── IDEAS AI Platform Section ─────── */
+        /* ── IDEAS AI Platform Section ── */
         .ai-grid {
             display: grid;
-            grid-template-columns: 0.95fr 1.05fr;
+            grid-template-columns: 0.9fr 1.1fr;
             gap: 60px;
             align-items: center;
         }
 
         .ai-features-list {
-            margin: 0 0 30px 0;
+            margin: 0 0 36px 0;
             padding: 0;
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
 
         .ai-features-list li {
@@ -846,10 +1086,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ai-feat-icon {
-            width: 24px;
-            height: 24px;
-            background: rgba(171, 14, 0, 0.08);
-            color: #ab0e00;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 82, 82, 0.12);
+            color: #ff5252;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -861,69 +1101,142 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ai-feat-text {
             font-size: 0.95rem;
-            line-height: 1.55;
-            color: #4b5563;
+            line-height: 1.6;
+            color: #cbd5e1;
         }
 
-        .ai-mockup {
-            background: #0f172a;
-            border-radius: 28px;
-            padding: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border: 4px solid #1e293b;
+        .ai-feat-text strong {
+            color: #ffffff;
         }
 
-        .ai-mockup-inner {
+        /* Chat UI Mockup */
+        .ai-chat-mockup {
             background: #1e293b;
-            border-radius: 18px;
-            aspect-ratio: 16/9;
+            border-radius: 28px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
             overflow: hidden;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 1.35;
+        }
+
+        .chat-header {
+            background: #0f172a;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .ai-video-player {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
+        .chat-header-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .ai-play-btn {
-            position: absolute;
-            width: 72px;
-            height: 72px;
-            background: #ffffff;
+        .chat-header-dot {
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ab0e00;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            z-index: 2;
-            border: none;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
         }
 
-        .ai-play-btn:hover {
-            transform: scale(1.1);
+        .chat-header-title {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .chat-header-subtitle {
+            font-size: 0.72rem;
+            color: #94a3b8;
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            overflow-y: auto;
+            background: #1e293b;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .chat-bubble.student {
+            background: #334155;
+            color: #f1f5f9;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .chat-bubble.ai {
+            background: rgba(171, 14, 0, 0.15);
+            color: #f8fafc;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            border: 1px solid rgba(255, 82, 82, 0.15);
+        }
+
+        .chat-bubble.ai strong {
+            color: #ff6b6b;
+        }
+
+        .chat-bubble-source {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+        }
+
+        .chat-bubble-source svg {
+            color: #ff6b6b;
+        }
+
+        .chat-input-bar {
+            background: #0f172a;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            background: #1e293b;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 100px;
+            padding: 10px 18px;
+            color: #ffffff;
+            font-size: 0.82rem;
+            pointer-events: none;
+        }
+
+        .chat-send-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             background: #ab0e00;
             color: #ffffff;
-        }
-
-        .ai-mockup-title {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #ffffff;
-            font-size: 0.95rem;
-            font-weight: 750;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
         }
 
         /* ── Faculty Section ────────────────── */
@@ -1198,6 +1511,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 8px;
         }
 
+        .cta-offer-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b6b;
+        }
+
         /* ── FAQ Section ───────────────────── */
         .faq-list {
             display: flex;
@@ -1238,7 +1558,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .faq-arrow {
-            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #64748b;
             transition: transform 0.3s ease;
         }
@@ -1264,19 +1586,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         /* ── Keyframe Animations ────────────── */
-        @keyframes pulse {
+        @keyframes pulse-dot {
             0% {
-                transform: scale(1);
-                opacity: 1;
+                transform: scale(0.9);
+                opacity: 0.6;
             }
             50% {
-                transform: scale(1.08);
-                opacity: 0.85;
-            }
-            100% {
-                transform: scale(1);
+                transform: scale(1.3);
                 opacity: 1;
             }
+            100% {
+                transform: scale(0.9);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes pulse-icon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float-badge-1 {
+            0% { transform: translateY(0px) rotate(-1deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(-1deg); }
+        }
+
+        @keyframes float-badge-2 {
+            0% { transform: translateY(0px) rotate(1deg); }
+            50% { transform: translateY(-8px) rotate(-1deg); }
+            100% { transform: translateY(0px) rotate(1deg); }
         }
 
         /* ── Responsive Rules ───────────────── */
@@ -1287,11 +1627,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             .ble-hero-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 50px;
                 text-align: center;
             }
 
-            .ble-hero-badge,
+            .ble-hero-tag,
             .ble-hero-promo {
                 justify-content: center;
                 margin-left: auto;
@@ -1414,6 +1754,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .ble-hero-actions .ble-btn {
                 width: 100%;
             }
+
+            .db-floating-badge {
+                display: none;
+            }
         }
     </style>
 
@@ -1434,11 +1778,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="ble-hero-grid">
                     <!-- Left: Title and Key Info -->
                     <div class="ble-hero-content">
-                        <div class="ble-hero-badge">
-                            <span>Swiss UMEF</span> &nbsp;• Short-term Certificate Program
+                        <div class="ble-hero-tag">
+                            <span></span> Swiss UMEF Academic Partner
                         </div>
-                        <h1 class="ble-hero-title">Business Leadership Essentials</h1>
-                        <p class="ble-hero-desc">Giải quyết triệt để bài toán năng lực lãnh đạo và quản trị con người trong doanh nghiệp của bạn. Xây dựng nền tảng vững chắc để dẫn dắt đội ngũ hiệu suất cao.</p>
+                        <h1 class="ble-hero-title">Business Leadership <span class="ble-gradient-text">Essentials</span></h1>
+                        <p class="ble-hero-desc">Giải quyết triệt để bài toán năng lực lãnh đạo và quản trị con người trong doanh nghiệp. Xây dựng tư duy quản trị hiện đại, dẫn dắt đội ngũ bứt phá hiệu suất.</p>
 
                         <!-- Features Grid -->
                         <div class="ble-hero-features">
@@ -1448,7 +1792,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="ble-hero-feature-item">
                                 <span class="feat-lbl">Hình thức học</span>
-                                <span class="feat-val">Online trực tuyến &amp; Tự học</span>
+                                <span class="feat-val">Online trực tuyến kết hợp tự học</span>
                             </div>
                             <div class="ble-hero-feature-item">
                                 <span class="feat-lbl">Chứng nhận</span>
@@ -1458,24 +1802,82 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                         <!-- Special Promo Box -->
                         <div class="ble-hero-promo">
-                            <div class="ble-hero-promo-icon">🎁</div>
-                            <div class="ble-hero-promo-text">Đặc quyền tháng 7: <strong>Học miễn phí toàn khóa</strong> khi đăng ký nhận Learning Grant 100% học phí.</div>
+                            <div class="ble-hero-promo-icon">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            </div>
+                            <div class="ble-hero-promo-text">Học bổng tháng 7: Đăng ký hôm nay để nhận <strong>Learning Grant 100% học phí</strong> toàn khóa!</div>
                         </div>
 
                         <!-- Action buttons -->
                         <div class="ble-hero-actions">
                             <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-hero'); }" class="ble-btn">Đăng ký ngay</button>
-                            <a href="#curriculum" class="ble-btn ble-btn-outline">Xem môn học</a>
+                            <a href="#curriculum" class="ble-btn ble-btn-outline">Xem chương trình</a>
                         </div>
                     </div>
 
-                    <!-- Right: Visual Card Mockup -->
+                    <!-- Right: Visual Portal Dashboard Mockup -->
                     <div class="ble-hero-visual">
-                        <div class="ble-hero-image-wrap">
-                            <div class="ble-hero-card">
-                                <div class="ble-hero-card-icon">💼</div>
-                                <h4 class="ble-hero-card-title">Swiss Executive Certificate</h4>
-                                <p class="ble-hero-card-meta">Chương trình chuyển giao học thuật chính thức từ Swiss UMEF University (Thụy Sĩ). Nâng tầm năng lực quản trị theo tiêu chuẩn quốc tế.</p>
+                        <!-- Floating Badges -->
+                        <div class="db-floating-badge badge-1">
+                            <span class="db-float-icon">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34M12 2a7 7 0 0 0-7 7c0 2.5 1.3 4.7 3.3 6h7.4c2-1.3 3.3-3.5 3.3-6a7 7 0 0 0-7-7z"/></svg>
+                            </span>
+                            <div class="db-float-text">
+                                <h6>Swiss Quality</h6>
+                                <span>100% Standardized</span>
+                            </div>
+                        </div>
+
+                        <div class="db-floating-badge badge-2">
+                            <span class="db-float-icon">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
+                            </span>
+                            <div class="db-float-text">
+                                <h6>IDEAS AI Chat</h6>
+                                <span>Academic Support</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Portal Box -->
+                        <div class="ble-dashboard-preview">
+                            <div class="ble-dashboard-badge">Online LMS Portal</div>
+                            <div class="db-header">
+                                <div class="db-avatar">LM</div>
+                                <div class="db-user-info">
+                                    <h5>Lê Minh (Học viên)</h5>
+                                    <span>Lớp: BLE-K2026</span>
+                                </div>
+                            </div>
+
+                            <div class="db-progress-card">
+                                <div class="db-progress-lbl">
+                                    <span>Tiến độ học tập</span>
+                                    <span>75% Hoàn thành</span>
+                                </div>
+                                <div class="db-progress-bar">
+                                    <div class="db-progress-fill"></div>
+                                </div>
+                            </div>
+
+                            <div class="db-module-list">
+                                <div class="db-module-item">
+                                    <div class="db-module-icon">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                    </div>
+                                    <span class="db-module-title">Leadership Development (Đã xong)</span>
+                                </div>
+                                <div class="db-module-item">
+                                    <div class="db-module-icon">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                    </div>
+                                    <span class="db-module-title">Organizational Behaviour (Đã xong)</span>
+                                </div>
+                                <div class="db-module-item">
+                                    <div class="db-module-icon pending">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    </div>
+                                    <span class="db-module-title">Human Capital Management (Đang học)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1483,59 +1885,59 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 2. PAIN POINTS SECTION -->
-        <section class="ble-section bg-light">
+        <!-- 2. PAIN POINTS SECTION (Dark Theme Background) -->
+        <section class="ble-section bg-dark">
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Thách thức quản lý</span>
+                    <span class="ble-section-tag">Thách thức thực tế</span>
                     <h2 class="ble-section-title">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ!</h2>
-                    <p class="ble-section-subtitle">Là một nhà quản lý hiện đại, bạn có đang đối mặt với những khó khăn cốt lõi này?</p>
+                    <p class="ble-section-subtitle">Phần lớn các nhà quản lý hiện nay đều đang gặp khó khăn ở các khía cạnh cốt lõi này:</p>
                 </div>
 
                 <div class="pain-grid">
                     <!-- Card 1 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">❌</div>
+                        <div class="pain-icon-box">01</div>
                         <div class="pain-card-content">
-                            <h4>Chưa được đào tạo bài bản</h4>
-                            <p>Được bổ nhiệm làm quản lý nhờ năng lực chuyên môn giỏi, nhưng chưa từng được trang bị bài bản về kỹ năng quản trị và tư duy lãnh đạo đội ngũ.</p>
+                            <h4>Chưa từng được đào tạo quản lý</h4>
+                            <p>Được bổ nhiệm lên làm quản lý do chuyên môn giỏi, nhưng chưa từng được học phương pháp dẫn dắt, giao việc và điều hành tổ chức.</p>
                         </div>
                     </div>
                     <!-- Card 2 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">❌</div>
+                        <div class="pain-icon-box">02</div>
                         <div class="pain-card-content">
-                            <h4>Thiếu uy tín và niềm tin</h4>
-                            <p>Gặp khó khăn trong việc xây dựng sức ảnh hưởng, chưa tạo được sự tin tưởng và uy tín cần thiết để đội ngũ sẵn lòng đồng hành hướng về mục tiêu.</p>
+                            <h4>Gặp khó khăn khi tạo uy tín</h4>
+                            <p>Chưa biết cách xây dựng sức ảnh hưởng cá nhân và sự tin cậy để đội ngũ cấp dưới tự nguyện cống hiến và đồng hành.</p>
                         </div>
                     </div>
                     <!-- Card 3 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">❌</div>
+                        <div class="pain-icon-box">03</div>
                         <div class="pain-card-content">
-                            <h4>Yếu kỹ năng Coaching &amp; Phản hồi</h4>
-                            <p>Chưa biết cách tạo động lực làm việc tích cực, lúng túng trong kỹ năng dẫn dắt (coaching) và đưa ra phản hồi giúp nhân viên cải thiện năng lực.</p>
+                            <h4>Lúng túng trong Coaching &amp; Phản hồi</h4>
+                            <p>Chưa nắm vững kỹ năng dẫn dắt (coaching) để phát huy tiềm năng của nhân viên, phản hồi chưa mang tính xây dựng làm giảm động lực.</p>
                         </div>
                     </div>
                     <!-- Card 4 -->
                     <div class="pain-card">
-                        <div class="pain-icon-box">❌</div>
+                        <div class="pain-icon-box">04</div>
                         <div class="pain-card-content">
                             <h4>Đội ngũ rời rạc, hiệu suất thấp</h4>
-                            <p>Các thành viên thiếu gắn kết, phối hợp thiếu ăn ý, dẫn đến tình trạng chậm tiến độ và kết quả công việc liên tục không đạt kỳ vọng đề ra.</p>
+                            <p>Thiếu sự gắn kết và phối hợp ăn ý giữa các thành viên, dẫn đến tình trạng chậm tiến độ và kết quả công việc chưa như kỳ vọng.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. CORE COMPETENCIES SECTION -->
-        <section class="ble-section">
+        <!-- 3. CORE COMPETENCIES SECTION (Light Background) -->
+        <section class="ble-section bg-light">
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Giá trị khóa học</span>
+                    <span class="ble-section-tag">Giá trị nhận được</span>
                     <h2 class="ble-section-title">Bạn sẽ phát triển những năng lực nào?</h2>
-                    <p class="ble-section-subtitle">8 năng lực cốt lõi bạn sẽ sở hữu trọn vẹn sau khi hoàn thành chương trình đào tạo</p>
+                    <p class="ble-section-subtitle">8 năng lực cốt lõi bạn sẽ sở hữu trọn vẹn sau khi hoàn thành khóa học</p>
                 </div>
 
                 <div class="comp-grid">
@@ -1543,99 +1945,107 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="comp-card">
                         <div class="comp-num">01</div>
                         <h4 class="comp-title">Leadership Mindset</h4>
-                        <p class="comp-desc">Phát triển tư duy lãnh đạo hiện đại, dịch chuyển từ quản lý công việc hành chính sang dẫn dắt và tạo sức ảnh hưởng.</p>
+                        <p class="comp-desc">Dịch chuyển tư duy từ quản lý hành chính sự vụ sang dẫn dắt, kiến tạo giá trị và gây ảnh hưởng lên đội ngũ.</p>
                     </div>
                     <!-- Comp 2 -->
                     <div class="comp-card">
                         <div class="comp-num">02</div>
-                        <h4 class="comp-title">Performance Management</h4>
-                        <p class="comp-desc">Nắm vững phương pháp phân công công việc, thiết lập mục tiêu khoa học và tối ưu hiệu suất thực thi của đội nhóm.</p>
+                        <h4 class="comp-title">Performance</h4>
+                        <p class="comp-desc">Nắm vững phương pháp thiết lập mục tiêu khoa học, phân chia công việc hiệu quả để tối ưu hiệu suất làm việc.</p>
                     </div>
                     <!-- Comp 3 -->
                     <div class="comp-card">
                         <div class="comp-num">03</div>
-                        <h4 class="comp-title">Organizational Behaviour</h4>
-                        <p class="comp-desc">Thấu hiểu sâu sắc hành vi và động lực của nhân sự để kiến tạo môi trường làm việc tích cực, tăng cường gắn kết.</p>
+                        <h4 class="comp-title">Org. Behaviour</h4>
+                        <p class="comp-desc">Thấu hiểu sâu sắc động cơ và hành vi của nhân viên để xây dựng văn hóa làm việc tích cực, gắn kết lâu dài.</p>
                     </div>
                     <!-- Comp 4 -->
                     <div class="comp-card">
                         <div class="comp-num">04</div>
                         <h4 class="comp-title">Coaching &amp; Feedback</h4>
-                        <p class="comp-desc">Thực hành thành thạo kỹ năng coaching định hướng và phản hồi xây dựng giúp nhân sự liên tục phát triển năng lực.</p>
+                        <p class="comp-desc">Làm chủ kỹ năng phản hồi mang tính định hướng và phương pháp coaching thúc đẩy năng lực nhân sự liên tục.</p>
                     </div>
                     <!-- Comp 5 -->
                     <div class="comp-card">
                         <div class="comp-num">05</div>
-                        <h4 class="comp-title">High-Performance Team</h4>
-                        <p class="comp-desc">Thiết kế và xây dựng một đội ngũ chủ động, hợp tác chặt chẽ và luôn hướng về mục tiêu chung với hiệu suất vượt trội.</p>
+                        <h4 class="comp-title">High-Perf Team</h4>
+                        <p class="comp-desc">Thiết kế quy trình phối hợp nhịp nhàng, kích hoạt sự chủ động của từng thành viên hướng đến mục tiêu chung.</p>
                     </div>
                     <!-- Comp 6 -->
                     <div class="comp-card">
                         <div class="comp-num">06</div>
                         <h4 class="comp-title">Talent Management</h4>
-                        <p class="comp-desc">Làm chủ phương pháp phát hiện tiềm năng, bồi dưỡng phát triển và giữ chân nhân tài bền vững cho tổ chức.</p>
+                        <p class="comp-desc">Biết cách phát hiện nhân sự tiềm năng, đào tạo bồi dưỡng và giữ chân nhân tài gắn bó cùng tổ chức.</p>
                     </div>
                     <!-- Comp 7 -->
                     <div class="comp-card">
                         <div class="comp-num">07</div>
                         <h4 class="comp-title">Change Leadership</h4>
-                        <p class="comp-desc">Nâng cao khả năng dẫn dắt tổ chức thích ứng linh hoạt trước các biến động và giai đoạn chuyển dịch của doanh nghiệp.</p>
+                        <p class="comp-desc">Nâng cao năng lực dẫn dắt đội ngũ thích ứng nhanh chóng trước các đổi mới chiến lược của doanh nghiệp.</p>
                     </div>
                     <!-- Comp 8 -->
                     <div class="comp-card">
                         <div class="comp-num">08</div>
-                        <h4 class="comp-title">Practical Management</h4>
-                        <p class="comp-desc">Ứng dụng trực tiếp và ngay lập tức các nguyên lý quản trị hiện đại vào quản lý thực tế công việc hàng ngày.</p>
+                        <h4 class="comp-title">Practical Skills</h4>
+                        <p class="comp-desc">Ứng dụng ngay các framework quản lý chuẩn mực vào giải quyết bài toán vận hành nhân sự hàng ngày.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. TARGET AUDIENCE SECTION -->
-        <section class="ble-section bg-light">
+        <!-- 4. TARGET AUDIENCE SECTION (Warm Slate Background) -->
+        <section class="ble-section ble-section bg-slate">
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Đối tượng phù hợp</span>
-                    <h2 class="ble-section-title">Ai nên tham gia khóa học này?</h2>
-                    <p class="ble-section-subtitle">Chương trình được thiết kế tối ưu cho các nhóm nhân sự then chốt trong doanh nghiệp</p>
+                    <span class="ble-section-tag">Đối tượng tham gia</span>
+                    <h2 class="ble-section-title">Chương trình này thiết kế dành cho ai?</h2>
+                    <p class="ble-section-subtitle">Phù hợp nhất với các anh/chị đang đảm nhận vị trí quản lý con người trong doanh nghiệp</p>
                 </div>
 
                 <div class="audience-grid">
                     <!-- Item 1 -->
                     <div class="audience-card">
-                        <div class="audience-icon">👥</div>
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
                         <h4>Trưởng nhóm / Team Lead</h4>
-                        <p>Đang trực tiếp dẫn dắt đội nhóm thực thi, cần nền tảng tư duy rõ ràng để ra quyết định và tạo lập uy tín vững chắc.</p>
+                        <p>Cần chuẩn bị tốt nền tảng kỹ năng ra quyết định, phân công công việc và xây dựng uy tín đội nhóm.</p>
                     </div>
                     <!-- Item 2 -->
                     <div class="audience-card">
-                        <div class="audience-icon">🚀</div>
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.5 2.5 6l6-6L18 4.5c1.5-1.5 3.5-2.5 6-2.5-1.5 2.5-2.5 4.5-4 6l-6.5 6.5-6 6c1.5 1.5 3.5 2.5 6 2.5 5.5 0 10-4.5 10-10 0-1.5-1-3.5-2.5-5z"/></svg>
+                        </div>
                         <h4>Nhân sự nguồn (Hi-Po)</h4>
-                        <p>Nhân sự tài năng được tổ chức quy hoạch lên vị trí quản lý, cần chuẩn bị sẵn sàng năng lực lãnh đạo trước khi tiếp quản.</p>
+                        <p>Được doanh nghiệp quy hoạch nâng đỡ, cần sẵn sàng năng lực lãnh đạo trước khi chính thức tiếp quản vai trò mới.</p>
                     </div>
                     <!-- Item 3 -->
                     <div class="audience-card">
-                        <div class="audience-icon">👔</div>
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M9 15v6l2-2 2 2v-6"/></svg>
+                        </div>
                         <h4>Quản lý cấp trung</h4>
-                        <p>Các Line Manager, Head of Department cần hệ thống hóa kiến thức quản trị thực tế và cập nhật xu hướng lãnh đạo mới.</p>
+                        <p>Đang trực tiếp quản lý bộ phận chức năng, cần hệ thống hóa lại phương pháp và cập nhật xu hướng lãnh đạo mới.</p>
                     </div>
                     <!-- Item 4 -->
                     <div class="audience-card">
-                        <div class="audience-icon">🏢</div>
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22V18h6v4M8 6h2M14 6h2M8 10h2M14 10h2M8 14h2M14 14h2"/></svg>
+                        </div>
                         <h4>Chủ doanh nghiệp SMEs</h4>
-                        <p>Trực tiếp quản lý đội ngũ điều hành doanh nghiệp vừa và nhỏ, cần một framework khoa học để xây dựng văn hóa tích cực.</p>
+                        <p>Muốn xây dựng một hệ thống quản lý rõ ràng, kiến tạo môi trường và văn hóa làm việc chuyên nghiệp, hạnh phúc.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. INTERACTIVE CURRICULUM SECTION (Reference to Cask.vn & Screenshot style) -->
-        <section class="ble-section" id="curriculum">
+        <!-- 5. INTERACTIVE CURRICULUM SECTION (Cask.vn Style) -->
+        <section class="ble-section bg-light" id="curriculum">
             <div class="ble-container">
                 <div class="ble-title-wrap">
-                    <span class="ble-section-tag">Chương trình học</span>
-                    <h2 class="ble-section-title">Nội dung đào tạo chi tiết</h2>
-                    <p class="ble-section-subtitle">3 môn học chuyên sâu về năng lực lãnh đạo, hành vi tổ chức và quản trị nguồn nhân lực</p>
+                    <span class="ble-section-tag">Lộ trình học tập</span>
+                    <h2 class="ble-section-title">Chương trình đào tạo chi tiết</h2>
+                    <p class="ble-section-subtitle">Cấu trúc 3 môn học cốt lõi chuyển giao học thuật từ Swiss UMEF University</p>
                 </div>
 
                 <!-- Cask layout wrapper -->
@@ -1678,7 +2088,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content" style="max-height: 500px;">
@@ -1700,7 +2112,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -1722,7 +2136,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -1744,7 +2160,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 4</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -1801,7 +2219,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content" style="max-height: 500px;">
@@ -1823,7 +2243,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -1845,7 +2267,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -1902,7 +2326,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content" style="max-height: 500px;">
@@ -1924,7 +2350,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -1946,7 +2374,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -1968,7 +2398,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 4</span>
-                                            <span class="curr-acc-arrow">▼</span>
+                                            <span class="curr-acc-arrow">
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -2009,41 +2441,75 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 6. IDEAS AI PLATFORM SECTION -->
-        <section class="ble-section bg-light">
+        <!-- 6. IDEAS AI PLATFORM SECTION (Dark Slate Background for Technical AI Feel) -->
+        <section class="ble-section bg-dark">
             <div class="ble-container">
                 <div class="ai-grid">
                     <!-- Left: Details -->
                     <div class="ai-content">
-                        <span class="ble-section-tag">Công nghệ học tập</span>
-                        <h2 class="ble-section-title">IDEAS AI Platform</h2>
-                        <p class="ble-section-subtitle" style="margin-bottom: 24px;">Hệ thống Trợ lý AI được huấn luyện riêng biệt theo nội dung giáo trình chính thức của khóa học. Đồng hành hỗ trợ học viên mọi lúc mọi nơi.</p>
+                        <span class="ble-section-tag">Công nghệ dẫn đầu</span>
+                        <h2 class="ble-section-title">Học tập thông minh cùng<br><span class="ble-gradient-text">IDEAS AI Platform</span></h2>
+                        <p class="ble-section-subtitle" style="margin-bottom: 24px;">Học bám sát trọng tâm giáo trình Swiss UMEF. Giải quyết mọi câu hỏi lý thuyết lẫn tình huống quản trị thực tế của riêng doanh nghiệp bạn.</p>
 
                         <ul class="ai-features-list">
                             <li>
-                                <span class="ai-feat-icon">✓</span>
-                                <span class="ai-feat-text"><strong>Đúng trọng tâm:</strong> Phản hồi bám sát tuyệt đối nội dung các học phần đào tạo của Swiss UMEF.</span>
+                                <span class="ai-feat-icon">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                </span>
+                                <span class="ai-feat-text"><strong>Cá nhân hóa tối đa:</strong> AI được huấn luyện theo giáo trình chính thức của khóa học.</span>
                             </li>
                             <li>
-                                <span class="ai-feat-icon">✓</span>
-                                <span class="ai-feat-text"><strong>Học thuật chính thống:</strong> Trích dẫn tài liệu tham khảo trực tiếp từ các chương sách giáo trình.</span>
+                                <span class="ai-feat-icon">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                </span>
+                                <span class="ai-feat-text"><strong>Trích dẫn khoa học:</strong> Cung cấp câu trả lời có nguồn dẫn chuẩn học thuật từ giáo trình.</span>
                             </li>
                             <li>
-                                <span class="ai-feat-icon">✓</span>
-                                <span class="ai-feat-text"><strong>Rõ ràng &amp; Trực quan:</strong> Giải thích các khái niệm phức tạp kèm ví dụ thực tế doanh nghiệp.</span>
+                                <span class="ai-feat-icon">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                </span>
+                                <span class="ai-feat-text"><strong>Ví dụ thực tiễn:</strong> Minh họa kiến thức bằng các tình huống thực tế của doanh nghiệp Việt.</span>
                             </li>
                         </ul>
 
-                        <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-ai'); }" class="ble-btn">Đăng ký trải nghiệm LMS &amp; AI</button>
+                        <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-ai'); }" class="ble-btn">Đăng ký dùng thử AI &amp; LMS</button>
                     </div>
 
-                    <!-- Right: Mockup Screen -->
+                    <!-- Right: Premium Chat UI Mockup -->
                     <div class="ai-visual">
-                        <div class="ai-mockup">
-                            <div class="ai-mockup-inner">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/05/Kien-tao-2.webp" alt="IDEAS AI Platform Mockup" class="ai-video-player">
-                                <button class="ai-play-btn" onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-ai-video'); }">▶</button>
-                                <div class="ai-mockup-title">Giới thiệu Nền tảng Hỗ trợ Học tập IDEAS AI</div>
+                        <div class="ai-chat-mockup">
+                            <div class="chat-header">
+                                <div class="chat-header-user">
+                                    <div class="chat-header-dot"></div>
+                                    <div>
+                                        <div class="chat-header-title">IDEAS Academic Assistant</div>
+                                        <div class="chat-header-subtitle">Trợ lý AI Học thuật • Đang hoạt động</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-body">
+                                <div class="chat-bubble student">
+                                    Làm cách nào để tạo động lực cho nhân sự Gen Z trong nhóm của mình?
+                                </div>
+                                <div class="chat-bubble ai">
+                                    Dựa trên môn học <strong>Organizational Behaviour (Học phần 2)</strong>, để tạo động lực cho Gen Z, bạn nên áp dụng 3 nguyên tắc cốt lõi:
+                                    <br><br>
+                                    1. <strong>Autonomy (Tính tự chủ)</strong>: Trao quyền chủ động giải quyết công việc thay vì kiểm soát quá chi tiết (Micromanagement).
+                                    <br>
+                                    2. <strong>Purpose (Ý nghĩa công việc)</strong>: Giúp họ nhìn thấy đóng góp của mình vào mục tiêu chung.
+                                    <br>
+                                    3. <strong>Immediate Feedback</strong>: Đưa ra phản hồi nhanh, công nhận kịp thời.
+                                    <div class="chat-bubble-source">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+                                        &nbsp;Nguồn tham khảo: Giáo trình OB - Chương 3: Motivation Models (Trang 114)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-input-bar">
+                                <div class="chat-input">Đặt câu hỏi học thuật tại đây...</div>
+                                <button class="chat-send-btn">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -2051,8 +2517,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 7. INSTRUCTORS SECTION -->
-        <section class="ble-section">
+        <!-- 7. INSTRUCTORS SECTION (Light Background) -->
+        <section class="ble-section bg-light">
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">Đội ngũ chuyên gia</span>
@@ -2097,8 +2563,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 8. CERTIFICATE SHOWCASE SECTION -->
-        <section class="ble-section bg-light">
+        <!-- 8. CERTIFICATE SHOWCASE SECTION (Warm Slate Background) -->
+        <section class="ble-section bg-slate">
             <div class="ble-container">
                 <div class="cert-wrap">
                     <!-- Left: Text Info -->
@@ -2108,12 +2574,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <p class="ble-section-subtitle" style="margin-bottom: 24px; color: #4b5563;">Sau khi hoàn thành đầy đủ các học phần và đáp ứng yêu cầu đánh giá chuyên môn, học viên sẽ được cấp <strong>Certificate of Completion</strong> do Viện IDEAS phát hành trên cơ sở chuyển giao học thuật chính thức từ Swiss UMEF.</p>
                         <ul class="ai-features-list" style="margin-bottom: 30px;">
                             <li>
-                                <span class="ai-feat-icon">✓</span>
-                                <span class="ai-feat-text">Chứng chỉ có giá trị xác thực năng lực quản trị thực chiến.</span>
+                                <span class="ai-feat-icon">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                </span>
+                                <span class="ai-feat-text" style="color: #475569;">Chứng chỉ có giá trị xác thực năng lực quản trị thực chiến quốc tế.</span>
                             </li>
                             <li>
-                                <span class="ai-feat-icon">✓</span>
-                                <span class="ai-feat-text">Được công nhận bởi Hội đồng chuyên môn IDEAS.</span>
+                                <span class="ai-feat-icon">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                </span>
+                                <span class="ai-feat-text" style="color: #475569;">Được công nhận bởi Hội đồng chuyên môn Viện IDEAS.</span>
                             </li>
                         </ul>
                         <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-cert'); }" class="ble-btn">Đăng ký tư vấn lộ trình</button>
@@ -2174,13 +2644,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-footer-cta'); }" class="ble-btn">Đăng ký ngay hôm nay</button>
 
                     <div class="cta-offer">
-                        🎁 Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí!
+                        <span class="cta-offer-icon">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                        </span>
+                        &nbsp;Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí!
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 10. FAQS SECTION -->
+        <!-- 10. FAQS SECTION (Light Background) -->
         <section class="ble-section bg-light" style="padding-bottom: 120px;">
             <div class="ble-container">
                 <div class="ble-title-wrap">
@@ -2194,7 +2667,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="faq-item">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <span class="faq-question">1. Vì sao chương trình chỉ gồm 3 môn học?</span>
-                            <span class="faq-arrow">▼</span>
+                            <span class="faq-arrow">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
                         </div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
@@ -2207,7 +2682,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="faq-item">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <span class="faq-question">2. Mình không làm trong lĩnh vực nhân sự (HR), khóa học có phù hợp không?</span>
-                            <span class="faq-arrow">▼</span>
+                            <span class="faq-arrow">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
                         </div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
@@ -2220,7 +2697,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="faq-item">
                         <div class="faq-header" onclick="toggleFaq(this)">
                             <span class="faq-question">3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
-                            <span class="faq-arrow">▼</span>
+                            <span class="faq-arrow">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
                         </div>
                         <div class="faq-content">
                             <div class="faq-content-inner">
