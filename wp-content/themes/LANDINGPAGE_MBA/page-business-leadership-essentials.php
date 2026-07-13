@@ -3167,7 +3167,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 1.5. COURSE DETAILS BANNER (Solid Red Cask.vn Style Layout) -->
+        <!-- 1.5. COURSE DETAILS BANNER (Solid Red Cask.vn Style Layout)
         <section class="ble-details-banner">
             <div class="ble-container">
                 <div class="ble-db-grid">
@@ -3213,6 +3213,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
             </div>
         </section>
+        -->
 
         <!-- 2. PAIN POINTS SECTION (Warm Cream Background, Editorial Split Columns) -->
         <section class="ble-section bg-soft-cream">
