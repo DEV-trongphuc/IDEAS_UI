@@ -407,7 +407,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-desc {
-            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            font-size: 0.95rem;
             line-height: 1.6;
             color: #334155;
             margin-bottom: 40px;
@@ -500,10 +500,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-dashboard-preview {
-            background: #ffffff;
+            background: linear-gradient(135deg, #ab0e00 0%, #7a0900 100%);
             border-radius: 28px;
-            border: 1px solid #cbd5e1;
-            box-shadow: 0 10px 30px rgba(15,23,42,0.04);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.25);
             width: 100%;
             max-width: 440px;
             padding: 30px;
@@ -514,8 +514,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-dashboard-preview:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.08);
-            border-color: rgba(171, 14, 0, 0.25);
+            box-shadow: 0 25px 60px rgba(171, 14, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .ble-dashboard-badge {
@@ -537,7 +537,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 14px;
             margin-bottom: 24px;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
             padding-bottom: 20px;
         }
 
@@ -545,12 +545,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #f87171 0%, #ab0e00 100%);
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-weight: 800;
+            color: #ab0e00;
+            font-weight: 900;
             font-size: 1.1rem;
         }
 
@@ -558,18 +558,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0 0 4px 0;
             font-size: 0.95rem;
             font-weight: 800;
-            color: #0f172a;
+            color: #ffffff;
         }
 
         .db-user-info span {
             font-size: 0.75rem;
-            color: #64748b;
+            color: rgba(255, 255, 255, 0.75);
             font-weight: 600;
         }
 
         .db-progress-card {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 20px;
@@ -580,24 +580,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             justify-content: space-between;
             font-size: 0.75rem;
             font-weight: 800;
-            color: #475569;
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 10px;
         }
 
         .db-progress-lbl span:last-child {
-            color: #ab0e00;
+            color: #ffffff;
         }
 
         .db-progress-bar {
             height: 8px;
-            background: #e2e8f0;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 100px;
             overflow: hidden;
         }
 
         .db-progress-fill {
             height: 100%;
-            background: #ab0e00;
+            background: #ffffff;
             width: 75%;
             border-radius: 100px;
         }
@@ -612,8 +612,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             gap: 12px;
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 12px 16px;
             border-radius: 12px;
         }
@@ -631,14 +631,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .db-module-icon.pending {
-            background: rgba(171, 14, 0, 0.08);
-            color: #ab0e00;
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
         }
 
         .db-module-title {
             font-size: 0.82rem;
             font-weight: 750;
-            color: #334155;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         /* Floating Badge in Hero visual */
@@ -1331,7 +1331,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 0 24px 24px 62px;
             border-top: 1px solid #f1f5f9;
             padding-top: 20px;
-            background-color: #faf8f5;
+            background-color: #ffffff;
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
         }
