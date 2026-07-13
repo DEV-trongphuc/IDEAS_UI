@@ -428,40 +428,39 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-hero-meta-row {
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            border-radius: 12px;
-            padding: 12px 24px;
-            gap: 0;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            border-radius: 16px;
+            padding: 20px;
+            gap: 16px;
             margin-left: 0 !important;
             margin-right: auto !important;
             margin-bottom: 35px;
             max-width: 820px;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.015);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
         }
 
         .ble-hero-meta-item {
             display: flex !important;
             align-items: center !important;
-            gap: 12px !important;
-            flex: 1 !important;
-            justify-content: center !important;
+            gap: 14px !important;
+            justify-content: flex-start !important;
             position: relative !important;
-            padding: 0 15px !important;
+            padding: 14px 18px !important;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .ble-hero-meta-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 1px;
-            height: 24px;
-            background: rgba(15, 23, 42, 0.1);
+        .ble-hero-meta-item:hover {
+            border-color: #ab0e00;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.05);
+            transform: translateY(-2px);
         }
 
         .ble-meta-icon-wrapper {
@@ -497,16 +496,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             text-align: left;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             color: #64748b;
             line-height: 1.3;
         }
 
         .ble-hero-meta-item strong {
-            font-size: 0.74rem;
+            font-size: 0.88rem;
             color: #0f172a;
             font-weight: 800;
-            margin-top: 1px;
+            margin-top: 2px;
         }
 
         .ble-hero-promo {
@@ -1434,27 +1433,56 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
-        .ble-audience-img-wrapper {
+        .value-image-group {
             position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 6px solid #ffffff;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            height: 420px;
             width: 100%;
-            aspect-ratio: 1.35;
         }
 
-        .ble-audience-img-wrapper img {
-            width: 100%;
-            height: 100%;
+        .value-float-img {
+            position: absolute;
+            border-radius: 18px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
             object-fit: cover;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease-in-out;
         }
 
-        .ble-audience-img-wrapper:hover img {
-            transform: scale(1.04);
+        .value-float-img:hover {
+            transform: scale(1.06) translateY(-6px) !important;
+            z-index: 10 !important;
+            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.18);
+        }
+
+        .value-float-img.img-1 {
+            width: 58%;
+            aspect-ratio: 1.35;
+            top: 5%;
+            left: -3%;
+            transform: rotate(-6deg);
+            z-index: 1;
+        }
+
+        .value-float-img.img-2 {
+            width: 60%;
+            aspect-ratio: 1.35;
+            top: 0%;
+            right: -3%;
+            transform: rotate(4deg);
+            z-index: 2;
+        }
+
+        .value-float-img.img-3 {
+            width: 65%;
+            aspect-ratio: 1.35;
+            bottom: 3%;
+            left: 18%;
+            transform: rotate(2deg);
+            z-index: 3;
+            box-shadow: 0 20px 35px rgba(171, 14, 0, 0.1);
         }
 
         .ble-audience-list {
@@ -1674,7 +1702,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             justify-content: space-between;
-            cursor: pointer;
+            cursor: default;
             user-select: none;
             gap: 20px;
         }
@@ -1734,22 +1762,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-acc-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            transition: transform 0.3s ease;
-        }
-
-        .curr-acc-item.active .curr-acc-arrow {
-            transform: rotate(180deg);
-            color: #ab0e00;
+            display: none !important;
         }
 
         .curr-acc-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: none !important;
+            overflow: visible !important;
         }
 
         .curr-acc-content-inner {
@@ -3437,25 +3455,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3 class="curr-panel-title">Leadership Development</h3>
                                     <p class="curr-panel-desc">Leadership Development là môn học giúp học viên phát triển tư duy và năng lực lãnh đạo trong môi trường doanh nghiệp hiện đại. Môn học tập trung vào cách dẫn dắt đội ngũ, tạo ảnh hưởng, xây dựng văn hóa tổ chức và thích ứng với sự thay đổi. Thông qua các mô hình lãnh đạo từ nền tảng đến hiện đại, học viên sẽ biết cách lựa chọn phong cách lãnh đạo phù hợp với từng cá nhân, từng tình huống và từng giai đoạn phát triển của tổ chức.</p>
                                 </div>
-                                <button class="curr-toggle-all-btn" onclick="toggleAllAccordions('course-1')">Mở tất cả</button>
                             </div>
 
                             <div class="curr-accordion-list">
                                 <!-- Part 1 -->
                                 <div class="curr-acc-item active">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">01</span>
                                             <span class="curr-acc-title">Nền tảng lý thuyết về lãnh đạo (Leadership Foundations)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 1</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
-                                    <div class="curr-acc-content" style="max-height: 500px;">
+                                    <div class="curr-acc-content">
                                         <div class="curr-acc-content-inner">
                                             <ul class="curr-topics-list">
                                                 <li>Vai trò, sứ mệnh nhà lãnh đạo trong tổ chức hiện đại.</li>
@@ -3466,17 +3480,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 2 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">02</span>
                                             <span class="curr-acc-title">Các mô hình lãnh đạo hiện đại (Advanced Leadership Models)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 2</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3490,17 +3501,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 3 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">03</span>
                                             <span class="curr-acc-title">Lãnh đạo và văn hóa tổ chức (Culture &amp; Leadership)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 3</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3514,17 +3522,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 4 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">04</span>
                                             <span class="curr-acc-title">Lãnh đạo trong môi trường toàn cầu (Cross-Cultural Leadership)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 4</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3568,25 +3573,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3 class="curr-panel-title">Organizational Behaviour</h3>
                                     <p class="curr-panel-desc">Organizational Behaviour giúp học viên hiểu cách con người suy nghĩ, hành động và tương tác trong môi trường tổ chức. Môn học tập trung vào việc phân tích hành vi của cá nhân, đội nhóm và tổ chức nhằm nâng cao hiệu quả quản trị, xây dựng môi trường làm việc tích cực và cải thiện hiệu suất doanh nghiệp. Thông qua các mô hình và nghiên cứu thực tiễn, học viên sẽ biết cách nhận diện nguyên nhân của các vấn đề về con người và đưa ra giải pháp quản trị phù hợp.</p>
                                 </div>
-                                <button class="curr-toggle-all-btn" onclick="toggleAllAccordions('course-2')">Mở tất cả</button>
                             </div>
 
                             <div class="curr-accordion-list">
                                 <!-- Part 1 -->
                                 <div class="curr-acc-item active">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">01</span>
                                             <span class="curr-acc-title">Hành vi cá nhân trong tổ chức (Individual Behaviour)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 1</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
-                                    <div class="curr-acc-content" style="max-height: 500px;">
+                                    <div class="curr-acc-content">
                                         <div class="curr-acc-content-inner">
                                             <ul class="curr-topics-list">
                                                 <li>Nhận diện tính cách, động lực tiềm ẩn của cá nhân.</li>
@@ -3597,17 +3598,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 2 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">02</span>
                                             <span class="curr-acc-title">Hành vi đội nhóm và làm việc nhóm (Group Behaviour)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 2</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3621,17 +3619,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 3 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">03</span>
                                             <span class="curr-acc-title">Cấu trúc, văn hóa và thay đổi tổ chức (Organization System &amp; Change)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 3</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3675,25 +3670,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3 class="curr-panel-title">Human Capital and Talent Management</h3>
                                     <p class="curr-panel-desc">Human Capital and Talent Management giúp học viên xây dựng tư duy quản trị nguồn nhân lực theo hướng chiến lược, xem con người là tài sản quan trọng tạo nên lợi thế cạnh tranh bền vững của doanh nghiệp. Môn học tập trung vào toàn bộ vòng đời của nhân tài, từ thu hút, phát triển, quản lý hiệu suất đến giữ chân nhân sự, giúp nhà quản lý xây dựng đội ngũ có năng lực, gắn kết và phát triển lâu dài.</p>
                                 </div>
-                                <button class="curr-toggle-all-btn" onclick="toggleAllAccordions('course-3')">Mở tất cả</button>
                             </div>
 
                             <div class="curr-accordion-list">
                                 <!-- Part 1 -->
                                 <div class="curr-acc-item active">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">01</span>
                                             <span class="curr-acc-title">Nền tảng về quản trị nguồn nhân lực chiến lược (Strategic Human Capital)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 1</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
-                                    <div class="curr-acc-content" style="max-height: 500px;">
+                                    <div class="curr-acc-content">
                                         <div class="curr-acc-content-inner">
                                             <ul class="curr-topics-list">
                                                 <li>Đồng bộ chiến lược nhân sự với mục tiêu kinh doanh.</li>
@@ -3704,17 +3695,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 2 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">02</span>
                                             <span class="curr-acc-title">Thu hút và phát triển nhân tài (Talent Acquisition &amp; Development)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 2</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3728,17 +3716,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 3 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">03</span>
                                             <span class="curr-acc-title">Quản lý hiệu suất và phát triển đội ngũ (Performance &amp; People Development)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 3</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3752,17 +3737,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                 </div>
                                 <!-- Part 4 -->
-                                <div class="curr-acc-item">
-                                    <div class="curr-acc-header" onclick="toggleAccordion(this)">
+                                <div class="curr-acc-item active">
+                                    <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">04</span>
                                             <span class="curr-acc-title">Văn hóa doanh nghiệp và tương lai của quản trị nhân sự (Culture &amp; Future of HR)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 4</span>
-                                            <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                                            </span>
                                         </div>
                                     </div>
                                     <div class="curr-acc-content">
@@ -3926,7 +3908,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <h4 class="fac-name">Prof. Dr. Jelena Lagger</h4>
                         <div class="fac-role">Talent Management</div>
-                        <p class="fac-bio">Chuyên gia Thụy Sĩ - Mỹ về Tương lai của việc làm và hoạch định chính sách. Tiến sĩ Đại học Bath (Anh Quốc), thành viên Future of Work Research Centre. Tư vấn chuyển đổi lực lượng lao động cho các tổ chức đa quốc gia.</p>
+                        <p class="fac-bio">Chuyên gia quốc tế về Tương lai của việc làm và hoạch định chính sách. Tiến sĩ Đại học Bath (Anh Quốc), thành viên Future of Work Research Centre. Tư vấn chuyển đổi lực lượng lao động cho các tổ chức đa quốc gia.</p>
                         <a href="https://www.swiss-umef.ch/en/corps-professoral/jelena-lagger" target="_blank" class="fac-link">Lý lịch khoa học ↗</a>
                     </div>
                 </div>
@@ -3960,7 +3942,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="ble-section-tag">
                             <span class="dot"></span> Chứng nhận tốt nghiệp
                         </span>
-                        <h2 class="ble-section-title">Đạt chứng chỉ<br>chuẩn <span class="ble-text-red">Thụy Sĩ</span></h2>
+                        <h2 class="ble-section-title" style="font-size: 1.95rem !important; line-height: 1.25 !important; text-align: left;">Đạt chứng chỉ tốt nghiệp</h2>
                         <p class="ble-section-subtitle" style="margin-bottom: 24px; color: #4b5563;">Sau khi hoàn thành khóa học và đáp ứng các yêu cầu đánh giá, học viên sẽ được cấp <strong>Certificate of Completion</strong> do IDEAS phát hành trên cơ sở chuyển giao học thuật từ EGA.</p>
                         <ul class="ai-features-list" style="margin-bottom: 30px;">
                             <li>
