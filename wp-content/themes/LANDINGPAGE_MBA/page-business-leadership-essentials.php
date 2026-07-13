@@ -984,9 +984,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .comp-card:hover .comp-icon-box {
-            background: #ab0e00;
-            color: #ffffff;
+            background: #ab0e00 !important;
+            color: #ffffff !important;
             transform: scale(1.08);
+        }
+
+        .comp-card:hover .comp-icon-box svg {
+            stroke: #ffffff !important;
+        }
+
+        .comp-card:hover .comp-icon-box svg polygon {
+            stroke: #ffffff !important;
         }
 
         .comp-card-caps-title {
@@ -1078,6 +1086,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             gap: 16px;
+            position: sticky;
+            top: 120px;
+            align-self: flex-start;
+            z-index: 10;
         }
 
         .curr-tab {
@@ -1482,11 +1494,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .chat-bubble.student {
-            background: #f1f5f9;
-            color: #334155;
+            background: #ab0e00;
+            color: #ffffff;
             align-self: flex-end;
             border-bottom-right-radius: 4px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #ab0e00;
         }
 
         .chat-bubble.ai {
