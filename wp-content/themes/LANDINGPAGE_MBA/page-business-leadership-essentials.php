@@ -2424,17 +2424,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             /* Prevent overflow on mobile layouts */
-            .ble-hero {
-                padding-top: 155px !important;
-                padding-bottom: 60px !important;
-                box-sizing: border-box !important;
-            }
             .ble-details-banner {
                 padding: 45px 16px !important;
                 box-sizing: border-box !important;
             }
             .ble-section {
                 padding: 50px 16px !important;
+                box-sizing: border-box !important;
+            }
+            .ble-hero {
+                padding-top: 185px !important;
+                padding-bottom: 60px !important;
                 box-sizing: border-box !important;
             }
             .ble-container {
