@@ -1537,12 +1537,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Curriculum Section ── */
         .curr-layout {
             display: flex;
-            gap: 65px;
+            gap: 40px;
             margin-top: 40px;
         }
 
         .curr-sidebar {
-            width: 32%;
+            width: 34%;
             display: flex;
             flex-direction: column;
             gap: 16px;
@@ -1603,7 +1603,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-details {
-            width: 68%;
+            width: 66%;
             background: #ffffff;
             border-radius: 24px;
             border: 1px solid #cbd5e1;
