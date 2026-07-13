@@ -1758,151 +1758,66 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a;
         }
 
-        /* Chat UI Mockup (Expanded & Wider) */
-        .ai-chat-mockup {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 1.5px solid rgba(15, 23, 42, 0.06);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.02);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+        /* Overlapping AI Platform Screens */
+        .ai-screens-container {
+            position: relative;
             width: 100%;
-            max-width: 620px;
-            min-height: 480px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 580px;
+            height: 480px;
+            margin: 0 auto;
         }
 
-        .ai-chat-mockup:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 55px rgba(171, 14, 0, 0.08);
-            border-color: rgba(171, 14, 0, 0.18);
-        }
-
-        @keyframes pulse-dot-green {
-            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        .chat-header {
-            background: #f8fafc;
-            padding: 18px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .chat-header-user {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .chat-header-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #10b981;
-            box-shadow: 0 0 12px #10b981;
-            animation: pulse-dot-green 1.5s infinite;
-        }
-
-        .chat-header-title {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #0f172a;
-        }
-
-        .chat-header-subtitle {
-            font-size: 0.75rem;
-            color: #64748b;
-        }
-
-        .chat-body {
-            flex-grow: 1;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            overflow-y: auto;
-            background: #ffffff;
-        }
-
-        .chat-bubble {
-            max-width: 80%;
-            padding: 14px 18px;
+        .ai-screen-card {
+            position: absolute;
             border-radius: 16px;
-            font-size: 0.88rem;
-            line-height: 1.55;
-        }
-
-        .chat-bubble.student {
-            background: #ab0e00;
-            color: #ffffff;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-            border: 1px solid #ab0e00;
-        }
-
-        .chat-bubble.ai {
-            background: rgba(171, 14, 0, 0.03);
-            color: #334155;
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-            border: 1px solid rgba(171, 14, 0, 0.15);
-        }
-
-        .chat-bubble.ai strong {
-            color: #ab0e00;
-        }
-
-        .chat-bubble-source {
-            font-size: 0.72rem;
-            color: #64748b;
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-weight: 600;
-        }
-
-        .chat-bubble-source svg {
-            color: #ab0e00;
-        }
-
-        .chat-input-bar {
-            background: #f8fafc;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .chat-input {
-            flex-grow: 1;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            border: 1.5px solid rgba(15, 23, 42, 0.08);
             background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 100px;
-            padding: 10px 18px;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .chat-send-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #ab0e00;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
+        .ai-screen-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Web / Desktop interface (behind) */
+        .card-main {
+            width: 78%;
+            left: 2%;
+            top: 5%;
+            z-index: 1;
+            transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) rotateZ(-1deg);
+        }
+
+        /* Mobile interface (overlapping on top) */
+        .card-sub {
+            width: 42%;
+            right: 2%;
+            bottom: 5%;
+            z-index: 2;
+            transform: perspective(1000px) rotateY(4deg) rotateX(-2deg) rotateZ(1deg) translateY(5px);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Hover interactions */
+        .ai-screens-container:hover .card-main {
+            transform: perspective(1000px) rotateY(-1deg) rotateX(1deg) rotateZ(0deg) scale(1.02);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .ai-screens-container:hover .card-sub {
+            transform: perspective(1000px) rotateY(1deg) rotateX(-1deg) rotateZ(0deg) scale(1.05) translate(10px, -10px);
+            box-shadow: 0 35px 75px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Responsive scale */
+        @media (max-width: 768px) {
+            .ai-screens-container {
+                height: 360px;
+            }
         }
 
         /* ── Faculty Section ────────────────── */
@@ -3214,41 +3129,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-ai'); }" class="ble-btn">Đăng ký dùng thử AI &amp; LMS</button>
                     </div>
 
-                    <!-- Right: Premium Chat UI Mockup (Expanded & Wider) -->
+                    <!-- Right: Overlapping AI Platform Screenshots -->
                     <div class="ai-visual">
-                        <div class="ai-chat-mockup">
-                            <div class="chat-header">
-                                <div class="chat-header-user">
-                                    <div class="chat-header-dot"></div>
-                                    <div>
-                                        <div class="chat-header-title">IDEAS Academic Assistant</div>
-                                        <div class="chat-header-subtitle">Trợ lý AI Học thuật • Đang hoạt động</div>
-                                    </div>
-                                </div>
+                        <div class="ai-screens-container">
+                            <div class="ai-screen-card card-main">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/aiplatform-1.webp" alt="IDEAS AI Platform Web Interface">
                             </div>
-                            <div class="chat-body">
-                                <div class="chat-bubble student">
-                                    Làm cách nào để tạo động lực cho nhân sự Gen Z trong nhóm của mình?
-                                </div>
-                                <div class="chat-bubble ai">
-                                    Dựa trên môn học <strong>Organizational Behaviour (Học phần 2)</strong>, để tạo động lực cho Gen Z, bạn nên áp dụng 3 nguyên tắc cốt lõi:
-                                    <br><br>
-                                    1. <strong>Autonomy (Tính tự chủ)</strong>: Trao quyền chủ động giải quyết công việc thay vì kiểm soát quá chi tiết (Micromanagement).
-                                    <br>
-                                    2. <strong>Purpose (Ý nghĩa công việc)</strong>: Giúp họ nhìn thấy đóng góp của mình vào mục tiêu chung.
-                                    <br>
-                                    3. <strong>Immediate Feedback</strong>: Đưa ra phản hồi nhanh, công nhận kịp thời.
-                                    <div class="chat-bubble-source">
-                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
-                                        &nbsp;Nguồn tham khảo: Giáo trình OB - Chương 3: Motivation Models (Trang 114)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chat-input-bar">
-                                <div class="chat-input">Đặt câu hỏi học thuật tại đây...</div>
-                                <button class="chat-send-btn">
-                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                                </button>
+                            <div class="ai-screen-card card-sub">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/aiplatform-2.webp" alt="IDEAS AI Platform Mobile Interface">
                             </div>
                         </div>
                     </div>
