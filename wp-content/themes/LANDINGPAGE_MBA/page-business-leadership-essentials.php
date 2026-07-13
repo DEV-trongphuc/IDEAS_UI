@@ -641,6 +641,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: rgba(255, 255, 255, 0.95);
         }
 
+        .db-module-item.active {
+            background: rgba(255, 255, 255, 0.12) !important;
+            border-color: rgba(255, 255, 255, 0.25) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .db-active-pulse {
+            font-size: 0.65rem;
+            font-weight: 800;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 2px 8px;
+            border-radius: 100px;
+            margin-left: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .db-active-pulse::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: blink-dot 1.5s infinite;
+        }
+
+        @keyframes blink-dot {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
         /* Floating Badge in Hero visual */
         .db-floating-badge {
             position: absolute;
@@ -1157,13 +1194,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-tab.active {
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.04);
-            border-color: #ab0e00; /* Red active border on all sides */
+            background: #ab0e00;
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.2);
+            border-color: #ab0e00;
+        }
+
+        .curr-tab.active .curr-tab-tag {
+            color: rgba(255, 255, 255, 0.9) !important;
         }
 
         .curr-tab.active .curr-tab-title {
-            color: #0f172a;
+            color: #ffffff !important;
         }
 
         .curr-details {
@@ -1423,8 +1464,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── IDEAS AI Platform Section ── */
         .ai-grid {
             display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
-            gap: 60px;
+            grid-template-columns: 4.2fr 5.8fr;
+            gap: 100px;
             align-items: center;
         }
 
@@ -2275,7 +2316,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                         <!-- Main Portal Box -->
                         <div class="ble-dashboard-preview">
-                            <div class="ble-dashboard-badge">Online LMS Portal</div>
                             <div class="db-header">
                                 <div class="db-avatar">LM</div>
                                 <div class="db-user-info">
@@ -2307,11 +2347,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                     <span class="db-module-title">Organizational Behaviour (Đã xong)</span>
                                 </div>
-                                <div class="db-module-item">
+                                <div class="db-module-item active">
                                     <div class="db-module-icon pending">
                                         <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                                     </div>
-                                    <span class="db-module-title">Human Capital Management (Đang học)</span>
+                                    <span class="db-module-title">Human Capital Management</span>
+                                    <span class="db-active-pulse">Đang học</span>
                                 </div>
                             </div>
                         </div>
