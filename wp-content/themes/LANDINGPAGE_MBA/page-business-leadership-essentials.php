@@ -1775,8 +1775,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ai-screens-container {
             position: relative;
             width: 100%;
-            max-width: 680px;
-            height: 520px;
+            max-width: 720px;
+            height: 480px;
             margin: 0 auto;
         }
 
@@ -1787,25 +1787,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* Floating animations on wrappers */
         .wrap-login {
-            width: 50%;
-            left: 0;
-            top: 20%;
-            z-index: 1;
+            width: 48%;
+            left: -5%;
+            bottom: 6%;
+            z-index: 2;
             animation: float-screen-1 8s ease-in-out infinite;
         }
 
         .wrap-main {
-            width: 72%;
-            left: 18%;
-            top: 5%;
-            z-index: 2;
+            width: 82%;
+            left: 9%;
+            top: 6%;
+            z-index: 1;
             animation: float-screen-2 10s ease-in-out infinite;
         }
 
         .wrap-sub {
-            width: 36%;
-            right: 0;
-            bottom: 5%;
+            width: 32%;
+            right: -5%;
+            bottom: 2%;
             z-index: 3;
             animation: float-screen-3 7s ease-in-out infinite;
         }
@@ -1826,42 +1826,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* Initial static transforms for perspective */
         .card-login {
-            transform: perspective(1000px) rotateY(-8deg) rotateX(4deg) rotateZ(-2deg);
+            transform: perspective(1200px) rotateX(6deg) rotateY(12deg) rotateZ(3deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.14);
         }
 
         .card-main {
-            transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) rotateZ(-1deg);
+            transform: perspective(1200px) rotateX(8deg) rotateY(-4deg) rotateZ(-1deg);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
         }
 
         .card-sub {
-            transform: perspective(1000px) rotateY(6deg) rotateX(-4deg) rotateZ(2deg);
-            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.18);
+            transform: perspective(1200px) rotateX(10deg) rotateY(-15deg) rotateZ(-4deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
         }
 
         /* Hover interactions */
         .ai-screens-container:hover .wrap-login {
-            transform: translate(-15px, -10px);
+            transform: translate(-10px, 15px);
         }
         .ai-screens-container:hover .card-login {
-            transform: perspective(1000px) rotateY(-2deg) rotateX(2deg) rotateZ(-1deg) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: perspective(1200px) rotateX(2deg) rotateY(4deg) rotateZ(1deg) scale(1.03);
+            box-shadow: 0 30px 65px rgba(0, 0, 0, 0.2);
         }
 
         .ai-screens-container:hover .wrap-main {
             transform: translateY(-15px);
         }
         .ai-screens-container:hover .card-main {
-            transform: perspective(1000px) rotateY(-1deg) rotateX(1deg) rotateZ(0deg) scale(1.03);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+            transform: perspective(1200px) rotateX(2deg) rotateY(-1deg) rotateZ(0deg) scale(1.02);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.18);
         }
 
         .ai-screens-container:hover .wrap-sub {
-            transform: translate(20px, 10px);
+            transform: translate(15px, -15px);
         }
         .ai-screens-container:hover .card-sub {
-            transform: perspective(1000px) rotateY(2deg) rotateX(-2deg) rotateZ(1deg) scale(1.06);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.28);
+            transform: perspective(1200px) rotateX(2deg) rotateY(-4deg) rotateZ(-1deg) scale(1.05);
+            box-shadow: 0 45px 85px rgba(0, 0, 0, 0.28);
         }
 
         @keyframes float-screen-1 {
