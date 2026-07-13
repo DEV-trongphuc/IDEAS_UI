@@ -108,9 +108,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-section.bg-soft-cream {
-            background-color: #faf8f5;
-            border-top: 1px solid #f2eee9;
-            border-bottom: 1px solid #f2eee9;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #ffebeb 100%);
+            border-top: 1px solid rgba(171, 14, 0, 0.08);
+            border-bottom: 1px solid rgba(171, 14, 0, 0.08);
         }
 
         .ble-container {
@@ -174,8 +174,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ab0e00;
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 8px rgba(171, 14, 0, 0.6);
-            animation: pulse-dot-red 1.5s infinite;
+            box-shadow: 0 0 0 2.5px rgba(171, 14, 0, 0.25);
+            animation: pulse-dot-red-crisp 1.5s infinite;
+        }
+
+        @keyframes pulse-dot-red-crisp {
+            0% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 2px rgba(171, 14, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 4px rgba(171, 14, 0, 0.35);
+            }
+            100% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 2px rgba(171, 14, 0, 0.2);
+            }
         }
 
         @keyframes pulse-dot-red {
@@ -194,7 +209,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-section-title {
-            font-size: clamp(2.2rem, 4.5vw, 2.8rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.3rem);
             font-weight: 900;
             color: #0f172a;
             margin: 0 0 16px 0;
@@ -203,9 +218,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-section-subtitle {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #475569;
             line-height: 1.6;
+        }
+
+        .ble-text-red {
+            color: #ab0e00 !important;
+        }
+
+        .ble-gradient-text {
+            background: linear-gradient(135deg, #ab0e00 0%, #ff4d4d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        #curriculum.ble-section {
+            overflow: visible !important;
         }
 
         /* ── Red Box Title Accents ── */
@@ -361,8 +393,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: 8px;
             border-radius: 50%;
             background: #ab0e00;
-            box-shadow: 0 0 8px rgba(171, 14, 0, 0.6);
-            animation: pulse-dot-red 1.5s infinite;
+            box-shadow: 0 0 0 2.5px rgba(171, 14, 0, 0.25);
+            animation: pulse-dot-red-crisp 1.5s infinite;
         }
 
         .ble-hero-title {
@@ -662,11 +694,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── COURSE DETAILS BANNER (Solid Red Cask.vn Style Layout) ── */
         .ble-details-banner {
-            background: #ab0e00;
+            background: linear-gradient(135deg, #ab0e00 0%, #7a0900 60%, #4d0000 100%);
             padding: 70px 20px;
             color: #ffffff;
-            border-top: 1px solid #8c1000;
-            border-bottom: 1px solid #8c1000;
+            border-top: 1px solid #4d0000;
+            border-bottom: 1px solid #4d0000;
         }
 
         .ble-db-grid {
@@ -1755,33 +1787,66 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── FAQ & Registration Combined Layout (Cask-style Bottom Section) ── */
         .faq-form-grid {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1.15fr 0.85fr;
             gap: 50px;
             align-items: flex-start;
         }
 
         .ble-reg-card {
             background: #ffffff;
-            border-radius: 24px;
+            border-radius: 28px;
             border: 1.5px solid #cbd5e1;
             padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+            text-align: left;
+            position: relative;
+        }
+
+        .ble-reg-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #ab0e00, #ff5252);
+            border-top-left-radius: 28px;
+            border-top-right-radius: 28px;
+        }
+
+        .ble-reg-card-header {
             text-align: center;
-            border-top: 5px solid #ab0e00; /* red accent top line for form */
+            margin-bottom: 24px;
+        }
+
+        .reg-tag-11 {
+            display: inline-block;
+            background: #ab0e00;
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
         }
 
         .ble-reg-card h3 {
             font-size: 1.45rem;
             font-weight: 900;
             color: #0f172a;
-            margin: 0 0 12px 0;
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+            text-align: center;
         }
 
         .ble-reg-card p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #64748b;
-            line-height: 1.55;
-            margin-bottom: 28px;
+            line-height: 1.5;
+            margin: 0 0 24px 0;
+            text-align: center;
         }
 
         .ble-reg-form {
@@ -1790,23 +1855,46 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 16px;
         }
 
-        .ble-reg-form .form-group input {
+        .ble-reg-form .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: left;
+        }
+
+        .ble-reg-form .form-group label {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #475569;
+        }
+
+        .ble-reg-form .form-group input,
+        .ble-reg-form .form-group select,
+        .ble-reg-form .form-group textarea {
             width: 100%;
-            padding: 14px 20px;
-            border-radius: 12px;
-            background: #f8fafc;
-            border: 1.5px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
             color: #0f172a;
             font-size: 0.9rem;
             outline: none;
             transition: all 0.2s ease;
             box-sizing: border-box;
+            font-family: inherit;
         }
 
-        .ble-reg-form .form-group input:focus {
+        .ble-reg-form .form-group input:focus,
+        .ble-reg-form .form-group select:focus,
+        .ble-reg-form .form-group textarea:focus {
             border-color: #ab0e00;
-            background: #ffffff;
             box-shadow: 0 0 0 3px rgba(171,14,0,0.1);
+        }
+
+        .ble-reg-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
         .ble-btn-submit {
@@ -1818,8 +1906,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #ffffff !important;
             font-weight: 800;
             font-size: 0.95rem;
-            padding: 16px;
-            border-radius: 12px; /* Rectangular slightly rounded */
+            padding: 14px 20px;
+            border-radius: 10px;
             border: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1827,6 +1915,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-decoration: none !important;
             z-index: 5;
             margin-top: 10px;
+            gap: 8px;
         }
 
         .ble-btn-submit:hover {
@@ -2212,7 +2301,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="ble-section-tag">
                             <span class="dot"></span> Thách thức thực tế
                         </span>
-                        <h2 class="ble-section-title" style="text-align: left;">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ</h2>
+                        <h2 class="ble-section-title" style="text-align: left;">Đảm nhận vai trò quản lý,<br><span class="ble-text-red">năng lực chuyên môn thôi là chưa đủ</span></h2>
                         
                         <!-- Wow Stat Card -->
                         <div class="pain-stat-card">
@@ -2363,7 +2452,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Chương trình đào tạo
                     </span>
-                    <h2 class="ble-section-title">Nội dung đào tạo chi tiết</h2>
+                    <h2 class="ble-section-title">Nội dung đào tạo <span class="ble-text-red">chi tiết</span></h2>
                     <p class="ble-section-subtitle">3 môn học chuyên sâu về năng lực lãnh đạo và quản trị con người</p>
                 </div>
 
@@ -2772,7 +2861,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="ble-section-tag">
                             <span class="dot"></span> IDEAS AI Platform
                         </span>
-                        <h2 class="ble-section-title">AI được huấn luyện riêng cho chương trình học</h2>
+                        <h2 class="ble-section-title">AI được <span class="ble-text-red">huấn luyện riêng</span> cho chương trình học</h2>
                         <p class="ble-section-subtitle" style="margin-bottom: 24px;">Học đúng trọng tâm. Hiểu sâu kiến thức. Nền tảng hỗ trợ học viên học tập mọi lúc, mọi nơi, giúp nâng cao hiệu quả tự học.</p>
 
                         <ul class="ai-features-list">
@@ -2851,7 +2940,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Giảng viên khóa học
                     </span>
-                    <h2 class="ble-section-title">Đội ngũ chuyên môn</h2>
+                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">chuyên gia &amp; giảng sư</span></h2>
                     <p class="ble-section-subtitle">Học tập cùng các giáo sư, chuyên gia tư vấn hàng đầu quốc tế</p>
                 </div>
 
@@ -2956,7 +3045,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Ai nên học khóa học này?
                     </span>
-                    <h2 class="ble-section-title">Đối tượng đào tạo phù hợp</h2>
+                    <h2 class="ble-section-title">Đối tượng <span class="ble-text-red">đào tạo phù hợp</span></h2>
                     <p class="ble-section-subtitle">Chương trình được thiết kế chuẩn hóa cho từng nhóm đối tượng quản trị con người:</p>
                 </div>
 
@@ -3057,31 +3146,70 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
 
-                    <!-- Right: Registration Form Card -->
+                    <!-- Right: Registration Form Card aligned with mba.html style -->
                     <div class="form-col">
                         <div class="ble-reg-card">
-                            <h3>Đăng ký tư vấn ngay</h3>
-                            <p>Để lại thông tin để nhận tư vấn lộ trình học tập chi tiết và chính sách Learning Grant 100% học phí.</p>
-                            
-                            <form id="ble-bottom-reg-form" class="ble-reg-form">
-                                <div class="form-group">
-                                    <input type="text" id="reg-name" placeholder="Họ và tên của bạn" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" id="reg-phone" placeholder="Số điện thoại" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" id="reg-email" placeholder="Địa chỉ email" required>
-                                </div>
-                                <button type="submit" class="ble-btn-submit">Gửi thông tin đăng ký</button>
-                            </form>
-                            
-                            <div class="cta-offer" style="margin-top: 20px; font-size: 0.82rem; justify-content: center; color: #ab0e00; font-weight: 800;">
-                                <span class="cta-offer-icon">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                                </span>
-                                &nbsp;Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí.
+                            <div class="ble-reg-card-header">
+                                <span class="reg-tag-11">NHẬN TƯ VẤN 1:1</span>
+                                <h3>Khởi đầu hành trình<br><span class="ble-gradient-text">Lãnh đạo thực chiến</span></h3>
+                                <p>Chuyên viên sẽ liên hệ với bạn trong vòng 24h làm việc để tư vấn lộ trình phù hợp.</p>
                             </div>
+                            
+                            <form id="ble-bottom-reg-form" class="ble-reg-form" novalidate>
+                                <div class="form-group">
+                                    <label for="reg-name">Họ và tên *</label>
+                                    <input type="text" id="reg-name" name="fullname" placeholder="Họ và tên của bạn" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="reg-phone">Số điện thoại *</label>
+                                        <input type="tel" id="reg-phone" name="phone" placeholder="Số điện thoại" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg-email">Email *</label>
+                                        <input type="email" id="reg-email" name="email" placeholder="Địa chỉ email" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="reg-education">Trình độ học vấn *</label>
+                                        <select id="reg-education" name="education" required>
+                                            <option value="">-- Chọn trình độ --</option>
+                                            <option value="highschool">THPT</option>
+                                            <option value="college">Cao đẳng</option>
+                                            <option value="bachelor">Cử nhân</option>
+                                            <option value="master">Thạc sĩ</option>
+                                            <option value="other">Khác</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg-english">Trình độ Tiếng Anh *</label>
+                                        <select id="reg-english" name="english" required>
+                                            <option value="">-- Chọn trình độ --</option>
+                                            <option value="below-5.0">Dưới IELTS 5.0</option>
+                                            <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
+                                            <option value="6.0-plus">IELTS 6.0+</option>
+                                            <option value="other">Khác / Chưa thi</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reg-message">Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1</label>
+                                    <textarea id="reg-message" name="message" placeholder="Ví dụ: Tôi muốn tìm hiểu về lộ trình học tập, thời gian khai giảng..." rows="3"></textarea>
+                                </div>
+
+                                <button type="submit" class="ble-btn-submit">
+                                    <span>Gửi thông tin đăng ký</span>
+                                    <svg class="btn-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="color: #ffffff;">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                                
+                                <p class="form-privacy">Cam kết bảo mật thông tin</p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -3212,41 +3340,53 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             if (form) {
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
-
+ 
                     const nameInput = document.getElementById('reg-name');
                     const phoneInput = document.getElementById('reg-phone');
                     const emailInput = document.getElementById('reg-email');
-
+                    const eduInput = document.getElementById('reg-education');
+                    const engInput = document.getElementById('reg-english');
+                    const msgInput = document.getElementById('reg-message');
+ 
                     const name = nameInput ? nameInput.value.trim() : '';
                     const phone = phoneInput ? phoneInput.value.trim() : '';
                     const email = emailInput ? emailInput.value.trim() : '';
-
-                    if (!name || !phone || !email) {
-                        alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
+                    const education = eduInput ? eduInput.value : '';
+                    const english = engInput ? engInput.value : '';
+                    const message = msgInput ? msgInput.value.trim() : '';
+ 
+                    if (!name || !phone || !email || !education || !english) {
+                        alert('Vui lòng điền đầy đủ các trường thông tin bắt buộc (*).');
                         return;
                     }
-
+ 
+                    // Map values for readable notes
+                    const eduLabel = eduInput.options[eduInput.selectedIndex].text;
+                    const engLabel = engInput.options[engInput.selectedIndex].text;
+ 
+                    const noteText = `Học vấn: ${eduLabel} | Tiếng Anh: ${engLabel}${message ? ' | Lời nhắn: ' + message : ''}`;
+ 
                     const payload = {
                         form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
                         email: email,
                         firstName: name,
                         phoneNumber: phone,
                         time_dat_lich: "",
-                        note_dat_lich: 'Đăng ký tư vấn từ Landing Page BLE',
+                        note_dat_lich: noteText,
                         chuong_trinh_dat_lich: 'Business Leadership Essentials'
                     };
-
+ 
                     const webhookPayload = {
                         name: name,
                         phone: phone,
                         email: email,
                         source: "Landing_BLE",
                         type: "ble_page_registration",
-                        tieng_anh: "",
-                        hoc_van: "",
+                        tieng_anh: english,
+                        hoc_van: education,
                         time_dat_lich: "",
                         chuong_trinh: 'Business Leadership Essentials',
-                        nhu_cau: 'Đăng ký tư vấn khóa học Business Leadership Essentials'
+                        nhu_cau: noteText
                     };
 
                     // Bind UTMs
