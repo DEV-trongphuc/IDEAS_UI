@@ -100,7 +100,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 100px 20px;
             position: relative;
             background-color: #ffffff;
-            overflow: hidden; /* container for glow orbs */
+            overflow: hidden;
         }
 
         .ble-section.bg-white {
@@ -310,7 +310,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.35; /* faded background overlay */
+            opacity: 0.35;
             z-index: 1;
             pointer-events: none;
         }
@@ -383,7 +383,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 20px;
             border-radius: 16px;
             border: 1.5px solid #cbd5e1;
-            border-top: 3.5px solid #ab0e00; /* premium red top line */
+            border-top: 3.5px solid #ab0e00;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
             display: flex;
             flex-direction: column;
@@ -681,7 +681,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-bottom: 30px;
         }
 
-        /* Parameter grid with horizontal and vertical white borders */
         .ble-db-info-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -748,28 +747,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 10px 25px rgba(217, 159, 56, 0.35);
         }
 
-        .ble-btn-white-outline {
-            background: transparent;
-            color: #ffffff !important;
-            border: 1.5px solid #ffffff;
-            font-weight: 750;
+        /* Solid White Button with Red Text for high contrast */
+        .ble-btn-white {
+            background: #ffffff;
+            color: #ab0e00 !important;
+            font-weight: 850;
             font-size: 0.95rem;
-            padding: 13px 30px;
+            padding: 15px 32px;
             border-radius: 12px;
+            border: none;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            z-index: 5;
         }
 
-        .ble-btn-white-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
+        .ble-btn-white:hover {
+            background: #faf8f5;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
         }
 
-        /* Large visual card instead of small video */
         .ble-db-image-container {
             position: relative;
             border-radius: 24px;
@@ -793,23 +795,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: block;
         }
 
-        /* ── Pain Points Section (Flora Shadow & Bezier) ── */
+        /* ── Pain Points Section (1 Row, 4 Cards, Red Borders, No Left Border) ── */
         .pain-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
         }
 
         .pain-card {
             background: #ffffff;
             border-radius: 20px;
-            border: 1.5px solid #cbd5e1;
-            border-left: 4.5px solid #ab0e00; /* left red border contrast */
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+            border: 1.5px solid rgba(171, 14, 0, 0.15); /* red border instead of gray */
+            border-left: none; /* remove left border */
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.02);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
-            gap: 24px;
+            flex-direction: column; /* Vertical flow */
+            gap: 20px;
             position: relative;
             z-index: 2;
         }
@@ -864,14 +867,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .comp-card {
             background: #ffffff;
             border-radius: 20px;
-            border: 1.5px solid #cbd5e1;
-            border-top: 4.5px solid #ab0e00; /* top red border contrast */
+            border: 1.5px solid rgba(171, 14, 0, 0.15); /* red border for competencies as well */
+            border-top: 4.5px solid #ab0e00;
             padding: 32px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.02);
             z-index: 2;
         }
 
@@ -1280,7 +1283,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── IDEAS AI Platform Section ── */
         .ai-grid {
             display: grid;
-            grid-template-columns: 0.8fr 1.2fr; /* wider layout space for chat */
+            grid-template-columns: 0.8fr 1.2fr;
             gap: 60px;
             align-items: center;
         }
@@ -1333,8 +1336,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             width: 100%;
-            max-width: 620px; /* wider chat assistant box */
-            min-height: 480px; /* taller box */
+            max-width: 620px;
+            min-height: 480px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -1655,181 +1658,78 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 600;
         }
 
-        /* ── Final CTA Section ─────────────── */
-        .cta-banner {
+        /* ── FAQ & Registration Combined Layout (Cask-style Bottom Section) ── */
+        .faq-form-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .ble-reg-card {
             background: #ffffff;
             border-radius: 24px;
-            padding: 80px 60px;
-            color: #0f172a;
+            border: 1.5px solid #cbd5e1;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #cbd5e1;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.02);
+            border-top: 5px solid #ab0e00; /* red accent top line for form */
         }
 
-        .cta-banner h2 {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
+        .ble-reg-card h3 {
+            font-size: 1.45rem;
             font-weight: 900;
-            margin: 0 0 16px 0;
-            line-height: 1.25;
-            letter-spacing: -0.02em;
             color: #0f172a;
+            margin: 0 0 12px 0;
         }
 
-        .cta-banner p {
-            font-size: 1.05rem;
-            color: #475569;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            line-height: 1.6;
+        .ble-reg-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.55;
+            margin-bottom: 28px;
         }
 
-        .cta-benefits {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin-bottom: 48px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: #0f172a;
-            background: #f8fafc;
-            padding: 8px 18px;
-            border-radius: 100px;
-            border: 1px solid #cbd5e1;
-        }
-
-        .cta-benefit-item svg {
-            color: #10b981;
-        }
-
-        .cta-offer {
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #ab0e00;
-            margin-top: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .cta-offer-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ab0e00;
-        }
-
-        /* ── FAQ Section ───────────────────── */
-        .faq-list {
+        .ble-reg-form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            gap: 16px;
         }
 
-        .faq-item {
-            background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid #cbd5e1;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item.active {
-            border-color: #ab0e00;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.015);
-        }
-
-        .faq-header {
-            padding: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            user-select: none;
-            gap: 20px;
-        }
-
-        .faq-question {
-            font-size: 1.02rem;
-            font-weight: 800;
+        .ble-reg-form .form-group input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
             color: #0f172a;
-            line-height: 1.4;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
         }
 
-        .faq-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            transition: transform 0.3s ease;
+        .ble-reg-form .form-group input:focus {
+            border-color: #ab0e00;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(171,14,0,0.1);
         }
 
-        .faq-item.active .faq-arrow {
-            transform: rotate(180deg);
-            color: #ab0e00;
-        }
-
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .faq-content-inner {
-            padding: 0 24px 24px 24px;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 18px;
+        .ble-btn-submit {
+            width: 100%;
+            padding: 16px;
             font-size: 0.95rem;
-            line-height: 1.6;
-            color: #475569;
+            font-weight: 800;
+            border-radius: 12px;
+            margin-top: 10px;
         }
 
-        /* ── Keyframe Animations ────────────── */
-        @keyframes pulse-dot {
-            0% {
-                transform: scale(0.9);
-                opacity: 0.6;
-            }
-            50% {
-                transform: scale(1.3);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0.9);
-                opacity: 0.6;
-            }
-        }
-
-        @keyframes pulse-icon {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.12); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes float-badge-1 {
-            0% { transform: translateY(0px) rotate(-1deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-            100% { transform: translateY(0px) rotate(-1deg); }
-        }
-
-        @keyframes float-badge-2 {
-            0% { transform: translateY(0px) rotate(1deg); }
-            50% { transform: translateY(-8px) rotate(-1deg); }
-            100% { transform: translateY(0px) rotate(1deg); }
+        /* ── FAQ Section (Inside combined section) ── */
+        .faq-col .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 100%;
         }
 
         /* ── Responsive Rules ───────────────── */
@@ -1886,7 +1786,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .pain-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
 
@@ -1938,8 +1838,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 padding: 30px;
             }
 
-            .cta-banner {
-                padding: 50px 30px;
+            .faq-form-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
 
@@ -1958,6 +1859,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: 100%;
             }
 
+            .pain-grid,
             .comp-grid,
             .audience-grid,
             .fac-grid {
@@ -2165,7 +2067,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         
                         <div class="ble-db-actions">
                             <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-consult'); }" class="ble-btn-gold">Đăng Ký Tư Vấn</button>
-                            <a href="tel:02822442244" class="ble-btn-white-outline">
+                            <a href="tel:02822442244" class="ble-btn-white">
                                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 Hotline: 028 2244 2244
                             </a>
@@ -2182,8 +2084,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 2. PAIN POINTS SECTION (White Background, Ambient Glow, Red SVG Icons) -->
-        <section class="ble-section bg-white">
+        <!-- 2. PAIN POINTS SECTION (Warm Cream Background, 1 Row 4 Cards, Red Borders, No Left Border) -->
+        <section class="ble-section bg-soft-cream">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 10%; left: -10%;"></div>
             <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; right: -15%;"></div>
@@ -2242,8 +2144,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 3. CORE COMPETENCIES SECTION (Warm Cream Background, Ambient Glow) -->
-        <section class="ble-section bg-soft-cream">
+        <!-- 3. CORE COMPETENCIES SECTION (White Background, Accent Border Top) -->
+        <section class="ble-section bg-white">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 20%; right: -10%;"></div>
             <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; left: -15%;"></div>
@@ -2323,55 +2225,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 4. TARGET AUDIENCE SECTION (White Background) -->
-        <section class="ble-section bg-white">
-            <div class="ble-container">
-                <div class="ble-title-wrap">
-                    <span class="ble-section-tag">
-                        <span class="dot"></span> Ai nên học khóa học này?
-                    </span>
-                    <h2 class="ble-section-title">Đối tượng đào tạo phù hợp</h2>
-                    <p class="ble-section-subtitle">Chương trình được thiết kế chuẩn hóa cho từng nhóm đối tượng quản trị con người:</p>
-                </div>
-
-                <div class="audience-grid">
-                    <!-- Item 1 -->
-                    <div class="audience-card">
-                        <div class="audience-icon-box">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <h4>Trưởng nhóm</h4>
-                        <p>Dẫn dắt đội ngũ, cần nền tảng để ra quyết định và xây dựng uy tín trong đội.</p>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="audience-card">
-                        <div class="audience-icon-box">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.5 2.5 6l6-6L18 4.5c1.5-1.5 3.5-2.5 6-2.5-1.5 2.5-2.5 4.5-4 6l-6.5 6.5-6 6c1.5 1.5 3.5 2.5 6 2.5 5.5 0 10-4.5 10-10 0-1.5-1-3.5-2.5-5z"/></svg>
-                        </div>
-                        <h4>Nhân sự nguồn (Hi-Po)</h4>
-                        <p>Được doanh nghiệp định hướng lên vị trí quản lý, cần chuẩn bị năng lực trước khi chính thức đảm nhận vai trò.</p>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="audience-card">
-                        <div class="audience-icon-box">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M9 15v6l2-2 2 2v-6"/></svg>
-                        </div>
-                        <h4>Quản lý cấp trung</h4>
-                        <p>Đang trực tiếp điều hành đội nhóm, cần hệ thống hóa tư duy lãnh đạo.</p>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="audience-card">
-                        <div class="audience-icon-box">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22V18h6v4M8 6h2M14 6h2M8 10h2M14 10h2M8 14h2M14 14h2"/></svg>
-                        </div>
-                        <h4>Chủ doanh nghiệp SMEs</h4>
-                        <p>Trực tiếp quản lý đội ngũ, cần một hệ thống tư duy rõ ràng để xây dựng văn hóa làm việc tích cực.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. INTERACTIVE CURRICULUM SECTION (Warm Cream Background, Ambient Glow) -->
+        <!-- 4. INTERACTIVE CURRICULUM SECTION (Warm Cream Background, Ambient Glow) -->
         <section class="ble-section bg-soft-cream" id="curriculum">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="bottom: 5%; right: -10%;"></div>
@@ -2778,7 +2632,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 6. IDEAS AI PLATFORM SECTION (White Background, Ambient Glow) -->
+        <!-- 5. IDEAS AI PLATFORM SECTION (White Background, Ambient Glow) -->
         <section class="ble-section bg-white">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 15%; left: -10%;"></div>
@@ -2859,7 +2713,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 7. INSTRUCTORS SECTION (Warm Cream Background, Ambient Glow) -->
+        <!-- 6. INSTRUCTORS SECTION (Warm Cream Background, Ambient Glow) -->
         <section class="ble-section bg-soft-cream">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-gold" style="top: 15%; right: -10%;"></div>
@@ -2910,7 +2764,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 8. CERTIFICATE SHOWCASE SECTION (White Background, Ambient Glow) -->
+        <!-- 7. CERTIFICATE SHOWCASE SECTION (White Background, Ambient Glow) -->
         <section class="ble-section bg-white">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="bottom: 10%; left: -10%;"></div>
@@ -2967,97 +2821,138 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 9. FINAL CTA BANNER SECTION (Warm Cream Background) -->
+        <!-- 8. TARGET AUDIENCE SECTION (Warm Cream Background) - Moved Down Near Bottom -->
         <section class="ble-section bg-soft-cream">
             <div class="ble-container">
-                <div class="cta-banner">
-                    <h2>Business Leadership Essentials</h2>
-                    <p>Phát triển năng lực lãnh đạo, xây dựng đội ngũ và tạo nền tảng cho sự phát triển bền vững của doanh nghiệp.</p>
+                <div class="ble-title-wrap">
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Ai nên học khóa học này?
+                    </span>
+                    <h2 class="ble-section-title">Đối tượng đào tạo phù hợp</h2>
+                    <p class="ble-section-subtitle">Chương trình được thiết kế chuẩn hóa cho từng nhóm đối tượng quản trị con người:</p>
+                </div>
 
-                    <div class="cta-benefits">
-                        <div class="cta-benefit-item">
-                            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Được cấp Certificate of Completion sau khi hoàn thành chương trình.</span>
+                <div class="audience-grid">
+                    <!-- Item 1 -->
+                    <div class="audience-card">
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <div class="cta-benefit-item">
-                            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Học trực tuyến 100% trên nền tảng LMS IDEAS.</span>
-                        </div>
-                        <div class="cta-benefit-item">
-                            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Tham gia Executive Seminar cùng chuyên gia.</span>
-                        </div>
-                        <div class="cta-benefit-item">
-                            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/></svg>
-                            <span>Gia nhập cộng đồng IDEAS Alumni.</span>
-                        </div>
+                        <h4>Trưởng nhóm</h4>
+                        <p>Dẫn dắt đội ngũ, cần nền tảng để ra quyết định và xây dựng uy tín trong đội.</p>
                     </div>
-
-                    <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-footer-cta'); }" class="ble-btn">Đăng ký ngay</button>
-
-                    <div class="cta-offer">
-                        <span class="cta-offer-icon">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                        </span>
-                        &nbsp;Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí.
+                    <!-- Item 2 -->
+                    <div class="audience-card">
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4.5 16.5c-1.5 1.25-2.5 3.5-2.5 3.5s2.25-1 3.5-2.5M12 2C6.5 2 2 6.5 2 12c0 2.5 1 4.5 2.5 6l6-6L18 4.5c1.5-1.5 3.5-2.5 6-2.5-1.5 2.5-2.5 4.5-4 6l-6.5 6.5-6 6c1.5 1.5 3.5 2.5 6 2.5 5.5 0 10-4.5 10-10 0-1.5-1-3.5-2.5-5z"/></svg>
+                        </div>
+                        <h4>Nhân sự nguồn (Hi-Po)</h4>
+                        <p>Được doanh nghiệp định hướng lên vị trí quản lý, cần chuẩn bị năng lực trước khi chính thức đảm nhận vai trò.</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="audience-card">
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M9 15v6l2-2 2 2v-6"/></svg>
+                        </div>
+                        <h4>Quản lý cấp trung</h4>
+                        <p>Đang trực tiếp điều hành đội nhóm, cần hệ thống hóa tư duy lãnh đạo.</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="audience-card">
+                        <div class="audience-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22V18h6v4M8 6h2M14 6h2M8 10h2M14 10h2M8 14h2M14 14h2"/></svg>
+                        </div>
+                        <h4>Chủ doanh nghiệp SMEs</h4>
+                        <p>Trực tiếp quản lý đội ngũ, cần một hệ thống tư duy rõ ràng để xây dựng văn hóa làm việc tích cực.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 10. FAQS SECTION (White Background) -->
+        <!-- 9. COMBINED FAQ & REGISTRATION SECTION (White Background, Red Accent Form) -->
         <section class="ble-section bg-white" style="padding-bottom: 120px;">
             <div class="ble-container">
-                <div class="ble-title-wrap">
-                    <span class="ble-section-tag">
-                        <span class="dot"></span> FAQ
-                    </span>
-                    <h2 class="ble-section-title">Câu hỏi thường gặp</h2>
-                    <p class="ble-section-subtitle">Giải đáp một số thắc mắc phổ biến của các học viên:</p>
-                </div>
+                <div class="faq-form-grid">
+                    <!-- Left: FAQ accordions list -->
+                    <div class="faq-col">
+                        <span class="ble-section-tag">
+                            <span class="dot"></span> FAQ
+                        </span>
+                        <h2 class="ble-section-title" style="text-align: left; margin-bottom: 16px;">Câu hỏi thường gặp</h2>
+                        <p class="ble-section-subtitle" style="margin-bottom: 40px; text-align: left;">Giải đáp một số thắc mắc phổ biến của các học viên:</p>
 
-                <div class="faq-list">
-                    <!-- FAQ 1 -->
-                    <div class="faq-item">
-                        <div class="faq-header" onclick="toggleFaq(this)">
-                            <span class="faq-question">1. Vì sao chương trình chỉ gồm 3 môn học?</span>
-                            <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                            </span>
-                        </div>
-                        <div class="faq-content">
-                            <div class="faq-content-inner">
-                                Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
+                        <div class="faq-list">
+                            <!-- FAQ 1 -->
+                            <div class="faq-item">
+                                <div class="faq-header" onclick="toggleFaq(this)">
+                                    <span class="faq-question">1. Vì sao chương trình chỉ gồm 3 môn học?</span>
+                                    <span class="faq-arrow">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </span>
+                                </div>
+                                <div class="faq-content">
+                                    <div class="faq-content-inner">
+                                        Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 2 -->
+                            <div class="faq-item">
+                                <div class="faq-header" onclick="toggleFaq(this)">
+                                    <span class="faq-question">2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
+                                    <span class="faq-arrow">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </span>
+                                </div>
+                                <div class="faq-content">
+                                    <div class="faq-content-inner">
+                                        Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 3 -->
+                            <div class="faq-item">
+                                <div class="faq-header" onclick="toggleFaq(this)">
+                                    <span class="faq-question">3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
+                                    <span class="faq-arrow">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </span>
+                                </div>
+                                <div class="faq-content">
+                                    <div class="faq-content-inner">
+                                        Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- FAQ 2 -->
-                    <div class="faq-item">
-                        <div class="faq-header" onclick="toggleFaq(this)">
-                            <span class="faq-question">2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
-                            <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                            </span>
-                        </div>
-                        <div class="faq-content">
-                            <div class="faq-content-inner">
-                                Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 3 -->
-                    <div class="faq-item">
-                        <div class="faq-header" onclick="toggleFaq(this)">
-                            <span class="faq-question">3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
-                            <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
-                            </span>
-                        </div>
-                        <div class="faq-content">
-                            <div class="faq-content-inner">
-                                Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
+                    <!-- Right: Registration Form Card -->
+                    <div class="form-col">
+                        <div class="ble-reg-card">
+                            <h3>Đăng ký tư vấn ngay</h3>
+                            <p>Để lại thông tin để nhận tư vấn lộ trình học tập chi tiết và chính sách Learning Grant 100% học phí.</p>
+                            
+                            <form id="ble-bottom-reg-form" class="ble-reg-form">
+                                <div class="form-group">
+                                    <input type="text" id="reg-name" placeholder="Họ và tên của bạn" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="reg-phone" placeholder="Số điện thoại" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="reg-email" placeholder="Địa chỉ email" required>
+                                </div>
+                                <button type="submit" class="ble-btn ble-btn-submit">Gửi thông tin đăng ký</button>
+                            </form>
+                            
+                            <div class="cta-offer" style="margin-top: 20px; font-size: 0.82rem; justify-content: center; color: #ab0e00; font-weight: 800;">
+                                <span class="cta-offer-icon">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                                </span>
+                                &nbsp;Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí.
                             </div>
                         </div>
                     </div>
@@ -3085,7 +2980,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Site Footer -->
     <?php get_footer(); ?>
 
-    <!-- Interactive JS scripts for Curriculum Tab & Accordions -->
+    <!-- Interactive JS scripts for Curriculum Tab & Accordions & AJAX Bottom Form -->
     <script>
         // 1. Curriculum Tab Switcher
         document.addEventListener('DOMContentLoaded', function() {
@@ -3182,6 +3077,101 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 item.classList.add('active');
             }
         }
+
+        // 5. AJAX Bottom Form Submit Handler
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('ble-bottom-reg-form');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const nameInput = document.getElementById('reg-name');
+                    const phoneInput = document.getElementById('reg-phone');
+                    const emailInput = document.getElementById('reg-email');
+
+                    const name = nameInput ? nameInput.value.trim() : '';
+                    const phone = phoneInput ? phoneInput.value.trim() : '';
+                    const email = emailInput ? emailInput.value.trim() : '';
+
+                    if (!name || !phone || !email) {
+                        alert('Vui lòng điền đầy đủ các thông tin bắt buộc.');
+                        return;
+                    }
+
+                    const payload = {
+                        form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
+                        email: email,
+                        firstName: name,
+                        phoneNumber: phone,
+                        time_dat_lich: "",
+                        note_dat_lich: 'Đăng ký tư vấn từ Landing Page BLE',
+                        chuong_trinh_dat_lich: 'Business Leadership Essentials'
+                    };
+
+                    const webhookPayload = {
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        source: "Landing_BLE",
+                        type: "ble_page_registration",
+                        tieng_anh: "",
+                        hoc_van: "",
+                        time_dat_lich: "",
+                        chuong_trinh: 'Business Leadership Essentials',
+                        nhu_cau: 'Đăng ký tư vấn khóa học Business Leadership Essentials'
+                    };
+
+                    // Bind UTMs
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
+                    utmParams.forEach(param => {
+                        const val = urlParams.get(param);
+                        if (val) webhookPayload[param] = val;
+                    });
+
+                    const btn = form.querySelector('button[type="submit"]');
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.style.opacity = '0.7';
+                    }
+
+                    try {
+                        const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(webhookPayload)
+                        });
+
+                        await Promise.allSettled([p1, p2]);
+
+                        if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'conversion', {
+                                'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                                'value': 1.0,
+                                'currency': 'USD'
+                            });
+                        }
+
+                        alert('Đăng ký thành công! Chuyên viên học vụ sẽ liên hệ hỗ trợ bạn trong vòng 24h làm việc.');
+                        form.reset();
+                    } catch (error) {
+                        console.error('Submission error:', error);
+                        alert('Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
+                    } finally {
+                        if (btn) {
+                            btn.disabled = false;
+                            btn.style.opacity = '1';
+                        }
+                    }
+                });
+            }
+        });
     </script>
 </body>
 
