@@ -1404,20 +1404,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-align: left;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
-        }
-
-        .curr-tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            background: #ffeb3b;
-            transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            border-top-left-radius: 16px;
-            border-bottom-left-radius: 16px;
         }
 
         .curr-tab-tag {
@@ -1449,10 +1435,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ab0e00;
             box-shadow: 0 10px 30px rgba(171, 14, 0, 0.2);
             border-color: #ab0e00;
-        }
-
-        .curr-tab.active::before {
-            width: 6px;
         }
 
         .curr-tab.active .curr-tab-tag {
@@ -2578,7 +2560,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 1B. ABOUT IDEAS SECTION (Cloned from index.html) -->
+        <!-- 1B. ABOUT SWISS UMEF BLE SECTION (Cloned & Customized from index.html) -->
         <section class="about-section" id="gioi-thieu" style="padding: 80px 0; background: #fff; position: relative; overflow: hidden;">
             <!-- Localized Background Decor -->
             <div class="section-bg-decor">
@@ -2588,18 +2570,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="ble-container">
                 <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 60px;">
                     <div class="reveal-up">
-                        <div class="section-label" style="font-size: 0.72rem; font-weight: 800; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">GIỚI THIỆU</div>
+                        <div class="section-label" style="font-size: 0.72rem; font-weight: 800; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">GIỚI THIỆU CHƯƠNG TRÌNH</div>
                         <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.3rem); color: #0f172a; line-height: 1.35; font-weight: 800; margin-top: 10px; margin-bottom: 24px;">
-                            <span class="brand-red-text" style="color: #ab0e00;">IDEAS</span> – Hành trình <span class="brand-red-text" style="color: #ab0e00;">15 năm</span> kết nối giáo dục toàn cầu
+                            <span class="brand-red-text" style="color: #ab0e00;">Swiss UMEF</span> – Đào tạo chuẩn Thụy Sĩ thiết kế cho Lãnh đạo thực chiến
                         </h2>
                         <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-top: 24px;">
-                            IDEAS là đơn vị hỗ trợ giáo dục với hơn 15 năm kinh nghiệm (thành lập từ 2011), giúp học viên Việt Nam theo học các chương trình sau Đại học & Cử nhân tại các trường quốc tế danh tiếng của Thụy Sĩ, Pháp, Mỹ.
+                            Chương trình Business Leadership Essentials được chuyển giao học thuật từ Swiss UMEF (Geneva, Thụy Sĩ), thiết kế tinh gọn gồm 3 môn học cốt lõi giúp học viên thấu hiểu tổ chức, dẫn dắt đội ngũ và quản trị nguồn nhân lực hiệu quả.
                         </p>
                         <p style="font-size: 1rem; color: #475569; line-height: 1.7; margin-top: 16px;">
-                            Là đối tác hỗ trợ học thuật toàn diện, IDEAS đồng hành giúp học viên giải quyết mọi rào cản về ngôn ngữ, thời gian, phương thức học thông qua hệ sinh thái hỗ trợ học thuật trên chuẩn nền giáo dục Quốc tế và hệ thống bổ trợ chuyên sâu cuối tuần.
+                            Với sự đồng hành hỗ trợ học thuật toàn diện từ IDEAS, học viên dễ dàng vượt qua các rào cản về ngôn ngữ, thời gian và phương pháp học thông qua các buổi học phụ đạo cuối tuần và hệ sinh thái hỗ trợ chuẩn quốc tế.
                         </p>
                         <p style="font-size: 1.05rem; font-weight: 600; color: #ab0e00; font-style: italic; margin-top: 20px; margin-bottom: 20px;">
-                            "Trí thức Nguyên bản – Đồng hành Bản địa"
+                            "Nâng tầm năng lực lãnh đạo – Chuyển hóa tư duy quản trị"
                         </p>
                         <div class="ideas_follow_inner" style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
                             <div class="ideas_follow" style="display: flex; gap: 10px; align-items: center;">
@@ -2629,35 +2611,35 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="competency-grid reveal-up">
                     <div class="competency-card">
                         <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         </div>
                         <div class="comp-number">01</div>
-                        <h3 class="comp-title">Hệ thống LMS & AI Tutors</h3>
-                        <p class="comp-desc">Nền tảng học tập eAcademy kết hợp với IDEAS-LMS và trợ lý I-AI giúp học viên học tập, tra cứu tài liệu và làm bài tập hiệu quả 24/7.</p>
+                        <h3 class="comp-title">Kiến thức chuẩn Thụy Sĩ</h3>
+                        <p class="comp-desc">Chương trình đào tạo chuyển giao học thuật từ Swiss UMEF (Geneva, Thụy Sĩ), tập trung hoàn toàn vào các mô hình và framework quản trị thực chiến.</p>
                     </div>
                     <div class="competency-card">
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                         </div>
                         <div class="comp-number">02</div>
-                        <h3 class="comp-title">Bổ trợ tiếng Việt cuối tuần</h3>
-                        <p class="comp-desc">Các buổi chuyên đề Chủ nhật giúp hướng dẫn bài tập, giải đáp thắc mắc và đánh giá sơ bộ bài thi (Final Exam) để tránh lạc đề, hạn chế rớt môn.</p>
+                        <h3 class="comp-title">Bổ trợ chuyên sâu cuối tuần</h3>
+                        <p class="comp-desc">Các buổi hướng dẫn tiếng Việt cuối tuần giúp làm rõ các nội dung học thuật phức tạp, định hướng ôn tập và chuẩn bị tốt cho các bài thi (Final Exam).</p>
                     </div>
                     <div class="competency-card">
                         <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                         </div>
                         <div class="comp-number">03</div>
-                        <h3 class="comp-title">Kết nối & Phát triển sự nghiệp</h3>
-                        <p class="comp-desc">Mạng lưới học viên là các quản lý, chủ doanh nghiệp. Các buổi Seminar offline, workshop thực tế giúp mở rộng mối quan hệ và phát triển sự nghiệp.</p>
+                        <h3 class="comp-title">Hệ thống học tập & AI Tutors</h3>
+                        <p class="comp-desc">Truy cập nền tảng eAcademy tích hợp trợ lý học tập AI chuyên biệt, hỗ trợ học viên giải đáp thắc mắc tài liệu học mọi lúc mọi nơi.</p>
                     </div>
                     <div class="competency-card">
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
                         </div>
                         <div class="comp-number">04</div>
-                        <h3 class="comp-title">Tốt nghiệp danh giá tại Châu Âu</h3>
-                        <p class="comp-desc">Học viên tham dự Lễ Tốt nghiệp trang trọng tại Geneva (Thụy Sĩ), Paris (Pháp) hoặc Hoa Kỳ, có cơ hội du lịch và trải nghiệm thế giới.</p>
+                        <h3 class="comp-title">Chứng nhận tốt nghiệp giá trị</h3>
+                        <p class="comp-desc">Nhận chứng nhận hoàn thành chương trình danh giá do EGA & Viện IDEAS cấp trên cơ sở chuyển giao học thuật Swiss UMEF, tạo bước thăng tiến vượt bậc.</p>
                     </div>
                 </div>
             </div>
