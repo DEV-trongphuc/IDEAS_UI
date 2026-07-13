@@ -2686,6 +2686,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 justify-content: center !important;
                 flex: 1 !important;
                 width: 50% !important;
+                max-width: 50% !important;
+                min-width: 50% !important;
                 padding: 11px 4px !important;
                 font-size: 0.8rem !important;
                 white-space: nowrap !important;
@@ -2729,12 +2731,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 box-sizing: border-box !important;
             }
 
-            .ble-hero-actions .ble-btn {
+            .ble-hero-actions button.ble-btn,
+            .ble-hero-actions a.ble-btn {
                 display: inline-flex !important;
                 align-items: center !important;
                 justify-content: center !important;
                 flex: 1 !important;
                 width: 50% !important;
+                max-width: 50% !important;
+                min-width: 50% !important;
                 padding: 11px 4px !important;
                 font-size: 0.8rem !important;
                 white-space: nowrap !important;
