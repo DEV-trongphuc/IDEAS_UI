@@ -3267,7 +3267,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                         <!-- Showcase Challenge Image -->
                         <div class="pain-visual-img-wrap" style="border-radius: 18px !important; overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06); transition: all 0.3s ease;">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_2.png" alt="Thử thách quản lý doanh nghiệp" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.58; border-radius: 14px !important;">
+                            <img src="/wp-content/uploads/2025/03/buoihuongdan-optimized.webp" alt="Thử thách quản lý doanh nghiệp" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.58; border-radius: 14px !important;">
                         </div>
                     </div>
 
@@ -3978,7 +3978,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                         <!-- Showcase cohort study image -->
                         <div class="cert-visual-img-wrap" style="margin-top: 30px; border-radius: 18px !important; overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06);">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase_3.png" alt="Không khí học tập và thảo luận dự án" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.62; border-radius: 14px !important;">
+                            <img src="/wp-content/uploads/2024/10/Totnghiepumef-optimized.webp" alt="Không khí học tập và thảo luận dự án" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.62; border-radius: 14px !important;">
                         </div>
                     </div>
 
@@ -4031,7 +4031,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Left: Showcase Image with rounded border-radius -->
                     <div class="ble-audience-visual">
                         <div class="ble-audience-img-wrapper" style="border-radius: 18px !important; overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06); width: 100%; transition: all 0.3s ease;">
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/ble_audience_showcase.png" alt="Đối tượng đào tạo quản lý nhân sự" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.15; border-radius: 14px !important;">
+                            <img src="/wp-content/uploads/2025/03/workshopAI.webp" alt="Đối tượng đào tạo quản lý nhân sự" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 1.15; border-radius: 14px !important;">
                         </div>
                     </div>
 
