@@ -1804,7 +1804,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .wrap-sub {
-            width: 38%;
+            width: 48%;
             right: -5%;
             bottom: 2%;
             z-index: 3;
@@ -2424,6 +2424,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             /* Prevent overflow on mobile layouts */
+            .ble-hero {
+                padding-top: 155px !important;
+                padding-bottom: 60px !important;
+                box-sizing: border-box !important;
+            }
             .ble-details-banner {
                 padding: 45px 16px !important;
                 box-sizing: border-box !important;
@@ -2533,7 +2538,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             /* AI platform 3 screens mockup mobile scale up overrides */
             .wrap-sub {
-                width: 44% !important;
+                width: 54% !important;
                 right: -6% !important;
                 bottom: 2% !important;
             }
@@ -4070,13 +4075,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const lightboxImg = lightbox.querySelector('.ble-lightbox-img');
             if (!lightbox || !lightboxImg) return;
             
-            const zoomables = document.querySelectorAll('.ble-db-image-container img, .ai-screen-card img');
-            zoomables.forEach(img => {
-                img.style.cursor = 'zoom-in';
-                img.addEventListener('click', (e) => {
+            const zoomables = document.querySelectorAll('.ble-db-image-container, .ai-screen-card, .ble-db-image-container img, .ai-screen-card img');
+            zoomables.forEach(el => {
+                el.style.cursor = 'zoom-in';
+                el.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    lightboxImg.src = img.src;
-                    lightbox.classList.add('active');
+                    let src = "";
+                    if (el.tagName === 'IMG') {
+                        src = el.src;
+                    } else {
+                        const img = el.querySelector('img');
+                        if (img) src = img.src;
+                    }
+                    if (src) {
+                        lightboxImg.src = src;
+                        lightbox.classList.add('active');
+                    }
                 });
             });
         });
