@@ -419,7 +419,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.08);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 12px 24px;
             gap: 0;
             margin-bottom: 35px;
@@ -452,19 +452,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hero-meta-item svg {
             width: 16px !important;
             height: 16px !important;
-            color: #ab0e00 !important;
-            background: rgba(171, 14, 0, 0.06) !important;
+            color: #ffffff !important;
+            background: #ab0e00 !important;
             padding: 8px !important;
             border-radius: 50% !important;
             flex-shrink: 0 !important;
             display: block !important;
         }
 
-        .ble-hero-meta-item svg path,
-        .ble-hero-meta-item svg polygon,
-        .ble-hero-meta-item svg circle,
-        .ble-hero-meta-item svg rect {
-            stroke: #ab0e00 !important;
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg *,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg path,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg polygon,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg circle,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg rect {
+            stroke: #ffffff !important;
             stroke-width: 2.5 !important;
             fill: none !important;
         }
@@ -492,9 +494,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: linear-gradient(90deg, rgba(171, 14, 0, 0.05) 0%, rgba(255, 82, 82, 0.05) 100%);
             border: 1.5px dashed rgba(171, 14, 0, 0.35);
             padding: 16px 24px;
-            border-radius: 16px;
+            border-radius: 12px;
             margin-bottom: 36px;
-            max-width: 600px;
+            max-width: 760px;
+            width: 100%;
+            box-sizing: border-box;
             animation: pulse-promo-glow 2s infinite alternate;
         }
 
@@ -2478,7 +2482,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 box-sizing: border-box !important;
             }
             .ble-hero {
-                padding-top: 185px !important;
+                padding-top: 130px !important;
                 padding-bottom: 60px !important;
                 box-sizing: border-box !important;
             }
@@ -3009,15 +3013,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- Sleek Inline Highlight Grid (2x2) -->
                         <div class="ble-hero-meta-row">
                             <div class="ble-hero-meta-item">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                <div class="ble-meta-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                </div>
                                 <span>Chứng nhận<strong>Swiss UMEF (Thụy Sĩ)</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5v-13A2.5 2.5 0 0 1 6.5 4H20v13H6.5a2.5 2.5 0 0 0-2.5 2.5z"/></svg>
+                                <div class="ble-meta-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                </div>
                                 <span>Phương pháp<strong>Thực chiến &amp; Case-study</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
+                                <div class="ble-meta-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11l2 2 4-4"/></svg>
+                                </div>
                                 <span>Đầu ra<strong>8 năng lực quản lý cốt lõi</strong></span>
                             </div>
                         </div>
