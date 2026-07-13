@@ -1159,6 +1159,164 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
+        /* ── About Us Competency Cards ── */
+        .competency-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+            gap: 24px !important;
+            margin-top: 36px !important;
+        }
+
+        .competency-card {
+            background: #ffffff !important;
+            border: 1.5px solid #f1f5f9 !important;
+            border-radius: 20px !important;
+            padding: 32px 24px 28px 24px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            position: relative !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02) !important;
+            height: 100% !important;
+        }
+
+        .competency-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.06) !important;
+            border-color: rgba(171, 14, 0, 0.15) !important;
+        }
+
+        .competency-card .comp-icon-box {
+            width: 48px;
+            height: 48px;
+            background: rgba(171, 14, 0, 0.05);
+            color: #ab0e00;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .competency-card:hover .comp-icon-box {
+            background: #ab0e00;
+            color: #ffffff;
+        }
+
+        .competency-card .comp-number {
+            position: absolute !important;
+            top: 24px !important;
+            right: 24px !important;
+            font-size: 2.2rem !important;
+            font-weight: 900 !important;
+            color: rgba(171, 14, 0, 0.04) !important;
+            line-height: 1 !important;
+            font-family: system-ui, -apple-system, sans-serif !important;
+        }
+
+        .competency-card .comp-title {
+            font-size: 1.15rem !important;
+            font-weight: 800 !important;
+            color: #0f172a !important;
+            margin-bottom: 12px !important;
+            line-height: 1.4 !important;
+            margin-top: 0 !important;
+        }
+
+        .competency-card .comp-desc {
+            font-size: 0.88rem !important;
+            color: #64748b !important;
+            line-height: 1.6 !important;
+            margin: 0 !important;
+        }
+
+        /* ── Follow Social Proof Styles ── */
+        .ideas_follow_inner {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .ideas_follow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 99px;
+            padding: 8px 18px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.01);
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            height: 42px;
+        }
+
+        .ideas_follow:hover {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: rgba(171, 14, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.04);
+        }
+
+        .ideas_follow p {
+            font-size: 0.82rem !important;
+            font-weight: 800 !important;
+            color: #334155 !important;
+            margin: 0 !important;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ideas_follow a {
+            color: #64748b;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .ideas_follow a:hover {
+            color: #ab0e00;
+            transform: translateY(-1.5px);
+        }
+
+        .ideas_follow a i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ideas_follow a img {
+            height: 18px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(1) opacity(0.65);
+            transition: all 0.3s ease;
+        }
+
+        .ideas_follow a:hover img {
+            filter: grayscale(0) opacity(1);
+        }
+
+        .ideas_follow.group a img {
+            height: 22px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(1) opacity(0.7);
+        }
+
+        .ideas_follow.group a:hover img {
+            filter: grayscale(0) opacity(1);
+        }
+
         /* ── Target Audience Section ──────── */
         .audience-grid {
             display: grid;
@@ -2420,6 +2578,91 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
+        <!-- 1B. ABOUT IDEAS SECTION (Cloned from index.html) -->
+        <section class="about-section" id="gioi-thieu" style="padding: 80px 0; background: #fff; position: relative; overflow: hidden;">
+            <!-- Localized Background Decor -->
+            <div class="section-bg-decor">
+                <svg class="svg-icon fa-book fa-solid bg-decor-icon decor-lg" style="position: absolute; top: 15%; left: 3%; opacity: 0.04; animation: float-slow 25s ease-in-out infinite; color: #ef4444; pointer-events: none;" viewBox="0 0 448 512" width="60" height="60" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+                <svg class="svg-icon fa-globe fa-solid bg-decor-icon decor-sm" style="position: absolute; top: 60%; right: 4%; opacity: 0.04; animation: float-slow 31s ease-in-out infinite; color: #ef4444; pointer-events: none;" viewBox="0 0 512 512" width="40" height="40" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z"/></svg>
+            </div>
+            <div class="ble-container">
+                <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 60px;">
+                    <div class="reveal-up">
+                        <div class="section-label" style="font-size: 0.72rem; font-weight: 800; color: #ab0e00; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">GIỚI THIỆU</div>
+                        <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.3rem); color: #0f172a; line-height: 1.35; font-weight: 800; margin-top: 10px; margin-bottom: 24px;">
+                            <span class="brand-red-text" style="color: #ab0e00;">IDEAS</span> – Hành trình <span class="brand-red-text" style="color: #ab0e00;">15 năm</span> kết nối giáo dục toàn cầu
+                        </h2>
+                        <p style="font-size: 1.05rem; color: #475569; line-height: 1.7; margin-top: 24px;">
+                            IDEAS là đơn vị hỗ trợ giáo dục với hơn 15 năm kinh nghiệm (thành lập từ 2011), giúp học viên Việt Nam theo học các chương trình sau Đại học & Cử nhân tại các trường quốc tế danh tiếng của Thụy Sĩ, Pháp, Mỹ.
+                        </p>
+                        <p style="font-size: 1rem; color: #475569; line-height: 1.7; margin-top: 16px;">
+                            Là đối tác hỗ trợ học thuật toàn diện, IDEAS đồng hành giúp học viên giải quyết mọi rào cản về ngôn ngữ, thời gian, phương thức học thông qua hệ sinh thái hỗ trợ học thuật trên chuẩn nền giáo dục Quốc tế và hệ thống bổ trợ chuyên sâu cuối tuần.
+                        </p>
+                        <p style="font-size: 1.05rem; font-weight: 600; color: #ab0e00; font-style: italic; margin-top: 20px; margin-bottom: 20px;">
+                            "Trí thức Nguyên bản – Đồng hành Bản địa"
+                        </p>
+                        <div class="ideas_follow_inner" style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                            <div class="ideas_follow" style="display: flex; gap: 10px; align-items: center;">
+                                <p style="margin: 0; font-weight: 700; font-size: 0.85rem; color: #0f172a; text-transform: uppercase;">Follow</p>
+                                <a target="_blank" href="https://www.facebook.com/ideas.edu.vn/" aria-label="Facebook IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 512 512" width="16" height="16" fill="currentColor"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a>
+                                <a target="_blank" href="https://www.youtube.com/c/Vi%E1%BB%87nIDEAS" aria-label="YouTube IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 576 512" width="16" height="16" fill="currentColor"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>
+                                <a target="_blank" href="https://www.linkedin.com/company/ideasinstitute/" aria-label="LinkedIn IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                                <a target="_blank" href="https://www.tiktok.com/@ideas_institute" aria-label="TikTok IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg></a>
+                                <a target="_blank" href="https://zalo.me/3857867121882640296" aria-label="Zalo IDEAS" style="color: #475569; transition: color 0.2s;"><img loading="lazy" decoding="async" alt="Zalo" width="18" height="18" src="/wp-content/uploads/external-migrated/zalo-icon_3f4c0a22.webp" style="vertical-align: middle; border-radius: 4px;"></a>
+                                <a target="_blank" href="https://www.instagram.com/ideas.edu.vn/" aria-label="Instagram IDEAS" style="color: #475569; transition: color 0.2s;"><svg viewBox="0 0 448 512" width="16" height="16" fill="currentColor"><path d="M194.4 211.7a53.3 53.3 0 1 0 59.3 88.7 53.3 53.3 0 1 0 -59.3-88.7zm142.3-68.4c-5.2-5.2-11.5-9.3-18.4-12c-18.1-7.1-57.6-6.8-83.1-6.5c-4.1 0-7.9 .1-11.2 .1c-3.3 0-7.2 0-11.4-.1c-25.5-.3-64.8-.7-82.9 6.5c-6.9 2.7-13.1 6.8-18.4 12s-9.3 11.5-12 18.4c-7.1 18.1-6.7 57.7-6.5 83.2c0 4.1 .1 7.9 .1 11.1s0 7-.1 11.1c-.2 25.5-.6 65.1 6.5 83.2c2.7 6.9 6.8 13.1 12 18.4s11.5 9.3 18.4 12c18.1 7.1 57.6 6.8 83.1 6.5c4.1 0 7.9-.1 11.2-.1c3.3 0 7.2 0 11.4 .1c25.5 .3 64.8 .7 82.9-6.5c6.9-2.7 13.1-6.8 18.4-12s9.3-11.5 12-18.4c7.2-18 6.8-57.4 6.5-83c0-4.2-.1-8.1-.1-11.4s0-7.1 .1-11.4c.3-25.5 .7-64.9-6.5-83l0 0c-2.7-6.9-6.8-13.1-12-18.4zm-67.1 44.5A82 82 0 1 1 178.4 324.2a82 82 0 1 1 91.1-136.4zm29.2-1.3c-3.1-2.1-5.6-5.1-7.1-8.6s-1.8-7.3-1.1-11.1s2.6-7.1 5.2-9.8s6.1-4.5 9.8-5.2s7.6-.4 11.1 1.1s6.5 3.9 8.6 7s3.2 6.8 3.2 10.6c0 2.5-.5 5-1.4 7.3s-2.4 4.4-4.1 6.2s-3.9 3.2-6.2 4.2s-4.8 1.5-7.3 1.5l0 0c-3.8 0-7.5-1.1-10.6-3.2zM448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM357 389c-18.7 18.7-41.4 24.6-67 25.9c-26.4 1.5-105.6 1.5-132 0c-25.6-1.3-48.3-7.2-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6 0-132c1.3-25.6 7.1-48.3 25.8-67s41.5-24.6 67-25.8c26.4-1.5 105.6-1.5 132 0c25.6 1.3 48.3 7.1 67 25.8s24.6 41.4 25.8 67c1.5 26.3 1.5 105.4 0 131.9c-1.3 25.6-7.1 48.3-25.8 67z"/></svg></a>
+                            </div>
+                            <div class="ideas_follow group" style="display: flex; gap: 10px; align-items: center; margin-left: 20px;">
+                                <p style="margin: 0; font-weight: 700; font-size: 0.85rem; color: #0f172a; text-transform: uppercase;">Community</p>
+                                <a target="_blank" href="https://chiefaiofficer.vn/" rel="noopener nofollow external noreferrer" style="display: inline-block;"><img loading="lazy" decoding="async" alt="Chief AI Officer" width="70" height="29" src="https://ideas.edu.vn/wp-content/uploads/2025/09/cao-logo-1.png.webp" style="vertical-align: middle;"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal-up" style="position: relative;">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp" alt="Buổi hướng dẫn học viên IDEAS" width="1024" height="774" style="width: 100%; height: auto; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);" loading="lazy" decoding="async" />
+                        <div class="about-badge" style="position: absolute; bottom: -20px; left: -20px; background: #ab0e00; color: #fff; padding: 20px 24px; border-radius: 16px; box-shadow: 0 10px 25px rgba(171,14,0,0.3); font-weight: 700; width: 170px; text-align: center;">
+                            <span style="font-size: 2.2rem; color: #ffffff; display: block; line-height: 1; font-weight: 900; margin-bottom: 6px;">15+</span>
+                            <span style="font-size: 0.78rem; font-weight: 600; display: block; line-height: 1.3; color: rgba(255,255,255,0.95);">Đồng hành cùng học viên Việt Nam</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competency-grid reveal-up">
+                    <div class="competency-card">
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <div class="comp-number">01</div>
+                        <h3 class="comp-title">Hệ thống LMS & AI Tutors</h3>
+                        <p class="comp-desc">Nền tảng học tập eAcademy kết hợp với IDEAS-LMS và trợ lý I-AI giúp học viên học tập, tra cứu tài liệu và làm bài tập hiệu quả 24/7.</p>
+                    </div>
+                    <div class="competency-card">
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="comp-number">02</div>
+                        <h3 class="comp-title">Bổ trợ tiếng Việt cuối tuần</h3>
+                        <p class="comp-desc">Các buổi chuyên đề Chủ nhật giúp hướng dẫn bài tập, giải đáp thắc mắc và đánh giá sơ bộ bài thi (Final Exam) để tránh lạc đề, hạn chế rớt môn.</p>
+                    </div>
+                    <div class="competency-card">
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="comp-number">03</div>
+                        <h3 class="comp-title">Kết nối & Phát triển sự nghiệp</h3>
+                        <p class="comp-desc">Mạng lưới học viên là các quản lý, chủ doanh nghiệp. Các buổi Seminar offline, workshop thực tế giúp mở rộng mối quan hệ và phát triển sự nghiệp.</p>
+                    </div>
+                    <div class="competency-card">
+                        <div class="comp-icon-box">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                        </div>
+                        <div class="comp-number">04</div>
+                        <h3 class="comp-title">Tốt nghiệp danh giá tại Châu Âu</h3>
+                        <p class="comp-desc">Học viên tham dự Lễ Tốt nghiệp trang trọng tại Geneva (Thụy Sĩ), Paris (Pháp) hoặc Hoa Kỳ, có cơ hội du lịch và trải nghiệm thế giới.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 2. PAIN POINTS SECTION (Warm Cream Background, Editorial Split Columns) -->
         <section class="ble-section bg-soft-cream">
             <!-- Background Glow Orbs -->
@@ -3218,11 +3461,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 9. FAQ SECTION & REGISTRATION FORM (Stacked, Matching mba.html Style) -->
-        <section class="faq-section" id="faq" style="background-color: #faf8f5; padding-top: 100px; padding-bottom: 120px; position: relative; overflow: hidden;">
-            <!-- Background Glow Orbs -->
-            <div class="ble-glow-orb ble-glow-orb-primary" style="top: 10%; left: -10%;"></div>
-            <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; right: -10%;"></div>
+        <!-- 9. FAQ SECTION & REGISTRATION FORM (Side-by-side, Cloned from index.html) -->
+        <section class="cta-section" id="dang-ky" aria-labelledby="cta-headline">
+            <div class="cta-bg">
+                <div class="cta-orb cta-orb-1"></div>
+                <div class="cta-orb cta-orb-2"></div>
+            </div>
             
             <!-- Floating Decorative SVGs -->
             <div class="ble-decor-shape" style="position: absolute; top: 15%; right: 5%; opacity: 0.15; animation: float-slow 8s ease-in-out infinite; pointer-events: none;">
@@ -3231,109 +3475,134 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="ble-decor-shape" style="position: absolute; bottom: 25%; left: 5%; opacity: 0.12; animation: float-slow 12s ease-in-out infinite; pointer-events: none;">
                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ab0e00" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
-            <div class="container">
-                <div class="text-center" style="margin-bottom: 40px;">
-                    <span class="section-badge">FAQ</span>
-                    <h2 class="section-title">Câu hỏi thường gặp</h2>
-                    <p class="section-desc">Giải đáp một số thắc mắc phổ biến của các học viên:</p>
+
+            <div class="container cta-inner">
+                <div class="cta-left reveal-up">
+                    <h2 class="cta-headline" id="cta-headline" style="margin-top: 20px;">
+                        BẮT ĐẦU HÀNH TRÌNH<br />
+                        <span class="cta-gradient underline-highlight">LÃNH ĐẠO THỰC CHIẾN</span>
+                    </h2>
+
+                    <ul class="cta-checklist" aria-label="Điểm nổi bật chương trình" style="margin-top: 32px;">
+                        <li>
+                            <div class="cta-check-v2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <p>Học bổng Khuyến học năm nhất lên đến <strong>90% học phí</strong></p>
+                        </li>
+                        <li>
+                            <div class="cta-check-v2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <p>Học trực tuyến linh hoạt, <strong>hệ sinh thái bổ trợ cuối tuần từ IDEAS</strong></p>
+                        </li>
+                        <li>
+                            <div class="cta-check-v2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <p>Cộng đồng học viên kết nối, <strong>nhận bằng tốt nghiệp quốc tế danh giá</strong></p>
+                        </li>
+                    </ul>
+
+                    <!-- Nested FAQ Accordion -->
+                    <div class="faq-accordion" style="margin-top: 40px;">
+                        <!-- FAQ 1 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-trigger">
+                                <span>1. Vì sao chương trình chỉ gồm 3 môn học?</span>
+                                <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập quan vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-trigger">
+                                <span>2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
+                                <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-trigger">
+                                <span>3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
+                                <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                            </button>
+                            <div class="faq-body">
+                                <div class="faq-content">
+                                    Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="faq-accordion">
-                    <!-- FAQ 1 -->
-                    <div class="faq-item">
-                        <button type="button" class="faq-trigger">
-                            <span>1. Vì sao chương trình chỉ gồm 3 môn học?</span>
-                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-                        </button>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
-                            </div>
+                <div class="cta-right reveal-up">
+                    <div class="cta-form-wrapper" id="form-wrapper">
+                        <div class="form-header">
+                            <div class="form-header-badge">NHẬN TƯ VẤN 1:1</div>
+                            <h3>Khởi đầu hành trình<br><span class="gradient-text">Lãnh đạo thực chiến</span></h3>
+                            <p>Chuyên viên sẽ liên hệ với bạn trong vòng 24h làm việc để tư vấn lộ trình phù hợp.</p>
                         </div>
-                    </div>
 
-                    <!-- FAQ 2 -->
-                    <div class="faq-item">
-                        <button type="button" class="faq-trigger">
-                            <span>2. Mình không làm trong lĩnh vực nhân sự, chương trình có phù hợp không?</span>
-                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-                        </button>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                Có. Chương trình được thiết kế dành cho quản lý cấp trung, trưởng nhóm, chủ doanh nghiệp và nhân sự nguồn. Nội dung tập trung vào lãnh đạo, quản lý đội ngũ và phát triển con người, không yêu cầu học viên có chuyên môn về nhân sự.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FAQ 3 -->
-                    <div class="faq-item">
-                        <button type="button" class="faq-trigger">
-                            <span>3. Sau khi hoàn thành chương trình mình sẽ nhận được gì?</span>
-                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-                        </button>
-                        <div class="faq-body">
-                            <div class="faq-content">
-                                Học viên sẽ phát triển 8 năng lực cốt lõi về lãnh đạo và quản trị đội ngũ, đồng thời nắm vững các nguyên tắc và framework quản trị con người được ứng dụng trong doanh nghiệp hiện đại. Đây sẽ là nền tảng để bạn tự tin dẫn dắt đội ngũ, nâng cao hiệu suất tổ chức và phát triển sự nghiệp ở các vị trí quản lý.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Registration Form block, stacked vertically below the accordion -->
-                <div class="cta-form-wrapper reveal-up" id="form-wrapper" style="margin-top: 60px;">
-                    <div class="form-header">
-                        <div class="form-header-badge">NHẬN TƯ VẤN 1:1</div>
-                        <h3>Khởi đầu hành trình<br><span class="gradient-text">Lãnh đạo thực chiến</span></h3>
-                        <p>Chuyên viên sẽ liên hệ với bạn trong vòng 24h làm việc để tư vấn lộ trình phù hợp.</p>
-                    </div>
-
-                    <form class="cta-form" id="ble-bottom-reg-form" novalidate aria-label="Form đăng ký tư vấn BLE">
-                        <div class="form-group">
-                            <label for="reg-name">Họ và tên *</label>
-                            <input type="text" id="reg-name" name="fullname" placeholder="Họ và tên của bạn" required />
-                        </div>
-                        <div class="form-row">
+                        <form class="cta-form" id="ble-bottom-reg-form" novalidate aria-label="Form đăng ký tư vấn BLE">
                             <div class="form-group">
-                                <label for="reg-phone">Số điện thoại *</label>
-                                <input type="tel" id="reg-phone" name="phone" placeholder="Số điện thoại" required />
+                                <label for="reg-name">Họ và tên *</label>
+                                <input type="text" id="reg-name" name="fullname" placeholder="Họ và tên của bạn" required />
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="reg-phone">Số điện thoại *</label>
+                                    <input type="tel" id="reg-phone" name="phone" placeholder="Số điện thoại" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="reg-email">Email *</label>
+                                    <input type="email" id="reg-email" name="email" placeholder="Địa chỉ email" required />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="reg-education">Trình độ học vấn *</label>
+                                    <select id="reg-education" name="education" required>
+                                        <option value="">-- Chọn trình độ --</option>
+                                        <option value="highschool">THPT</option>
+                                        <option value="college">Cao đẳng</option>
+                                        <option value="bachelor">Cử nhân</option>
+                                        <option value="master">Thạc sĩ</option>
+                                        <option value="other">Khác</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reg-english">Trình độ Tiếng Anh *</label>
+                                    <select id="reg-english" name="english" required>
+                                        <option value="">-- Chọn trình độ --</option>
+                                        <option value="below-5.0">Dưới IELTS 5.0</option>
+                                        <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
+                                        <option value="6.0-plus">IELTS 6.0+</option>
+                                        <option value="other">Khác / Chưa thi</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="reg-email">Email *</label>
-                                <input type="email" id="reg-email" name="email" placeholder="Địa chỉ email" required />
+                                <label for="reg-message">Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1</label>
+                                <textarea id="reg-message" name="message" rows="3" placeholder="Ví dụ: Tôi muốn tìm hiểu lộ trình học tập, thời gian khai giảng..."></textarea>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="reg-education">Trình độ học vấn *</label>
-                                <select id="reg-education" name="education" required>
-                                    <option value="">-- Chọn trình độ --</option>
-                                    <option value="highschool">THPT</option>
-                                    <option value="college">Cao đẳng</option>
-                                    <option value="bachelor">Cử nhân</option>
-                                    <option value="master">Thạc sĩ</option>
-                                    <option value="other">Khác</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="reg-english">Trình độ Tiếng Anh *</label>
-                                <select id="reg-english" name="english" required>
-                                    <option value="">-- Chọn trình độ --</option>
-                                    <option value="below-5.0">Dưới IELTS 5.0</option>
-                                    <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
-                                    <option value="6.0-plus">IELTS 6.0+</option>
-                                    <option value="other">Khác / Chưa thi</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg-message">Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1</label>
-                            <textarea id="reg-message" name="message" rows="3" placeholder="Ví dụ: Tôi muốn tìm hiểu lộ trình học tập, thời gian khai giảng..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit" style="background: #ab0e00; color: #fff; font-weight: 800; border-radius: 12px; border: none; padding: 16px; cursor: pointer; transition: all 0.3s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            Gửi thông tin đăng ký <svg class="svg-icon fa-circle-arrow-right fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM297 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L120 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l214.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L409 239c9.4 9.4 9.4 24.6 0 33.9L297 385z"/></svg>
-                        </button>
-                    </form>
-                    <p class="form-disclaimer" style="text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 15px;">Cam kết bảo mật thông tin</p>
+                            <button type="submit" class="btn-submit" style="background: #ab0e00; color: #fff; font-weight: 800; border-radius: 12px; border: none; padding: 16px; cursor: pointer; transition: all 0.3s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                                Gửi thông tin đăng ký <svg class="svg-icon fa-circle-arrow-right fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM297 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L120 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l214.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L409 239c9.4 9.4 9.4 24.6 0 33.9L297 385z"/></svg>
+                            </button>
+                        </form>
+                        <p class="form-disclaimer" style="text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 15px;">Cam kết bảo mật thông tin</p>
+                    </div>
                 </div>
             </div>
         </section>
