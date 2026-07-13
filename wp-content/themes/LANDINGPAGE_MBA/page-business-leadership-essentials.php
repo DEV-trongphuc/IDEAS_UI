@@ -805,65 +805,69 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: block;
         }
 
-        /* ── Pain Points Section (1 Row, 4 Cards, Red Borders, No Left Border) ── */
-        .pain-grid {
+        /* ── Pain Points Section (Split Layout with Vertical List to prevent repetitive layout) ── */
+        .pain-split-layout {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .pain-card {
-            background: #ffffff;
-            border-radius: 20px;
-            border: 1.5px solid rgba(171, 14, 0, 0.15); /* red border instead of gray */
-            border-left: none; /* remove left border */
-            padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.02);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column; /* Vertical flow */
-            gap: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .pain-card:hover {
-            transform: translateY(-6px);
-            border-color: #ab0e00;
-            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.1);
-        }
-
-        .pain-icon-box {
-            display: inline-flex;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 60px;
             align-items: center;
-            justify-content: center;
-            background: rgba(171, 14, 0, 0.05);
-            color: #ab0e00;
-            width: 56px;
-            height: 56px;
-            border-radius: 12px;
-            flex-shrink: 0;
+        }
+
+        .pain-left-col {
+            padding-right: 20px;
+        }
+
+        .pain-right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pain-list-item {
+            display: flex;
+            gap: 24px;
+            background: #ffffff;
+            padding: 24px 30px;
+            border-radius: 20px;
+            border: 1.5px solid rgba(171, 14, 0, 0.12);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.015);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            align-items: flex-start;
         }
 
-        .pain-card:hover .pain-icon-box {
-            background: #ab0e00;
-            color: #ffffff;
-            transform: scale(1.08);
+        .pain-list-item:hover {
+            border-color: #ab0e00;
+            transform: translateX(6px);
+            box-shadow: 0 15px 35px rgba(171, 14, 0, 0.05);
         }
 
-        .pain-card-content h4 {
-            font-size: 1.15rem;
+        .pain-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: rgba(171, 14, 0, 0.15);
+            line-height: 1;
+            font-style: italic;
+            transition: color 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 2px;
+        }
+
+        .pain-list-item:hover .pain-number {
+            color: #ab0e00;
+        }
+
+        .pain-info h4 {
+            font-size: 1.1rem;
             font-weight: 850;
             color: #0f172a;
-            margin: 0 0 12px 0;
-            line-height: 1.4;
+            margin: 0 0 6px 0;
+            line-height: 1.35;
         }
 
-        .pain-card-content p {
-            font-size: 0.95rem;
-            line-height: 1.65;
-            color: #475569;
+        .pain-info p {
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: #334155 !important;
             margin: 0;
         }
 
@@ -927,7 +931,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .comp-desc {
             font-size: 0.88rem;
             line-height: 1.6;
-            color: #475569;
+            color: #334155 !important; /* High contrast readable dark slate color */
             margin: 0;
         }
 
@@ -987,7 +991,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .audience-card p {
             font-size: 0.88rem;
             line-height: 1.6;
-            color: #475569;
+            color: #334155 !important; /* High contrast readable dark slate color */
             margin: 0;
         }
 
@@ -1007,13 +1011,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-tab {
             background: #ffffff;
-            border: 1px solid #cbd5e1;
+            border: 1.5px solid #cbd5e1;
             border-radius: 16px;
             padding: 24px;
             cursor: pointer;
             text-align: left;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid transparent;
             position: relative;
         }
 
@@ -1035,14 +1038,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-tab:hover {
             border-color: #ab0e00;
-            transform: translateX(4px);
+            transform: translateY(-2px);
         }
 
         .curr-tab.active {
-            border-left-color: #ab0e00;
             background: #ffffff;
             box-shadow: 0 10px 30px rgba(171, 14, 0, 0.04);
-            border-color: #cbd5e1;
+            border-color: #ab0e00; /* Red active border on all sides */
         }
 
         .curr-tab.active .curr-tab-title {
@@ -1123,8 +1125,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-acc-item.active {
-            border-left: 4px solid #ab0e00;
-            border-color: #cbd5e1;
+            border-color: #ab0e00; /* Red active border on all sides */
             box-shadow: 0 10px 25px rgba(171, 14, 0, 0.02);
         }
 
@@ -1726,12 +1727,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-btn-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 16px;
-            font-size: 0.95rem;
+            background: #ab0e00;
+            color: #ffffff !important;
             font-weight: 800;
-            border-radius: 12px;
+            font-size: 0.95rem;
+            padding: 16px;
+            border-radius: 12px; /* Rectangular slightly rounded */
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.15);
+            text-decoration: none !important;
+            z-index: 5;
             margin-top: 10px;
+        }
+
+        .ble-btn-submit:hover {
+            background: #8c1000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.25);
         }
 
         /* ── FAQ Section (Inside combined section) ── */
@@ -1795,9 +1813,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 margin: 0 auto;
             }
 
-            .pain-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+            .pain-split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .pain-left-col {
+                padding-right: 0;
+                text-align: center;
             }
 
             .comp-grid,
@@ -1869,7 +1892,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: 100%;
             }
 
-            .pain-grid,
             .comp-grid,
             .audience-grid,
             .fac-grid {
@@ -2094,60 +2116,59 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 2. PAIN POINTS SECTION (Warm Cream Background, 1 Row 4 Cards, Red Borders, No Left Border) -->
+        <!-- 2. PAIN POINTS SECTION (Warm Cream Background, Editorial Split Columns) -->
         <section class="ble-section bg-soft-cream">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 10%; left: -10%;"></div>
             <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; right: -15%;"></div>
 
             <div class="ble-container">
-                <div class="ble-title-wrap">
-                    <span class="ble-section-tag">
-                        <span class="dot"></span> Thách thức thực tế
-                    </span>
-                    <h2 class="ble-section-title">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ</h2>
-                    <p class="ble-section-subtitle">Những nhà quản lý hiện nay phải đối mặt với nhiều vấn đề:</p>
-                </div>
+                <div class="pain-split-layout">
+                    <!-- Left Column: Big Editorial Heading -->
+                    <div class="pain-left-col">
+                        <span class="ble-section-tag">
+                            <span class="dot"></span> Thách thức thực tế
+                        </span>
+                        <h2 class="ble-section-title" style="text-align: left;">Đảm nhận vai trò quản lý,<br>năng lực chuyên môn thôi là chưa đủ</h2>
+                        <p class="ble-section-subtitle" style="text-align: left; max-width: 480px;">Có đến 85% quản lý mới gặp khó khăn khi chuyển đổi vai trò. Đây là những rào cản thực tế bạn đang đối mặt:</p>
+                    </div>
 
-                <div class="pain-grid">
-                    <!-- Card 1 -->
-                    <div class="pain-card">
-                        <div class="pain-icon-box">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+                    <!-- Right Column: Numbered List Items -->
+                    <div class="pain-right-col">
+                        <!-- Item 1 -->
+                        <div class="pain-list-item">
+                            <div class="pain-number">01</div>
+                            <div class="pain-info">
+                                <h4>Chưa được đào tạo lãnh đạo</h4>
+                                <p>Được bổ nhiệm làm quản lý nhưng chưa từng được đào tạo bài bản về năng lực quản lý và tư duy lãnh đạo.</p>
+                            </div>
                         </div>
-                        <div class="pain-card-content">
-                            <h4>Chưa được đào tạo lãnh đạo</h4>
-                            <p>Được bổ nhiệm làm quản lý nhưng chưa từng được đào tạo về năng lực lãnh đạo.</p>
+
+                        <!-- Item 2 -->
+                        <div class="pain-list-item">
+                            <div class="pain-number">02</div>
+                            <div class="pain-info">
+                                <h4>Chưa xây dựng được uy tín</h4>
+                                <p>Chưa xây dựng được uy tín cá nhân và niềm tin để đội ngũ sẵn sàng đồng hành, hợp tác tối đa.</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="pain-card">
-                        <div class="pain-icon-box">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+
+                        <!-- Item 3 -->
+                        <div class="pain-list-item">
+                            <div class="pain-number">03</div>
+                            <div class="pain-info">
+                                <h4>Chưa biết cách coaching</h4>
+                                <p>Gặp khó khăn trong việc tạo động lực, phản hồi xây dựng và kèm cặp (coaching) để phát triển nhân sự.</p>
+                            </div>
                         </div>
-                        <div class="pain-card-content">
-                            <h4>Chưa xây dựng được uy tín</h4>
-                            <p>Chưa xây dựng được uy tín và niềm tin để đội ngũ sẵn sàng đồng hành.</p>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="pain-card">
-                        <div class="pain-icon-box">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 6.1H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h4l4 4V18h6a1 1 0 0 0 1-1V7.1a1 1 0 0 0-1-1zM22 2v14"/></svg>
-                        </div>
-                        <div class="pain-card-content">
-                            <h4>Chưa biết cách coaching</h4>
-                            <p>Chưa biết cách tạo động lực, coaching và phát triển năng lực của nhân viên.</p>
-                        </div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="pain-card">
-                        <div class="pain-icon-box">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                        </div>
-                        <div class="pain-card-content">
-                            <h4>Hiệu suất chưa đạt kỳ vọng</h4>
-                            <p>Đội ngũ thiếu gắn kết, phối hợp rời rạc dẫn đến hiệu suất chưa đạt kỳ vọng.</p>
+
+                        <!-- Item 4 -->
+                        <div class="pain-list-item">
+                            <div class="pain-number">04</div>
+                            <div class="pain-info">
+                                <h4>Hiệu suất chưa đạt kỳ vọng</h4>
+                                <p>Đội ngũ thiếu sự gắn kết chặt chẽ, phối hợp rời rạc dẫn đến kết quả và hiệu suất công việc không đạt mục tiêu đề ra.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2879,8 +2900,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 9. COMBINED FAQ & REGISTRATION SECTION (White Background, Red Accent Form) -->
-        <section class="ble-section bg-white" style="padding-bottom: 120px;">
+        <!-- 9. COMBINED FAQ & REGISTRATION SECTION (Soft Cream Background, Red Accent Form) -->
+        <section class="ble-section bg-soft-cream" style="padding-bottom: 120px;">
             <div class="ble-container">
                 <div class="faq-form-grid">
                     <!-- Left: FAQ accordions list -->
@@ -2955,7 +2976,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="form-group">
                                     <input type="email" id="reg-email" placeholder="Địa chỉ email" required>
                                 </div>
-                                <button type="submit" class="ble-btn ble-btn-submit">Gửi thông tin đăng ký</button>
+                                <button type="submit" class="ble-btn-submit">Gửi thông tin đăng ký</button>
                             </form>
                             
                             <div class="cta-offer" style="margin-top: 20px; font-size: 0.82rem; justify-content: center; color: #ab0e00; font-weight: 800;">
