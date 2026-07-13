@@ -3167,53 +3167,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 1.5. COURSE DETAILS BANNER (Solid Red Cask.vn Style Layout)
-        <section class="ble-details-banner">
-            <div class="ble-container">
-                <div class="ble-db-grid">
-                    <!-- Left: Text content & details -->
-                    <div class="ble-db-content">
-                        <h2 class="ble-db-title">Chương trình Business Leadership Essentials</h2>
-                        <p class="ble-db-desc">Với 3 học phần chuyên sâu chuyển giao học thuật Thụy Sĩ, chương trình trang bị toàn diện 8 năng lực lãnh đạo cốt lõi cho quản lý cấp trung và nhân sự tiềm năng. Hệ thống kiến thức chuẩn hóa kết hợp cùng trợ lý học tập AI hỗ trợ 24/7.</p>
-                        
-                        <div class="ble-db-info-row">
-                            <div class="ble-db-info-col">
-                                <span class="ble-db-info-label">Khai giảng</span>
-                                <span class="ble-db-info-value">Thường xuyên</span>
-                            </div>
-                            <div class="ble-db-info-col">
-                                <span class="ble-db-info-label">Thời lượng</span>
-                                <span class="ble-db-info-value">3 - 4 tháng</span>
-                            </div>
-                            <div class="ble-db-info-col">
-                                <span class="ble-db-info-label">Lịch học</span>
-                                <span class="ble-db-info-value">Linh hoạt từ xa</span>
-                            </div>
-                            <div class="ble-db-info-col">
-                                <span class="ble-db-info-label">Giờ học</span>
-                                <span class="ble-db-info-value">Tự chọn 24/7</span>
-                            </div>
-                        </div>
-                        
-                        <div class="ble-db-actions">
-                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-consult'); }" class="ble-btn-white">Đăng Ký Tư Vấn</button>
-                            <a href="tel:02822442244" class="ble-btn-white-outline">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                Hotline: 028 2244 2244
-                            </a>
-                        </div>
-                    </div>
 
-                    <!-- Right: Large image card instead of small video -->
-                    <div class="ble-db-video">
-                        <div class="ble-db-image-container" onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-img'); }">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp" alt="Business Leadership Essentials program visual">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        -->
 
         <!-- 2. PAIN POINTS SECTION (Warm Cream Background, Editorial Split Columns) -->
         <section class="ble-section bg-soft-cream">
@@ -4096,30 +4050,42 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="container cta-inner">
                 <div class="cta-left reveal-up">
                     <h2 class="cta-headline" id="cta-headline" style="margin-top: 20px;">
-                        BẮT ĐẦU HÀNH TRÌNH<br />
-                        <span class="cta-gradient underline-highlight">LÃNH ĐẠO THỰC CHIẾN</span>
+                        Business Leadership<br />
+                        <span class="cta-gradient underline-highlight">Essentials</span>
                     </h2>
+                    <p class="cta-subtitle" style="color: #475569; font-size: 1rem; line-height: 1.6; margin-top: 16px; margin-bottom: 24px; max-width: 540px;">Phát triển năng lực lãnh đạo, xây dựng đội ngũ và tạo nền tảng cho sự phát triển bền vững của doanh nghiệp.</p>
 
-                    <ul class="cta-checklist" aria-label="Điểm nổi bật chương trình" style="margin-top: 32px;">
+                    <ul class="cta-checklist" aria-label="Điểm nổi bật chương trình" style="margin-top: 24px;">
                         <li>
                             <div class="cta-check-v2">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
-                            <p>Học bổng Khuyến học năm nhất lên đến <strong>90% học phí</strong></p>
+                            <p>Được cấp <strong>Certificate of Completion</strong> sau khi hoàn thành chương trình.</p>
                         </li>
                         <li>
                             <div class="cta-check-v2">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
-                            <p>Học trực tuyến linh hoạt, <strong>hệ sinh thái bổ trợ cuối tuần từ IDEAS</strong></p>
+                            <p>Học trực tuyến <strong>100%</strong> trên nền tảng LMS IDEAS.</p>
                         </li>
                         <li>
                             <div class="cta-check-v2">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             </div>
-                            <p>Cộng đồng học viên kết nối, <strong>nhận bằng tốt nghiệp quốc tế danh giá</strong></p>
+                            <p>Tham gia <strong>Executive Seminar</strong> cùng chuyên gia.</p>
+                        </li>
+                        <li>
+                            <div class="cta-check-v2">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <p>Gia nhập cộng đồng <strong>IDEAS Alumni</strong>.</p>
                         </li>
                     </ul>
+
+                    <div style="display: flex; align-items: center; gap: 12px; background: rgba(171, 14, 0, 0.04); border: 1px dashed rgba(171, 14, 0, 0.35); padding: 12px 18px; border-radius: 8px; margin-top: 24px; max-width: 540px; box-sizing: border-box;">
+                        <span style="font-size: 1.25rem; line-height: 1;">🎁</span>
+                        <p style="margin: 0; font-size: 0.9rem; color: #ab0e00; font-weight: 700; line-height: 1.45;">Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí.</p>
+                    </div>
 
                     <!-- Nested FAQ Accordion -->
                     <div class="faq-accordion" style="margin-top: 40px;">
@@ -4215,7 +4181,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <textarea id="reg-message" name="message" rows="3" placeholder="Ví dụ: Tôi muốn tìm hiểu lộ trình học tập, thời gian khai giảng..."></textarea>
                             </div>
                             <button type="submit" class="btn-submit" style="background: #ab0e00; color: #fff; font-weight: 800; border-radius: 12px; border: none; padding: 16px; cursor: pointer; transition: all 0.3s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                                Gửi thông tin đăng ký <svg class="svg-icon fa-circle-arrow-right fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM297 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L120 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l214.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L409 239c9.4 9.4 9.4 24.6 0 33.9L297 385z"/></svg>
+                                Đăng ký ngay <svg class="svg-icon fa-circle-arrow-right fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM297 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L120 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l214.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L409 239c9.4 9.4 9.4 24.6 0 33.9L297 385z"/></svg>
                             </button>
                         </form>
                         <p class="form-disclaimer" style="text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 15px;">Cam kết bảo mật thông tin</p>
