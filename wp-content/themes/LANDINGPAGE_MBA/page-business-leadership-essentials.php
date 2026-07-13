@@ -273,7 +273,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #ffffff !important;
             font-weight: 750;
             font-size: 0.95rem;
-            padding: 14px 34px;
+            height: 48px;
+            padding: 0 34px;
             border-radius: 100px;
             border: none;
             cursor: pointer;
@@ -283,6 +284,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
             overflow: hidden;
             z-index: 5;
+            box-sizing: border-box;
         }
 
         .ble-btn::before {
@@ -321,13 +323,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1.5px solid #ab0e00; /* Red border to match header */
             font-weight: 750;
             font-size: 0.95rem;
-            padding: 12.5px 32.5px;
+            height: 48px;
+            padding: 0 32.5px;
             border-radius: 100px;
             z-index: 5;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none !important;
             box-shadow: none;
+            box-sizing: border-box;
         }
 
         .ble-btn-outline:hover {
