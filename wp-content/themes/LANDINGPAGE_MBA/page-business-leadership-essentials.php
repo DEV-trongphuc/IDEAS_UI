@@ -512,8 +512,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             gap: 16px;
-            background: linear-gradient(90deg, rgba(171, 14, 0, 0.08) 0%, rgba(217, 119, 6, 0.08) 100%);
-            border: 2px solid #ab0e00;
+            background: #ab0e00;
             padding: 16px 24px;
             border-radius: 12px;
             margin-left: 0 !important;
@@ -522,41 +521,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             max-width: 820px;
             width: 100%;
             box-sizing: border-box;
-            animation: pulse-promo-glow 1.5s infinite alternate;
-        }
-
-        @keyframes pulse-promo-glow {
-            0% {
-                border-color: #ab0e00;
-                box-shadow: 0 0 5px rgba(171, 14, 0, 0.2), 0 0 10px rgba(171, 14, 0, 0.1);
-            }
-            50% {
-                border-color: #d97706;
-                box-shadow: 0 0 12px rgba(217, 119, 6, 0.4), 0 0 24px rgba(217, 119, 6, 0.2);
-            }
-            100% {
-                border-color: #ab0e00;
-                box-shadow: 0 0 18px rgba(171, 14, 0, 0.6), 0 0 36px rgba(171, 14, 0, 0.3);
-            }
+            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.15);
         }
 
         .ble-hero-promo-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ab0e00;
+            color: #ffffff;
         }
 
         .ble-hero-promo-text {
             font-size: 0.92rem;
             font-weight: 750;
-            color: #8c1000;
+            color: #ffffff;
             line-height: 1.4;
         }
 
         .ble-hero-promo-text strong {
             font-weight: 900;
-            color: #ab0e00;
+            color: #ffffff;
         }
 
         .ble-hero-actions {
