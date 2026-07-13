@@ -671,24 +671,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .db-active-pulse {
             font-size: 0.65rem;
             font-weight: 800;
-            background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
-            padding: 2px 8px;
+            background: #10b981;
+            color: #ffffff !important;
+            padding: 3px 9px;
             border-radius: 100px;
             margin-left: auto;
             text-transform: uppercase;
             letter-spacing: 0.02em;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.35);
         }
 
         .db-active-pulse::before {
             content: '';
             display: inline-block;
-            width: 5px;
-            height: 5px;
-            background: #10b981;
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
             border-radius: 50%;
             animation: blink-dot 1.5s infinite;
         }
@@ -2565,17 +2566,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-db-image-container" onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-img'); }">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp" alt="Business Leadership Essentials program visual">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-                        </div>
-                        <div class="comp-number">04</div>
-                        <h3 class="comp-title">Chứng nhận tốt nghiệp giá trị</h3>
-                        <p class="comp-desc">Nhận chứng nhận hoàn thành chương trình danh giá do EGA & Viện IDEAS cấp trên cơ sở chuyển giao học thuật Swiss UMEF, tạo bước thăng tiến vượt bậc.</p>
                     </div>
                 </div>
             </div>
