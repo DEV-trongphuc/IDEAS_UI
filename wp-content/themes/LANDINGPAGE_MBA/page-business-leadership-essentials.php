@@ -499,7 +499,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-dashboard-preview {
-            background: linear-gradient(135deg, #5c0800 0%, #1f0300 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #7a0900 100%);
             border-radius: 28px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 50px rgba(171, 14, 0, 0.25);
