@@ -418,6 +418,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             max-width: 600px;
         }
 
+        .ble-hero-tagline {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
         .ble-hero-meta-row {
             display: flex;
             align-items: center;
@@ -429,7 +438,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-left: 0 !important;
             margin-right: auto !important;
             margin-bottom: 35px;
-            max-width: 760px;
+            max-width: 960px;
             width: 100%;
             box-shadow: 0 4px 15px rgba(15, 23, 42, 0.015);
         }
@@ -511,7 +520,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-left: 0 !important;
             margin-right: auto !important;
             margin-bottom: 36px;
-            max-width: 760px;
+            max-width: 960px;
             width: 100%;
             box-sizing: border-box;
             animation: pulse-promo-glow 2s infinite alternate;
@@ -2507,6 +2516,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             /* Responsive typography scale */
+            .ble-hero-tagline {
+                font-size: 1.05rem !important;
+                line-height: 1.4 !important;
+                margin-bottom: 15px !important;
+                text-align: left !important;
+                max-width: 100% !important;
+            }
             .ble-section-title {
                 font-size: clamp(1.45rem, 6.5vw, 1.85rem) !important;
                 line-height: 1.35 !important;
@@ -3035,7 +3051,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span></span> Swiss UMEF Academic Partner
                         </div>
                         <h1 class="ble-hero-title">Business Leadership <span class="ble-gradient-text">Essentials</span></h1>
-                        <p class="ble-hero-desc">Giải quyết vấn đề lãnh đạo và quản lý đội ngũ trong doanh nghiệp của bạn. Khóa học giúp nhà quản lý xây dựng tư duy lãnh đạo hiện đại, phát triển đội ngũ, tạo văn hóa làm việc tích cực và nâng cao hiệu suất tổ chức thông qua ba học phần cốt lõi của Swiss UMEF.</p>
+                        <div class="ble-hero-tagline">Giải quyết vấn đề lãnh đạo và quản lý đội ngũ trong doanh nghiệp của bạn.</div>
+                        <p class="ble-hero-desc">Khóa học giúp nhà quản lý xây dựng tư duy lãnh đạo hiện đại, phát triển đội ngũ, tạo văn hóa làm việc tích cực và nâng cao hiệu suất tổ chức thông qua ba học phần cốt lõi của Swiss UMEF.</p>
 
                         <!-- Sleek Inline Highlight Grid (2x2) -->
                         <div class="ble-hero-meta-row">
@@ -3053,6 +3070,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" x="2" y="3" width="20" height="14" rx="2" ry="2"/><line style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" x1="8" y1="21" x2="16" y2="21"/><line style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" x1="12" y1="17" x2="12" y2="21"/></svg>
+                                </div>
+                                <span>Hình thức<strong>Học online 100%</strong></span>
+                            </div>
+                            <div class="ble-hero-meta-item">
+                                <div class="ble-meta-icon-wrapper">
                                     <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M9 11l2 2 4-4"/></svg>
                                 </div>
                                 <span>Đầu ra<strong>8 năng lực quản lý cốt lõi</strong></span>
@@ -3064,7 +3087,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="ble-hero-promo-icon">
                                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
                             </div>
-                            <div class="ble-hero-promo-text"><strong>Ưu đãi duy nhất tháng 7:</strong> Học miễn phí toàn khóa học (Nhận học bổng Learning Grant 100%).</div>
+                            <div class="ble-hero-promo-text"><strong>Học bổng đặc quyền tháng 7:</strong> Học miễn phí toàn khóa học (Nhận học bổng Learning Grant 100%).</div>
                         </div>
 
                         <!-- Action buttons -->
