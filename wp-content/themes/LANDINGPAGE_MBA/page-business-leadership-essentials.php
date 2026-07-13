@@ -2482,7 +2482,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 box-sizing: border-box !important;
             }
             .ble-hero {
-                padding-top: 130px !important;
+                padding-top: 110px !important;
                 padding-bottom: 60px !important;
                 box-sizing: border-box !important;
             }
@@ -2569,11 +2569,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .ble-hero-meta-row {
                 display: flex !important;
                 flex-direction: column !important;
+                align-items: stretch !important;
+                justify-content: flex-start !important;
+                text-align: left !important;
                 gap: 12px !important;
                 margin-top: 24px !important;
                 margin-bottom: 30px !important;
                 width: 100% !important;
                 max-width: 100% !important;
+                padding: 0 16px !important;
                 box-sizing: border-box !important;
             }
             .ble-hero-meta-item {
@@ -2671,8 +2675,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             .ble-db-actions button,
             .ble-db-actions a {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
                 flex: 1 !important;
-                width: auto !important;
+                width: 50% !important;
                 padding: 11px 4px !important;
                 font-size: 0.8rem !important;
                 white-space: nowrap !important;
@@ -2717,8 +2724,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .ble-hero-actions .ble-btn {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
                 flex: 1 !important;
-                width: auto !important;
+                width: 50% !important;
                 padding: 11px 4px !important;
                 font-size: 0.8rem !important;
                 white-space: nowrap !important;
