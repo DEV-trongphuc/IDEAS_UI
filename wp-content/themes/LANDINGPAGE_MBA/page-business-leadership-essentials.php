@@ -237,16 +237,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
+            background: #ab0e00; /* Solid red matching header style */
             color: #ffffff !important;
             font-weight: 750;
             font-size: 0.95rem;
-            padding: 16px 38px;
+            padding: 14px 34px;
             border-radius: 100px;
             border: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(171, 14, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.15);
             text-decoration: none !important;
             position: relative;
             overflow: hidden;
@@ -270,8 +270,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-btn:hover {
+            background: #8c1000;
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.35);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.25);
         }
 
         .ble-btn:active {
@@ -279,18 +280,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background: transparent;
-            color: #0f172a !important;
-            border: 1.5px solid #0f172a;
-            box-shadow: none;
+            color: #ab0e00 !important; /* Red text to match header outline style */
+            border: 1.5px solid #ab0e00; /* Red border to match header */
+            font-weight: 750;
+            font-size: 0.95rem;
+            padding: 12.5px 32.5px;
             border-radius: 100px;
             z-index: 5;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none !important;
+            box-shadow: none;
         }
 
         .ble-btn-outline:hover {
-            background: #ffffff;
+            background: rgba(171, 14, 0, 0.05);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.1);
         }
 
         /* ── Hero Section (herobg.webp faded background) ── */
@@ -382,8 +393,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             padding: 20px;
             border-radius: 16px;
-            border: 1.5px solid #cbd5e1;
-            border-top: 3.5px solid #ab0e00;
+            border: 1.5px solid #cbd5e1; /* no top border */
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.03);
             display: flex;
             flex-direction: column;
