@@ -70,7 +70,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 850;
         }
 
-        /* ── Sections Common (Strictly Light Backgrounds) ── */
+        /* ── Sections Common (Light Backgrounds) ── */
         .ble-section {
             padding: 100px 20px;
             position: relative;
@@ -138,7 +138,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             line-height: 1.6;
         }
 
-        /* ── Red Box Title Accents (Cask-style) ── */
+        /* ── Red Box Title Accents ── */
         .ble-title-badge-red {
             display: inline-block;
             background: #ab0e00;
@@ -172,7 +172,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 750;
             font-size: 0.95rem;
             padding: 16px 38px;
-            border-radius: 4px; /* matching standard theme */
+            border-radius: 4px;
             border: none;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -535,7 +535,165 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 600;
         }
 
-        /* ── Pain Points Section (Light Background, High Contrast) ── */
+        /* ── COURSE DETAILS BANNER (Solid Red Cask.vn Layout) ── */
+        .ble-details-banner {
+            background: #ab0e00;
+            padding: 70px 20px;
+            color: #ffffff;
+            border-top: 1px solid #8c1000;
+            border-bottom: 1px solid #8c1000;
+        }
+
+        .ble-db-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .ble-db-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+
+        .ble-db-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+        }
+
+        .ble-db-info-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            border-top: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+            padding: 22px 0;
+            margin-bottom: 35px;
+        }
+
+        .ble-db-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .ble-db-info-label {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ble-db-info-value {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .ble-db-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .ble-btn-gold {
+            background: #d99f38;
+            color: #ffffff !important;
+            font-weight: 800;
+            font-size: 0.95rem;
+            padding: 15px 32px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(217, 159, 56, 0.2);
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ble-btn-gold:hover {
+            background: #c38c2d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 159, 56, 0.35);
+        }
+
+        .ble-btn-white-outline {
+            background: transparent;
+            color: #ffffff !important;
+            border: 1.5px solid #ffffff;
+            font-weight: 750;
+            font-size: 0.95rem;
+            padding: 13px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none !important;
+        }
+
+        .ble-btn-white-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .ble-db-video-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            aspect-ratio: 1.55;
+            background: #1e293b;
+            border: 4px solid #ffffff;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .ble-db-video-wrapper:hover {
+            transform: translateY(-4px);
+        }
+
+        .ble-db-video-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+        }
+
+        .ble-db-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 46px;
+            background: #ff0000;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .ble-db-video-wrapper:hover .ble-db-play-btn {
+            background: #cc0000;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* ── Pain Points Section ── */
         .pain-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -584,7 +742,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
-        /* ── 8 Core Competencies (6 "CẦM VỀ" style from user screenshot) ── */
+        /* ── 8 Core Competencies ── */
         .comp-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -695,7 +853,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
-        /* ── Curriculum Section (Cask.vn Screenshot Match) ── */
+        /* ── Curriculum Section ── */
         .curr-layout {
             display: flex;
             gap: 40px;
@@ -917,7 +1075,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 0 24px 24px 62px;
             border-top: 1px solid #f1f5f9;
             padding-top: 20px;
-            background-color: #faf9f6; /* light beige inside active chapter body */
+            background-color: #faf9f6;
         }
 
         .curr-topics-list {
@@ -990,7 +1148,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 3px;
         }
 
-        /* ── IDEAS AI Platform Section (Light Theme Design) ── */
+        /* ── IDEAS AI Platform Section ── */
         .ai-grid {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
@@ -1036,7 +1194,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a;
         }
 
-        /* Chat UI Mockup (Light Theme matching sections) */
+        /* Chat UI Mockup */
         .ai-chat-mockup {
             background: #ffffff;
             border-radius: 16px;
@@ -1568,6 +1726,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 order: -1;
             }
 
+            .ble-db-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .ble-db-info-row {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+                justify-content: center;
+            }
+
+            .ble-db-actions {
+                justify-content: center;
+            }
+
+            .ble-db-video-wrapper {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
             .pain-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1627,6 +1806,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @media (max-width: 640px) {
+            .ble-db-info-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ble-db-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .ble-db-actions button,
+            .ble-db-actions a {
+                width: 100%;
+            }
+
             .comp-grid,
             .audience-grid,
             .fac-grid {
@@ -1800,6 +1993,60 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
+        <!-- 1.5. COURSE DETAILS BANNER (Solid Red Cask.vn Style Layout) -->
+        <section class="ble-details-banner">
+            <div class="ble-container">
+                <div class="ble-db-grid">
+                    <!-- Left: Text content & details -->
+                    <div class="ble-db-content">
+                        <h2 class="ble-db-title">Chương trình Business Leadership Essentials</h2>
+                        <p class="ble-db-desc">Với 3 học phần chuyên sâu chuyển giao học thuật Thụy Sĩ, chương trình trang bị toàn diện 8 năng lực lãnh đạo cốt lõi cho quản lý cấp trung và nhân sự tiềm năng. Hệ thống kiến thức chuẩn hóa kết hợp cùng trợ lý học tập AI hỗ trợ 24/7.</p>
+                        
+                        <div class="ble-db-info-row">
+                            <div class="ble-db-info-col">
+                                <span class="ble-db-info-label">Khai giảng</span>
+                                <span class="ble-db-info-value">Thường xuyên</span>
+                            </div>
+                            <div class="ble-db-info-col">
+                                <span class="ble-db-info-label">Thời lượng</span>
+                                <span class="ble-db-info-value">3 - 4 tháng</span>
+                            </div>
+                            <div class="ble-db-info-col">
+                                <span class="ble-db-info-label">Lịch học</span>
+                                <span class="ble-db-info-value">Linh hoạt từ xa</span>
+                            </div>
+                            <div class="ble-db-info-col">
+                                <span class="ble-db-info-label">Giờ học</span>
+                                <span class="ble-db-info-value">Tự chọn 24/7</span>
+                            </div>
+                            <div class="ble-db-info-col">
+                                <span class="ble-db-info-label">Hình thức</span>
+                                <span class="ble-db-info-value">Hybrid (Online + Mentor)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ble-db-actions">
+                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-consult'); }" class="ble-btn-gold">Đăng Ký Tư Vấn</button>
+                            <a href="tel:02822442244" class="ble-btn-white-outline">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                Hotline: 028 2244 2244
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Mock video player matching screenshot -->
+                    <div class="ble-db-video">
+                        <div class="ble-db-video-wrapper" onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-details-video'); }">
+                            <img src="/wp-content/uploads/external-migrated/Image-empty-state_d4ff3628.webp" alt="Video Course Preview">
+                            <button class="ble-db-play-btn">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 2. PAIN POINTS SECTION (Light Background, High Contrast) -->
         <section class="ble-section bg-light-gray">
             <div class="ble-container">
@@ -1953,7 +2200,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 5. INTERACTIVE CURRICULUM SECTION (Cask.vn Style matching layout screenshot) -->
+        <!-- 5. INTERACTIVE CURRICULUM SECTION -->
         <section class="ble-section bg-white" id="curriculum">
             <div class="ble-container">
                 <div class="ble-title-wrap">
@@ -2003,7 +2250,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2027,7 +2274,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2051,7 +2298,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2075,7 +2322,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 4</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2091,7 +2338,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
 
-                            <!-- Outcomes block (Matching layout screenshot bullet styling) -->
+                            <!-- Outcomes block -->
                             <div class="curr-outcomes">
                                 <div class="curr-outcomes-title">
                                     Kết quả đạt được sau môn học:
@@ -2134,7 +2381,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2158,7 +2405,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2182,7 +2429,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2241,7 +2488,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 1</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2265,7 +2512,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 2</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2289,7 +2536,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 3</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
@@ -2313,7 +2560,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Phần 4</span>
                                             <span class="curr-acc-arrow">
-                                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
+                                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="6 9 12 15 18 9"/></svg>
                                             </span>
                                         </div>
                                     </div>
