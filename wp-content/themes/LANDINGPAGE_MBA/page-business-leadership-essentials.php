@@ -3879,7 +3879,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <h4 class="fac-name">Dr. Bahaudin G. Mujtaba</h4>
                         <div class="fac-role">Organizational Behaviour</div>
                         <p class="fac-bio">Giáo sư Quản trị chiến lược và Quản trị Nguồn nhân lực tại Nova Southeastern University (NSU), Florida, Hoa Kỳ. Chuyên gia tư vấn cấp cao quốc tế với hàng trăm công trình nghiên cứu và sách về hành vi tổ chức.</p>
-                        <a href="https://www.swiss-umef.ch/en/corps-professoral" target="_blank" class="fac-link">Lý lịch khoa học ↗</a>
+                        <a href="https://www.facebook.com/DeanMuj/" target="_blank" class="fac-link">Lý lịch khoa học ↗</a>
                     </div>
 
                     <!-- Instructor 3 -->
