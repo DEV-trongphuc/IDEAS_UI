@@ -4456,12 +4456,175 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 });
             }
         });
+
+        // Override openRegModal to trigger our custom promo popup instead
+        window.openRegModal = function(source) {
+            openBLEPromoModal(source);
+        };
+
+        function openBLEPromoModal(source) {
+            const modal = document.getElementById('ble-promo-modal');
+            const sourceInput = document.getElementById('pmodal-form-source');
+            if (modal) {
+                if (sourceInput) sourceInput.value = source || 'ble-promo';
+                showPModalPromo();
+                modal.style.display = 'flex';
+            }
+        }
+        
+        function closeBLEPromoModal() {
+            const modal = document.getElementById('ble-promo-modal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+        
+        function showPModalForm() {
+            document.getElementById('pmodal-state-promo').style.display = 'none';
+            document.getElementById('ble-promo-form').style.display = 'flex';
+        }
+        
+        function showPModalPromo() {
+            document.getElementById('pmodal-state-promo').style.display = 'flex';
+            document.getElementById('ble-promo-form').style.display = 'none';
+        }
+
+        // AJAX Promo Form Submit Handler
+        document.addEventListener('DOMContentLoaded', () => {
+            const promoForm = document.getElementById('ble-promo-form');
+            if (promoForm) {
+                promoForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const name = promoForm.querySelector('[name="name"]').value;
+                    const phone = promoForm.querySelector('[name="phone"]').value;
+                    const email = promoForm.querySelector('[name="email"]').value;
+                    const source = promoForm.querySelector('[name="source"]').value;
+                    const btn = promoForm.querySelector('.btn-submit');
+                    
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.style.opacity = '0.7';
+                    }
+                    
+                    const webhookPayload = {
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        form_source: source,
+                        campaign: "Business Leadership Essentials Promo"
+                    };
+
+                    const payload = {
+                        sheetName: "Business Leadership Essentials Promo",
+                        data: {
+                            "Họ tên": name,
+                            "Số điện thoại": phone,
+                            "Email": email,
+                            "Nguồn form": source,
+                            "Thời gian": new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" })
+                        }
+                    };
+
+                    try {
+                        const p1 = fetch("https://script.google.com/macros/s/AKfycbyK6H97_MeqCqYnQkFqgPzD4iE1XoH_Rk7VbLqV/exec", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(webhookPayload)
+                        });
+
+                        await Promise.allSettled([p1, p2]);
+                        
+                        if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'conversion', {
+                                'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                                'value': 1.0,
+                                'currency': 'USD'
+                            });
+                        }
+                        
+                        alert('Đăng ký nhận học bổng thành công! Chuyên viên học vụ sẽ liên hệ hỗ trợ bạn nhận ưu đãi trong vòng 24h làm việc.');
+                        promoForm.reset();
+                        closeBLEPromoModal();
+                    } catch (error) {
+                        console.error('Submission error:', error);
+                        alert('Có lỗi xảy ra trong quá trình đăng ký. Vui lòng thử lại sau.');
+                    } finally {
+                        if (btn) {
+                            btn.disabled = false;
+                            btn.style.opacity = '1';
+                        }
+                    }
+                });
+            }
+        });
     </script>
 
     <!-- Lightbox Zoom Modal for screenshots -->
     <div id="ble-lightbox" class="ble-lightbox" onclick="this.classList.remove('active')">
         <span class="ble-lightbox-close">&times;</span>
         <img class="ble-lightbox-img" src="" alt="Zoomed view">
+    </div>
+
+    <!-- Premium July Free Promo Modal (Custom styled after reference) -->
+    <div id="ble-promo-modal" class="ble-pmodal" role="dialog" aria-modal="true" style="display: none;">
+        <div class="ble-pmodal-overlay" onclick="closeBLEPromoModal()"></div>
+        <div class="ble-pmodal-container">
+            <button class="ble-pmodal-close" onclick="closeBLEPromoModal()">&times;</button>
+            <div class="ble-pmodal-content">
+                <!-- Top Sponsor Logos -->
+                <div class="ble-pmodal-logos">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" class="pmodal-logo-ideas" alt="IDEAS Logo">
+                    <div class="pmodal-logo-divider"></div>
+                    <span class="pmodal-partner-text">SWISS UMEF PARTNER</span>
+                </div>
+                
+                <div class="ble-pmodal-divider"></div>
+                
+                <!-- Center Gold Badge -->
+                <div class="ble-pmodal-badge-container">
+                    <div class="ble-pmodal-gold-badge">
+                        <span class="badge-label">HỌC BỔNG</span>
+                        <span class="badge-value">100%</span>
+                    </div>
+                </div>
+                
+                <!-- Headers -->
+                <h3 class="ble-pmodal-serif-title">Đặc Quyền Đồng Hành</h3>
+                <h2 class="ble-pmodal-main-title">Tài Trợ 100% Học Phí Khóa học<br>Business Leadership Essentials</h2>
+                
+                <!-- Description -->
+                <p class="ble-pmodal-desc">
+                    Áp dụng khi đăng ký học vụ duy nhất trong tháng 07/2026. Nhận học bổng Learning Grant tài trợ 100% học phí toàn khóa học trị giá <strong>12.000.000 VNĐ</strong>.
+                </p>
+                
+                <!-- Action / Form Container -->
+                <div class="ble-pmodal-action-wrapper">
+                    <!-- State 1: Action Button -->
+                    <div id="pmodal-state-promo" class="pmodal-state-active" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <button class="ble-pmodal-btn" onclick="showPModalForm()">Nhận Học Bổng Ngay</button>
+                        <a href="javascript:void(0)" class="ble-pmodal-link" onclick="closeBLEPromoModal()">Xem lộ trình học</a>
+                    </div>
+                    
+                    <!-- State 2: Contact Form Inputs -->
+                    <form id="ble-promo-form" class="pmodal-form" style="display: none;">
+                        <input type="text" name="name" placeholder="Họ và tên *" required class="pmodal-input">
+                        <input type="tel" name="phone" placeholder="Số điện thoại *" required class="pmodal-input">
+                        <input type="email" name="email" placeholder="Địa chỉ Email *" required class="pmodal-input">
+                        <input type="hidden" name="source" id="pmodal-form-source" value="ble-promo">
+                        
+                        <button type="submit" class="ble-pmodal-btn btn-submit" style="margin-top: 5px;">Gửi Đăng Ký Nhận Học Bổng</button>
+                        <a href="javascript:void(0)" class="ble-pmodal-link" onclick="showPModalPromo()">Quay lại</a>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
