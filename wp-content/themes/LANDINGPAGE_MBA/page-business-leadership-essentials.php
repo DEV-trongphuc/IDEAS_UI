@@ -802,7 +802,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-db-desc {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.9);
+            color: #ffffff !important;
+            opacity: 0.95 !important;
             margin-bottom: 30px;
         }
 
@@ -2451,6 +2452,53 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .pain-right-col::before {
                 display: none !important;
             }
+
+            /* Hero progress card - smaller & left-aligned text */
+            .db-module-item {
+                text-align: left !important;
+                justify-content: flex-start !important;
+                padding: 10px 14px !important;
+                gap: 10px !important;
+            }
+            .db-module-title {
+                text-align: left !important;
+                font-size: 0.72rem !important;
+                line-height: 1.3 !important;
+            }
+            .db-active-pulse {
+                font-size: 0.58rem !important;
+                padding: 2px 7px !important;
+            }
+
+            /* Curriculum accordion header scaling */
+            .curr-acc-title {
+                font-size: 0.82rem !important;
+                line-height: 1.3 !important;
+            }
+            .curr-acc-num {
+                font-size: 1.1rem !important;
+            }
+            .curr-acc-badge {
+                font-size: 0.65rem !important;
+                padding: 3px 8px !important;
+            }
+
+            /* FAQ full-height fix */
+            .faq-item.active .faq-body {
+                max-height: 800px !important;
+            }
+
+            /* Centering single button in AI Platform section */
+            .ai-content {
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .ai-features-list {
+                text-align: left !important;
+                align-self: stretch !important;
+            }
         }
 
         @media (max-width: 640px) {
@@ -2458,14 +2506,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            /* Details banner buttons side-by-side */
             .ble-db-actions {
-                flex-direction: column;
-                width: 100%;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: center !important;
+                gap: 8px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
 
             .ble-db-actions button,
             .ble-db-actions a {
-                width: 100%;
+                flex: 1 !important;
+                width: auto !important;
+                padding: 11px 4px !important;
+                font-size: 0.8rem !important;
+                white-space: nowrap !important;
+                box-sizing: border-box !important;
             }
 
             .audience-grid {
@@ -2500,13 +2558,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 align-self: flex-start;
             }
 
+            /* Hero buttons side-by-side */
             .ble-hero-actions {
-                flex-direction: column;
-                width: 100%;
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: center !important;
+                gap: 8px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
 
             .ble-hero-actions .ble-btn {
-                width: 100%;
+                flex: 1 !important;
+                width: auto !important;
+                padding: 11px 4px !important;
+                font-size: 0.8rem !important;
+                white-space: nowrap !important;
+                box-sizing: border-box !important;
             }
 
             .db-floating-badge {
