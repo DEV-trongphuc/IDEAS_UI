@@ -435,7 +435,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex: 1;
             justify-content: center;
             position: relative;
-            padding: 0 15px;
+            padding: 0 25px;
         }
 
         .ble-hero-meta-item:not(:last-child)::after {
@@ -2577,7 +2577,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 margin-bottom: 30px !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                padding: 0 16px !important;
+                padding: 0 24px !important;
                 box-sizing: border-box !important;
             }
             .ble-hero-meta-item {
@@ -2589,22 +2589,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 background: #ffffff !important;
                 border: 1px solid rgba(15, 23, 42, 0.06) !important;
                 border-radius: 12px !important;
-                padding: 12px 16px !important;
+                padding: 14px 20px !important;
                 box-shadow: 0 4px 15px rgba(15, 23, 42, 0.015) !important;
                 box-sizing: border-box !important;
                 width: 100% !important;
             }
             .ble-hero-meta-item::after {
                 display: none !important;
-            }
-            .ble-hero-meta-item svg {
-                width: 16px !important;
-                height: 16px !important;
-                color: #ab0e00 !important;
-                background: rgba(171, 14, 0, 0.06) !important;
-                padding: 8px !important;
-                border-radius: 50% !important;
-                flex-shrink: 0 !important;
             }
             .ble-hero-meta-item span {
                 display: flex !important;
@@ -3024,19 +3015,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-hero-meta-row">
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
                                 </div>
                                 <span>Chứng nhận<strong>Swiss UMEF (Thụy Sĩ)</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                                 </div>
                                 <span>Phương pháp<strong>Thực chiến &amp; Case-study</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11l2 2 4-4"/></svg>
+                                    <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11l2 2 4-4"/></svg>
                                 </div>
                                 <span>Đầu ra<strong>8 năng lực quản lý cốt lõi</strong></span>
                             </div>
