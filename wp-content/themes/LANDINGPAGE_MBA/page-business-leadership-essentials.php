@@ -2518,22 +2518,51 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             /* Hero highlights grid positioning and alignment on mobile */
             .ble-hero-meta-row {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                align-items: flex-start !important;
-                text-align: left !important;
-                gap: 16px 12px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
                 margin-top: 24px !important;
                 margin-bottom: 30px !important;
+                width: 100% !important;
                 max-width: 100% !important;
+                box-sizing: border-box !important;
             }
             .ble-hero-meta-item {
                 display: flex !important;
-                align-items: flex-start !important;
+                flex-direction: row !important;
+                align-items: center !important;
                 text-align: left !important;
-                gap: 8px !important;
-                font-size: 0.78rem !important;
+                gap: 14px !important;
+                background: #ffffff !important;
+                border: 1px solid rgba(15, 23, 42, 0.06) !important;
+                border-radius: 16px !important;
+                padding: 12px 16px !important;
+                box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02) !important;
+                box-sizing: border-box !important;
+                width: 100% !important;
+            }
+            .ble-hero-meta-item svg {
+                width: 20px !important;
+                height: 20px !important;
+                color: #ab0e00 !important;
+                background: rgba(171, 14, 0, 0.06) !important;
+                padding: 10px !important;
+                border-radius: 50% !important;
+                flex-shrink: 0 !important;
+            }
+            .ble-hero-meta-item span {
+                display: flex !important;
+                flex-direction: column !important;
+                font-size: 0.76rem !important;
+                color: #64748b !important;
                 line-height: 1.35 !important;
+                text-align: left !important;
+            }
+            .ble-hero-meta-item strong {
+                font-size: 0.92rem !important;
+                color: #0f172a !important;
+                font-weight: 800 !important;
+                margin-top: 2px !important;
             }
 
             /* AI platform 3 screens mockup mobile scale up overrides */
