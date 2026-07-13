@@ -2297,11 +2297,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .curr-sidebar {
-                width: 100%;
-                flex-direction: row;
-                overflow-x: auto;
-                padding-bottom: 8px;
-                scroll-snap-type: x mandatory;
+                width: 100% !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                padding-bottom: 8px !important;
+                scroll-snap-type: x mandatory !important;
+                position: relative !important;
+                top: auto !important;
+                z-index: 10 !important;
+                display: flex !important;
+                gap: 12px !important;
+                scrollbar-width: none !important;
+            }
+
+            .curr-sidebar::-webkit-scrollbar {
+                display: none !important;
             }
 
             .curr-tab {
@@ -2309,6 +2319,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 scroll-snap-align: start;
                 border-left: 1px solid #cbd5e1;
                 border-bottom: 4px solid transparent;
+                flex-shrink: 0 !important;
             }
 
             .curr-tab.active {
@@ -2331,8 +2342,96 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 gap: 40px;
                 padding: 30px;
             }
+        }
 
-            /* FAQ Grid removed */
+        /* Slide Dots indicators on mobile */
+        .mobile-dots-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0 10px 0;
+            width: 100%;
+        }
+
+        .mobile-dots-container .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-block;
+        }
+
+        .mobile-dots-container .dot.active {
+            background: #ab0e00;
+            width: 22px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            /* Enable native horizontal scroll snap for Core Competencies & Instructors */
+            .comp-grid,
+            .fac-grid {
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                gap: 16px !important;
+                padding: 10px 4px 20px 4px !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+            }
+            .comp-grid::-webkit-scrollbar,
+            .fac-grid::-webkit-scrollbar {
+                display: none !important;
+            }
+            .comp-card,
+            .fac-card {
+                flex: 0 0 85% !important;
+                width: 85% !important;
+                scroll-snap-align: center !important;
+            }
+
+            /* Separator border lines in grid resets */
+            .ble-db-info-col::after {
+                display: none !important;
+            }
+            .ble-db-info-row {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 16px !important;
+            }
+            .ble-db-info-col {
+                padding: 12px 10px !important;
+                text-align: center !important;
+            }
+            .ble-db-info-col:nth-child(1),
+            .ble-db-info-col:nth-child(2) {
+                border-bottom: 1px dashed rgba(255, 255, 255, 0.25) !important;
+            }
+            .ble-db-info-col:nth-child(1),
+            .ble-db-info-col:nth-child(3) {
+                border-right: 1px dashed rgba(255, 255, 255, 0.25) !important;
+            }
+            .ble-db-info-col:last-child {
+                padding-right: 10px !important;
+            }
+
+            /* Responsive typography scale */
+            .ble-section-title {
+                font-size: clamp(1.45rem, 6.5vw, 1.85rem) !important;
+                line-height: 1.35 !important;
+            }
+
+            /* Floating button overlap fix */
+            .db-floating-badge {
+                bottom: 105px !important;
+            }
+
+            /* Hide Pain Points timeline vertical connector line */
+            .pain-right-col::before {
+                display: none !important;
+            }
         }
 
         @media (max-width: 640px) {
@@ -2750,6 +2849,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <h4 class="comp-card-caps-title">Practical Management Skills</h4>
                         <p class="comp-desc">Ứng dụng ngay các nguyên tắc lãnh đạo và quản trị nhân sự vào công việc quản lý hằng ngày.</p>
                     </div>
+                </div>
+                
+                <!-- Competency slide dots on mobile -->
+                <div class="mobile-dots-container comp-dots" style="display: none;">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
             </div>
         </section>
@@ -3296,6 +3407,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <a href="https://www.swiss-umef.ch/en/corps-professoral/jelena-lagger" target="_blank" class="fac-link">Lý lịch khoa học ↗</a>
                     </div>
                 </div>
+                
+                <!-- Faculty slide dots on mobile -->
+                <div class="mobile-dots-container fac-dots" style="display: none;">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
         </section>
 
@@ -3707,6 +3825,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     }, 100);
                 }
             }
+        });
+
+        // 4B. Mobile Horizontal Sliders Navigation Dots
+        document.addEventListener('DOMContentLoaded', () => {
+            const initMobileSlider = (gridSelector, dotsSelector) => {
+                const grid = document.querySelector(gridSelector);
+                const dotsContainer = document.querySelector(dotsSelector);
+                if (!grid || !dotsContainer) return;
+                
+                const dots = dotsContainer.querySelectorAll('.dot');
+                if (dots.length === 0) return;
+
+                grid.addEventListener('scroll', () => {
+                    const scrollLeft = grid.scrollLeft;
+                    const firstCard = grid.querySelector('.comp-card, .fac-card');
+                    if (!firstCard) return;
+                    const cardWidth = firstCard.clientWidth + 16;
+                    const activeIndex = Math.round(scrollLeft / cardWidth);
+                    
+                    dots.forEach((dot, index) => {
+                        if (index === activeIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                });
+            };
+            
+            initMobileSlider('.comp-grid', '.comp-dots');
+            initMobileSlider('.fac-grid', '.fac-dots');
         });
 
         // 5. AJAX Bottom Form Submit Handler
