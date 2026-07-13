@@ -2587,6 +2587,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 10%; left: -10%;"></div>
             <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; right: -15%;"></div>
+            
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 10%; right: 5%; opacity: 0.07; animation: float-slow 15s ease-in-out infinite; pointer-events: none;">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="#ab0e00" stroke-width="1.5"><circle cx="60" cy="60" r="55" stroke-dasharray="6 6"/><circle cx="60" cy="60" r="35"/><circle cx="60" cy="60" r="15" fill="#ab0e00" opacity="0.1"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 15%; left: 3%; opacity: 0.08; animation: float-slow 12s ease-in-out infinite; pointer-events: none;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#ab0e00" stroke-width="2" stroke-linecap="round"><path d="M30 10v40M10 30h40"/><circle cx="10" cy="10" r="2" fill="#ab0e00"/><circle cx="50" cy="50" r="2" fill="#ab0e00"/></svg>
+            </div>
 
             <div class="ble-container">
                 <div class="pain-split-layout">
@@ -2657,6 +2665,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 20%; right: -10%;"></div>
             <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; left: -15%;"></div>
+            
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 15%; left: 4%; opacity: 0.08; animation: float-slow 14s ease-in-out infinite; pointer-events: none;">
+                <svg width="80" height="24" viewBox="0 0 80 24" fill="none" stroke="#ab0e00" stroke-width="2" stroke-linecap="round"><path d="M0 12 Q 10 2, 20 12 T 40 12 T 60 12 T 80 12"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 12%; right: 4%; opacity: 0.07; animation: float-slow 20s ease-in-out infinite; pointer-events: none;">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="#ab0e00" stroke-width="1.5"><circle cx="10" cy="10" r="2"/><circle cx="30" cy="10" r="2"/><circle cx="50" cy="10" r="2"/><circle cx="70" cy="10" r="2"/><circle cx="90" cy="10" r="2"/><circle cx="10" cy="30" r="2"/><circle cx="30" cy="30" r="2"/><circle cx="50" cy="30" r="2"/><circle cx="70" cy="30" r="2"/><circle cx="90" cy="30" r="2"/><circle cx="10" cy="50" r="2"/><circle cx="30" cy="50" r="2"/><circle cx="50" cy="50" r="2"/><circle cx="70" cy="50" r="2"/><circle cx="90" cy="50" r="2"/></svg>
+            </div>
 
             <div class="ble-container">
                 <div class="ble-title-wrap">
@@ -2740,6 +2756,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="ble-section bg-soft-cream" id="curriculum">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="bottom: 5%; right: -10%;"></div>
+            
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 15%; right: 6%; opacity: 0.06; animation: float-slow 18s ease-in-out infinite; pointer-events: none;">
+                <svg width="100" height="120" viewBox="0 0 100 120" fill="none" stroke="#ab0e00" stroke-width="1.5" stroke-linejoin="round"><path d="M50 10 L85 25 L85 65 C85 90, 50 110, 50 110 C50 110, 15 90, 15 65 L15 25 Z"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 15%; left: 5%; opacity: 0.07; animation: float-slow 22s ease-in-out infinite; pointer-events: none;">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="#ab0e00" stroke-width="1.5"><circle cx="60" cy="60" r="55" stroke-dasharray="6 6"/><circle cx="60" cy="60" r="35"/><circle cx="60" cy="60" r="15" fill="#ab0e00" opacity="0.1"/></svg>
+            </div>
 
             <div class="ble-container">
                 <div class="ble-title-wrap">
@@ -3147,6 +3171,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="ble-section bg-white">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 15%; left: -10%;"></div>
+            
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 12%; right: 4%; opacity: 0.08; animation: float-slow 14s ease-in-out infinite; pointer-events: none;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#ab0e00" stroke-width="2" stroke-linecap="round"><path d="M30 10v40M10 30h40"/><circle cx="10" cy="10" r="2" fill="#ab0e00"/><circle cx="50" cy="50" r="2" fill="#ab0e00"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 15%; left: 3%; opacity: 0.07; animation: float-slow 22s ease-in-out infinite; pointer-events: none;">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="#ab0e00" stroke-width="1.5"><circle cx="60" cy="60" r="55" stroke-dasharray="6 6"/><circle cx="60" cy="60" r="35"/><circle cx="60" cy="60" r="15" fill="#ab0e00" opacity="0.1"/></svg>
+            </div>
 
             <div class="ble-container">
                 <div class="ai-grid">
@@ -3228,6 +3260,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="ble-section bg-soft-cream">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-gold" style="top: 15%; right: -10%;"></div>
+            
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 15%; left: 3%; opacity: 0.08; animation: float-slow 16s ease-in-out infinite; pointer-events: none;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#ab0e00" stroke-width="2" stroke-linecap="round"><path d="M30 10v40M10 30h40"/><circle cx="10" cy="10" r="2" fill="#ab0e00"/><circle cx="50" cy="50" r="2" fill="#ab0e00"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 10%; right: 4%; opacity: 0.08; animation: float-slow 15s ease-in-out infinite; pointer-events: none;">
+                <svg width="80" height="24" viewBox="0 0 80 24" fill="none" stroke="#ab0e00" stroke-width="2" stroke-linecap="round"><path d="M0 12 Q 10 2, 20 12 T 40 12 T 60 12 T 80 12"/></svg>
+            </div>
 
             <div class="ble-container">
                 <div class="ble-title-wrap">
@@ -3279,6 +3319,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="ble-section bg-white">
             <!-- Background Glow Orbs -->
             <div class="ble-glow-orb ble-glow-orb-primary" style="bottom: 10%; left: -10%;"></div>
+            
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 12%; left: 4%; opacity: 0.06; animation: float-slow 18s ease-in-out infinite; pointer-events: none;">
+                <svg width="100" height="120" viewBox="0 0 100 120" fill="none" stroke="#ab0e00" stroke-width="1.5" stroke-linejoin="round"><path d="M50 10 L85 25 L85 65 C85 90, 50 110, 50 110 C50 110, 15 90, 15 65 L15 25 Z"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 15%; right: 5%; opacity: 0.08; animation: float-slow 14s ease-in-out infinite; pointer-events: none;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#ab0e00" stroke-width="2" stroke-linecap="round"><path d="M30 10v40M10 30h40"/><circle cx="10" cy="10" r="2" fill="#ab0e00"/><circle cx="50" cy="50" r="2" fill="#ab0e00"/></svg>
+            </div>
 
             <div class="ble-container">
                 <div class="cert-wrap">
@@ -3334,6 +3382,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <!-- 8. TARGET AUDIENCE SECTION (Warm Cream Background) - Moved Down Near Bottom -->
         <section class="ble-section bg-soft-cream">
+            <!-- Floating Decorative SVGs -->
+            <div class="ble-decor-shape" style="position: absolute; top: 10%; right: 5%; opacity: 0.07; animation: float-slow 22s ease-in-out infinite; pointer-events: none;">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="#ab0e00" stroke-width="1.5"><circle cx="60" cy="60" r="55" stroke-dasharray="6 6"/><circle cx="60" cy="60" r="35"/><circle cx="60" cy="60" r="15" fill="#ab0e00" opacity="0.1"/></svg>
+            </div>
+            <div class="ble-decor-shape" style="position: absolute; bottom: 12%; left: 4%; opacity: 0.08; animation: float-slow 15s ease-in-out infinite; pointer-events: none;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#ab0e00" stroke-width="2" stroke-linecap="round"><path d="M30 10v40M10 30h40"/><circle cx="10" cy="10" r="2" fill="#ab0e00"/><circle cx="50" cy="50" r="2" fill="#ab0e00"/></svg>
+            </div>
+
             <div class="ble-container">
                 <div class="ble-title-wrap">
                     <span class="ble-section-tag">
