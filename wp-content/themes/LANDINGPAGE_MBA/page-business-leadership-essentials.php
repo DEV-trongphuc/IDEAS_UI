@@ -2250,7 +2250,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .ble-hero-visual {
-                order: -1;
+                order: 1;
             }
 
             .ble-db-grid {
