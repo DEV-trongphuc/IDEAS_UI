@@ -3874,7 +3874,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Instructor 2 -->
                     <div class="fac-card">
                         <div class="fac-avatar-wrap">
-                            <img src="/wp-content/uploads/external-migrated/Image-empty-state_c13b0a0d.webp" alt="Dr. Bahaudin G. Mujtaba" class="fac-avatar">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/gv_Mujtaba.jpg" alt="Dr. Bahaudin G. Mujtaba" class="fac-avatar">
                         </div>
                         <h4 class="fac-name">Dr. Bahaudin G. Mujtaba</h4>
                         <div class="fac-role">Organizational Behaviour</div>
