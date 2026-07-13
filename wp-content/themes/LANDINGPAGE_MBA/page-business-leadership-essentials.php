@@ -3078,7 +3078,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-meta-icon-wrapper">
                                     <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" d="M9 11l2 2 4-4"/></svg>
                                 </div>
-                                <span>Đầu ra<strong>8 năng lực quản lý cốt lõi</strong></span>
+                                <span>Bản lĩnh<strong>8 năng lực quản lý cốt lõi</strong></span>
                             </div>
                         </div>
 
