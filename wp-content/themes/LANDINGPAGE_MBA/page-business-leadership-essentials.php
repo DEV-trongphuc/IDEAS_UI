@@ -2032,6 +2032,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 height: 320px;
             }
         }
+
+        .ai-screens-container:hover .card-main {
+            transform: perspective(1000px) rotateY(-1deg) rotateX(1deg) rotateZ(0deg) scale(1.02);
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
         }
 
