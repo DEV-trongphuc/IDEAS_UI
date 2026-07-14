@@ -2057,39 +2057,40 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 30px;
         }
 
+        /* Advisor Slider Layout */
+        .advisor-slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .advisor-slider-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 10px 0 30px 0;
+        }
+
         .fac-grid-advisor {
             display: flex !important;
             flex-direction: row !important;
-            overflow-x: auto !important;
-            scroll-snap-type: x mandatory !important;
             gap: 30px !important;
-            padding: 10px 4px 20px 4px !important;
-            scrollbar-width: thin !important;
-            scrollbar-color: #ab0e00 #faf8f5;
-        }
-
-        .fac-grid-advisor::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .fac-grid-advisor::-webkit-scrollbar-track {
-            background: #faf8f5;
-        }
-
-        .fac-grid-advisor::-webkit-scrollbar-thumb {
-            background: #ab0e00;
-            border-radius: 100px;
+            width: 100% !important;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+            will-change: transform;
+            padding: 10px 4px !important;
         }
 
         .fac-grid-advisor .fac-card {
             flex: 0 0 calc((100% - 60px) / 3) !important;
             width: calc((100% - 60px) / 3) !important;
             max-width: calc((100% - 60px) / 3) !important;
-            scroll-snap-align: start !important;
             box-sizing: border-box !important;
         }
 
-        @media (max-width: 991px) {
+        /* Responsive Breakpoints */
+        @media (max-width: 1100px) {
             .fac-grid-advisor {
                 gap: 20px !important;
             }
@@ -2101,9 +2102,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @media (max-width: 768px) {
+            .advisor-slider-track-wrapper {
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+            }
+            .advisor-slider-track-wrapper::-webkit-scrollbar {
+                display: none !important;
+            }
             .fac-grid-advisor {
+                transition: none !important;
                 gap: 16px !important;
-                padding: 10px 4px 20px 4px !important;
             }
             .fac-grid-advisor .fac-card {
                 flex: 0 0 82% !important;
@@ -2111,6 +2121,73 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 max-width: 82% !important;
                 scroll-snap-align: center !important;
             }
+        }
+
+        /* Buttons (Light/White Theme) */
+        .advisor-slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s ease;
+            color: #0f172a;
+            z-index: 10;
+        }
+
+        .advisor-slider-btn:hover {
+            background: #ab0e00;
+            color: #ffffff;
+            border-color: #ab0e00;
+            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.25);
+        }
+
+        .advisor-slider-btn.prev {
+            left: -24px;
+        }
+
+        .advisor-slider-btn.next {
+            right: -24px;
+        }
+
+        @media (max-width: 991px) {
+            .advisor-slider-btn {
+                display: none !important;
+            }
+            .advisor-slider-container {
+                padding: 0;
+            }
+        }
+
+        /* Custom Dots (Always Flex, Interactive) */
+        .fac-dots-advisor {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            margin-top: 30px !important;
+        }
+        
+        .fac-dots-advisor .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fac-dots-advisor .dot.active {
+            background: #ab0e00;
+            width: 22px;
+            border-radius: 4px;
         }
 
         .fac-card {
@@ -4011,61 +4088,82 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p class="ble-section-subtitle">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
                 </div>
 
-                <div class="fac-grid-advisor">
-                    <!-- Expert 1 -->
-                    <div class="fac-card">
-                        <div class="fac-avatar-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Pham Quang Vinh" class="fac-avatar">
-                        </div>
-                        <h4 class="fac-name">TS. Pham Quang Vinh</h4>
-                        <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
-                        <p class="fac-bio">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển đổi số.</p>
-                    </div>
+                <div class="advisor-slider-container">
+                    <button class="advisor-slider-btn prev" aria-label="Previous">
+                        <svg viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                    </button>
+                    <div class="advisor-slider-track-wrapper">
+                        <div class="fac-grid-advisor">
+                            <!-- Expert 1 -->
+                            <div class="fac-card">
+                                <div class="fac-avatar-wrap">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Pham Quang Vinh" class="fac-avatar">
+                                </div>
+                                <h4 class="fac-name">TS. Pham Quang Vinh</h4>
+                                <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                                <p class="fac-bio">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển đổi số.</p>
+                            </div>
 
-                    <!-- Expert 2 -->
-                    <div class="fac-card">
-                        <div class="fac-avatar-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" class="fac-avatar">
-                        </div>
-                        <h4 class="fac-name">TS. Dương Văn Thịnh</h4>
-                        <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
-                        <p class="fac-bio">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
-                    </div>
+                            <!-- Expert 2 -->
+                            <div class="fac-card">
+                                <div class="fac-avatar-wrap">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" class="fac-avatar">
+                                </div>
+                                <h4 class="fac-name">TS. Dương Văn Thịnh</h4>
+                                <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                                <p class="fac-bio">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                            </div>
 
-                    <!-- Expert 3 -->
-                    <div class="fac-card">
-                        <div class="fac-avatar-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" class="fac-avatar">
-                        </div>
-                        <h4 class="fac-name">TS. Nguyễn Thanh Bình</h4>
-                        <div class="fac-role">Tiến sĩ Công Nghệ Thông Tin</div>
-                        <p class="fac-bio">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
-                    </div>
+                            <!-- Expert 3 -->
+                            <div class="fac-card">
+                                <div class="fac-avatar-wrap">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" class="fac-avatar">
+                                </div>
+                                <h4 class="fac-name">TS. Nguyễn Thanh Bình</h4>
+                                <div class="fac-role">Tiến sĩ Công Nghệ Thông Tin</div>
+                                <p class="fac-bio">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                            </div>
 
-                    <!-- Expert 4 -->
-                    <div class="fac-card">
-                        <div class="fac-avatar-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" class="fac-avatar">
-                        </div>
-                        <h4 class="fac-name">NCS. Phạm Phi Vũ</h4>
-                        <div class="fac-role">Nghiên cứu sinh Khoa Học Máy Tính &amp; AI</div>
-                        <p class="fac-bio">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
-                    </div>
+                            <!-- Expert 4 -->
+                            <div class="fac-card">
+                                <div class="fac-avatar-wrap">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" class="fac-avatar">
+                                </div>
+                                <h4 class="fac-name">NCS. Phạm Phi Vũ</h4>
+                                <div class="fac-role">Nghiên cứu sinh Khoa Học Máy Tính &amp; AI</div>
+                                <p class="fac-bio">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                            </div>
 
-                    <!-- Expert 5 -->
-                    <div class="fac-card">
-                        <div class="fac-avatar-wrap">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="NCS. Võ Trùng Dương" class="fac-avatar">
+                            <!-- Expert 5 -->
+                            <div class="fac-card">
+                                <div class="fac-avatar-wrap">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp" alt="TS. Mang Viên Hoàng Nhật" class="fac-avatar">
+                                </div>
+                                <h4 class="fac-name">TS. Mang Viên Hoàng Nhật</h4>
+                                <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh</div>
+                                <p class="fac-bio">Hơn 25 năm kinh nghiệm quản lý, điều hành trong ngành Dược phẩm, Thiết bị Y tế; 11 năm giữ vị trí cấp cao tại GSK, Roche, Takeda.</p>
+                            </div>
+
+                            <!-- Expert 6 -->
+                            <div class="fac-card">
+                                <div class="fac-avatar-wrap">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="NCS. Võ Trùng Dương" class="fac-avatar">
+                                </div>
+                                <h4 class="fac-name">NCS. Võ Trùng Dương</h4>
+                                <div class="fac-role">Thạc sĩ AI &amp; Business Strategist</div>
+                                <p class="fac-bio">Trưởng Khối Tăng Trưởng &amp; Công Nghệ Viện IDEAS. Hơn 20 năm kinh nghiệm triển khai giải pháp Marketing, Tăng trưởng và ứng dụng AI.</p>
+                            </div>
                         </div>
-                        <h4 class="fac-name">NCS. Võ Trùng Dương</h4>
-                        <div class="fac-role">Thạc sĩ AI &amp; Business Strategist</div>
-                        <p class="fac-bio">Trưởng Khối Tăng Trưởng &amp; Công Nghệ Viện IDEAS. Hơn 20 năm kinh nghiệm triển khai giải pháp Marketing, Tăng trưởng và ứng dụng AI.</p>
                     </div>
+                    <button class="advisor-slider-btn next" aria-label="Next">
+                        <svg viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                    </button>
                 </div>
 
-                <!-- Slide Dots indicators on mobile for local experts -->
-                <div class="mobile-dots-container fac-dots-advisor" style="display: none;">
+                <!-- Slide Dots indicators for local experts -->
+                <div class="fac-dots-advisor">
                     <span class="dot active"></span>
+                    <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -4551,8 +4649,111 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             
             initMobileSlider('.comp-grid', '.comp-dots');
             initMobileSlider('.fac-grid', '.fac-dots');
-            initMobileSlider('.fac-grid-advisor', '.fac-dots-advisor');
             initMobileSlider('.audience-grid', '.aud-dots');
+        });
+
+        // 4B-2. Desktop & Mobile Advisor Slider Controller
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.advisor-slider-container');
+            if (!container) return;
+
+            const track = container.querySelector('.fac-grid-advisor');
+            const wrapper = container.querySelector('.advisor-slider-track-wrapper');
+            const prevBtn = container.querySelector('.advisor-slider-btn.prev');
+            const nextBtn = container.querySelector('.advisor-slider-btn.next');
+            const dotsContainer = document.querySelector('.fac-dots-advisor');
+
+            if (!track || !wrapper) return;
+
+            const cards = Array.from(track.querySelectorAll('.fac-card'));
+            const totalCards = cards.length;
+            let currentIndex = 0;
+
+            function updateDots() {
+                if (!dotsContainer) return;
+                const dots = dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            function getVisibleCount() {
+                if (window.innerWidth <= 768) return 1;
+                if (window.innerWidth <= 1100) return 2;
+                return 3;
+            }
+
+            function getMaxIndex() {
+                const visible = getVisibleCount();
+                return Math.max(0, totalCards - visible);
+            }
+
+            function slideTo(index) {
+                const maxIndex = getMaxIndex();
+                currentIndex = Math.max(0, Math.min(index, maxIndex));
+
+                if (window.innerWidth > 768) {
+                    const card = cards[0];
+                    const cardWidth = card.offsetWidth;
+                    const gap = 30;
+                    const offset = currentIndex * (cardWidth + gap);
+                    track.style.transform = `translateX(-${offset}px)`;
+                } else {
+                    const card = cards[0];
+                    const cardWidth = card.offsetWidth + 16;
+                    wrapper.scrollTo({
+                        left: currentIndex * cardWidth,
+                        behavior: 'smooth'
+                    });
+                }
+                updateDots();
+            }
+
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    slideTo(currentIndex - 1);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    slideTo(currentIndex + 1);
+                });
+            }
+
+            if (dotsContainer) {
+                const dots = dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        slideTo(index);
+                    });
+                });
+            }
+
+            wrapper.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    const scrollLeft = wrapper.scrollLeft;
+                    const firstCard = cards[0];
+                    if (!firstCard) return;
+                    const cardWidth = firstCard.clientWidth + 16;
+                    const activeIndex = Math.round(scrollLeft / cardWidth);
+                    
+                    if (activeIndex !== currentIndex) {
+                        currentIndex = activeIndex;
+                        updateDots();
+                    }
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    slideTo(currentIndex);
+                } else {
+                    track.style.transform = '';
+                }
+            });
         });
 
         // 4C. Image Lightbox Zoom Modal Toggle
