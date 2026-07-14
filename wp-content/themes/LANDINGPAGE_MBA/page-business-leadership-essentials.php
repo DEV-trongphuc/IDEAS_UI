@@ -2054,6 +2054,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 30px;
         }
 
+        .fac-grid-advisor {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
         .fac-card {
             background: #ffffff;
             border-radius: 24px;
@@ -2426,7 +2432,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             .comp-grid,
             .audience-grid,
-            .fac-grid {
+            .fac-grid,
+            .fac-grid-advisor {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
@@ -2516,7 +2523,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         @media (max-width: 768px) {
             /* Enable native horizontal scroll snap for Core Competencies & Instructors */
             .comp-grid,
-            .fac-grid {
+            .fac-grid,
+            .fac-grid-advisor {
                 display: flex !important;
                 flex-direction: row !important;
                 overflow-x: auto !important;
@@ -2527,7 +2535,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 -ms-overflow-style: none !important;
             }
             .comp-grid::-webkit-scrollbar,
-            .fac-grid::-webkit-scrollbar {
+            .fac-grid::-webkit-scrollbar,
+            .fac-grid-advisor::-webkit-scrollbar {
                 display: none !important;
             }
             .comp-card,
@@ -3890,7 +3899,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Giảng viên khóa học
                     </span>
-                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">chuyên gia</span></h2>
+                    <h2 class="ble-section-title">Giảng <span class="ble-text-red">Viên</span></h2>
                     <p class="ble-section-subtitle">Học tập cùng các giáo sư, chuyên gia tư vấn hàng đầu quốc tế</p>
                 </div>
 
@@ -3932,6 +3941,72 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Faculty slide dots on mobile -->
                 <div class="mobile-dots-container fac-dots" style="display: none;">
                     <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6b. LOCAL EXPERTS SECTION (White Background, Ambient Glow) -->
+        <section class="ble-section bg-white" style="border-top: 1px solid rgba(15, 23, 42, 0.05); position: relative; overflow: hidden;">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="bottom: 15%; left: -10%;"></div>
+
+            <div class="ble-container">
+                <div class="ble-title-wrap">
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Chuyên gia đồng hành
+                    </span>
+                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">chuyên gia</span></h2>
+                    <p class="ble-section-subtitle">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
+                </div>
+
+                <div class="fac-grid-advisor">
+                    <!-- Expert 1 -->
+                    <div class="fac-card">
+                        <div class="fac-avatar-wrap">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Pham Quang Vinh" class="fac-avatar">
+                        </div>
+                        <h4 class="fac-name">TS. Pham Quang Vinh</h4>
+                        <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh Mỹ</div>
+                        <p class="fac-bio">Viện trưởng IDEAS. Hơn 25 năm kinh nghiệm giảng dạy, tư vấn chiến lược Marketing, Quản trị và Chuyển đổi số.</p>
+                    </div>
+
+                    <!-- Expert 2 -->
+                    <div class="fac-card">
+                        <div class="fac-avatar-wrap">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" class="fac-avatar">
+                        </div>
+                        <h4 class="fac-name">TS. Dương Văn Thịnh</h4>
+                        <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh Pháp</div>
+                        <p class="fac-bio">VERON Group - Vice President, AI Technology. Tiến sĩ chuyên ngành Nghiên cứu AI &amp; Trung tâm dữ liệu (Ascencia, Pháp).</p>
+                    </div>
+
+                    <!-- Expert 3 -->
+                    <div class="fac-card">
+                        <div class="fac-avatar-wrap">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="TS. Nguyễn Thanh Bình" class="fac-avatar">
+                        </div>
+                        <h4 class="fac-name">TS. Nguyễn Thanh Bình</h4>
+                        <div class="fac-role">Tiến sĩ Công Nghệ Thông Tin</div>
+                        <p class="fac-bio">Giám đốc Viện Công Nghệ Thông Tin &amp; Môi Trường. Hơn 20 năm nghiên cứu, giảng dạy Khoa học máy tính &amp; AI.</p>
+                    </div>
+
+                    <!-- Expert 4 -->
+                    <div class="fac-card">
+                        <div class="fac-avatar-wrap">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" class="fac-avatar">
+                        </div>
+                        <h4 class="fac-name">NCS. Phạm Phi Vũ</h4>
+                        <div class="fac-role">Nghiên cứu sinh Khoa Học Máy Tính &amp; AI</div>
+                        <p class="fac-bio">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
+                    </div>
+                </div>
+
+                <!-- Slide Dots indicators on mobile for local experts -->
+                <div class="mobile-dots-container fac-dots-advisor" style="display: none;">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </div>
@@ -4415,6 +4490,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             
             initMobileSlider('.comp-grid', '.comp-dots');
             initMobileSlider('.fac-grid', '.fac-dots');
+            initMobileSlider('.fac-grid-advisor', '.fac-dots-advisor');
             initMobileSlider('.audience-grid', '.aud-dots');
         });
 
