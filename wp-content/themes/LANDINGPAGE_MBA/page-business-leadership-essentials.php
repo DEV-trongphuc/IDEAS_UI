@@ -25,11 +25,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <title><?php echo $is_en ? 'Business Leadership Essentials Certificate | IDEAS' : 'Chứng chỉ Business Leadership Essentials | IDEAS'; ?></title>
             <meta name="description"
-                content="<?php echo $is_en ? 'Develop a modern leadership mindset, optimize performance, and understand organizational behaviour through three core modules of Swiss UMEF at IDEAS.' : 'Khóa học giúp nhà quản lý xây dựng tư duy lãnh đạo hiện đại, phát triển đội ngũ, tạo văn hóa làm việc tích cực và nâng cao hiệu suất tổ chức thông qua ba học phần Swiss UMEF.'; ?>" />
+                content="<?php echo $is_en ? 'Develop a modern leadership mindset, optimize performance, and understand organizational behavior through three core modules of Swiss UMEF at IDEAS.' : 'Khóa học giúp nhà quản lý xây dựng tư duy lãnh đạo hiện đại, phát triển đội ngũ, tạo văn hóa làm việc tích cực và nâng cao hiệu suất tổ chức thông qua ba học phần Swiss UMEF.'; ?>" />
             <meta property="og:type" content="article" />
             <meta property="og:title" content="<?php echo $is_en ? 'Business Leadership Essentials - IDEAS' : 'Khóa học Business Leadership Essentials - IDEAS'; ?>" />
             <meta property="og:description"
-                content="<?php echo $is_en ? 'Gain 8 core leadership competencies and Swiss UMEF certification. Register in July for 100% Learning Grant.' : 'Đạt được 8 năng lực lãnh đạo cốt lõi và chứng nhận từ Swiss UMEF. Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí.'; ?>" />
+                content="<?php echo $is_en ? 'Gain 8 core leadership competencies and Swiss UMEF certification. Register in July for 100% Learning Grant.' : 'Đạt được 8 năng lực lãnh đạo cốt lõi và chứng nhận từ Swiss UMEF. Học miễn phí toàn khóa khi đăng ký trong tháng 7.'; ?>" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -3109,7 +3109,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Left: Title and Key Info -->
                     <div class="ble-hero-content">
                         <div class="ble-hero-tag">
-                            <span></span> Swiss UMEF Academic Partner
+                            <span></span> IDEAS Business Academy
                         </div>
                         <h1 class="ble-hero-title">Business Leadership <span class="ble-gradient-text">Essentials</span></h1>
                         <div class="ble-hero-tagline">Giải quyết vấn đề lãnh đạo và quản lý đội ngũ trong doanh nghiệp của bạn.</div>
@@ -3212,7 +3212,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="db-module-icon">
                                         <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
                                     </div>
-                                    <span class="db-module-title">Organizational Behaviour (Đã xong)</span>
+                                    <span class="db-module-title">Organizational Behavior (Đã xong)</span>
                                 </div>
                                 <div class="db-module-item active">
                                     <div class="db-module-icon pending">
@@ -3358,7 +3358,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="comp-icon-box">
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <h4 class="comp-card-caps-title">Organizational Behaviour</h4>
+                        <h4 class="comp-card-caps-title">Organizational Behavior</h4>
                         <p class="comp-desc">Hiểu hành vi và động lực của nhân sự để xây dựng môi trường làm việc tích cực và tăng sự gắn kết.</p>
                     </div>
                     <!-- Comp 4 -->
@@ -3449,7 +3449,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="curr-tab" data-target="course-2">
                             <div class="curr-tab-tag">Môn học 02</div>
-                            <div class="curr-tab-title">Organizational Behaviour</div>
+                            <div class="curr-tab-title">Organizational Behavior</div>
                         </div>
                         <div class="curr-tab" data-target="course-3">
                             <div class="curr-tab-tag">Môn học 03</div>
@@ -3582,12 +3582,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
 
-                        <!-- PANEL 2: Organizational Behaviour -->
+                        <!-- PANEL 2: Organizational Behavior -->
                         <div class="curr-panel" id="course-2" style="display:none;">
                             <div class="curr-panel-header">
                                 <div class="curr-panel-title-wrap">
-                                    <h3 class="curr-panel-title">Organizational Behaviour</h3>
-                                    <p class="curr-panel-desc">Organizational Behaviour giúp học viên hiểu cách con người suy nghĩ, hành động và tương tác trong môi trường tổ chức. Môn học tập trung vào việc phân tích hành vi của cá nhân, đội nhóm và tổ chức nhằm nâng cao hiệu quả quản trị, xây dựng môi trường làm việc tích cực và cải thiện hiệu suất doanh nghiệp. Thông qua các mô hình và nghiên cứu thực tiễn, học viên sẽ biết cách nhận diện nguyên nhân của các vấn đề về con người và đưa ra giải pháp quản trị phù hợp.</p>
+                                    <h3 class="curr-panel-title">Organizational Behavior</h3>
+                                    <p class="curr-panel-desc">Organizational Behavior giúp học viên hiểu cách con người suy nghĩ, hành động và tương tác trong môi trường tổ chức. Môn học tập trung vào việc phân tích hành vi của cá nhân, đội nhóm và tổ chức nhằm nâng cao hiệu quả quản trị, xây dựng môi trường làm việc tích cực và cải thiện hiệu suất doanh nghiệp. Thông qua các mô hình và nghiên cứu thực tiễn, học viên sẽ biết cách nhận diện nguyên nhân của các vấn đề về con người và đưa ra giải pháp quản trị phù hợp.</p>
                                 </div>
                             </div>
 
@@ -3597,7 +3597,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">01</span>
-                                            <span class="curr-acc-title">Hành vi cá nhân trong tổ chức (Individual Behaviour)</span>
+                                            <span class="curr-acc-title">Hành vi cá nhân trong tổ chức (Individual Behavior)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 1</span>
@@ -3618,7 +3618,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="curr-acc-header">
                                         <div class="curr-acc-header-left">
                                             <span class="curr-acc-num">02</span>
-                                            <span class="curr-acc-title">Hành vi đội nhóm và làm việc nhóm (Group Behaviour)</span>
+                                            <span class="curr-acc-title">Hành vi đội nhóm và làm việc nhóm (Group Behavior)</span>
                                         </div>
                                         <div class="curr-acc-header-right">
                                             <span class="curr-acc-badge">Chủ đề 2</span>
@@ -3822,7 +3822,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="dot"></span> IDEAS AI Platform
                         </span>
                         <h2 class="ble-section-title">AI được <span class="ble-text-red">huấn luyện riêng</span> cho chương trình học</h2>
-                        <p class="ble-section-subtitle" style="margin-bottom: 24px;">Học đúng trọng tâm. Hiểu sâu kiến thức. Nền tảng hỗ trợ học viên học tập mọi lúc, mọi nơi, giúp nâng cao hiệu quả tự học.</p>
+                        <p class="ble-section-subtitle" style="margin-bottom: 24px;">Học đúng trọng tâm. Hiểu sâu kiến thức. Nền tảng hỗ trợ học viên học tập mọi lúc, mọi nơi, giúp nâng cao hiệu quả tự học. IDEAS AI Platform được phát triển dưới sự kiểm duyệt của Hội đồng chuyên môn IDEAS.</p>
 
                         <ul class="ai-features-list">
                             <li>
@@ -3912,7 +3912,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/gv_Mujtaba.jpg" alt="Dr. Bahaudin G. Mujtaba" class="fac-avatar">
                         </div>
                         <h4 class="fac-name">Dr. Bahaudin G. Mujtaba</h4>
-                        <div class="fac-role">Organizational Behaviour</div>
+                        <div class="fac-role">Organizational Behavior</div>
                         <p class="fac-bio">Giáo sư Quản trị chiến lược và Quản trị Nguồn nhân lực tại Nova Southeastern University (NSU), Florida, Hoa Kỳ. Chuyên gia tư vấn cấp cao quốc tế với hàng trăm công trình nghiên cứu và sách về hành vi tổ chức.</p>
                         <a href="https://www.facebook.com/DeanMuj/" target="_blank" class="fac-link">Lý lịch khoa học ↗</a>
                     </div>
@@ -4137,7 +4137,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                     <div style="display: flex; align-items: center; gap: 12px; background: rgba(171, 14, 0, 0.04); border: 1px dashed rgba(171, 14, 0, 0.35); padding: 12px 18px; border-radius: 8px; margin-top: 24px; max-width: 540px; box-sizing: border-box;">
                         <span style="font-size: 1.25rem; line-height: 1;">🎁</span>
-                        <p style="margin: 0; font-size: 0.9rem; color: #ab0e00; font-weight: 700; line-height: 1.45;">Đăng ký trong tháng 7 để nhận Learning Grant 100% học phí.</p>
+                        <p style="margin: 0; font-size: 0.9rem; color: #ab0e00; font-weight: 700; line-height: 1.45;">Học miễn phí toàn khóa khi đăng ký trong tháng 7</p>
                     </div>
 
                     <!-- Nested FAQ Accordion -->
@@ -4150,7 +4150,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </button>
                             <div class="faq-body">
                                 <div class="faq-content">
-                                    Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập quan vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
+                                    Đây là ba môn học nền tảng quan trọng được lựa chọn từ hệ thống học phần của Swiss UMEF, tập trung vào năng lực cốt lõi của một nhà quản lý hiện đại: lãnh đạo đội ngũ, thấu hiểu con người và phát triển nhân tài.
                                 </div>
                             </div>
                         </div>
@@ -4676,7 +4676,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="ble-pmodal-logos">
                     <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" class="pmodal-logo-ideas" alt="IDEAS Logo">
                     <div class="pmodal-logo-divider"></div>
-                    <span class="pmodal-partner-text">SWISS UMEF PARTNER</span>
+                    <span class="pmodal-partner-text">IDEAS BUSINESS ACADEMY</span>
                 </div>
                 
                 <div class="ble-pmodal-divider"></div>
