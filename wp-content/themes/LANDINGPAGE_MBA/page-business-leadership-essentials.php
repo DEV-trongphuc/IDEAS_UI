@@ -2059,8 +2059,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .fac-grid-advisor {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .fac-grid-advisor {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .fac-card {
@@ -3960,7 +3966,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Chuyên gia đồng hành
                     </span>
-                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">chuyên gia</span></h2>
+                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">giảng viên</span></h2>
                     <p class="ble-section-subtitle">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
                 </div>
 
@@ -4004,11 +4010,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="fac-role">Nghiên cứu sinh Khoa Học Máy Tính &amp; AI</div>
                         <p class="fac-bio">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
                     </div>
+
+                    <!-- Expert 5 -->
+                    <div class="fac-card">
+                        <div class="fac-avatar-wrap">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="NCS. Võ Trùng Dương" class="fac-avatar">
+                        </div>
+                        <h4 class="fac-name">NCS. Võ Trùng Dương</h4>
+                        <div class="fac-role">Thạc sĩ AI &amp; Business Strategist</div>
+                        <p class="fac-bio">Trưởng Khối Tăng Trưởng &amp; Công Nghệ Viện IDEAS. Hơn 20 năm kinh nghiệm triển khai giải pháp Marketing, Tăng trưởng và ứng dụng AI.</p>
+                    </div>
                 </div>
 
                 <!-- Slide Dots indicators on mobile for local experts -->
                 <div class="mobile-dots-container fac-dots-advisor" style="display: none;">
                     <span class="dot active"></span>
+                    <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
