@@ -4127,21 +4127,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Expert 4 -->
                             <div class="fac-card">
                                 <div class="fac-avatar-wrap">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" class="fac-avatar">
-                                </div>
-                                <h4 class="fac-name">NCS. Phạm Phi Vũ</h4>
-                                <div class="fac-role">Nghiên cứu sinh Khoa Học Máy Tính &amp; AI</div>
-                                <p class="fac-bio">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
-                            </div>
-
-                            <!-- Expert 5 -->
-                            <div class="fac-card">
-                                <div class="fac-avatar-wrap">
                                     <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp" alt="TS. Mang Viên Hoàng Nhật" class="fac-avatar">
                                 </div>
                                 <h4 class="fac-name">TS. Mang Viên Hoàng Nhật</h4>
                                 <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh</div>
                                 <p class="fac-bio">Hơn 25 năm kinh nghiệm quản lý, điều hành trong ngành Dược phẩm, Thiết bị Y tế; 11 năm giữ vị trí cấp cao tại GSK, Roche, Takeda.</p>
+                            </div>
+
+                            <!-- Expert 5 -->
+                            <div class="fac-card">
+                                <div class="fac-avatar-wrap">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" class="fac-avatar">
+                                </div>
+                                <h4 class="fac-name">NCS. Phạm Phi Vũ</h4>
+                                <div class="fac-role">Nghiên cứu sinh Khoa Học Máy Tính &amp; AI</div>
+                                <p class="fac-bio">Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.</p>
                             </div>
 
                             <!-- Expert 6 -->
@@ -4651,7 +4651,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             initMobileSlider('.fac-grid', '.fac-dots');
             initMobileSlider('.audience-grid', '.aud-dots');
         });
-
         // 4B-2. Desktop & Mobile Advisor Slider Controller
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.querySelector('.advisor-slider-container');
@@ -4668,6 +4667,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const cards = Array.from(track.querySelectorAll('.fac-card'));
             const totalCards = cards.length;
             let currentIndex = 0;
+            let autoSlideInterval = null;
 
             function updateDots() {
                 if (!dotsContainer) return;
@@ -4713,13 +4713,42 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 updateDots();
             }
 
+            function startAutoSlide() {
+                stopAutoSlide();
+                if (window.innerWidth <= 768) return;
+                autoSlideInterval = setInterval(() => {
+                    const maxIndex = getMaxIndex();
+                    let nextIndex = currentIndex + 1;
+                    if (nextIndex > maxIndex) {
+                        nextIndex = 0;
+                    }
+                    slideTo(nextIndex);
+                }, 4000);
+            }
+
+            function stopAutoSlide() {
+                if (autoSlideInterval) {
+                    clearInterval(autoSlideInterval);
+                    autoSlideInterval = null;
+                }
+            }
+
+            // Start auto slide initially
+            startAutoSlide();
+
+            // Pause on hover
+            container.addEventListener('mouseenter', stopAutoSlide);
+            container.addEventListener('mouseleave', startAutoSlide);
+
             if (prevBtn && nextBtn) {
                 prevBtn.addEventListener('click', () => {
                     slideTo(currentIndex - 1);
+                    startAutoSlide();
                 });
 
                 nextBtn.addEventListener('click', () => {
                     slideTo(currentIndex + 1);
+                    startAutoSlide();
                 });
             }
 
@@ -4728,6 +4757,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 dots.forEach((dot, index) => {
                     dot.addEventListener('click', () => {
                         slideTo(index);
+                        startAutoSlide();
                     });
                 });
             }
@@ -4750,12 +4780,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 768) {
                     slideTo(currentIndex);
+                    startAutoSlide();
                 } else {
                     track.style.transform = '';
+                    stopAutoSlide();
                 }
             });
         });
-
         // 4C. Image Lightbox Zoom Modal Toggle
         document.addEventListener('DOMContentLoaded', () => {
             const lightbox = document.getElementById('ble-lightbox');
