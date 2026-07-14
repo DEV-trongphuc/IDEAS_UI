@@ -2058,14 +2058,58 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .fac-grid-advisor {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
+            display: flex !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory !important;
+            gap: 30px !important;
+            padding: 10px 4px 20px 4px !important;
+            scrollbar-width: thin !important;
+            scrollbar-color: #ab0e00 #faf8f5;
         }
 
-        @media (max-width: 1200px) {
+        .fac-grid-advisor::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .fac-grid-advisor::-webkit-scrollbar-track {
+            background: #faf8f5;
+        }
+
+        .fac-grid-advisor::-webkit-scrollbar-thumb {
+            background: #ab0e00;
+            border-radius: 100px;
+        }
+
+        .fac-grid-advisor .fac-card {
+            flex: 0 0 calc((100% - 60px) / 3) !important;
+            width: calc((100% - 60px) / 3) !important;
+            max-width: calc((100% - 60px) / 3) !important;
+            scroll-snap-align: start !important;
+            box-sizing: border-box !important;
+        }
+
+        @media (max-width: 991px) {
             .fac-grid-advisor {
-                grid-template-columns: repeat(3, 1fr);
+                gap: 20px !important;
+            }
+            .fac-grid-advisor .fac-card {
+                flex: 0 0 calc((100% - 20px) / 2) !important;
+                width: calc((100% - 20px) / 2) !important;
+                max-width: calc((100% - 20px) / 2) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .fac-grid-advisor {
+                gap: 16px !important;
+                padding: 10px 4px 20px 4px !important;
+            }
+            .fac-grid-advisor .fac-card {
+                flex: 0 0 82% !important;
+                width: 82% !important;
+                max-width: 82% !important;
+                scroll-snap-align: center !important;
             }
         }
 
@@ -2441,8 +2485,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             .comp-grid,
             .audience-grid,
-            .fac-grid,
-            .fac-grid-advisor {
+            .fac-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
             }
@@ -2532,8 +2575,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         @media (max-width: 768px) {
             /* Enable native horizontal scroll snap for Core Competencies & Instructors */
             .comp-grid,
-            .fac-grid,
-            .fac-grid-advisor {
+            .fac-grid {
                 display: flex !important;
                 flex-direction: row !important;
                 overflow-x: auto !important;
@@ -2544,8 +2586,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 -ms-overflow-style: none !important;
             }
             .comp-grid::-webkit-scrollbar,
-            .fac-grid::-webkit-scrollbar,
-            .fac-grid-advisor::-webkit-scrollbar {
+            .fac-grid::-webkit-scrollbar {
                 display: none !important;
             }
             .comp-card,
@@ -3908,7 +3949,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Giảng viên khóa học
                     </span>
-                    <h2 class="ble-section-title">Giảng <span class="ble-text-red">Viên</span></h2>
+                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">giảng viên</span></h2>
                     <p class="ble-section-subtitle">Học tập cùng các giáo sư, chuyên gia tư vấn hàng đầu quốc tế</p>
                 </div>
 
@@ -3966,7 +4007,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Chuyên gia đồng hành
                     </span>
-                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">giảng viên</span></h2>
+                    <h2 class="ble-section-title">Đội ngũ <span class="ble-text-red">chuyên gia</span></h2>
                     <p class="ble-section-subtitle">Đội ngũ Tiến sĩ, Giáo sư và Chuyên gia hàng đầu hỗ trợ toàn diện quá trình đào tạo.</p>
                 </div>
 
