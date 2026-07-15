@@ -1060,22 +1060,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <span style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.4;"><?php echo $is_en ? '<strong>Secure & Trusted:</strong> Fine-tuned dedicated AI system ensuring accurate study resources.' : '<strong>Bảo mật thông tin:</strong> Hệ thống AI được tinh chỉnh chuyên sâu, đảm bảo tài nguyên học tập chuẩn xác.'; ?></span>
                                 </div>
                             </div>
-
-                            <!-- Register Trial Button -->
-                            <div style="margin-top: 24px; margin-bottom: 10px;">
-                                <a href="<?php echo $is_en ? '/dang-ky-tai-khoan-ai?lang=en' : '/dang-ky-tai-khoan-ai'; ?>" class="ideas-ai-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background: #ff4d4d; color: #ffffff; font-weight: 700; font-size: 0.95rem; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.25); transition: all 0.3s ease;">
-                                    <span><?php echo $is_en ? 'Register AI Account Now' : 'Đăng ký trải nghiệm ngay'; ?></span>
-                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                </a>
-                            </div>
                         </div>
                         
                         <!-- Right Column: Video player -->
-                        <div class="ideas-ai-video-wrap" style="position: relative; z-index: 2;">
+                        <div class="ideas-ai-video-wrap" style="position: relative; z-index: 2; display: flex; flex-direction: column; gap: 20px;">
                             <div style="border-radius: 20px; padding: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 30px 60px rgba(0,0,0,0.4);">
                                 <div style="border-radius: 16px; overflow: hidden; position: relative; aspect-ratio: 16/9; background: #000; border: 2px solid rgba(217, 38, 38, 0.35); box-shadow: 0 10px 30px rgba(217, 38, 38, 0.25);">
                                     <iframe src="https://www.youtube.com/embed/09mATwfEE8Q" title="IDEAS AI Platform Demo" style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
+                            </div>
+                            
+                            <!-- Register Trial Button under the clip -->
+                            <div style="display: flex; justify-content: center;">
+                                <a href="<?php echo $is_en ? '/dang-ky-tai-khoan-ai?lang=en' : '/dang-ky-tai-khoan-ai'; ?>" class="ideas-ai-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; background: #ff4d4d; color: #ffffff; font-weight: 700; font-size: 1rem; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.25); transition: all 0.3s ease;">
+                                    <span><?php echo $is_en ? 'Register AI Account Now' : 'Đăng ký trải nghiệm ngay'; ?></span>
+                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
                             </div>
                         </div>
                     </div>
