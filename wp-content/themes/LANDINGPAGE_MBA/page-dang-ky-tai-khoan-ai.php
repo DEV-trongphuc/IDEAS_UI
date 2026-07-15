@@ -643,50 +643,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="contact-section">
             <div class="contact-container">
                 
-                <!-- Left: Contact Details -->
+                <!-- Left: Video & Benefits -->
                 <div class="contact-info-column">
-                    <div class="contact-info-card">
-                        <h2><svg class="svg-icon fa-circle-nodes fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M418.4 157.9c35.3-8.3 61.6-40 61.6-77.9c0-44.2-35.8-80-80-80c-43.4 0-78.7 34.5-80 77.5L136.2 151.1C121.7 136.8 101.9 128 80 128c-44.2 0-80 35.8-80 80s35.8 80 80 80c12.2 0 23.8-2.7 34.1-7.6L259.7 407.8c-2.4 7.6-3.7 15.8-3.7 24.2c0 44.2 35.8 80 80 80s80-35.8 80-80c0-27.7-14-52.1-35.4-66.4l37.8-207.7zM156.3 232.2c2.2-6.9 3.5-14.2 3.7-21.7l183.8-73.5c3.6 3.5 7.4 6.7 11.6 9.5L317.6 354.1c-5.5 1.3-10.8 3.1-15.8 5.5L156.3 232.2z"/></svg> <?php echo $is_en ? 'IDEAS Office' : 'Văn phòng IDEAS'; ?></h2>
-                        <div class="info-details">
-                            <div class="info-item">
-                                <div class="info-icon"><svg class="svg-icon fa-location-dot fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></div>
-                                <div class="info-content">
-                                    <span class="info-label"><?php echo $is_en ? 'Headquarters' : 'Trụ sở chính'; ?></span>
-                                    <span class="info-value"><?php echo $is_en ? '4th Floor, Hai Au Building, 39B Truong Son, Tan Son Nhat Ward, Tan Binh District, HCMC' : 'Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, Quận Tân Bình, TP.HCM'; ?></span>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon"><svg class="svg-icon fa-phone fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg></div>
-                                <div class="info-content">
-                                    <span class="info-label"><?php echo $is_en ? 'Admissions Hotline' : 'Hotline Tuyển sinh'; ?></span>
-                                    <span class="info-value"><a href="tel:02822442244">028 2244 2244</a></span>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon"><svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg></div>
-                                <div class="info-content">
-                                    <span class="info-label"><?php echo $is_en ? 'Support Email' : 'Email hỗ trợ'; ?></span>
-                                    <span class="info-value"><a href="mailto:info@ideas.edu.vn">info@ideas.edu.vn</a></span>
-                                </div>
-                            </div>
+                    <!-- Video player on top -->
+                    <div style="border-radius: 24px; padding: 8px; background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02); transition: all 0.35s ease;">
+                        <div style="border-radius: 18px; overflow: hidden; position: relative; aspect-ratio: 16/9; background: #000; border: 2px solid rgba(217, 38, 38, 0.25); box-shadow: 0 10px 25px rgba(217, 38, 38, 0.15);">
+                            <iframe src="https://www.youtube.com/embed/09mATwfEE8Q" title="IDEAS AI Platform Demo" style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
-
-                        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-                            <h3 style="font-size:1.05rem; font-weight:800; color:#0f172a; margin: 0 0 10px; display:flex; align-items:center; gap:8px;">
-                                <svg class="svg-icon fa-comments fa-solid" style="color:#ab0e00;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2s0 0 0 0s0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.2-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9c0 0 0 0 0 0s0 0 0 0l-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></svg> <?php echo $is_en ? 'Quick Contact' : 'Liên hệ nhanh'; ?>
-                            </h3>
-                            <p style="font-size:0.82rem; color:#4b5563; margin: 0 0 16px; line-height: 1.5;"><?php echo $is_en ? 'If you need to discuss immediately, you can chat via Zalo or schedule a video counseling session.' : 'Nếu cần trao đổi ngay, bạn có thể chọn chat Zalo hoặc đặt lịch hẹn tư vấn video.'; ?></p>
-                            <div class="contact-action-row">
-                                <a href="https://zalo.me/3857867121882640296" target="_blank" class="contact-zalo-btn" rel="nofollow noopener noreferrer">
-                                    <img src="/wp-content/uploads/external-migrated/zalo-oa-icon-unplated_82aad094.webp" alt="Zalo Logo" loading="lazy">
-                                    <span>Chat Zalo</span>
-                                </a>
-                                <button type="button" class="contact-booking-btn bk-open-btn">
-                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" style="flex-shrink: 0;" aria-hidden="true">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    <span><?php echo $is_en ? 'Book Appointment' : 'Đặt lịch hẹn'; ?></span>
-                                </button>
+                    </div>
+                    
+                    <!-- Benefits below -->
+                    <div class="contact-info-card">
+                        <h2>
+                            <svg class="svg-icon fa-robot fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #ab0e00;"><path d="M0 224c0 17.7 14.3 32 32 32s32-14.3 32-32c0-53 43-96 96-96s96 43 96 96c0 17.7 14.3 32 32 32s32-14.3 32-32c0-88.4-71.6-160-160-160S0 135.6 0 224zm512 0c0 17.7 14.3 32 32 32s32-14.3 32-32c0-88.4-71.6-160-160-160s-160 71.6-160 160c0 17.7 14.3 32 32 32s32-14.3 32-32c0-53 43-96 96-96s96 43 96 96zM160 272c0-8.8-7.2-16-16-16s-16 7.2-16 16v192c0 8.8 7.2 16 16 16s16-7.2 16-16V272zm320 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v192c0 8.8 7.2 16 16 16s16-7.2 16-16V272zm-288 32c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16v-64zm192 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16v-64z"/></svg>
+                            <span><?php echo $is_en ? 'AI Platform Benefits' : 'Đặc quyền từ IDEAS AI Platform'; ?></span>
+                        </h2>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 15px;">
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(171, 14, 0, 0.1); color: #ab0e00; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                <span style="color: #4b5563; font-size: 0.95rem; line-height: 1.45;"><?php echo $is_en ? '<strong>Instant Academic Help:</strong> Get complex management concepts clarified in seconds.' : '<strong>Giải đáp học thuật tức thì:</strong> Hỗ trợ làm rõ các khái niệm quản trị phức tạp chỉ trong vài giây.'; ?></span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(171, 14, 0, 0.1); color: #ab0e00; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                <span style="color: #4b5563; font-size: 0.95rem; line-height: 1.45;"><?php echo $is_en ? '<strong>Assignment Assistance:</strong> Receive structural suggestions and verified academic citations.' : '<strong>Hỗ trợ làm Assignment:</strong> Gợi ý cấu trúc bài viết và cung cấp nguồn tham khảo chính xác.'; ?></span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(171, 14, 0, 0.1); color: #ab0e00; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                <span style="color: #4b5563; font-size: 0.95rem; line-height: 1.45;"><?php echo $is_en ? '<strong>Real-world Application:</strong> Leverage AI tools to analyze case studies and work challenges.' : '<strong>Ứng dụng trong công việc:</strong> Sử dụng các công cụ trí tuệ nhân tạo để giải quyết tình huống thực tế.'; ?></span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(171, 14, 0, 0.1); color: #ab0e00; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+                                <span style="color: #4b5563; font-size: 0.95rem; line-height: 1.45;"><?php echo $is_en ? '<strong>24/7 AI Companion:</strong> Your personalized smart academic tutor available anytime, anywhere.' : '<strong>Đồng hành 24/7:</strong> Trợ lý thông minh cá nhân hóa, đồng hành cùng bạn mọi lúc mọi nơi.'; ?></span>
                             </div>
                         </div>
                     </div>
