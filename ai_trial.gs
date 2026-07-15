@@ -139,3 +139,45 @@ function sendAccountEmailOnCheckbox(e) {
     }
   }
 }
+
+/**
+ * 3. Hàm khởi tạo Header cho trang tính (Chạy 1 lần duy nhất từ Apps Script editor)
+ * Hàm này sẽ chèn thêm hàng tiêu đề ở dòng 1 và tự động định dạng.
+ */
+function setupSpreadsheetHeaders() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  
+  // Chèn một hàng trống ở đầu tiên (đẩy dữ liệu kiểm thử hiện tại xuống hàng 2)
+  sheet.insertRowBefore(1);
+  
+  // Định nghĩa tiêu đề cột
+  const headers = [
+    "Timestamp",          // A
+    "Họ và tên",          // B
+    "Email",              // C
+    "Số điện thoại",      // D
+    "Chương trình học",   // E
+    "Mục đích sử dụng",   // F
+    "Mong muốn hỗ trợ",   // G
+    "Ngôn ngữ",           // H
+    "Đã cấp tài khoản",   // I
+    "Ngày gửi email"      // J
+  ];
+  
+  // Ghi tiêu đề vào hàng 1
+  const headerRange = sheet.getRange(1, 1, 1, headers.length);
+  headerRange.setValues([headers]);
+  
+  // Trang trí định dạng cho dòng tiêu đề
+  headerRange.setBackground("#ab0e00") // Màu đỏ thương hiệu IDEAS
+             .setFontColor("#ffffff")  // Chữ trắng
+             .setFontWeight("bold")    // In đậm
+             .setHorizontalAlignment("center")
+             .setVerticalAlignment("middle");
+             
+  // Điều chỉnh độ cao hàng tiêu đề và cố định hàng 1
+  sheet.setRowHeight(1, 35);
+  sheet.setFrozenRows(1);
+  
+  Logger.log("Đã khởi tạo dòng tiêu đề thành công!");
+}
