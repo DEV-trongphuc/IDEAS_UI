@@ -1038,7 +1038,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </span>
                             
                             <h3 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; color: #ffffff; line-height: 1.25; margin: 0 0 20px 0; letter-spacing: -0.02em;">
-                                <?php echo $is_en ? 'Supercharge your learning journey with<br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>' : 'Trải nghiệm học tập vượt trội&nbsp;với<br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>'; ?>
+                                <?php echo $is_en ? '<span class="ideas-ai-title-span">Supercharge your learning journey with</span><br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>' : '<span class="ideas-ai-title-span">Trải nghiệm học tập vượt trội với</span><br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>'; ?>
                             </h3>
                             
                             <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; margin-bottom: 28px; max-width: 600px;">
@@ -1072,7 +1072,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             
                             <!-- Register Trial Button under the clip -->
                             <div style="display: flex; justify-content: center;">
-                                <a href="<?php echo $is_en ? '/dang-ky-tai-khoan-ai?lang=en' : '/dang-ky-tai-khoan-ai'; ?>" class="ideas-ai-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; background: #ff4d4d; color: #ffffff; font-weight: 700; font-size: 1rem; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.25); transition: all 0.3s ease;">
+                                <a href="<?php echo $is_en ? '/dang-ky-tai-khoan-ai?lang=en' : '/dang-ky-tai-khoan-ai'; ?>" class="ideas-ai-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; background: #ab0e00; color: #ffffff; font-weight: 700; font-size: 1rem; border-radius: 99px; text-decoration: none; box-shadow: 0 10px 20px rgba(171, 14, 0, 0.25); transition: all 0.3s ease;">
                                     <span><?php echo $is_en ? 'Register AI Account Now' : 'Đăng ký trải nghiệm ngay'; ?></span>
                                     <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                                 </a>
@@ -1088,9 +1088,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         100% { transform: scale(0.85); opacity: 0.5; }
                     }
                     .ideas-ai-btn:hover {
-                        background: #ff6b6b !important;
+                        background: #8c1000 !important;
                         transform: translateY(-2px);
-                        box-shadow: 0 15px 30px rgba(255, 77, 77, 0.4) !important;
+                        box-shadow: 0 15px 30px rgba(171, 14, 0, 0.4) !important;
+                    }
+                    @media (min-width: 992px) {
+                        .ideas-ai-title-span {
+                            white-space: nowrap;
+                        }
                     }
                     @media (max-width: 991px) {
                         .ideas-ai-grid {
