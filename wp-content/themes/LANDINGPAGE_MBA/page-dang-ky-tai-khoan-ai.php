@@ -963,5 +963,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         });
     </script>
 
+    <!-- Script imports -->
+    <?php
+    $js_path = get_stylesheet_directory() . '/common-assets/js/script.min.js';
+    $js_version = file_exists($js_path) ? filemtime($js_path) : time();
+    ?>
+    <script
+        src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>"
+        defer></script>
+
+    <!-- Booking Modal script import -->
+    <?php
+    define('BOOKING_MODAL_JS_LOADED', true);
+    $bk_js_path = get_stylesheet_directory() . '/common-assets/js/booking-modal.min.js';
+    $bk_js_version = file_exists($bk_js_path) ? filemtime($bk_js_path) : time();
+    ?>
+    <script
+        src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/booking-modal.min.js?v=<?php echo $bk_js_version; ?>"
+        defer></script>
+
 </body>
 </html>
