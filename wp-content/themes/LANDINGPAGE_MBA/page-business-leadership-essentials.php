@@ -3283,6 +3283,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             line-height: 1;
             margin-bottom: 8px;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            white-space: nowrap;
         }
 
         .ble-fee-left .fee-price span {
