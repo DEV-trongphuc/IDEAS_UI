@@ -878,33 +878,51 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 noteParts.push('CTA Source: ai_platform_registration_page');
                 const combinedNote = noteParts.join(' | ');
 
+                // New CRM Payload
                 const payload = {
-                    form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
+                    form_id: "15bc1263ceaec6fc77fa8b475c8aaf4e",
                     email: email,
                     firstName: name,
                     phoneNumber: phone,
-                    time_dat_lich: "",
-                    note_dat_lich: `Đăng ký nhận tài khoản AI Platform miễn phí | ${combinedNote}`,
-                    chuong_trinh_dat_lich: interestVal
-                };
-
-                const webhookPayload = {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    source: "Landing_AI_Register_Page",
-                    type: "ai_account_registration",
                     chuong_trinh: interestVal,
-                    nhu_cau: `Đăng ký nhận tài khoản AI Platform miễn phí | Note: ${combinedNote}`
+                    muc_dich: purposeVal,
+                    note: combinedNote
                 };
 
-                // Append UTMs
-                const urlParams = new URLSearchParams(window.location.search);
-                const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
-                utmParams.forEach(param => {
-                    const val = urlParams.get(param);
-                    if (val) webhookPayload[param] = val;
-                });
+                // Google Sheets Web App URL (Paste your URL after deploying Google Apps Script)
+                const GOOGLE_SHEET_WEB_APP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+                const promises = [];
+
+                // 1. Submit to CRM
+                promises.push(
+                    fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
+                    })
+                );
+
+                // 2. Submit to Google Sheets (if configured)
+                if (GOOGLE_SHEET_WEB_APP_URL && GOOGLE_SHEET_WEB_APP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+                    const sheetPayload = {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        program: interestText,
+                        purpose: purposeText,
+                        message: messageVal,
+                        lang: isEnMode ? 'en' : 'vi'
+                    };
+                    promises.push(
+                        fetch(GOOGLE_SHEET_WEB_APP_URL, {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(sheetPayload)
+                        })
+                    );
+                }
 
                 // Disable submit button during request
                 const btn = document.getElementById('form-submit-btn');
@@ -914,19 +932,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 btn.innerHTML = `<span><svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg> ${isEnMode ? 'Submitting...' : 'Đang gửi...'}</span>`;
 
                 try {
-                    const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(payload)
-                    });
-
-                    const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(webhookPayload)
-                    });
-
-                    await Promise.allSettled([p1, p2]);
+                    await Promise.allSettled(promises);
 
                     // Google Ads Conversion tracking
                     if (typeof window.gtag === 'function') {
