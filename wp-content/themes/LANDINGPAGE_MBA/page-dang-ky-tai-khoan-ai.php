@@ -890,7 +890,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 };
 
                 // Google Sheets Web App URL (Paste your URL after deploying Google Apps Script)
-                const GOOGLE_SHEET_WEB_APP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+                const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyWMIW1uUo7M29HQvGUyDu2Zbtq45vwRgOHRfjdZctu6qACPwJv21XEK4zKHv-1xk_1/exec';
 
                 const promises = [];
 
