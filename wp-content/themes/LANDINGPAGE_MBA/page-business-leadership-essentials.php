@@ -29,7 +29,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <meta property="og:type" content="article" />
             <meta property="og:title" content="<?php echo $is_en ? 'Business Leadership Essentials - IDEAS' : 'Khóa học Business Leadership Essentials - IDEAS'; ?>" />
             <meta property="og:description"
-                content="<?php echo $is_en ? 'Gain 8 core leadership competencies and Swiss UMEF certification. Register in July for 100% Learning Grant.' : 'Đạt được 8 năng lực lãnh đạo cốt lõi và chứng nhận từ Swiss UMEF. Học miễn phí toàn khóa khi đăng ký trong tháng 7.'; ?>" />
+                content="<?php echo $is_en ? 'Gain 8 core leadership competencies and Swiss UMEF certification. Tuition fee at 9,900,000 VND.' : 'Đạt được 8 năng lực lãnh đạo cốt lõi và chứng nhận từ Swiss UMEF. Học phí ưu đãi trọn khóa chỉ 9.900.000đ.'; ?>" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -3225,6 +3225,131 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .pmodal-input:focus {
             border-color: #ab0e00;
         }
+
+        /* ── Tuition Fee Section ────────────── */
+        .ble-fee-card {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 28px;
+            background: #ffffff;
+            border: 1.5px solid rgba(171, 14, 0, 0.15);
+            box-shadow: 0 15px 35px rgba(171, 14, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ble-fee-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #ab0e00, #ff4d4d);
+        }
+
+        .ble-fee-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .ble-fee-left {
+            text-align: center;
+            border-right: 1.5px solid #e2e8f0;
+            padding-right: 40px;
+        }
+
+        .ble-fee-left .fee-label {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .ble-fee-left .fee-price {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            color: #ab0e00;
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .ble-fee-left .fee-price span {
+            font-size: 1.8rem;
+            font-weight: 800;
+            vertical-align: super;
+        }
+
+        .ble-fee-left .fee-note {
+            font-size: 0.85rem;
+            color: #475569;
+            display: block;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .ble-fee-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .ble-fee-right h4 {
+            font-size: 1.2rem;
+            font-weight: 850;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+        }
+
+        .ble-fee-benefit {
+            display: flex;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .ble-fee-benefit .check-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(171, 14, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #ab0e00;
+            font-size: 0.75rem;
+            font-weight: 900;
+            margin-top: 2px;
+        }
+
+        .ble-fee-benefit span {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .ble-fee-card {
+                padding: 30px 20px;
+            }
+            .ble-fee-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .ble-fee-left {
+                border-right: none;
+                border-bottom: 1.5px solid #e2e8f0;
+                padding-right: 0;
+                padding-bottom: 30px;
+            }
+        }
     </style>
 
     <?php wp_head(); ?>
@@ -3279,17 +3404,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
 
-                        <!-- Special Promo Box -->
-                        <div class="ble-hero-promo">
-                            <div class="ble-hero-promo-icon">
-                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                            </div>
-                            <div class="ble-hero-promo-text">Học miễn phí toàn khóa khi đăng ký trong tháng 7</div>
-                        </div>
-
                         <!-- Action buttons -->
                         <div class="ble-hero-actions">
-                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-hero'); }" class="ble-btn">Đăng ký ngay</button>
+                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-hero'); }" class="ble-btn">Đăng ký tư vấn ngay</button>
                             <a href="#curriculum" class="ble-btn ble-btn-outline">Xem khóa học</a>
                         </div>
                     </div>
@@ -4208,7 +4325,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <span class="ai-feat-text" style="color: #475569;">Được công nhận bởi Hội đồng chuyên môn Viện IDEAS.</span>
                             </li>
                         </ul>
-                        <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-cert'); }" class="ble-btn">Đăng ký tư vấn lộ trình</button>
+                        <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-cert'); }" class="ble-btn">Đăng ký tư vấn ngay</button>
 
                         <!-- Showcase cohort study image -->
                         <div class="cert-visual-img-wrap" style="margin-top: 30px; border-radius: 18px !important; overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.06);">
@@ -4319,6 +4436,60 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
+        <!-- 8b. TUITION FEE SECTION (White Background, Premium Visual) -->
+        <section class="ble-section bg-white" id="hoc-phi">
+            <!-- Background Glow Orbs -->
+            <div class="ble-glow-orb ble-glow-orb-primary" style="top: 15%; right: -10%;"></div>
+            <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 15%; left: -10%;"></div>
+            
+            <div class="ble-container">
+                <div class="ble-title-wrap">
+                    <span class="ble-section-tag">
+                        <span class="dot"></span> Học phí chương trình
+                    </span>
+                    <h2 class="ble-section-title">Đầu tư <span class="ble-gradient-text">Học phí tối ưu</span></h2>
+                    <p class="ble-section-subtitle">Chương trình chuẩn quốc tế với mức chi phí được hỗ trợ tối đa dành cho nhà quản lý</p>
+                </div>
+
+                <div class="ble-fee-card">
+                    <div class="ble-fee-grid">
+                        <!-- Left: Price & CTA -->
+                        <div class="ble-fee-left">
+                            <span class="fee-label">HỌC PHÍ TOÀN KHÓA</span>
+                            <div class="fee-price">9.900.000 <span>đ</span></div>
+                            <span class="fee-note">(Đã bao gồm tài liệu học tập, tài khoản LMS và hỗ trợ từ AI)</span>
+                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-fee'); }" class="ble-btn" style="width: 100%;">Đăng ký tư vấn ngay</button>
+                        </div>
+                        
+                        <!-- Right: Benefits -->
+                        <div class="ble-fee-right">
+                            <h4>Đặc quyền đi kèm học phí:</h4>
+                            
+                            <div class="ble-fee-benefit">
+                                <div class="check-icon">✓</div>
+                                <span>Truy cập trọn đời hệ thống bài giảng và giáo trình chuẩn hóa Swiss UMEF.</span>
+                            </div>
+                            
+                            <div class="ble-fee-benefit">
+                                <div class="check-icon">✓</div>
+                                <span>Tài khoản trợ lý học thuật IDEAS AI được huấn luyện riêng.</span>
+                            </div>
+                            
+                            <div class="ble-fee-benefit">
+                                <div class="check-icon">✓</div>
+                                <span>Nhận chứng chỉ tốt nghiệp (Certificate of Completion) có giá trị xác thực năng lực.</span>
+                            </div>
+                            
+                            <div class="ble-fee-benefit">
+                                <div class="check-icon">✓</div>
+                                <span>Hỗ trợ trả góp học phí lãi suất 0% liên kết cùng ngân hàng Sacombank.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 9. FAQ SECTION & REGISTRATION FORM (Side-by-side, Cloned from index.html) -->
         <section class="cta-section" id="dang-ky" aria-labelledby="cta-headline">
             <div class="cta-bg">
@@ -4368,11 +4539,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <p>Gia nhập cộng đồng <strong>IDEAS Alumni</strong>.</p>
                         </li>
                     </ul>
-
-                    <div style="display: flex; align-items: center; gap: 12px; background: rgba(171, 14, 0, 0.04); border: 1px dashed rgba(171, 14, 0, 0.35); padding: 12px 18px; border-radius: 8px; margin-top: 24px; max-width: 540px; box-sizing: border-box;">
-                        <span style="font-size: 1.25rem; line-height: 1;">🎁</span>
-                        <p style="margin: 0; font-size: 0.9rem; color: #ab0e00; font-weight: 700; line-height: 1.45;">Học miễn phí toàn khóa khi đăng ký trong tháng 7</p>
-                    </div>
 
                     <!-- Nested FAQ Accordion -->
                     <div class="faq-accordion" style="margin-top: 40px;">
@@ -4468,7 +4634,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <textarea id="reg-message" name="message" rows="3" placeholder="Ví dụ: Tôi muốn tìm hiểu lộ trình học tập, thời gian khai giảng..."></textarea>
                             </div>
                             <button type="submit" class="btn-submit" style="background: #ab0e00; color: #fff; font-weight: 800; border-radius: 12px; border: none; padding: 16px; cursor: pointer; transition: all 0.3s; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                                Đăng ký ngay <svg class="svg-icon fa-circle-arrow-right fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM297 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L120 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l214.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L409 239c9.4 9.4 9.4 24.6 0 33.9L297 385z"/></svg>
+                                Đăng ký tư vấn ngay <svg class="svg-icon fa-circle-arrow-right fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM297 385c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l71-71L120 280c-13.3 0-24-10.7-24-24s10.7-24 24-24l214.1 0-71-71c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0L409 239c9.4 9.4 9.4 24.6 0 33.9L297 385z"/></svg>
                             </button>
                         </form>
                         <p class="form-disclaimer" style="text-align: center; color: #64748b; font-size: 0.8rem; margin-top: 15px;">Cam kết bảo mật thông tin</p>
@@ -4919,114 +5085,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 });
             }
         });
-
-        // Override openRegModal to trigger our custom promo popup instead
-        window.openRegModal = function(source) {
-            openBLEPromoModal(source);
-        };
-
-        function openBLEPromoModal(source) {
-            const modal = document.getElementById('ble-promo-modal');
-            const sourceInput = document.getElementById('pmodal-form-source');
-            if (modal) {
-                if (sourceInput) sourceInput.value = source || 'ble-promo';
-                showPModalPromo();
-                modal.style.display = 'flex';
-            }
-        }
-        
-        function closeBLEPromoModal() {
-            const modal = document.getElementById('ble-promo-modal');
-            if (modal) {
-                modal.style.display = 'none';
-            }
-        }
-        
-        function showPModalForm() {
-            document.getElementById('pmodal-state-promo').style.display = 'none';
-            document.getElementById('ble-promo-form').style.display = 'flex';
-        }
-        
-        function showPModalPromo() {
-            document.getElementById('pmodal-state-promo').style.display = 'flex';
-            document.getElementById('ble-promo-form').style.display = 'none';
-        }
-
-        // AJAX Promo Form Submit Handler
-        document.addEventListener('DOMContentLoaded', () => {
-            const promoForm = document.getElementById('ble-promo-form');
-            if (promoForm) {
-                promoForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    const name = promoForm.querySelector('[name="name"]').value;
-                    const phone = promoForm.querySelector('[name="phone"]').value;
-                    const email = promoForm.querySelector('[name="email"]').value;
-                    const source = promoForm.querySelector('[name="source"]').value;
-                    const btn = promoForm.querySelector('.btn-submit');
-                    
-                    if (btn) {
-                        btn.disabled = true;
-                        btn.style.opacity = '0.7';
-                    }
-                    
-                    const webhookPayload = {
-                        name: name,
-                        phone: phone,
-                        email: email,
-                        form_source: source,
-                        campaign: "Business Leadership Essentials Promo"
-                    };
-
-                    const payload = {
-                        sheetName: "Business Leadership Essentials Promo",
-                        data: {
-                            "Họ tên": name,
-                            "Số điện thoại": phone,
-                            "Email": email,
-                            "Nguồn form": source,
-                            "Thời gian": new Date().toLocaleString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" })
-                        }
-                    };
-
-                    try {
-                        const p1 = fetch("https://script.google.com/macros/s/AKfycbyK6H97_MeqCqYnQkFqgPzD4iE1XoH_Rk7VbLqV/exec", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(payload)
-                        });
-
-                        const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(webhookPayload)
-                        });
-
-                        await Promise.allSettled([p1, p2]);
-                        
-                        if (typeof window.gtag === 'function') {
-                            window.gtag('event', 'conversion', {
-                                'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
-                                'value': 1.0,
-                                'currency': 'USD'
-                            });
-                        }
-                        
-                        alert('Đăng ký nhận học bổng thành công! Chuyên viên học vụ sẽ liên hệ hỗ trợ bạn nhận ưu đãi trong vòng 24h làm việc.');
-                        promoForm.reset();
-                        closeBLEPromoModal();
-                    } catch (error) {
-                        console.error('Submission error:', error);
-                        alert('Có lỗi xảy ra trong quá trình đăng ký. Vui lòng thử lại sau.');
-                    } finally {
-                        if (btn) {
-                            btn.disabled = false;
-                            btn.style.opacity = '1';
-                        }
-                    }
-                });
-            }
-        });
     </script>
 
     <!-- Lightbox Zoom Modal for screenshots -->
@@ -5035,60 +5093,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <img class="ble-lightbox-img" src="" alt="Zoomed view">
     </div>
 
-    <!-- Premium July Free Promo Modal (Custom styled after reference) -->
-    <div id="ble-promo-modal" class="ble-pmodal" role="dialog" aria-modal="true" style="display: none;">
-        <div class="ble-pmodal-overlay" onclick="closeBLEPromoModal()"></div>
-        <div class="ble-pmodal-container">
-            <button class="ble-pmodal-close" onclick="closeBLEPromoModal()">&times;</button>
-            <div class="ble-pmodal-content">
-                <!-- Top Sponsor Logos -->
-                <div class="ble-pmodal-logos">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" class="pmodal-logo-ideas" alt="IDEAS Logo">
-                    <div class="pmodal-logo-divider"></div>
-                    <span class="pmodal-partner-text">IDEAS BUSINESS ACADEMY</span>
-                </div>
-                
-                <div class="ble-pmodal-divider"></div>
-                
-                <!-- Center Gold Badge -->
-                <div class="ble-pmodal-badge-container">
-                    <div class="ble-pmodal-gold-badge">
-                        <span class="badge-label">HỌC BỔNG</span>
-                        <span class="badge-value">100%</span>
-                    </div>
-                </div>
-                
-                <!-- Headers -->
-                <h3 class="ble-pmodal-serif-title">Đặc Quyền Đồng Hành</h3>
-                <h2 class="ble-pmodal-main-title">Tài Trợ 100% Học Phí Khóa học<br>Business Leadership Essentials</h2>
-                
-                <!-- Description -->
-                <p class="ble-pmodal-desc">
-                    Áp dụng khi đăng ký học vụ duy nhất trong tháng 07/2026. Nhận học bổng Learning Grant tài trợ 100% học phí toàn khóa học trị giá <strong>12.000.000 VNĐ</strong>.
-                </p>
-                
-                <!-- Action / Form Container -->
-                <div class="ble-pmodal-action-wrapper">
-                    <!-- State 1: Action Button -->
-                    <div id="pmodal-state-promo" class="pmodal-state-active" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-                        <button class="ble-pmodal-btn" onclick="showPModalForm()">Nhận Học Bổng Ngay</button>
-                        <a href="javascript:void(0)" class="ble-pmodal-link" onclick="closeBLEPromoModal()">Xem lộ trình học</a>
-                    </div>
-                    
-                    <!-- State 2: Contact Form Inputs -->
-                    <form id="ble-promo-form" class="pmodal-form" style="display: none;">
-                        <input type="text" name="name" placeholder="Họ và tên *" required class="pmodal-input">
-                        <input type="tel" name="phone" placeholder="Số điện thoại *" required class="pmodal-input">
-                        <input type="email" name="email" placeholder="Địa chỉ Email *" required class="pmodal-input">
-                        <input type="hidden" name="source" id="pmodal-form-source" value="ble-promo">
-                        
-                        <button type="submit" class="ble-pmodal-btn btn-submit" style="margin-top: 5px;">Gửi Đăng Ký Nhận Học Bổng</button>
-                        <a href="javascript:void(0)" class="ble-pmodal-link" onclick="showPModalPromo()">Quay lại</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
