@@ -487,9 +487,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transition: all 0.3s ease;
         }
 
-        .page-contact-form select {
-            display: block !important;
-        }
+
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
