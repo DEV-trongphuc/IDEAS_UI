@@ -1566,7 +1566,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-tab-tag {
             font-size: 0.72rem;
             font-weight: 900;
-            color: #7a0900;
+            color: #ab0e00;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 8px;
@@ -1584,14 +1584,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-tab:hover {
-            border-color: #7a0900;
+            border-color: #ab0e00;
             transform: translateY(-2px);
         }
 
         .curr-tab.active {
-            background: #7a0900;
-            box-shadow: 0 10px 30px rgba(122, 9, 0, 0.2);
-            border-color: #7a0900;
+            background: #ab0e00;
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.2);
+            border-color: #ab0e00;
         }
 
         .curr-tab.active .curr-tab-tag {
@@ -2603,7 +2603,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .curr-tab.active {
-                border-bottom-color: #7a0900;
+                border-bottom-color: #ab0e00;
                 border-left-color: #cbd5e1;
             }
 
@@ -3360,6 +3360,142 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: 100%;
                 height: 1px;
             }
+        }
+
+        /* ── Dark Red Curriculum Section ────────────── */
+        #curriculum {
+            background: linear-gradient(135deg, #4d0000 0%, #7a0900 50%, #330000 100%) !important;
+            color: #ffffff !important;
+        }
+
+        #curriculum .ble-section-tag {
+            color: #ffc837 !important;
+            background: rgba(255, 200, 55, 0.1) !important;
+            border: 1px solid rgba(255, 200, 55, 0.25) !important;
+        }
+
+        #curriculum .ble-section-tag .dot {
+            background-color: #ffc837 !important;
+        }
+
+        #curriculum .ble-section-title {
+            color: #ffffff !important;
+        }
+
+        #curriculum .ble-section-title .ble-text-red {
+            color: #ffc837 !important;
+        }
+
+        #curriculum .ble-section-subtitle {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        #curriculum .curr-tab {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
+        #curriculum .curr-tab-tag {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        #curriculum .curr-tab-title {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        #curriculum .curr-tab:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        #curriculum .curr-tab.active {
+            background: #ffffff !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25) !important;
+        }
+
+        #curriculum .curr-tab.active .curr-tab-tag {
+            color: #ab0e00 !important;
+        }
+
+        #curriculum .curr-tab.active .curr-tab-title {
+            color: #0f172a !important;
+        }
+
+        #curriculum .curr-details {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            color: #ffffff !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        #curriculum .curr-panel-title {
+            color: #ffffff !important;
+        }
+
+        #curriculum .curr-panel-desc {
+            color: rgba(255, 255, 255, 0.75) !important;
+        }
+
+        #curriculum .curr-acc-item {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        #curriculum .curr-acc-item.active {
+            border-color: rgba(255, 200, 55, 0.25) !important;
+        }
+
+        #curriculum .curr-acc-header {
+            color: #ffffff !important;
+        }
+
+        #curriculum .curr-acc-title {
+            color: #ffffff !important;
+        }
+
+        #curriculum .curr-acc-num {
+            color: #ffc837 !important;
+        }
+
+        #curriculum .curr-acc-badge {
+            background: rgba(255, 200, 55, 0.15) !important;
+            color: #ffc837 !important;
+            border: 1px solid rgba(255, 200, 55, 0.2) !important;
+        }
+
+        #curriculum .curr-topics-list li {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        #curriculum .curr-outcomes {
+            background: rgba(255, 200, 55, 0.05) !important;
+            border: 1px solid rgba(255, 200, 55, 0.15) !important;
+        }
+
+        #curriculum .curr-outcomes-title {
+            color: #ffc837 !important;
+        }
+
+        #curriculum .curr-outcomes-list li {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        #curriculum .curr-outcomes-list li::before {
+            background: #ffc837 !important;
+        }
+
+        #curriculum .ble-decor-shape svg {
+            stroke: #ffc837 !important;
+        }
+
+        #curriculum .ble-decor-shape svg circle[fill="#ab0e00"] {
+            fill: #ffc837 !important;
+        }
+
+        #curriculum .curr-acc-header svg {
+            fill: rgba(255, 255, 255, 0.7) !important;
         }
     </style>
 
