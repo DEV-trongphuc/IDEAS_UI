@@ -727,7 +727,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <span class="form-error" id="interest-error"><?php echo $is_en ? 'Please select program' : 'Vui lòng chọn chương trình học'; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="purpose"><?php echo $is_en ? 'Purpose of using AI Tutor *' : 'Mục đích sử dụng AI Tutor *'; ?></label>
+                                    <label for="purpose"><?php echo $is_en ? 'Purpose of using IDEAS AI Platform *' : 'Mục đích sử dụng IDEAS AI Flatform *'; ?></label>
                                     <select id="purpose" name="purpose" required onchange="toggleOtherPurpose(this.value)">
                                         <option value=""><?php echo $is_en ? '-- Select Purpose --' : '-- Chọn mục đích sử dụng --'; ?></option>
                                         <option value="Học tập & nghiên cứu"><?php echo $is_en ? 'Study & Research' : 'Học tập & nghiên cứu'; ?></option>
@@ -746,7 +746,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
 
                             <div class="form-group">
-                                <label for="message"><?php echo $is_en ? 'What do you expect AI Tutor to support you with?' : 'Bạn mong muốn AI Tutor hỗ trợ điều gì?'; ?></label>
+                                <label for="message"><?php echo $is_en ? 'What do you expect IDEAS AI Platform to support you with?' : 'Bạn mong muốn IDEAS AI Flatform hỗ trợ điều gì?'; ?></label>
                                 <textarea id="message" name="message" placeholder="<?php echo $is_en ? 'e.g., I want to write essays, find research papers...' : 'Ví dụ: Tôi muốn hỗ trợ viết luận văn, tìm kiếm tài liệu nghiên cứu...'; ?>" rows="3"></textarea>
                             </div>
 
