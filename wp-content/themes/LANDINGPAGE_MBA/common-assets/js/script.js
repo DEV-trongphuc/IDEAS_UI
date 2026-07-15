@@ -2796,12 +2796,12 @@ function initHomepageToastPopup() {
     if (sessionStorage.getItem('ideas-toast-dismissed-tri-tue')) return;
 
     const isEn = path.includes('/en/') || path.includes('/en') || path.startsWith('/en');
-    const toastLink = isEn ? '/en/tri-tue-song-hanh' : '/tri-tue-song-hanh';
-    const toastTag = isEn ? 'SPECIAL PROMOTION' : 'ƯU ĐÃI ĐẶC BIỆT';
+    const toastLink = '/tin-tuc-moi/ideas-ai-platform-tro-ly-ai-hoc-thuat.html';
+    const toastTag = 'IDEAS AI Platform';
     const toastTitle = isEn 
-        ? 'Shared Intelligence Program: Free In-house AI Corporate Training & AI Agents' 
-        : 'Chương trình Trí tuệ song hành: Học Thạc sĩ tặng Gói Đào tạo AI Doanh nghiệp 50M';
-    const toastImage = 'https://ideas.edu.vn/wp-content/uploads/2026/06/song_ai.webp';
+        ? 'IDEAS AI Platform - 24/7 Smart Academic AI Assistant' 
+        : 'IDEAS AI Platform - Trợ lý AI học thuật hỗ trợ học viên 24/7';
+    const toastImage = 'https://ideas.edu.vn/wp-content/uploads/2026/07/AI-platform.png';
 
     // Inject CSS
     const style = document.createElement('style');
