@@ -3362,20 +3362,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
-        /* ── Dark Red Curriculum Section ────────────── */
+        /* ── Dark Curriculum Section Background ────────────── */
         #curriculum {
-            background: linear-gradient(135deg, #4d0000 0%, #7a0900 50%, #330000 100%) !important;
-            color: #ffffff !important;
+            background: #040508 !important;
+            position: relative;
+        }
+
+        #curriculum::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(217, 38, 38, 0.14) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(217, 38, 38, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #curriculum .ble-container {
+            position: relative;
+            z-index: 2;
         }
 
         #curriculum .ble-section-tag {
-            color: #ffc837 !important;
-            background: rgba(255, 200, 55, 0.1) !important;
-            border: 1px solid rgba(255, 200, 55, 0.25) !important;
+            color: #ff9e9e !important;
+            background: rgba(217, 38, 38, 0.1) !important;
+            border: 1px solid rgba(217, 38, 38, 0.25) !important;
         }
 
         #curriculum .ble-section-tag .dot {
-            background-color: #ffc837 !important;
+            background-color: #ff9e9e !important;
         }
 
         #curriculum .ble-section-title {
@@ -3383,119 +3399,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         #curriculum .ble-section-title .ble-text-red {
-            color: #ffc837 !important;
+            color: #ff4d4d !important;
         }
 
         #curriculum .ble-section-subtitle {
-            color: rgba(255, 255, 255, 0.8) !important;
-        }
-
-        #curriculum .curr-tab {
-            background: rgba(255, 255, 255, 0.05) !important;
-            border-color: rgba(255, 255, 255, 0.12) !important;
-        }
-
-        #curriculum .curr-tab-tag {
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        #curriculum .curr-tab-title {
-            color: rgba(255, 255, 255, 0.8) !important;
-        }
-
-        #curriculum .curr-tab:hover {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border-color: rgba(255, 255, 255, 0.3) !important;
-        }
-
-        #curriculum .curr-tab.active {
-            background: #ffffff !important;
-            border-color: #ffffff !important;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25) !important;
-        }
-
-        #curriculum .curr-tab.active .curr-tab-tag {
-            color: #ab0e00 !important;
-        }
-
-        #curriculum .curr-tab.active .curr-tab-title {
-            color: #0f172a !important;
-        }
-
-        #curriculum .curr-details {
-            background: rgba(255, 255, 255, 0.05) !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
-            color: #ffffff !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
-        }
-
-        #curriculum .curr-panel-title {
-            color: #ffffff !important;
-        }
-
-        #curriculum .curr-panel-desc {
-            color: rgba(255, 255, 255, 0.75) !important;
-        }
-
-        #curriculum .curr-acc-item {
-            background: rgba(255, 255, 255, 0.03) !important;
-            border-color: rgba(255, 255, 255, 0.08) !important;
-        }
-
-        #curriculum .curr-acc-item.active {
-            border-color: rgba(255, 200, 55, 0.25) !important;
-        }
-
-        #curriculum .curr-acc-header {
-            color: #ffffff !important;
-        }
-
-        #curriculum .curr-acc-title {
-            color: #ffffff !important;
-        }
-
-        #curriculum .curr-acc-num {
-            color: #ffc837 !important;
-        }
-
-        #curriculum .curr-acc-badge {
-            background: rgba(255, 200, 55, 0.15) !important;
-            color: #ffc837 !important;
-            border: 1px solid rgba(255, 200, 55, 0.2) !important;
-        }
-
-        #curriculum .curr-topics-list li {
-            color: rgba(255, 255, 255, 0.85) !important;
-        }
-
-        #curriculum .curr-outcomes {
-            background: rgba(255, 200, 55, 0.05) !important;
-            border: 1px solid rgba(255, 200, 55, 0.15) !important;
-        }
-
-        #curriculum .curr-outcomes-title {
-            color: #ffc837 !important;
-        }
-
-        #curriculum .curr-outcomes-list li {
-            color: rgba(255, 255, 255, 0.9) !important;
-        }
-
-        #curriculum .curr-outcomes-list li::before {
-            background: #ffc837 !important;
+            color: #cbd5e1 !important;
         }
 
         #curriculum .ble-decor-shape svg {
-            stroke: #ffc837 !important;
+            stroke: rgba(255, 255, 255, 0.15) !important;
         }
 
         #curriculum .ble-decor-shape svg circle[fill="#ab0e00"] {
-            fill: #ffc837 !important;
+            fill: rgba(255, 255, 255, 0.15) !important;
         }
 
-        #curriculum .curr-acc-header svg {
-            fill: rgba(255, 255, 255, 0.7) !important;
+        /* ── Comp Card Icon and Title Row ── */
+        .comp-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .comp-card-header .comp-icon-box {
+            margin-bottom: 0 !important;
+            flex-shrink: 0;
+        }
+
+        .comp-card-header .comp-card-caps-title {
+            margin-bottom: 0 !important;
+            line-height: 1.35;
+            font-size: 1.05rem;
         }
     </style>
 
@@ -3739,66 +3674,82 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="comp-grid">
                     <!-- Comp 1 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .5 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"/></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .5 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"/></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">Leadership Mindset</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">Leadership Mindset</h4>
                         <p class="comp-desc">Phát triển tư duy lãnh đạo hiện đại, chuyển từ quản lý công việc sang dẫn dắt và tạo ảnh hưởng đến đội ngũ.</p>
                     </div>
                     <!-- Comp 2 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">Performance Management</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">Performance Management</h4>
                         <p class="comp-desc">Biết cách phân công công việc, thiết lập mục tiêu và tối ưu hiệu suất làm việc của đội ngũ.</p>
                     </div>
                     <!-- Comp 3 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">Organizational Behavior</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">Organizational Behavior</h4>
                         <p class="comp-desc">Hiểu hành vi và động lực của nhân sự để xây dựng môi trường làm việc tích cực và tăng sự gắn kết.</p>
                     </div>
                     <!-- Comp 4 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">Coaching &amp; Feedback</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">Coaching &amp; Feedback</h4>
                         <p class="comp-desc">Phát triển kỹ năng coaching và phản hồi nhằm nâng cao năng lực và hiệu quả làm việc của nhân viên.</p>
                     </div>
                     <!-- Comp 5 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">High-Performance Team</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">High-Performance Team</h4>
                         <p class="comp-desc">Xây dựng đội ngũ chủ động, hợp tác và hướng đến mục tiêu chung với hiệu suất cao.</p>
                     </div>
                     <!-- Comp 6 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></polygon></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">Talent Management</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">Talent Management</h4>
                         <p class="comp-desc">Biết cách phát hiện, phát triển và giữ chân nhân tài để xây dựng nguồn lực bền vững cho tổ chức.</p>
                     </div>
                     <!-- Comp 7 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">Change Leadership</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">Change Leadership</h4>
                         <p class="comp-desc">Nâng cao năng lực dẫn dắt đội ngũ thích ứng với sự thay đổi và phát triển của doanh nghiệp.</p>
                     </div>
                     <!-- Comp 8 -->
                     <div class="comp-card">
-                        <div class="comp-icon-box">
-                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        <div class="comp-card-header">
+                            <div class="comp-icon-box">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                            </div>
+                            <h4 class="comp-card-caps-title">Practical Management Skills</h4>
                         </div>
-                        <h4 class="comp-card-caps-title">Practical Management Skills</h4>
                         <p class="comp-desc">Ứng dụng ngay các nguyên tắc lãnh đạo và quản trị nhân sự vào công việc quản lý hằng ngày.</p>
                     </div>
                 </div>
