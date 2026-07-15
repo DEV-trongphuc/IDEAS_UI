@@ -3237,6 +3237,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 15px 35px rgba(171, 14, 0, 0.05);
             position: relative;
             overflow: hidden;
+            box-sizing: border-box;
         }
 
         .ble-fee-card::before {
@@ -3254,12 +3255,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             grid-template-columns: 1fr 1.2fr;
             gap: 40px;
             align-items: center;
+            box-sizing: border-box;
         }
 
         .ble-fee-left {
             text-align: center;
             border-right: 1.5px solid #e2e8f0;
             padding-right: 40px;
+            min-width: 0;
+            box-sizing: border-box;
         }
 
         .ble-fee-left .fee-label {
@@ -3299,6 +3303,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             gap: 16px;
+            min-width: 0;
+            box-sizing: border-box;
         }
 
         .ble-fee-right h4 {
@@ -3312,6 +3318,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             gap: 12px;
             align-items: start;
+            box-sizing: border-box;
         }
 
         .ble-fee-benefit .check-icon {
@@ -3333,6 +3340,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.95rem;
             color: #475569;
             line-height: 1.5;
+            display: block;
+            width: 100%;
+            white-space: normal;
+            word-break: break-word;
         }
 
         @media (max-width: 768px) {
