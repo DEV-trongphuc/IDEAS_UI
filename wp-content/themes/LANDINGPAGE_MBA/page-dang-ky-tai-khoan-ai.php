@@ -697,8 +697,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="contact-form-card">
                         <header class="form-card-header" id="form-header">
                             <div class="form-card-badge">AI PLATFORM</div>
-                            <h3><?php echo $is_en ? 'Get Free <span>AI Account</span>' : 'Đăng ký <span>AI Platform</span>'; ?></h3>
-                            <p><?php echo $is_en ? 'Fill in the details below to receive your free academic AI Platform trial credentials.' : 'Điền thông tin bên dưới để được phê duyệt và nhận tài khoản trải nghiệm AI Platform miễn phí.'; ?></p>
+                            <h3><?php echo $is_en ? 'NHẬN TÀI KHOẢN <span>IDEAS AI PLATFORM</span>' : 'NHẬN TÀI KHOẢN <span>IDEAS AI PLATFORM</span>'; ?></h3>
+                            <p><?php echo $is_en ? 'Smart Academic Assistant' : 'Trợ lý học tập thông minh'; ?></p>
                         </header>
 
                         <!-- Form -->
@@ -711,53 +711,59 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
-                                    <input type="tel" id="phone" name="phone" placeholder="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>" required />
-                                    <span class="form-error" id="phone-error"><?php echo $is_en ? 'Invalid phone number' : 'Số điện thoại không hợp lệ'; ?></span>
-                                </div>
-                                <div class="form-group">
                                     <label for="email">Email *</label>
                                     <input type="email" id="email" name="email" placeholder="<?php echo $is_en ? 'Email address' : 'Địa chỉ email'; ?>" required />
                                     <span class="form-error" id="email-error"><?php echo $is_en ? 'Invalid email' : 'Email không hợp lệ'; ?></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
+                                    <input type="tel" id="phone" name="phone" placeholder="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>" required />
+                                    <span class="form-error" id="phone-error"><?php echo $is_en ? 'Invalid phone number' : 'Số điện thoại không hợp lệ'; ?></span>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="education"><?php echo $is_en ? 'Highest Education *' : 'Trình độ học vấn *'; ?></label>
-                                    <select id="education" name="education" required>
-                                        <option value=""><?php echo $is_en ? '-- Select Education Level --' : '-- Chọn trình độ --'; ?></option>
-                                        <option value="highschool"><?php echo $is_en ? 'High School' : 'THPT'; ?></option>
-                                        <option value="college"><?php echo $is_en ? 'Associate Degree' : 'Cao đẳng'; ?></option>
-                                        <option value="bachelor"><?php echo $is_en ? 'Bachelor\'s Degree' : 'Cử nhân'; ?></option>
-                                        <option value="master"><?php echo $is_en ? 'Master\'s Degree' : 'Thạc sĩ'; ?></option>
-                                        <option value="other"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
+                                    <label for="interest"><?php echo $is_en ? 'Program of Study *' : 'Chương trình học *'; ?></label>
+                                    <select id="interest" name="interest" required>
+                                        <option value=""><?php echo $is_en ? '-- Select Program --' : '-- Chọn chương trình học --'; ?></option>
+                                        <option value="Online MBA">Online MBA</option>
+                                        <option value="Executive MBA">Executive MBA</option>
+                                        <option value="Master AI">Master AI (MSc AI)</option>
+                                        <option value="MBA in AI">MBA in AI</option>
+                                        <option value="Top-up BBA">Top-up BBA</option>
+                                        <option value="Global Online BBA">Global Online BBA</option>
+                                        <option value="Dual DBA">Dual DBA</option>
+                                        <option value="Khác"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
                                     </select>
-                                    <span class="form-error" id="education-error"><?php echo $is_en ? 'Please select education level' : 'Vui lòng chọn học vấn'; ?></span>
+                                    <span class="form-error" id="interest-error"><?php echo $is_en ? 'Please select program' : 'Vui lòng chọn chương trình học'; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="english"><?php echo $is_en ? 'English Level *' : 'Trình độ Tiếng Anh *'; ?></label>
-                                    <select id="english" name="english" required>
-                                        <option value=""><?php echo $is_en ? '-- Select Education Level --' : '-- Chọn trình độ --'; ?></option>
-                                        <option value="below-5.0"><?php echo $is_en ? 'Below IELTS 5.0' : 'Dưới IELTS 5.0'; ?></option>
-                                        <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
-                                        <option value="6.0-plus">IELTS 6.0+</option>
-                                        <option value="other"><?php echo $is_en ? 'Other / Not tested' : 'Khác / Chưa thi'; ?></option>
+                                    <label for="purpose"><?php echo $is_en ? 'Purpose of using AI Tutor *' : 'Mục đích sử dụng AI Tutor *'; ?></label>
+                                    <select id="purpose" name="purpose" required onchange="toggleOtherPurpose(this.value)">
+                                        <option value=""><?php echo $is_en ? '-- Select Purpose --' : '-- Chọn mục đích sử dụng --'; ?></option>
+                                        <option value="Học tập & nghiên cứu"><?php echo $is_en ? 'Study & Research' : 'Học tập & nghiên cứu'; ?></option>
+                                        <option value="Hỗ trợ làm Assignment"><?php echo $is_en ? 'Assignment Support' : 'Hỗ trợ làm Assignment'; ?></option>
+                                        <option value="Ứng dụng AI trong công việc"><?php echo $is_en ? 'Apply AI at work' : 'Ứng dụng AI trong công việc'; ?></option>
+                                        <option value="Khác"><?php echo $is_en ? 'Other / Specify' : 'Khác'; ?></option>
                                     </select>
-                                    <span class="form-error" id="english-error"><?php echo $is_en ? 'Please select English level' : 'Vui lòng chọn trình độ Tiếng Anh'; ?></span>
+                                    <span class="form-error" id="purpose-error"><?php echo $is_en ? 'Please select purpose' : 'Vui lòng chọn mục đích sử dụng'; ?></span>
                                 </div>
                             </div>
-
-                            <input type="hidden" id="interest" name="interest" value="IDEAS AI Platform" />
-                            <span class="form-error" id="interest-error"></span>
+                            
+                            <div class="form-group" id="other-purpose-group" style="display: none;">
+                                <label for="other_purpose"><?php echo $is_en ? 'Specify other purpose *' : 'Mục đích khác *'; ?></label>
+                                <input type="text" id="other_purpose" name="other_purpose" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập mục đích khác của bạn'; ?>" />
+                                <span class="form-error" id="other-purpose-error"><?php echo $is_en ? 'Please specify your purpose' : 'Vui lòng nhập mục đích khác'; ?></span>
+                            </div>
 
                             <div class="form-group">
-                                <label for="message"><?php echo $is_en ? 'Message / preferred counseling time' : 'Nội dung bạn muốn chia sẻ / thời gian nghe tư vấn'; ?></label>
-                                <textarea id="message" name="message" placeholder="<?php echo $is_en ? 'e.g., I want to inquire about tuition fees, installment plans...' : 'Ví dụ: Tôi muốn hỏi về học phí, chính sách trả góp...'; ?>" rows="3"></textarea>
+                                <label for="message"><?php echo $is_en ? 'What do you expect AI Tutor to support you with?' : 'Bạn mong muốn AI Tutor hỗ trợ điều gì?'; ?></label>
+                                <textarea id="message" name="message" placeholder="<?php echo $is_en ? 'e.g., I want to write essays, find research papers...' : 'Ví dụ: Tôi muốn hỗ trợ viết luận văn, tìm kiếm tài liệu nghiên cứu...'; ?>" rows="3"></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn" style="border: none; cursor: pointer; font-family: inherit;">
-                                <span><?php echo $is_en ? 'Submit Registration' : 'Gửi thông tin đăng ký'; ?></span>
+                                <span><?php echo $is_en ? 'GET ACCOUNT NOW' : 'NHẬN NGAY TÀI KHOẢN'; ?></span>
                                 <svg width="20" height="20" fill="none" viewBox="0 0 24 24" aria-hidden="true" style="margin-left: 8px; vertical-align: middle;">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
@@ -788,8 +794,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Shared Footer -->
     <?php get_footer(); ?>
 
-    <!-- Form Submit Handler -->
+    <!-- Form Submit Handler & Toggle Script -->
     <script>
+        function toggleOtherPurpose(val) {
+            const otherGroup = document.getElementById('other-purpose-group');
+            const otherInput = document.getElementById('other_purpose');
+            if (val === 'Khác') {
+                otherGroup.style.display = 'block';
+                otherInput.required = true;
+            } else {
+                otherGroup.style.display = 'none';
+                otherInput.required = false;
+                otherInput.value = '';
+            }
+        }
+
         if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('page-contact-form');
@@ -802,34 +821,34 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const nameInput = document.getElementById('fullname');
                 const phoneInput = document.getElementById('phone');
                 const emailInput = document.getElementById('email');
-                const eduSelect = document.getElementById('education');
-                const engSelect = document.getElementById('english');
                 const interestSelect = document.getElementById('interest');
+                const purposeSelect = document.getElementById('purpose');
+                const otherPurposeInput = document.getElementById('other_purpose');
                 const messageInput = document.getElementById('message');
 
                 // Error Spans
                 const nameErr = document.getElementById('fullname-error');
                 const phoneErr = document.getElementById('phone-error');
                 const emailErr = document.getElementById('email-error');
-                const eduErr = document.getElementById('education-error');
-                const engErr = document.getElementById('english-error');
                 const interestErr = document.getElementById('interest-error');
+                const purposeErr = document.getElementById('purpose-error');
+                const otherPurposeErr = document.getElementById('other-purpose-error');
 
                 // Reset Errors
                 nameErr.classList.remove('active');
                 phoneErr.classList.remove('active');
                 emailErr.classList.remove('active');
-                eduErr.classList.remove('active');
-                engErr.classList.remove('active');
                 interestErr.classList.remove('active');
+                purposeErr.classList.remove('active');
+                if (otherPurposeErr) otherPurposeErr.classList.remove('active');
 
                 // Read Values
                 const name = nameInput.value.trim();
                 const phone = phoneInput.value.trim();
                 const email = emailInput.value.trim();
-                const eduVal = eduSelect.value;
-                const engVal = engSelect.value;
                 const interestVal = interestSelect.value;
+                const purposeVal = purposeSelect.value;
+                const otherPurposeVal = otherPurposeInput ? otherPurposeInput.value.trim() : '';
                 const messageVal = messageInput.value.trim();
 
                 // Simple Validation
@@ -847,30 +866,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     emailErr.classList.add('active');
                     isValid = false;
                 }
-                if (!eduVal) {
-                    eduErr.classList.add('active');
-                    isValid = false;
-                }
-                if (!engVal) {
-                    engErr.classList.add('active');
-                    isValid = false;
-                }
                 if (!interestVal) {
                     interestErr.classList.add('active');
+                    isValid = false;
+                }
+                if (!purposeVal) {
+                    purposeErr.classList.add('active');
+                    isValid = false;
+                }
+                if (purposeVal === 'Khác' && !otherPurposeVal) {
+                    if (otherPurposeErr) otherPurposeErr.classList.add('active');
                     isValid = false;
                 }
 
                 if (!isValid) return;
 
                 // Setup Payload
-                const eduText = eduSelect.selectedIndex >= 0 ? eduSelect.options[eduSelect.selectedIndex].text : '';
-                const engText = engSelect.selectedIndex >= 0 ? engSelect.options[engSelect.selectedIndex].text : '';
-                const interestText = "IDEAS AI Platform";
+                const interestText = interestSelect.selectedIndex >= 0 ? interestSelect.options[interestSelect.selectedIndex].text : '';
+                const purposeText = purposeVal === 'Khác' ? `Khác: ${otherPurposeVal}` : purposeVal;
 
                 const noteParts = [];
-                if (eduText) noteParts.push('Học vấn: ' + eduText);
-                if (engText) noteParts.push('Tiếng Anh: ' + engText);
-                if (messageVal) noteParts.push(messageVal);
+                if (interestText) noteParts.push('Chương trình học: ' + interestText);
+                if (purposeText) noteParts.push('Mục đích sử dụng AI: ' + purposeText);
+                if (messageVal) noteParts.push('Mong muốn hỗ trợ: ' + messageVal);
                 noteParts.push('CTA Source: ai_platform_registration_page');
                 const combinedNote = noteParts.join(' | ');
 
@@ -890,9 +908,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     email: email,
                     source: "Landing_AI_Register_Page",
                     type: "ai_account_registration",
-                    tieng_anh: engText,
-                    hoc_van: eduText,
-                    time_dat_lich: "",
                     chuong_trinh: interestVal,
                     nhu_cau: `Đăng ký nhận tài khoản AI Platform miễn phí | Note: ${combinedNote}`
                 };
