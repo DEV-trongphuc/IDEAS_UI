@@ -1566,7 +1566,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-tab-tag {
             font-size: 0.72rem;
             font-weight: 900;
-            color: #ab0e00;
+            color: #7a0900;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 8px;
@@ -1584,14 +1584,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-tab:hover {
-            border-color: #ab0e00;
+            border-color: #7a0900;
             transform: translateY(-2px);
         }
 
         .curr-tab.active {
-            background: #ab0e00;
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.2);
-            border-color: #ab0e00;
+            background: #7a0900;
+            box-shadow: 0 10px 30px rgba(122, 9, 0, 0.2);
+            border-color: #7a0900;
         }
 
         .curr-tab.active .curr-tab-tag {
@@ -2603,7 +2603,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .curr-tab.active {
-                border-bottom-color: #ab0e00;
+                border-bottom-color: #7a0900;
                 border-left-color: #cbd5e1;
             }
 
