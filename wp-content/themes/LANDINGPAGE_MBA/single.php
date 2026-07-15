@@ -260,6 +260,51 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #334155;
         }
 
+        /* ── Responsive Video Embeds (16:9) ── */
+        .article-body-content iframe,
+        .article-body-content video,
+        .article-body-content embed,
+        .article-body-content object {
+            width: 100% !important;
+            aspect-ratio: 16 / 9 !important;
+            height: auto !important;
+            max-width: 800px;
+            display: block !important;
+            margin: 28px auto !important;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Support WordPress default embed wrappers to keep them aligned */
+        .article-body-content .wp-block-embed,
+        .article-body-content .wp-block-embed-youtube {
+            max-width: 800px;
+            margin: 28px auto !important;
+        }
+
+        .article-body-content .wp-block-embed__wrapper {
+            position: relative;
+            padding-bottom: 56.25% !important; /* 16:9 aspect ratio */
+            height: 0 !important;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .article-body-content .wp-block-embed__wrapper iframe {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            margin: 0 !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
         .article-body-content a {
             color: #ab0e00;
             text-decoration: underline;
