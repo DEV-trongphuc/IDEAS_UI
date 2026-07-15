@@ -3228,138 +3228,230 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Tuition Fee Section ────────────── */
         .ble-fee-card {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             padding: 50px;
-            border-radius: 28px;
-            background: #ffffff;
-            border: 1.5px solid rgba(171, 14, 0, 0.15);
-            box-shadow: 0 15px 35px rgba(171, 14, 0, 0.05);
+            border-radius: 32px;
+            background: linear-gradient(135deg, #5c0600 0%, #ab0e00 50%, #400300 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 30px 70px rgba(171, 14, 0, 0.25), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.25);
             position: relative;
             overflow: hidden;
             box-sizing: border-box;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
 
-        .ble-fee-card::before {
+        .ble-fee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 40px 85px rgba(171, 14, 0, 0.35), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Diagonal glow light sweep effect */
+        .ble-fee-card::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #ab0e00, #ff4d4d);
+            top: -50%;
+            left: -60%;
+            width: 30%;
+            height: 200%;
+            background: linear-gradient(
+                to right, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.1) 30%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.1) 70%, 
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(35deg);
+            transition: transform 1.2s ease-in-out;
+            pointer-events: none;
+        }
+
+        .ble-fee-card:hover::after {
+            transform: translate(300%, 0) rotate(35deg);
         }
 
         .ble-fee-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 50px;
             align-items: center;
             box-sizing: border-box;
+            position: relative;
+            z-index: 2;
         }
 
         .ble-fee-left {
             text-align: center;
-            border-right: 1.5px solid #e2e8f0;
-            padding-right: 40px;
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            padding-right: 50px;
             min-width: 0;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .ble-fee-left .fee-label {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #64748b;
+            font-size: 0.78rem;
+            font-weight: 850;
+            color: rgba(255, 255, 255, 0.75);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.12em;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .ble-fee-left .fee-price-wrapper {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 30px 24px;
+            border-radius: 24px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 24px;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
         }
 
         .ble-fee-left .fee-price {
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-size: clamp(2.3rem, 5vw, 3.5rem);
             font-weight: 900;
-            color: #ab0e00;
+            color: #ffffff;
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             white-space: nowrap;
+            letter-spacing: -0.01em;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .ble-fee-left .fee-price span {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             vertical-align: super;
+            color: #ffc837; /* Rich Gold */
+            margin-left: 2px;
         }
 
         .ble-fee-left .fee-note {
             font-size: 0.85rem;
-            color: #475569;
+            color: rgba(255, 255, 255, 0.8);
             display: block;
-            margin-bottom: 24px;
             line-height: 1.5;
+        }
+
+        /* Glow White Button */
+        .ble-fee-left .ble-btn-white-glow {
+            width: 100%;
+            background: #ffffff;
+            color: #ab0e00 !important;
+            font-weight: 800;
+            font-size: 0.98rem;
+            height: 52px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .ble-fee-left .ble-btn-white-glow:hover {
+            background: #ffeded;
+            transform: translateY(-3px);
+            box-shadow: 
+                0 15px 35px rgba(255, 255, 255, 0.25),
+                0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         .ble-fee-right {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
             min-width: 0;
             box-sizing: border-box;
         }
 
         .ble-fee-right h4 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 850;
-            color: #0f172a;
-            margin: 0 0 4px 0;
+            color: #ffc837; /* Rich Gold */
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
         .ble-fee-benefit {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             align-items: start;
             box-sizing: border-box;
+            transition: transform 0.2s ease;
+        }
+
+        .ble-fee-benefit:hover {
+            transform: translateX(4px);
         }
 
         .ble-fee-benefit .check-icon {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            background: rgba(171, 14, 0, 0.08);
+            background: rgba(255, 200, 55, 0.15);
+            border: 1px solid rgba(255, 200, 55, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: #ab0e00;
-            font-size: 0.75rem;
+            color: #ffc837;
+            font-size: 0.85rem;
             font-weight: 900;
-            margin-top: 2px;
+            margin-top: 1px;
+            box-shadow: 0 0 10px rgba(255, 200, 55, 0.05);
         }
 
         .ble-fee-benefit span {
             font-size: 0.95rem;
-            color: #475569;
-            line-height: 1.5;
+            color: #ffffff;
+            line-height: 1.6;
             display: block;
             width: 100%;
             white-space: normal;
             word-break: break-word;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 991px) {
+            .ble-fee-grid {
+                gap: 35px;
+            }
+            .ble-fee-left {
+                padding-right: 30px;
+            }
         }
 
         @media (max-width: 768px) {
             .ble-fee-card {
-                padding: 30px 20px;
+                padding: 40px 24px;
+                border-radius: 28px;
             }
             .ble-fee-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 35px;
             }
             .ble-fee-left {
                 border-right: none;
-                border-bottom: 1.5px solid #e2e8f0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
                 padding-right: 0;
-                padding-bottom: 30px;
+                padding-bottom: 35px;
             }
         }
     </style>
@@ -4468,9 +4560,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- Left: Price & CTA -->
                         <div class="ble-fee-left">
                             <span class="fee-label">HỌC PHÍ TOÀN KHÓA</span>
-                            <div class="fee-price">9.900.000 <span>đ</span></div>
-                            <span class="fee-note">(Đã bao gồm tài liệu học tập, tài khoản LMS và hỗ trợ từ AI)</span>
-                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-fee'); }" class="ble-btn" style="width: 100%;">Đăng ký tư vấn ngay</button>
+                            <div class="fee-price-wrapper">
+                                <div class="fee-price">9.900.000 <span>đ</span></div>
+                                <span class="fee-note">(Đã bao gồm tài liệu học tập, tài khoản LMS và hỗ trợ từ AI)</span>
+                            </div>
+                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-fee'); }" class="ble-btn-white-glow">Đăng ký tư vấn ngay</button>
                         </div>
                         
                         <!-- Right: Benefits -->
