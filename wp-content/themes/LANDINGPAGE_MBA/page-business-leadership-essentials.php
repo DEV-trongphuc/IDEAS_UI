@@ -4574,19 +4574,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-cta-fee-benefits">
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
-                                <span>Cấp <strong>Certificate of Completion</strong>.</span>
+                                <span>Cấp <strong>Certificate of Completion</strong> sau khi hoàn thành.</span>
                             </div>
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
-                                <span>Học trực tuyến 100% trên LMS.</span>
+                                <span>Học trực tuyến 100% trên <strong>LMS IDEAS</strong>.</span>
                             </div>
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
-                                <span>Executive Seminar &amp; hỗ trợ AI.</span>
+                                <span>Sử dụng <strong>IDEAS AI Platform</strong>.</span>
                             </div>
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
-                                <span>Trả góp 0% lãi suất Sacombank.</span>
+                                <span>Tham gia <strong>Executive Seminar</strong> cùng chuyên gia.</span>
+                            </div>
+                            <div class="ble-cta-fee-benefit-item">
+                                <span class="check-icon">✓</span>
+                                <span>Gia nhập cộng đồng <strong>IDEAS Alumni</strong>.</span>
                             </div>
                         </div>
                     </div>
