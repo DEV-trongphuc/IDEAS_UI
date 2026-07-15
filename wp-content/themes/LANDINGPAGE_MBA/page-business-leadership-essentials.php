@@ -4469,7 +4469,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         Business Leadership<br />
                         <span class="cta-gradient underline-highlight">Essentials</span>
                     </h2>
-                    <p class="cta-subtitle" style="color: #475569; font-size: 1rem; line-height: 1.6; margin-top: 16px; margin-bottom: 24px; max-width: 540px;">Phát triển năng lực lãnh đạo, xây dựng đội ngũ và tạo nền tảng cho sự phát triển bền vững của doanh nghiệp.</p>
+
 
                     <!-- Premium Compact Tuition Card (Merged) -->
                     <div class="ble-cta-fee-box">
