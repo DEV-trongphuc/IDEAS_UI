@@ -3226,32 +3226,35 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-color: #ab0e00;
         }
 
-        /* ── Tuition Fee Section ────────────── */
-        .ble-fee-card {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 50px;
-            border-radius: 32px;
-            background: linear-gradient(135deg, #5c0600 0%, #ab0e00 50%, #400300 100%);
+        /* ── Compact Tuition Card in CTA Section ────────────── */
+        .ble-cta-fee-box {
+            background: linear-gradient(135deg, #5c0600 0%, #ab0e00 60%, #400300 100%);
             border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 26px 30px;
+            margin: 28px 0;
             box-shadow: 
-                0 30px 70px rgba(171, 14, 0, 0.25), 
-                inset 0 1px 1px rgba(255, 255, 255, 0.25);
+                0 20px 45px rgba(171, 14, 0, 0.18), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            box-sizing: border-box;
+            color: #ffffff;
             position: relative;
             overflow: hidden;
-            box-sizing: border-box;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .ble-fee-card:hover {
-            transform: translateY(-5px);
+        .ble-cta-fee-box:hover {
+            transform: translateY(-2px);
             box-shadow: 
-                0 40px 85px rgba(171, 14, 0, 0.35), 
-                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+                0 25px 55px rgba(171, 14, 0, 0.25), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.3);
         }
-
-        /* Diagonal glow light sweep effect */
-        .ble-fee-card::after {
+        
+        .ble-cta-fee-box::after {
             content: '';
             position: absolute;
             top: -50%;
@@ -3267,191 +3270,95 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 rgba(255, 255, 255, 0) 100%
             );
             transform: rotate(35deg);
-            transition: transform 1.2s ease-in-out;
+            animation: light-sweep-cta 4s infinite ease-in-out;
             pointer-events: none;
         }
 
-        .ble-fee-card:hover::after {
-            transform: translate(300%, 0) rotate(35deg);
+        @keyframes light-sweep-cta {
+            0% { transform: translate(-100%, 0) rotate(35deg); }
+            45% { transform: translate(300%, 0) rotate(35deg); }
+            100% { transform: translate(300%, 0) rotate(35deg); }
         }
 
-        .ble-fee-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.15fr;
-            gap: 50px;
-            align-items: center;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-        }
-
-        .ble-fee-left {
-            text-align: center;
-            border-right: 1px solid rgba(255, 255, 255, 0.15);
-            padding-right: 50px;
-            min-width: 0;
-            box-sizing: border-box;
+        .ble-cta-fee-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
         }
 
-        .ble-fee-left .fee-label {
-            font-size: 0.78rem;
+        .ble-cta-fee-info .fee-label {
+            font-size: 0.75rem;
             font-weight: 850;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 255, 255, 0.8);
             text-transform: uppercase;
-            letter-spacing: 0.12em;
-            display: block;
-            margin-bottom: 12px;
+            letter-spacing: 0.08em;
         }
 
-        .ble-fee-left .fee-price-wrapper {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            padding: 30px 24px;
-            border-radius: 24px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 24px;
-            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
-        }
-
-        .ble-fee-left .fee-price {
-            font-size: clamp(2.3rem, 5vw, 3.5rem);
+        .ble-cta-fee-info .fee-price {
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
             font-weight: 900;
             color: #ffffff;
-            line-height: 1;
-            margin-bottom: 10px;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.1;
             white-space: nowrap;
             letter-spacing: -0.01em;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .ble-fee-left .fee-price span {
-            font-size: 2rem;
+        .ble-cta-fee-info .fee-price span {
+            font-size: 1.5rem;
             font-weight: 800;
             vertical-align: super;
-            color: #ffc837; /* Rich Gold */
-            margin-left: 2px;
+            color: #ffc837;
+            margin-left: 1px;
         }
 
-        .ble-fee-left .fee-note {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.8);
-            display: block;
-            line-height: 1.5;
+        .ble-cta-fee-info .fee-note {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.4;
         }
 
-        /* Glow White Button */
-        .ble-fee-left .ble-btn-white-glow {
-            width: 100%;
-            background: #ffffff;
-            color: #ab0e00 !important;
-            font-weight: 800;
-            font-size: 0.98rem;
-            height: 52px;
-            border-radius: 100px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
+        .ble-cta-fee-divider {
+            width: 1px;
+            align-self: stretch;
+            background: rgba(255, 255, 255, 0.15);
+            flex-shrink: 0;
         }
 
-        .ble-fee-left .ble-btn-white-glow:hover {
-            background: #ffeded;
-            transform: translateY(-3px);
-            box-shadow: 
-                0 15px 35px rgba(255, 255, 255, 0.25),
-                0 0 15px rgba(255, 255, 255, 0.2);
-        }
-
-        .ble-fee-right {
+        .ble-cta-fee-benefits {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            min-width: 0;
-            box-sizing: border-box;
+            gap: 10px;
+            flex-grow: 1;
         }
 
-        .ble-fee-right h4 {
-            font-size: 1.25rem;
-            font-weight: 850;
-            color: #ffc837; /* Rich Gold */
-            margin: 0 0 6px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .ble-fee-benefit {
+        .ble-cta-fee-benefit-item {
             display: flex;
-            gap: 16px;
             align-items: start;
-            box-sizing: border-box;
-            transition: transform 0.2s ease;
-        }
-
-        .ble-fee-benefit:hover {
-            transform: translateX(4px);
-        }
-
-        .ble-fee-benefit .check-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: rgba(255, 200, 55, 0.15);
-            border: 1px solid rgba(255, 200, 55, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: #ffc837;
-            font-size: 0.85rem;
-            font-weight: 900;
-            margin-top: 1px;
-            box-shadow: 0 0 10px rgba(255, 200, 55, 0.05);
-        }
-
-        .ble-fee-benefit span {
-            font-size: 0.95rem;
+            gap: 10px;
+            font-size: 0.88rem;
             color: #ffffff;
-            line-height: 1.6;
-            display: block;
-            width: 100%;
-            white-space: normal;
-            word-break: break-word;
-            opacity: 0.95;
+            line-height: 1.4;
         }
 
-        @media (max-width: 991px) {
-            .ble-fee-grid {
-                gap: 35px;
-            }
-            .ble-fee-left {
-                padding-right: 30px;
-            }
+        .ble-cta-fee-benefit-item .check-icon {
+            color: #ffc837;
+            font-weight: 900;
+            font-size: 0.88rem;
+            margin-top: 1px;
+            flex-shrink: 0;
         }
 
-        @media (max-width: 768px) {
-            .ble-fee-card {
-                padding: 40px 24px;
-                border-radius: 28px;
+        @media (max-width: 576px) {
+            .ble-cta-fee-box {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 22px 20px;
+                gap: 18px;
             }
-            .ble-fee-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-            .ble-fee-left {
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-                padding-right: 0;
-                padding-bottom: 35px;
+            .ble-cta-fee-divider {
+                width: 100%;
+                height: 1px;
             }
         }
     </style>
@@ -4540,61 +4447,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 8b. TUITION FEE SECTION (White Background, Premium Visual) -->
-        <section class="ble-section bg-white" id="hoc-phi">
-            <!-- Background Glow Orbs -->
-            <div class="ble-glow-orb ble-glow-orb-primary" style="top: 15%; right: -10%;"></div>
-            <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 15%; left: -10%;"></div>
-            
-            <div class="ble-container">
-                <div class="ble-title-wrap">
-                    <span class="ble-section-tag">
-                        <span class="dot"></span> Học phí chương trình
-                    </span>
-                    <h2 class="ble-section-title">Đầu tư <span class="ble-gradient-text">Học phí tối ưu</span></h2>
-                    <p class="ble-section-subtitle">Chương trình chuẩn quốc tế với mức chi phí được hỗ trợ tối đa dành cho nhà quản lý</p>
-                </div>
-
-                <div class="ble-fee-card">
-                    <div class="ble-fee-grid">
-                        <!-- Left: Price & CTA -->
-                        <div class="ble-fee-left">
-                            <span class="fee-label">HỌC PHÍ TOÀN KHÓA</span>
-                            <div class="fee-price-wrapper">
-                                <div class="fee-price">9.900.000 <span>đ</span></div>
-                                <span class="fee-note">(Đã bao gồm tài liệu học tập, tài khoản LMS và hỗ trợ từ AI)</span>
-                            </div>
-                            <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-fee'); }" class="ble-btn-white-glow">Đăng ký tư vấn ngay</button>
-                        </div>
-                        
-                        <!-- Right: Benefits -->
-                        <div class="ble-fee-right">
-                            <h4>Đặc quyền đi kèm học phí:</h4>
-                            
-                            <div class="ble-fee-benefit">
-                                <div class="check-icon">✓</div>
-                                <span>Truy cập trọn đời hệ thống bài giảng và giáo trình chuẩn hóa Swiss UMEF.</span>
-                            </div>
-                            
-                            <div class="ble-fee-benefit">
-                                <div class="check-icon">✓</div>
-                                <span>Tài khoản trợ lý học thuật IDEAS AI được huấn luyện riêng.</span>
-                            </div>
-                            
-                            <div class="ble-fee-benefit">
-                                <div class="check-icon">✓</div>
-                                <span>Nhận chứng chỉ tốt nghiệp (Certificate of Completion) có giá trị xác thực năng lực.</span>
-                            </div>
-                            
-                            <div class="ble-fee-benefit">
-                                <div class="check-icon">✓</div>
-                                <span>Hỗ trợ trả góp học phí lãi suất 0% liên kết cùng ngân hàng Sacombank.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- 9. FAQ SECTION & REGISTRATION FORM (Side-by-side, Cloned from index.html) -->
         <section class="cta-section" id="dang-ky" aria-labelledby="cta-headline">
@@ -4619,32 +4471,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </h2>
                     <p class="cta-subtitle" style="color: #475569; font-size: 1rem; line-height: 1.6; margin-top: 16px; margin-bottom: 24px; max-width: 540px;">Phát triển năng lực lãnh đạo, xây dựng đội ngũ và tạo nền tảng cho sự phát triển bền vững của doanh nghiệp.</p>
 
-                    <ul class="cta-checklist" aria-label="Điểm nổi bật chương trình" style="margin-top: 24px;">
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <!-- Premium Compact Tuition Card (Merged) -->
+                    <div class="ble-cta-fee-box">
+                        <!-- Left: Price info -->
+                        <div class="ble-cta-fee-info">
+                            <span class="fee-label">HỌC PHÍ TOÀN KHÓA</span>
+                            <div class="fee-price">9.900.000<span>đ</span></div>
+                            <span class="fee-note">(Trọn gói học liệu & LMS)</span>
+                        </div>
+                        
+                        <!-- Divider Line -->
+                        <div class="ble-cta-fee-divider"></div>
+                        
+                        <!-- Right: Merged Benefits -->
+                        <div class="ble-cta-fee-benefits">
+                            <div class="ble-cta-fee-benefit-item">
+                                <span class="check-icon">✓</span>
+                                <span>Cấp <strong>Certificate of Completion</strong>.</span>
                             </div>
-                            <p>Được cấp <strong>Certificate of Completion</strong> sau khi hoàn thành chương trình.</p>
-                        </li>
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div class="ble-cta-fee-benefit-item">
+                                <span class="check-icon">✓</span>
+                                <span>Học trực tuyến 100% trên LMS.</span>
                             </div>
-                            <p>Học trực tuyến <strong>100%</strong> trên nền tảng LMS IDEAS.</p>
-                        </li>
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div class="ble-cta-fee-benefit-item">
+                                <span class="check-icon">✓</span>
+                                <span>Executive Seminar &amp; hỗ trợ AI.</span>
                             </div>
-                            <p>Tham gia <strong>Executive Seminar</strong> cùng chuyên gia.</p>
-                        </li>
-                        <li>
-                            <div class="cta-check-v2">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            <div class="ble-cta-fee-benefit-item">
+                                <span class="check-icon">✓</span>
+                                <span>Trả góp 0% lãi suất Sacombank.</span>
                             </div>
-                            <p>Gia nhập cộng đồng <strong>IDEAS Alumni</strong>.</p>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
 
                     <!-- Nested FAQ Accordion -->
                     <div class="faq-accordion" style="margin-top: 40px;">
