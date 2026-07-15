@@ -704,8 +704,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <span class="form-error" id="email-error"><?php echo $is_en ? 'Invalid email' : 'Email không hợp lệ'; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
-                                    <input type="tel" id="phone" name="phone" placeholder="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>" required />
+                                    <label for="phone"><?php echo $is_en ? 'Phone Number (Optional)' : 'Số điện thoại (Không bắt buộc)'; ?></label>
+                                    <input type="tel" id="phone" name="phone" placeholder="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>" />
                                     <span class="form-error" id="phone-error"><?php echo $is_en ? 'Invalid phone number' : 'Số điện thoại không hợp lệ'; ?></span>
                                 </div>
                             </div>
@@ -846,7 +846,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     nameErr.classList.add('active');
                     isValid = false;
                 }
-                if (!phone || phone.length < 8) {
+                if (phone && phone.length < 8) {
                     phoneErr.classList.add('active');
                     isValid = false;
                 }

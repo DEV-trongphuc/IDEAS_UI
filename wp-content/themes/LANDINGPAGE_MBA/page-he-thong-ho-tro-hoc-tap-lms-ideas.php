@@ -1038,7 +1038,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </span>
                             
                             <h3 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; color: #ffffff; line-height: 1.25; margin: 0 0 20px 0; letter-spacing: -0.02em;">
-                                <?php echo $is_en ? 'Supercharge your learning journey with <br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>' : 'Trải nghiệm học tập vượt trội với <br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>'; ?>
+                                <?php echo $is_en ? 'Supercharge your learning journey with<br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>' : 'Trải nghiệm học tập vượt trội&nbsp;với<br /><span class="gradient-text" style="background: linear-gradient(90deg, #ff4d4d, #ff8585); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight:900;">IDEAS AI Platform</span>'; ?>
                             </h3>
                             
                             <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; margin-bottom: 28px; max-width: 600px;">
@@ -1053,12 +1053,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                                 <div style="display: flex; align-items: start; gap: 12px;">
                                     <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(217, 38, 38, 0.2); color: #ff8585; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
-                                    <span style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.4;"><?php echo $is_en ? '<strong>Personalized Guidance:</strong> Acting as your technology tutor accompanying you 24/7.' : '<strong>Cá nhân hóa lộ trình:</strong> Đóng vai trò như gia sư công nghệ đồng hành mọi lúc mọi nơi.'; ?></span>
+                                    <span style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.4;"><?php echo $is_en ? '<strong>Personalized Guidance:</strong> Acting as your technology tutor accompanying you 24/7.' : '<strong>Cá nhân hóa lộ trình:</strong> Đóng vai trò như gia sử công nghệ đồng hành mọi lúc mọi nơi.'; ?></span>
                                 </div>
                                 <div style="display: flex; align-items: start; gap: 12px;">
                                     <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(217, 38, 38, 0.2); color: #ff8585; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
                                     <span style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.4;"><?php echo $is_en ? '<strong>Secure & Trusted:</strong> Fine-tuned dedicated AI system ensuring accurate study resources.' : '<strong>Bảo mật thông tin:</strong> Hệ thống AI được tinh chỉnh chuyên sâu, đảm bảo tài nguyên học tập chuẩn xác.'; ?></span>
                                 </div>
+                            </div>
+
+                            <!-- Register Trial Button -->
+                            <div style="margin-top: 24px; margin-bottom: 10px;">
+                                <a href="<?php echo $is_en ? '/dang-ky-tai-khoan-ai?lang=en' : '/dang-ky-tai-khoan-ai'; ?>" class="ideas-ai-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px; background: #ff4d4d; color: #ffffff; font-weight: 700; font-size: 0.95rem; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.25); transition: all 0.3s ease;">
+                                    <span><?php echo $is_en ? 'Register AI Account Now' : 'Đăng ký trải nghiệm ngay'; ?></span>
+                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
                             </div>
                         </div>
                         
@@ -1078,6 +1086,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         0% { transform: scale(0.85); opacity: 0.5; }
                         50% { transform: scale(1.2); opacity: 1; }
                         100% { transform: scale(0.85); opacity: 0.5; }
+                    }
+                    .ideas-ai-btn:hover {
+                        background: #ff6b6b !important;
+                        transform: translateY(-2px);
+                        box-shadow: 0 15px 30px rgba(255, 77, 77, 0.4) !important;
                     }
                     @media (max-width: 991px) {
                         .ideas-ai-grid {

@@ -4220,8 +4220,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                             <div class="ai-screen-wrapper wrap-main">
-                                <div class="ai-screen-card card-main">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/aiplatform-1.webp" alt="IDEAS AI Platform Web Dashboard">
+                                <div class="ai-screen-card card-main" style="aspect-ratio: 16/9; position: relative; width: 100%;">
+                                    <iframe src="https://www.youtube.com/embed/09mATwfEE8Q" title="IDEAS AI Platform Demo" style="position: absolute; top:0; left:0; width:100%; height:100%; border:none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
                             </div>
                             <div class="ai-screen-wrapper wrap-sub">
