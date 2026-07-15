@@ -489,6 +489,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
 
 
+        .page-contact-form select {
+            display: block !important;
+        }
+
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: #94a3b8;
