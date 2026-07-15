@@ -3436,19 +3436,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* Fix background-clip overlap on underline-highlight */
         .underline-highlight {
             position: relative;
-            display: inline-block;
+            background: linear-gradient(180deg, transparent 62%, rgba(171, 14, 0, 0.16) 62%) !important;
+            display: inline !important;
             text-decoration: none !important;
+            padding-bottom: 2px;
         }
         .underline-highlight::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 4px;
-            width: 100%;
-            height: 8px;
-            background: rgba(171, 14, 0, 0.15) !important;
-            z-index: -1;
-            border-radius: 4px;
+            display: none !important;
         }
     </style>
 
@@ -4570,10 +4564,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <div class="container cta-inner">
                 <div class="cta-left reveal-up">
-                    <h2 class="cta-headline" id="cta-headline" style="margin-top: 20px;">
-                        Business Leadership<br />
-                        <span class="underline-highlight"><span class="cta-gradient">Essentials</span></span>
-                    </h2>
+                    <h2 class="cta-headline" id="cta-headline" style="margin-top: 20px;">Business Leadership<br /><span class="underline-highlight"><span class="cta-gradient">Essentials</span></span></h2>
 
 
                     <!-- Premium Compact Tuition Card (Merged) -->
