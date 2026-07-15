@@ -135,7 +135,7 @@ function sendAccountEmailOnCheckbox(e) {
       });
       
       // Lưu lại thời gian gửi email vào cột J
-      emailSentCell.setValue(new Date());
+      emailSentCell.setValue(Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM/yyyy HH:mm:ss"));
     }
   }
 }
