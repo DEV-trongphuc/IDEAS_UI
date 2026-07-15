@@ -101,9 +101,9 @@ $pages = [
         'template' => 'page-lien-he.php'
     ],
     [
-        'slug' => 'bai-viet',
-        'title' => 'Tin tức & Sự kiện',
-        'template' => 'archive.php'
+        'slug' => 'dang-ky-tai-khoan-ai',
+        'title' => 'Đăng ký nhận tài khoản AI Platform miễn phí',
+        'template' => 'page-dang-ky-tai-khoan-ai.php'
     ],
     [
         'slug' => 'thac-si-quan-tri-kinh-doanh-mba',
@@ -114,6 +114,11 @@ $pages = [
         'slug' => 'chuong-trinh-online-mba',
         'title' => 'Chương Trình Online MBA',
         'template' => 'page-chuong-trinh-online-mba.php'
+    ],
+    [
+        'slug' => 'reel',
+        'title' => 'IDEAS Reel',
+        'template' => 'page-reel.php'
     ],
     [
         'slug' => 'su-kien-aidc',
