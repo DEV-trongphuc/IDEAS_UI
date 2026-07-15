@@ -3432,6 +3432,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             line-height: 1.35;
             font-size: 1.05rem;
         }
+
+        /* Fix background-clip overlap on underline-highlight */
+        .underline-highlight {
+            position: relative;
+            display: inline-block;
+            text-decoration: none !important;
+        }
+        .underline-highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 4px;
+            width: 100%;
+            height: 8px;
+            background: rgba(171, 14, 0, 0.15) !important;
+            z-index: -1;
+            border-radius: 4px;
+        }
     </style>
 
     <?php wp_head(); ?>
@@ -4554,7 +4572,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="cta-left reveal-up">
                     <h2 class="cta-headline" id="cta-headline" style="margin-top: 20px;">
                         Business Leadership<br />
-                        <span class="cta-gradient underline-highlight">Essentials</span>
+                        <span class="underline-highlight"><span class="cta-gradient">Essentials</span></span>
                     </h2>
 
 
@@ -4574,7 +4592,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-cta-fee-benefits">
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
-                                <span>Cấp <strong>Certificate of Completion</strong> sau khi hoàn thành.</span>
+                                <span>Cấp <strong>Certificate of Completion</strong>.</span>
                             </div>
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
@@ -4586,7 +4604,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
-                                <span>Tham gia <strong>Executive Seminar</strong> cùng chuyên gia.</span>
+                                <span><strong>Executive Seminar</strong> cùng chuyên gia.</span>
                             </div>
                             <div class="ble-cta-fee-benefit-item">
                                 <span class="check-icon">✓</span>
