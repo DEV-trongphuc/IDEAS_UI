@@ -666,7 +666,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div style="display: flex; align-items: start; gap: 12px;">
                                 <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(171, 14, 0, 0.1); color: #ab0e00; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
-                                <span style="color: #4b5563; font-size: 0.95rem; line-height: 1.45;"><?php echo $is_en ? '<strong>Assignment Assistance:</strong> Receive structural suggestions and verified academic citations.' : '<strong>Hỗ trợ làm Assignment:</strong> Gợi ý cấu trúc bài viết và cung cấp nguồn tham khảo chính xác.'; ?></span>
+                                <span style="color: #4b5563; font-size: 0.95rem; line-height: 1.45;"><?php echo $is_en ? '<strong>Assignment Guidance:</strong> Receive structural suggestions and verified academic citations.' : '<strong>Hướng dẫn làm Assignment:</strong> Gợi ý cấu trúc bài viết và cung cấp nguồn tham khảo chính xác.'; ?></span>
                             </div>
                             <div style="display: flex; align-items: start; gap: 12px;">
                                 <span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(171, 14, 0, 0.1); color: #ab0e00; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;">✓</span>
@@ -731,7 +731,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <select id="purpose" name="purpose" required onchange="toggleOtherPurpose(this.value)">
                                         <option value=""><?php echo $is_en ? '-- Select Purpose --' : '-- Chọn mục đích sử dụng --'; ?></option>
                                         <option value="Học tập & nghiên cứu"><?php echo $is_en ? 'Study & Research' : 'Học tập & nghiên cứu'; ?></option>
-                                        <option value="Hỗ trợ làm Assignment"><?php echo $is_en ? 'Assignment Support' : 'Hỗ trợ làm Assignment'; ?></option>
+                                        <option value="Hướng dẫn làm Assignment"><?php echo $is_en ? 'Assignment Guidance' : 'Hướng dẫn làm Assignment'; ?></option>
                                         <option value="Ứng dụng AI trong công việc"><?php echo $is_en ? 'Apply AI at work' : 'Ứng dụng AI trong công việc'; ?></option>
                                         <option value="Khác"><?php echo $is_en ? 'Other / Specify' : 'Khác'; ?></option>
                                     </select>
