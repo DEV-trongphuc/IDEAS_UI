@@ -101,6 +101,11 @@ $pages = [
         'template' => 'page-lien-he.php'
     ],
     [
+        'slug' => 'dang-ky-tai-khoan-ai',
+        'title' => 'Đăng ký nhận tài khoản AI Platform miễn phí',
+        'template' => 'page-dang-ky-tai-khoan-ai.php'
+    ],
+    [
         'slug' => 'thac-si-quan-tri-kinh-doanh-mba',
         'title' => 'Học MBA Online',
         'template' => 'page-thac-si-quan-tri-kinh-doanh-mba.php'
