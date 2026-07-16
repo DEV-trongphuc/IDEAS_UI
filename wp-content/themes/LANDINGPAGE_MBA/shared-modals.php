@@ -1010,9 +1010,9 @@ body.profile-modal-open {
 }
 .profile-modal-close {
     position: absolute;
-    top: -45px;
-    right: 0;
-    background: none;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     color: #fff;
     font-size: 2.2rem;
@@ -1022,10 +1022,10 @@ body.profile-modal-open {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    z-index: 100000;
 }
 .profile-modal-close:hover {
     color: #ffffff;
@@ -1054,7 +1054,7 @@ body.profile-modal-open {
     inset: 0;
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 0.9s cubic-bezier(0.2, 1, 0.3, 1.05);
+    transition: transform 1.2s cubic-bezier(0.37, 0, 0.63, 1), opacity 1.2s cubic-bezier(0.37, 0, 0.63, 1);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1064,16 +1064,7 @@ body.profile-modal-open {
     pointer-events: none;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-}
-.profile-page-single::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0) 40%);
-    opacity: 0;
-    transition: opacity 0.9s ease;
-    pointer-events: none;
-    border-radius: 12px;
+    opacity: 1;
 }
 .profile-page-single.active-page {
     pointer-events: auto;
@@ -1081,10 +1072,8 @@ body.profile-modal-open {
 }
 .profile-page-single.flipped {
     transform: rotateY(-180deg);
+    opacity: 0;
     pointer-events: none;
-}
-.profile-page-single.flipped::after {
-    opacity: 1;
 }
 .profile-page-loading {
     position: absolute;
@@ -1164,8 +1153,8 @@ body.profile-modal-open {
 </style>
 
 <div class="profile-modal" id="profile-book-modal">
+    <button class="profile-modal-close" onclick="closeProfileBook()">&times;</button>
     <div class="profile-modal-content">
-        <button class="profile-modal-close" onclick="closeProfileBook()">&times;</button>
         <div class="profile-book-container-single">
             <div class="profile-book-single" id="profile-pages-container">
                 <!-- Javascript will generate 32 pages here -->
