@@ -1054,7 +1054,6 @@ body.profile-modal-open {
     inset: 0;
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 1.2s cubic-bezier(0.37, 0, 0.63, 1), opacity 1.2s cubic-bezier(0.37, 0, 0.63, 1);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1064,16 +1063,66 @@ body.profile-modal-open {
     pointer-events: none;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    transform: rotateY(0deg);
     opacity: 1;
+    z-index: 1;
 }
 .profile-page-single.active-page {
     pointer-events: auto;
     cursor: pointer;
+    z-index: 5;
 }
-.profile-page-single.flipped {
+.profile-page-single.flipped-static {
     transform: rotateY(-180deg);
     opacity: 0;
     pointer-events: none;
+    z-index: 0;
+}
+.profile-page-single.flipping-forward {
+    animation: profilePageFlipForward 1.2s cubic-bezier(0.37, 0, 0.63, 1) forwards;
+    z-index: 10;
+}
+.profile-page-single.flipping-backward {
+    animation: profilePageFlipBackward 1.2s cubic-bezier(0.37, 0, 0.63, 1) forwards;
+    z-index: 10;
+}
+
+@keyframes profilePageFlipForward {
+    0% {
+        transform: rotateY(0deg) skewY(0deg) scale(1) translateZ(0px);
+        opacity: 1;
+    }
+    30% {
+        transform: rotateY(-50deg) skewY(-4deg) scale(0.98) translateZ(20px);
+        opacity: 0.95;
+    }
+    70% {
+        transform: rotateY(-130deg) skewY(4deg) scale(0.98) translateZ(20px);
+        opacity: 0.15;
+    }
+    100% {
+        transform: rotateY(-180deg) skewY(0deg) scale(1) translateZ(0px);
+        opacity: 0;
+    }
+}
+
+@keyframes profilePageFlipBackward {
+    0% {
+        transform: rotateY(-180deg) skewY(0deg) scale(1) translateZ(0px);
+        opacity: 0;
+    }
+    30% {
+        transform: rotateY(-130deg) skewY(4deg) scale(0.98) translateZ(20px);
+        opacity: 0.15;
+    }
+    70% {
+        transform: rotateY(-50deg) skewY(-4deg) scale(0.98) translateZ(20px);
+        opacity: 0.95;
+    }
+    100% {
+        transform: rotateY(0deg) skewY(0deg) scale(1) translateZ(0px);
+        opacity: 1;
+    }
 }
 .profile-page-loading {
     position: absolute;
@@ -1249,19 +1298,56 @@ function closeProfileBook() {
     }, 400);
 }
 
-function updatePageStates() {
+function updatePageStates(prevPage = null) {
     const pages = document.querySelectorAll('.profile-page-single');
-    pages.forEach((page, idx) => {
-        page.classList.remove('active-page');
-        if (idx < currentPage) {
-            page.classList.add('flipped');
-        } else {
-            page.classList.remove('flipped');
+    
+    // If first load or no transition context, set states statically
+    if (prevPage === null || !profileBookInitialized) {
+        pages.forEach((page, idx) => {
+            page.className = 'profile-page-single';
+            page.style.animation = 'none';
+            if (idx < currentPage) {
+                page.classList.add('flipped-static');
+                page.style.zIndex = idx;
+            } else {
+                page.style.zIndex = totalPages - idx;
+                if (idx === currentPage) {
+                    page.classList.add('active-page');
+                }
+            }
+        });
+    } else {
+        pages.forEach((page, idx) => {
+            // Clear animations and classes
+            page.style.animation = 'none';
+            page.className = 'profile-page-single';
+            
             if (idx === currentPage) {
                 page.classList.add('active-page');
+                page.style.zIndex = 5;
+            } else if (idx < currentPage) {
+                if (idx === currentPage - 1 && currentPage > prevPage) {
+                    // Turn page forward
+                    page.classList.add('flipping-forward');
+                    page.style.animation = '';
+                } else {
+                    page.classList.add('flipped-static');
+                    page.style.zIndex = idx;
+                }
+            } else {
+                page.style.zIndex = totalPages - idx;
+            }
+        });
+        
+        // Turn page backward
+        if (currentPage < prevPage) {
+            const pageAnimating = pages[currentPage];
+            if (pageAnimating) {
+                pageAnimating.className = 'profile-page-single flipping-backward';
+                pageAnimating.style.animation = '';
             }
         }
-    });
+    }
     
     // Update Page Indicator text
     const pageNumSpan = document.getElementById('profile-page-num');
@@ -1282,15 +1368,17 @@ function updatePageStates() {
 
 function nextProfilePage() {
     if (currentPage < totalPages - 1) {
+        const prev = currentPage;
         currentPage++;
-        updatePageStates();
+        updatePageStates(prev);
     }
 }
 
 function prevProfilePage() {
     if (currentPage > 0) {
+        const prev = currentPage;
         currentPage--;
-        updatePageStates();
+        updatePageStates(prev);
     }
 }
 
