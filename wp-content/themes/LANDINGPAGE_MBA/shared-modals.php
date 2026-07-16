@@ -991,8 +991,8 @@ body.profile-modal-open {
     position: relative;
     width: 90vw;
     height: 85vh;
-    max-width: 500px;
-    max-height: 720px;
+    max-width: 900px;
+    max-height: 750px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1038,24 +1038,27 @@ body.profile-modal-open {
 }
 .book-single {
     position: relative;
-    width: 440px;
-    height: 622px;
+    width: 792px;
+    height: 560px;
     transform-style: preserve-3d;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+    border-radius: 12px;
 }
 .page-single {
     position: absolute;
     inset: 0;
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     pointer-events: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 .page-single.active-page {
     pointer-events: auto;
@@ -1063,7 +1066,6 @@ body.profile-modal-open {
 }
 .page-single.flipped {
     transform: rotateY(-180deg);
-    opacity: 0;
     pointer-events: none;
 }
 .page-loading {
@@ -1084,26 +1086,30 @@ body.profile-modal-open {
 .flipbook-controls {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-top: 24px;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 28px;
     color: #fff;
     font-weight: 600;
     z-index: 10;
+    width: 100%;
 }
 .flipbook-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
-    padding: 8px 20px;
-    border-radius: 20px;
+    padding: 10px 24px;
+    border-radius: 30px;
     font-weight: 700;
     cursor: pointer;
-    font-size: 0.85rem;
-    transition: all 0.3s;
-    backdrop-filter: blur(5px);
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
 }
 .flipbook-btn:hover:not(:disabled) {
     background: #ab0e00;
@@ -1116,19 +1122,21 @@ body.profile-modal-open {
     transform: none;
 }
 #profile-page-num {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     letter-spacing: 0.05em;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 6px 14px;
-    border-radius: 12px;
-    min-width: 120px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
+    border-radius: 16px;
+    min-width: 130px;
     text-align: center;
+    white-space: nowrap;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 900px) {
     .book-single {
         width: 85vw !important;
-        height: calc(85vw * 1.414) !important;
+        height: calc(85vw / 1.414) !important;
     }
     .profile-modal-content {
         width: 95vw;
