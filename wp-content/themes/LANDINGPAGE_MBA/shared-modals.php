@@ -1311,13 +1311,29 @@ let currentPage = 0;
 const totalPages = 32;
 const profileImages = [];
 for (let i = 1; i <= totalPages; i++) {
-    profileImages.push(`<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/profile/page-${i}.png`);
+    const src = `<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/profile/page-${i}.png`;
+    profileImages.push(src.replace(/^https?:/, ''));
 }
 let profileBookInitialized = false;
 let isFlipping = false;
 
 function initProfileBook() {
     if (profileBookInitialized) return;
+    
+    const container = document.getElementById('profile-pages-container');
+    if (!container) return;
+    
+    // Dynamic self-healing: build the DOM structure if missing or wiped by cached old scripts
+    if (!document.getElementById('profile-book-left')) {
+        container.innerHTML = `
+            <div class="profile-book-static-left" id="profile-book-left"></div>
+            <div class="profile-book-static-right" id="profile-book-right"></div>
+            <div class="profile-book-flipping-leaf" id="profile-book-leaf">
+                <div class="face front" id="profile-book-leaf-front"></div>
+                <div class="face back" id="profile-book-leaf-back"></div>
+            </div>
+        `;
+    }
     
     // Preload images
     profileImages.forEach(src => {
@@ -1326,7 +1342,6 @@ function initProfileBook() {
     });
     
     // Click on book left/right halves to flip
-    const container = document.getElementById('profile-pages-container');
     container.addEventListener('click', (e) => {
         if (isFlipping) return;
         const rect = container.getBoundingClientRect();

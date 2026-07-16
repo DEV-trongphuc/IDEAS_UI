@@ -268,9 +268,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1784174311" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784174311" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784174311" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1784174751" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784174751" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784174751" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -11716,8 +11716,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1784174311" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1784174311" defer></script>
+    <script src="common-assets/js/script.min.js?v=1784174751" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1784174751" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -14348,19 +14348,32 @@ body.profile-modal-open {
     </div>
 </div>
 
-<script>
 let currentPage = 0;
 const totalPages = 32;
-const rootPath = window.location.pathname.indexOf('/en/') !== -1 ? '../' : './';
 const profileImages = [];
 for (let i = 1; i <= totalPages; i++) {
-    profileImages.push(`${rootPath}wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${i}.png`);
+    profileImages.push(`/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${i}.png`);
 }
 let profileBookInitialized = false;
 let isFlipping = false;
 
 function initProfileBook() {
     if (profileBookInitialized) return;
+    
+    const container = document.getElementById('profile-pages-container');
+    if (!container) return;
+    
+    // Dynamic self-healing: build the DOM structure if missing or wiped by cached old scripts
+    if (!document.getElementById('profile-book-left')) {
+        container.innerHTML = `
+            <div class="profile-book-static-left" id="profile-book-left"></div>
+            <div class="profile-book-static-right" id="profile-book-right"></div>
+            <div class="profile-book-flipping-leaf" id="profile-book-leaf">
+                <div class="face front" id="profile-book-leaf-front"></div>
+                <div class="face back" id="profile-book-leaf-back"></div>
+            </div>
+        `;
+    }
     
     // Preload images
     profileImages.forEach(src => {
@@ -14369,7 +14382,6 @@ function initProfileBook() {
     });
     
     // Click on book left/right halves to flip
-    const container = document.getElementById('profile-pages-container');
     container.addEventListener('click', (e) => {
         if (isFlipping) return;
         const rect = container.getBoundingClientRect();
