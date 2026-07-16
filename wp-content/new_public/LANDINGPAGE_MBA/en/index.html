@@ -262,9 +262,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1784175543" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1784175543" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1784175543" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1784175732" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1784175732" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1784175732" media="print"
         onload="this.media='all'" />
     <style>
         @media (min-width: 992px) {
@@ -10476,8 +10476,8 @@
     </div>
 
     <script src="../common-assets/js/variables-en.min.js?v=1781075600000" defer></script>
-    <script src="../common-assets/js/script.min.js?v=1784175543" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1784175543" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1784175732" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1784175732" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -13288,6 +13288,11 @@ body.profile-modal-open {
     border-radius: 12px;
 }
 .profile-page-single {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -13463,7 +13468,7 @@ function initProfileBook() {
         disableMobile: false
     });
     
-    window.profilePageFlip.loadFromHtml(container.querySelectorAll('.profile-page-single'));
+    window.profilePageFlip.loadFromHTML(container.querySelectorAll('.profile-page-single'));
     
     // Sync the current page number
     window.profilePageFlip.on('flip', (e) => {

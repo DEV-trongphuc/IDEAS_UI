@@ -1050,6 +1050,11 @@ body.profile-modal-open {
     border-radius: 12px;
 }
 .profile-page-single {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1224,7 +1229,7 @@ function initProfileBook() {
         disableMobile: false
     });
     
-    window.profilePageFlip.loadFromHtml(container.querySelectorAll('.profile-page-single'));
+    window.profilePageFlip.loadFromHTML(container.querySelectorAll('.profile-page-single'));
     
     // Sync the current page number
     window.profilePageFlip.on('flip', (e) => {
