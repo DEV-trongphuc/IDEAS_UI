@@ -994,10 +994,10 @@ body.profile-modal-open {
 }
 .profile-modal-content {
     position: relative;
-    width: 90vw;
-    height: 85vh;
-    max-width: 900px;
-    max-height: 750px;
+    width: 95vw;
+    height: 90vh;
+    max-width: 1100px;
+    max-height: 850px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1036,15 +1036,15 @@ body.profile-modal-open {
     position: relative;
     width: 100%;
     height: calc(100% - 60px);
-    perspective: 2000px;
+    perspective: 1500px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .profile-book-single {
     position: relative;
-    width: 792px;
-    height: 560px;
+    width: 990px;
+    height: 700px;
     transform-style: preserve-3d;
     box-shadow: 0 30px 70px rgba(0,0,0,0.5);
     border-radius: 12px;
@@ -1054,7 +1054,7 @@ body.profile-modal-open {
     inset: 0;
     transform-origin: left center;
     transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.9s cubic-bezier(0.2, 1, 0.3, 1.05);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1065,6 +1065,16 @@ body.profile-modal-open {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
+.profile-page-single::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0) 40%);
+    opacity: 0;
+    transition: opacity 0.9s ease;
+    pointer-events: none;
+    border-radius: 12px;
+}
 .profile-page-single.active-page {
     pointer-events: auto;
     cursor: pointer;
@@ -1072,6 +1082,9 @@ body.profile-modal-open {
 .profile-page-single.flipped {
     transform: rotateY(-180deg);
     pointer-events: none;
+}
+.profile-page-single.flipped::after {
+    opacity: 1;
 }
 .profile-page-loading {
     position: absolute;
@@ -1138,7 +1151,7 @@ body.profile-modal-open {
     white-space: nowrap;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
     .profile-book-single {
         width: 85vw !important;
         height: calc(85vw / 1.414) !important;
