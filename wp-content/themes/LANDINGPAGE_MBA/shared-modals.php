@@ -1052,8 +1052,7 @@ body.profile-modal-open {
 .profile-page-single {
     position: absolute;
     inset: 0;
-    transform-origin: left center;
-    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s ease;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1063,66 +1062,25 @@ body.profile-modal-open {
     pointer-events: none;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transform: rotateY(0deg);
-    opacity: 1;
+    transform: translateX(100%);
+    opacity: 0;
     z-index: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 .profile-page-single.active-page {
+    transform: translateX(0);
+    opacity: 1;
     pointer-events: auto;
     cursor: pointer;
     z-index: 5;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
 }
-.profile-page-single.flipped-static {
-    transform: rotateY(-180deg);
+.profile-page-single.passed-page {
+    transform: translateX(-100%);
     opacity: 0;
     pointer-events: none;
-    z-index: 0;
-}
-.profile-page-single.flipping-forward {
-    animation: profilePageFlipForward 1.2s cubic-bezier(0.37, 0, 0.63, 1) forwards;
-    z-index: 10;
-}
-.profile-page-single.flipping-backward {
-    animation: profilePageFlipBackward 1.2s cubic-bezier(0.37, 0, 0.63, 1) forwards;
-    z-index: 10;
-}
-
-@keyframes profilePageFlipForward {
-    0% {
-        transform: rotateY(0deg) skewY(0deg) scale(1) translateZ(0px);
-        opacity: 1;
-    }
-    30% {
-        transform: rotateY(-50deg) skewY(-4deg) scale(0.98) translateZ(20px);
-        opacity: 0.95;
-    }
-    70% {
-        transform: rotateY(-130deg) skewY(4deg) scale(0.98) translateZ(20px);
-        opacity: 0.15;
-    }
-    100% {
-        transform: rotateY(-180deg) skewY(0deg) scale(1) translateZ(0px);
-        opacity: 0;
-    }
-}
-
-@keyframes profilePageFlipBackward {
-    0% {
-        transform: rotateY(-180deg) skewY(0deg) scale(1) translateZ(0px);
-        opacity: 0;
-    }
-    30% {
-        transform: rotateY(-130deg) skewY(4deg) scale(0.98) translateZ(20px);
-        opacity: 0.15;
-    }
-    70% {
-        transform: rotateY(-50deg) skewY(-4deg) scale(0.98) translateZ(20px);
-        opacity: 0.95;
-    }
-    100% {
-        transform: rotateY(0deg) skewY(0deg) scale(1) translateZ(0px);
-        opacity: 1;
-    }
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 .profile-page-loading {
     position: absolute;
@@ -1296,58 +1254,22 @@ function closeProfileBook() {
         document.documentElement.classList.remove('profile-modal-open');
         document.body.classList.remove('profile-modal-open');
     }, 400);
-}
-
-function updatePageStates(prevPage = null) {
+}function updatePageStates() {
     const pages = document.querySelectorAll('.profile-page-single');
-    
-    // If first load or no transition context, set states statically
-    if (prevPage === null || !profileBookInitialized) {
-        pages.forEach((page, idx) => {
-            page.className = 'profile-page-single';
-            page.style.animation = 'none';
-            if (idx < currentPage) {
-                page.classList.add('flipped-static');
-                page.style.zIndex = idx;
-            } else {
-                page.style.zIndex = totalPages - idx;
-                if (idx === currentPage) {
-                    page.classList.add('active-page');
-                }
-            }
-        });
-    } else {
-        pages.forEach((page, idx) => {
-            // Clear animations and classes
-            page.style.animation = 'none';
-            page.className = 'profile-page-single';
-            
-            if (idx === currentPage) {
-                page.classList.add('active-page');
-                page.style.zIndex = 5;
-            } else if (idx < currentPage) {
-                if (idx === currentPage - 1 && currentPage > prevPage) {
-                    // Turn page forward
-                    page.classList.add('flipping-forward');
-                    page.style.animation = '';
-                } else {
-                    page.classList.add('flipped-static');
-                    page.style.zIndex = idx;
-                }
-            } else {
-                page.style.zIndex = totalPages - idx;
-            }
-        });
+    pages.forEach((page, idx) => {
+        page.style.animation = 'none';
+        page.className = 'profile-page-single';
         
-        // Turn page backward
-        if (currentPage < prevPage) {
-            const pageAnimating = pages[currentPage];
-            if (pageAnimating) {
-                pageAnimating.className = 'profile-page-single flipping-backward';
-                pageAnimating.style.animation = '';
-            }
+        if (idx < currentPage) {
+            page.classList.add('passed-page');
+            page.style.zIndex = idx;
+        } else if (idx === currentPage) {
+            page.classList.add('active-page');
+            page.style.zIndex = 5;
+        } else {
+            page.style.zIndex = totalPages - idx;
         }
-    }
+    });
     
     // Update Page Indicator text
     const pageNumSpan = document.getElementById('profile-page-num');
@@ -1368,20 +1290,17 @@ function updatePageStates(prevPage = null) {
 
 function nextProfilePage() {
     if (currentPage < totalPages - 1) {
-        const prev = currentPage;
         currentPage++;
-        updatePageStates(prev);
+        updatePageStates();
     }
 }
 
 function prevProfilePage() {
     if (currentPage > 0) {
-        const prev = currentPage;
         currentPage--;
-        updatePageStates(prev);
+        updatePageStates();
     }
 }
-
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('profile-book-modal');
