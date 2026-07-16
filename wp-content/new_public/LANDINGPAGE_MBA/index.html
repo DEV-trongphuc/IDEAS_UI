@@ -268,9 +268,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1784173956" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784173956" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784173956" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1784174311" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784174311" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784174311" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -11716,8 +11716,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1784173956" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1784173956" defer></script>
+    <script src="common-assets/js/script.min.js?v=1784174311" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1784174311" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -14301,6 +14301,12 @@ body.profile-modal-open {
         width: 85vw !important;
         height: calc(85vw / 1.414) !important;
     }
+    .profile-book-static-left,
+    .profile-book-static-right,
+    .profile-book-flipping-leaf,
+    .profile-book-flipping-leaf .face {
+        background-size: calc(85vw) calc(85vw / 1.414) !important;
+    }
     .profile-modal-content {
         width: 95vw;
         height: 75vh;
@@ -14313,7 +14319,12 @@ body.profile-modal-open {
     <div class="profile-modal-content">
         <div class="profile-book-container-single">
             <div class="profile-book-single" id="profile-pages-container">
-                <!-- Javascript will generate 32 pages here -->
+                <div class="profile-book-static-left" id="profile-book-left"></div>
+                <div class="profile-book-static-right" id="profile-book-right"></div>
+                <div class="profile-book-flipping-leaf" id="profile-book-leaf">
+                    <div class="face front" id="profile-book-leaf-front"></div>
+                    <div class="face back" id="profile-book-leaf-back"></div>
+                </div>
             </div>
         </div>
         <div class="profile-flipbook-controls">
@@ -14340,48 +14351,35 @@ body.profile-modal-open {
 <script>
 let currentPage = 0;
 const totalPages = 32;
+const rootPath = window.location.pathname.indexOf('/en/') !== -1 ? '../' : './';
+const profileImages = [];
+for (let i = 1; i <= totalPages; i++) {
+    profileImages.push(`${rootPath}wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${i}.png`);
+}
 let profileBookInitialized = false;
+let isFlipping = false;
 
 function initProfileBook() {
     if (profileBookInitialized) return;
-    const container = document.getElementById('profile-pages-container');
-    container.innerHTML = '';
     
-    // Generate 32 individual pages
-    for (let i = 0; i < totalPages; i++) {
-        const page = document.createElement('div');
-        page.className = 'profile-page-single';
-        page.style.zIndex = totalPages - i;
-        
-        const pageNum = i + 1;
-        
-        // Use correct paths for resources
-        const rootPath = window.location.pathname.indexOf('/en/') !== -1 ? '../' : './';
-        const imgUrl = `${rootPath}wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${pageNum}.png`;
-        
-        page.style.backgroundImage = `url('${imgUrl}')`;
-        page.innerHTML = `
-            <div class="profile-page-loading">
-                <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="24" height="24" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
-            </div>
-        `;
-        
-        container.appendChild(page);
-        
-        // Hide loader when background image loads
-        const preloadImg = new Image();
-        preloadImg.src = imgUrl;
-        preloadImg.onload = () => {
-            page.querySelector('.profile-page-loading')?.classList.add('loaded');
-        };
-        
-        // Allow clicking on active page to flip to the next one
-        page.addEventListener('click', () => {
-            if (page.classList.contains('active-page')) {
-                nextProfilePage();
-            }
-        });
-    }
+    // Preload images
+    profileImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+    
+    // Click on book left/right halves to flip
+    const container = document.getElementById('profile-pages-container');
+    container.addEventListener('click', (e) => {
+        if (isFlipping) return;
+        const rect = container.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        if (clickX > rect.width / 2) {
+            nextProfilePage();
+        } else {
+            prevProfilePage();
+        }
+    });
     
     profileBookInitialized = true;
     updatePageStates();
@@ -14409,21 +14407,16 @@ function closeProfileBook() {
 }
 
 function updatePageStates() {
-    const pages = document.querySelectorAll('.profile-page-single');
-    pages.forEach((page, idx) => {
-        page.style.animation = 'none';
-        page.className = 'profile-page-single';
-        
-        if (idx < currentPage) {
-            page.classList.add('passed-page');
-            page.style.zIndex = idx;
-        } else if (idx === currentPage) {
-            page.classList.add('active-page');
-            page.style.zIndex = 5;
-        } else {
-            page.style.zIndex = totalPages - idx;
-        }
-    });
+    const leftPanel = document.getElementById('profile-book-left');
+    const rightPanel = document.getElementById('profile-book-right');
+    const leaf = document.getElementById('profile-book-leaf');
+    
+    const currentImg = profileImages[currentPage];
+    leftPanel.style.backgroundImage = `url('${currentImg}')`;
+    rightPanel.style.backgroundImage = `url('${currentImg}')`;
+    
+    leaf.style.display = 'none';
+    leaf.className = 'profile-book-flipping-leaf';
     
     // Update Page Indicator text
     const pageNumSpan = document.getElementById('profile-page-num');
@@ -14443,17 +14436,57 @@ function updatePageStates() {
 }
 
 function nextProfilePage() {
-    if (currentPage < totalPages - 1) {
+    if (isFlipping || currentPage >= totalPages - 1) return;
+    isFlipping = true;
+    
+    const rightPanel = document.getElementById('profile-book-right');
+    const leaf = document.getElementById('profile-book-leaf');
+    const leafFront = document.getElementById('profile-book-leaf-front');
+    const leafBack = document.getElementById('profile-book-leaf-back');
+    
+    const nextImg = profileImages[currentPage + 1];
+    const currentImg = profileImages[currentPage];
+    
+    leafFront.style.backgroundImage = `url('${currentImg}')`;
+    leafBack.style.backgroundImage = `url('${nextImg}')`;
+    
+    rightPanel.style.backgroundImage = `url('${nextImg}')`;
+    
+    leaf.style.display = 'block';
+    leaf.className = 'profile-book-flipping-leaf flip-forward-anim';
+    
+    setTimeout(() => {
         currentPage++;
         updatePageStates();
-    }
+        isFlipping = false;
+    }, 900);
 }
 
 function prevProfilePage() {
-    if (currentPage > 0) {
+    if (isFlipping || currentPage <= 0) return;
+    isFlipping = true;
+    
+    const leftPanel = document.getElementById('profile-book-left');
+    const leaf = document.getElementById('profile-book-leaf');
+    const leafFront = document.getElementById('profile-book-leaf-front');
+    const leafBack = document.getElementById('profile-book-leaf-back');
+    
+    const prevImg = profileImages[currentPage - 1];
+    const currentImg = profileImages[currentPage];
+    
+    leafFront.style.backgroundImage = `url('${prevImg}')`;
+    leafBack.style.backgroundImage = `url('${currentImg}')`;
+    
+    leftPanel.style.backgroundImage = `url('${prevImg}')`;
+    
+    leaf.style.display = 'block';
+    leaf.className = 'profile-book-flipping-leaf flip-backward-anim';
+    
+    setTimeout(() => {
         currentPage--;
         updatePageStates();
-    }
+        isFlipping = false;
+    }, 900);
 }
 
 // Keyboard navigation
