@@ -1046,7 +1046,6 @@ body.profile-modal-open {
     width: 990px;
     height: 700px;
     transform-style: preserve-3d;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
     border-radius: 12px;
 }
 .profile-page-single {
@@ -1055,14 +1054,21 @@ body.profile-modal-open {
     top: 0;
     width: 100%;
     height: 100%;
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
     background-color: #fff;
     border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     overflow: hidden;
+}
+.profile-page-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
 }
 .profile-page-loading {
     position: absolute;
@@ -1189,16 +1195,11 @@ function initProfileBook() {
         const pageNum = i + 1;
         const imgUrl = `<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/profile/page-${pageNum}.png`;
         
-        page.style.backgroundImage = `url('${imgUrl}')`;
-        page.style.backgroundSize = '100% 100%';
-        page.style.backgroundPosition = 'center';
-        page.style.backgroundRepeat = 'no-repeat';
-        page.style.width = '100%';
-        page.style.height = '100%';
-        
         page.innerHTML = `
-            <div class="profile-page-loading">
-                <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="24" height="24" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
+            <div class="profile-page-content" style="background-image: url('${imgUrl}');">
+                <div class="profile-page-loading">
+                    <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="24" height="24" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
+                </div>
             </div>
         `;
         
