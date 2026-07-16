@@ -268,9 +268,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1784174751" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784174751" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784174751" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1784175543" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784175543" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784175543" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -11716,8 +11716,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1784174751" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1784174751" defer></script>
+    <script src="common-assets/js/script.min.js?v=1784175543" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1784175543" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -14199,37 +14199,14 @@ body.profile-modal-open {
     border-radius: 12px;
 }
 .profile-page-single {
-    position: absolute;
-    inset: 0;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s ease;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
     border-radius: 12px;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    pointer-events: none;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateX(100%);
-    opacity: 0;
-    z-index: 1;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-.profile-page-single.active-page {
-    transform: translateX(0);
-    opacity: 1;
-    pointer-events: auto;
-    cursor: pointer;
-    z-index: 5;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
-}
-.profile-page-single.passed-page {
-    transform: translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
 }
 .profile-page-loading {
     position: absolute;
@@ -14301,12 +14278,6 @@ body.profile-modal-open {
         width: 85vw !important;
         height: calc(85vw / 1.414) !important;
     }
-    .profile-book-static-left,
-    .profile-book-static-right,
-    .profile-book-flipping-leaf,
-    .profile-book-flipping-leaf .face {
-        background-size: calc(85vw) calc(85vw / 1.414) !important;
-    }
     .profile-modal-content {
         width: 95vw;
         height: 75vh;
@@ -14319,12 +14290,7 @@ body.profile-modal-open {
     <div class="profile-modal-content">
         <div class="profile-book-container-single">
             <div class="profile-book-single" id="profile-pages-container">
-                <div class="profile-book-static-left" id="profile-book-left"></div>
-                <div class="profile-book-static-right" id="profile-book-right"></div>
-                <div class="profile-book-flipping-leaf" id="profile-book-leaf">
-                    <div class="face front" id="profile-book-leaf-front"></div>
-                    <div class="face back" id="profile-book-leaf-back"></div>
-                </div>
+                <!-- Javascript will generate 32 pages here -->
             </div>
         </div>
         <div class="profile-flipbook-controls">
@@ -14348,49 +14314,72 @@ body.profile-modal-open {
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+<script>
 let currentPage = 0;
 const totalPages = 32;
-const profileImages = [];
-for (let i = 1; i <= totalPages; i++) {
-    profileImages.push(`/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${i}.png`);
-}
 let profileBookInitialized = false;
-let isFlipping = false;
 
 function initProfileBook() {
     if (profileBookInitialized) return;
-    
     const container = document.getElementById('profile-pages-container');
-    if (!container) return;
+    container.innerHTML = '';
     
-    // Dynamic self-healing: build the DOM structure if missing or wiped by cached old scripts
-    if (!document.getElementById('profile-book-left')) {
-        container.innerHTML = `
-            <div class="profile-book-static-left" id="profile-book-left"></div>
-            <div class="profile-book-static-right" id="profile-book-right"></div>
-            <div class="profile-book-flipping-leaf" id="profile-book-leaf">
-                <div class="face front" id="profile-book-leaf-front"></div>
-                <div class="face back" id="profile-book-leaf-back"></div>
+    // Generate 32 individual pages
+    for (let i = 0; i < totalPages; i++) {
+        const page = document.createElement('div');
+        page.className = 'profile-page-single';
+        
+        const pageNum = i + 1;
+        const rootPath = window.location.pathname.indexOf('/en/') !== -1 ? '../' : './';
+        const imgUrl = `${rootPath}wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${pageNum}.png`;
+        
+        page.style.backgroundImage = `url('${imgUrl}')`;
+        page.style.backgroundSize = '100% 100%';
+        page.style.backgroundPosition = 'center';
+        page.style.backgroundRepeat = 'no-repeat';
+        page.style.width = '100%';
+        page.style.height = '100%';
+        
+        page.innerHTML = `
+            <div class="profile-page-loading">
+                <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="24" height="24" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
             </div>
         `;
+        
+        container.appendChild(page);
+        
+        // Hide loader when background image loads
+        const preloadImg = new Image();
+        preloadImg.src = imgUrl;
+        preloadImg.onload = () => {
+            page.querySelector('.profile-page-loading')?.classList.add('loaded');
+        };
     }
     
-    // Preload images
-    profileImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
+    // Initialize StPageFlip
+    window.profilePageFlip = new St.PageFlip(container, {
+        width: 990,
+        height: 700,
+        size: "stretch",
+        minWidth: 320,
+        minHeight: 226,
+        maxWidth: 2000,
+        maxHeight: 1414,
+        showCover: false,
+        usePortrait: true,
+        drawShadow: true,
+        flippingTime: 1000,
+        showPageCorners: true,
+        disableMobile: false
     });
     
-    // Click on book left/right halves to flip
-    container.addEventListener('click', (e) => {
-        if (isFlipping) return;
-        const rect = container.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        if (clickX > rect.width / 2) {
-            nextProfilePage();
-        } else {
-            prevProfilePage();
-        }
+    window.profilePageFlip.loadFromHtml(container.querySelectorAll('.profile-page-single'));
+    
+    // Sync the current page number
+    window.profilePageFlip.on('flip', (e) => {
+        currentPage = e.data;
+        updatePageStates();
     });
     
     profileBookInitialized = true;
@@ -14403,6 +14392,9 @@ function openProfileBook() {
     setTimeout(() => {
         modal.classList.add('open');
         initProfileBook();
+        if (window.profilePageFlip) {
+            window.profilePageFlip.update();
+        }
         document.documentElement.classList.add('profile-modal-open');
         document.body.classList.add('profile-modal-open');
     }, 10);
@@ -14419,18 +14411,6 @@ function closeProfileBook() {
 }
 
 function updatePageStates() {
-    const leftPanel = document.getElementById('profile-book-left');
-    const rightPanel = document.getElementById('profile-book-right');
-    const leaf = document.getElementById('profile-book-leaf');
-    
-    const currentImg = profileImages[currentPage];
-    leftPanel.style.backgroundImage = `url('${currentImg}')`;
-    rightPanel.style.backgroundImage = `url('${currentImg}')`;
-    
-    leaf.style.display = 'none';
-    leaf.className = 'profile-book-flipping-leaf';
-    
-    // Update Page Indicator text
     const pageNumSpan = document.getElementById('profile-page-num');
     const isEn = window.location.pathname.indexOf('/en/') !== -1;
     
@@ -14448,57 +14428,15 @@ function updatePageStates() {
 }
 
 function nextProfilePage() {
-    if (isFlipping || currentPage >= totalPages - 1) return;
-    isFlipping = true;
-    
-    const rightPanel = document.getElementById('profile-book-right');
-    const leaf = document.getElementById('profile-book-leaf');
-    const leafFront = document.getElementById('profile-book-leaf-front');
-    const leafBack = document.getElementById('profile-book-leaf-back');
-    
-    const nextImg = profileImages[currentPage + 1];
-    const currentImg = profileImages[currentPage];
-    
-    leafFront.style.backgroundImage = `url('${currentImg}')`;
-    leafBack.style.backgroundImage = `url('${nextImg}')`;
-    
-    rightPanel.style.backgroundImage = `url('${nextImg}')`;
-    
-    leaf.style.display = 'block';
-    leaf.className = 'profile-book-flipping-leaf flip-forward-anim';
-    
-    setTimeout(() => {
-        currentPage++;
-        updatePageStates();
-        isFlipping = false;
-    }, 900);
+    if (window.profilePageFlip) {
+        window.profilePageFlip.flipNext();
+    }
 }
 
 function prevProfilePage() {
-    if (isFlipping || currentPage <= 0) return;
-    isFlipping = true;
-    
-    const leftPanel = document.getElementById('profile-book-left');
-    const leaf = document.getElementById('profile-book-leaf');
-    const leafFront = document.getElementById('profile-book-leaf-front');
-    const leafBack = document.getElementById('profile-book-leaf-back');
-    
-    const prevImg = profileImages[currentPage - 1];
-    const currentImg = profileImages[currentPage];
-    
-    leafFront.style.backgroundImage = `url('${prevImg}')`;
-    leafBack.style.backgroundImage = `url('${currentImg}')`;
-    
-    leftPanel.style.backgroundImage = `url('${prevImg}')`;
-    
-    leaf.style.display = 'block';
-    leaf.className = 'profile-book-flipping-leaf flip-backward-anim';
-    
-    setTimeout(() => {
-        currentPage--;
-        updatePageStates();
-        isFlipping = false;
-    }, 900);
+    if (window.profilePageFlip) {
+        window.profilePageFlip.flipPrev();
+    }
 }
 
 // Keyboard navigation
