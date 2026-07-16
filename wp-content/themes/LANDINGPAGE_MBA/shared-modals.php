@@ -1041,7 +1041,7 @@ body.profile-modal-open {
     justify-content: center;
     align-items: center;
 }
-.book-single {
+.profile-book-single {
     position: relative;
     width: 792px;
     height: 560px;
@@ -1049,7 +1049,7 @@ body.profile-modal-open {
     box-shadow: 0 30px 70px rgba(0,0,0,0.5);
     border-radius: 12px;
 }
-.page-single {
+.profile-page-single {
     position: absolute;
     inset: 0;
     transform-origin: left center;
@@ -1065,11 +1065,11 @@ body.profile-modal-open {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
-.page-single.active-page {
+.profile-page-single.active-page {
     pointer-events: auto;
     cursor: pointer;
 }
-.page-single.flipped {
+.profile-page-single.flipped {
     transform: rotateY(-180deg);
     pointer-events: none;
 }
@@ -1139,7 +1139,7 @@ body.profile-modal-open {
 }
 
 @media (max-width: 900px) {
-    .book-single {
+    .profile-book-single {
         width: 85vw !important;
         height: calc(85vw / 1.414) !important;
     }
@@ -1154,7 +1154,7 @@ body.profile-modal-open {
     <div class="profile-modal-content">
         <button class="profile-modal-close" onclick="closeProfileBook()">&times;</button>
         <div class="book-container-single">
-            <div class="book-single" id="profile-pages-container">
+            <div class="profile-book-single" id="profile-pages-container">
                 <!-- Javascript will generate 32 pages here -->
             </div>
         </div>
@@ -1192,7 +1192,7 @@ function initProfileBook() {
     // Generate 32 individual pages
     for (let i = 0; i < totalPages; i++) {
         const page = document.createElement('div');
-        page.className = 'page-single';
+        page.className = 'profile-page-single';
         page.style.zIndex = totalPages - i;
         
         const pageNum = i + 1;
@@ -1248,7 +1248,7 @@ function closeProfileBook() {
 }
 
 function updatePageStates() {
-    const pages = document.querySelectorAll('.page-single');
+    const pages = document.querySelectorAll('.profile-page-single');
     pages.forEach((page, idx) => {
         page.classList.remove('active-page');
         if (idx < currentPage) {
