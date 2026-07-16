@@ -960,9 +960,337 @@ if (!defined('BOOKING_MODAL_JS_LOADED')) {
 <?php
 $current_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 $is_reel_page = (strpos($current_uri, '/reel') !== false);
-if (!$is_reel_page):
-?>
-<a href="<?php echo $is_en ? home_url('/en/reel') : home_url('/reel'); ?>" class="global-floating-reel-btn" aria-label="<?php echo $is_en ? 'Watch Reels' : 'Xem Reels'; ?>">
-    <svg class="svg-icon fa-circle-play fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
-</a>
+<?php endif; ?>
+
+<!-- Book Flip Profile Modal -->
+<style>
+html.profile-modal-open,
+body.profile-modal-open {
+    overflow: hidden !important;
+    height: 100% !important;
+}
+.profile-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.profile-modal.open {
+    display: flex;
+    opacity: 1;
+}
+.profile-modal-content {
+    position: relative;
+    width: 90vw;
+    height: 85vh;
+    max-width: 500px;
+    max-height: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.profile-modal.open .profile-modal-content {
+    transform: scale(1);
+}
+.profile-modal-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+.profile-modal-close:hover {
+    color: #ffffff;
+    background: #ab0e00;
+    transform: rotate(90deg);
+}
+.book-container-single {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 60px);
+    perspective: 2000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.book-single {
+    position: relative;
+    width: 440px;
+    height: 622px;
+    transform-style: preserve-3d;
+}
+.page-single {
+    position: absolute;
+    inset: 0;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+}
+.page-single.active-page {
+    pointer-events: auto;
+    cursor: pointer;
+}
+.page-single.flipped {
+    transform: rotateY(-180deg);
+    opacity: 0;
+    pointer-events: none;
+}
+.page-loading {
+    position: absolute;
+    inset: 0;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: opacity 0.3s;
+    border-radius: 12px;
+}
+.page-loading.loaded {
+    opacity: 0;
+    pointer-events: none;
+}
+.flipbook-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 24px;
+    color: #fff;
+    font-weight: 600;
+    z-index: 10;
+}
+.flipbook-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.flipbook-btn:hover:not(:disabled) {
+    background: #ab0e00;
+    border-color: #ab0e00;
+    transform: translateY(-1px);
+}
+.flipbook-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+#profile-page-num {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px 14px;
+    border-radius: 12px;
+    min-width: 120px;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    .book-single {
+        width: 85vw !important;
+        height: calc(85vw * 1.414) !important;
+    }
+    .profile-modal-content {
+        width: 95vw;
+        height: 75vh;
+    }
+}
+</style>
+
+<div class="profile-modal" id="profile-book-modal">
+    <div class="profile-modal-content">
+        <button class="profile-modal-close" onclick="closeProfileBook()">&times;</button>
+        <div class="book-container-single">
+            <div class="book-single" id="profile-pages-container">
+                <!-- Javascript will generate 32 pages here -->
+            </div>
+        </div>
+        <div class="flipbook-controls">
+            <button class="flipbook-btn" id="profile-prev-btn" onclick="prevProfilePage()">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                <span><?php echo $is_en ? 'Previous' : 'Trang trước'; ?></span>
+            </button>
+            <span id="profile-page-num"><?php echo $is_en ? 'Page 1 / 32' : 'Trang 1 / 32'; ?></span>
+            <button class="flipbook-btn" id="profile-next-btn" onclick="nextProfilePage()">
+                <span><?php echo $is_en ? 'Next' : 'Trang sau'; ?></span>
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+            <a href="https://ideas.edu.vn/wp-content/uploads/2026/07/IDEAS-Profile.pdf" target="_blank" class="flipbook-btn" id="profile-download-btn" style="text-decoration: none;">
+                <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                <span><?php echo $is_en ? 'Download' : 'Tải PDF'; ?></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentPage = 0;
+const totalPages = 32;
+let profileBookInitialized = false;
+
+function initProfileBook() {
+    if (profileBookInitialized) return;
+    const container = document.getElementById('profile-pages-container');
+    container.innerHTML = '';
+    
+    // Generate 32 individual pages
+    for (let i = 0; i < totalPages; i++) {
+        const page = document.createElement('div');
+        page.className = 'page-single';
+        page.style.zIndex = totalPages - i;
+        
+        const pageNum = i + 1;
+        const imgUrl = `<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/profile/page-${pageNum}.png`;
+        
+        page.style.backgroundImage = `url('${imgUrl}')`;
+        page.innerHTML = `
+            <div class="page-loading">
+                <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="24" height="24" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
+            </div>
+        `;
+        
+        container.appendChild(page);
+        
+        // Hide loader when background image loads
+        const preloadImg = new Image();
+        preloadImg.src = imgUrl;
+        preloadImg.onload = () => {
+            page.querySelector('.page-loading')?.classList.add('loaded');
+        };
+        
+        // Allow clicking on active page to flip to the next one
+        page.addEventListener('click', () => {
+            if (page.classList.contains('active-page')) {
+                nextProfilePage();
+            }
+        });
+    }
+    
+    profileBookInitialized = true;
+    updatePageStates();
+}
+
+function openProfileBook() {
+    const modal = document.getElementById('profile-book-modal');
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('open');
+        initProfileBook();
+        document.documentElement.classList.add('profile-modal-open');
+        document.body.classList.add('profile-modal-open');
+    }, 10);
+}
+
+function closeProfileBook() {
+    const modal = document.getElementById('profile-book-modal');
+    modal.classList.remove('open');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.documentElement.classList.remove('profile-modal-open');
+        document.body.classList.remove('profile-modal-open');
+    }, 400);
+}
+
+function updatePageStates() {
+    const pages = document.querySelectorAll('.page-single');
+    pages.forEach((page, idx) => {
+        page.classList.remove('active-page');
+        if (idx < currentPage) {
+            page.classList.add('flipped');
+        } else {
+            page.classList.remove('flipped');
+            if (idx === currentPage) {
+                page.classList.add('active-page');
+            }
+        }
+    });
+    
+    // Update Page Indicator text
+    const pageNumSpan = document.getElementById('profile-page-num');
+    const isEn = <?php echo $is_en ? 'true' : 'false'; ?>;
+    
+    if (currentPage === 0) {
+        pageNumSpan.textContent = isEn ? "Cover (Page 1 / 32)" : "Bìa trước (Trang 1 / 32)";
+    } else if (currentPage === totalPages - 1) {
+        pageNumSpan.textContent = isEn ? "Back Cover (Page 32 / 32)" : "Bìa sau (Trang 32 / 32)";
+    } else {
+        pageNumSpan.textContent = isEn ? `Page ${currentPage + 1} / 32` : `Trang ${currentPage + 1} / 32`;
+    }
+    
+    // Enable/disable controls
+    document.getElementById('profile-prev-btn').disabled = (currentPage === 0);
+    document.getElementById('profile-next-btn').disabled = (currentPage === totalPages - 1);
+}
+
+function nextProfilePage() {
+    if (currentPage < totalPages - 1) {
+        currentPage++;
+        updatePageStates();
+    }
+}
+
+function prevProfilePage() {
+    if (currentPage > 0) {
+        currentPage--;
+        updatePageStates();
+    }
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('profile-book-modal');
+    if (modal && modal.classList.contains('open')) {
+        if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ') {
+            nextProfilePage();
+        } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+            prevProfilePage();
+        } else if (e.key === 'Escape') {
+            closeProfileBook();
+        }
+    }
+});
+</script>
 <?php endif; ?>

@@ -268,9 +268,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1784171975" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784171975" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784171975" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1784172357" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784172357" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784172357" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -5829,6 +5829,12 @@
                                     d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM625 177L497 305c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L591 143c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                             </svg> <span>Tư vấn viên</span>
                         </a>
+                        <a href="javascript:void(0)" onclick="openProfileBook()" class="dropdown-item-simple">
+                            <svg class="svg-icon fa-book-open fa-solid" viewBox="0 0 576 512" width="16" height="16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" />
+                            </svg> <span>IDEAS Profile</span>
+                        </a>
                         <div class="dropdown-divider-simple"></div>
                         <div class="dropdown-item-submenu">
                             <span class="submenu-title">
@@ -6189,6 +6195,12 @@
                         <path
                             d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM625 177L497 305c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L591 143c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                     </svg> <span>Tư vấn viên</span>
+                </a>
+                <a href="javascript:void(0)" onclick="openProfileBook()" class="mobile-dropdown-item-simple">
+                    <svg class="svg-icon fa-book-open fa-solid" viewBox="0 0 576 512" width="16" height="16"
+                        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" />
+                    </svg> <span>IDEAS Profile</span>
                 </a>
                 <div class="mobile-dropdown-section-title">Trường đối tác</div>
                 <a href="/swiss-umef" class="mobile-dropdown-item-simple">Swiss UMEF</a>
@@ -6847,14 +6859,11 @@
                                     </i>
                                 </a>
                             </div>
-                            <div class="ideas_follow group">
+                            <div class="ideas_follow" style="cursor: pointer;" onclick="openProfileBook()">
+                                <svg class="svg-icon fa-book-open fa-solid" viewBox="0 0 576 512" width="16" height="16" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.85;">
+                                    <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" />
+                                </svg>
                                 <p>Profile</p>
-                                <a href="javascript:void(0)" onclick="openProfileBook()" class="profile-btn-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; padding: 6px 16px; background: #ab0e00; color: #ffffff !important; border-radius: 8px; font-weight: 700; font-size: 0.8rem; height: 38px; box-sizing: border-box; transition: all 0.3s; box-shadow: 0 4px 10px rgba(171, 14, 0, 0.15); text-transform: uppercase; letter-spacing: 0.05em; border: 1.5px solid #ab0e00;" onmouseover="this.style.background='#ffffff'; this.style.color='#ab0e00';" onmouseout="this.style.background='#ab0e00'; this.style.color='#ffffff';">
-                                    <svg class="svg-icon fa-book-open fa-solid" viewBox="0 0 576 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z" />
-                                    </svg>
-                                    <span>Profile</span>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -11707,8 +11716,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1784171975" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1784171975" defer></script>
+    <script src="common-assets/js/script.min.js?v=1784172357" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1784172357" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -14109,6 +14118,11 @@
 
 <!-- Book Flip Profile Modal -->
 <style>
+html.profile-modal-open,
+body.profile-modal-open {
+    overflow: hidden !important;
+    height: 100% !important;
+}
 .profile-modal {
     display: none;
     position: fixed;
@@ -14130,9 +14144,9 @@
 .profile-modal-content {
     position: relative;
     width: 90vw;
-    height: 80vh;
-    max-width: 960px;
-    max-height: 670px;
+    height: 85vh;
+    max-width: 500px;
+    max-height: 720px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14167,7 +14181,7 @@
     background: #ab0e00;
     transform: rotate(90deg);
 }
-.book-container {
+.book-container-single {
     position: relative;
     width: 100%;
     height: calc(100% - 60px);
@@ -14176,71 +14190,35 @@
     justify-content: center;
     align-items: center;
 }
-.book {
+.book-single {
     position: relative;
-    width: 800px;
-    height: 560px;
+    width: 440px;
+    height: 622px;
     transform-style: preserve-3d;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
-    border-radius: 8px;
-    background: transparent;
 }
-.book-cover-back {
-    position: absolute;
-    inset: -6px -10px -6px -10px;
-    background: linear-gradient(135deg, #5c0600 0%, #ab0e00 60%, #400300 100%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    box-shadow: inset 0 2px 5px rgba(255,255,255,0.2), 0 10px 30px rgba(0,0,0,0.4);
-    z-index: 0;
-    pointer-events: none;
-}
-.book-spine-line {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 4px;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 10px rgba(0,0,0,0.7);
-    z-index: 100;
-    pointer-events: none;
-}
-.sheet {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50%;
-    height: 100%;
-    transform-origin: left center;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-    pointer-events: none;
-}
-.sheet.active-left,
-.sheet.active-right {
-    pointer-events: auto;
-}
-.sheet.flipped {
-    transform: rotateY(-180deg);
-}
-.page {
+.page-single {
     position: absolute;
     inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s;
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
-    border-radius: 0 6px 6px 0;
-    box-shadow: inset 3px 0 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    pointer-events: none;
 }
-.page.back {
-    transform: rotateY(180deg);
-    border-radius: 6px 0 0 6px;
-    box-shadow: inset -3px 0 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.1);
+.page-single.active-page {
+    pointer-events: auto;
+    cursor: pointer;
+}
+.page-single.flipped {
+    transform: rotateY(-180deg);
+    opacity: 0;
+    pointer-events: none;
 }
 .page-loading {
     position: absolute;
@@ -14251,6 +14229,7 @@
     justify-content: center;
     z-index: 2;
     transition: opacity 0.3s;
+    border-radius: 12px;
 }
 .page-loading.loaded {
     opacity: 0;
@@ -14296,31 +14275,18 @@
     background: rgba(0, 0, 0, 0.4);
     padding: 6px 14px;
     border-radius: 12px;
-    min-width: 140px;
+    min-width: 120px;
     text-align: center;
 }
 
-@media (max-width: 900px) {
-    .book {
-        width: 100%;
-        height: 0;
-        padding-bottom: 70%;
+@media (max-width: 500px) {
+    .book-single {
+        width: 85vw !important;
+        height: calc(85vw * 1.414) !important;
     }
-}
-@media (max-width: 600px) {
     .profile-modal-content {
         width: 95vw;
-        height: 70vh;
-    }
-    .profile-modal-close {
-        top: -40px;
-        right: 10px;
-    }
-    .flipbook-btn span {
-        display: none;
-    }
-    .flipbook-btn {
-        padding: 8px 12px;
+        height: 75vh;
     }
 }
 </style>
@@ -14328,13 +14294,9 @@
 <div class="profile-modal" id="profile-book-modal">
     <div class="profile-modal-content">
         <button class="profile-modal-close" onclick="closeProfileBook()">&times;</button>
-        <div class="book-container">
-            <div class="book">
-                <div class="book-cover-back"></div>
-                <div id="profile-pages-container">
-                    <!-- Javascript will generate N sheets here -->
-                </div>
-                <div class="book-spine-line"></div>
+        <div class="book-container-single">
+            <div class="book-single" id="profile-pages-container">
+                <!-- Javascript will generate 32 pages here -->
             </div>
         </div>
         <div class="flipbook-controls">
@@ -14342,18 +14304,25 @@
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                 <span>Trang trước</span>
             </button>
-            <span id="profile-page-num">Bìa trước</span>
+            <span id="profile-page-num">Trang 1 / 32</span>
             <button class="flipbook-btn" id="profile-next-btn" onclick="nextProfilePage()">
                 <span>Trang sau</span>
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
             </button>
+            <a href="https://ideas.edu.vn/wp-content/uploads/2026/07/IDEAS-Profile.pdf" target="_blank" class="flipbook-btn" id="profile-download-btn" style="text-decoration: none;">
+                <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                <span>Tải PDF</span>
+            </a>
         </div>
     </div>
 </div>
 
 <script>
-let currentSheet = 0;
-const totalSheets = 16;
+let currentPage = 0;
+const totalPages = 32;
 let profileBookInitialized = false;
 
 function initProfileBook() {
@@ -14361,65 +14330,44 @@ function initProfileBook() {
     const container = document.getElementById('profile-pages-container');
     container.innerHTML = '';
     
-    // Generate 16 sheets (32 pages total)
-    for (let i = 0; i < totalSheets; i++) {
-        const sheet = document.createElement('div');
-        sheet.className = 'sheet';
-        sheet.style.zIndex = totalSheets - i;
+    // Generate 32 individual pages
+    for (let i = 0; i < totalPages; i++) {
+        const page = document.createElement('div');
+        page.className = 'page-single';
+        page.style.zIndex = totalPages - i;
         
-        const frontPageNum = i * 2 + 1;
-        const backPageNum = frontPageNum + 1;
+        const pageNum = i + 1;
         
         // Use correct paths for resources
         const rootPath = window.location.pathname.indexOf('/en/') !== -1 ? '../' : './';
-        const frontImg = `${rootPath}wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${frontPageNum}.png`;
-        const backImg = `${rootPath}wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${backPageNum}.png`;
+        const imgUrl = `${rootPath}wp-content/themes/LANDINGPAGE_MBA/common-assets/images/profile/page-${pageNum}.png`;
         
-        sheet.innerHTML = `
-            <div class="page front" style="background-image: url('${frontImg}')">
-                <div class="page-loading">
-                    <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="20" height="20" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
-                </div>
-            </div>
-            <div class="page back" style="background-image: url('${backImg}')">
-                <div class="page-loading">
-                    <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="20" height="20" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
-                </div>
+        page.style.backgroundImage = `url('${imgUrl}')`;
+        page.innerHTML = `
+            <div class="page-loading">
+                <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="24" height="24" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
             </div>
         `;
         
-        container.appendChild(sheet);
+        container.appendChild(page);
         
-        // Hide loader when background images load
-        const preloadFront = new Image();
-        preloadFront.src = frontImg;
-        preloadFront.onload = () => {
-            sheet.querySelector('.front .page-loading')?.classList.add('loaded');
+        // Hide loader when background image loads
+        const preloadImg = new Image();
+        preloadImg.src = imgUrl;
+        preloadImg.onload = () => {
+            page.querySelector('.page-loading')?.classList.add('loaded');
         };
-        const preloadBack = new Image();
-        preloadBack.src = backImg;
-        preloadBack.onload = () => {
-            sheet.querySelector('.back .page-loading')?.classList.add('loaded');
-        };
-    }
-    
-    // Add page click listeners to flip pages on click
-    const sheets = document.querySelectorAll('.sheet');
-    sheets.forEach((sheet, idx) => {
-        sheet.addEventListener('click', (e) => {
-            // If user clicked front of active-right sheet, flip forward
-            if (sheet.classList.contains('active-right') && !e.target.closest('.back')) {
+        
+        // Allow clicking on active page to flip to the next one
+        page.addEventListener('click', () => {
+            if (page.classList.contains('active-page')) {
                 nextProfilePage();
             }
-            // If user clicked back of active-left sheet, flip backward
-            else if (sheet.classList.contains('active-left') && e.target.closest('.back')) {
-                prevProfilePage();
-            }
         });
-    });
+    }
     
     profileBookInitialized = true;
-    updateSheetStates();
+    updatePageStates();
 }
 
 function openProfileBook() {
@@ -14428,7 +14376,8 @@ function openProfileBook() {
     setTimeout(() => {
         modal.classList.add('open');
         initProfileBook();
-        document.body.style.overflow = 'hidden';
+        document.documentElement.classList.add('profile-modal-open');
+        document.body.classList.add('profile-modal-open');
     }, 10);
 }
 
@@ -14437,31 +14386,21 @@ function closeProfileBook() {
     modal.classList.remove('open');
     setTimeout(() => {
         modal.style.display = 'none';
-        document.body.style.overflow = '';
+        document.documentElement.classList.remove('profile-modal-open');
+        document.body.classList.remove('profile-modal-open');
     }, 400);
 }
 
-function updateSheetStates() {
-    const sheets = document.querySelectorAll('.sheet');
-    const N = sheets.length;
-    
-    sheets.forEach((sheet, idx) => {
-        // Toggle flip class
-        if (idx < currentSheet) {
-            sheet.classList.add('flipped');
-            sheet.style.zIndex = idx + 1;
-            sheet.classList.remove('active-right', 'active-left');
-            // If this is the sheet just to the left of the opening
-            if (idx === currentSheet - 1) {
-                sheet.classList.add('active-left');
-            }
+function updatePageStates() {
+    const pages = document.querySelectorAll('.page-single');
+    pages.forEach((page, idx) => {
+        page.classList.remove('active-page');
+        if (idx < currentPage) {
+            page.classList.add('flipped');
         } else {
-            sheet.classList.remove('flipped');
-            sheet.style.zIndex = N - idx;
-            sheet.classList.remove('active-right', 'active-left');
-            // If this is the sheet just to the right of the opening
-            if (idx === currentSheet) {
-                sheet.classList.add('active-right');
+            page.classList.remove('flipped');
+            if (idx === currentPage) {
+                page.classList.add('active-page');
             }
         }
     });
@@ -14470,25 +14409,30 @@ function updateSheetStates() {
     const pageNumSpan = document.getElementById('profile-page-num');
     const isEn = window.location.pathname.indexOf('/en/') !== -1;
     
-    if (currentSheet === 0) {
+    if (currentPage === 0) {
         pageNumSpan.textContent = isEn ? "Cover (Page 1 / 32)" : "Bìa trước (Trang 1 / 32)";
-    } else if (currentSheet === totalSheets) {
+    } else if (currentPage === totalPages - 1) {
         pageNumSpan.textContent = isEn ? "Back Cover (Page 32 / 32)" : "Bìa sau (Trang 32 / 32)";
     } else {
-        const leftPage = currentSheet * 2;
-        const rightPage = leftPage + 1;
-        pageNumSpan.textContent = isEn ? `Pages ${leftPage} - ${rightPage} / 32` : `Trang ${leftPage} - ${rightPage} / 32`;
+        pageNumSpan.textContent = isEn ? `Page ${currentPage + 1} / 32` : `Trang ${currentPage + 1} / 32`;
     }
     
     // Enable/disable controls
-    document.getElementById('profile-prev-btn').disabled = (currentSheet === 0);
-    document.getElementById('profile-next-btn').disabled = (currentSheet === totalSheets);
+    document.getElementById('profile-prev-btn').disabled = (currentPage === 0);
+    document.getElementById('profile-next-btn').disabled = (currentPage === totalPages - 1);
 }
 
 function nextProfilePage() {
-    if (currentSheet < totalSheets) {
-        currentSheet++;
-        updateSheetStates();
+    if (currentPage < totalPages - 1) {
+        currentPage++;
+        updatePageStates();
+    }
+}
+
+function prevProfilePage() {
+    if (currentPage > 0) {
+        currentPage--;
+        updatePageStates();
     }
 }
 
@@ -14496,9 +14440,9 @@ function nextProfilePage() {
 document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('profile-book-modal');
     if (modal && modal.classList.contains('open')) {
-        if (e.key === 'ArrowRight') {
+        if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ') {
             nextProfilePage();
-        } else if (e.key === 'ArrowLeft') {
+        } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
             prevProfilePage();
         } else if (e.key === 'Escape') {
             closeProfileBook();
