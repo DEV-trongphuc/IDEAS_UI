@@ -4208,7 +4208,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </li>
                         </ul>
 
-                        <button onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('ble-ai'); }" class="ble-btn">Đăng ký dùng thử AI &amp; LMS</button>
+                        <a href="<?php echo $is_en ? '/dang-ky-tai-khoan-ai?lang=en' : '/dang-ky-tai-khoan-ai'; ?>" class="ble-btn"><?php echo $is_en ? 'Try AI &amp; LMS Trial' : 'Đăng ký dùng thử AI &amp; LMS'; ?></a>
                     </div>
 
                     <!-- Right: Overlapping AI Platform Screenshots -->
