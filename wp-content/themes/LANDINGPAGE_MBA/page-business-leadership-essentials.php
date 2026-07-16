@@ -353,7 +353,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('https://ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets/herobg.webp');
+            background-image: url('https://ideas.edu.vn/wp-content/uploads/2026/07/Banner-Business-Leadership-Essentials.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
