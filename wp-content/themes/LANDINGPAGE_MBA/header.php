@@ -24,7 +24,7 @@
   <?php endif; ?>
 
   <!-- Load JS sớm nhất -->
-  <script src="/wp-content/new_public/LANDINGPAGE_MBA/variable.js?v=1784167377"></script>
+  <script src="/wp-content/new_public/LANDINGPAGE_MBA/variable.js?v=1784171779"></script>
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

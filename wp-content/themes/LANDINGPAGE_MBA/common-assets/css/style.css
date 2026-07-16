@@ -10092,6 +10092,13 @@ h3.section-title {
   stroke: var(--clr-primary) !important;
 }
 
+/* Fix hover icon visibility in hero badges row */
+.hero-badges-row .info-badge:hover .icon,
+.hero-badges-row .info-badge:hover .icon svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
 /* ═══════════════════════════════════════════════════════════
    MOBILE NESTED PADDING & ACCREDITATION ENHANCEMENTS (AUDITED)
    ═══════════════════════════════════════════════════════════ */
