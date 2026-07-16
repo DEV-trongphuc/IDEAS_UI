@@ -1032,7 +1032,7 @@ body.profile-modal-open {
     background: #ab0e00;
     transform: rotate(90deg);
 }
-.book-container-single {
+.profile-book-container-single {
     position: relative;
     width: 100%;
     height: calc(100% - 60px);
@@ -1073,7 +1073,7 @@ body.profile-modal-open {
     transform: rotateY(-180deg);
     pointer-events: none;
 }
-.page-loading {
+.profile-page-loading {
     position: absolute;
     inset: 0;
     background: #f8fafc;
@@ -1084,11 +1084,11 @@ body.profile-modal-open {
     transition: opacity 0.3s;
     border-radius: 12px;
 }
-.page-loading.loaded {
+.profile-page-loading.loaded {
     opacity: 0;
     pointer-events: none;
 }
-.flipbook-controls {
+.profile-flipbook-controls {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1099,7 +1099,7 @@ body.profile-modal-open {
     z-index: 10;
     width: 100%;
 }
-.flipbook-btn {
+.profile-flipbook-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
@@ -1116,12 +1116,12 @@ body.profile-modal-open {
     gap: 8px;
     white-space: nowrap;
 }
-.flipbook-btn:hover:not(:disabled) {
+.profile-flipbook-btn:hover:not(:disabled) {
     background: #ab0e00;
     border-color: #ab0e00;
     transform: translateY(-1px);
 }
-.flipbook-btn:disabled {
+.profile-flipbook-btn:disabled {
     opacity: 0.3;
     cursor: not-allowed;
     transform: none;
@@ -1153,22 +1153,22 @@ body.profile-modal-open {
 <div class="profile-modal" id="profile-book-modal">
     <div class="profile-modal-content">
         <button class="profile-modal-close" onclick="closeProfileBook()">&times;</button>
-        <div class="book-container-single">
+        <div class="profile-book-container-single">
             <div class="profile-book-single" id="profile-pages-container">
                 <!-- Javascript will generate 32 pages here -->
             </div>
         </div>
-        <div class="flipbook-controls">
-            <button class="flipbook-btn" id="profile-prev-btn" onclick="prevProfilePage()">
+        <div class="profile-flipbook-controls">
+            <button class="profile-flipbook-btn" id="profile-prev-btn" onclick="prevProfilePage()">
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
                 <span><?php echo $is_en ? 'Previous' : 'Trang trước'; ?></span>
             </button>
             <span id="profile-page-num"><?php echo $is_en ? 'Page 1 / 32' : 'Trang 1 / 32'; ?></span>
-            <button class="flipbook-btn" id="profile-next-btn" onclick="nextProfilePage()">
+            <button class="profile-flipbook-btn" id="profile-next-btn" onclick="nextProfilePage()">
                 <span><?php echo $is_en ? 'Next' : 'Trang sau'; ?></span>
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
             </button>
-            <a href="https://ideas.edu.vn/wp-content/uploads/2026/07/IDEAS-Profile.pdf" target="_blank" class="flipbook-btn" id="profile-download-btn" style="text-decoration: none;">
+            <a href="https://ideas.edu.vn/wp-content/uploads/2026/07/IDEAS-Profile.pdf" target="_blank" class="profile-flipbook-btn" id="profile-download-btn" style="text-decoration: none;">
                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                     <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                     <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
@@ -1200,7 +1200,7 @@ function initProfileBook() {
         
         page.style.backgroundImage = `url('${imgUrl}')`;
         page.innerHTML = `
-            <div class="page-loading">
+            <div class="profile-page-loading">
                 <svg class="svg-icon fa-spinner fa-solid fa-spin" viewBox="0 0 512 512" width="24" height="24" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>
             </div>
         `;
@@ -1211,7 +1211,7 @@ function initProfileBook() {
         const preloadImg = new Image();
         preloadImg.src = imgUrl;
         preloadImg.onload = () => {
-            page.querySelector('.page-loading')?.classList.add('loaded');
+            page.querySelector('.profile-page-loading')?.classList.add('loaded');
         };
         
         // Allow clicking on active page to flip to the next one
