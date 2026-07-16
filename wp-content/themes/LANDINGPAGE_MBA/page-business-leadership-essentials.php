@@ -3482,7 +3482,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-meta-icon-wrapper">
                                     <svg class="ble-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" x="2" y="3" width="20" height="14" rx="2" ry="2"/><line style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" x1="8" y1="21" x2="16" y2="21"/><line style="stroke: #ffffff !important; stroke-width: 2.5 !important; fill: none !important;" x1="12" y1="17" x2="12" y2="21"/></svg>
                                 </div>
-                                <span>Hình thức<strong>Online kết hợp tự học</strong></span>
+                                <span>Hình thức<strong>Online LMS &amp; Mentor 1:1</strong></span>
                             </div>
                             <div class="ble-hero-meta-item">
                                 <div class="ble-meta-icon-wrapper">
