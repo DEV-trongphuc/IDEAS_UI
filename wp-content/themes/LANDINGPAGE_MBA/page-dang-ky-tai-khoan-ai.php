@@ -190,10 +190,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         @media (max-width: 992px) {
             .contact-container {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
+            }
+            .contact-form-column,
+            .contact-info-column {
+                width: 100%;
+                max-width: 580px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .contact-form-column {
+                order: -1;
             }
             .contact-section {
-                padding-bottom: 60px;
+                padding: 20px 32px 60px !important;
             }
         }
 
@@ -206,6 +216,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
             .contact-hero p {
                 font-size: 0.95rem;
+            }
+            .contact-section {
+                padding: 20px 24px 60px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 20px 16px 50px !important;
             }
         }
 
@@ -398,8 +417,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @media (max-width: 480px) {
-            .contact-form-card {
-                padding: 24px;
+            .contact-form-card,
+            .contact-info-card {
+                padding: 24px !important;
             }
         }
 
