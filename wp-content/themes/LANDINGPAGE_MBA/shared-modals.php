@@ -1306,4 +1306,3 @@ document.addEventListener('keydown', (e) => {
     }
 });
 </script>
-<?php endif; ?>
