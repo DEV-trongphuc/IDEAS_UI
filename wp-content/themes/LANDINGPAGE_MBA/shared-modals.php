@@ -1213,12 +1213,13 @@ function initProfileBook() {
     }
     
     // Initialize StPageFlip
+    const isMobile = window.innerWidth <= 1100;
     window.profilePageFlip = new St.PageFlip(container, {
         width: 990,
         height: 700,
         size: "stretch",
-        minWidth: 320,
-        minHeight: 226,
+        minWidth: isMobile ? 320 : 990,
+        minHeight: isMobile ? 226 : 700,
         maxWidth: 2000,
         maxHeight: 1414,
         showCover: false,

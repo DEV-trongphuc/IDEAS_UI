@@ -268,9 +268,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1784175732" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784175732" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784175732" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1784175869" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1784175869" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1784175869" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -11716,8 +11716,8 @@
     </div>
 
     <script src="common-assets/js/variables.min.js?v=1781075600000" defer></script>
-    <script src="common-assets/js/script.min.js?v=1784175732" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1784175732" defer></script>
+    <script src="common-assets/js/script.min.js?v=1784175869" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1784175869" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -14363,12 +14363,13 @@ function initProfileBook() {
     }
     
     // Initialize StPageFlip
+    const isMobile = window.innerWidth <= 1100;
     window.profilePageFlip = new St.PageFlip(container, {
         width: 990,
         height: 700,
         size: "stretch",
-        minWidth: 320,
-        minHeight: 226,
+        minWidth: isMobile ? 320 : 990,
+        minHeight: isMobile ? 226 : 700,
         maxWidth: 2000,
         maxHeight: 1414,
         showCover: false,
