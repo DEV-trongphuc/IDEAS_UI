@@ -344,7 +344,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-top-banner {
-            padding-top: 90px; /* Offset for sticky/fixed header */
+            padding-top: 0 !important; /* Flush against header */
             background-color: #ffffff;
             width: 100%;
             display: block;
@@ -359,6 +359,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Hero Section (herobg.webp faded background) ── */
         .ble-hero {
+            display: none !important; /* Temporarily hidden */
             padding-top: 80px;
             padding-bottom: 80px;
             background: #ffffff;
@@ -2729,7 +2730,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 box-sizing: border-box !important;
             }
             .ble-top-banner {
-                padding-top: 70px; /* Offset for mobile sticky header */
+                padding-top: 0 !important;
             }
             .ble-hero {
                 padding-top: 50px !important;
