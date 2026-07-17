@@ -4611,12 +4611,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <span class="check-icon">✓</span>
                                 <span>Cấp <strong>Certificate of Completion</strong>.</span>
                             </div>
-                            <div class="ble-cta-fee-benefit-item" style="color: #ab0e00; font-weight: 600;">
-                                <span class="check-icon" style="color: #ab0e00;">✓</span>
+                            <div class="ble-cta-fee-benefit-item" style="color: #ffe082; font-weight: 700;">
+                                <span class="check-icon">✓</span>
                                 <span><strong>Hoàn 100% học phí</strong> nếu đăng ký chương trình Thạc sĩ.</span>
                             </div>
-                            <div class="ble-cta-fee-benefit-item" style="color: #ab0e00; font-weight: 600;">
-                                <span class="check-icon" style="color: #ab0e00;">✓</span>
+                            <div class="ble-cta-fee-benefit-item" style="color: #ffe082; font-weight: 700;">
+                                <span class="check-icon">✓</span>
                                 <span><strong>Mentor 1:1</strong> đồng hành và hỗ trợ trong suốt thời gian học.</span>
                             </div>
                             <div class="ble-cta-fee-benefit-item">
