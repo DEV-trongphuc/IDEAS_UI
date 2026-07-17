@@ -22,6 +22,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 <head>
     <?php get_template_part('shared-head'); ?>
 
+    <!-- Preload LCP Top Banner Image -->
+    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/07/Banner-Business-Leadership-Essentials.webp" />
+
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <title><?php echo $is_en ? 'Business Leadership Essentials Certificate | IDEAS' : 'Chứng chỉ Business Leadership Essentials | IDEAS'; ?></title>
             <meta name="description"
@@ -340,10 +343,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 8px 20px rgba(171, 14, 0, 0.1);
         }
 
+        .ble-top-banner {
+            padding-top: 90px; /* Offset for sticky/fixed header */
+            background-color: #ffffff;
+            width: 100%;
+            display: block;
+            overflow: hidden;
+        }
+
+        .ble-top-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* ── Hero Section (herobg.webp faded background) ── */
         .ble-hero {
-            padding-top: 125px;
-            padding-bottom: 120px;
+            padding-top: 80px;
+            padding-bottom: 80px;
             background: #ffffff;
             border-bottom: 1px solid #cbd5e1;
             position: relative;
@@ -2711,9 +2728,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 padding: 50px 16px !important;
                 box-sizing: border-box !important;
             }
+            .ble-top-banner {
+                padding-top: 70px; /* Offset for mobile sticky header */
+            }
             .ble-hero {
-                padding-top: 110px !important;
-                padding-bottom: 60px !important;
+                padding-top: 50px !important;
+                padding-bottom: 50px !important;
                 box-sizing: border-box !important;
             }
             .ble-container {
@@ -3456,6 +3476,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- MAIN SECTION -->
     <main class="ideas_main" style="gap:0; background:none;">
+
+        <!-- TOP STANDALONE BANNER -->
+        <section class="ble-top-banner">
+            <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/Banner-Business-Leadership-Essentials.webp" alt="Business Leadership Essentials Banner" class="ble-top-banner-img" />
+        </section>
 
         <!-- 1. HERO SECTION -->
         <section class="ble-section ble-hero">
