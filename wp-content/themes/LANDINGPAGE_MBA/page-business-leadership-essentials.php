@@ -22,9 +22,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 <head>
     <?php get_template_part('shared-head'); ?>
 
-    <!-- Preload LCP Hero Image -->
-    <link rel="preload" fetchpriority="high" as="image" href="https://ideas.edu.vn/wp-content/uploads/2026/07/Banner-Business-Leadership-Essentials.webp" />
-
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <title><?php echo $is_en ? 'Business Leadership Essentials Certificate | IDEAS' : 'Chứng chỉ Business Leadership Essentials | IDEAS'; ?></title>
             <meta name="description"
@@ -343,33 +340,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 8px 20px rgba(171, 14, 0, 0.1);
         }
 
-        /* ── Hero Section (Foreground Banner Image) ── */
+        /* ── Hero Section (herobg.webp faded background) ── */
         .ble-hero {
             padding-top: 125px;
             padding-bottom: 120px;
-            background: linear-gradient(135deg, #fffcfb 0%, #ffffff 100%);
+            background: #ffffff;
             border-bottom: 1px solid #cbd5e1;
             position: relative;
         }
 
         .ble-hero::before {
-            display: none;
-        }
-
-        .ble-hero-banner-img {
-            width: 100%;
-            max-width: 580px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.12);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 2;
-            display: block;
-        }
-
-        .ble-hero-banner-img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(171, 14, 0, 0.2);
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets/herobg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.35;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .ble-hero-grid {
@@ -3515,9 +3505,71 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
 
-                    <!-- Right: Course Banner Image -->
+                    <!-- Right: Visual Portal Dashboard Mockup -->
                     <div class="ble-hero-visual">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/Banner-Business-Leadership-Essentials.webp" alt="Business Leadership Essentials" class="ble-hero-banner-img" />
+                        <!-- Floating Badges -->
+                        <div class="db-floating-badge badge-1">
+                            <span class="db-float-icon">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34M12 2a7 7 0 0 0-7 7c0 2.5 1.3 4.7 3.3 6h7.4c2-1.3 3.3-3.5 3.3-6a7 7 0 0 0-7-7z"/></svg>
+                            </span>
+                            <div class="db-float-text">
+                                <h6>Swiss Quality</h6>
+                                <span>100% Standardized</span>
+                            </div>
+                        </div>
+
+                        <div class="db-floating-badge badge-2">
+                            <span class="db-float-icon">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
+                            </span>
+                            <div class="db-float-text">
+                                <h6>IDEAS AI Chat</h6>
+                                <span>Academic Support</span>
+                            </div>
+                        </div>
+
+                        <!-- Main Portal Box -->
+                        <div class="ble-dashboard-preview">
+                            <div class="db-header">
+                                <div class="db-avatar">YN</div>
+                                <div class="db-user-info">
+                                    <h5>Your Name (Học viên)</h5>
+                                    <span>Lớp: BLE-K2026</span>
+                                </div>
+                            </div>
+
+                            <div class="db-progress-card">
+                                <h6>Tiến độ học tập</h6>
+                                <div class="db-bar-container">
+                                    <div class="db-bar-fill"></div>
+                                </div>
+                                <div class="db-progress-meta">
+                                    <span>75% Hoàn thành</span>
+                                </div>
+                            </div>
+
+                            <div class="db-module-list">
+                                <div class="db-module-item">
+                                    <div class="db-module-icon">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                    </div>
+                                    <span class="db-module-title">Leadership Development (Đã xong)</span>
+                                </div>
+                                <div class="db-module-item">
+                                    <div class="db-module-icon">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="20 6 9 17 5 12"/></svg>
+                                    </div>
+                                    <span class="db-module-title">Organizational Behavior (Đã xong)</span>
+                                </div>
+                                <div class="db-module-item active">
+                                    <div class="db-module-icon pending">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    </div>
+                                    <span class="db-module-title">Human Capital Management</span>
+                                    <span class="db-active-pulse">Đang học</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
