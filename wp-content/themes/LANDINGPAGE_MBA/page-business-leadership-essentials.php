@@ -344,7 +344,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-top-banner {
-            padding-top: 0 !important; /* Flush against header */
+            padding-top: 80px !important; /* Offset for sticky/fixed header on desktop */
             background-color: #ffffff;
             width: 100%;
             display: block;
@@ -2730,7 +2730,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 box-sizing: border-box !important;
             }
             .ble-top-banner {
-                padding-top: 0 !important;
+                padding-top: 60px !important;
             }
             .ble-hero {
                 padding-top: 50px !important;
