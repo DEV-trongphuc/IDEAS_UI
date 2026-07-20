@@ -28,7 +28,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <meta property="og:type" content="website" />
         <meta property="og:title" content="<?php echo $is_en ? 'Online MBA Curriculum &amp; Programs | IDEAS' : 'Chương trình đào tạo Thạc sĩ Quản trị Kinh doanh Online (MBA) | IDEAS'; ?>" />
         <meta property="og:description" content="<?php echo $is_en ? 'Detailed information on high-quality online Master of Business Administration (Online MBA) programs at IDEAS Institute in partnership with Swiss universities.' : 'Thông tin chi tiết các chương trình đào tạo Thạc sĩ Quản trị Kinh doanh (Online MBA) chất lượng cao tại Viện IDEAS liên kết với các trường đại học Thụy Sĩ.'; ?>" />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/07/UMEFLOGO.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
 

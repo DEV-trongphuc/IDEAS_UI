@@ -33,7 +33,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <meta property="og:title" content="<?php echo $is_en ? 'Business Leadership Essentials - IDEAS' : 'Khóa học Business Leadership Essentials - IDEAS'; ?>" />
             <meta property="og:description"
                 content="<?php echo $is_en ? 'Gain 8 core leadership competencies and Swiss UMEF certification. Tuition fee at 9,900,000 VND.' : 'Đạt được 8 năng lực lãnh đạo cốt lõi và chứng nhận từ Swiss UMEF. Học phí ưu đãi trọn khóa chỉ 9.900.000đ.'; ?>" />
-            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png" />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/07/UMEFLOGO.webp" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
 

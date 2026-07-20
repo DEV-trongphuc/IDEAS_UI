@@ -560,7 +560,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li><svg class="svg-icon fa-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg> <?php echo $is_en ? 'Organizing graduation cohorts traveling to Switzerland, France, and the USA' : 'Tổ chức các đoàn lễ tốt nghiệp sang Thụy Sĩ, Pháp, Hoa Kỳ'; ?></li>
                     </ul>
                     <div class="timeline-images wlogos">
-                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
+                        <img class="wlogo" src="https://ideas.edu.vn/wp-content/uploads/2026/07/UMEFLOGO.webp"
                             alt="Swiss UMEF" />
                         <img class="wlogo"
                             src="https://ideas.edu.vn/wp-content/uploads/2024/03/Logo-Ascencia-Business-School-1.webp"

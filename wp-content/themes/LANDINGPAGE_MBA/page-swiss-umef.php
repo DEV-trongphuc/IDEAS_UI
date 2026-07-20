@@ -2831,7 +2831,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <?php echo $is_en ? '"The curriculum of Swiss UMEF is very practical and highly applicable. Thanks to the IDEAS academic support team always by my side explaining terminology, offering 24/7 help, and providing a rich academic library, I could perfectly balance a busy management job and complete my master thesis on time."' : '"Chương trình học của Swiss UMEF thực sự rất thực tế và mang tính ứng dụng cao. Nhờ có đội ngũ hỗ trợ học vụ của IDEAS luôn sát cánh giải thích các thuật ngữ bằng tiếng Việt, hỗ trợ 24/7 và cung cấp thư viện học thuật dồi dào, tôi đã có thể cân bằng hoàn hảo giữa công việc quản lý bận rộn và việc hoàn thành luận văn thạc sĩ đúng hạn."'; ?>
                 </p>
                 <div class="testi-author">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/swissumef_logo.png"
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/UMEFLOGO.webp"
                         class="testi-author-img" alt="<?php echo $is_en ? 'UMEF Student' : 'Học viên UMEF'; ?>" />
                     <div class="testi-author-info">
                         <h4>Nguyễn Hoàng Minh</h4>
