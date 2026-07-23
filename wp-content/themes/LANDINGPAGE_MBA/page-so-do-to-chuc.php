@@ -396,7 +396,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Consultants (Tư vấn viên) ───────── */
         .consultants-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px;
             width: 100%;
             margin-top: 10px;
@@ -829,7 +829,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 margin: 10px 0 0 0;
                 padding-left: 0;
                 display: grid !important;
-                grid-template-columns: repeat(4, 1fr) !important;
+                grid-template-columns: repeat(3, 1fr) !important;
                 gap: 14px;
             }
 

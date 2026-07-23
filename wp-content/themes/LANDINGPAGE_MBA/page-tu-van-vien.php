@@ -473,9 +473,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .consultants-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-top: 40px;
+            margin: 40px auto 0;
+            max-width: 1030px;
         }
 
         .consultant-card {
