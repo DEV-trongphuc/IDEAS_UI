@@ -6,7 +6,6 @@ deployment:
     - mkdir -p $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
     # Deploy .htaccess and root scripts
     - cp .htaccess $DEPLOYPATH/.htaccess
-    - cp create-pages.php $DEPLOYPATH/create-pages.php
     - cp purge-cache.php $DEPLOYPATH/purge-cache.php
     - cp wp-convert-webp.php $DEPLOYPATH/wp-convert-webp.php
     - cp wp-migrate-db-webp.php $DEPLOYPATH/wp-migrate-db-webp.php
