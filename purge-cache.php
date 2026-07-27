@@ -1,6 +1,6 @@
 <?php
 /**
- * Standalone script to purge all LiteSpeed cache
+ * Standalone script to purge all LiteSpeed cache and self-delete
  */
 require_once __DIR__ . '/wp-load.php';
 
@@ -17,4 +17,10 @@ if (function_exists('litespeed_purge_all')) {
     echo "\nSUCCESS: LiteSpeed Class Purged All!";
 } else {
     echo "\nWARNING: LiteSpeed Cache purge functions not found. Loaded WordPress.";
+}
+
+// Self destruct
+if (isset($_GET['delete'])) {
+    @unlink(__FILE__);
+    echo "\nSUCCESS: purge-cache.php deleted itself from server!";
 }
