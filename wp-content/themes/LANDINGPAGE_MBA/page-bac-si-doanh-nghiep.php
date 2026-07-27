@@ -1704,7 +1704,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </svg>
                 </div>
                 <div>
-                    <span class="stat-card-label" style="display:block; margin-bottom:8px; font-weight: 800;"><?php echo $is_en ? 'Disease Spectrum' : 'Bản đồ Bệnh lý'; ?></span>
+                    <span class="stat-card-label" style="display:block; margin-bottom:8px; font-weight: 800;"><?php echo $is_en ? 'Bottleneck Spectrum' : 'Bản đồ Điểm nghẽn'; ?></span>
                     <div class="chart-legend" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 6px 12px; margin-top: 4px;">
                         <div class="legend-item" style="padding: 2px 6px; font-size: 0.75rem;"><span class="legend-color-dot" style="background:#3b82f6;"></span> 65% AI & Số hóa</div>
                         <div class="legend-item" style="padding: 2px 6px; font-size: 0.75rem;"><span class="legend-color-dot" style="background:#ab0e00;"></span> 20% Chiến lược</div>
@@ -1904,17 +1904,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Full Width Column: Topic Feed -->
             <div style="width: 100%;">
                 <div class="forum-header-bar">
-                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Pathology Diagnostics (Forum)' : 'Phòng Pain Point doanh nghiệp'; ?></h2>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Solutions & Forum' : 'Phòng Pain Point doanh nghiệp'; ?></h2>
                     <button type="button" class="btn-primary-premium" onclick="openNewTopicModal()">
                         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg>
-                        <?php echo $is_en ? 'Submit Pathological File' : 'Gửi yêu cầu tham vấn'; ?>
+                        <?php echo $is_en ? 'Submit Consultation Request' : 'Gửi yêu cầu tham vấn'; ?>
                     </button>
                 </div>
 
                 <div style="display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; align-items:center;">
                     <div class="forum-search-wrapper">
                         <svg class="forum-search-icon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                        <input type="text" class="forum-search-input" id="forum-search" placeholder="<?php echo $is_en ? 'Search pathology pain points...' : 'Tìm kiếm bệnh án, điểm nghẽn quản trị...'; ?>" oninput="filterTopics()" />
+                        <input type="text" class="forum-search-input" id="forum-search" placeholder="<?php echo $is_en ? 'Search solutions, corporate bottlenecks...' : 'Tìm kiếm giải pháp, điểm nghẽn quản trị...'; ?>" oninput="filterTopics()" />
                     </div>
                 </div>
 
@@ -1934,7 +1934,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="clinic-form-modal" style="max-width: 900px;">
             <!-- Modal Header -->
             <div class="form-modal-header">
-                <h3 class="form-modal-title"><?php echo $is_en ? 'Book Private 1:1 Consultation' : 'Đăng ký phòng chẩn bệnh 1:1'; ?></h3>
+                <h3 class="form-modal-title"><?php echo $is_en ? 'Book Private 1:1 Consultation' : 'Đăng ký tư vấn chuyên sâu 1:1'; ?></h3>
                 <button class="form-modal-close" onclick="closeBookingModal()">&times;</button>
             </div>
             
@@ -1958,9 +1958,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         
                         <!-- Doctor select dropdown (Visible only in general booking) -->
                         <div class="clinic-form-group" id="booking-select-group" style="display:none;">
-                            <label class="clinic-form-label"><?php echo $is_en ? 'Select Doctor' : 'Chọn Bác sĩ chuyên khoa'; ?></label>
+                            <label class="clinic-form-label"><?php echo $is_en ? 'Select Consultant' : 'Chọn Chuyên gia tư vấn'; ?></label>
                             <select class="clinic-form-select" id="booking-mentor-select">
-                                <option value=""><?php echo $is_en ? '-- Select Doctor --' : '-- Chọn Bác sĩ mong muốn --'; ?></option>
+                                <option value=""><?php echo $is_en ? '-- Select Consultant --' : '-- Chọn Chuyên gia mong muốn --'; ?></option>
                             </select>
                         </div>
 
@@ -2030,9 +2030,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Target Doctor' : 'Chỉ định Bác sĩ phản hồi'; ?></label>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Target Consultant' : 'Chỉ định Chuyên gia phản hồi'; ?></label>
                         <select class="clinic-form-select" id="topic-mentor">
-                            <option value=""><?php echo $is_en ? '-- General Forum (All doctors) --' : '-- Gửi chung cho Ban chuyên môn (Tất cả) --'; ?></option>
+                            <option value=""><?php echo $is_en ? '-- General Forum (All experts) --' : '-- Gửi chung cho Ban chuyên môn (Tất cả) --'; ?></option>
                         </select>
                     </div>
 
@@ -2488,6 +2488,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 return;
             }
 
+            const getMentorPrefix = (name) => {
+                if (!name) return '';
+                if (name.includes('Vinh') || name.includes('Vũ') || name.includes('Đông') || name.includes('Sỹ')) {
+                    return isEnglish ? 'Dr. ' : 'TS. ';
+                }
+                return isEnglish ? 'Expert ' : 'Chuyên gia ';
+            };
+
             container.innerHTML = list.map(t => {
                 const commentsListHtml = t.comments.map(c => {
                     const avatarUrl = getCommenterAvatar(c.author, c.is_mentor);
@@ -2514,7 +2522,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="topic-meta-user">
                                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v4z"/></svg>
                                 ${t.is_anonymous ? (isEnglish ? 'Anonymous Business' : 'Doanh nghiệp ẩn danh') : t.author_name}
-                                ${t.target_mentor ? ` -> ${isEnglish ? 'Consultant: ' : 'Người tư vấn: '} Bác sĩ ${t.target_mentor}` : ''}
+                                ${t.target_mentor ? ` -> ${isEnglish ? 'Consultant: ' : 'Người tư vấn: '}${getMentorPrefix(t.target_mentor)}${t.target_mentor}` : ''}
                             </span>
                             <span class="topic-date">${t.date}</span>
                         </div>

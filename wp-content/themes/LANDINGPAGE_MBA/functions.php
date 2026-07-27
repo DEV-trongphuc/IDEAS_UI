@@ -6204,3 +6204,34 @@ add_action('manage_ideas_clinic_booking_posts_custom_column', function($column, 
         echo "🕒 " . get_post_meta($post_id, 'booking_time', true);
     }
 }, 10, 2);
+
+/**
+ * 9. Custom Open Graph & Social sharing thumbnail for Bác sĩ Doanh nghiệp template
+ */
+add_filter('wpseo_opengraph_image', function($image) {
+    if (is_page_template('page-bac-si-doanh-nghiep.php')) {
+        return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    }
+    return $image;
+}, 99);
+
+add_filter('rank_math/frontend/open_graph/image', function($image) {
+    if (is_page_template('page-bac-si-doanh-nghiep.php')) {
+        return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    }
+    return $image;
+}, 99);
+
+add_filter('rank_math/opengraph/facebook/image', function($image) {
+    if (is_page_template('page-bac-si-doanh-nghiep.php')) {
+         return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    }
+    return $image;
+}, 99);
+
+add_filter('rank_math/opengraph/twitter/image', function($image) {
+    if (is_page_template('page-bac-si-doanh-nghiep.php')) {
+         return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    }
+    return $image;
+}, 99);
