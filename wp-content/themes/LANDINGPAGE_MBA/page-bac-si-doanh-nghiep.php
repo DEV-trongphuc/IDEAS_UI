@@ -1127,7 +1127,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </div>
                 <div>
-                    <h2 class="stat-card-number" id="stat-total-cases">1,247</h2>
+                    <h2 class="stat-card-number" id="stat-total-cases">124 ca</h2>
                     <p class="stat-card-desc"><?php echo $is_en ? 'Real-world business case files and private clinic requests successfully processed.' : 'Hồ sơ bệnh án và yêu cầu khám bệnh riêng biệt đã được Hội đồng xử lý thành công.'; ?></p>
                 </div>
             </div>
@@ -1153,20 +1153,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <circle class="donut-hole" cx="21" cy="21" r="15.915" fill="#ffffff"></circle>
                         <circle class="donut-ring" cx="21" cy="21" r="15.915" fill="transparent" stroke="#f1f5f9" stroke-width="4.5"></circle>
                         
-                        <!-- Segments: 35% Red, 25% Dark Navy, 20% Blue, 15% Green, 5% Amber -->
-                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#ab0e00" stroke-width="5" stroke-dasharray="35 65" stroke-dashoffset="100"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#0f172a" stroke-width="5" stroke-dasharray="25 75" stroke-dashoffset="65"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#3b82f6" stroke-width="5" stroke-dasharray="20 80" stroke-dashoffset="40"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#10b981" stroke-width="5" stroke-dasharray="15 85" stroke-dashoffset="20"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#f59e0b" stroke-width="5" stroke-dasharray="5 95" stroke-dashoffset="5"></circle>
+                        <!-- Segments: 65% Blue (AI), 20% Red (Strategy), 15% Navy (HR) -->
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#3b82f6" stroke-width="5" stroke-dasharray="65 35" stroke-dashoffset="100"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#ab0e00" stroke-width="5" stroke-dasharray="20 80" stroke-dashoffset="35"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#0f172a" stroke-width="5" stroke-dasharray="15 85" stroke-dashoffset="15"></circle>
                     </svg>
                 </div>
                 <div style="flex: 1;">
                     <span class="stat-card-label" style="display:block; margin-bottom:12px; font-weight: 800;"><?php echo $is_en ? 'Disease Spectrum' : 'Bản đồ Bệnh lý'; ?></span>
                     <div class="chart-legend">
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#ab0e00;"></span> 35% Chiến lược</div>
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#0f172a;"></span> 25% Nhân sự</div>
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#3b82f6;"></span> 20% Số hóa & AI</div>
+                        <div class="legend-item"><span class="legend-color-dot" style="background:#3b82f6;"></span> 65% Số hóa & AI</div>
+                        <div class="legend-item"><span class="legend-color-dot" style="background:#ab0e00;"></span> 20% Chiến lược</div>
+                        <div class="legend-item"><span class="legend-color-dot" style="background:#0f172a;"></span> 15% Nhân sự</div>
                     </div>
                 </div>
             </div>
@@ -1544,7 +1542,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     if (res.success) {
                         forumTopics = res.data.topics;
                         
-                        document.getElementById('stat-total-cases').innerText = res.data.stats.total_cases.toLocaleString();
+                        document.getElementById('stat-total-cases').innerText = res.data.stats.total_cases.toLocaleString() + ' ca';
                         document.getElementById('stat-resolved-rate').innerText = res.data.stats.resolved_rate + '%';
 
                         renderFilterTags(res.data.stats.pain_points_distribution);
@@ -1560,7 +1558,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             
             const tagMapping = {
                 'Chiến lược & Quản trị': 'QuảnTrịChiếnLược',
-                'Mâu thuẫn Nhân sự': 'NhânSựRờiBỏ',
+                'Cổ đông & Nhân sự': 'NhânSựRờiBỏ',
                 'Chuyển đổi số & AI': 'ChuyểnĐổiSố',
                 'Marketing & Doanh thu': 'SụtGiảmDoanhThu',
                 'Pháp lý & Gọi vốn': 'TốiƯuChiPhí'

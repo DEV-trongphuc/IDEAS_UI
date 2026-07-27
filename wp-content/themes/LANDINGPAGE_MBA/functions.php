@@ -6002,14 +6002,12 @@ function ideas_ajax_get_clinic_data() {
 
     // Trả về dữ liệu kèm thống kê để vẽ biểu đồ trực quan (ảnh đồ)
     $stats = [
-        'total_cases' => count($topics) + 1245, // Cộng thêm mẫu tích lũy
+        'total_cases' => count($topics) + 122, // Cộng thêm mẫu tích lũy
         'resolved_rate' => 92,
         'pain_points_distribution' => [
-            ['label' => 'Chiến lược & Quản trị', 'value' => 35],
-            ['label' => 'Cổ đông & Nhân sự', 'value' => 25],
-            ['label' => 'Chuyển đổi số & AI', 'value' => 20],
-            ['label' => 'Marketing & Doanh thu', 'value' => 15],
-            ['label' => 'Pháp lý & Gọi vốn', 'value' => 5]
+            ['label' => 'Chuyển đổi số & AI', 'value' => 65],
+            ['label' => 'Chiến lược & Quản trị', 'value' => 20],
+            ['label' => 'Cổ đông & Nhân sự', 'value' => 15]
         ]
     ];
 
