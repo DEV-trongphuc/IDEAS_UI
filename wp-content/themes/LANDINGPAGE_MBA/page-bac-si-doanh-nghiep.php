@@ -2523,6 +2523,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     `;
                 }).join('');
 
+                const upvotedTopics = JSON.parse(localStorage.getItem('ideas_upvoted_topics') || '[]');
+                const isUpvoted = upvotedTopics.includes(t.id);
+
                 return `
                     <div class="topic-card" id="topic-card-${t.id}">
                         <div class="topic-card-header">
@@ -2540,7 +2543,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="topic-footer">
                             <div class="topic-actions">
-                                <button type="button" class="btn-action-upvote" onclick="handleUpvote('${t.id}')">
+                                <button type="button" class="btn-action-upvote ${isUpvoted ? 'already-upvoted' : ''}" onclick="handleUpvote('${t.id}')" ${isUpvoted ? 'style="opacity: 0.55; pointer-events: none;"' : ''}>
                                     <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
                                     Đồng ý kiến (<span id="upvotes-count-${t.id}">${t.upvotes}</span>)
                                 </button>
@@ -2572,9 +2575,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         function handleUpvote(topicId) {
+            const upvotedTopics = JSON.parse(localStorage.getItem('ideas_upvoted_topics') || '[]');
+            if (upvotedTopics.includes(topicId)) {
+                showToast(isEnglish ? 'You have already upvoted this topic!' : 'Bạn đã ghi nhận sự đồng cảm với chủ đề này rồi!');
+                return;
+            }
+
             if (topicId.startsWith('mock_')) {
                 const countSpan = document.getElementById(`upvotes-count-${topicId}`);
                 countSpan.innerText = parseInt(countSpan.innerText) + 1;
+                
+                upvotedTopics.push(topicId);
+                localStorage.setItem('ideas_upvoted_topics', JSON.stringify(upvotedTopics));
+                
+                const btn = document.querySelector(`#topic-card-${topicId} .btn-action-upvote`);
+                if (btn) {
+                    btn.classList.add('already-upvoted');
+                    btn.style.opacity = '0.55';
+                    btn.style.pointerEvents = 'none';
+                }
+                
                 showToast(isEnglish ? 'Thank you for your upvote!' : 'Đã ghi nhận ý kiến đồng cảm!');
                 return;
             }
@@ -2588,7 +2608,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 .then(res => {
                     if (res.success) {
                         document.getElementById(`upvotes-count-${topicId}`).innerText = res.data.upvotes;
-                        showToast(isEnglish ? 'Upvoted successfully!' : 'Bình chọn thành công!');
+                        
+                        upvotedTopics.push(topicId);
+                        localStorage.setItem('ideas_upvoted_topics', JSON.stringify(upvotedTopics));
+                        
+                        const btn = document.querySelector(`#topic-card-${topicId} .btn-action-upvote`);
+                        if (btn) {
+                            btn.classList.add('already-upvoted');
+                            btn.style.opacity = '0.55';
+                            btn.style.pointerEvents = 'none';
+                        }
+                        
+                        showToast(isEnglish ? 'Thank you for your support!' : 'Đã ghi nhận ý kiến đồng cảm!');
                     }
                 });
         }
