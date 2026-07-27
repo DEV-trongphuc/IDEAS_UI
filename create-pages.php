@@ -56,6 +56,11 @@ $pages = [
         'template' => 'page-faculty.php'
     ],
     [
+        'slug' => 'bac-si-doanh-nghiep',
+        'title' => 'Bác sĩ Doanh nghiệp',
+        'template' => 'page-bac-si-doanh-nghiep.php'
+    ],
+    [
         'slug' => 'dong-su-kien',
         'title' => 'Dòng sự kiện',
         'template' => 'page-dong-su-kien.php'
