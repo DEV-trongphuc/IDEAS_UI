@@ -1298,7 +1298,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     if ($featured_image) {
                                         $escaped_img = preg_quote($featured_image, '/');
                                         // Remove figure or image block containing this exact url
-                                        $content_html = preg_replace('/<figure[^>]*>\s*<img[^>]+src="' . $escaped_img . '"[^>]*>\s*<\/figure>/i', '', $content_html, 1);
+                                        $content_html = preg_replace('/<figure[^>]*>(?:(?!<\/figure>).)*<img[^>]+src="' . $escaped_img . '"[^>]*>.*?<\/figure>/is', '', $content_html, 1);
                                         $content_html = preg_replace('/<img[^>]+src="' . $escaped_img . '"[^>]*>/i', '', $content_html, 1);
                                     }
 
