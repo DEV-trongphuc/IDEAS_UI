@@ -126,7 +126,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp');
             background-size: cover;
             background-position: center;
-            opacity: 0.35;
+            opacity: 0.55;
             transform: scale(1.05);
             will-change: transform;
         }
@@ -137,10 +137,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.95) 0%,
-                    rgba(20, 1, 0, 0.88) 60%,
-                    rgba(8, 4, 5, 0.98) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.35) 0%, transparent 75%);
+                    rgba(8, 4, 5, 0.85) 0%,
+                    rgba(80, 6, 0, 0.45) 60%,
+                    rgba(8, 4, 5, 0.95) 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
         }
 
         .lms-hero-container {
