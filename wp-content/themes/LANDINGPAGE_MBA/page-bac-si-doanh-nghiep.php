@@ -222,8 +222,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr;
             gap: 30px;
+        }
+
+        @media (min-width: 576px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         .stat-card-premium {
@@ -240,9 +252,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .stat-card-premium:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
-            border-color: #cbd5e1;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08);
+            border-color: rgba(171, 14, 0, 0.15);
         }
 
         .stat-card-header {
@@ -1619,6 +1631,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- ── Section: Dashboard Thống kê Bệnh án ── -->
     <section class="clinic-stats-section">
         <div class="stats-grid">
+            <!-- Card 1 -->
             <div class="stat-card-premium">
                 <div class="stat-card-header">
                     <span class="stat-card-label"><?php echo $is_en ? 'Total Cases Analyzed' : 'Số ca chẩn đoán tích lũy'; ?></span>
@@ -1632,6 +1645,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
             </div>
             
+            <!-- Card 2 -->
             <div class="stat-card-premium">
                 <div class="stat-card-header">
                     <span class="stat-card-label"><?php echo $is_en ? 'Eradication Rate' : 'Hiệu quả trị liệu'; ?></span>
@@ -1645,11 +1659,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
             </div>
 
-            <!-- Premium Donut Chart Panel -->
-            <div class="stat-card-premium" style="flex-direction: row; align-items: center; gap: 24px; min-height: 220px;">
+            <!-- Card 3 -->
+            <div class="stat-card-premium">
+                <div class="stat-card-header">
+                    <span class="stat-card-label"><?php echo $is_en ? 'Consultation Time' : 'Thời gian Chẩn trị'; ?></span>
+                    <div class="stat-icon-wrapper" style="background: rgba(245, 158, 11, 0.08); color: #f59e0b;">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="stat-card-number" id="stat-consult-time" style="color: #f59e0b;">72 giờ</h2>
+                    <p class="stat-card-desc"><?php echo $is_en ? 'Detailed diagnostic reports and custom execution roadmaps delivered within 72 hours.' : 'Báo cáo chẩn đoán chi tiết và đề xuất giải pháp thực chiến được gửi tới doanh nghiệp trong vòng 72 giờ.'; ?></p>
+                </div>
+            </div>
+
+            <!-- Card 4 (Premium Donut Chart Panel) -->
+            <div class="stat-card-premium" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; justify-content: center;">
                 <div class="chart-container-donut">
                     <!-- SVG Circular Donut Chart -->
-                    <svg width="135" height="135" viewBox="0 0 42 42" class="donut">
+                    <svg width="120" height="120" viewBox="0 0 42 42" class="donut">
                         <circle class="donut-hole" cx="21" cy="21" r="15.915" fill="#ffffff"></circle>
                         <circle class="donut-ring" cx="21" cy="21" r="15.915" fill="transparent" stroke="#f1f5f9" stroke-width="4.5"></circle>
                         
@@ -1659,12 +1687,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#0f172a" stroke-width="5" stroke-dasharray="15 85" stroke-dashoffset="15"></circle>
                     </svg>
                 </div>
-                <div style="flex: 1;">
-                    <span class="stat-card-label" style="display:block; margin-bottom:12px; font-weight: 800;"><?php echo $is_en ? 'Disease Spectrum' : 'Bản đồ Bệnh lý'; ?></span>
-                    <div class="chart-legend">
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#3b82f6;"></span> 65% Số hóa & AI</div>
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#ab0e00;"></span> 20% Chiến lược</div>
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#0f172a;"></span> 15% Nhân sự</div>
+                <div>
+                    <span class="stat-card-label" style="display:block; margin-bottom:8px; font-weight: 800;"><?php echo $is_en ? 'Disease Spectrum' : 'Bản đồ Bệnh lý'; ?></span>
+                    <div class="chart-legend" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 6px 12px; margin-top: 4px;">
+                        <div class="legend-item" style="padding: 2px 6px; font-size: 0.75rem;"><span class="legend-color-dot" style="background:#3b82f6;"></span> 65% AI & Số hóa</div>
+                        <div class="legend-item" style="padding: 2px 6px; font-size: 0.75rem;"><span class="legend-color-dot" style="background:#ab0e00;"></span> 20% Chiến lược</div>
+                        <div class="legend-item" style="padding: 2px 6px; font-size: 0.75rem;"><span class="legend-color-dot" style="background:#0f172a;"></span> 15% Nhân sự</div>
                     </div>
                 </div>
             </div>
