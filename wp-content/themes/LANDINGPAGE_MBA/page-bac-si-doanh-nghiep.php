@@ -755,6 +755,50 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #f8fafc;
         }
 
+        /* ── Premium Form Group Elements (Fixes Modal Layout Error) ── */
+        .clinic-form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .clinic-form-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--clr-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            text-align: left;
+        }
+
+        .clinic-form-input,
+        .clinic-form-select,
+        .clinic-form-textarea {
+            width: 100% !important;
+            padding: 12px 16px !important;
+            border: 1.5px solid #cbd5e1 !important;
+            border-radius: 12px !important;
+            font-size: 0.9rem !important;
+            color: var(--clr-navy) !important;
+            background-color: #ffffff !important;
+            transition: all 0.2s ease !important;
+            font-weight: 500 !important;
+            outline: none !important;
+            box-sizing: border-box !important;
+        }
+
+        .clinic-form-input:focus,
+        .clinic-form-select:focus,
+        .clinic-form-textarea:focus {
+            border-color: var(--clr-primary) !important;
+            box-shadow: 0 0 0 3px rgba(171, 14, 0, 0.1) !important;
+        }
+
+        .clinic-form-textarea {
+            resize: vertical;
+        }
+
         /* ── Split Layout for Booking Modal ── */
         .booking-modal-grid {
             display: grid;
@@ -843,7 +887,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* Make split booking modal wider */
         .clinic-form-modal[style*="max-width: 900px"] {
-            max-width: 900px !important;
+            max-width: 950px !important;
         }
 
         .form-modal-header {
@@ -952,7 +996,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .comments-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             margin-bottom: 16px;
         }
 
@@ -1147,7 +1191,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Full Width Column: Topic Feed -->
             <div style="width: 100%;">
                 <div class="forum-header-bar">
-                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Pathology Diagnostics (Forum)' : 'Phòng Chẩn Bệnh Chung'; ?></h2>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Pathology Diagnostics (Forum)' : 'Phòng Pain Point doanh nghiệp'; ?></h2>
                     <button type="button" class="btn-primary-premium" onclick="openNewTopicModal()">
                         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg>
                         <?php echo $is_en ? 'Submit Pathological File' : 'Gửi yêu cầu tham vấn'; ?>
@@ -1447,6 +1491,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             document.body.style.overflow = '';
         }
 
+        // Helper to find avatar for specific mentor or return fallback
+        function getCommenterAvatar(name, isMentor) {
+            if (isMentor) {
+                // Find doctor match based on name subset (e.g. "Dr. Phạm Quang Vinh" matches "Phạm Quang Vinh")
+                const doc = CLINIC_DOCTORS.find(d => name.includes(d.name) || d.name.includes(name));
+                if (doc) return doc.avatar;
+            }
+            return "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp";
+        }
+
         function openAskDoctor(doctorName) {
             openNewTopicModal();
             const select = document.getElementById('topic-mentor');
@@ -1545,16 +1599,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             container.innerHTML = list.map(t => {
-                const commentsListHtml = t.comments.map(c => `
-                    <div class="comment-item">
-                        <div class="comment-author-row">
-                            <span class="comment-author-name">${c.author}</span>
-                            ${c.is_mentor ? `<span class="comment-author-badge">Chuyên gia</span>` : ''}
-                            <span class="comment-date">${c.date}</span>
+                const commentsListHtml = t.comments.map(c => {
+                    const avatarUrl = getCommenterAvatar(c.author, c.is_mentor);
+                    return `
+                        <div class="comment-item" style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px;">
+                            <img src="${avatarUrl}" alt="${c.author}" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1.5px solid #cbd5e1; flex-shrink: 0;" />
+                            <div style="flex: 1; min-width: 0;">
+                                <div class="comment-author-row" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span class="comment-author-name" style="font-weight: 700; color: var(--clr-navy); font-size: 0.85rem;">${c.author}</span>
+                                        ${c.is_mentor ? `<span class="comment-author-badge" style="background: rgba(171, 14, 0, 0.08); color: var(--clr-primary); font-size: 0.68rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase;">Chuyên gia</span>` : ''}
+                                    </div>
+                                    <span class="comment-date" style="font-size: 0.72rem; color: #94a3b8;">${c.date}</span>
+                                </div>
+                                <div style="margin: 0; font-size: 0.85rem; color: #334155; line-height: 1.5;">${c.content}</div>
+                            </div>
                         </div>
-                        <div style="margin:0;">${c.content}</div>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
 
                 return `
                     <div class="topic-card" id="topic-card-${t.id}">
