@@ -1456,6 +1456,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 font-size: 0.95rem !important;
                 line-height: 1.6 !important;
                 margin-bottom: 24px !important;
+                color: rgba(255, 255, 255, 0.9) !important;
             }
             .lms-hero-badge {
                 margin-bottom: 16px !important;
@@ -1465,6 +1466,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .verify-slogan {
                 font-size: 0.95rem !important;
                 margin-bottom: 16px !important;
+                color: #ffcccc !important;
             }
             .lms-hero-actions {
                 flex-direction: column !important;
