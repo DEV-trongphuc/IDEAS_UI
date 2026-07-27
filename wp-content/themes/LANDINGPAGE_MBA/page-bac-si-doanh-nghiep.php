@@ -137,10 +137,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.9) 0%,
-                    rgba(80, 6, 0, 0.4) 60%,
+                    rgba(8, 4, 5, 0.95) 0%,
+                    rgba(20, 1, 0, 0.88) 60%,
                     rgba(8, 4, 5, 0.98) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.35) 0%, transparent 75%);
         }
 
         .lms-hero-container {
@@ -187,11 +187,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .lms-hero p {
             font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: #ffffff;
             max-width: 750px;
             margin: 0 auto 36px;
             line-height: 1.65;
-            font-weight: 500;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
         }
 
         .verify-slogan {
@@ -235,12 +236,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-direction: column;
             justify-content: space-between;
             min-height: 220px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .stat-card-premium:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
             border-color: #cbd5e1;
         }
 
@@ -338,6 +339,241 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-shrink: 0;
         }
 
+        /* ── Section: Bottleneck & Pain Point Maps (NEW) ── */
+        .bottleneck-section {
+            padding: 80px 20px;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .bottleneck-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bottleneck-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .bottleneck-grid {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .flow-container-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        /* Animated moving gradient flowline */
+        @keyframes flowLine {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 200%; }
+        }
+
+        .flow-container-vertical::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: linear-gradient(180deg, #ab0e00 0%, #3b82f6 33%, #0f172a 66%, #ab0e00 100%);
+            background-size: 100% 200%;
+            animation: flowLine 4s linear infinite;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .bottleneck-flow-node {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .node-icon-wrapper {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #64748b;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Pulsing Glow active node animation */
+        @keyframes pulseActive {
+            0% { box-shadow: 0 0 0 0 rgba(171, 14, 0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(171, 14, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(171, 14, 0, 0); }
+        }
+
+        .bottleneck-flow-node.active .node-icon-wrapper {
+            border-color: var(--clr-primary);
+            color: #ffffff;
+            background: linear-gradient(135deg, #ab0e00 0%, #8e0b00 100%);
+            animation: pulseActive 2s infinite;
+        }
+
+        .node-content-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 24px;
+            flex-grow: 1;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bottleneck-flow-node:hover .node-content-card {
+            transform: translateX(6px);
+            background: #ffffff;
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
+        }
+
+        .bottleneck-flow-node.active .node-content-card {
+            background: #ffffff;
+            border-color: rgba(171, 14, 0, 0.25);
+            box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.12);
+        }
+
+        .node-badge-alert {
+            font-size: 0.72rem;
+            font-weight: 800;
+            background: rgba(171, 14, 0, 0.08);
+            color: var(--clr-primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .node-title-label {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--clr-navy);
+            margin: 0 0 8px;
+        }
+
+        .node-short-desc {
+            font-size: 0.88rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Prescription Panel styling */
+        .prescription-board {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.3);
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 100px;
+            min-height: 480px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .presc-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+
+        .presc-header-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #ffcccc;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .presc-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .presc-body {
+            flex-grow: 1;
+        }
+
+        #prescription-content-wrapper {
+            transition: all 0.3s ease;
+        }
+
+        .presc-section-title {
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #94a3b8;
+            letter-spacing: 0.05em;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .presc-point-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .presc-bullet-check {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            margin-top: 2px;
+            font-weight: bold;
+        }
+
+        .presc-bullet-check.success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .presc-text {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+            margin: 0;
+            font-weight: 500;
+            text-align: left;
+        }
+
         /* ── Section: Expert Council Grid ── */
         .mentors-section {
             padding: 80px 20px;
@@ -381,7 +617,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
             min-height: 480px;
@@ -1065,21 +1301,163 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Responsive Styling ── */
         @media (max-width: 768px) {
+            .lms-hero {
+                padding: 160px 16px 80px !important;
+            }
             .lms-hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.1rem !important;
+                line-height: 1.3 !important;
             }
             .lms-hero p {
-                font-size: 1rem;
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
+                margin-bottom: 24px !important;
+            }
+            .lms-hero-badge {
+                margin-bottom: 16px !important;
+                padding: 6px 14px !important;
+                font-size: 0.75rem !important;
+            }
+            .verify-slogan {
+                font-size: 0.95rem !important;
+                margin-bottom: 16px !important;
+            }
+            .lms-hero-actions {
+                flex-direction: column !important;
+                gap: 12px !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+            }
+            .btn-primary-premium, .btn-secondary-premium {
+                width: 100% !important;
+                padding: 12px 20px !important;
+                font-size: 0.88rem !important;
+            }
+            
+            /* Stats responsive layout */
+            .clinic-stats-section {
+                padding: 40px 16px !important;
             }
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
             }
-            .booking-section-premium {
-                padding: 40px 16px;
+            .stat-card-premium {
+                padding: 24px !important;
+                min-height: auto !important;
             }
-            .booking-card-premium {
-                padding: 30px 20px;
+            .stat-card-number {
+                font-size: 2.2rem !important;
             }
+
+            /* Expert section & slide dot */
+            .mentors-section {
+                padding: 45px 0 45px 16px !important;
+                overflow-x: hidden !important;
+            }
+            .section-header-premium {
+                margin-bottom: 30px !important;
+                padding-right: 16px !important;
+            }
+            .section-header-premium h2 {
+                font-size: 1.8rem !important;
+            }
+            .mentors-grid {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                scroll-behavior: smooth !important;
+                gap: 20px !important;
+                padding-bottom: 20px !important;
+                padding-right: 16px !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+            .mentor-card-premium {
+                min-width: 82vw !important;
+                max-width: 82vw !important;
+                scroll-snap-align: center !important;
+                flex-shrink: 0 !important;
+            }
+            .mentors-grid::-webkit-scrollbar {
+                display: none !important;
+            }
+            
+            /* Slider dots style */
+            .slider-dots {
+                display: flex !important;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 16px;
+                padding-right: 16px;
+            }
+            .slider-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #cbd5e1;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .slider-dot.active {
+                width: 24px;
+                border-radius: 4px;
+                background: var(--clr-primary);
+            }
+
+            /* Forum mobile design */
+            .clinic-forum-section {
+                padding: 40px 16px !important;
+            }
+            .topic-card {
+                padding: 16px !important;
+            }
+            .topic-title {
+                font-size: 1rem !important;
+            }
+            .btn-action-upvote, .btn-action-comment {
+                padding: 8px 10px !important;
+                font-size: 0.75rem !important;
+            }
+            
+            /* Booking split modal mobile fixes */
+            .booking-doctor-panel {
+                padding: 20px !important;
+                border-right: none !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+            }
+            .booking-form-panel {
+                padding: 20px !important;
+            }
+            #booking-doctor-img {
+                width: 90px !important;
+                height: 90px !important;
+                margin-bottom: 12px !important;
+            }
+            .clinic-form-modal {
+                max-height: 95vh !important;
+            }
+
+            /* Bottlenecks section mobile overrides */
+            .bottleneck-section {
+                padding: 40px 16px !important;
+            }
+            .bottleneck-grid {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+            .prescription-board {
+                padding: 24px !important;
+                min-height: auto !important;
+                position: relative !important;
+                top: 0 !important;
+            }
+            .presc-title {
+                font-size: 1.2rem !important;
+            }
+        }
+
+        .slider-dots {
+            display: none;
         }
     </style>
 </head>
@@ -1171,6 +1549,111 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
+    <!-- ── Section: Bản đồ Điểm nghẽn Cổ chai Doanh nghiệp (NEW) ── -->
+    <section class="bottleneck-section">
+        <div class="bottleneck-container">
+            <div class="section-header-premium">
+                <h2><?php echo $is_en ? 'Bottlenecks & Diagnostic Flow' : 'Bản đồ Điểm nghẽn Cổ chai Doanh nghiệp'; ?></h2>
+                <p><?php echo $is_en ? 'Explore typical business bottlenecks and corresponding academic prescriptions designed by IDEAS.' : 'Phân tích các triệu chứng bệnh lý phổ biến gây đình trệ và lộ trình chẩn trị thực chiến từ Hội đồng Bác sĩ Doanh nghiệp.'; ?></p>
+            </div>
+
+            <div class="bottleneck-grid">
+                <!-- Left: Flow Diagram Timeline -->
+                <div class="flow-container-vertical">
+                    <!-- Node 1 -->
+                    <div class="bottleneck-flow-node active" onclick="selectBottleneck('strategy', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                        </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert"><?php echo $is_en ? 'Direction Pain Point' : 'Điểm nghẽn Chiến lược'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'Strategic Direction & Shareholders' : 'Chiến lược & Định hướng Cổ đông'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Conflict in leadership viewpoints, missing target structures (KPIs/OKRs).' : 'Mâu thuẫn tư duy của nhà sáng lập, thiếu mục tiêu đo lường KPIs và OKRs cụ thể.'; ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Node 2 -->
+                    <div class="bottleneck-flow-node" onclick="selectBottleneck('digital', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert" style="background:rgba(59,130,246,0.08); color:#3b82f6;"><?php echo $is_en ? 'Operational Bottleneck' : 'Điểm nghẽn Vận hành'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'Digital Transformation & Manual Process' : 'Chuyển đổi số & Vận hành Thủ công'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Fragmented systems, missing AI integration, manual repetitive workflow.' : 'Hệ thống rời rạc, chưa ứng dụng AI và tự động hóa quy trình sản xuất kinh doanh.'; ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Node 3 -->
+                    <div class="bottleneck-flow-node" onclick="selectBottleneck('hr', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert" style="background:rgba(16,185,129,0.08); color:#10b981;"><?php echo $is_en ? 'Talent Drain' : 'Điểm nghẽn Nhân sự'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'HR Retention & Executive Level' : 'Chảy máu chất xám & Quản lý trung cấp'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Lack of internal training, poor reward structure, high staff turnover.' : 'Nhân sự cấp trung rời bỏ, cơ chế đãi ngộ và lộ trình phát triển thiếu bền vững.'; ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Node 4 -->
+                    <div class="bottleneck-flow-node" onclick="selectBottleneck('finance', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert" style="background:rgba(245,158,11,0.08); color:#f59e0b;"><?php echo $is_en ? 'Capital & Cash flow' : 'Điểm nghẽn Tài chính'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'Cash Flow Shortage & Valuation' : 'Dòng tiền & Cấu trúc thương vụ gọi vốn'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Short-term liquidity crisis, faulty valuation models for funding.' : 'Đứt gãy dòng tiền ngắn hạn, định giá chưa chuẩn xác khi gọi vốn đầu tư.'; ?></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Prescription Panel -->
+                <div class="prescription-board">
+                    <div class="presc-header">
+                        <span class="presc-header-tag" id="presc-slogan">Tháo gỡ xung đột & Thiết lập Hệ chỉ số OKRs</span>
+                        <h3 class="presc-title" id="presc-title">Chiến lược & Định hướng</h3>
+                    </div>
+                    
+                    <div class="presc-body" id="prescription-content-wrapper">
+                        <span class="presc-section-title"><?php echo $is_en ? 'Identified Bottlenecks' : 'Triệu chứng điểm nghẽn'; ?></span>
+                        <div id="presc-bottlenecks">
+                            <div class="presc-point-item">
+                                <div class="presc-bullet-check">✕</div>
+                                <p class="presc-text">Thiếu định hướng tầm nhìn và chiến lược tăng trưởng dài hạn.</p>
+                            </div>
+                            <div class="presc-point-item">
+                                <div class="presc-bullet-check">✕</div>
+                                <p class="presc-text">Lợi ích nội bộ chồng chéo, xung đột quyền lợi giữa các cổ đông sáng lập.</p>
+                            </div>
+                            <div class="presc-point-item">
+                                <div class="presc-bullet-check">✕</div>
+                                <p class="presc-text">Hệ thống báo cáo hiệu suất (KPIs/OKRs) mơ hồ, thiếu thực thi.</p>
+                            </div>
+                        </div>
+
+                        <span class="presc-section-title" style="margin-top:24px;"><?php echo $is_en ? 'Council Therapeutic Prescription' : 'Đơn thuốc điều trị từ Hội đồng'; ?></span>
+                        <div id="presc-solutions">
+                            <div class="presc-point-item">
+                                <div class="presc-bullet-check success">✓</div>
+                                <p class="presc-text">Quy hoạch và tái cơ cấu hội đồng quản trị chuyên nghiệp.</p>
+                            </div>
+                            <div class="presc-point-item">
+                                <div class="presc-bullet-check success">✓</div>
+                                <p class="presc-text">Thiết lập ma trận phân quyền (RACI) rõ ràng cho từng vị trí lãnh đạo.</p>
+                            </div>
+                            <div class="presc-point-item">
+                                <div class="presc-bullet-check success">✓</div>
+                                <p class="presc-text">Đào tạo và thiết lập hệ chỉ số OKRs thực chiến gắn với văn hóa IDEAS.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ── Section: Expert Council Grid ── -->
     <section class="mentors-section">
         <div class="section-header-premium">
@@ -1181,6 +1664,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="mentors-grid" id="mentors-grid-container">
             <!-- Mentor cards will be populated dynamically -->
         </div>
+        <div class="slider-dots" id="mentors-slider-dots"></div>
     </section>
 
     <!-- ── Clinic Forum Section (Full Width Layout - No Sidebar) ── -->
@@ -1387,12 +1871,144 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             { name: "Nguyễn Thành Nhân", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Information Systems Management" : "Hệ thống Thông tin quản lý", job: "Nghiên cứu ứng dụng cơ sở dữ liệu lớn phục vụ báo cáo quản trị thông minh (Business Intelligence).", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.webp" }
         ];
 
+        // 4 Key corporate pain points & therapeutic solutions
+        const BOTTLENECK_DATA = {
+            strategy: {
+                title: isEnglish ? "Strategic Direction" : "Chiến lược & Định hướng",
+                slogan: isEnglish ? "Resolve shareholder conflicts & build clear KPIs/OKRs" : "Tháo gỡ xung đột & Thiết lập Hệ chỉ số OKRs",
+                bottlenecks: isEnglish ? [
+                    "Lack of clear growth plans and vision for 3-5 years scale.",
+                    "Overlapping management authority, conflict of interest among founding members.",
+                    "Ambiguous performance metrics (KPIs/OKRs), poor execution."
+                ] : [
+                    "Thiếu định hướng tầm nhìn và chiến lược tăng trưởng dài hạn.",
+                    "Lợi ích nội bộ chồng chéo, xung đột quyền lợi giữa các cổ đông sáng lập.",
+                    "Hệ thống báo cáo hiệu suất (KPIs/OKRs) mơ hồ, thiếu thực thi."
+                ],
+                solutions: isEnglish ? [
+                    "Formal restructuring of the academic advisory board.",
+                    "Implement a clean RACI decision matrix for the executives.",
+                    "Train and launch performance OKRs mapped directly to IDEAS culture."
+                ] : [
+                    "Quy hoạch và tái cơ cấu hội đồng quản trị chuyên nghiệp.",
+                    "Thiết lập ma trận phân quyền (RACI) rõ ràng cho từng vị trí lãnh đạo.",
+                    "Đào tạo và thiết lập hệ chỉ số OKRs thực chiến gắn với văn hóa IDEAS."
+                ]
+            },
+            digital: {
+                title: isEnglish ? "Digital Transformation" : "Chuyển đổi số & Vận hành",
+                slogan: isEnglish ? "Digitize processes & leverage AI to scale productivity 200%" : "Số hóa Quy trình & Tích hợp AI gia tăng 200% năng suất",
+                bottlenecks: isEnglish ? [
+                    "Manual, repetitive workflows causing operational resource waste.",
+                    "Fragmented SaaS software (CRM, ERP) lacking synchronized data channels.",
+                    "Missing AI copilots to accelerate sales and content writing."
+                ] : [
+                    "Vận hành thủ công rườm rã, lặp đi lặp lại gây lãng phí nguồn lực.",
+                    "Các hệ thống phần mềm (ERP, CRM) hoạt động rời rạc, thiếu đồng bộ dữ liệu.",
+                    "Chưa khai thác được sức mạnh AI làm đòn bẩy trong các khâu kinh doanh."
+                ],
+                solutions: isEnglish ? [
+                    "Audit and map workflows matching Lean Six Sigma guidelines.",
+                    "Integrate software APIs into a unified corporate database.",
+                    "Deploy custom private AI assistants built specifically by IDEAS."
+                ] : [
+                    "Chuẩn hóa và vẽ lại quy trình vận hành theo triết lý Lean Six Sigma.",
+                    "Tích hợp hệ sinh thái phần mềm thống nhất (All-in-one).",
+                    "Xây dựng và ứng dụng các trợ lý ảo AI chuyên biệt do IDEAS thiết lập."
+                ]
+            },
+            hr: {
+                title: isEnglish ? "HR & Performance" : "Nhân sự & Hiệu suất",
+                slogan: isEnglish ? "Eradicate talent drain & design sustainable incentives" : "Chống chảy máu chất xám & Xây dựng văn hóa giữ chân tài năng",
+                bottlenecks: isEnglish ? [
+                    "Talent drain at middle management level to competitors.",
+                    "Low staff motivation due to non-transparent reward rules.",
+                    "Lack of standardized internal upskilling structures."
+                ] : [
+                    "Chảy máu chất xám ở cấp quản lý trung và cao cấp.",
+                    "Hiệu suất lao động thấp do cơ chế đãi ngộ thiếu công bằng và không minh bạch.",
+                    "Thiếu chương trình đào tạo nội bộ nâng cao năng lực định kỳ."
+                ],
+                solutions: isEnglish ? [
+                    "Design clean ESOP rewards and transparent career roadmaps.",
+                    "Implement a 3P compensation model and 360 performance reviews.",
+                    "Provide corporate executive management courses licensed from Swiss UMEF."
+                ] : [
+                    "Thiết kế cơ chế ESOP (Cổ phần thưởng) và lộ trình phát triển rõ ràng.",
+                    "Ứng dụng mô hình đánh giá 360 độ và lương 3P thực chất.",
+                    "Chuyển giao giáo trình quản lý chuyên sâu chuẩn Thụy Sĩ từ Viện IDEAS."
+                ]
+            },
+            finance: {
+                title: isEnglish ? "Finance & Cash Flow" : "Tài chính & Dòng tiền",
+                slogan: isEnglish ? "Strict cash controls & optimal fund structuring" : "Kiểm soát dòng tiền & Tối ưu hóa cấu trúc gọi vốn",
+                bottlenecks: isEnglish ? [
+                    "Short-term liquidity crisis due to loose credit policies.",
+                    "Faulty business valuation methods during investment rounds.",
+                    "Lack of financial dashboards showing real-time profit and loss metrics."
+                ] : [
+                    "Đứt gãy dòng tiền ngắn hạn do quản lý công nợ chưa chặt chẽ.",
+                    "Định giá sai giá trị doanh nghiệp khi gọi vốn hoặc sáp nhập.",
+                    "Thiếu công cụ quản lý tài chính quản trị hỗ trợ ra quyết định nhanh."
+                ],
+                solutions: isEnglish ? [
+                    "Forecast short-term cash runway and optimize credit cycles.",
+                    "Prepare correct valuation books and structure M&A deals.",
+                    "Set up automated financial dashboards displaying real-time cash flow."
+                ] : [
+                    "Kiến tạo dòng tiền dự báo và tối ưu hóa chu kỳ tiền mặt.",
+                    "Định giá chuẩn xác và tư vấn cấu trúc thương vụ (M&A) hợp lý.",
+                    "Cài đặt hệ thống Dashboard báo cáo tài chính trực quan, cập nhật Real-time."
+                ]
+            }
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
             initDoctorGrid();
             initFormSelects();
             loadForumData();
             initGoogleLogin();
         });
+
+        // Interactive function to switch active pain point node
+        function selectBottleneck(key, element) {
+            document.querySelectorAll('.bottleneck-flow-node').forEach(node => {
+                node.classList.remove('active');
+            });
+            element.classList.add('active');
+
+            const data = BOTTLENECK_DATA[key];
+            const prescTitle = document.getElementById('presc-title');
+            const prescSlogan = document.getElementById('presc-slogan');
+            const prescBottlenecks = document.getElementById('presc-bottlenecks');
+            const prescSolutions = document.getElementById('presc-solutions');
+
+            const container = document.getElementById('prescription-content-wrapper');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(8px)';
+
+            setTimeout(() => {
+                prescTitle.innerText = data.title;
+                prescSlogan.innerText = data.slogan;
+
+                prescBottlenecks.innerHTML = data.bottlenecks.map(b => `
+                    <div class="presc-point-item">
+                        <div class="presc-bullet-check">✕</div>
+                        <p class="presc-text">${b}</p>
+                    </div>
+                `).join('');
+
+                prescSolutions.innerHTML = data.solutions.map(s => `
+                    <div class="presc-point-item">
+                        <div class="presc-bullet-check success">✓</div>
+                        <p class="presc-text">${s}</p>
+                    </div>
+                `).join('');
+
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 200);
+        }
 
         // Populate Lecturers Grid with NEW Premium Card Design
         function initDoctorGrid() {
@@ -1423,6 +2039,52 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </div>
             `).join('');
+
+            initSliderDots();
+        }
+
+        function initSliderDots() {
+            const dotsContainer = document.getElementById('mentors-slider-dots');
+            if (!dotsContainer) return;
+
+            dotsContainer.innerHTML = CLINIC_DOCTORS.map((_, idx) => `
+                <span class="slider-dot ${idx === 0 ? 'active' : ''}" onclick="scrollToCard(${idx})"></span>
+            `).join('');
+
+            const grid = document.getElementById('mentors-grid-container');
+            grid.removeEventListener('scroll', updateActiveDot);
+            grid.addEventListener('scroll', updateActiveDot);
+        }
+
+        function updateActiveDot() {
+            const container = document.getElementById('mentors-grid-container');
+            const dots = document.querySelectorAll('.slider-dot');
+            if (!dots.length) return;
+
+            const scrollLeft = container.scrollLeft;
+            const firstCard = container.querySelector('.mentor-card-premium');
+            if (!firstCard) return;
+            const cardWidth = firstCard.offsetWidth + 20; // card width + gap
+            const activeIndex = Math.round(scrollLeft / cardWidth);
+
+            dots.forEach((dot, idx) => {
+                if (idx === activeIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function scrollToCard(idx) {
+            const container = document.getElementById('mentors-grid-container');
+            const firstCard = container.querySelector('.mentor-card-premium');
+            if (!firstCard) return;
+            const cardWidth = firstCard.offsetWidth + 20;
+            container.scrollTo({
+                left: idx * cardWidth,
+                behavior: 'smooth'
+            });
         }
 
         function initFormSelects() {
@@ -1492,7 +2154,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         // Helper to find avatar for specific mentor or return fallback
         function getCommenterAvatar(name, isMentor) {
             if (isMentor) {
-                // Find doctor match based on name subset (e.g. "Dr. Phạm Quang Vinh" matches "Phạm Quang Vinh")
                 const doc = CLINIC_DOCTORS.find(d => name.includes(d.name) || d.name.includes(name));
                 if (doc) return doc.avatar;
             }
