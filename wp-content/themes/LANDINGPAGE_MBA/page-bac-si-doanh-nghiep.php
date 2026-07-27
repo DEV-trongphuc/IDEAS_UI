@@ -397,6 +397,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: 100px;
             background: linear-gradient(135deg, #0f172a 0%, #ab0e00 100%);
             position: relative;
+            z-index: 1;
         }
 
         .mentor-card-content {
@@ -406,8 +407,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             text-align: center;
             flex-grow: 1;
+            position: relative;
+            z-index: 2;
         }
 
+        /* Enforced relative positioning and z-index to resolve cutoff avatar issue */
         .mentor-avatar-wrapper {
             width: 100px;
             height: 100px;
@@ -418,6 +422,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: -50px;
             margin-bottom: 16px;
             background: #ffffff;
+            position: relative;
+            z-index: 10 !important;
         }
 
         .mentor-avatar-wrapper img {
@@ -533,7 +539,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translateY(-1px) !important;
         }
 
-        /* ── Clinic Forum Section (Full Width Layout) ── */
+        /* ── Clinic Forum Section (Full Width Layout - No Sidebar) ── */
         .clinic-forum-section {
             background: #ffffff;
             border-top: 1px solid #e2e8f0;
@@ -749,126 +755,63 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #f8fafc;
         }
 
-        /* ── Premium Booking Form Section ── */
-        .booking-section-premium {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border-radius: 32px;
-            padding: 80px 40px;
-            margin: 80px auto;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 0 100px rgba(15, 23, 42, 0.02);
-            border: 1px solid #e2e8f0;
+        /* ── Split Layout for Booking Modal ── */
+        .booking-modal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
         }
 
-        .booking-section-premium::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(171, 14, 0, 0.04) 0%, transparent 70%);
-            pointer-events: none;
+        @media (min-width: 768px) {
+            .booking-modal-grid {
+                grid-template-columns: 350px 1fr;
+            }
         }
 
-        .booking-card-premium {
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 28px;
-            padding: 50px 40px;
-            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.08);
-            box-sizing: border-box;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .booking-form-title {
-            font-size: 2.2rem !important;
-            font-weight: 800 !important;
-            color: var(--clr-navy) !important;
-            text-align: center;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-
-        .booking-form-subtitle {
-            font-size: 0.95rem;
-            color: #64748b;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 500;
-            line-height: 1.6;
-        }
-
-        .clinic-form-group {
+        .booking-doctor-panel {
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 30px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 24px;
+            align-items: center;
+            text-align: center;
         }
 
-        .clinic-form-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--clr-navy);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-left: 2px;
+        #booking-doctor-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
-        .clinic-form-input, .clinic-form-select, .clinic-form-textarea {
+        .booking-doctor-meta {
             width: 100%;
-            padding: 14px 16px;
-            border: 1.5px solid #cbd5e1;
-            background: #ffffff;
-            border-radius: 12px;
-            font-size: 0.92rem;
-            box-sizing: border-box;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .booking-doctor-meta h4 {
+            font-size: 1.3rem !important;
+            font-weight: 800 !important;
             color: var(--clr-navy);
+            margin: 10px 0 6px !important;
+        }
+
+        .booking-doctor-meta p {
+            font-size: 0.82rem;
+            color: #64748b;
+            line-height: 1.6;
+            margin-top: 12px;
             font-weight: 500;
+            text-align: justify;
         }
 
-        .clinic-form-input:focus, .clinic-form-select:focus, .clinic-form-textarea:focus {
-            border-color: var(--clr-primary);
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(171, 14, 0, 0.08);
-            transform: translateY(-1px);
+        .booking-form-panel {
+            padding: 30px;
         }
 
-        .btn-booking-submit {
-            background: linear-gradient(135deg, #ab0e00 0%, #8e0b00 100%) !important;
-            color: #ffffff !important;
-            padding: 16px 32px !important;
-            font-size: 1rem !important;
-            font-weight: 700 !important;
-            border-radius: 14px !important;
-            border: none !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 10px 25px -5px rgba(171, 14, 0, 0.3) !important;
-            text-decoration: none !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 10px !important;
-            width: 100% !important;
-            margin-top: 10px !important;
-        }
-
-        .btn-booking-submit:hover {
-            background: linear-gradient(135deg, #be1000 0%, #9e0c00 100%) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 15px 30px -4px rgba(171, 14, 0, 0.4) !important;
-        }
-
-        /* ── Premium Modal (Fixing UI Layout & Close/Submit Button issues) ── */
+        /* ── Premium Modal Formatting ── */
         .clinic-form-overlay {
             position: fixed;
             inset: 0;
@@ -896,6 +839,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Make split booking modal wider */
+        .clinic-form-modal[style*="max-width: 900px"] {
+            max-width: 900px !important;
         }
 
         .form-modal-header {
@@ -1112,7 +1060,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <p><?php echo $is_en ? 'Analyze administrative obstacles, schedule private consultations, and co-design tailored growth solutions with leading industry experts.' : 'Nơi chẩn đoán điểm nghẽn, tháo gỡ khó khăn vận hành và cùng các chuyên gia hàng đầu thiết kế giải pháp đột phá cho doanh nghiệp của bạn.'; ?></p>
             
             <div class="lms-hero-actions">
-                <a href="#booking-form-anchor" class="btn-primary-premium">
+                <a href="javascript:void(0)" class="btn-primary-premium" onclick="openBookingModal()">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8ZM9 14H7V12H9V14ZM13 14H11V12H13V14ZM17 14H15V12H17V14ZM9 18H7V16H9V18ZM13 18H11V16H13V18ZM17 18H15V16H17V18Z"/></svg>
                     <?php echo $is_en ? 'Schedule 1:1 Consultation' : 'Đặt lịch Tư vấn 1:1'; ?>
                 </a>
@@ -1224,62 +1172,85 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ── Premium Booking Form Section (Đặt lịch Tham vấn 1:1) ── -->
-    <section class="booking-section-premium" id="booking-form-anchor">
-        <div class="booking-card-premium">
-            <h2 class="booking-form-title"><?php echo $is_en ? 'Book a Private Clinic Session (1:1)' : 'Đăng ký phòng chẩn bệnh 1:1'; ?></h2>
-            <p class="booking-form-subtitle"><?php echo $is_en ? 'Provide contact details and select your target doctor for a confidential clinic session.' : 'Để lại thông tin chẩn bệnh, chúng tôi sẽ sắp xếp buổi gặp mặt bảo mật 1:1 trực tiếp với Bác sĩ chuyên khoa.'; ?></p>
-
-            <form id="clinic-booking-form" onsubmit="handleBookingSubmit(event)">
-                <div class="clinic-form-group">
-                    <label class="clinic-form-label"><?php echo $is_en ? 'Select Doctor' : 'Chọn Bác sĩ chuyên khoa'; ?></label>
-                    <select class="clinic-form-select" id="booking-mentor" required>
-                        <option value=""><?php echo $is_en ? '-- Select Doctor --' : '-- Chọn Bác sĩ mong muốn --'; ?></option>
-                    </select>
-                </div>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-                    <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Your Name' : 'Họ và tên của bạn'; ?></label>
-                        <input type="text" class="clinic-form-input" id="booking-name" required />
-                    </div>
-                    <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Phone Number' : 'Số điện thoại liên hệ'; ?></label>
-                        <input type="tel" class="clinic-form-input" id="booking-phone" required />
+    <!-- ── Modal: Booking 1:1 (Split Layout With Doctor Details) ── -->
+    <div class="clinic-form-overlay" id="booking-modal-overlay">
+        <div class="clinic-form-modal" style="max-width: 900px;">
+            <!-- Modal Header -->
+            <div class="form-modal-header">
+                <h3 class="form-modal-title"><?php echo $is_en ? 'Book Private 1:1 Consultation' : 'Đăng ký phòng chẩn bệnh 1:1'; ?></h3>
+                <button class="form-modal-close" onclick="closeBookingModal()">&times;</button>
+            </div>
+            
+            <!-- Modal Body (Two columns on desktop) -->
+            <div class="booking-modal-grid">
+                <!-- Left: Doctor Profile Panel -->
+                <div class="booking-doctor-panel" id="booking-doctor-left-panel">
+                    <img id="booking-doctor-img" src="" alt="Doctor Avatar" />
+                    <div class="booking-doctor-meta">
+                        <span id="booking-doctor-degree" class="mentor-degree-badge"></span>
+                        <h4 id="booking-doctor-name"></h4>
+                        <span id="booking-doctor-specialty" class="mentor-specialty"></span>
+                        <p id="booking-doctor-job"></p>
                     </div>
                 </div>
+                
+                <!-- Right: Form Panel -->
+                <div class="booking-form-panel">
+                    <form id="clinic-booking-form" onsubmit="handleBookingSubmit(event)">
+                        <input type="hidden" id="booking-mentor-hidden" />
+                        
+                        <!-- Doctor select dropdown (Visible only in general booking) -->
+                        <div class="clinic-form-group" id="booking-select-group" style="display:none;">
+                            <label class="clinic-form-label"><?php echo $is_en ? 'Select Doctor' : 'Chọn Bác sĩ chuyên khoa'; ?></label>
+                            <select class="clinic-form-select" id="booking-mentor-select">
+                                <option value=""><?php echo $is_en ? '-- Select Doctor --' : '-- Chọn Bác sĩ mong muốn --'; ?></option>
+                            </select>
+                        </div>
 
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
-                    <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Email Address' : 'Địa chỉ Email'; ?></label>
-                        <input type="email" class="clinic-form-input" id="booking-email" required />
-                    </div>
-                    <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Company Name' : 'Tên doanh nghiệp'; ?></label>
-                        <input type="text" class="clinic-form-input" id="booking-company" required />
-                    </div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                            <div class="clinic-form-group">
+                                <label class="clinic-form-label"><?php echo $is_en ? 'Your Name' : 'Họ và tên'; ?></label>
+                                <input type="text" class="clinic-form-input" id="booking-name" required />
+                            </div>
+                            <div class="clinic-form-group">
+                                <label class="clinic-form-label"><?php echo $is_en ? 'Phone Number' : 'Số điện thoại'; ?></label>
+                                <input type="tel" class="clinic-form-input" id="booking-phone" required />
+                            </div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                            <div class="clinic-form-group">
+                                <label class="clinic-form-label"><?php echo $is_en ? 'Email' : 'Địa chỉ Email'; ?></label>
+                                <input type="email" class="clinic-form-input" id="booking-email" required />
+                            </div>
+                            <div class="clinic-form-group">
+                                <label class="clinic-form-label"><?php echo $is_en ? 'Company' : 'Tên doanh nghiệp'; ?></label>
+                                <input type="text" class="clinic-form-input" id="booking-company" required />
+                            </div>
+                        </div>
+
+                        <div class="clinic-form-group">
+                            <label class="clinic-form-label"><?php echo $is_en ? 'Preferred Time' : 'Thời gian mong muốn'; ?></label>
+                            <select class="clinic-form-select" id="booking-time" required>
+                                <option value="Cuối tuần (Sáng Chủ nhật)"><?php echo $is_en ? 'Weekend (Sunday Morning)' : 'Cuối tuần (Sáng Chủ nhật)'; ?></option>
+                                <option value="Buổi tối trong tuần (20h - 22h)"><?php echo $is_en ? 'Weekday Evening (20:00 - 22:00)' : 'Buổi tối trong tuần (20h - 22h)'; ?></option>
+                                <option value="Hẹn riêng linh hoạt"><?php echo $is_en ? 'Flexible Private Schedule' : 'Hẹn riêng linh hoạt'; ?></option>
+                            </select>
+                        </div>
+
+                        <div class="clinic-form-group">
+                            <label class="clinic-form-label"><?php echo $is_en ? 'Describe Bottlenecks' : 'Mô tả chi tiết điểm nghẽn của doanh nghiệp'; ?></label>
+                            <textarea class="clinic-form-textarea" id="booking-desc" rows="4" placeholder="<?php echo $is_en ? 'Outline the core issues or strategic problem...' : 'Mô tả ngắn gọn về khó khăn vận hành, tài chính, nhân sự...'; ?>" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary-premium" style="width:100%; justify-content:center; margin-top:8px;">
+                            <?php echo $is_en ? 'Confirm Booking' : 'Gửi yêu cầu'; ?>
+                        </button>
+                    </form>
                 </div>
-
-                <div class="clinic-form-group">
-                    <label class="clinic-form-label"><?php echo $is_en ? 'Preferred Time' : 'Thời gian mong muốn'; ?></label>
-                    <select class="clinic-form-select" id="booking-time" required>
-                        <option value="Cuối tuần (Sáng Chủ nhật)"><?php echo $is_en ? 'Weekend (Sunday Morning)' : 'Cuối tuần (Sáng Chủ nhật)'; ?></option>
-                        <option value="Buổi tối trong tuần (20h - 22h)"><?php echo $is_en ? 'Weekday Evening (20:00 - 22:00)' : 'Buổi tối trong tuần (20h - 22h)'; ?></option>
-                        <option value="Hẹn riêng linh hoạt"><?php echo $is_en ? 'Flexible Private Schedule' : 'Hẹn riêng linh hoạt'; ?></option>
-                    </select>
-                </div>
-
-                <div class="clinic-form-group">
-                    <label class="clinic-form-label"><?php echo $is_en ? 'Describe Bottlenecks / Pain Points' : 'Mô tả chi tiết điểm nghẽn của doanh nghiệp'; ?></label>
-                    <textarea class="clinic-form-textarea" id="booking-desc" rows="5" placeholder="<?php echo $is_en ? 'Briefly outline the operational pain point or strategic problem...' : 'Mô tả ngắn gọn về khó khăn vận hành, tài chính, nhân sự hoặc định hướng phát triển...'; ?>" required></textarea>
-                </div>
-
-                <button type="submit" class="btn-booking-submit">
-                    <?php echo $is_en ? 'Send Request' : 'Gửi yêu cầu'; ?>
-                </button>
-            </form>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- ── Modal: Add New Topic ── -->
     <div class="clinic-form-overlay" id="topic-modal-overlay">
@@ -1384,7 +1355,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         // Populate Lecturers Grid with NEW Premium Card Design
         function initDoctorGrid() {
             const container = document.getElementById('mentors-grid-container');
-            container.innerHTML = CLINIC_DOCTORS.map(doc => `
+            container.innerHTML = CLINIC_DOCTORS.map((doc, idx) => `
                 <div class="mentor-card-premium">
                     <div class="mentor-card-banner"></div>
                     <div class="mentor-card-content">
@@ -1398,7 +1369,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div style="padding: 0 28px 28px;">
                         <div class="mentor-card-actions">
-                            <button type="button" class="btn-card-booking" onclick="scrollToBooking('${doc.name}')">
+                            <button type="button" class="btn-card-booking" onclick="openBookingModal(${idx})">
                                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"/></svg>
                                 ${isEnglish ? 'Book 1:1' : 'Tư vấn 1:1'}
                             </button>
@@ -1413,22 +1384,67 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         function initFormSelects() {
-            const bookingSelect = document.getElementById('booking-mentor');
             const topicSelect = document.getElementById('topic-mentor');
+            const mentorSelect = document.getElementById('booking-mentor-select');
 
             CLINIC_DOCTORS.forEach(doc => {
                 const opt1 = new Option(`${doc.name} - ${doc.specialty}`, doc.name);
                 const opt2 = new Option(`${doc.name} - ${doc.specialty}`, doc.name);
-                bookingSelect.add(opt1);
-                topicSelect.add(opt2);
+                topicSelect.add(opt1);
+                mentorSelect.add(opt2);
             });
         }
 
-        // Scroll and select mentor
-        function scrollToBooking(doctorName) {
-            const select = document.getElementById('booking-mentor');
-            select.value = doctorName;
-            document.getElementById('booking-form-anchor').scrollIntoView({ behavior: 'smooth' });
+        // Open Booking Modal (Either specific doctor or general consultation)
+        function openBookingModal(doctorIndex = null) {
+            const selectGroup = document.getElementById('booking-select-group');
+            const selectElement = document.getElementById('booking-mentor-select');
+            const hiddenMentorInput = document.getElementById('booking-mentor-hidden');
+
+            const doctorImg = document.getElementById('booking-doctor-img');
+            const doctorDegree = document.getElementById('booking-doctor-degree');
+            const doctorName = document.getElementById('booking-doctor-name');
+            const doctorSpecialty = document.getElementById('booking-doctor-specialty');
+            const doctorJob = document.getElementById('booking-doctor-job');
+
+            if (doctorIndex !== null) {
+                // Booking a specific doctor
+                const doc = CLINIC_DOCTORS[doctorIndex];
+                doctorImg.src = doc.avatar;
+                doctorImg.alt = doc.name;
+                doctorImg.style.display = 'block';
+                doctorDegree.innerText = doc.title;
+                doctorName.innerText = doc.name;
+                doctorSpecialty.innerText = doc.specialty;
+                doctorJob.innerText = doc.job;
+
+                hiddenMentorInput.value = doc.name;
+                selectGroup.style.display = 'none';
+                selectElement.removeAttribute('required');
+            } else {
+                // General booking
+                doctorImg.src = "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp";
+                doctorImg.alt = "IDEAS Clinic";
+                doctorImg.style.display = 'block';
+                doctorDegree.innerText = "IDEAS";
+                doctorName.innerText = isEnglish ? "Corporate Doctor Board" : "Hội đồng Bác sĩ Doanh nghiệp";
+                doctorSpecialty.innerText = isEnglish ? "Expert Consultation & Diagnostics" : "Chẩn đoán & Tư vấn Quản trị Thực chiến";
+                doctorJob.innerText = isEnglish 
+                    ? "Schedule a private consultation. We will match your business with the most suitable doctor."
+                    : "Đăng ký đặt lịch tư vấn chung. Ban học vụ và hội đồng sẽ tiếp nhận hồ sơ bệnh án và cử bác sĩ chuyên khoa phù hợp nhất để tháo gỡ điểm nghẽn cùng bạn.";
+
+                hiddenMentorInput.value = "";
+                selectGroup.style.display = 'block';
+                selectElement.setAttribute('required', 'required');
+            }
+
+            document.getElementById('booking-modal-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal-overlay').style.display = 'none';
+            document.body.style.overflow = '';
         }
 
         function openAskDoctor(doctorName) {
@@ -1646,7 +1662,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         function handleBookingSubmit(e) {
             e.preventDefault();
 
-            const mentor = document.getElementById('booking-mentor').value;
+            let mentor = document.getElementById('booking-mentor-hidden').value;
+            const selectElement = document.getElementById('booking-mentor-select');
+            
+            if (!mentor) {
+                mentor = selectElement.value;
+            }
+
             const name = document.getElementById('booking-name').value;
             const phone = document.getElementById('booking-phone').value;
             const email = document.getElementById('booking-email').value;
@@ -1670,6 +1692,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     if (res.success) {
                         showToast(res.data);
                         document.getElementById('clinic-booking-form').reset();
+                        closeBookingModal();
                     } else {
                         showToast(res.data);
                     }
