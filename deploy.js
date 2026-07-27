@@ -31,7 +31,11 @@ const patterns = [
     { regex: /script\.min\.js\?v=[a-zA-Z0-9]+/g, replace: `script.min.js?v=${newVersion}` },
     { regex: /booking-modal\.min\.css\?v=[a-zA-Z0-9]+/g, replace: `booking-modal.min.css?v=${newVersion}` },
     { regex: /booking-modal\.min\.js\?v=[a-zA-Z0-9]+/g, replace: `booking-modal.min.js?v=${newVersion}` },
-    { regex: /variable\.js\?v=[a-zA-Z0-9]+/g, replace: `variable.js?v=${newVersion}` }
+    { regex: /variable\.js\?v=[a-zA-Z0-9]+/g, replace: `variable.js?v=${newVersion}` },
+    { regex: /variables\.js\?v=[a-zA-Z0-9]+/g, replace: `variables.js?v=${newVersion}` },
+    { regex: /variables\.min\.js\?v=[a-zA-Z0-9]+/g, replace: `variables.min.js?v=${newVersion}` },
+    { regex: /variables-en\.js\?v=[a-zA-Z0-9]+/g, replace: `variables-en.js?v=${newVersion}` },
+    { regex: /variables-en\.min\.js\?v=[a-zA-Z0-9]+/g, replace: `variables-en.min.js?v=${newVersion}` }
 ];
 
 let updatedHtmlCount = 0;
