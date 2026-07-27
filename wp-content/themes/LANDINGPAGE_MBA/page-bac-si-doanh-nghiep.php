@@ -168,6 +168,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             -webkit-backdrop-filter: blur(12px);
         }
 
+        .mobile-only {
+            display: none !important;
+        }
+
         .lms-hero h1 {
             font-size: clamp(2.4rem, 5.5vw, 3.8rem);
             font-weight: 800;
@@ -1445,6 +1449,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Responsive Styling ── */
         @media (max-width: 768px) {
+            .mobile-only {
+                display: block !important;
+            }
             .lms-hero {
                 padding: 160px 16px 80px !important;
             }
@@ -1624,7 +1631,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <?php echo $is_en ? 'Corporate Doctor Board' : 'Hội đồng Bác sĩ Doanh nghiệp'; ?>
             </div>
             
-            <h1><?php echo $is_en ? 'Corporate <span>Clinic Board</span>' : 'Hội đồng <span>Bác sĩ Doanh nghiệp</span>'; ?></h1>
+            <h1><?php echo $is_en ? 'Corporate <br class="mobile-only"><span>Clinic Board</span>' : 'Hội đồng <br class="mobile-only"><span>Bác sĩ Doanh nghiệp</span>'; ?></h1>
             <span class="verify-slogan">"Khơi thông Điểm nghẽn – Kiến tạo Tăng trưởng"</span>
             
             <p><?php echo $is_en ? 'Analyze administrative obstacles, schedule private consultations, and co-design tailored growth solutions with leading industry experts.' : 'Nơi chẩn đoán điểm nghẽn, tháo gỡ khó khăn vận hành và cùng các chuyên gia hàng đầu thiết kế giải pháp đột phá cho doanh nghiệp của bạn.'; ?></p>
