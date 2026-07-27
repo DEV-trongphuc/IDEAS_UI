@@ -1642,7 +1642,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
                 <div>
                     <div style="display: flex; align-items: baseline; gap: 10px; margin: 10px 0 6px;">
-                        <h2 class="stat-card-number" style="margin: 0;">124 ca</h2>
+                        <h2 class="stat-card-number" id="stat-total-cases" style="margin: 0;">124 ca</h2>
                         <span style="font-size: 0.85rem; font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.08); padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 2px; transform: translateY(-3px);">
                             <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
                             +12%
@@ -1661,7 +1661,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </div>
                 <div>
-                    <h2 class="stat-card-number">92%</h2>
+                    <h2 class="stat-card-number" id="stat-resolved-rate">92%</h2>
                     <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden; margin: 8px 0 12px; position: relative;">
                         <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 92%; background: linear-gradient(90deg, #f43f5e 0%, #ab0e00 100%); border-radius: 3px;"></div>
                     </div>
