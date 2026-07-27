@@ -226,15 +226,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 30px;
         }
 
-        @media (min-width: 576px) {
+        @media (min-width: 768px) {
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1630,6 +1624,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ── Section: Dashboard Thống kê Bệnh án ── -->
     <section class="clinic-stats-section">
+        <!-- Section Header to make it taller and fuller -->
+        <div class="section-header-premium" style="text-align: center; margin-bottom: 50px;">
+            <span style="font-size: 0.85rem; font-weight: 800; color: var(--clr-primary); text-transform: uppercase; letter-spacing: 0.15em; display: block; margin-bottom: 8px;">BÁO CÁO HOẠT ĐỘNG THỰC TẾ</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--clr-navy); margin: 0 0 12px; letter-spacing: -0.01em;">Chỉ số Hội chẩn & Tỷ lệ Phục hồi</h2>
+            <p style="font-size: 0.98rem; color: #64748b; max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 500;">Dữ liệu thống kê thực tế được tổng hợp từ các hoạt động hội chẩn lâm sàng và trị liệu điểm nghẽn doanh nghiệp từ Hội đồng.</p>
+        </div>
+
         <div class="stats-grid">
             <!-- Card 1 -->
             <div class="stat-card-premium">
@@ -1640,7 +1641,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </div>
                 <div>
-                    <h2 class="stat-card-number" id="stat-total-cases">124 ca</h2>
+                    <div style="display: flex; align-items: baseline; gap: 10px; margin: 10px 0 6px;">
+                        <h2 class="stat-card-number" style="margin: 0;">124 ca</h2>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.08); padding: 2px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 2px; transform: translateY(-3px);">
+                            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+                            +12%
+                        </span>
+                    </div>
                     <p class="stat-card-desc"><?php echo $is_en ? 'Real-world business case files and private clinic requests successfully processed.' : 'Hồ sơ bệnh án và yêu cầu khám bệnh riêng biệt đã được Hội đồng xử lý thành công.'; ?></p>
                 </div>
             </div>
@@ -1654,27 +1661,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </div>
                 <div>
-                    <h2 class="stat-card-number" id="stat-resolved-rate">92%</h2>
+                    <h2 class="stat-card-number">92%</h2>
+                    <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden; margin: 8px 0 12px; position: relative;">
+                        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 92%; background: linear-gradient(90deg, var(--clr-primary) 0%, #10b981 100%); border-radius: 3px;"></div>
+                    </div>
                     <p class="stat-card-desc"><?php echo $is_en ? 'Mentored enterprises report measurable operational improvements and structure recovery.' : 'Tỷ lệ doanh nghiệp cải thiện hiệu suất vận hành vượt bậc sau khi áp dụng giải pháp.'; ?></p>
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="stat-card-premium">
-                <div class="stat-card-header">
-                    <span class="stat-card-label"><?php echo $is_en ? 'Consultation Time' : 'Thời gian Chẩn trị'; ?></span>
-                    <div class="stat-icon-wrapper" style="background: rgba(245, 158, 11, 0.08); color: #f59e0b;">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="stat-card-number" id="stat-consult-time" style="color: #f59e0b;">72 giờ</h2>
-                    <p class="stat-card-desc"><?php echo $is_en ? 'Detailed diagnostic reports and custom execution roadmaps delivered within 72 hours.' : 'Báo cáo chẩn đoán chi tiết và đề xuất giải pháp thực chiến được gửi tới doanh nghiệp trong vòng 72 giờ.'; ?></p>
-                </div>
-            </div>
-
-            <!-- Card 4 (Premium Donut Chart Panel) -->
-            <div class="stat-card-premium" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; justify-content: center;">
+            <!-- Card 3 (Premium Donut Chart Panel) -->
+            <div class="stat-card-premium" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; justify-content: center; min-height: 220px;">
                 <div class="chart-container-donut">
                     <!-- SVG Circular Donut Chart -->
                     <svg width="120" height="120" viewBox="0 0 42 42" class="donut">
@@ -1736,61 +1732,54 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <div class="bottleneck-grid">
-                <!-- Left: Flow Diagram Timeline & Image Decor -->
-                <div class="bottleneck-left-col">
-                    <div class="flow-container-vertical">
-                        <!-- Node 1 -->
-                        <div class="bottleneck-flow-node active" onclick="selectBottleneck('strategy', this)">
-                            <div class="node-icon-wrapper">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-                            </div>
-                            <div class="node-content-card">
-                                <span class="node-badge-alert"><?php echo $is_en ? 'Direction Pain Point' : 'Điểm nghẽn Chiến lược'; ?></span>
-                                <h3 class="node-title-label"><?php echo $is_en ? 'Strategic Direction & Shareholders' : 'Chiến lược & Định hướng Cổ đông'; ?></h3>
-                                <p class="node-short-desc"><?php echo $is_en ? 'Conflict in leadership viewpoints, missing target structures (KPIs/OKRs).' : 'Mâu thuẫn tư duy của nhà sáng lập, thiếu mục tiêu đo lường KPIs và OKRs cụ thể.'; ?></p>
-                            </div>
+                <!-- Left: Flow Diagram Timeline -->
+                <div class="flow-container-vertical">
+                    <!-- Node 1 -->
+                    <div class="bottleneck-flow-node active" onclick="selectBottleneck('strategy', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
                         </div>
-
-                        <!-- Node 2 -->
-                        <div class="bottleneck-flow-node" onclick="selectBottleneck('digital', this)">
-                            <div class="node-icon-wrapper">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                            </div>
-                            <div class="node-content-card">
-                                <span class="node-badge-alert"><?php echo $is_en ? 'Operational Bottleneck' : 'Điểm nghẽn Vận hành'; ?></span>
-                                <h3 class="node-title-label"><?php echo $is_en ? 'Digital Transformation & Manual Process' : 'Chuyển đổi số & Vận hành Thủ công'; ?></h3>
-                                <p class="node-short-desc"><?php echo $is_en ? 'Fragmented systems, missing AI integration, manual repetitive workflow.' : 'Hệ thống rời rạc, chưa ứng dụng AI và tự động hóa quy trình sản xuất kinh doanh.'; ?></p>
-                            </div>
-                        </div>
-
-                        <!-- Node 3 -->
-                        <div class="bottleneck-flow-node" onclick="selectBottleneck('hr', this)">
-                            <div class="node-icon-wrapper">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                            </div>
-                            <div class="node-content-card">
-                                <span class="node-badge-alert"><?php echo $is_en ? 'Talent Drain' : 'Điểm nghẽn Nhân sự'; ?></span>
-                                <h3 class="node-title-label"><?php echo $is_en ? 'HR Retention & Executive Level' : 'Chảy máu chất xám & Quản lý trung cấp'; ?></h3>
-                                <p class="node-short-desc"><?php echo $is_en ? 'Lack of internal training, poor reward structure, high staff turnover.' : 'Nhân sự cấp trung rời bỏ, cơ chế đãi ngộ và lộ trình phát triển thiếu bền vững.'; ?></p>
-                            </div>
-                        </div>
-
-                        <!-- Node 4 -->
-                        <div class="bottleneck-flow-node" onclick="selectBottleneck('finance', this)">
-                            <div class="node-icon-wrapper">
-                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            </div>
-                            <div class="node-content-card">
-                                <span class="node-badge-alert"><?php echo $is_en ? 'Capital & Cash flow' : 'Điểm nghẽn Tài chính'; ?></span>
-                                <h3 class="node-title-label"><?php echo $is_en ? 'Cash Flow Shortage & Valuation' : 'Dòng tiền & Cấu trúc thương vụ gọi vốn'; ?></h3>
-                                <p class="node-short-desc"><?php echo $is_en ? 'Short-term liquidity crisis, faulty valuation models for funding.' : 'Đứt gãy dòng tiền ngắn hạn, định giá chưa chuẩn xác khi gọi vốn đầu tư.'; ?></p>
-                            </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert"><?php echo $is_en ? 'Direction Pain Point' : 'Điểm nghẽn Chiến lược'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'Strategic Direction & Shareholders' : 'Chiến lược & Định hướng Cổ đông'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Conflict in leadership viewpoints, missing target structures (KPIs/OKRs).' : 'Mâu thuẫn tư duy của nhà sáng lập, thiếu mục tiêu đo lường KPIs và OKRs cụ thể.'; ?></p>
                         </div>
                     </div>
 
-                    <!-- Vector Meeting/Workshop Illustration Decor -->
-                    <div class="bottleneck-image-decor">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/Buffet-AI-R.webp" alt="IDEAS Business Diagnosis & Consultation Workshop">
+                    <!-- Node 2 -->
+                    <div class="bottleneck-flow-node" onclick="selectBottleneck('digital', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert"><?php echo $is_en ? 'Operational Bottleneck' : 'Điểm nghẽn Vận hành'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'Digital Transformation & Manual Process' : 'Chuyển đổi số & Vận hành Thủ công'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Fragmented systems, missing AI integration, manual repetitive workflow.' : 'Hệ thống rời rạc, chưa ứng dụng AI và tự động hóa quy trình sản xuất kinh doanh.'; ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Node 3 -->
+                    <div class="bottleneck-flow-node" onclick="selectBottleneck('hr', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert"><?php echo $is_en ? 'Talent Drain' : 'Điểm nghẽn Nhân sự'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'HR Retention & Executive Level' : 'Chảy máu chất xám & Quản lý trung cấp'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Lack of internal training, poor reward structure, high staff turnover.' : 'Nhân sự cấp trung rời bỏ, cơ chế đãi ngộ và lộ trình phát triển thiếu bền vững.'; ?></p>
+                        </div>
+                    </div>
+
+                    <!-- Node 4 -->
+                    <div class="bottleneck-flow-node" onclick="selectBottleneck('finance', this)">
+                        <div class="node-icon-wrapper">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div class="node-content-card">
+                            <span class="node-badge-alert"><?php echo $is_en ? 'Capital & Cash flow' : 'Điểm nghẽn Tài chính'; ?></span>
+                            <h3 class="node-title-label"><?php echo $is_en ? 'Cash Flow Shortage & Valuation' : 'Dòng tiền & Cấu trúc thương vụ gọi vốn'; ?></h3>
+                            <p class="node-short-desc"><?php echo $is_en ? 'Short-term liquidity crisis, faulty valuation models for funding.' : 'Đứt gãy dòng tiền ngắn hạn, định giá chưa chuẩn xác khi gọi vốn đầu tư.'; ?></p>
+                        </div>
                     </div>
                 </div>
 
