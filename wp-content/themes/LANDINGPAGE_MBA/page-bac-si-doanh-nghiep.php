@@ -483,22 +483,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* Prescription Panel styling */
         .prescription-board {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #ffffff;
+            background: #ffffff;
+            color: #334155;
             border-radius: 24px;
             padding: 36px;
-            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
             display: flex;
             flex-direction: column;
             position: sticky;
             top: 100px;
             min-height: 480px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1.5px solid #e2e8f0;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .presc-header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            border-bottom: 1px solid #e2e8f0;
             padding-bottom: 20px;
             margin-bottom: 24px;
         }
@@ -507,7 +507,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
-            color: #ffcccc;
+            color: var(--clr-primary);
             letter-spacing: 0.1em;
             display: block;
             margin-bottom: 8px;
@@ -517,7 +517,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 1.4rem;
             font-weight: 800;
             margin: 0;
-            color: #ffffff;
+            color: var(--clr-navy);
         }
 
         .presc-body {
@@ -532,7 +532,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.8rem;
             font-weight: 800;
             text-transform: uppercase;
-            color: #94a3b8;
+            color: #64748b;
             letter-spacing: 0.05em;
             margin-bottom: 14px;
             display: block;
@@ -549,7 +549,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: rgba(239, 68, 68, 0.2);
+            background: rgba(239, 68, 68, 0.12);
             color: #ef4444;
             display: flex;
             align-items: center;
@@ -561,14 +561,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .presc-bullet-check.success {
-            background: rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.12);
             color: #10b981;
         }
 
         .presc-text {
             font-size: 0.88rem;
             line-height: 1.5;
-            color: #cbd5e1;
+            color: #475569;
             margin: 0;
             font-weight: 500;
             text-align: left;
