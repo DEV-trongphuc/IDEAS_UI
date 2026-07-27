@@ -342,9 +342,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Section: Bottleneck & Pain Point Maps (NEW) ── */
         .bottleneck-section {
             padding: 80px 20px;
-            background: #ffffff;
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
+            background: #080405;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .bottleneck-section .section-header-premium h2 {
+            color: #ffffff !important;
+        }
+
+        .bottleneck-section .section-header-premium p {
+            color: #94a3b8 !important;
         }
 
         .bottleneck-container {
@@ -385,7 +393,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             top: 20px;
             bottom: 20px;
             width: 3px;
-            background: linear-gradient(180deg, #ab0e00 0%, #3b82f6 33%, #0f172a 66%, #ab0e00 100%);
+            background: linear-gradient(180deg, #ab0e00 0%, #3b82f6 33%, #ffffff 66%, #ab0e00 100%);
             background-size: 100% 200%;
             animation: flowLine 4s linear infinite;
             opacity: 0.6;
@@ -406,14 +414,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 58px;
             height: 58px;
             border-radius: 18px;
-            background: #ffffff;
-            border: 2px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: #64748b;
-            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.05);
+            color: #94a3b8;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -432,8 +440,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .node-content-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 20px;
             padding: 24px;
             flex-grow: 1;
@@ -442,22 +450,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .bottleneck-flow-node:hover .node-content-card {
             transform: translateX(6px);
-            background: #ffffff;
-            border-color: #cbd5e1;
-            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5);
         }
 
         .bottleneck-flow-node.active .node-content-card {
-            background: #ffffff;
-            border-color: rgba(171, 14, 0, 0.25);
-            box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(171, 14, 0, 0.4);
+            box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.25);
         }
 
         .node-badge-alert {
             font-size: 0.72rem;
             font-weight: 800;
-            background: rgba(171, 14, 0, 0.08);
-            color: var(--clr-primary);
+            background: rgba(171, 14, 0, 0.15);
+            color: #ff8888;
             padding: 2px 8px;
             border-radius: 4px;
             text-transform: uppercase;
@@ -469,13 +477,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .node-title-label {
             font-size: 1.15rem;
             font-weight: 800;
-            color: var(--clr-navy);
+            color: #ffffff;
             margin: 0 0 8px;
         }
 
         .node-short-desc {
             font-size: 0.88rem;
-            color: #64748b;
+            color: #94a3b8;
             line-height: 1.6;
             margin: 0;
             font-weight: 500;
@@ -1555,7 +1563,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="bottleneck-section">
         <div class="bottleneck-container">
             <div class="section-header-premium">
-                <h2><?php echo $is_en ? 'Bottlenecks & Diagnostic Flow' : 'Bản đồ Điểm nghẽn Cổ chai Doanh nghiệp'; ?></h2>
+                <h2><?php echo $is_en ? 'Corporate Bottlenecks' : 'Điểm nghẽn Cổ chai Doanh nghiệp'; ?></h2>
                 <p><?php echo $is_en ? 'Explore typical business bottlenecks and corresponding academic prescriptions designed by IDEAS.' : 'Phân tích các triệu chứng bệnh lý phổ biến gây đình trệ và lộ trình chẩn trị thực chiến từ Hội đồng Bác sĩ Doanh nghiệp.'; ?></p>
             </div>
 

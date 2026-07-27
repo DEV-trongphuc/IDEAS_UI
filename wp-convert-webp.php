@@ -288,35 +288,9 @@ if (isset($_GET['action'])) {
         exit;
     }
 
-    // I. Delete originals batch
+    // I. Delete originals batch (DISABLED TO PREVENT IMAGE LOSS)
     if ($_GET['action'] === 'delete_originals_batch') {
-        $data = json_decode(file_get_contents('php://input'), true);
-        $files = isset($data['files']) ? $data['files'] : [];
-        
-        $success_count = 0;
-        $fail_count = 0;
-        
-        foreach ($files as $file) {
-            // Verify path safety
-            if (strpos($file, '..') === false && strpos($file, 'wp-content/uploads') !== false) {
-                $dir = pathinfo($file, PATHINFO_DIRNAME);
-                $filename = pathinfo($file, PATHINFO_FILENAME);
-                $destination = $dir . '/' . $filename . '.webp';
-                
-                if (file_exists($destination) && filesize($destination) > 0) {
-                    if (@unlink($file)) {
-                        $success_count++;
-                    } else {
-                        $fail_count++;
-                    }
-                } else {
-                    $fail_count++;
-                }
-            } else {
-                $fail_count++;
-            }
-        }
-        echo json_encode(['success' => true, 'deleted' => $success_count, 'failed' => $fail_count]);
+        echo json_encode(['success' => false, 'message' => 'Tính năng xóa tệp gốc đã bị khóa để bảo vệ an toàn dữ liệu ảnh!']);
         exit;
     }
     
