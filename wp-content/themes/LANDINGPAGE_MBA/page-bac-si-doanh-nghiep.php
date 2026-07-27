@@ -25,10 +25,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Google Identity Services Library for Google Login -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     
-    <!-- Premium Fonts matching Index Page -->
+    <!-- Premium Font (Plus Jakarta Sans) matching Index Page -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -39,17 +39,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             --clr-bg-dark: #080405;
             --clr-glass-bg: rgba(255, 255, 255, 0.03);
             --clr-glass-border: rgba(255, 255, 255, 0.08);
-            --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            --font-headings: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
             --shadow-premium: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
         }
 
-        body, p, span, label, input, select, textarea, button, a {
-            font-family: var(--font-sans) !important;
-        }
-
-        h1, h2, h3, h4, h5, h6, .lms-hero h1, .section-header-premium h2, .booking-form-title, .mentor-name {
-            font-family: var(--font-headings) !important;
+        /* Enforce Plus Jakarta Sans for every single element */
+        * {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+            box-sizing: border-box;
         }
 
         body {
@@ -60,14 +56,64 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow-x: hidden;
         }
 
+        /* ── BUTTON STYLES (Fixing Sunken UI Issues) ── */
+        .btn-primary-premium {
+            background: linear-gradient(135deg, #ab0e00 0%, #8e0b00 100%) !important;
+            color: #ffffff !important;
+            padding: 14px 30px !important;
+            font-size: 0.92rem !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            border: none !important;
+            cursor: pointer !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            box-shadow: 0 10px 20px -5px rgba(171, 14, 0, 0.35) !important;
+            text-decoration: none !important;
+        }
+
+        .btn-primary-premium:hover {
+            background: linear-gradient(135deg, #be1000 0%, #9e0c00 100%) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 15px 25px -4px rgba(171, 14, 0, 0.45) !important;
+        }
+
+        .btn-secondary-premium {
+            background: rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
+            border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+            padding: 13px 30px !important;
+            font-size: 0.92rem !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            cursor: pointer !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            text-decoration: none !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+        }
+
+        .btn-secondary-premium:hover {
+            background: rgba(255, 255, 255, 0.18) !important;
+            border-color: rgba(255, 255, 255, 0.8) !important;
+            transform: translateY(-2px) !important;
+        }
+
         /* ── LMS-Style Hero Section ── */
         .lms-hero {
             position: relative;
-            padding: 200px 20px 120px;
+            padding: 220px 20px 140px;
             text-align: center;
             overflow: hidden;
             background-color: var(--clr-bg-dark);
-            min-height: 70vh;
+            min-height: 55vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -164,57 +210,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 50px;
         }
 
-        /* Stats indicators at Hero Bottom */
-        .lms-hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .lms-stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 18px 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            min-width: 180px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .lms-stat-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .lms-stat-num {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #ff3b30;
-            display: block;
-            margin-bottom: 5px;
-            background: linear-gradient(135deg, #ff6b6b, #ff3b30);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .lms-stat-lbl {
-            font-size: 0.78rem;
-            color: #cbd5e1;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* ── Section: Dashboard Thống kê Điểm nghẽn ── */
+        /* ── Section: Dashboard Thống kê Bệnh án ── */
         .clinic-stats-section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -340,7 +338,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-shrink: 0;
         }
 
-        /* ── Section: Expert Council (Hội đồng chuyên gia) ── */
+        /* ── Section: Expert Council Grid ── */
         .mentors-section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -372,44 +370,54 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .mentors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .mentor-card-premium {
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 24px;
-            padding: 28px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
+            min-height: 480px;
         }
 
         .mentor-card-premium:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.08);
-            border-color: rgba(171, 14, 0, 0.2);
+            box-shadow: 0 20px 35px -10px rgba(171, 14, 0, 0.12);
+            border-color: rgba(171, 14, 0, 0.25);
         }
 
-        .mentor-card-top {
+        .mentor-card-banner {
+            height: 100px;
+            background: linear-gradient(135deg, #0f172a 0%, #ab0e00 100%);
+            position: relative;
+        }
+
+        .mentor-card-content {
+            padding: 0 28px 28px;
             display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
         }
 
         .mentor-avatar-wrapper {
-            position: relative;
-            width: 96px;
-            height: 96px;
-            border-radius: 20px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
             overflow: hidden;
-            flex-shrink: 0;
-            border: 3px solid #f8fafc;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 4px solid #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-top: -50px;
+            margin-bottom: 16px;
+            background: #ffffff;
         }
 
         .mentor-avatar-wrapper img {
@@ -418,39 +426,33 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             object-fit: cover;
         }
 
-        .mentor-meta {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
         .mentor-degree-badge {
-            align-self: flex-start;
-            padding: 4px 8px;
-            background: rgba(171, 14, 0, 0.05);
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(171, 14, 0, 0.06);
             color: var(--clr-primary);
             font-size: 0.72rem;
             font-weight: 700;
-            border-radius: 6px;
-            margin-bottom: 6px;
+            border-radius: 100px;
+            margin-bottom: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.05em;
         }
 
         .mentor-name {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--clr-navy);
-            margin: 0 0 6px;
+            font-size: 1.3rem !important;
+            font-weight: 800 !important;
+            color: var(--clr-navy) !important;
+            margin: 0 0 6px !important;
             letter-spacing: -0.01em;
         }
 
         .mentor-specialty {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: #475569;
-            letter-spacing: 0.01em;
-            display: inline-flex;
+            margin-bottom: 12px;
+            display: flex;
             align-items: center;
             gap: 4px;
         }
@@ -465,16 +467,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .mentor-job {
             font-size: 0.85rem;
             color: #64748b;
-            line-height: 1.55;
-            margin: 12px 0 0;
+            line-height: 1.6;
+            margin: 8px 0 0;
+            font-weight: 500;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            font-weight: 500;
         }
 
         .mentor-card-actions {
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
@@ -484,51 +487,53 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .btn-card-booking {
-            background: var(--clr-primary);
+            background: var(--clr-primary) !important;
             color: #ffffff !important;
-            border: none;
-            padding: 11px 16px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
+            border: none !important;
+            padding: 12px 16px !important;
+            font-size: 0.82rem !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            text-align: center !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
+            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.15) !important;
         }
 
         .btn-card-booking:hover {
-            background: var(--clr-primary-hover);
-            transform: translateY(-1px);
+            background: var(--clr-primary-hover) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 6px 16px rgba(171, 14, 0, 0.25) !important;
         }
 
         .btn-card-ask {
-            background: #ffffff;
+            background: #ffffff !important;
             color: var(--clr-navy) !important;
-            border: 1.5px solid #cbd5e1;
-            padding: 10px 16px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
+            border: 1.5px solid #cbd5e1 !important;
+            padding: 11px 16px !important;
+            font-size: 0.82rem !important;
+            font-weight: 700 !important;
+            border-radius: 12px !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            text-align: center !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 6px !important;
         }
 
         .btn-card-ask:hover {
-            background: #f8fafc;
-            border-color: var(--clr-navy);
-            transform: translateY(-1px);
+            background: #f8fafc !important;
+            border-color: var(--clr-navy) !important;
+            transform: translateY(-1px) !important;
         }
 
-        /* ── Clinic Forum Section ── */
+        /* ── Clinic Forum Section (Full Width Layout) ── */
         .clinic-forum-section {
             background: #ffffff;
             border-top: 1px solid #e2e8f0;
@@ -539,15 +544,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .forum-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        @media (min-width: 992px) {
-            .forum-container {
-                grid-template-columns: 2fr 1fr;
-            }
+            width: 100%;
         }
 
         .forum-header-bar {
@@ -577,7 +574,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1.5px solid #cbd5e1;
             border-radius: 14px;
             font-size: 0.88rem;
-            font-family: inherit;
             transition: all 0.2s ease;
             box-sizing: border-box;
             font-weight: 500;
@@ -753,79 +749,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #f8fafc;
         }
 
-        /* ── Right Column: Sidebar ── */
-        .forum-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .sidebar-card-premium {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 24px;
-        }
-
-        .sidebar-card-premium h3 {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--clr-navy);
-            margin: 0 0 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sidebar-card-premium h3 svg {
-            color: var(--clr-primary);
-        }
-
-        .sidebar-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .sidebar-list-item {
-            font-size: 0.82rem;
-            line-height: 1.5;
-            color: #475569;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .sidebar-list-item:last-child {
-            border: none;
-            padding-bottom: 0;
-        }
-
-        .sidebar-case-title {
-            font-weight: 700;
-            color: var(--clr-navy);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .sidebar-case-title:hover {
-            color: var(--clr-primary);
-        }
-
-        .sidebar-case-status {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #10b981; /* Green */
-        }
-
-        /* ── Premium Booking Form Section (Cải tiến giao diện) ── */
+        /* ── Premium Booking Form Section ── */
         .booking-section-premium {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             border-radius: 32px;
@@ -905,7 +829,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             border-radius: 12px;
             font-size: 0.92rem;
-            font-family: inherit;
             box-sizing: border-box;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             color: var(--clr-navy);
@@ -920,39 +843,39 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .btn-booking-submit {
-            background: linear-gradient(135deg, #ab0e00 0%, #8e0b00 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #8e0b00 100%) !important;
             color: #ffffff !important;
-            padding: 16px 32px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 14px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px -5px rgba(171, 14, 0, 0.3);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            margin-top: 10px;
+            padding: 16px 32px !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            border-radius: 14px !important;
+            border: none !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 10px 25px -5px rgba(171, 14, 0, 0.3) !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            width: 100% !important;
+            margin-top: 10px !important;
         }
 
         .btn-booking-submit:hover {
-            background: linear-gradient(135deg, #be1000 0%, #9e0c00 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px -4px rgba(171, 14, 0, 0.4);
+            background: linear-gradient(135deg, #be1000 0%, #9e0c00 100%) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 15px 30px -4px rgba(171, 14, 0, 0.4) !important;
         }
 
-        /* ── Modal & Forms ── */
+        /* ── Premium Modal (Fixing UI Layout & Close/Submit Button issues) ── */
         .clinic-form-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 9999;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 99999;
             display: none;
             align-items: center;
             justify-content: center;
@@ -963,12 +886,72 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             border-radius: 24px;
             width: 100%;
-            max-width: 600px;
+            max-width: 620px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 30px 60px -10px rgba(15, 23, 42, 0.25);
             position: relative;
+            border: 1px solid #e2e8f0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
             animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .form-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 30px;
+            border-bottom: 1px solid #f1f5f9;
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            z-index: 10;
+        }
+
+        .form-modal-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--clr-navy);
+            margin: 0;
+        }
+
+        .form-modal-close {
+            background: #f1f5f9;
+            border: none;
+            font-size: 1.2rem;
+            color: #64748b;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            padding: 0;
+        }
+
+        .form-modal-close:hover {
+            background: #e2e8f0;
+            color: var(--clr-navy);
+        }
+
+        .form-modal-body {
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Google Login Indicator */
@@ -981,7 +964,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-direction: column;
             align-items: center;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-align: center;
         }
 
@@ -1071,7 +1054,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1.5px solid #cbd5e1;
             border-radius: 8px;
             font-size: 0.82rem;
-            font-family: inherit;
         }
 
         .btn-comment-submit {
@@ -1121,10 +1103,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="lms-hero-container">
             <div class="lms-hero-badge">
                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 10.5V20H5V10.5H3V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V10.5H19ZM12 18C9.79 18 8 16.21 8 14C8 11.79 9.79 10 12 10C14.21 10 16 11.79 16 14C16 16.21 14.21 18 12 18ZM10.5 14C10.5 14.83 11.17 15.5 12 15.5C12.83 15.5 13.5 14.83 13.5 14C13.5 13.17 12.83 12.5 12 12.5C11.17 12.5 10.5 13.17 10.5 14ZM12 2L2 6.5V10.5H4V7.4L12 3.8L20 7.4V10.5H22V6.5L12 2Z"/></svg>
-                <?php echo $is_en ? 'Executive Mentor Council' : 'Hội đồng Chuyên gia Thực chiến'; ?>
+                <?php echo $is_en ? 'Corporate Doctor Board' : 'Hội đồng Bác sĩ Doanh nghiệp'; ?>
             </div>
             
-            <h1><?php echo $is_en ? 'Corporate <span>Advisory Board</span>' : 'Hội đồng <span>Tư vấn Doanh nghiệp</span>'; ?></h1>
+            <h1><?php echo $is_en ? 'Corporate <span>Clinic Board</span>' : 'Hội đồng <span>Bác sĩ Doanh nghiệp</span>'; ?></h1>
             <span class="verify-slogan">"Khơi thông Điểm nghẽn – Kiến tạo Tăng trưởng"</span>
             
             <p><?php echo $is_en ? 'Analyze administrative obstacles, schedule private consultations, and co-design tailored growth solutions with leading industry experts.' : 'Nơi chẩn đoán điểm nghẽn, tháo gỡ khó khăn vận hành và cùng các chuyên gia hàng đầu thiết kế giải pháp đột phá cho doanh nghiệp của bạn.'; ?></p>
@@ -1134,31 +1116,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8ZM9 14H7V12H9V14ZM13 14H11V12H13V14ZM17 14H15V12H17V14ZM9 18H7V16H9V18ZM13 18H11V16H13V18ZM17 18H15V16H17V18Z"/></svg>
                     <?php echo $is_en ? 'Schedule 1:1 Consultation' : 'Đặt lịch Tư vấn 1:1'; ?>
                 </a>
-                <a href="#clinic-forum-anchor" class="btn-secondary-premium" style="background:transparent; color:#ffffff !important; border-color:rgba(255,255,255,0.3);">
+                <a href="#clinic-forum-anchor" class="btn-secondary-premium">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16ZM6 12H18V14H6V12ZM6 9H18V11H6V9ZM6 6H18V8H6V6Z"/></svg>
                     <?php echo $is_en ? 'Browse Case Studies' : 'Diễn đàn Thảo luận'; ?>
                 </a>
             </div>
-
-            <!-- LMS-Style Stats Row -->
-            <div class="lms-hero-stats">
-                <div class="lms-stat-card">
-                    <span class="lms-stat-num">1.200+</span>
-                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Businesses Mentored' : 'Doanh nghiệp đồng hành'; ?></span>
-                </div>
-                <div class="lms-stat-card">
-                    <span class="lms-stat-num">15</span>
-                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Senior Mentors' : 'Chuyên gia thực chiến'; ?></span>
-                </div>
-                <div class="lms-stat-card">
-                    <span class="lms-stat-num">92%</span>
-                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Obstacles Solved' : 'Giải quyết điểm nghẽn'; ?></span>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- ── Section: Dashboard Thống kê Điểm nghẽn (Ảnh đồ) ── -->
+    <!-- ── Section: Dashboard Thống kê Bệnh án ── -->
     <section class="clinic-stats-section">
         <div class="stats-grid">
             <div class="stat-card-premium">
@@ -1170,7 +1136,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
                 <div>
                     <h2 class="stat-card-number" id="stat-total-cases">1,247</h2>
-                    <p class="stat-card-desc"><?php echo $is_en ? 'Real-world business case files and private consultation requests successfully processed.' : 'Hồ sơ điểm nghẽn và yêu cầu tham vấn riêng biệt đã được Hội đồng xử lý thành công.'; ?></p>
+                    <p class="stat-card-desc"><?php echo $is_en ? 'Real-world business case files and private clinic requests successfully processed.' : 'Hồ sơ bệnh án và yêu cầu khám bệnh riêng biệt đã được Hội đồng xử lý thành công.'; ?></p>
                 </div>
             </div>
             
@@ -1204,10 +1170,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </svg>
                 </div>
                 <div style="flex: 1;">
-                    <span class="stat-card-label" style="display:block; margin-bottom:12px; font-weight: 800;"><?php echo $is_en ? 'Obstacle Spectrum' : 'Bản đồ Điểm nghẽn'; ?></span>
+                    <span class="stat-card-label" style="display:block; margin-bottom:12px; font-weight: 800;"><?php echo $is_en ? 'Disease Spectrum' : 'Bản đồ Bệnh lý'; ?></span>
                     <div class="chart-legend">
                         <div class="legend-item"><span class="legend-color-dot" style="background:#ab0e00;"></span> 35% Chiến lược</div>
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#0f172a;"></span> 25% Cổ đông & Nhân sự</div>
+                        <div class="legend-item"><span class="legend-color-dot" style="background:#0f172a;"></span> 25% Nhân sự</div>
                         <div class="legend-item"><span class="legend-color-dot" style="background:#3b82f6;"></span> 20% Số hóa & AI</div>
                     </div>
                 </div>
@@ -1218,8 +1184,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- ── Section: Expert Council Grid ── -->
     <section class="mentors-section">
         <div class="section-header-premium">
-            <h2><?php echo $is_en ? 'Advisory Council & Mentors' : 'Hội đồng Chuyên gia & Mentor Thực chiến'; ?></h2>
-            <p><?php echo $is_en ? 'Meet the academic and operational board of IDEAS, ready to co-design solutions for your administrative pain points.' : 'Đội ngũ chuyên gia giàu kinh nghiệm điều hành và học thuật cấp cao tại Việt Nam, đồng hành tháo gỡ điểm nghẽn cùng bạn.'; ?></p>
+            <h2><?php echo $is_en ? 'Corporate Doctor Board' : 'Hội đồng Bác sĩ Doanh nghiệp'; ?></h2>
+            <p><?php echo $is_en ? 'Meet the academic and operational board of IDEAS, ready to co-design solutions for your administrative pain points.' : 'Đội ngũ chuyên gia giàu kinh nghiệm thực chiến, sẵn sàng bắt bệnh và kê đơn thuốc quản trị cho doanh nghiệp của bạn.'; ?></p>
         </div>
 
         <div class="mentors-grid" id="mentors-grid-container">
@@ -1227,23 +1193,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ── Clinic Forum Section ── -->
+    <!-- ── Clinic Forum Section (Full Width Layout - No Sidebar) ── -->
     <section class="clinic-forum-section" id="clinic-forum-anchor">
         <div class="forum-container">
-            <!-- Left Column: Topic Feed -->
-            <div>
+            <!-- Full Width Column: Topic Feed -->
+            <div style="width: 100%;">
                 <div class="forum-header-bar">
-                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Corporate Clinic (Forum)' : 'Phòng Tham vấn chung'; ?></h2>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Pathology Diagnostics (Forum)' : 'Phòng Chẩn Bệnh Chung'; ?></h2>
                     <button type="button" class="btn-primary-premium" onclick="openNewTopicModal()">
                         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg>
-                        <?php echo $is_en ? 'Submit Bottleneck File' : 'Gửi yêu cầu tham vấn'; ?>
+                        <?php echo $is_en ? 'Submit Pathological File' : 'Gửi yêu cầu tham vấn'; ?>
                     </button>
                 </div>
 
                 <div style="display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; align-items:center;">
                     <div class="forum-search-wrapper">
                         <svg class="forum-search-icon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                        <input type="text" class="forum-search-input" id="forum-search" placeholder="<?php echo $is_en ? 'Search management pain points...' : 'Tìm kiếm chủ đề, điểm nghẽn quản trị...'; ?>" oninput="filterTopics()" />
+                        <input type="text" class="forum-search-input" id="forum-search" placeholder="<?php echo $is_en ? 'Search pathology pain points...' : 'Tìm kiếm bệnh án, điểm nghẽn quản trị...'; ?>" oninput="filterTopics()" />
                     </div>
                 </div>
 
@@ -1255,57 +1221,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <!-- Forum topics feed will load dynamically -->
                 </div>
             </div>
-
-            <!-- Right Column: Sidebar -->
-            <div class="forum-sidebar">
-                <div class="sidebar-card-premium">
-                    <h3>
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"/></svg>
-                        <?php echo $is_en ? 'Recent Cases' : 'Hồ sơ đang xử lý'; ?>
-                    </h3>
-                    <ul class="sidebar-list">
-                        <li class="sidebar-list-item">
-                            <span class="sidebar-case-status" style="color:#ab0e00; background:rgba(171,14,0,0.06); padding:2px 8px; border-radius:4px; align-self:flex-start;">Đang phản hồi</span>
-                            <a href="#" class="sidebar-case-title">Hệ thống phân phối gặp xung đột lợi ích giữa đại lý cấp 1 và cấp 2</a>
-                            <span class="comment-date">2 giờ trước</span>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <span class="sidebar-case-status" style="color:#10b981; background:rgba(16,185,129,0.06); padding:2px 8px; border-radius:4px; align-self:flex-start;">Đã giải quyết</span>
-                            <a href="#" class="sidebar-case-title">Quy chế trả lương khoán KPI cho đội ngũ sale bất động sản</a>
-                            <span class="comment-date">1 ngày trước</span>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <span class="sidebar-case-status" style="color:#ab0e00; background:rgba(171,14,0,0.06); padding:2px 8px; border-radius:4px; align-self:flex-start;">Đang phản hồi</span>
-                            <a href="#" class="sidebar-case-title">Kế hoạch chuyển đổi dữ liệu từ ERP cũ sang ERP ứng dụng AI</a>
-                            <span class="comment-date">2 ngày trước</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-card-premium" style="background: linear-gradient(135deg, rgba(171, 14, 0, 0.04) 0%, rgba(15, 23, 42, 0.01) 100%); border-color: rgba(171, 14, 0, 0.12);">
-                    <h3 style="color:var(--clr-primary);">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        <?php echo $is_en ? 'Moderation Guidelines' : 'Quy chế tham vấn'; ?>
-                    </h3>
-                    <p style="font-size:0.8rem; line-height:1.6; color:#475569; margin:0; font-weight: 500;">
-                        <?php echo $is_en ? 'Every submitted topic requires review by our editorial board. Expert diagnostics are marked with a verification badge.' : 'Mọi hồ sơ và câu hỏi gửi lên đều qua hàng chờ phê duyệt của Ban chuyên môn nhằm bảo mật tối đa danh tính doanh nghiệp và bảo đảm chất lượng học thuật.'; ?>
-                    </p>
-                </div>
-            </div>
         </div>
     </section>
 
     <!-- ── Premium Booking Form Section (Đặt lịch Tham vấn 1:1) ── -->
     <section class="booking-section-premium" id="booking-form-anchor">
         <div class="booking-card-premium">
-            <h2 class="booking-form-title"><?php echo $is_en ? 'Book a Private Session (1:1)' : 'Đăng ký Tư vấn 1:1'; ?></h2>
-            <p class="booking-form-subtitle"><?php echo $is_en ? 'Provide contact details and select your target mentor for a confidential session.' : 'Để lại thông tin và chọn chuyên gia mong muốn, ban học vụ sẽ liên hệ để sắp xếp phòng tham vấn bảo mật.'; ?></p>
+            <h2 class="booking-form-title"><?php echo $is_en ? 'Book a Private Clinic Session (1:1)' : 'Đăng ký phòng chẩn bệnh 1:1'; ?></h2>
+            <p class="booking-form-subtitle"><?php echo $is_en ? 'Provide contact details and select your target doctor for a confidential clinic session.' : 'Để lại thông tin chẩn bệnh, chúng tôi sẽ sắp xếp buổi gặp mặt bảo mật 1:1 trực tiếp với Bác sĩ chuyên khoa.'; ?></p>
 
             <form id="clinic-booking-form" onsubmit="handleBookingSubmit(event)">
                 <div class="clinic-form-group">
-                    <label class="clinic-form-label"><?php echo $is_en ? 'Select Expert' : 'Chọn Chuyên gia tư vấn'; ?></label>
+                    <label class="clinic-form-label"><?php echo $is_en ? 'Select Doctor' : 'Chọn Bác sĩ chuyên khoa'; ?></label>
                     <select class="clinic-form-select" id="booking-mentor" required>
-                        <option value=""><?php echo $is_en ? '-- Select Mentor --' : '-- Chọn Chuyên gia mong muốn --'; ?></option>
+                        <option value=""><?php echo $is_en ? '-- Select Doctor --' : '-- Chọn Bác sĩ mong muốn --'; ?></option>
                     </select>
                 </div>
 
@@ -1346,7 +1275,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <button type="submit" class="btn-booking-submit">
-                    <?php echo $is_en ? 'Send Request' : 'Gửi yêu cầu tham vấn'; ?>
+                    <?php echo $is_en ? 'Send Request' : 'Gửi yêu cầu'; ?>
                 </button>
             </form>
         </div>
@@ -1373,9 +1302,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Target Mentor' : 'Chỉ định Chuyên gia phản hồi'; ?></label>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Target Doctor' : 'Chỉ định Bác sĩ phản hồi'; ?></label>
                         <select class="clinic-form-select" id="topic-mentor">
-                            <option value=""><?php echo $is_en ? '-- General Forum (All mentors) --' : '-- Gửi chung cho Ban chuyên môn (Tất cả) --'; ?></option>
+                            <option value=""><?php echo $is_en ? '-- General Forum (All doctors) --' : '-- Gửi chung cho Ban chuyên môn (Tất cả) --'; ?></option>
                         </select>
                     </div>
 
@@ -1426,7 +1355,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         let forumTopics = [];
         let activeFilterTag = '';
 
-        // 15 Vietnamese Expert Council Mentors
+        // 15 Vietnamese Expert Council Mentors (Bác sĩ Doanh nghiệp)
         const CLINIC_DOCTORS = [
             { name: "Phạm Quang Vinh", title: "Tiến sĩ QTKD Hoa Kỳ", specialty: isEnglish ? "Corporate Strategy & Restructuring" : "Chiến lược Quản trị & Phát triển Tổ chức", job: "Viện trưởng IDEAS, hơn 25 năm kinh nghiệm điều hành và tư vấn trong lĩnh vực Marketing, Bảo hiểm & Giáo dục.", avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" },
             { name: "Dương Văn Thịnh", title: "Tiến sĩ QTKD Pháp", specialty: isEnglish ? "AI Integration & Digital Tech" : "Ứng dụng AI & Công nghệ Số", job: "VERON Group - Vice President, AI Technology. Chuyên gia Nghiên cứu AI, phân tích dữ liệu lớn và tối ưu quy trình số.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" },
@@ -1452,33 +1381,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             initGoogleLogin();
         });
 
-        // Populate Lecturers Grid
+        // Populate Lecturers Grid with NEW Premium Card Design
         function initDoctorGrid() {
             const container = document.getElementById('mentors-grid-container');
             container.innerHTML = CLINIC_DOCTORS.map(doc => `
                 <div class="mentor-card-premium">
-                    <div>
-                        <div class="mentor-card-top">
-                            <div class="mentor-avatar-wrapper">
-                                <img src="${doc.avatar}" alt="${doc.name}" loading="lazy" />
-                            </div>
-                            <div class="mentor-meta">
-                                <span class="mentor-degree-badge">${doc.title}</span>
-                                <h3 class="mentor-name">${doc.name}</h3>
-                                <span class="mentor-specialty">${doc.specialty}</span>
-                            </div>
+                    <div class="mentor-card-banner"></div>
+                    <div class="mentor-card-content">
+                        <div class="mentor-avatar-wrapper">
+                            <img src="${doc.avatar}" alt="${doc.name}" loading="lazy" />
                         </div>
+                        <span class="mentor-degree-badge">${doc.title}</span>
+                        <h3 class="mentor-name">${doc.name}</h3>
+                        <span class="mentor-specialty">${doc.specialty}</span>
                         <p class="mentor-job">${doc.job}</p>
                     </div>
-                    <div class="mentor-card-actions">
-                        <button type="button" class="btn-card-booking" onclick="scrollToBooking('${doc.name}')">
-                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"/></svg>
-                            ${isEnglish ? 'Book 1:1' : 'Tư vấn 1:1'}
-                        </button>
-                        <button type="button" class="btn-card-ask" onclick="openAskDoctor('${doc.name}')">
-                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/></svg>
-                            ${isEnglish ? 'Ask' : 'Gửi Câu hỏi'}
-                        </button>
+                    <div style="padding: 0 28px 28px;">
+                        <div class="mentor-card-actions">
+                            <button type="button" class="btn-card-booking" onclick="scrollToBooking('${doc.name}')">
+                                <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"/></svg>
+                                ${isEnglish ? 'Book 1:1' : 'Tư vấn 1:1'}
+                            </button>
+                            <button type="button" class="btn-card-ask" onclick="openAskDoctor('${doc.name}')">
+                                <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/></svg>
+                                ${isEnglish ? 'Ask' : 'Gửi Câu hỏi'}
+                            </button>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -1496,6 +1424,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             });
         }
 
+        // Scroll and select mentor
         function scrollToBooking(doctorName) {
             const select = document.getElementById('booking-mentor');
             select.value = doctorName;
@@ -1617,7 +1546,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="topic-meta-user">
                                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v4z"/></svg>
                                 ${t.is_anonymous ? (isEnglish ? 'Anonymous Business' : 'Doanh nghiệp ẩn danh') : t.author_name}
-                                ${t.target_mentor ? ` -> ${isEnglish ? 'Consultant: ' : 'Người tư vấn: '} Chuyên gia ${t.target_mentor}` : ''}
+                                ${t.target_mentor ? ` -> ${isEnglish ? 'Consultant: ' : 'Người tư vấn: '} Bác sĩ ${t.target_mentor}` : ''}
                             </span>
                             <span class="topic-date">${t.date}</span>
                         </div>
