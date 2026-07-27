@@ -345,19 +345,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #080405;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
         }
 
         .bottleneck-section .section-header-premium h2 {
             color: #ffffff !important;
+            position: relative;
+            z-index: 3;
         }
 
         .bottleneck-section .section-header-premium p {
             color: #94a3b8 !important;
+            position: relative;
+            z-index: 3;
         }
 
         .bottleneck-container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 3;
         }
 
         .bottleneck-grid {
@@ -380,7 +388,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
         }
 
-        /* Animated moving gradient flowline */
+        /* Animated moving gradient flowline (WHITE THEME) */
         @keyframes flowLine {
             0% { background-position: 0% 0%; }
             100% { background-position: 0% 200%; }
@@ -393,10 +401,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             top: 20px;
             bottom: 20px;
             width: 3px;
-            background: linear-gradient(180deg, #ab0e00 0%, #3b82f6 33%, #ffffff 66%, #ab0e00 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, #ffffff 50%, rgba(255, 255, 255, 0.25) 100%);
             background-size: 100% 200%;
-            animation: flowLine 4s linear infinite;
-            opacity: 0.6;
+            animation: flowLine 3s linear infinite;
+            opacity: 0.9;
             z-index: 1;
         }
 
@@ -414,58 +422,59 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 58px;
             height: 58px;
             border-radius: 18px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: #94a3b8;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            color: #0f172a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* Pulsing Glow active node animation */
         @keyframes pulseActive {
-            0% { box-shadow: 0 0 0 0 rgba(171, 14, 0, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(171, 14, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(171, 14, 0, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
 
         .bottleneck-flow-node.active .node-icon-wrapper {
-            border-color: var(--clr-primary);
+            border-color: #ffffff;
             color: #ffffff;
             background: linear-gradient(135deg, #ab0e00 0%, #8e0b00 100%);
             animation: pulseActive 2s infinite;
         }
 
         .node-content-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
             padding: 24px;
             flex-grow: 1;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .bottleneck-flow-node:hover .node-content-card {
             transform: translateX(6px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.5);
+            background: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
         }
 
         .bottleneck-flow-node.active .node-content-card {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(171, 14, 0, 0.4);
-            box-shadow: 0 15px 30px -10px rgba(171, 14, 0, 0.25);
+            background: #ffffff;
+            border-color: var(--clr-primary);
+            box-shadow: 0 15px 35px rgba(171, 14, 0, 0.25);
         }
 
         .node-badge-alert {
             font-size: 0.72rem;
             font-weight: 800;
-            background: rgba(171, 14, 0, 0.15);
-            color: #ff8888;
+            background: rgba(171, 14, 0, 0.08);
+            color: var(--clr-primary);
             padding: 2px 8px;
             border-radius: 4px;
             text-transform: uppercase;
@@ -477,16 +486,80 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .node-title-label {
             font-size: 1.15rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #0f172a;
             margin: 0 0 8px;
         }
 
         .node-short-desc {
             font-size: 0.88rem;
-            color: #94a3b8;
+            color: #475569;
             line-height: 1.6;
             margin: 0;
             font-weight: 500;
+        }
+
+        /* ── Decorator Elements (SVG & Glow) ── */
+        .bottleneck-decor-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.15;
+            transition: all 0.5s ease;
+        }
+
+        .decor-orb-1 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(171,14,0,0.8) 0%, rgba(171,14,0,0) 70%);
+            top: -100px;
+            right: -100px;
+            animation: orbFloating 8s ease-in-out infinite alternate;
+        }
+
+        .decor-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(59,130,246,0) 70%);
+            bottom: -150px;
+            left: -150px;
+            animation: orbFloating 10s ease-in-out infinite alternate-reverse;
+        }
+
+        .bottleneck-decor-svg {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .decor-grid-mesh {
+            top: 10%;
+            left: 5%;
+            opacity: 0.3;
+        }
+
+        .decor-dots-pattern {
+            top: 30%;
+            right: 2%;
+            opacity: 0.2;
+        }
+
+        .decor-abstract-rings {
+            bottom: 10%;
+            right: 15%;
+            animation: spinSlow 30s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes orbFloating {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 20px) scale(1.1); }
+        }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* Prescription Panel styling */
@@ -1561,6 +1634,34 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ── Section: Bản đồ Điểm nghẽn Cổ chai Doanh nghiệp (NEW) ── -->
     <section class="bottleneck-section">
+        <!-- Premium SVG Decorators -->
+        <div class="bottleneck-decor-element decor-orb-1"></div>
+        <div class="bottleneck-decor-element decor-orb-2"></div>
+        <div class="bottleneck-decor-svg decor-grid-mesh">
+            <svg width="600" height="600" fill="none" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+        <div class="bottleneck-decor-svg decor-dots-pattern">
+            <svg width="150" height="300" fill="none" viewBox="0 0 150 300" xmlns="http://www.w3.org/2000/svg">
+                <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="2" fill="rgba(255,255,255,0.1)"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#dots)" />
+            </svg>
+        </div>
+        <div class="bottleneck-decor-svg decor-abstract-rings">
+            <svg width="400" height="400" fill="none" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="200" r="180" stroke="rgba(171,14,0,0.1)" stroke-width="1" stroke-dasharray="10 15"/>
+                <circle cx="200" cy="200" r="140" stroke="rgba(255,255,255,0.05)" stroke-width="1.5"/>
+                <circle cx="200" cy="200" r="100" stroke="rgba(59,130,246,0.08)" stroke-width="1" stroke-dasharray="5 5"/>
+            </svg>
+        </div>
         <div class="bottleneck-container">
             <div class="section-header-premium">
                 <h2><?php echo $is_en ? 'Corporate Bottlenecks' : 'Điểm nghẽn Cổ chai Doanh nghiệp'; ?></h2>
