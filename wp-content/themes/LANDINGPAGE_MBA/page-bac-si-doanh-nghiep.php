@@ -123,7 +123,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: absolute;
             inset: 0;
             z-index: 1;
-            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp');
+            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp');
             background-size: cover;
             background-position: center;
             opacity: 0.55;
