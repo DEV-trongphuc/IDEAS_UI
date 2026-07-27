@@ -1663,7 +1663,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div>
                     <h2 class="stat-card-number">92%</h2>
                     <div style="height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden; margin: 8px 0 12px; position: relative;">
-                        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 92%; background: linear-gradient(90deg, var(--clr-primary) 0%, #10b981 100%); border-radius: 3px;"></div>
+                        <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 92%; background: linear-gradient(90deg, #f43f5e 0%, #ab0e00 100%); border-radius: 3px;"></div>
                     </div>
                     <p class="stat-card-desc"><?php echo $is_en ? 'Mentored enterprises report measurable operational improvements and structure recovery.' : 'Tỷ lệ doanh nghiệp cải thiện hiệu suất vận hành vượt bậc sau khi áp dụng giải pháp.'; ?></p>
                 </div>
