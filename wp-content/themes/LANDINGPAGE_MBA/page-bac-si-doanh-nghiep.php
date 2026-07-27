@@ -24,6 +24,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- Google Identity Services Library for Google Login -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -31,9 +34,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             --clr-primary-hover: #8e0b00;
             --clr-navy: #0f172a;
             --clr-navy-light: #1e293b;
-            --clr-glass-bg: rgba(255, 255, 255, 0.75);
-            --clr-glass-border: rgba(255, 255, 255, 0.5);
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --clr-bg-dark: #080405;
+            --clr-glass-bg: rgba(255, 255, 255, 0.03);
+            --clr-glass-border: rgba(255, 255, 255, 0.08);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
             --shadow-premium: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
         }
 
@@ -46,146 +50,190 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow-x: hidden;
         }
 
-        /* ── Hero Section ── */
-        .clinic-hero {
+        /* ── LMS-Style Hero Section ── */
+        .lms-hero {
             position: relative;
-            padding: 160px 20px 100px;
-            background: radial-gradient(circle at 10% 20%, rgba(171, 14, 0, 0.06) 0%, transparent 50%),
-                        radial-gradient(circle at 90% 80%, rgba(15, 23, 42, 0.04) 0%, transparent 50%),
-                        #ffffff;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 200px 20px 120px;
             text-align: center;
             overflow: hidden;
-        }
-
-        .clinic-hero-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .clinic-badge {
-            display: inline-flex;
+            background-color: var(--clr-bg-dark);
+            min-height: 70vh;
+            display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            background: rgba(171, 14, 0, 0.08);
-            border: 1px solid rgba(171, 14, 0, 0.15);
+            justify-content: center;
+        }
+
+        .lms-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+            transform: scale(1.05);
+            will-change: transform;
+        }
+
+        .lms-hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background:
+                linear-gradient(180deg,
+                    rgba(8, 4, 5, 0.9) 0%,
+                    rgba(80, 6, 0, 0.4) 60%,
+                    rgba(8, 4, 5, 0.98) 100%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 14, 0, 0.25) 0%, transparent 75%);
+        }
+
+        .lms-hero-container {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lms-hero-badge {
+            background: rgba(171, 14, 0, 0.18);
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            padding: 8px 20px;
             border-radius: 100px;
-            color: var(--clr-primary);
+            color: #ffcccc;
             font-size: 0.82rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 24px;
+            letter-spacing: 0.12em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
-        .clinic-hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--clr-navy);
-            line-height: 1.2;
-            margin: 0 0 20px;
+        .lms-hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-weight: 800;
+            margin-bottom: 20px;
             letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .clinic-hero h1 span {
-            color: var(--clr-primary);
+        .lms-hero h1 span {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 50%, #ab0e00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .clinic-hero p {
+        .lms-hero p {
             font-size: 1.15rem;
-            color: #64748b;
-            max-width: 760px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 750px;
             margin: 0 auto 36px;
-            line-height: 1.6;
+            line-height: 1.65;
+            font-weight: 500;
         }
 
-        .clinic-hero-actions {
+        .verify-slogan {
+            font-size: 1.12rem;
+            font-weight: 700;
+            font-style: italic;
+            color: #ffcccc;
+            margin-bottom: 24px;
+            letter-spacing: 0.08em;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+        }
+
+        .lms-hero-actions {
             display: flex;
             justify-content: center;
             gap: 16px;
             flex-wrap: wrap;
+            margin-bottom: 50px;
         }
 
-        .btn-primary-premium {
-            background: var(--clr-primary);
-            color: #ffffff !important;
-            padding: 14px 28px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
+        /* Stats indicators at Hero Bottom */
+        .lms-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .lms-stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            min-width: 180px;
+            text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px -5px rgba(171, 14, 0, 0.3);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .btn-primary-premium:hover {
-            background: var(--clr-primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 22px -4px rgba(171, 14, 0, 0.4);
-        }
-
-        .btn-secondary-premium {
-            background: #ffffff;
-            color: var(--clr-navy) !important;
-            padding: 14px 28px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: 12px;
-            border: 1.5px solid #cbd5e1;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-secondary-premium:hover {
-            border-color: var(--clr-navy);
-            background: #f8fafc;
+        .lms-stat-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
 
-        /* ── Dashboard Stats (Ảnh đồ) ── */
+        .lms-stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ff3b30;
+            display: block;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #ff6b6b, #ff3b30);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lms-stat-lbl {
+            font-size: 0.78rem;
+            color: #cbd5e1;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Section: Dashboard Thống kê Điểm nghẽn ── */
         .clinic-stats-section {
-            padding: 60px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
-            margin: -50px auto 0;
-            position: relative;
-            z-index: 10;
+            margin: 0 auto;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .stat-card-premium {
-            background: var(--clr-glass-bg);
-            border: 1px solid var(--clr-glass-border);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 24px;
-            padding: 30px;
-            box-shadow: var(--shadow-premium);
+            padding: 36px;
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 200px;
-            transition: transform 0.3s ease;
+            min-height: 220px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .stat-card-premium:hover {
             transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+            border-color: #cbd5e1;
         }
 
         .stat-card-header {
@@ -208,49 +256,71 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .stat-card-label {
-            font-size: 0.85rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 800;
             color: #64748b;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         .stat-card-number {
-            font-size: 2.5rem;
-            font-weight: 900;
+            font-size: 2.8rem;
+            font-weight: 800;
             color: var(--clr-navy);
-            margin: 10px 0 5px;
+            margin: 10px 0 6px;
+            letter-spacing: -0.02em;
         }
 
         .stat-card-desc {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: #64748b;
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 0;
+            font-weight: 500;
         }
 
-        /* Custom SVG Donut Chart */
+        /* Donut Chart visual styling improvements */
         .chart-container-donut {
             position: relative;
             width: 140px;
             height: 140px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donut-segment {
+            transition: stroke-width 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .donut-segment:hover {
+            stroke-width: 5.5;
         }
 
         .chart-legend {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            margin-top: 16px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.78rem;
+            gap: 10px;
+            font-size: 0.8rem;
             color: #475569;
             font-weight: 600;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+
+        .legend-item:hover {
+            background: #f1f5f9;
         }
 
         .legend-color-dot {
@@ -260,7 +330,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-shrink: 0;
         }
 
-        /* ── Mentor Grid Section ── */
+        /* ── Section: Expert Council (Hội đồng chuyên gia) ── */
         .mentors-section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -273,23 +343,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .section-header-premium h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 800;
             color: var(--clr-navy);
             margin: 0 0 16px;
+            letter-spacing: -0.02em;
         }
 
         .section-header-premium p {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #64748b;
-            max-width: 600px;
+            max-width: 680px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.65;
+            font-weight: 500;
         }
 
         .mentors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
             gap: 30px;
         }
 
@@ -297,8 +369,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            padding: 28px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
@@ -309,7 +381,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .mentor-card-premium:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.08);
             border-color: rgba(171, 14, 0, 0.2);
         }
 
@@ -321,12 +393,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .mentor-avatar-wrapper {
             position: relative;
-            width: 90px;
-            height: 90px;
-            border-radius: 18px;
+            width: 96px;
+            height: 96px;
+            border-radius: 20px;
             overflow: hidden;
             flex-shrink: 0;
-            border: 2px solid #f1f5f9;
+            border: 3px solid #f8fafc;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         .mentor-avatar-wrapper img {
@@ -344,34 +417,45 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .mentor-degree-badge {
             align-self: flex-start;
             padding: 4px 8px;
-            background: #f1f5f9;
-            color: #475569;
+            background: rgba(171, 14, 0, 0.05);
+            color: var(--clr-primary);
             font-size: 0.72rem;
             font-weight: 700;
             border-radius: 6px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
         .mentor-name {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--clr-navy);
             margin: 0 0 6px;
+            letter-spacing: -0.01em;
         }
 
         .mentor-specialty {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 700;
+            color: #475569;
+            letter-spacing: 0.01em;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .mentor-specialty::before {
+            content: '•';
             color: var(--clr-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
+            font-weight: 900;
+            font-size: 1.1rem;
         }
 
         .mentor-job {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             color: #64748b;
-            line-height: 1.45;
+            line-height: 1.55;
             margin: 12px 0 0;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -384,7 +468,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 24px;
             border-top: 1px solid #f1f5f9;
             padding-top: 20px;
         }
@@ -393,10 +477,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: var(--clr-primary);
             color: #ffffff !important;
             border: none;
-            padding: 10px 16px;
+            padding: 11px 16px;
             font-size: 0.82rem;
             font-weight: 700;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
             text-align: center;
@@ -408,16 +492,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .btn-card-booking:hover {
             background: var(--clr-primary-hover);
+            transform: translateY(-1px);
         }
 
         .btn-card-ask {
-            background: #f8fafc;
+            background: #ffffff;
             color: var(--clr-navy) !important;
-            border: 1px solid #cbd5e1;
+            border: 1.5px solid #cbd5e1;
             padding: 10px 16px;
             font-size: 0.82rem;
             font-weight: 700;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
             text-align: center;
@@ -428,7 +513,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .btn-card-ask:hover {
-            background: #cbd5e1;
+            background: #f8fafc;
+            border-color: var(--clr-navy);
+            transform: translateY(-1px);
         }
 
         /* ── Clinic Forum Section ── */
@@ -483,6 +570,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-family: inherit;
             transition: all 0.2s ease;
             box-sizing: border-box;
+            font-weight: 500;
         }
 
         .forum-search-input:focus {
@@ -502,7 +590,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .forum-filter-tags {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 24px;
         }
@@ -512,7 +600,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #475569;
             border: none;
             padding: 8px 16px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             font-weight: 700;
             border-radius: 100px;
             cursor: pointer;
@@ -821,6 +909,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-family: inherit;
             box-sizing: border-box;
             transition: all 0.2s ease;
+            font-weight: 500;
         }
 
         .clinic-form-input:focus, .clinic-form-select:focus, .clinic-form-textarea:focus {
@@ -960,10 +1049,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Responsive Styling ── */
         @media (max-width: 768px) {
-            .clinic-hero h1 {
+            .lms-hero h1 {
                 font-size: 2.2rem;
             }
-            .clinic-hero p {
+            .lms-hero p {
                 font-size: 1rem;
             }
             .stats-grid {
@@ -977,77 +1066,100 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Unified responsive header loaded from theme -->
     <?php get_template_part('shared-header'); ?>
 
-    <!-- ── Hero Section ── -->
-    <section class="clinic-hero">
-        <div class="clinic-hero-container">
-            <div class="clinic-badge">
+    <!-- ── LMS-Style Hero Section ── -->
+    <section class="lms-hero">
+        <div class="lms-hero-bg"></div>
+        <div class="lms-hero-overlay"></div>
+        <div class="lms-hero-container">
+            <div class="lms-hero-badge">
                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 10.5V20H5V10.5H3V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V10.5H19ZM12 18C9.79 18 8 16.21 8 14C8 11.79 9.79 10 12 10C14.21 10 16 11.79 16 14C16 16.21 14.21 18 12 18ZM10.5 14C10.5 14.83 11.17 15.5 12 15.5C12.83 15.5 13.5 14.83 13.5 14C13.5 13.17 12.83 12.5 12 12.5C11.17 12.5 10.5 13.17 10.5 14ZM12 2L2 6.5V10.5H4V7.4L12 3.8L20 7.4V10.5H22V6.5L12 2Z"/></svg>
-                <?php echo $is_en ? 'Corporate Clinic' : 'Phòng khám Doanh nghiệp'; ?>
+                <?php echo $is_en ? 'Executive Mentor Council' : 'Hội đồng Chuyên gia Thực chiến'; ?>
             </div>
-            <h1><?php echo $is_en ? 'Enterprise <span>Doctor</span>' : 'Bác sĩ <span>Doanh nghiệp</span>'; ?></h1>
-            <p><?php echo $is_en ? 'Identify corporate pathology, consult 1:1 with executive experts, and prescribe treatments to eradicate administration pain points.' : 'Nơi bắt bệnh, hội chẩn và điều trị dứt điểm mọi nỗi đau quản trị của doanh nghiệp bạn. Chọn Bác sĩ tư vấn 1:1 hoặc đăng chủ đề ẩn danh để Hội đồng chuyên gia giải đáp.'; ?></p>
-            <div class="clinic-hero-actions">
+            
+            <h1><?php echo $is_en ? 'Corporate <span>Advisory Board</span>' : 'Hội đồng <span>Tư vấn Doanh nghiệp</span>'; ?></h1>
+            <span class="verify-slogan">"Khơi thông Điểm nghẽn – Kiến tạo Tăng trưởng"</span>
+            
+            <p><?php echo $is_en ? 'Analyze administrative obstacles, schedule private consultations, and co-design tailored growth solutions with leading industry experts.' : 'Nơi chẩn đoán điểm nghẽn, tháo gỡ khó khăn vận hành và cùng các chuyên gia hàng đầu thiết kế giải pháp đột phá cho doanh nghiệp của bạn.'; ?></p>
+            
+            <div class="lms-hero-actions">
                 <a href="#booking-form-anchor" class="btn-primary-premium">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8ZM9 14H7V12H9V14ZM13 14H11V12H13V14ZM17 14H15V12H17V14ZM9 18H7V16H9V18ZM13 18H11V16H13V18ZM17 18H15V16H17V18Z"/></svg>
-                    <?php echo $is_en ? 'Book 1:1 Session' : 'Đăng ký chẩn bệnh 1:1'; ?>
+                    <?php echo $is_en ? 'Schedule 1:1 Consultation' : 'Đặt lịch Tư vấn 1:1'; ?>
                 </a>
-                <a href="#clinic-forum-anchor" class="btn-secondary-premium">
+                <a href="#clinic-forum-anchor" class="btn-secondary-premium" style="background:transparent; color:#ffffff !important; border-color:rgba(255,255,255,0.3);">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16ZM6 12H18V14H6V12ZM6 9H18V11H6V9ZM6 6H18V8H6V6Z"/></svg>
-                    <?php echo $is_en ? 'Enter Forum Clinic' : 'Bắt bệnh trực tuyến (Diễn đàn)'; ?>
+                    <?php echo $is_en ? 'Browse Case Studies' : 'Diễn đàn Thảo luận'; ?>
                 </a>
+            </div>
+
+            <!-- LMS-Style Stats Row -->
+            <div class="lms-hero-stats">
+                <div class="lms-stat-card">
+                    <span class="lms-stat-num">1.200+</span>
+                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Businesses Mentored' : 'Doanh nghiệp đồng hành'; ?></span>
+                </div>
+                <div class="lms-stat-card">
+                    <span class="lms-stat-num">15</span>
+                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Senior Mentors' : 'Chuyên gia thực chiến'; ?></span>
+                </div>
+                <div class="lms-stat-card">
+                    <span class="lms-stat-num">92%</span>
+                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Obstacles Solved' : 'Giải quyết điểm nghẽn'; ?></span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ── Dashboard Stats (Ảnh đồ) ── -->
+    <!-- ── Section: Dashboard Thống kê Điểm nghẽn (Ảnh đồ) ── -->
     <section class="clinic-stats-section">
         <div class="stats-grid">
             <div class="stat-card-premium">
                 <div class="stat-card-header">
-                    <span class="stat-card-label"><?php echo $is_en ? 'Consulted Cases' : 'Tổng ca tiếp nhận'; ?></span>
+                    <span class="stat-card-label"><?php echo $is_en ? 'Total Cases Analyzed' : 'Số ca chẩn đoán tích lũy'; ?></span>
                     <div class="stat-icon-wrapper">
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                     </div>
                 </div>
                 <div>
                     <h2 class="stat-card-number" id="stat-total-cases">1,247</h2>
-                    <p class="stat-card-desc"><?php echo $is_en ? 'Active business clinics and private 1:1 sessions completed.' : 'Ca bệnh thực tế và đặt lịch 1:1 đã được các chuyên gia tiếp nhận giải đáp.'; ?></p>
+                    <p class="stat-card-desc"><?php echo $is_en ? 'Real-world business case files and private consultation requests successfully processed.' : 'Hồ sơ điểm nghẽn và yêu cầu tham vấn riêng biệt đã được Hội đồng xử lý thành công.'; ?></p>
                 </div>
             </div>
             
             <div class="stat-card-premium">
                 <div class="stat-card-header">
-                    <span class="stat-card-label"><?php echo $is_en ? 'Eradication Rate' : 'Tỷ lệ dứt điểm'; ?></span>
+                    <span class="stat-card-label"><?php echo $is_en ? 'Eradication Rate' : 'Hiệu quả trị liệu'; ?></span>
                     <div class="stat-icon-wrapper">
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     </div>
                 </div>
                 <div>
                     <h2 class="stat-card-number" id="stat-resolved-rate">92%</h2>
-                    <p class="stat-card-desc"><?php echo $is_en ? 'Businesses report successful application of prescriptions and pain relief.' : 'Tỷ lệ doanh nghiệp phản hồi tích cực và xử lý được điểm nghẽn sau hội chẩn.'; ?></p>
+                    <p class="stat-card-desc"><?php echo $is_en ? 'Mentored enterprises report measurable operational improvements and structure recovery.' : 'Tỷ lệ doanh nghiệp cải thiện hiệu suất vận hành vượt bậc sau khi áp dụng giải pháp.'; ?></p>
                 </div>
             </div>
 
-            <div class="stat-card-premium" style="flex-direction: row; align-items: center; gap: 20px;">
+            <!-- Premium Donut Chart Panel -->
+            <div class="stat-card-premium" style="flex-direction: row; align-items: center; gap: 24px; min-height: 220px;">
                 <div class="chart-container-donut">
                     <!-- SVG Circular Donut Chart -->
-                    <svg width="140" height="140" viewBox="0 0 42 42" class="donut">
-                        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#ffffff"></circle>
-                        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f1f5f9" stroke-width="4"></circle>
+                    <svg width="135" height="135" viewBox="0 0 42 42" class="donut">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.915" fill="#ffffff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.915" fill="transparent" stroke="#f1f5f9" stroke-width="4.5"></circle>
                         
-                        <!-- Segments: 35%, 25%, 20%, 15%, 5% -->
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ab0e00" stroke-width="4.2" stroke-dasharray="35 65" stroke-dashoffset="100"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0f172a" stroke-width="4.2" stroke-dasharray="25 75" stroke-dashoffset="65"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#3b82f6" stroke-width="4.2" stroke-dasharray="20 80" stroke-dashoffset="40"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#10b981" stroke-width="4.2" stroke-dasharray="15 85" stroke-dashoffset="20"></circle>
-                        <circle class="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f59e0b" stroke-width="4.2" stroke-dasharray="5 95" stroke-dashoffset="5"></circle>
+                        <!-- Segments: 35% Red, 25% Dark Navy, 20% Blue, 15% Green, 5% Amber -->
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#ab0e00" stroke-width="5" stroke-dasharray="35 65" stroke-dashoffset="100"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#0f172a" stroke-width="5" stroke-dasharray="25 75" stroke-dashoffset="65"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#3b82f6" stroke-width="5" stroke-dasharray="20 80" stroke-dashoffset="40"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#10b981" stroke-width="5" stroke-dasharray="15 85" stroke-dashoffset="20"></circle>
+                        <circle class="donut-segment" cx="21" cy="21" r="15.915" fill="transparent" stroke="#f59e0b" stroke-width="5" stroke-dasharray="5 95" stroke-dashoffset="5"></circle>
                     </svg>
                 </div>
                 <div style="flex: 1;">
-                    <span class="stat-card-label" style="display:block; margin-bottom:10px;"><?php echo $is_en ? 'Pain Breakdown' : 'Bản đồ Bệnh lý'; ?></span>
+                    <span class="stat-card-label" style="display:block; margin-bottom:12px; font-weight: 800;"><?php echo $is_en ? 'Obstacle Spectrum' : 'Bản đồ Điểm nghẽn'; ?></span>
                     <div class="chart-legend">
                         <div class="legend-item"><span class="legend-color-dot" style="background:#ab0e00;"></span> 35% Chiến lược</div>
-                        <div class="legend-item"><span class="legend-color-dot" style="background:#0f172a;"></span> 25% Nhân sự</div>
+                        <div class="legend-item"><span class="legend-color-dot" style="background:#0f172a;"></span> 25% Cổ đông & Nhân sự</div>
                         <div class="legend-item"><span class="legend-color-dot" style="background:#3b82f6;"></span> 20% Số hóa & AI</div>
                     </div>
                 </div>
@@ -1055,11 +1167,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ── Mentor Council Section ── -->
+    <!-- ── Section: Expert Council Grid ── -->
     <section class="mentors-section">
         <div class="section-header-premium">
-            <h2><?php echo $is_en ? 'Expert Doctors Board' : 'Hội đồng Bác sĩ Doanh nghiệp'; ?></h2>
-            <p><?php echo $is_en ? 'Select a professional clinic doctor to schedule 1:1 treatment or ask private questions.' : 'Đội ngũ chuyên gia giàu kinh nghiệm thực chiến, sẵn sàng bắt bệnh và kê đơn thuốc quản trị cho doanh nghiệp của bạn.'; ?></p>
+            <h2><?php echo $is_en ? 'Advisory Council & Mentors' : 'Hội đồng Chuyên gia & Mentor Thực chiến'; ?></h2>
+            <p><?php echo $is_en ? 'Meet the academic and operational board of IDEAS, ready to co-design solutions for your administrative pain points.' : 'Đội ngũ chuyên gia giàu kinh nghiệm điều hành và học thuật cấp cao tại Việt Nam, đồng hành tháo gỡ điểm nghẽn cùng bạn.'; ?></p>
         </div>
 
         <div class="mentors-grid" id="mentors-grid-container">
@@ -1073,17 +1185,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Left Column: Topic Feed -->
             <div>
                 <div class="forum-header-bar">
-                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Clinic Board (Forum)' : 'Diễn đàn Bệnh án'; ?></h2>
+                    <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--clr-navy); margin: 0;"><?php echo $is_en ? 'Corporate Clinic (Forum)' : 'Phòng Tham vấn chung'; ?></h2>
                     <button type="button" class="btn-primary-premium" onclick="openNewTopicModal()">
                         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg>
-                        <?php echo $is_en ? 'File a New Case' : 'Khai báo bệnh án mới'; ?>
+                        <?php echo $is_en ? 'Submit Bottleneck File' : 'Gửi yêu cầu tham vấn'; ?>
                     </button>
                 </div>
 
                 <div style="display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; align-items:center;">
                     <div class="forum-search-wrapper">
                         <svg class="forum-search-icon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                        <input type="text" class="forum-search-input" id="forum-search" placeholder="<?php echo $is_en ? 'Search pathology topics...' : 'Tìm kiếm chủ đề nỗi đau quản trị...'; ?>" oninput="filterTopics()" />
+                        <input type="text" class="forum-search-input" id="forum-search" placeholder="<?php echo $is_en ? 'Search management pain points...' : 'Tìm kiếm chủ đề, điểm nghẽn quản trị...'; ?>" oninput="filterTopics()" />
                     </div>
                 </div>
 
@@ -1101,34 +1213,34 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="sidebar-card-premium">
                     <h3>
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"/></svg>
-                        <?php echo $is_en ? 'Active Diagnoses' : 'Ca chẩn bệnh gần đây'; ?>
+                        <?php echo $is_en ? 'Recent Cases' : 'Hồ sơ đang xử lý'; ?>
                     </h3>
                     <ul class="sidebar-list">
                         <li class="sidebar-list-item">
-                            <span class="sidebar-case-status">Đang hội chẩn</span>
+                            <span class="sidebar-case-status" style="color:#ab0e00; background:rgba(171,14,0,0.06); padding:2px 8px; border-radius:4px; align-self:flex-start;">Đang phản hồi</span>
                             <a href="#" class="sidebar-case-title">Hệ thống phân phối gặp xung đột lợi ích giữa đại lý cấp 1 và cấp 2</a>
                             <span class="comment-date">2 giờ trước</span>
                         </li>
                         <li class="sidebar-list-item">
-                            <span class="sidebar-case-status" style="color:#3b82f6;">Đã xuất viện</span>
+                            <span class="sidebar-case-status" style="color:#10b981; background:rgba(16,185,129,0.06); padding:2px 8px; border-radius:4px; align-self:flex-start;">Đã giải quyết</span>
                             <a href="#" class="sidebar-case-title">Quy chế trả lương khoán KPI cho đội ngũ sale bất động sản</a>
                             <span class="comment-date">1 ngày trước</span>
                         </li>
                         <li class="sidebar-list-item">
-                            <span class="sidebar-case-status">Đang hội chẩn</span>
+                            <span class="sidebar-case-status" style="color:#ab0e00; background:rgba(171,14,0,0.06); padding:2px 8px; border-radius:4px; align-self:flex-start;">Đang phản hồi</span>
                             <a href="#" class="sidebar-case-title">Kế hoạch chuyển đổi dữ liệu từ ERP cũ sang ERP ứng dụng AI</a>
                             <span class="comment-date">2 ngày trước</span>
                         </li>
                     </ul>
                 </div>
 
-                <div class="sidebar-card-premium" style="background: linear-gradient(135deg, rgba(171, 14, 0, 0.05) 0%, rgba(15, 23, 42, 0.02) 100%); border-color: rgba(171, 14, 0, 0.15);">
+                <div class="sidebar-card-premium" style="background: linear-gradient(135deg, rgba(171, 14, 0, 0.04) 0%, rgba(15, 23, 42, 0.01) 100%); border-color: rgba(171, 14, 0, 0.12);">
                     <h3 style="color:var(--clr-primary);">
                         <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        <?php echo $is_en ? 'Prescription Rules' : 'Quy chế khám bệnh'; ?>
+                        <?php echo $is_en ? 'Moderation Guidelines' : 'Quy chế tham vấn'; ?>
                     </h3>
-                    <p style="font-size:0.8rem; line-height:1.6; color:#475569; margin:0;">
-                        <?php echo $is_en ? 'Every submitted topic requires review by our editorial board. Expert diagnostics are marked with a verification badge.' : 'Mọi bệnh án gửi lên đều phải qua hàng chờ kiểm duyệt của Ban biên tập IDEAS nhằm bảo mật tuyệt mật danh tính của doanh nghiệp và tính học thuật sạch của diễn đàn.'; ?>
+                    <p style="font-size:0.8rem; line-height:1.6; color:#475569; margin:0; font-weight: 500;">
+                        <?php echo $is_en ? 'Every submitted topic requires review by our editorial board. Expert diagnostics are marked with a verification badge.' : 'Mọi hồ sơ và câu hỏi gửi lên đều qua hàng chờ phê duyệt của Ban chuyên môn nhằm bảo mật tối đa danh tính doanh nghiệp và bảo đảm chất lượng học thuật.'; ?>
                     </p>
                 </div>
             </div>
@@ -1140,15 +1252,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="forum-container" style="grid-template-columns: 1fr;">
             <div style="max-width: 700px; margin: 0 auto; width: 100%;">
                 <div class="section-header-premium" style="margin-bottom: 40px;">
-                    <h2><?php echo $is_en ? 'Prescribe Treatment (1:1 Booking)' : 'Đăng ký phòng chẩn bệnh 1:1'; ?></h2>
-                    <p><?php echo $is_en ? 'Describe your business pain points below to book a secure, private session.' : 'Để lại thông tin chẩn bệnh, chúng tôi sẽ sắp xếp buổi gặp mặt bảo mật 1:1 trực tiếp với Bác sĩ chuyên khoa.'; ?></p>
+                    <h2><?php echo $is_en ? 'Book a Private Session (1:1)' : 'Đặt lịch Tham vấn 1:1 bảo mật'; ?></h2>
+                    <p><?php echo $is_en ? 'Provide contact details and select your target mentor for a confidential session.' : 'Để lại thông tin và chọn chuyên gia mong muốn, ban học vụ sẽ liên hệ để sắp xếp phòng tham vấn bảo mật.'; ?></p>
                 </div>
 
                 <form id="clinic-booking-form" onsubmit="handleBookingSubmit(event)" style="background:#ffffff; border:1px solid #e2e8f0; border-radius:24px; padding:40px; box-shadow:var(--shadow-premium);">
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Select Doctor' : 'Chọn Bác sĩ chuyên khoa'; ?></label>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Select Expert' : 'Chọn Chuyên gia tư vấn'; ?></label>
                         <select class="clinic-form-select" id="booking-mentor" required>
-                            <option value=""><?php echo $is_en ? '-- Select Doctor --' : '-- Chọn Bác sĩ mong muốn --'; ?></option>
+                            <option value=""><?php echo $is_en ? '-- Select Mentor --' : '-- Chọn Chuyên gia mong muốn --'; ?></option>
                         </select>
                     </div>
 
@@ -1175,7 +1287,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Preferred Time' : 'Thời gian hội chẩn mong muốn'; ?></label>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Preferred Time' : 'Thời gian mong muốn'; ?></label>
                         <select class="clinic-form-select" id="booking-time" required>
                             <option value="Cuối tuần (Sáng Chủ nhật)"><?php echo $is_en ? 'Weekend (Sunday Morning)' : 'Cuối tuần (Sáng Chủ nhật)'; ?></option>
                             <option value="Buổi tối trong tuần (20h - 22h)"><?php echo $is_en ? 'Weekday Evening (20:00 - 22:00)' : 'Buổi tối trong tuần (20h - 22h)'; ?></option>
@@ -1184,12 +1296,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Describe Pain Point' : 'Mô tả triệu chứng bệnh / Nỗi đau quản trị'; ?></label>
-                        <textarea class="clinic-form-textarea" id="booking-desc" rows="4" placeholder="<?php echo $is_en ? 'Briefly outline the pain point you are facing...' : 'Điểm nghẽn hoặc khó khăn hiện tại của doanh nghiệp cần giải quyết...'; ?>" required></textarea>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Describe Bottlenecks / Pain Points' : 'Mô tả chi tiết điểm nghẽn của doanh nghiệp'; ?></label>
+                        <textarea class="clinic-form-textarea" id="booking-desc" rows="4" placeholder="<?php echo $is_en ? 'Briefly outline the operational pain point or strategic problem...' : 'Mô tả ngắn gọn về khó khăn vận hành, tài chính, nhân sự hoặc định hướng phát triển...'; ?>" required></textarea>
                     </div>
 
                     <button type="submit" class="btn-primary-premium" style="width:100%; justify-content:center;">
-                        <?php echo $is_en ? 'Submit Consultation' : 'Gửi yêu cầu hội chẩn'; ?>
+                        <?php echo $is_en ? 'Send Request' : 'Gửi yêu cầu tham vấn'; ?>
                     </button>
                 </form>
             </div>
@@ -1200,52 +1312,52 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <div class="clinic-form-overlay" id="topic-modal-overlay">
         <div class="clinic-form-modal">
             <div class="form-modal-header">
-                <h3 class="form-modal-title"><?php echo $is_en ? 'File a Business Case' : 'Đăng ký bệnh án mới'; ?></h3>
+                <h3 class="form-modal-title"><?php echo $is_en ? 'Submit a Diagnostic Case' : 'Gửi hồ sơ tham vấn'; ?></h3>
                 <button class="form-modal-close" onclick="closeNewTopicModal()">&times;</button>
             </div>
             <div class="form-modal-body">
                 <!-- Google Login container -->
                 <div class="google-login-box" id="google-login-box">
-                    <span class="google-login-status" id="google-status-lbl"><?php echo $is_en ? 'Verify with Google to post (Public or Anonymously)' : 'Đăng nhập Google để gửi câu hỏi ẩn danh hoặc công khai'; ?></span>
+                    <span class="google-login-status" id="google-status-lbl"><?php echo $is_en ? 'Verify with Google to post (Public or Anonymously)' : 'Đăng nhập Google để thảo luận ẩn danh hoặc công khai'; ?></span>
                     <div id="google-signin-btn"></div>
                 </div>
 
                 <form id="clinic-topic-form" onsubmit="handleTopicSubmit(event)">
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Topic / Pain Point Title' : 'Tiêu đề bệnh án (Nỗi đau)'; ?></label>
-                        <input type="text" class="clinic-form-input" id="topic-title" placeholder="<?php echo $is_en ? 'e.g., Conflict in partner equity share' : 'Ví dụ: Làm sao giải quyết nợ xấu gia tăng mùa dịch...'; ?>" required />
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Topic / Obstacle Title' : 'Tiêu đề điểm nghẽn / Câu hỏi'; ?></label>
+                        <input type="text" class="clinic-form-input" id="topic-title" placeholder="<?php echo $is_en ? 'e.g., Shareholder direction conflict' : 'Ví dụ: Mâu thuẫn chia tách cổ phần giữa các founder sáng lập...'; ?>" required />
                     </div>
 
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Select Doctor' : 'Bác sĩ hội chẩn chỉ định'; ?></label>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Target Mentor' : 'Chỉ định Chuyên gia phản hồi'; ?></label>
                         <select class="clinic-form-select" id="topic-mentor">
-                            <option value=""><?php echo $is_en ? '-- General Consult (Open to all) --' : '-- Hội chẩn công khai (Tất cả bác sĩ) --'; ?></option>
+                            <option value=""><?php echo $is_en ? '-- General Forum (All mentors) --' : '-- Gửi chung cho Ban chuyên môn (Tất cả) --'; ?></option>
                         </select>
                     </div>
 
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Pain Category Tag' : 'Phân nhóm bệnh lý'; ?></label>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Pain Category Tag' : 'Nhóm điểm nghẽn chính'; ?></label>
                         <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
-                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="SụtGiảmDoanhThu" /> Sụt giảm doanh thu</label>
-                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="NhânSựRờiBỏ" /> Mâu thuẫn nhân sự</label>
-                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="ChuyểnĐổiSố" /> Chuyển đổi số</label>
-                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="QuảnTrịChiếnLược" /> Quản trị chiến lược</label>
-                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="TốiƯuChiPhí" /> Tối ưu chi phí</label>
+                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="SụtGiảmDoanhThu" /> Sụt giảm doanh số</label>
+                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="NhânSựRờiBỏ" /> Cổ đông & Nhân sự</label>
+                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="ChuyểnĐổiSố" /> Chuyển đổi số & AI</label>
+                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="QuảnTrịChiếnLược" /> Chiến lược & Vận hành</label>
+                            <label style="font-size:0.8rem; display:flex; align-items:center; gap:4px; cursor:pointer;"><input type="checkbox" name="topic-tags" value="TốiƯuChiPhí" /> Tài chính & Gọi vốn</label>
                         </div>
                     </div>
 
                     <div class="clinic-form-group">
-                        <label class="clinic-form-label"><?php echo $is_en ? 'Nội dung triệu chứng chi tiết' : 'Mô tả chi tiết triệu chứng bệnh lý'; ?></label>
-                        <textarea class="clinic-form-textarea" id="topic-content" rows="5" required></textarea>
+                        <label class="clinic-form-label"><?php echo $is_en ? 'Detailed Description' : 'Mô tả chi tiết tình huống / Triệu chứng lỗi'; ?></label>
+                        <textarea class="clinic-form-textarea" id="topic-content" rows="5" placeholder="<?php echo $is_en ? 'Outline the core issues, timeline, and current impact...' : 'Nêu rõ bối cảnh, quy mô doanh nghiệp và các tác động tiêu cực đang gặp phải...'; ?>" required></textarea>
                     </div>
 
                     <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
                         <input type="checkbox" id="topic-anonymous" checked style="width:16px; height:16px; accent-color:var(--clr-primary);" />
-                        <label for="topic-anonymous" style="font-size:0.82rem; font-weight:700; color:var(--clr-navy); cursor:pointer;"><?php echo $is_en ? 'Post anonymously (Hide my identity)' : 'Ẩn danh tính của tôi (Đăng ẩn danh)'; ?></label>
+                        <label for="topic-anonymous" style="font-size:0.82rem; font-weight:700; color:var(--clr-navy); cursor:pointer;"><?php echo $is_en ? 'Post anonymously (Hide my identity)' : 'Đăng ẩn danh (Bảo mật thông tin doanh nghiệp)'; ?></label>
                     </div>
 
                     <button type="submit" class="btn-primary-premium" style="width:100%; justify-content:center;">
-                        <?php echo $is_en ? 'File Case' : 'Gửi bệnh án'; ?>
+                        <?php echo $is_en ? 'Submit Case' : 'Gửi yêu cầu'; ?>
                     </button>
                 </form>
             </div>
@@ -1270,23 +1382,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         let forumTopics = [];
         let activeFilterTag = '';
 
-        // 15 Vietnamese Doctor/Lecturers array extracted from source
+        // 15 Vietnamese Expert Council Mentors
         const CLINIC_DOCTORS = [
-            { name: "Phạm Quang Vinh", title: "Tiến sĩ QTKD Hoa Kỳ", specialty: isEnglish ? "Corporate Strategy & Restructuring" : "Chiến lược Quản trị & Phát triển Tổ chức", job: "Viện trưởng IDEAS, hơn 25 năm kinh nghiệm trong lĩnh vực Marketing và Bảo Hiểm.", avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" },
-            { name: "Dương Văn Thịnh", title: "Tiến sĩ QTKD Pháp", specialty: isEnglish ? "AI Integration & Digital Tech" : "Ứng dụng AI & Công nghệ Số", job: "VERON Group - Vice President, AI Technology. Chuyên gia Nghiên cứu AI & Dữ liệu lớn.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" },
-            { name: "Sơn Điền Trung", title: "Tiến sĩ QTKD Pháp", specialty: isEnglish ? "Corporate Operations & Biotech" : "Quản trị Doanh nghiệp & Vận hành Y Dược", job: "Chủ tịch cty Sonha pharma, Q pharma. Đồng sáng lập và thành viên IDEAS.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/NHP_1769-removebg-preview-optimized.webp" },
-            { name: "Trần Tâm Anh", title: "Tiến sĩ QTKD Hoa Kỳ", specialty: isEnglish ? "International Growth & Marketing" : "Chiến lược Marketing & Hợp tác Quốc tế", job: "Chịu trách nhiệm về chiến lược phát triển quốc tế và học thuật tại IDEAS.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/a-tam-anh-1-optimized.webp" },
-            { name: "Trần Hoàng Hiệp", title: "Thạc sĩ QTKD", specialty: isEnglish ? "Change Management & Modernization" : "Hiện đại hóa Hệ thống & Quản trị Thay đổi", job: "Phó Tổng giám đốc Business Smart. Dự án Hiện đại hóa Ngân hàng WB 49 triệu USD.", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp" },
-            { name: "Nguyễn Thị Minh Đoan", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Sales Leadership & Talent Development" : "Đào tạo Bán hàng & Phát triển Nhân sự", job: "18 năm Giám đốc Đào tạo AIA, Prudential. Trưởng phòng Nhân sự Nam Á Bank.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp" },
-            { name: "Mang Viên Hoàng Nhật", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Supply Chain & Healthcare Devices" : "Quản lý Chuỗi cung ứng & Thiết bị Y tế", job: "25 năm kinh nghiệm Dược phẩm. 11 năm quản lý GSK, Roche, Menarini, Takeda.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp" },
-            { name: "Dương Trần Minh Đoàn", title: "Thạc sĩ QTKD", specialty: isEnglish ? "Corporate Finance & Education Management" : "Tài chính Kế toán & Quản trị Giáo dục", job: "Hiệu trưởng SITC. Hơn 27 năm kinh nghiệm thực tế. Giảng viên Broward College.", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/duong-tran-minh-doan.webp" },
-            { name: "Trần Thị Mai Anh", title: "Thạc sĩ QTNNL", specialty: isEnglish ? "HR Operations & Culture Building" : "Quản trị Nhân sự & Xây dựng Văn hóa", job: "HR Director Teko/VNLife, AAA, Circle K Việt Nam. Giảng viên thỉnh giảng hơn 20 năm.", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-thi-mai-anh.webp" },
-            { name: "Lê Sơn Phong", title: "Thạc sĩ QTKD", specialty: isEnglish ? "Corporate Law & Dispute Resolution" : "Pháp lý Doanh nghiệp & Xử lý Tranh chấp", job: "Associate Counsel Le Nguyen Law Firm. Chuyên gia tư vấn pháp chế doanh nghiệp.", avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.webp" },
-            { name: "Đặng Quốc Phong", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Operations Management" : "Quản trị Vận hành & Tối ưu Quy trình", job: "Chuyên gia quản trị vận hành cao cấp, Giảng viên chuyên đề IDEAS.", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
-            { name: "Nguyễn Anh Toàn", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Entrepreneurship & Startup Scaleup" : "Chiến lược Khởi nghiệp & Tăng trưởng", job: "Cố vấn khởi nghiệp đổi mới sáng tạo, giảng viên thỉnh giảng chuyên ngành.", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
-            { name: "Nguyễn Hoài Trung", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Digital Transformation Strategy" : "Chuyển đổi số & Tối ưu Hệ thống", job: "Chuyên gia chuyển đổi số doanh nghiệp, thiết lập quy trình quản lý tinh gọn.", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
-            { name: "Nguyễn Thanh Tuấn", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Risk Assessment & Internal Audits" : "Quản trị Rủi ro & Kiểm soát Nội bộ", job: "Chuyên gia đánh giá rủi ro hệ thống tài chính và quy trình doanh nghiệp.", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
-            { name: "Nguyễn Thành Nhân", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Information Systems Management" : "Công nghệ Thông tin & Hệ thống Thông tin", job: "Nghiên cứu ứng dụng công nghệ thông tin vào quản lý dữ liệu lớn doanh nghiệp.", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.webp" }
+            { name: "Phạm Quang Vinh", title: "Tiến sĩ QTKD Hoa Kỳ", specialty: isEnglish ? "Corporate Strategy & Restructuring" : "Chiến lược Quản trị & Phát triển Tổ chức", job: "Viện trưởng IDEAS, hơn 25 năm kinh nghiệm điều hành và tư vấn trong lĩnh vực Marketing, Bảo hiểm & Giáo dục.", avatar: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" },
+            { name: "Dương Văn Thịnh", title: "Tiến sĩ QTKD Pháp", specialty: isEnglish ? "AI Integration & Digital Tech" : "Ứng dụng AI & Công nghệ Số", job: "VERON Group - Vice President, AI Technology. Chuyên gia Nghiên cứu AI, phân tích dữ liệu lớn và tối ưu quy trình số.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" },
+            { name: "Sơn Điền Trung", title: "Tiến sĩ QTKD Pháp", specialty: isEnglish ? "Corporate Operations & Biotech" : "Quản trị Doanh nghiệp & Vận hành Y Dược", job: "Chủ tịch HĐQT Sonha Pharma, Q Pharma. Đồng sáng lập và cố vấn năng lực cốt lõi tại IDEAS.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/NHP_1769-removebg-preview-optimized.webp" },
+            { name: "Trần Tâm Anh", title: "Tiến sĩ QTKD Hoa Kỳ", specialty: isEnglish ? "International Growth & Marketing" : "Chiến lược Marketing & Hợp tác Quốc tế", job: "Chịu trách nhiệm về chiến lược phát triển quốc tế, chuyển giao học thuật và thương hiệu tại IDEAS.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/a-tam-anh-1-optimized.webp" },
+            { name: "Trần Hoàng Hiệp", title: "Thạc sĩ QTKD", specialty: isEnglish ? "Change Management & Modernization" : "Hiện đại hóa Hệ thống & Quản trị Thay đổi", job: "Phó Tổng giám đốc Business Smart. Chuyên gia triển khai hiện đại hoá hệ thống tài chính tín dụng ngân hàng WB.", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp" },
+            { name: "Nguyễn Thị Minh Đoan", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Sales Leadership & Talent Development" : "Đào tạo Bán hàng & Phát triển Nhân sự", job: "18 năm kinh nghiệm Giám đốc Đào tạo AIA, Prudential, Aviva Việt Nam. Cựu Trưởng phòng Nhân sự Nam Á Bank.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp" },
+            { name: "Mang Viên Hoàng Nhật", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Supply Chain & Healthcare Devices" : "Quản lý Chuỗi cung ứng & Thiết bị Y tế", job: "25 năm kinh nghiệm Dược phẩm. 11 năm quản lý GSK, Roche, Menarini, Takeda tại Đông Nam Á.", avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp" },
+            { name: "Dương Trần Minh Đoàn", title: "Thạc sĩ QTKD", specialty: isEnglish ? "Corporate Finance & Education Management" : "Tài chính Kế toán & Quản trị Giáo dục", job: "Hiệu trưởng SITC. Hơn 27 năm kinh nghiệm thực tế. Giảng viên Broward College và ĐHQG TP.HCM.", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/duong-tran-minh-doan.webp" },
+            { name: "Trần Thị Mai Anh", title: "Thạc sĩ QTNNL", specialty: isEnglish ? "HR Operations & Culture Building" : "Quản trị Nhân sự & Xây dựng Văn hóa", job: "Cựu Giám đốc Nhân sự Teko/VNLife, AAA, Circle K Việt Nam. Giảng viên thỉnh giảng bộ môn Quản trị Nhân sự chiến lược.", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-thi-mai-anh.webp" },
+            { name: "Lê Sơn Phong", title: "Thạc sĩ QTKD", specialty: isEnglish ? "Corporate Law & Dispute Resolution" : "Pháp lý Doanh nghiệp & Xử lý Tranh chấp", job: "Associate Counsel Le Nguyen Law Firm. Chuyên gia tư vấn pháp chế, hợp đồng thương mại và mua bán sáp nhập.", avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.webp" },
+            { name: "Đặng Quốc Phong", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Operations Management" : "Quản trị Vận hành & Hệ thống sản xuất", job: "Chuyên gia tư vấn quản trị vận hành cao cấp cho các tập đoàn sản xuất tiêu dùng lớn.", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
+            { name: "Nguyễn Anh Toàn", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Entrepreneurship & Startup Scaleup" : "Chiến lược Khởi nghiệp & Tăng trưởng", job: "Cố vấn khởi nghiệp đổi mới sáng tạo, hỗ trợ định hình năng lực cạnh tranh và gọi vốn hạt giống.", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
+            { name: "Nguyễn Hoài Trung", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Digital Transformation Strategy" : "Chuyển đổi số & Tối ưu Quy trình", job: "Cố vấn tích hợp hệ thống công nghệ thông tin và thiết lập quy trình quản lý tinh gọn (Lean).", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
+            { name: "Nguyễn Thanh Tuấn", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Risk Assessment & Internal Audits" : "Quản trị Rủi ro & Kiểm soát Nội bộ", job: "Hơn 15 năm đánh giá rủi ro hệ thống kiểm soát nội bộ và kiểm toán độc lập doanh nghiệp.", avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" },
+            { name: "Nguyễn Thành Nhân", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Information Systems Management" : "Hệ thống Thông tin quản lý", job: "Nghiên cứu ứng dụng cơ sở dữ liệu lớn phục vụ báo cáo quản trị thông minh (Business Intelligence).", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.webp" }
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1317,11 +1429,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="mentor-card-actions">
                         <button type="button" class="btn-card-booking" onclick="scrollToBooking('${doc.name}')">
                             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4H18V2H16V4H8V2H6V4H5C3.89 4 3.01 4.9 3.01 6L3 20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V10H19V20ZM19 8H5V6H19V8Z"/></svg>
-                            ${isEnglish ? 'Book' : 'Khám 1:1'}
+                            ${isEnglish ? 'Book 1:1' : 'Tư vấn 1:1'}
                         </button>
                         <button type="button" class="btn-card-ask" onclick="openAskDoctor('${doc.name}')">
                             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/></svg>
-                            ${isEnglish ? 'Ask' : 'Hỏi Bác sĩ'}
+                            ${isEnglish ? 'Ask' : 'Gửi Câu hỏi'}
                         </button>
                     </div>
                 </div>
@@ -1439,7 +1551,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         function renderTopicsList(list) {
             const container = document.getElementById('forum-topics-container');
             if (list.length === 0) {
-                container.innerHTML = `<div class="faculty-empty">${isEnglish ? 'No cases reported matching these filters.' : 'Chưa có bệnh án nào trong phân khoa này.'}</div>`;
+                container.innerHTML = `<div class="faculty-empty">${isEnglish ? 'No cases reported matching these filters.' : 'Chưa có chủ đề nào trong phân khoa này.'}</div>`;
                 return;
             }
 
@@ -1448,7 +1560,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="comment-item">
                         <div class="comment-author-row">
                             <span class="comment-author-name">${c.author}</span>
-                            ${c.is_mentor ? `<span class="comment-author-badge">Bác sĩ</span>` : ''}
+                            ${c.is_mentor ? `<span class="comment-author-badge">Chuyên gia</span>` : ''}
                             <span class="comment-date">${c.date}</span>
                         </div>
                         <div style="margin:0;">${c.content}</div>
@@ -1461,7 +1573,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="topic-meta-user">
                                 <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v4z"/></svg>
                                 ${t.is_anonymous ? (isEnglish ? 'Anonymous Business' : 'Doanh nghiệp ẩn danh') : t.author_name}
-                                ${t.target_mentor ? ` -> ${isEnglish ? 'Consulting: ' : 'Chỉ định: '} Bác sĩ ${t.target_mentor}` : ''}
+                                ${t.target_mentor ? ` -> ${isEnglish ? 'Consultant: ' : 'Người tư vấn: '} Chuyên gia ${t.target_mentor}` : ''}
                             </span>
                             <span class="topic-date">${t.date}</span>
                         </div>
@@ -1474,11 +1586,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="topic-actions">
                                 <button type="button" class="btn-action-upvote" onclick="handleUpvote('${t.id}')">
                                     <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
-                                    Upvote (<span id="upvotes-count-${t.id}">${t.upvotes}</span>)
+                                    Đồng ý kiến (<span id="upvotes-count-${t.id}">${t.upvotes}</span>)
                                 </button>
                                 <button type="button" class="btn-action-comment" onclick="toggleCommentsDrawer('${t.id}')">
                                     <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-                                    ${isEnglish ? 'Comments' : 'Bình luận'} (${t.comments.length})
+                                    ${isEnglish ? 'Responses' : 'Thảo luận'} (${t.comments.length})
                                 </button>
                             </div>
                         </div>
@@ -1507,7 +1619,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             if (topicId.startsWith('mock_')) {
                 const countSpan = document.getElementById(`upvotes-count-${topicId}`);
                 countSpan.innerText = parseInt(countSpan.innerText) + 1;
-                showToast(isEnglish ? 'Thank you for your upvote!' : 'Đã bình chọn bệnh án này!');
+                showToast(isEnglish ? 'Thank you for your upvote!' : 'Đã ghi nhận ý kiến đồng cảm!');
                 return;
             }
 
@@ -1540,7 +1652,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             formData.append('action', 'ideas_submit_clinic_comment');
             formData.append('post_id', topicId);
             formData.append('content', text);
-            formData.append('author', currentUser ? currentUser.name : 'Khách vãng lai');
+            formData.append('author', currentUser ? currentUser.name : 'Doanh nghiệp');
             formData.append('email', currentUser ? currentUser.email : 'guest@ideas.edu.vn');
             formData.append('is_mentor', 'false');
 
@@ -1619,7 +1731,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 formData.append('author_name', currentUser.name);
                 formData.append('author_email', currentUser.email);
             } else if (!anonymous) {
-                showToast(isEnglish ? 'Please log in with Google to post publicly!' : 'Vui lòng đăng nhập Google để đăng bài công khai!');
+                showToast(isEnglish ? 'Please log in with Google to post publicly!' : 'Vui lòng đăng nhập Google để thảo luận công khai!');
                 return;
             }
 

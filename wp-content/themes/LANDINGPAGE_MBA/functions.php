@@ -5882,13 +5882,13 @@ require_once get_template_directory() . '/verify-system/verify-system.php';
 function ideas_clinic_register_cpts() {
     register_post_type('ideas_clinic_topic', [
         'labels' => [
-            'name' => 'Bệnh án Diễn đàn',
-            'singular_name' => 'Bệnh án',
-            'add_new' => 'Thêm bệnh án mới',
-            'add_new_item' => 'Thêm bệnh án mới',
-            'edit_item' => 'Sửa bệnh án',
-            'all_items' => 'Tất cả bệnh án',
-            'view_item' => 'Xem bệnh án',
+            'name' => 'Hồ sơ Tư vấn',
+            'singular_name' => 'Chủ đề Tư vấn',
+            'add_new' => 'Thêm chủ đề mới',
+            'add_new_item' => 'Thêm chủ đề mới',
+            'edit_item' => 'Sửa chủ đề',
+            'all_items' => 'Tất cả chủ đề',
+            'view_item' => 'Xem chủ đề',
         ],
         'public' => true,
         'has_archive' => false,
@@ -5915,7 +5915,7 @@ function ideas_clinic_register_cpts() {
 }
 add_action('init', 'ideas_clinic_register_cpts');
 
-// 2. AJAX Endpoint: Lấy danh sách bệnh án & Thống kê
+// 2. AJAX Endpoint: Lấy danh sách điểm nghẽn & Thống kê
 function ideas_ajax_get_clinic_data() {
     $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     
@@ -5956,13 +5956,13 @@ function ideas_ajax_get_clinic_data() {
         ];
     }
 
-    // Nếu database chưa có dữ liệu, trả về danh sách bệnh án mẫu cực đẹp để trang luôn đầy đủ
+    // Nếu database chưa có dữ liệu, trả về danh sách điểm nghẽn mẫu cực đẹp để trang luôn đầy đủ
     if (empty($topics)) {
         $topics = [
             [
                 'id' => 'mock_1',
                 'title' => 'Làm sao giải quyết mâu thuẫn nội bộ giữa thế hệ Founder cũ và Co-founder trẻ tuổi?',
-                'content' => 'Doanh nghiệp dược phẩm của chúng tôi thành lập được 12 năm, hiện đang cơ cấu lại phòng ban công nghệ và marketing. Nhóm sáng lập cũ thiên về kinh nghiệm thực tế truyền thống, trong khi các bạn Co-founder mới tham gia có xu hướng đẩy mạnh ứng dụng AI và chuyển đổi số. Sự bất đồng về tư duy vận hành đang khiến tiến độ dự án bị chậm gần 4 tháng. Rất mong được các chuyên gia hội chẩn.',
+                'content' => 'Doanh nghiệp dược phẩm của chúng tôi thành lập được 12 năm, hiện đang cơ cấu lại phòng ban công nghệ và marketing. Nhóm sáng lập cũ thiên về kinh nghiệm thực tế truyền thống, trong khi các bạn Co-founder mới tham gia có xu hướng đẩy mạnh ứng dụng AI và chuyển đổi số. Sự bất đồng về tư duy vận hành đang khiến tiến độ dự án bị chậm gần 4 tháng. Rất mong được các chuyên gia tư vấn giải pháp.',
                 'date' => '25/07/2026 14:30',
                 'is_anonymous' => true,
                 'author_name' => 'Doanh nghiệp ẩn danh',
@@ -5972,7 +5972,7 @@ function ideas_ajax_get_clinic_data() {
                 'comments' => [
                     [
                         'author' => 'Dr. Phạm Quang Vinh',
-                        'content' => 'Chào bạn, mâu thuẫn thế hệ trong doanh nghiệp chuyển đổi số là pain point rất phổ biến. Hướng đi cho bạn là cần xây dựng một "Vùng đệm công nghệ" độc lập dưới dạng Sandbox để nhóm trẻ thử nghiệm trước. Đồng thời nhóm sáng lập cũ đóng vai trò Mentor kiểm duyệt rủi ro tài chính chứ không can thiệp sâu vào phương thức vận hành kỹ thuật của dự án AI.',
+                        'content' => 'Chào bạn, mâu thuẫn thế hệ trong doanh nghiệp chuyển đổi số là điểm nghẽn rất phổ biến. Hướng đi cho bạn là cần xây dựng một "Vùng đệm công nghệ" độc lập dưới dạng Sandbox để nhóm trẻ thử nghiệm trước. Đồng thời nhóm sáng lập cũ đóng vai trò Mentor kiểm duyệt rủi ro tài chính chứ không can thiệp sâu vào phương thức vận hành kỹ thuật của dự án AI.',
                         'date' => '25/07/2026 16:15',
                         'is_mentor' => true
                     ]
@@ -6006,7 +6006,7 @@ function ideas_ajax_get_clinic_data() {
         'resolved_rate' => 92,
         'pain_points_distribution' => [
             ['label' => 'Chiến lược & Quản trị', 'value' => 35],
-            ['label' => 'Mâu thuẫn Nhân sự', 'value' => 25],
+            ['label' => 'Cổ đông & Nhân sự', 'value' => 25],
             ['label' => 'Chuyển đổi số & AI', 'value' => 20],
             ['label' => 'Marketing & Doanh thu', 'value' => 15],
             ['label' => 'Pháp lý & Gọi vốn', 'value' => 5]
@@ -6021,7 +6021,7 @@ function ideas_ajax_get_clinic_data() {
 add_action('wp_ajax_ideas_get_clinic_data', 'ideas_ajax_get_clinic_data');
 add_action('wp_ajax_nopriv_ideas_get_clinic_data', 'ideas_ajax_get_clinic_data');
 
-// 3. AJAX Endpoint: Đăng bệnh án mới
+// 3. AJAX Endpoint: Đăng chủ đề thảo luận mới
 function ideas_ajax_submit_clinic_topic() {
     $title = sanitize_text_field($_POST['title']);
     $content = sanitize_textarea_field($_POST['content']);
@@ -6032,7 +6032,7 @@ function ideas_ajax_submit_clinic_topic() {
     $tags = array_map('sanitize_text_field', $_POST['tags'] ?? []);
 
     if (empty($title) || empty($content)) {
-        wp_send_json_error('Tiêu đề và nội dung bệnh án không được để trống.');
+        wp_send_json_error('Tiêu đề và nội dung yêu cầu tư vấn không được để trống.');
     }
 
     // Đăng bài viết dưới dạng pending (chờ duyệt)
@@ -6046,7 +6046,7 @@ function ideas_ajax_submit_clinic_topic() {
     $post_id = wp_insert_post($post_data);
 
     if (is_wp_error($post_id)) {
-        wp_send_json_error('Có lỗi xảy ra khi lưu bệnh án.');
+        wp_send_json_error('Có lỗi xảy ra khi lưu yêu cầu tư vấn.');
     }
 
     update_post_meta($post_id, 'is_anonymous', $is_anonymous);
@@ -6056,12 +6056,12 @@ function ideas_ajax_submit_clinic_topic() {
     update_post_meta($post_id, 'tags', $tags);
     update_post_meta($post_id, 'upvotes', 0);
 
-    wp_send_json_success('Bệnh án của bạn đã được gửi thành công và đang chờ Hội đồng Bác sĩ kiểm duyệt.');
+    wp_send_json_success('Yêu cầu tư vấn của bạn đã được gửi thành công và đang chờ Hội đồng Chuyên môn kiểm duyệt.');
 }
 add_action('wp_ajax_ideas_submit_clinic_topic', 'ideas_ajax_submit_clinic_topic');
 add_action('wp_ajax_nopriv_ideas_submit_clinic_topic', 'ideas_ajax_submit_clinic_topic');
 
-// 4. AJAX Endpoint: Đặt lịch hẹn 1:1 với bác sĩ
+// 4. AJAX Endpoint: Đặt lịch hẹn 1:1 với chuyên gia
 function ideas_ajax_submit_booking() {
     $mentor = sanitize_text_field($_POST['mentor']);
     $name = sanitize_text_field($_POST['name']);
@@ -6075,7 +6075,7 @@ function ideas_ajax_submit_booking() {
         wp_send_json_error('Vui lòng điền đầy đủ tất cả các trường bắt buộc.');
     }
 
-    $booking_title = sprintf('Lịch đặt hẹn: %s - Bác sĩ %s (%s)', $company, $mentor, date('d/m/Y H:i'));
+    $booking_title = sprintf('Lịch đặt hẹn: %s - Chuyên gia %s (%s)', $company, $mentor, date('d/m/Y H:i'));
 
     $post_data = [
         'post_title' => $booking_title,
@@ -6099,11 +6099,11 @@ function ideas_ajax_submit_booking() {
 
     // Gửi email thông báo cho quản trị
     $admin_email = get_option('admin_email');
-    $subject = 'Có yêu cầu Đặt lịch Bác sĩ Doanh nghiệp mới';
-    $message = "Họ tên: $name\nSố điện thoại: $phone\nEmail: $email\nDoanh nghiệp: $company\nBác sĩ yêu cầu: $mentor\nThời gian mong muốn: $time\nMô tả nỗi đau: $desc";
+    $subject = 'Có yêu cầu Đặt lịch Tư vấn Doanh nghiệp mới';
+    $message = "Họ tên: $name\nSố điện thoại: $phone\nEmail: $email\nDoanh nghiệp: $company\nChuyên gia yêu cầu: $mentor\nThời gian mong muốn: $time\nMô tả điểm nghẽn: $desc";
     wp_mail($admin_email, $subject, $message);
 
-    wp_send_json_success('Yêu cầu đặt lịch của bạn đã được gửi. Chuyên viên y tế/học vụ của IDEAS sẽ liên hệ với bạn trong vòng 24h.');
+    wp_send_json_success('Yêu cầu đặt lịch của bạn đã được gửi. Chuyên viên tư vấn học vụ của IDEAS sẽ liên hệ với bạn trong vòng 24h.');
 }
 add_action('wp_ajax_ideas_submit_booking', 'ideas_ajax_submit_booking');
 add_action('wp_ajax_nopriv_ideas_submit_booking', 'ideas_ajax_submit_booking');
@@ -6159,11 +6159,11 @@ add_action('wp_ajax_ideas_upvote_topic', 'ideas_ajax_upvote_topic');
 add_action('wp_ajax_nopriv_ideas_upvote_topic', 'ideas_ajax_upvote_topic');
 
 /**
- * 7. Cấu hình cột hiển thị trong admin cho Bệnh án Diễn đàn
+ * 7. Cấu hình cột hiển thị trong admin cho Hồ sơ Tư vấn
  */
 add_filter('manage_ideas_clinic_topic_posts_columns', function($columns) {
     $columns['author_name'] = 'Người đăng';
-    $columns['target_mentor'] = 'Bác sĩ chỉ định';
+    $columns['target_mentor'] = 'Chuyên gia chỉ định';
     $columns['upvotes'] = 'Lượt Upvote';
     return $columns;
 });
@@ -6175,7 +6175,7 @@ add_action('manage_ideas_clinic_topic_posts_custom_column', function($column, $p
         echo $is_anon ? "👤 <b>Ẩn danh</b> ($name)" : "👤 $name";
     } elseif ($column === 'target_mentor') {
         $mentor = get_post_meta($post_id, 'target_mentor', true);
-        echo $mentor ? "👨‍⚕️ $mentor" : '🩺 Công khai (Tất cả)';
+        echo $mentor ? "👨‍⚕️ $mentor" : '⚖️ Công khai (Tất cả)';
     } elseif ($column === 'upvotes') {
         echo get_post_meta($post_id, 'upvotes', true) ?: 0;
     }
@@ -6187,7 +6187,7 @@ add_action('manage_ideas_clinic_topic_posts_custom_column', function($column, $p
 add_filter('manage_ideas_clinic_booking_posts_columns', function($columns) {
     $columns['contact_info'] = 'Liên hệ';
     $columns['company_name'] = 'Doanh nghiệp';
-    $columns['selected_mentor'] = 'Bác sĩ yêu cầu';
+    $columns['selected_mentor'] = 'Chuyên gia yêu cầu';
     $columns['booking_time'] = 'Thời gian hẹn';
     return $columns;
 });
