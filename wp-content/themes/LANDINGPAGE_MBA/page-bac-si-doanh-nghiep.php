@@ -1788,31 +1788,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="bottleneck-process-card" style="margin-top: 10px; padding: 32px 28px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px;">
                         <h4 style="font-size: 0.95rem; font-weight: 800; color: #ff8888; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 20px; display: flex; align-items: center; gap: 8px;">
                             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                            <?php echo $is_en ? 'Clinical Consultation Process' : 'Quy trình Chẩn trị Doanh nghiệp'; ?>
+                            <?php echo $is_en ? 'Bottleneck Resolution Process' : 'Quy trình Tháo gỡ Điểm nghẽn'; ?>
                         </h4>
                         <div class="process-steps-list" style="display: flex; flex-direction: column; gap: 20px;">
                             <!-- Step 1 -->
                             <div class="process-step-item" style="display: flex; gap: 16px; align-items: flex-start;">
                                 <span class="step-number" style="font-size: 0.8rem; font-weight: 800; color: #ffffff; background: #ab0e00; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(171, 14, 0, 0.4);">1</span>
                                 <div style="flex: 1;">
-                                    <h5 style="font-size: 0.9rem; font-weight: 800; color: #ffffff; margin: 0 0 4px;"><?php echo $is_en ? '1. Dossier Submission & Booking' : 'Bước 1: Gửi Hồ sơ & Đăng ký Khám'; ?></h5>
-                                    <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;"><?php echo $is_en ? 'Submit your operational data and schedule a private 1:1 briefing session.' : 'Doanh nghiệp cung cấp thông tin triệu chứng và đặt lịch hội chẩn ban đầu.'; ?></p>
+                                    <h5 style="font-size: 0.9rem; font-weight: 800; color: #ffffff; margin: 0 0 4px;"><?php echo $is_en ? 'Step 1: Application & Pain Point Sharing' : 'Bước 1: Đăng ký & Chia sẻ Khó khăn'; ?></h5>
+                                    <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;"><?php echo $is_en ? 'Submit business status, operational barriers, and schedule an initial consultation.' : 'Doanh nghiệp cung cấp thông tin thực trạng, các rào cản vận hành và đề xuất lịch hẹn trao đổi.'; ?></p>
                                 </div>
                             </div>
                             <!-- Step 2 -->
                             <div class="process-step-item" style="display: flex; gap: 16px; align-items: flex-start;">
                                 <span class="step-number" style="font-size: 0.8rem; font-weight: 800; color: #ffffff; background: #3b82f6; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);">2</span>
                                 <div style="flex: 1;">
-                                    <h5 style="font-size: 0.9rem; font-weight: 800; color: #ffffff; margin: 0 0 4px;"><?php echo $is_en ? '2. Council Case Consultation' : 'Bước 2: Hội đồng Chẩn trị Lâm sàng'; ?></h5>
-                                    <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;"><?php echo $is_en ? 'Business Doctors convene to analyze core bottlenecks and design customized roadmaps.' : 'Hội đồng chuyên gia trực tiếp hội chẩn, bóc tách nguyên nhân rễ tre của điểm nghẽn.'; ?></p>
+                                    <h5 style="font-size: 0.9rem; font-weight: 800; color: #ffffff; margin: 0 0 4px;"><?php echo $is_en ? 'Step 2: Expert Board Evaluation' : 'Bước 2: Hội đồng Chuyên gia Phân tích'; ?></h5>
+                                    <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;"><?php echo $is_en ? 'Our specialized board reviews case files, identifies root causes, and evaluates corporate bottlenecks.' : 'Ban chuyên môn nghiên cứu hồ sơ, bóc tách nguyên nhân gốc rễ và đánh giá mức độ nghiêm trọng của điểm nghẽn.'; ?></p>
                                 </div>
                             </div>
                             <!-- Step 3 -->
                             <div class="process-step-item" style="display: flex; gap: 16px; align-items: flex-start;">
                                 <span class="step-number" style="font-size: 0.8rem; font-weight: 800; color: #ffffff; background: #10b981; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);">3</span>
                                 <div style="flex: 1;">
-                                    <h5 style="font-size: 0.9rem; font-weight: 800; color: #ffffff; margin: 0 0 4px;"><?php echo $is_en ? '3. Prescription & Execution' : 'Bước 3: Nhận Phác đồ & Trị liệu'; ?></h5>
-                                    <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;"><?php echo $is_en ? 'Receive actionable solutions, KPIs structure, and direct execution guidance.' : 'Doanh nghiệp nhận phác đồ chi tiết và đồng hành triển khai giải quyết dứt điểm.'; ?></p>
+                                    <h5 style="font-size: 0.9rem; font-weight: 800; color: #ffffff; margin: 0 0 4px;"><?php echo $is_en ? 'Step 3: Solution Delivery & Partnership' : 'Bước 3: Tiếp nhận Giải pháp & Đồng hành'; ?></h5>
+                                    <p style="font-size: 0.82rem; color: #94a3b8; margin: 0; line-height: 1.5;"><?php echo $is_en ? 'Receive a detailed execution roadmap and collaborate with consultants to eliminate issues.' : 'Doanh nghiệp tiếp nhận tài liệu giải pháp chi tiết và phối hợp triển khai tháo gỡ điểm nghẽn.'; ?></p>
                                 </div>
                             </div>
                         </div>
