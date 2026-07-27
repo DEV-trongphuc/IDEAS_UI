@@ -923,7 +923,7 @@ const IDEAS_DATA = {
         {
             title: "Graduation Ceremony",
             location: "Ho Chi Minh City",
-            avatar: "/assets/ltn27122025.webp",
+            avatar: "https://ideas.edu.vn/wp-content/uploads/2026/07/lnt2025vn.jpg",
             school: "Swiss UMEF",
             name: "MBA/EMBA",
             time: "27/12/2025",
