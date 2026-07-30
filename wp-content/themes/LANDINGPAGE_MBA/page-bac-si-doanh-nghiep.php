@@ -1353,9 +1353,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Toast Notifications ── */
         .clinic-toast {
             position: fixed;
-            bottom: 30px;
+            top: 30px;
             right: 30px;
-            z-index: 10000;
+            z-index: 999999;
             background: var(--clr-navy);
             color: #ffffff;
             padding: 16px 24px;
@@ -1367,6 +1367,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.88rem;
             font-weight: 600;
             animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ── Dynamic Comments Thread ── */
