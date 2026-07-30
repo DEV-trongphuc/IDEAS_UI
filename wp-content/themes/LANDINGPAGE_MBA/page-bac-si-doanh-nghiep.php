@@ -2120,7 +2120,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             // { name: "Nguyễn Thành Nhân", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Information Systems Management" : "Hệ thống Thông tin quản lý", job: "Nghiên cứu ứng dụng cơ sở dữ liệu lớn phục vụ báo cáo quản trị thông minh (Business Intelligence).", avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/nguyen-thanh-nhan.webp" },
             { name: "Võ Trùng Dương", title: "Thạc sĩ AI & Business Strategist", specialty: isEnglish ? "Growth & Technology Strategy" : "Chiến lược Tăng trưởng & Công nghệ", job: "Trưởng Khối Tăng Trưởng & Công Nghệ Viện IDEAS. Hơn 20 năm kinh nghiệm triển khai giải pháp Marketing, Tăng trưởng và ứng dụng AI.", avatar: "https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" },
             { name: "Phạm Phi Vũ", title: "NCS. Khoa học Máy tính & AI", specialty: isEnglish ? "Machine Learning & AI Optimization" : "Học máy & Tối ưu quy trình bằng AI", job: "Chuyên gia nghiên cứu sâu về học máy (Machine Learning) và các giải pháp tối ưu hóa quy trình doanh nghiệp bằng AI.", avatar: "https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" },
-            { name: "Phạm Quang Quý", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Innovation & Digital Transformation" : "Đổi mới Sáng tạo & Chuyển đổi số", job: "Tốt nghiệp Ascencia Business School, chuyên sâu về Đổi mới sáng tạo và chuyển đổi số.", avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/speaker-3.webp" }
+            { name: "Phạm Quang Quý", title: "Tiến sĩ QTKD", specialty: isEnglish ? "Innovation & Digital Transformation" : "Đổi mới Sáng tạo & Chuyển đổi số", job: "Tốt nghiệp Ascencia Business School, chuyên sâu về Đổi mới sáng tạo và chuyển đổi số.", avatar: "https://ideas.edu.vn/wp-content/uploads/2025/04/speaker-3.webp" },
+            {
+                name: "Nguyễn Vũ Linh",
+                title: isEnglish ? "MBA" : "Thạc sĩ Quản trị kinh doanh",
+                specialty: isEnglish ? "Enterprise Resource Planning (ERP) & Digital Transformation" : "Hoạch định tài nguyên doanh nghiệp (ERP), Chuyển đổi số",
+                job: isEnglish 
+                    ? "Manager at TopERP Technology Solution Joint Stock Company. Former builder and developer of UBIN. Currently managing UBIN groups/communities with around 500 members."
+                    : "Manager tại TopERP Technology Solution Joint Stock Company. Từng xây dựng và phát triển UBIN. Hiện vẫn đang quản lý các nhóm/cộng đồng UBIN với quy mô khoảng 500 thành viên.",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/07/nguyenvulinh.webp"
+            },
+            {
+                name: "Phạm Minh Khánh",
+                title: isEnglish ? "Ph.D. in Business Administration" : "Tiến sĩ QTKD",
+                specialty: isEnglish ? "Commercial Engineering, Automation, Electrical Control & Renewable Energy" : "Kỹ thuật Thương mại (Tự động hóa, Điều khiển điện & Năng lượng tái tạo)",
+                job: isEnglish 
+                    ? "Over 19 years of management experience at large international corporations, specializing in commercial engineering (automation systems, electrical control, and renewable energy). Strong skills in leadership, strategic management thinking, and highly proactive in learning."
+                    : "Hơn 19 năm kinh nghiệm quản trị tại các tập đoàn quốc tế lớn, chuyên sâu trong lĩnh vực kỹ thuật thương mại (hệ thống tự động hóa, điều khiển điện và năng lượng tái tạo). Có thế mạnh rất tốt về năng lực lãnh đạo, tư duy quản trị chiến lược và có tinh thần chủ động học hỏi cao.",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/07/phamminhkhanh.webp"
+            }
         ];
 
         // 4 Key corporate pain points & therapeutic solutions
@@ -2511,7 +2529,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             const getMentorPrefix = (name) => {
                 if (!name) return '';
-                if (name.includes('Vinh') || name.includes('Vũ') || name.includes('Đông') || name.includes('Sỹ')) {
+                if (name.includes('Linh')) {
+                    return isEnglish ? 'MBA ' : 'ThS. ';
+                }
+                if (name.includes('Vinh') || name.includes('Vũ') || name.includes('Đông') || name.includes('Sỹ') || name.includes('Khánh') || name.includes('Quý') || name.includes('Nhật') || name.includes('Thịnh')) {
                     return isEnglish ? 'Dr. ' : 'TS. ';
                 }
                 return isEnglish ? 'Expert ' : 'Chuyên gia ';
