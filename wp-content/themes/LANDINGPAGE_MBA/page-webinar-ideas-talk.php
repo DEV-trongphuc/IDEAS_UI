@@ -50,7 +50,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <style>
         /* ══════════════════════════════════════
-           IDEAS TALK – PREMIUM BRIGHT THEME
+           IDEAS TALK – HYBRID PREMIUM THEME
+           Hero: Stunning Dark | Body: Elegant Light
            ══════════════════════════════════════ */
         html,
         body {
@@ -60,15 +61,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #fbfbfd;
+            background-color: #fcfcfd;
             color: #334155;
-            background-image:
-                radial-gradient(circle at 10% 20%, rgba(255, 59, 48, 0.04) 0%, transparent 45%),
-                radial-gradient(circle at 90% 80%, rgba(255, 59, 48, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 50% 10%, rgba(241, 245, 249, 0.5) 0%, transparent 60%),
-                radial-gradient(rgba(0, 0, 0, 0.015) 1.5px, transparent 1.5px);
-            background-size: 100% 100%, 100% 100%, 100% 100%, 30px 30px;
-            background-attachment: scroll, scroll, scroll, fixed;
         }
 
         /* Container helper */
@@ -127,12 +121,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
         }
 
-        /* ── Hero ──────────────────────────── */
+        /* ── Hero: Dark/Black Theme ────────── */
         .talk-hero {
             position: relative;
-            padding: 220px 20px 120px;
+            padding: 220px 20px 140px;
             overflow: hidden;
-            background: transparent;
+            background-color: #080405;
             min-height: 75vh;
             display: flex;
             align-items: center;
@@ -150,8 +144,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.1;
-            filter: grayscale(20%);
+            opacity: 0.2;
+            filter: brightness(60%) contrast(110%);
         }
 
         .talk-hero-overlay {
@@ -160,10 +154,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(251, 251, 253, 0.98) 0%,
-                    rgba(255, 245, 245, 0.4) 60%,
-                    rgba(251, 251, 253, 1) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(255, 59, 48, 0.08) 0%, transparent 75%);
+                    rgba(8, 4, 5, 0.9) 0%,
+                    rgba(8, 4, 5, 0.5) 60%,
+                    #080405 100%),
+                radial-gradient(circle at 50% 50%, rgba(185, 14, 0, 0.18) 0%, transparent 70%);
         }
 
         .talk-hero-container {
@@ -180,11 +174,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .talk-hero-badge {
-            background: rgba(255, 59, 48, 0.06);
-            border: 1px solid rgba(255, 59, 48, 0.15);
+            background: rgba(255, 59, 48, 0.12);
+            border: 1px solid rgba(255, 59, 48, 0.25);
             padding: 8px 24px;
             border-radius: 100px;
-            color: #ff3b30;
+            color: #ff6b6b;
             font-size: 0.8rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -193,12 +187,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 8px;
             margin-bottom: 24px;
-            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.04);
+            box-shadow: 0 4px 20px rgba(255, 59, 48, 0.1);
             backdrop-filter: blur(12px);
         }
 
         .talk-hero-badge svg {
-            color: #ff3b30;
+            color: #ff6b6b;
             animation: pulse 2s infinite;
         }
 
@@ -214,12 +208,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-bottom: 15px;
             letter-spacing: -0.03em;
             line-height: 1.1;
-            color: #0f172a !important;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            color: #ffffff !important;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .talk-hero h1 span {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 100%) !important;
+            background: linear-gradient(135deg, #ff8e8e 0%, #ff3b30 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
@@ -230,7 +224,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            background: linear-gradient(90deg, #ff3b30 0%, #0f172a 50%, #ff3b30 100%);
+            background: linear-gradient(90deg, #ff6b6b 0%, #ffffff 50%, #ff6b6b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -240,7 +234,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .talk-tagline {
             font-size: 1.25rem;
             font-weight: 800;
-            color: #ff3b30 !important;
+            color: #ff6b6b !important;
             letter-spacing: 0.1em;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -248,7 +242,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .talk-hero p {
             font-size: 1.2rem;
-            color: #475569 !important;
+            color: #e2e8f0 !important;
             max-width: 750px;
             margin-bottom: 40px;
             line-height: 1.65;
@@ -262,124 +256,292 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-wrap: wrap;
         }
 
-        .btn-talk {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 36px;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 12px;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .btn-talk-primary {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 100%);
+        .btn-talk-secondary-dark {
+            background: rgba(255, 255, 255, 0.08);
             color: #ffffff !important;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 25px rgba(255, 59, 48, 0.15);
-        }
-
-        .btn-talk-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.3);
-            color: #ffffff !important;
-        }
-
-        .btn-talk-secondary {
-            background: #ffffff;
-            color: #0f172a !important;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(12px);
         }
 
-        .btn-talk-secondary:hover {
-            background: #ffffff;
+        .btn-talk-secondary-dark:hover {
+            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-3px);
-            border-color: rgba(15, 23, 42, 0.15);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            color: #0f172a !important;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            color: #ffffff !important;
         }
 
-        /* ── Section 1: Intro ──────────────── */
+        /* ── Section 1: Intro (High-Impact Design) ── */
         .section-intro {
-            padding: 40px 0;
+            padding: 90px 0 50px;
             position: relative;
+            background-color: #fcfcfd;
         }
 
         .intro-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
             align-items: center;
         }
 
         @media (max-width: 992px) {
             .intro-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 45px;
             }
         }
 
-        .intro-left h3 {
-            font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+        .intro-badge-accent {
+            font-size: 0.75rem;
             font-weight: 800;
-            line-height: 1.25;
-            color: #0f172a;
-            margin-bottom: 24px;
+            color: #ff3b30;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+            display: inline-block;
+            position: relative;
+            padding-left: 24px;
         }
 
-        .intro-left h3 span {
-            color: #ff3b30;
+        .intro-badge-accent::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 2px;
+            background: #ff3b30;
+        }
+
+        .intro-left h3 {
+            font-size: clamp(2rem, 3.8vw, 2.6rem);
+            font-weight: 850;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .intro-left .highlight-number {
+            font-size: 1.15em;
+            font-weight: 900;
             background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: inline-block;
+        }
+
+        .intro-line-decorator {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff3b30, transparent);
+            margin-bottom: 24px;
+            border-radius: 2px;
         }
 
         .intro-left p {
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             line-height: 1.75;
             color: #475569;
+            font-weight: 500;
             margin: 0;
         }
 
         .intro-cards-stack {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
 
         .intro-card {
             background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.05);
-            border-radius: 18px;
-            padding: 20px 24px;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            border-radius: 20px;
+            padding: 24px 28px;
             display: flex;
             align-items: center;
-            gap: 20px;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            gap: 24px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);
-            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.01), rgba(255, 59, 48, 0.03));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .intro-card:hover {
-            background: #ffffff;
-            border-color: rgba(255, 59, 48, 0.18);
-            transform: translateX(6px);
-            box-shadow: 0 12px 30px rgba(255, 59, 48, 0.04);
+            transform: translateY(-4px) scale(1.01);
+            border-color: rgba(255, 59, 48, 0.15);
+            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.04), 0 0 1px rgba(255, 59, 48, 0.1);
+        }
+
+        .intro-card:hover::before {
+            opacity: 1;
         }
 
         .intro-card-icon {
-            width: 56px;
-            height: 56px;
+            width: 62px;
+            height: 62px;
+            background: #fff5f5;
+            border: 1px solid #ffe3e3;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff3b30;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 59, 48, 0.05);
+        }
+
+        .intro-card:hover .intro-card-icon {
+            background: #ff3b30;
+            color: #ffffff;
+            border-color: #ff3b30;
+            transform: rotate(-3deg) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 59, 48, 0.2);
+        }
+
+        .intro-card-icon svg {
+            width: 26px;
+            height: 26px;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-card-content h4 {
+            margin: 0 0 6px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            transition: color 0.3s ease;
+        }
+
+        .intro-card:hover h4 {
+            color: #ff3b30;
+        }
+
+        .intro-card-content p {
+            margin: 0;
+            font-size: 0.98rem;
+            color: #475569;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .intro-card-tag {
+            position: absolute;
+            top: 14px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff8e8e 0%, #ff3b30 100%);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.15);
+        }
+
+        /* ── Section 2: Why Attend (Split List Layout - Professional & No Emojis) ── */
+        .section-why {
+            padding: 40px 0;
+            background-color: #fcfcfd;
+        }
+
+        .why-split-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 992px) {
+            .why-split-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .why-left-sticky {
+            position: sticky;
+            top: 100px;
+        }
+
+        .why-left-sticky h2 {
+            font-size: clamp(2rem, 4vw, 2.6rem);
+            font-weight: 850;
+            color: #0f172a;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0f172a 40%, #ff3b30 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .why-left-sticky p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.65;
+            margin-bottom: 30px;
+        }
+
+        .why-right-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .why-list-item {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.05);
+            border-radius: 20px;
+            padding: 28px 30px;
+            display: flex;
+            gap: 24px;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            position: relative;
+        }
+
+        .why-list-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 59, 48, 0.2);
+            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.05);
+        }
+
+        .why-item-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: rgba(255, 59, 48, 0.15);
+            line-height: 1;
+            font-family: inherit;
+            flex-shrink: 0;
+            transition: color 0.3s ease;
+        }
+
+        .why-list-item:hover .why-item-number {
+            color: rgba(255, 59, 48, 0.35);
+        }
+
+        .why-item-icon-wrapper {
+            width: 50px;
+            height: 50px;
             background: rgba(255, 59, 48, 0.05);
             border: 1px solid rgba(255, 59, 48, 0.1);
-            border-radius: 14px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -387,99 +549,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-shrink: 0;
         }
 
-        .intro-card-icon svg {
-            width: 24px;
-            height: 24px;
+        .why-item-icon-wrapper svg {
+            width: 22px;
+            height: 22px;
         }
 
-        .intro-card-content h4 {
-            margin: 0 0 4px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .intro-card-content p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #64748b;
-        }
-
-        /* ── Section 2: Why Choose ────────── */
-        .section-why {
-            padding: 40px 0;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .why-card {
-            background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.05);
-            border-radius: 24px;
-            padding: 35px;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);
-        }
-
-        .why-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #ff3b30, transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .why-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 59, 48, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03), 0 0 15px rgba(255, 59, 48, 0.04);
-        }
-
-        .why-card:hover::before {
-            opacity: 1;
-        }
-
-        .why-card-icon {
-            font-size: 2.4rem;
-            color: #ff3b30;
-            line-height: 1;
-        }
-
-        .why-card h3 {
-            font-size: 1.3rem;
+        .why-item-content h3 {
+            font-size: 1.15rem;
             font-weight: 800;
             color: #0f172a;
-            margin: 0;
+            margin: 0 0 8px;
         }
 
-        .why-card p {
+        .why-item-content p {
             font-size: 0.95rem;
-            line-height: 1.65;
+            line-height: 1.6;
             color: #475569;
             margin: 0;
         }
 
-        /* ── Section 3: Topics ────────────── */
+        /* ── Section 3: Topics (Clean Row List - No Emoji, ALIGNED) ── */
         .section-topics {
             padding: 40px 0;
         }
@@ -488,7 +577,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             gap: 16px;
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -496,41 +585,52 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.05);
             border-radius: 18px;
-            padding: 22px 30px;
+            padding: 20px 30px;
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 30px; /* spacing between columns */
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
         }
 
         .topic-badge-row:hover {
             border-color: rgba(255, 59, 48, 0.2);
             transform: translateX(8px);
-            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.04);
+            box-shadow: 0 12px 30px rgba(255, 59, 48, 0.04);
+        }
+
+        .topic-tag-col {
+            width: 200px; /* Fixed width to prevent uneven layout / thò thụt */
+            flex-shrink: 0;
+            display: flex;
         }
 
         .topic-tag {
+            width: 100%;
             background: rgba(255, 59, 48, 0.05);
             border: 1px solid rgba(255, 59, 48, 0.15);
-            padding: 6px 18px;
+            padding: 8px 18px;
             border-radius: 80px;
             font-size: 0.8rem;
             font-weight: 800;
             color: #ff3b30;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            flex-shrink: 0;
-            display: flex;
+            display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
+            text-align: center;
         }
 
         .topic-tag.hot {
             background: linear-gradient(135deg, rgba(255, 59, 48, 0.06) 0%, rgba(255, 149, 0, 0.06) 100%);
             border-color: rgba(255, 107, 107, 0.25);
             color: #d97706;
+        }
+
+        .topic-desc-col {
+            flex-grow: 1;
         }
 
         .topic-desc {
@@ -541,32 +641,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 500;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .topic-badge-row {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 12px;
                 padding: 20px;
             }
+            .topic-tag-col {
+                width: auto;
+                flex-shrink: 1;
+            }
         }
 
-        /* ── Section 4: Horizontal Timeline ── */
+        /* ── Section 4: Horizontal Timeline (Full Width / Fluid Layout) ── */
         .section-featured {
             padding: 40px 0;
+            width: 100%;
+            overflow: hidden;
         }
 
-        .timeline-container {
+        .timeline-container-fluid {
             position: relative;
             padding: 40px 0;
-            max-width: 100%;
+            width: 100%;
         }
 
         .timeline-track-wrapper {
             overflow-x: auto;
             padding: 20px 0;
+            width: 100%;
+            /* Auto aligns starting element with boxed container when screen is wider than 1200px */
+            padding-left: calc(max(20px, (100vw - 1200px) / 2));
+            padding-right: calc(max(20px, (100vw - 1200px) / 2));
             scrollbar-width: thin;
             scrollbar-color: #ff3b30 rgba(0, 0, 0, 0.05);
             -webkit-overflow-scrolling: touch;
+            box-sizing: border-box;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar {
@@ -587,14 +698,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 30px;
             position: relative;
             min-width: max-content;
-            padding: 0 20px;
         }
 
         .timeline-line {
             position: absolute;
-            top: 12px; /* aligns inside the timeline dots */
-            left: 50px;
-            right: 50px;
+            top: 12px;
+            left: 0;
+            right: 0;
             height: 3px;
             background: linear-gradient(90deg, #ff3b30 40%, rgba(15, 23, 42, 0.05) 80%);
             z-index: 1;
@@ -644,7 +754,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
-            height: 380px; /* fixed height for alignment */
+            height: 380px;
             justify-content: space-between;
         }
 
@@ -1243,7 +1353,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <div class="mobile-overlay" id="mobile-overlay"></div>
 
     <main id="content">
-        <!-- Hero Section -->
+        <!-- Hero Section: Keep Dark/Black -->
         <section class="talk-hero" id="hero">
             <div class="talk-hero-bg"
                 style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');">
@@ -1266,23 +1376,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <a href="#register" class="btn-talk btn-talk-primary">
                         <?php echo $is_en ? 'Register Now' : 'Đăng ký tham gia ngay'; ?>
                     </a>
-                    <a href="#recap" class="btn-talk btn-talk-secondary">
+                    <a href="#recap" class="btn-talk btn-talk-secondary-dark">
                         <?php echo $is_en ? 'Watch Latest Recap' : 'Xem Recap buổi gần nhất'; ?>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Section 1: Intro -->
+        <!-- Section 1: Intro (Sleek Redesigned Style) -->
         <section class="section-intro" id="about">
             <div class="talk-container">
                 <div class="intro-grid">
                     <div class="intro-left">
-                        <h3>90 <?php echo $is_en ? 'Minutes Solving Pain Points – 1 Night Boosting Capability' : 'Phút Tháo Gỡ Pain Point – 1 Đêm Bứt Phá Năng Lực'; ?></h3>
+                        <span class="intro-badge-accent"><?php echo $is_en ? 'IDEAS TALK VALUE' : 'GIÁ TRỊ TỪ IDEAS TALK'; ?></span>
+                        <h3>
+                            <span class="highlight-number">90</span> <?php echo $is_en ? 'Minutes Solving Pain Points' : 'Phút Tháo Gỡ Pain Point'; ?><br>
+                            <span class="highlight-number">1</span> <?php echo $is_en ? 'Night Boosting Capability' : 'Đêm Bứt Phá Năng Lực'; ?>
+                        </h3>
+                        <div class="intro-line-decorator"></div>
                         <p><?php echo $is_en ? 'No academic theory, no generic scripts. Each Webinar is a "real battle" case solving thoroughly one big problem of the enterprise — directly with Experts (Enterprise Doctors from IDEAS) & experienced managers.' : 'Không lý thuyết hàn lâm, không kịch bản chung chung. Mỗi buổi Webinar là một ca "thực chiến" giải quyết triệt để 1 bài toán lớn của doanh nghiệp — trực tiếp cùng Chuyên gia (Bác sĩ Doanh nghiệp từ IDEAS) & Nhà quản trị dày dặn kinh nghiệm.'; ?></p>
                     </div>
                     <div class="intro-right">
                         <div class="intro-cards-stack">
+                            <!-- Card 1 -->
                             <div class="intro-card">
                                 <div class="intro-card-icon">
                                     <svg viewBox="0 0 448 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z"/></svg>
@@ -1292,6 +1408,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <p><?php echo $is_en ? 'Thursday at 19:30 - 21:00' : 'Thứ 5 lúc 19:30 - 21:00'; ?></p>
                                 </div>
                             </div>
+                            <!-- Card 2 -->
                             <div class="intro-card">
                                 <div class="intro-card-icon">
                                     <svg viewBox="0 0 576 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
@@ -1301,7 +1418,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <p><?php echo $is_en ? 'Live via Zoom' : 'Trực tiếp qua Zoom'; ?></p>
                                 </div>
                             </div>
+                            <!-- Card 3 -->
                             <div class="intro-card">
+                                <span class="intro-card-tag"><?php echo $is_en ? 'Free' : 'Đặc quyền'; ?></span>
                                 <div class="intro-card-icon">
                                     <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M190.4 48.4c10-3.1 20.7 2.4 23.9 12.4l34.4 107.1L209 177.1c-22.3-10.3-48.4-1.2-59.5 21l-34.4-107.1c-3.1-10 2.4-20.7 12.4-23.9l62.9-19.8zm231 231c10 3.1 15.5 13.8 12.4 23.9l-34.4 107.1c-11.1 22.3-37.2 31.4-59.5 21l-39.7 9.2 34.4-107.1c3.1-10 13.8-15.5 23.9-12.4l62.9 18.3zm-63.5-84.7c22.3 10.3 31.4 36.4 21 58.7l-159.2 346c-10.3 22.3-36.4 31.4-58.7 21l-31.5-14.5c-22.3-10.3-31.4-36.4-21-58.7l159.2-346c10.3-22.3 36.4-31.4 58.7-21l31.5 14.5z"/></svg>
                                 </div>
@@ -1318,33 +1437,66 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <div class="section-divider"></div>
 
-        <!-- Section 2: Why Attend -->
+        <!-- Section 2: Why Attend (Split List Layout - Professional & No Emojis) -->
         <section class="section-why" id="why-attend">
             <div class="talk-container">
-                <div class="talk-section-header">
-                    <h2><?php echo $is_en ? 'Why You Shouldn\'t Miss IDEAS Talk Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi Webinar của IDEAS?'; ?></h2>
-                    <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
-                </div>
-                <div class="why-grid">
-                    <div class="why-card">
-                        <div class="why-card-icon">👨‍⚕️</div>
-                        <h3><?php echo $is_en ? 'Accompanied by the IDEAS "Enterprise Doctor" team' : 'Đồng hành cùng đội ngũ "Bác sĩ Doanh nghiệp" IDEAS'; ?></h3>
-                        <p><?php echo $is_en ? 'No bookish theories. You get to listen, ask questions and participate in 1:1 discussions with experts and managers rich in practical experience - who have directly diagnosed and unblocked bottlenecks for hundreds of businesses.' : 'Không lý thuyết suông từ sách vở. Bạn được lắng nghe, đặt câu hỏi và trực tiếp tham gia thảo luận 1:1 với những chuyên gia, nhà quản trị giàu kinh nghiệm thực chiến — những người đã trực tiếp "bắt bệnh" và tháo gỡ điểm nghẽn cho hàng trăm doanh nghiệp.'; ?></p>
+                <div class="why-split-container">
+                    <div class="why-left-sticky">
+                        <h2><?php echo $is_en ? 'Why You Shouldn\'t Miss IDEAS Talk Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi Webinar của IDEAS?'; ?></h2>
+                        <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
+                        <a href="#register" class="btn-talk btn-talk-primary">
+                            <?php echo $is_en ? 'Register Today' : 'Đăng ký ngay hôm nay'; ?>
+                        </a>
                     </div>
-                    <div class="why-card">
-                        <div class="why-card-icon">🎯</div>
-                        <h3><?php echo $is_en ? 'Thoroughly solve 01 practical problem' : 'Giải quyết dứt điểm 01 bài toán thực tế'; ?></h3>
-                        <p><?php echo $is_en ? 'Each Webinar is designed concisely around a single core topic. Say NO to overwhelming information, helping you possess the thinking & frameworks to apply to work the very next day.' : 'Mỗi Webinar được thiết kế cô đọng xung quanh một chủ đề cốt lõi duy nhất. Nói "KHÔNG" với thông tin tràn lan, giúp bạn sở hữu ngay tư duy & khung hành động (Framework) để áp dụng vào công việc hôm sau.'; ?></p>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-card-icon">🎁</div>
-                        <h3><?php echo $is_en ? 'Receive Full Practical Gift Package' : 'Đóng gói & Nhận trọn bộ Quà tặng Thực chiến'; ?></h3>
-                        <p><?php echo $is_en ? 'Exclusive privilege for direct attendees: Get the Template, Checklist & Guidelines set standardized and ready for deployment without building from scratch.' : 'Đặc quyền dành riêng cho người tham dự trực tiếp: Nhận ngay Bộ Template, Checklist & Tài liệu hướng dẫn đã được đóng gói chuẩn hóa, giúp bạn hoặc đội ngũ triển khai được ngay mà không cần làm lại từ đầu.'; ?></p>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-card-icon">🤝</div>
-                        <h3><?php echo $is_en ? 'Connect with Practical Knowledge Community' : 'Kết nối Cộng đồng Tri thức Thực chiến'; ?></h3>
-                        <p><?php echo $is_en ? 'Expand your networking with managers, business owners, and employees who share the same direction of boosting capabilities & elevating management mindset.' : 'Mở rộng mạng lưới giao lưu cùng các Nhà quản lý, Chủ doanh nghiệp và Nhân sự có chung định hướng bứt phá năng lực & nâng tầm tư duy.'; ?></p>
+                    
+                    <div class="why-right-list">
+                        <!-- Point 1 -->
+                        <div class="why-list-item">
+                            <span class="why-item-number">01</span>
+                            <div class="why-item-icon-wrapper">
+                                <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C40.2 288 0 328.2 0 377.6V448c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-70.4c0-49.4-40.2-89.6-94.4-89.6z"/></svg>
+                            </div>
+                            <div class="why-item-content">
+                                <h3><?php echo $is_en ? 'Accompanied by the IDEAS "Enterprise Doctor" team' : 'Đồng hành cùng đội ngũ "Bác sĩ Doanh nghiệp" IDEAS'; ?></h3>
+                                <p><?php echo $is_en ? 'No bookish theories. You get to listen, ask questions and participate in 1:1 discussions with experts and managers rich in practical experience - who have directly diagnosed and unblocked bottlenecks for hundreds of businesses.' : 'Không lý thuyết suông từ sách vở. Bạn được lắng nghe, đặt câu hỏi và trực tiếp tham gia thảo luận 1:1 với những chuyên gia, nhà quản trị giàu kinh nghiệm thực chiến — những người đã trực tiếp "bắt bệnh" và tháo gỡ điểm nghẽn cho hàng trăm doanh nghiệp.'; ?></p>
+                            </div>
+                        </div>
+
+                        <!-- Point 2 -->
+                        <div class="why-list-item">
+                            <span class="why-item-number">02</span>
+                            <div class="why-item-icon-wrapper">
+                                <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zm0 448c-105.9 0-192-86.1-192-192S150.1 64 256 64s192 86.1 192 192s-86.1 192-192 192zm0-320c-70.6 0-128 57.4-128 128s57.4 128 128 128s128-57.4 128-128s-57.4-128-128-128zm0 192c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
+                            </div>
+                            <div class="why-item-content">
+                                <h3><?php echo $is_en ? 'Thoroughly solve 01 practical problem' : 'Giải quyết dứt điểm 01 bài toán thực tế'; ?></h3>
+                                <p><?php echo $is_en ? 'Each Webinar is designed concisely around a single core topic. Say NO to overwhelming information, helping you possess the thinking & frameworks to apply to work the very next day.' : 'Mỗi Webinar được thiết kế cô đọng xung quanh một chủ đề cốt lõi duy nhất. Nói "KHÔNG" với thông tin tràn lan, giúp bạn sở hữu ngay tư duy & khung hành động (Framework) để áp dụng vào công việc hôm sau.'; ?></p>
+                            </div>
+                        </div>
+
+                        <!-- Point 3 -->
+                        <div class="why-list-item">
+                            <span class="why-item-number">03</span>
+                            <div class="why-item-icon-wrapper">
+                                <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512S0 397.4 0 256S114.6 0 256 0zM128 224v64h256v-64H128z"/></svg>
+                            </div>
+                            <div class="why-item-content">
+                                <h3><?php echo $is_en ? 'Receive Full Practical Gift Package' : 'Đóng gói & Nhận trọn bộ Quà tặng Thực chiến'; ?></h3>
+                                <p><?php echo $is_en ? 'Exclusive privilege for direct attendees: Get the Template, Checklist & Guidelines set standardized and ready for deployment without building from scratch.' : 'Đặc quyền dành riêng cho người tham dự trực tiếp: Nhận ngay Bộ Template, Checklist & Tài liệu hướng dẫn đã được đóng gói chuẩn hóa, giúp bạn hoặc đội ngũ triển khai được ngay mà không cần làm lại từ đầu.'; ?></p>
+                            </div>
+                        </div>
+
+                        <!-- Point 4 -->
+                        <div class="why-list-item">
+                            <span class="why-item-number">04</span>
+                            <div class="why-item-icon-wrapper">
+                                <svg viewBox="0 0 640 512" fill="currentColor"><path d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm368 0c61.9 0 112-50.1 112-112s-50.1-112-112-112-112 50.1-112 112 50.1 112 112 112zm-368 32c-65.9 0-192 32.9-192 98v50c0 17.7 14.3 32 32 32h320c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98zm368 0c-17.9 0-45 4.3-73.1 12.8 29.3 20.5 49.1 52.6 49.1 89.2v50c0 4.4-.9 8.6-2.5 12.5L608 448c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98z"/></svg>
+                            </div>
+                            <div class="why-item-content">
+                                <h3><?php echo $is_en ? 'Connect with Practical Knowledge Community' : 'Kết nối Cộng đồng Tri thức Thực chiến'; ?></h3>
+                                <p><?php echo $is_en ? 'Expand your networking with managers, business owners, and employees who share the same direction of boosting capabilities & elevating management mindset.' : 'Mở rộng mạng lưới giao lưu cùng các Nhà quản lý, Chủ doanh nghiệp và Nhân sự có chung định hướng bứt phá năng lực & nâng tầm tư duy.'; ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1352,36 +1504,66 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <div class="section-divider"></div>
 
-        <!-- Section 3: Key Topics -->
+        <!-- Section 3: Key Topics (Clean Row List - No Emoji, ALIGNED) -->
         <section class="section-topics" id="topics">
             <div class="talk-container">
                 <div class="talk-section-header">
                     <h2><?php echo $is_en ? 'Core Themes at IDEAS Talk' : 'Các Chủ Đề Trọng Tâm Tại IDEAS TALK'; ?></h2>
                     <p><?php echo $is_en ? 'Our webinar topics cover key business pillars, designed to provide comprehensive tools and strategies.' : 'Các chủ đề được lựa chọn cẩn thận bao quanh các trụ cột cốt lõi của doanh nghiệp.'; ?></p>
                 </div>
+                
                 <div class="topics-list">
+                    <!-- Topic 1 -->
                     <div class="topic-badge-row">
-                        <span class="topic-tag hot">
-                            <svg viewBox="0 0 512 512" fill="currentColor" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c17.7 0 32 14.3 32 32V64.3c52.5 11.7 94 53.2 105.7 105.7H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H453.7C442 320.5 400.5 362 348 373.7V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V447.7c-52.5-11.7-94-53.2-105.7-105.7H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h57.7c11.7-52.5 53.2-94 105.7-105.7V32c0-17.7 14.3-32 32-32zm80 256c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80z"/></svg>
-                            AI &amp; Tech [Hot]
-                        </span>
-                        <p class="topic-desc"><?php echo $is_en ? 'Break through 10x performance with the latest AI tools & technology.' : 'Bứt phá 10x hiệu suất cùng công nghệ & công cụ AI mới nhất. [Hot topic Tháng 8]'; ?></p>
+                        <div class="topic-tag-col">
+                            <span class="topic-tag hot">
+                                <svg viewBox="0 0 512 512" fill="currentColor" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c17.7 0 32 14.3 32 32V64.3c52.5 11.7 94 53.2 105.7 105.7H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H453.7C442 320.5 400.5 362 348 373.7V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V447.7c-52.5-11.7-94-53.2-105.7-105.7H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h57.7c11.7-52.5 53.2-94 105.7-105.7V32c0-17.7 14.3-32 32-32zm80 256c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80z"/></svg>
+                                AI &amp; Tech [Hot]
+                            </span>
+                        </div>
+                        <div class="topic-desc-col">
+                            <p class="topic-desc"><?php echo $is_en ? 'Break through 10x performance with the latest AI tools & technology.' : 'Bứt phá 10x hiệu suất cùng công nghệ & công cụ AI mới nhất. [Hot topic Tháng 8]'; ?></p>
+                        </div>
                     </div>
+
+                    <!-- Topic 2 -->
                     <div class="topic-badge-row">
-                        <span class="topic-tag">Leadership</span>
-                        <p class="topic-desc"><?php echo $is_en ? 'Unblock management bottlenecks & build leading capacity.' : 'Tháo gỡ điểm nghẽn quản trị & năng lực dẫn dắt.'; ?></p>
+                        <div class="topic-tag-col">
+                            <span class="topic-tag">Leadership</span>
+                        </div>
+                        <div class="topic-desc-col">
+                            <p class="topic-desc"><?php echo $is_en ? 'Unblock management bottlenecks & build leading capacity.' : 'Tháo gỡ điểm nghẽn quản trị & năng lực dẫn dắt.'; ?></p>
+                        </div>
                     </div>
+
+                    <!-- Topic 3 -->
                     <div class="topic-badge-row">
-                        <span class="topic-tag">Marketing &amp; Sales</span>
-                        <p class="topic-desc"><?php echo $is_en ? 'Breakthrough revenue growth with practical sales & marketing solutions.' : 'Đột phá tăng trưởng doanh số với giải pháp tiếp thị thực chiến.'; ?></p>
+                        <div class="topic-tag-col">
+                            <span class="topic-tag">Marketing &amp; Sales</span>
+                        </div>
+                        <div class="topic-desc-col">
+                            <p class="topic-desc"><?php echo $is_en ? 'Breakthrough revenue growth with practical sales & marketing solutions.' : 'Đột phá tăng trưởng doanh số với giải pháp tiếp thị thực chiến.'; ?></p>
+                        </div>
                     </div>
+
+                    <!-- Topic 4 -->
                     <div class="topic-badge-row">
-                        <span class="topic-tag">Finance</span>
-                        <p class="topic-desc"><?php echo $is_en ? 'Optimize cash flows & manage corporate financial health.' : 'Tối ưu dòng tiền & quản trị sức khỏe tài chính doanh nghiệp.'; ?></p>
+                        <div class="topic-tag-col">
+                            <span class="topic-tag">Finance</span>
+                        </div>
+                        <div class="topic-desc-col">
+                            <p class="topic-desc"><?php echo $is_en ? 'Optimize cash flows & manage corporate financial health.' : 'Tối ưu dòng tiền & quản trị sức khỏe tài chính doanh nghiệp.'; ?></p>
+                        </div>
                     </div>
+
+                    <!-- Topic 5 -->
                     <div class="topic-badge-row">
-                        <span class="topic-tag">Soft Skills</span>
-                        <p class="topic-desc"><?php echo $is_en ? 'Elevate personal capacity & working mindsets in the new era.' : 'Nâng tầm năng lực cá nhân & tư duy làm việc thời đại mới.'; ?></p>
+                        <div class="topic-tag-col">
+                            <span class="topic-tag">Soft Skills</span>
+                        </div>
+                        <div class="topic-desc-col">
+                            <p class="topic-desc"><?php echo $is_en ? 'Elevate personal capacity & working mindsets in the new era.' : 'Nâng tầm năng lực cá nhân & tư duy làm việc thời đại mới.'; ?></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1389,124 +1571,122 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <div class="section-divider"></div>
 
-        <!-- Section 4: Horizontal Timeline -->
+        <!-- Section 4: Horizontal Timeline (Full Width Layout / Fluid / No container box) -->
         <section class="section-featured" id="featured-webinars">
-            <div class="talk-container">
+            <div class="timeline-container-fluid">
                 <div class="talk-section-header">
                     <h2><?php echo $is_en ? 'Webinar Schedule' : 'Lịch Trình Webinar'; ?></h2>
                     <p><?php echo $is_en ? 'Explore our upcoming topics and register for your slots.' : 'Xem danh sách và lộ trình các buổi chia sẻ hữu ích tiếp theo.'; ?></p>
                 </div>
                 
-                <div class="timeline-container">
-                    <div class="timeline-track-wrapper">
-                        <div class="timeline-track">
-                            <div class="timeline-line"></div>
-                            
-                            <!-- Topic 1 -->
-                            <div class="timeline-node active">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content-card">
-                                    <div>
-                                        <span class="timeline-badge"><?php echo $is_en ? 'Webinar 01' : 'Chủ đề 01'; ?></span>
-                                        <h3><?php echo $is_en ? 'Applying AI in Learning & Research: Multidimensional Perspectives from 3 Experts' : 'Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều'; ?></h3>
-                                        <div class="timeline-meta">
-                                            <div class="timeline-meta-item">
-                                                <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
-                                                13/08/2026 (19:30 - 21:00)
-                                            </div>
-                                            <div class="timeline-meta-item">
-                                                <svg viewBox="0 0 576 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
-                                                Zoom Meeting
-                                            </div>
+                <div class="timeline-track-wrapper">
+                    <div class="timeline-track">
+                        <div class="timeline-line"></div>
+                        
+                        <!-- Topic 1 -->
+                        <div class="timeline-node active">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-card">
+                                <div>
+                                    <span class="timeline-badge"><?php echo $is_en ? 'Webinar 01' : 'Chủ đề 01'; ?></span>
+                                    <h3><?php echo $is_en ? 'Applying AI in Learning & Research: Multidimensional Perspectives from 3 Experts' : 'Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều'; ?></h3>
+                                    <div class="timeline-meta">
+                                        <div class="timeline-meta-item">
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
+                                            13/08/2026 (19:30 - 21:00)
                                         </div>
-                                        <p class="timeline-desc"><?php echo $is_en ? 'Learn original AI framework: adaptation mindset, prompting technical tools, and core data structures.' : 'Giải mã bài toán ứng dụng AI qua 3 góc nhìn: Tư duy tiếp cận chủ động, Kỹ thuật prompting, và Nền tảng mô hình dữ liệu.'; ?></p>
+                                        <div class="timeline-meta-item">
+                                            <svg viewBox="0 0 576 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
+                                            Zoom Meeting
+                                        </div>
                                     </div>
-                                    <div class="timeline-btn-wrapper">
-                                        <button onclick="registerForTopic('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
-                                            <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
-                                        </button>
-                                    </div>
+                                    <p class="timeline-desc"><?php echo $is_en ? 'Learn original AI framework: adaptation mindset, prompting technical tools, and core data structures.' : 'Giải mã bài toán ứng dụng AI qua 3 góc nhìn: Tư duy tiếp cận chủ động, Kỹ thuật prompting, và Nền tảng mô hình dữ liệu.'; ?></p>
+                                </div>
+                                <div class="timeline-btn-wrapper">
+                                    <button onclick="registerForTopic('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
+                                        <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
+                                    </button>
                                 </div>
                             </div>
-                            
-                            <!-- Topic 2 -->
-                            <div class="timeline-node active">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content-card">
-                                    <div>
-                                        <span class="timeline-badge"><?php echo $is_en ? 'Webinar 02' : 'Chủ đề 02'; ?></span>
-                                        <h3><?php echo $is_en ? 'Improving Management Capabilities in the AI Era' : 'Nâng cao năng lực quản trị trong thời đại AI'; ?></h3>
-                                        <div class="timeline-meta">
-                                            <div class="timeline-meta-item">
-                                                <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
-                                                <?php echo $is_en ? 'Expected: 27/08/2026' : 'Dự kiến: 27/08/2026'; ?>
-                                            </div>
-                                            <div class="timeline-meta-item">
-                                                <svg viewBox="0 0 576 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
-                                                Zoom Meeting
-                                            </div>
+                        </div>
+                        
+                        <!-- Topic 2 -->
+                        <div class="timeline-node active">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-card">
+                                <div>
+                                    <span class="timeline-badge"><?php echo $is_en ? 'Webinar 02' : 'Chủ đề 02'; ?></span>
+                                    <h3><?php echo $is_en ? 'Improving Management Capabilities in the AI Era' : 'Nâng cao năng lực quản trị trong thời đại AI'; ?></h3>
+                                    <div class="timeline-meta">
+                                        <div class="timeline-meta-item">
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
+                                            <?php echo $is_en ? 'Expected: 27/08/2026' : 'Dự kiến: 27/08/2026'; ?>
                                         </div>
-                                        <p class="timeline-desc"><?php echo $is_en ? 'Elevate team management, workflows, and strategy using automation.' : 'Ứng dụng AI giúp tối ưu hiệu suất quản lý dự án, tối ưu quy trình và xây dựng kế hoạch bứt phá.'; ?></p>
+                                        <div class="timeline-meta-item">
+                                            <svg viewBox="0 0 576 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
+                                            Zoom Meeting
+                                        </div>
                                     </div>
-                                    <div class="timeline-btn-wrapper">
-                                        <button onclick="registerForTopic('Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)')" class="btn-talk btn-talk-primary">
-                                            <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
-                                        </button>
-                                    </div>
+                                    <p class="timeline-desc"><?php echo $is_en ? 'Elevate team management, workflows, and strategy using automation.' : 'Ứng dụng AI giúp tối ưu hiệu suất quản lý dự án, tối ưu quy trình và xây dựng kế hoạch bứt phá.'; ?></p>
+                                </div>
+                                <div class="timeline-btn-wrapper">
+                                    <button onclick="registerForTopic('Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)')" class="btn-talk btn-talk-primary">
+                                        <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
+                                    </button>
                                 </div>
                             </div>
-                            
-                            <!-- Topic 3 -->
-                            <div class="timeline-node updating">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content-card">
-                                    <div>
-                                        <span class="timeline-badge updating"><?php echo $is_en ? 'Webinar 03' : 'Chủ đề 03'; ?></span>
-                                        <h3><?php echo $is_en ? 'Synergizing AI with Talent Management in the New Era' : 'Khi AI đồng hành cùng Quản trị Nhân tài thời đại mới'; ?></h3>
-                                        <div class="timeline-meta">
-                                            <div class="timeline-meta-item">
-                                                <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
-                                                Updating...
-                                            </div>
+                        </div>
+                        
+                        <!-- Topic 3 -->
+                        <div class="timeline-node updating">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-card">
+                                <div>
+                                    <span class="timeline-badge updating"><?php echo $is_en ? 'Webinar 03' : 'Chủ đề 03'; ?></span>
+                                    <h3><?php echo $is_en ? 'Synergizing AI with Talent Management in the New Era' : 'Khi AI đồng hành cùng Quản trị Nhân tài thời đại mới'; ?></h3>
+                                    <div class="timeline-meta">
+                                        <div class="timeline-meta-item">
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
+                                            Updating...
                                         </div>
-                                        <p class="timeline-desc"><?php echo $is_en ? 'Details updating soon...' : 'Đang cập nhật nội dung...'; ?></p>
                                     </div>
+                                    <p class="timeline-desc"><?php echo $is_en ? 'Details updating soon...' : 'Đang cập nhật nội dung...'; ?></p>
                                 </div>
                             </div>
-                            
-                            <!-- Topic 4 -->
-                            <div class="timeline-node updating">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content-card">
-                                    <div>
-                                        <span class="timeline-badge updating"><?php echo $is_en ? 'Webinar 04' : 'Chủ đề 04'; ?></span>
-                                        <h3><?php echo $is_en ? 'From Manager to Leader: 5 Essential Skills for the Next 5 Years' : 'Từ Quản lý đến Nhà lãnh đạo: 5 Kỹ năng Thiết yếu cho 5 năm tới'; ?></h3>
-                                        <div class="timeline-meta">
-                                            <div class="timeline-meta-item">
-                                                <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
-                                                Updating...
-                                            </div>
+                        </div>
+                        
+                        <!-- Topic 4 -->
+                        <div class="timeline-node updating">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-card">
+                                <div>
+                                    <span class="timeline-badge updating"><?php echo $is_en ? 'Webinar 04' : 'Chủ đề 04'; ?></span>
+                                    <h3><?php echo $is_en ? 'From Manager to Leader: 5 Essential Skills for the Next 5 Years' : 'Từ Quản lý đến Nhà lãnh đạo: 5 Kỹ năng Thiết yếu cho 5 năm tới'; ?></h3>
+                                    <div class="timeline-meta">
+                                        <div class="timeline-meta-item">
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
+                                            Updating...
                                         </div>
-                                        <p class="timeline-desc"><?php echo $is_en ? 'Details updating soon...' : 'Đang cập nhật nội dung...'; ?></p>
                                     </div>
+                                    <p class="timeline-desc"><?php echo $is_en ? 'Details updating soon...' : 'Đang cập nhật nội dung...'; ?></p>
                                 </div>
                             </div>
-                            
-                            <!-- Topic 5 -->
-                            <div class="timeline-node updating">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content-card">
-                                    <div>
-                                        <span class="timeline-badge updating"><?php echo $is_en ? 'Webinar 05' : 'Chủ đề 05'; ?></span>
-                                        <h3><?php echo $is_en ? 'Building a High-Performance Team in the AI Era' : 'Xây dựng Đội ngũ Hiệu suất Cao trong Kỷ nguyên AI'; ?></h3>
-                                        <div class="timeline-meta">
-                                            <div class="timeline-meta-item">
-                                                <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
-                                                Updating...
-                                            </div>
+                        </div>
+                        
+                        <!-- Topic 5 -->
+                        <div class="timeline-node updating">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-card">
+                                <div>
+                                    <span class="timeline-badge updating"><?php echo $is_en ? 'Webinar 05' : 'Chủ đề 05'; ?></span>
+                                    <h3><?php echo $is_en ? 'Building a High-Performance Team in the AI Era' : 'Xây dựng Đội ngũ Hiệu suất Cao trong Kỷ nguyên AI'; ?></h3>
+                                    <div class="timeline-meta">
+                                        <div class="timeline-meta-item">
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
+                                            Updating...
                                         </div>
-                                        <p class="timeline-desc"><?php echo $is_en ? 'Details updating soon...' : 'Đang cập nhật nội dung...'; ?></p>
                                     </div>
+                                    <p class="timeline-desc"><?php echo $is_en ? 'Details updating soon...' : 'Đang cập nhật nội dung...'; ?></p>
                                 </div>
                             </div>
                         </div>
