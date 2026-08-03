@@ -156,8 +156,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .section-divider {
             position: relative;
             height: 1px;
-            background: radial-gradient(circle, rgba(185, 28, 28, 0.2) 0%, transparent 80%);
-            margin: 30px 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(185, 28, 28, 0.3) 15%, rgba(185, 28, 28, 0.3) 85%, transparent 100%);
+            margin: 30px auto;
+            width: 85%;
+            max-width: 1100px;
         }
 
         .section-divider::after {
@@ -534,6 +536,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .why-split-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+            .why-left-sticky {
+                position: relative !important;
+                top: 0 !important;
+                margin-bottom: 30px !important;
             }
         }
 
