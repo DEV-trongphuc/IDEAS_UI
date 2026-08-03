@@ -2869,6 +2869,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 observer.observe(el);
             });
         });
+
+        // Overwrite window.showform to scroll directly to the inline registration form
+        window.showform = function (ctaSource = 'header') {
+            console.log('[showform] Overridden showform called from:', ctaSource);
+            const target = document.getElementById('register');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        // Scroll to register section on load if URL has #register hash
+        window.addEventListener('load', function () {
+            if (window.location.hash === '#register') {
+                console.log('[HashScroll] #register hash detected on load');
+                const target = document.getElementById('register');
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }, 400);
+                }
+            }
+        });
     </script>
 
     <!-- Main scripts minified imports -->
