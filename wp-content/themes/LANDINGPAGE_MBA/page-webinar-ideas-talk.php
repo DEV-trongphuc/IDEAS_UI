@@ -1814,7 +1814,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="intro-badge-accent"><?php echo $is_en ? 'IDEAS TALK VALUE' : 'GIÁ TRỊ TỪ IDEAS TALK'; ?></span>
                         <h3>
                             <span class="highlight-number">90</span> <?php echo $is_en ? 'Minutes Solving Pain Points' : 'Phút Tháo Gỡ Pain Point'; ?><br>
-                            <span class="highlight-number"><span style="opacity: 0; user-select: none;">0</span>1</span> <?php echo $is_en ? 'Night Boosting Capability' : 'Đêm Bứt Phá Năng Lực'; ?>
+                            <span class="highlight-number"><span style="visibility: hidden; user-select: none;">0</span>1</span> <?php echo $is_en ? 'Night Boosting Capability' : 'Đêm Bứt Phá Năng Lực'; ?>
                         </h3>
                         <div class="intro-line-decorator"></div>
                         <p><?php echo $is_en ? 'No academic theory, no generic scripts. Each Webinar is a "real battle" case solving thoroughly one big problem of the enterprise — directly with Experts (Enterprise Doctors from IDEAS) & experienced managers.' : 'Không lý thuyết hàn lâm, không kịch bản chung chung. Mỗi buổi Webinar là một ca "thực chiến" giải quyết triệt để 1 bài toán lớn của doanh nghiệp — trực tiếp cùng Chuyên gia (Bác sĩ Doanh nghiệp từ IDEAS) & Nhà quản trị dày dặn kinh nghiệm.'; ?></p>
