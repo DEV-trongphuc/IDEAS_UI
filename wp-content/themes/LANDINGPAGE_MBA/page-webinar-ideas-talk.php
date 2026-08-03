@@ -1785,7 +1785,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 background: linear-gradient(90deg, transparent, #b91c1c, transparent);
             }
             
-            /* Section 4: Timeline Mobile Enhancements */
+            /* Section 2: Why Attend - Clean Non-Squished Mobile Layout */
+            .why-list-item {
+                position: relative !important;
+                padding: 38px 20px 24px !important; /* Top padding to accommodate float number */
+                flex-direction: row !important;
+                gap: 16px !important;
+                align-items: flex-start !important;
+            }
+            .why-item-number {
+                position: absolute !important;
+                top: 15px !important;
+                right: 20px !important;
+                font-size: 1.6rem !important;
+                font-weight: 900 !important;
+                color: rgba(185, 28, 28, 0.18) !important;
+            }
+            
+            /* Section 4: Timeline Mobile Enhancements & High Contrast Text */
             .timeline-nav-btn {
                 display: none !important; /* Hide next/prev buttons on mobile */
             }
@@ -1806,21 +1823,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 height: auto !important; /* Auto height to fit text neatly */
                 min-height: 310px !important;
                 background: #110d0e !important; /* Lighter background for higher contrast */
-                border: 1.5px solid rgba(255, 255, 255, 0.18) !important; /* Brighter border */
+                border: 1.5px solid rgba(255, 255, 255, 0.25) !important; /* Brighter border */
             }
             .timeline-node.active .timeline-content-card {
-                border-color: rgba(185, 28, 28, 0.5) !important;
-                box-shadow: 0 10px 25px rgba(185, 28, 28, 0.18) !important;
+                border-color: rgba(185, 28, 28, 0.6) !important;
+                box-shadow: 0 10px 25px rgba(185, 28, 28, 0.25) !important;
             }
             .timeline-content-card h3 {
                 font-size: 1.05rem !important;
                 height: auto !important;
+                color: #ffffff !important; /* High contrast white heading */
                 -webkit-line-clamp: 2 !important;
                 margin-bottom: 8px !important;
             }
+            .timeline-meta-item {
+                color: #e2e8f0 !important; /* Light slate color for sub-text */
+                font-size: 0.8rem !important;
+            }
             .timeline-desc {
-                font-size: 0.82rem !important;
+                font-size: 0.84rem !important;
+                color: #f1f5f9 !important; /* Bright white-grey description text */
                 height: auto !important;
+                line-height: 1.6 !important;
                 -webkit-line-clamp: 3 !important;
                 margin-bottom: 15px !important;
             }
