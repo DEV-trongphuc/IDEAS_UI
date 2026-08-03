@@ -1763,10 +1763,77 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 text-align: center;
                 margin: 0;
             }
+            
+            /* Section 1: Intro Center Alignment on Mobile */
+            .intro-left {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .intro-badge-accent {
+                padding-left: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .intro-badge-accent::before {
+                display: none;
+            }
+            .intro-line-decorator {
+                margin-left: auto;
+                margin-right: auto;
+                background: linear-gradient(90deg, transparent, #b91c1c, transparent);
+            }
+            
+            /* Section 4: Timeline Mobile Enhancements */
+            .timeline-nav-btn {
+                display: none !important; /* Hide next/prev buttons on mobile */
+            }
+            .timeline-node.updating {
+                display: none !important; /* Hide empty/updating placeholder nodes */
+            }
             .timeline-track-wrapper {
                 padding-left: 20px !important;
                 padding-right: 20px !important;
+                padding-top: 10px;
+                padding-bottom: 20px;
             }
+            .timeline-node {
+                width: 290px !important; /* Compact mobile width */
+            }
+            .timeline-content-card {
+                padding: 20px !important;
+                height: auto !important; /* Auto height to fit text neatly */
+                min-height: 310px !important;
+                background: #110d0e !important; /* Lighter background for higher contrast */
+                border: 1.5px solid rgba(255, 255, 255, 0.18) !important; /* Brighter border */
+            }
+            .timeline-node.active .timeline-content-card {
+                border-color: rgba(185, 28, 28, 0.5) !important;
+                box-shadow: 0 10px 25px rgba(185, 28, 28, 0.18) !important;
+            }
+            .timeline-content-card h3 {
+                font-size: 1.05rem !important;
+                height: auto !important;
+                -webkit-line-clamp: 2 !important;
+                margin-bottom: 8px !important;
+            }
+            .timeline-desc {
+                font-size: 0.82rem !important;
+                height: auto !important;
+                -webkit-line-clamp: 3 !important;
+                margin-bottom: 15px !important;
+            }
+            .timeline-dot {
+                width: 18px !important;
+                height: 18px !important;
+                border-width: 3px !important;
+                margin-bottom: 16px !important;
+            }
+            .timeline-line {
+                top: 9px !important;
+            }
+
             .why-sticky-image-wrapper {
                 aspect-ratio: 16 / 9;
             }
