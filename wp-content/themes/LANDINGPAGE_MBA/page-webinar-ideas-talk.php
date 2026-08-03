@@ -186,8 +186,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.2;
-            filter: brightness(60%) contrast(110%);
+            opacity: 0.45;
+            filter: brightness(85%) contrast(105%);
         }
 
         .talk-hero-overlay {
@@ -196,10 +196,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.9) 0%,
-                    rgba(8, 4, 5, 0.5) 60%,
+                    rgba(8, 4, 5, 0.7) 0%,
+                    rgba(8, 4, 5, 0.35) 60%,
                     #080405 100%),
-                radial-gradient(circle at 50% 50%, rgba(185, 28, 28, 0.18) 0%, transparent 70%);
+                radial-gradient(circle at 50% 50%, rgba(185, 28, 28, 0.25) 0%, transparent 75%);
         }
 
         .talk-hero-container {
