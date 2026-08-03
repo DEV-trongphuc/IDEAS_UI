@@ -2428,35 +2428,73 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         // Function to select topic and scroll to register form
         function registerForTopic(topicName) {
-            const selectEl = document.getElementById('interest');
+            const selectEl = document.querySelector('#page-contact-form #interest') || document.getElementById('interest');
             const targetSec = document.getElementById('register');
             if (selectEl) {
+                const lowerInput = topicName.toLowerCase();
                 let matchedValue = "";
-                const cleanStr = (s) => {
-                    if (!s) return "";
-                    return s.normalize("NFD")
-                            .replace(/[\u0300-\u036f]/g, "")
-                            .replace(/[đĐ]/g, "d")
-                            .toLowerCase()
-                            .replace(/[^a-z0-9]/g, "");
-                };
-                const cleanInput = cleanStr(topicName);
+                
+                // 1. Direct case-insensitive match
                 for (let i = 0; i < selectEl.options.length; i++) {
                     const optVal = selectEl.options[i].value;
-                    const cleanOpt = cleanStr(optVal);
-                    if (cleanOpt && (cleanOpt.indexOf(cleanInput) !== -1 || cleanInput.indexOf(cleanOpt) !== -1)) {
+                    if (optVal && optVal.toLowerCase() === lowerInput) {
                         matchedValue = optVal;
                         break;
                     }
                 }
+                
+                // 2. Specific keyword-based logic (robust to slight string format changes)
+                if (!matchedValue) {
+                    if (lowerInput.includes('học tập') || lowerInput.includes('learning') || lowerInput.includes('hoc tap')) {
+                        for (let i = 0; i < selectEl.options.length; i++) {
+                            const optVal = selectEl.options[i].value;
+                            if (optVal && (optVal.toLowerCase().includes('học tập') || optVal.toLowerCase().includes('learning'))) {
+                                matchedValue = optVal;
+                                break;
+                            }
+                        }
+                    } else if (lowerInput.includes('quản trị') || lowerInput.includes('management') || lowerInput.includes('quan tri')) {
+                        for (let i = 0; i < selectEl.options.length; i++) {
+                            const optVal = selectEl.options[i].value;
+                            if (optVal && (optVal.toLowerCase().includes('quản trị') || optVal.toLowerCase().includes('management'))) {
+                                matchedValue = optVal;
+                                break;
+                            }
+                        }
+                    }
+                }
+                
+                // 3. Fallback: normalize Vietnamese accents and match alphanumerics
+                if (!matchedValue) {
+                    const cleanStr = (s) => {
+                        if (!s) return "";
+                        return s.normalize("NFD")
+                                .replace(/[\u0300-\u036f]/g, "")
+                                .replace(/[đĐ]/g, "d")
+                                .toLowerCase()
+                                .replace(/[^a-z0-9]/g, "");
+                    };
+                    const cleanInput = cleanStr(topicName);
+                    for (let i = 0; i < selectEl.options.length; i++) {
+                        const optVal = selectEl.options[i].value;
+                        const cleanOpt = cleanStr(optVal);
+                        if (cleanOpt && (cleanOpt.indexOf(cleanInput) !== -1 || cleanInput.indexOf(cleanOpt) !== -1)) {
+                            matchedValue = optVal;
+                            break;
+                        }
+                    }
+                }
+                
                 if (matchedValue) {
                     selectEl.value = matchedValue;
-                    selectEl.dispatchEvent(new Event('change'));
                 } else {
                     selectEl.value = topicName;
-                    selectEl.dispatchEvent(new Event('change'));
                 }
+                
+                // Dispatch change event to trigger styling/validation updates
+                selectEl.dispatchEvent(new Event('change'));
             }
+            
             if (targetSec) {
                 targetSec.scrollIntoView({ behavior: 'smooth' });
             }
