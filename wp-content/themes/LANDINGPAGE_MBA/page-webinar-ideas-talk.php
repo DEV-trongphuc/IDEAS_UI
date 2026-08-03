@@ -542,17 +542,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             top: 100px;
         }
 
-        .why-left-sticky h2 {
-            font-size: clamp(2rem, 4vw, 2.6rem);
-            font-weight: 850;
-            color: #0f172a;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #0f172a 40%, #b91c1c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .why-left-sticky h2,
+        .why-left-sticky .talk-section-title {
+            font-size: clamp(2rem, 4vw, 2.6rem) !important;
+            font-weight: 850 !important;
+            color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
+            background: none !important;
+            background-clip: border-box !important;
+            line-height: 1.2 !important;
+            margin-bottom: 20px !important;
+            letter-spacing: -0.02em !important;
+            display: block !important;
+        }
+
+        .why-left-sticky h2 span,
+        .why-left-sticky .talk-section-title span {
+            color: #b91c1c !important;
+            background: none !important;
+            -webkit-text-fill-color: #b91c1c !important;
+            background-clip: border-box !important;
+            display: inline-block !important;
         }
 
         .why-left-sticky p {
@@ -898,7 +908,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         html, body {
-            overflow-x: hidden !important;
+            overflow-x: clip !important;
+        }
+
+        #content, .site, #page {
+            overflow: visible !important;
         }
 
         .timeline-track-wrapper {
