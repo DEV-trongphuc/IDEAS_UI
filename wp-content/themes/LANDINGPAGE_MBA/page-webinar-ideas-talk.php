@@ -284,11 +284,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .talk-tagline {
-            font-size: 1.25rem;
+            font-size: 1.05rem;
             font-weight: 800;
             color: #fca5a5 !important;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
             text-transform: uppercase;
         }
 
