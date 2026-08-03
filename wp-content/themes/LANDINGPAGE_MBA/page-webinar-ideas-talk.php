@@ -2491,8 +2491,44 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     selectEl.value = topicName;
                 }
                 
-                // Dispatch change event to trigger styling/validation updates
+                // Dispatch native change event
                 selectEl.dispatchEvent(new Event('change'));
+
+                // 4. Update jQuery select plugins (NiceSelect, Select2, etc.)
+                if (typeof jQuery !== 'undefined') {
+                    const $sel = jQuery(selectEl);
+                    $sel.val(selectEl.value).trigger('change');
+                    if (jQuery.fn.niceSelect) {
+                        $sel.niceSelect('update');
+                    }
+                    if (jQuery.fn.select2) {
+                        $sel.trigger('change.select2');
+                    }
+                }
+
+                // 5. Click matching custom dropdown list items (NiceSelect options, selectivity divs, custom select lis)
+                const cleanStrHelper = (s) => {
+                    if (!s) return "";
+                    return s.normalize("NFD")
+                            .replace(/[\u0300-\u036f]/g, "")
+                            .replace(/[đĐ]/g, "d")
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]/g, "");
+                };
+                const cleanTarget = cleanStrHelper(selectEl.value);
+
+                setTimeout(() => {
+                    const customOpts = document.querySelectorAll('.nice-select .option, [class*="select"] li, .select-items div, [role="option"]');
+                    customOpts.forEach(opt => {
+                        const val = opt.getAttribute('data-value') || opt.textContent;
+                        if (val && cleanStrHelper(val) === cleanTarget) {
+                            // Only click if it is not already selected to avoid infinite loops
+                            if (!opt.classList.contains('selected') && !opt.classList.contains('active')) {
+                                opt.click();
+                            }
+                        }
+                    });
+                }, 50);
             }
             
             if (targetSec) {
