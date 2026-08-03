@@ -150,7 +150,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
             height: 1px;
             background: radial-gradient(circle, rgba(185, 28, 28, 0.2) 0%, transparent 80%);
-            margin: 80px 0;
+            margin: 30px 0;
         }
 
         .section-divider::after {
@@ -863,11 +863,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
         }
 
-        .section-featured .talk-section-header h2 {
-            background: linear-gradient(135deg, #ffffff 40%, #b91c1c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .section-featured .talk-section-header h2,
+        .section-featured .talk-section-header .talk-section-title {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            background: none !important;
+            background-clip: border-box !important;
+        }
+
+        .section-featured .talk-section-header h2 span,
+        .section-featured .talk-section-header .talk-section-title span {
+            color: #b91c1c !important;
+            -webkit-text-fill-color: #b91c1c !important;
+            background: none !important;
+            background-clip: border-box !important;
+            display: inline-block !important;
         }
 
         .section-featured .talk-section-header p {
@@ -1402,7 +1412,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Section 6: Form (Split Grid Box with Image Left) ── */
         .section-form {
-            padding: 85px 0;
+            padding: 20px 0 85px 0;
             position: relative;
         }
 
@@ -1804,8 +1814,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <!-- Info Card 2 -->
                             <div class="intro-mini-card scroll-reveal stagger-item">
-                                <div class="mini-card-icon">
-                                    <svg viewBox="0 0 576 512" fill="currentColor" width="20" height="20"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
+                                <div class="mini-card-icon" style="background: transparent; border: none; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; padding: 0;">
+                                    <img src="https://assets-global.website-files.com/637501ee593ea3846f81d45e/63ea7af9128d3e56379023e6_zoom-logo-in-blue-colors-meetings-app-logotype-illustration-free-png.png" alt="Zoom" style="width: 100%; height: 100%; object-fit: contain;">
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Format' : 'Hình thức'; ?></strong>
@@ -1841,7 +1851,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="talk-container">
                 <div class="why-split-container">
                     <div class="why-left-sticky scroll-reveal">
-                        <h2><?php echo $is_en ? 'Why You Shouldn\'t Miss <span>IDEAS Talk</span> Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi <span>Webinar của IDEAS</span>?'; ?></h2>
+                        <div class="talk-section-title"><?php echo $is_en ? 'Why You Shouldn\'t Miss <span>IDEAS Talk</span> Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi <span>Webinar của IDEAS</span>?'; ?></div>
                         <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
                         
                         <div class="why-sticky-image-wrapper">
@@ -1910,7 +1920,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="section-topics" id="topics">
             <div class="talk-container">
                 <div class="talk-section-header">
-                    <h2><?php echo $is_en ? 'Core Themes at <span>IDEAS Talk</span>' : 'Các Chủ Đề Trọng Tâm Tại <span>IDEAS TALK</span>'; ?></h2>
+                    <div class="talk-section-title"><?php echo $is_en ? 'Core Themes at <span>IDEAS Talk</span>' : 'Các Chủ Đề Trọng Tâm Tại <span>IDEAS TALK</span>'; ?></div>
                     <p><?php echo $is_en ? 'Our webinar topics cover key business pillars, designed to provide comprehensive tools and strategies.' : 'Các chủ đề được lựa chọn cẩn thận bao quanh các trụ cột cốt lõi của doanh nghiệp.'; ?></p>
                 </div>
                 
@@ -1988,7 +1998,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="section-featured" id="featured-webinars">
             <div class="timeline-container-fluid">
                 <div class="talk-section-header">
-                    <h2><?php echo $is_en ? 'Webinar Schedule' : 'Lịch Trình Webinar'; ?></h2>
+                    <div class="talk-section-title"><?php echo $is_en ? 'Webinar <span>Schedule</span>' : 'Lịch Trình <span>Webinar</span>'; ?></div>
                     <p><?php echo $is_en ? 'Explore our upcoming topics and register for your slots.' : 'Xem danh sách và lộ trình các buổi chia sẻ hữu ích tiếp theo.'; ?></p>
                 </div>
                 
@@ -2016,8 +2026,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
                                             13/08/2026 (19:30 - 21:00)
                                         </div>
-                                        <div class="timeline-meta-item">
-                                            <svg viewBox="0 0 576 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
+                                        <div class="timeline-meta-item" style="display: flex; align-items: center; gap: 6px;">
+                                            <img src="https://assets-global.website-files.com/637501ee593ea3846f81d45e/63ea7af9128d3e56379023e6_zoom-logo-in-blue-colors-meetings-app-logotype-illustration-free-png.png" alt="Zoom" style="height: 12px; width: auto; object-fit: contain;">
                                             Zoom Meeting
                                         </div>
                                     </div>
@@ -2043,8 +2053,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0z"/></svg>
                                             <?php echo $is_en ? 'Expected: 27/08/2026' : 'Dự kiến: 27/08/2026'; ?>
                                         </div>
-                                        <div class="timeline-meta-item">
-                                            <svg viewBox="0 0 576 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
+                                        <div class="timeline-meta-item" style="display: flex; align-items: center; gap: 6px;">
+                                            <img src="https://assets-global.website-files.com/637501ee593ea3846f81d45e/63ea7af9128d3e56379023e6_zoom-logo-in-blue-colors-meetings-app-logotype-illustration-free-png.png" alt="Zoom" style="height: 12px; width: auto; object-fit: contain;">
                                             Zoom Meeting
                                         </div>
                                     </div>
@@ -2120,7 +2130,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="theater-section" id="recap">
             <div class="talk-container">
                 <div class="talk-section-header">
-                    <h2><?php echo $is_en ? 'Recap &amp; Watch Previous Webinars' : 'Xem Lại Các Buổi Webinar Gần Nhất'; ?></h2>
+                    <div class="talk-section-title"><?php echo $is_en ? 'Recap &amp; Watch Previous <span>Webinars</span>' : 'Xem Lại Các Buổi <span>Webinar Gần Nhất</span>'; ?></div>
                     <p><?php echo $is_en ? 'Explore our repository of past workshops and learn original knowledge on your own time.' : 'Tham khảo thư viện các buổi workshop đã phát sóng và thực hành trực tiếp bất cứ lúc nào.'; ?></p>
                 </div>
                 <div class="theater-container">
@@ -2173,7 +2183,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="section-form scroll-reveal" id="register">
             <div class="talk-container">
                 <div class="talk-section-header scroll-reveal" id="form-header">
-                    <h2><?php echo $is_en ? 'Ready to <span>Elevate Your Capacity</span> with IDEAS?' : 'Sẵn Sàng <span>Bứt Phá Năng Lực</span> Cùng IDEAS'; ?></h2>
+                    <div class="talk-section-title"><?php echo $is_en ? 'Ready to <span>Elevate Your Capacity</span> with IDEAS?' : 'Sẵn Sàng <span>Bứt Phá Năng Lực</span> Cùng IDEAS'; ?></div>
                     <p><?php echo $is_en ? 'Register today to receive Zoom credentials and exclusive templates before the webinar starts.' : 'Đăng ký ngay hôm nay để nhận thông tin phòng Zoom và bộ tài liệu độc quyền trước giờ G.'; ?></p>
                 </div>
 
