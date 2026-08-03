@@ -272,23 +272,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .verify-slogan {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 700;
-            letter-spacing: 0.05em;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 600;
+            letter-spacing: 0.03em;
             text-transform: uppercase;
-            background: linear-gradient(90deg, #fca5a5 0%, #ffffff 50%, #fca5a5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.75) !important;
+            -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important;
+            background: none !important;
+            margin-bottom: 25px;
             font-style: italic;
         }
 
         .talk-tagline {
-            font-size: 1.05rem;
-            font-weight: 800;
+            font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+            font-weight: 850;
             color: #fca5a5 !important;
             letter-spacing: 0.08em;
-            margin-bottom: 18px;
+            margin-bottom: 26px;
             text-transform: uppercase;
         }
 
@@ -1792,9 +1792,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </span>
                 <h1><span>IDEAS TALK</span></h1>
                 <div class="talk-tagline"><?php echo $is_en ? 'Actionable Knowledge Transfer' : 'Tri Thức Thực Chiến Chuyển Đổi'; ?></div>
-                <div class="verify-slogan">
-                    <?php echo $is_en ? '“Original Knowledge - Localized Mentorship”' : '“Tri thức nguyên bản - Đồng hành Bản địa”'; ?>
-                </div>
 
                 <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
                 
