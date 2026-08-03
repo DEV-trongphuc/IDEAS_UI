@@ -2428,8 +2428,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         // Function to select topic and scroll to register form
         function registerForTopic(topicName) {
+            console.log('[registerForTopic] Target topicName requested:', topicName);
             const selectEl = document.querySelector('#page-contact-form #interest') || document.getElementById('interest');
             const targetSec = document.getElementById('register');
+            console.log('[registerForTopic] Select element resolved:', selectEl);
+            
             if (selectEl) {
                 const lowerInput = topicName.toLowerCase();
                 let matchedValue = "";
@@ -2437,8 +2440,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 // 1. Direct case-insensitive match
                 for (let i = 0; i < selectEl.options.length; i++) {
                     const optVal = selectEl.options[i].value;
+                    console.log(`[registerForTopic] Option index ${i} value: "${optVal}"`);
                     if (optVal && optVal.toLowerCase() === lowerInput) {
                         matchedValue = optVal;
+                        console.log('[registerForTopic] Match type: Direct match ->', matchedValue);
                         break;
                     }
                 }
@@ -2446,18 +2451,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 // 2. Specific keyword-based logic (robust to slight string format changes)
                 if (!matchedValue) {
                     if (lowerInput.includes('học tập') || lowerInput.includes('learning') || lowerInput.includes('hoc tap')) {
+                        console.log('[registerForTopic] Using keyword check: học tập / learning');
                         for (let i = 0; i < selectEl.options.length; i++) {
                             const optVal = selectEl.options[i].value;
                             if (optVal && (optVal.toLowerCase().includes('học tập') || optVal.toLowerCase().includes('learning'))) {
                                 matchedValue = optVal;
+                                console.log('[registerForTopic] Match type: Keyword (học tập/learning) ->', matchedValue);
                                 break;
                             }
                         }
                     } else if (lowerInput.includes('quản trị') || lowerInput.includes('management') || lowerInput.includes('quan tri')) {
+                        console.log('[registerForTopic] Using keyword check: quản trị / management');
                         for (let i = 0; i < selectEl.options.length; i++) {
                             const optVal = selectEl.options[i].value;
                             if (optVal && (optVal.toLowerCase().includes('quản trị') || optVal.toLowerCase().includes('management'))) {
                                 matchedValue = optVal;
+                                console.log('[registerForTopic] Match type: Keyword (quản trị/management) ->', matchedValue);
                                 break;
                             }
                         }
@@ -2466,6 +2475,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 
                 // 3. Fallback: normalize Vietnamese accents and match alphanumerics
                 if (!matchedValue) {
+                    console.log('[registerForTopic] Attempting alphanumeric normalization match');
                     const cleanStr = (s) => {
                         if (!s) return "";
                         return s.normalize("NFD")
@@ -2475,11 +2485,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 .replace(/[^a-z0-9]/g, "");
                     };
                     const cleanInput = cleanStr(topicName);
+                    console.log('[registerForTopic] Cleaned input string:', cleanInput);
+                    
                     for (let i = 0; i < selectEl.options.length; i++) {
                         const optVal = selectEl.options[i].value;
                         const cleanOpt = cleanStr(optVal);
+                        console.log(`[registerForTopic] Cleaned option ${i}: "${cleanOpt}"`);
                         if (cleanOpt && (cleanOpt.indexOf(cleanInput) !== -1 || cleanInput.indexOf(cleanOpt) !== -1)) {
                             matchedValue = optVal;
+                            console.log('[registerForTopic] Match type: Normalized fallback ->', matchedValue);
                             break;
                         }
                     }
@@ -2487,23 +2501,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 
                 if (matchedValue) {
                     selectEl.value = matchedValue;
+                    console.log('[registerForTopic] Set native select value to:', matchedValue);
                 } else {
                     selectEl.value = topicName;
+                    console.log('[registerForTopic] No match, fallback setting native select value to topicName:', topicName);
                 }
                 
                 // Dispatch native change event
                 selectEl.dispatchEvent(new Event('change'));
+                console.log('[registerForTopic] Dispatched native change event');
 
                 // 4. Update jQuery select plugins (NiceSelect, Select2, etc.)
                 if (typeof jQuery !== 'undefined') {
+                    console.log('[registerForTopic] jQuery detected in global namespace');
                     const $sel = jQuery(selectEl);
                     $sel.val(selectEl.value).trigger('change');
                     if (jQuery.fn.niceSelect) {
+                        console.log('[registerForTopic] niceSelect jQuery plugin found, updating UI');
                         $sel.niceSelect('update');
                     }
                     if (jQuery.fn.select2) {
+                        console.log('[registerForTopic] select2 jQuery plugin found, triggering change.select2');
                         $sel.trigger('change.select2');
                     }
+                } else {
+                    console.log('[registerForTopic] jQuery NOT detected in global namespace');
                 }
 
                 // 5. Click matching custom dropdown list items (NiceSelect options, selectivity divs, custom select lis)
@@ -2518,21 +2540,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const cleanTarget = cleanStrHelper(selectEl.value);
 
                 setTimeout(() => {
+                    console.log('[registerForTopic] Custom select list sync search target:', cleanTarget);
                     const customOpts = document.querySelectorAll('.nice-select .option, [class*="select"] li, .select-items div, [role="option"]');
-                    customOpts.forEach(opt => {
+                    console.log(`[registerForTopic] Found ${customOpts.length} custom option items in DOM`);
+                    let clicked = false;
+                    customOpts.forEach((opt, idx) => {
                         const val = opt.getAttribute('data-value') || opt.textContent;
                         if (val && cleanStrHelper(val) === cleanTarget) {
+                            console.log(`[registerForTopic] Match found at index ${idx}: Clicking custom element`, opt);
                             // Only click if it is not already selected to avoid infinite loops
                             if (!opt.classList.contains('selected') && !opt.classList.contains('active')) {
                                 opt.click();
+                                clicked = true;
                             }
                         }
                     });
-                }, 50);
+                    if (!clicked) {
+                        console.log('[registerForTopic] No custom option matched & clicked in setTimeout block');
+                    }
+                }, 100);
             }
             
             if (targetSec) {
                 targetSec.scrollIntoView({ behavior: 'smooth' });
+                console.log('[registerForTopic] Scrolled to form section');
+            } else {
+                console.warn('[registerForTopic] targetSec form element not found in DOM');
             }
         }
 
