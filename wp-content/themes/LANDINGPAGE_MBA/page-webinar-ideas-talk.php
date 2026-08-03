@@ -73,6 +73,47 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 0 20px;
         }
 
+        /* ── Button Styles ────────────────── */
+        .btn-talk {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            text-decoration: none;
+            border: none;
+            outline: none;
+        }
+
+        .btn-talk-primary {
+            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
+            color: #ffffff !important;
+            box-shadow: 0 10px 25px rgba(185, 28, 28, 0.25);
+        }
+
+        .btn-talk-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(185, 28, 28, 0.4);
+            color: #ffffff !important;
+        }
+
+        .btn-talk-secondary {
+            background: rgba(15, 23, 42, 0.05);
+            color: #0f172a !important;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .btn-talk-secondary:hover {
+            background: rgba(15, 23, 42, 0.1);
+            transform: translateY(-3px);
+            color: #0f172a !important;
+        }
+
         /* ── Section Titles ────────────────── */
         .talk-section-header {
             text-align: center;
@@ -86,7 +127,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a;
             margin-bottom: 14px;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #0f172a 40%, #ff3b30 100%);
+            background: linear-gradient(135deg, #0f172a 40%, #b91c1c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -104,7 +145,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .section-divider {
             position: relative;
             height: 1px;
-            background: radial-gradient(circle, rgba(255, 59, 48, 0.2) 0%, transparent 80%);
+            background: radial-gradient(circle, rgba(185, 28, 28, 0.2) 0%, transparent 80%);
             margin: 80px 0;
         }
 
@@ -116,9 +157,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translate(-50%, -50%);
             width: 8px;
             height: 8px;
-            background: #ff3b30;
+            background: #b91c1c;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+            box-shadow: 0 0 10px rgba(185, 28, 28, 0.5);
         }
 
         /* ── Hero: Dark/Black Theme ────────── */
@@ -157,7 +198,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     rgba(8, 4, 5, 0.9) 0%,
                     rgba(8, 4, 5, 0.5) 60%,
                     #080405 100%),
-                radial-gradient(circle at 50% 50%, rgba(185, 14, 0, 0.18) 0%, transparent 70%);
+                radial-gradient(circle at 50% 50%, rgba(185, 28, 28, 0.18) 0%, transparent 70%);
         }
 
         .talk-hero-container {
@@ -174,11 +215,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .talk-hero-badge {
-            background: rgba(255, 59, 48, 0.12);
-            border: 1px solid rgba(255, 59, 48, 0.25);
+            background: rgba(185, 28, 28, 0.12);
+            border: 1px solid rgba(185, 28, 28, 0.25);
             padding: 8px 24px;
             border-radius: 100px;
-            color: #ff6b6b;
+            color: #fca5a5;
             font-size: 0.8rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -187,12 +228,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 8px;
             margin-bottom: 24px;
-            box-shadow: 0 4px 20px rgba(255, 59, 48, 0.1);
+            box-shadow: 0 4px 20px rgba(185, 28, 28, 0.1);
             backdrop-filter: blur(12px);
         }
 
         .talk-hero-badge svg {
-            color: #ff6b6b;
+            color: #fca5a5;
             animation: pulse 2s infinite;
         }
 
@@ -213,7 +254,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .talk-hero h1 span {
-            background: linear-gradient(135deg, #ff8e8e 0%, #ff3b30 100%) !important;
+            background: linear-gradient(135deg, #fca5a5 0%, #b91c1c 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
@@ -224,7 +265,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            background: linear-gradient(90deg, #ff6b6b 0%, #ffffff 50%, #ff6b6b 100%);
+            background: linear-gradient(90deg, #fca5a5 0%, #ffffff 50%, #fca5a5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -234,7 +275,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .talk-tagline {
             font-size: 1.25rem;
             font-weight: 800;
-            color: #ff6b6b !important;
+            color: #fca5a5 !important;
             letter-spacing: 0.1em;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -296,7 +337,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .intro-badge-accent {
             font-size: 0.75rem;
             font-weight: 800;
-            color: #ff3b30;
+            color: #b91c1c;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             margin-bottom: 16px;
@@ -313,7 +354,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translateY(-50%);
             width: 14px;
             height: 2px;
-            background: #ff3b30;
+            background: #b91c1c;
         }
 
         .intro-left h3 {
@@ -328,7 +369,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .intro-left .highlight-number {
             font-size: 1.15em;
             font-weight: 900;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 100%);
+            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
@@ -337,7 +378,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .intro-line-decorator {
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, #ff3b30, transparent);
+            background: linear-gradient(90deg, #b91c1c, transparent);
             margin-bottom: 24px;
             border-radius: 2px;
         }
@@ -374,15 +415,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255, 59, 48, 0.01), rgba(255, 59, 48, 0.03));
+            background: linear-gradient(135deg, rgba(185, 28, 28, 0.01), rgba(185, 28, 28, 0.03));
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .intro-card:hover {
             transform: translateY(-4px) scale(1.01);
-            border-color: rgba(255, 59, 48, 0.15);
-            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.04), 0 0 1px rgba(255, 59, 48, 0.1);
+            border-color: rgba(185, 28, 28, 0.15);
+            box-shadow: 0 15px 35px rgba(185, 28, 28, 0.04), 0 0 1px rgba(185, 28, 28, 0.1);
         }
 
         .intro-card:hover::before {
@@ -392,24 +433,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .intro-card-icon {
             width: 62px;
             height: 62px;
-            background: #fff5f5;
-            border: 1px solid #ffe3e3;
+            background: #fef2f2;
+            border: 1px solid #fee2e2;
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ff3b30;
+            color: #b91c1c;
             flex-shrink: 0;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(255, 59, 48, 0.05);
+            box-shadow: 0 4px 10px rgba(185, 28, 28, 0.05);
         }
 
         .intro-card:hover .intro-card-icon {
-            background: #ff3b30;
+            background: #b91c1c;
             color: #ffffff;
-            border-color: #ff3b30;
+            border-color: #b91c1c;
             transform: rotate(-3deg) scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 59, 48, 0.2);
+            box-shadow: 0 8px 20px rgba(185, 28, 28, 0.25);
         }
 
         .intro-card-icon svg {
@@ -427,7 +468,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .intro-card:hover h4 {
-            color: #ff3b30;
+            color: #b91c1c;
         }
 
         .intro-card-content p {
@@ -442,7 +483,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: absolute;
             top: 14px;
             right: 20px;
-            background: linear-gradient(135deg, #ff8e8e 0%, #ff3b30 100%);
+            background: linear-gradient(135deg, #fca5a5 0%, #b91c1c 100%);
             color: #ffffff;
             font-size: 0.65rem;
             font-weight: 800;
@@ -450,7 +491,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 6px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            box-shadow: 0 2px 8px rgba(255, 59, 48, 0.15);
+            box-shadow: 0 2px 8px rgba(185, 28, 28, 0.15);
         }
 
         /* ── Section 2: Why Attend (Split List Layout - Professional & No Emojis) ── */
@@ -485,7 +526,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             line-height: 1.2;
             margin-bottom: 20px;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #0f172a 40%, #ff3b30 100%);
+            background: linear-gradient(135deg, #0f172a 40%, #b91c1c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -518,14 +559,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .why-list-item:hover {
             transform: translateY(-4px);
-            border-color: rgba(255, 59, 48, 0.2);
-            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.05);
+            border-color: rgba(185, 28, 28, 0.2);
+            box-shadow: 0 15px 35px rgba(185, 28, 28, 0.05);
         }
 
         .why-item-number {
             font-size: 2.2rem;
             font-weight: 900;
-            color: rgba(255, 59, 48, 0.15);
+            color: rgba(185, 28, 28, 0.15);
             line-height: 1;
             font-family: inherit;
             flex-shrink: 0;
@@ -533,19 +574,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .why-list-item:hover .why-item-number {
-            color: rgba(255, 59, 48, 0.35);
+            color: rgba(185, 28, 28, 0.35);
         }
 
         .why-item-icon-wrapper {
             width: 50px;
             height: 50px;
-            background: rgba(255, 59, 48, 0.05);
-            border: 1px solid rgba(255, 59, 48, 0.1);
+            background: rgba(185, 28, 28, 0.05);
+            border: 1px solid rgba(185, 28, 28, 0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ff3b30;
+            color: #b91c1c;
             flex-shrink: 0;
         }
 
@@ -588,32 +629,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 20px 30px;
             display: flex;
             align-items: center;
-            gap: 30px; /* spacing between columns */
+            gap: 30px;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
         }
 
         .topic-badge-row:hover {
-            border-color: rgba(255, 59, 48, 0.2);
+            border-color: rgba(185, 28, 28, 0.2);
             transform: translateX(8px);
-            box-shadow: 0 12px 30px rgba(255, 59, 48, 0.04);
+            box-shadow: 0 12px 30px rgba(185, 28, 28, 0.04);
         }
 
         .topic-tag-col {
-            width: 200px; /* Fixed width to prevent uneven layout / thò thụt */
+            width: 200px;
             flex-shrink: 0;
             display: flex;
         }
 
         .topic-tag {
             width: 100%;
-            background: rgba(255, 59, 48, 0.05);
-            border: 1px solid rgba(255, 59, 48, 0.15);
+            background: rgba(185, 28, 28, 0.05);
+            border: 1px solid rgba(185, 28, 28, 0.15);
             padding: 8px 18px;
             border-radius: 80px;
             font-size: 0.8rem;
             font-weight: 800;
-            color: #ff3b30;
+            color: #b91c1c;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             display: inline-flex;
@@ -624,8 +665,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .topic-tag.hot {
-            background: linear-gradient(135deg, rgba(255, 59, 48, 0.06) 0%, rgba(255, 149, 0, 0.06) 100%);
-            border-color: rgba(255, 107, 107, 0.25);
+            background: linear-gradient(135deg, rgba(185, 28, 28, 0.06) 0%, rgba(217, 119, 6, 0.06) 100%);
+            border-color: rgba(185, 28, 28, 0.25);
             color: #d97706;
         }
 
@@ -654,11 +695,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
-        /* ── Section 4: Horizontal Timeline (Full Width / Fluid Layout) ── */
+        /* ── Section 4: Horizontal Timeline (DARK UI) ── */
         .section-featured {
-            padding: 40px 0;
+            padding: 80px 0;
             width: 100%;
             overflow: hidden;
+            background-color: #090506; /* Dark background as requested */
+            position: relative;
+        }
+
+        .section-featured .talk-section-header h2 {
+            background: linear-gradient(135deg, #ffffff 40%, #b91c1c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-featured .talk-section-header p {
+            color: #94a3b8;
         }
 
         .timeline-container-fluid {
@@ -671,11 +725,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow-x: auto;
             padding: 20px 0;
             width: 100%;
-            /* Auto aligns starting element with boxed container when screen is wider than 1200px */
             padding-left: calc(max(20px, (100vw - 1200px) / 2));
             padding-right: calc(max(20px, (100vw - 1200px) / 2));
             scrollbar-width: thin;
-            scrollbar-color: #ff3b30 rgba(0, 0, 0, 0.05);
+            scrollbar-color: #b91c1c rgba(255, 255, 255, 0.05);
             -webkit-overflow-scrolling: touch;
             box-sizing: border-box;
         }
@@ -685,12 +738,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-track-wrapper::-webkit-scrollbar-thumb {
-            background: #ff3b30;
+            background: #b91c1c;
             border-radius: 10px;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.04);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .timeline-track {
@@ -706,7 +759,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #ff3b30 40%, rgba(15, 23, 42, 0.05) 80%);
+            background: linear-gradient(90deg, #b91c1c 40%, rgba(255, 255, 255, 0.05) 80%);
             z-index: 1;
         }
 
@@ -722,10 +775,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .timeline-dot {
             width: 24px;
             height: 24px;
-            background: #ffffff;
-            border: 4px solid #ff3b30;
+            background: #090506;
+            border: 4px solid #b91c1c;
             border-radius: 50%;
-            box-shadow: 0 0 8px rgba(255, 59, 48, 0.25);
+            box-shadow: 0 0 8px rgba(185, 28, 28, 0.35);
             z-index: 3;
             margin-bottom: 24px;
             position: relative;
@@ -733,22 +786,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-node.active .timeline-dot {
-            background: #ff3b30;
+            background: #b91c1c;
             transform: scale(1.25);
-            box-shadow: 0 0 15px rgba(255, 59, 48, 0.4);
+            box-shadow: 0 0 15px rgba(185, 28, 28, 0.6);
         }
 
         .timeline-node.updating .timeline-dot {
-            border-color: #cbd5e1;
+            border-color: #475569;
             box-shadow: none;
         }
 
         .timeline-content-card {
-            background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.05);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
             padding: 26px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.015);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             width: 100%;
             box-sizing: border-box;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -760,20 +813,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .timeline-node:hover .timeline-content-card {
             transform: translateY(-8px);
-            border-color: rgba(255, 59, 48, 0.2);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.04), 0 0 15px rgba(255, 59, 48, 0.03);
+            border-color: rgba(185, 28, 28, 0.4);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 15px rgba(185, 28, 28, 0.1);
         }
 
         .timeline-node.updating .timeline-content-card {
-            background: rgba(241, 245, 249, 0.35);
+            background: rgba(255, 255, 255, 0.01);
             border-style: dashed;
             box-shadow: none;
         }
 
         .timeline-badge {
-            background: rgba(255, 59, 48, 0.06);
-            border: 1px solid rgba(255, 59, 48, 0.15);
-            color: #ff3b30;
+            background: rgba(185, 28, 28, 0.12);
+            border: 1px solid rgba(185, 28, 28, 0.3);
+            color: #fca5a5;
             padding: 4px 12px;
             border-radius: 6px;
             font-size: 0.72rem;
@@ -786,15 +839,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-badge.updating {
-            background: rgba(100, 116, 139, 0.06);
-            border-color: rgba(100, 116, 139, 0.15);
-            color: #64748b;
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
         }
 
         .timeline-content-card h3 {
             font-size: 1.15rem;
             font-weight: 800;
-            color: #0f172a;
+            color: #ffffff;
             margin: 0 0 10px;
             line-height: 1.45;
             display: -webkit-box;
@@ -809,7 +862,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-direction: column;
             gap: 6px;
             font-size: 0.82rem;
-            color: #64748b;
+            color: #94a3b8;
             margin-bottom: 12px;
         }
 
@@ -820,14 +873,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-meta-item svg {
-            color: #ff3b30;
+            color: #b91c1c;
             flex-shrink: 0;
         }
 
         .timeline-desc {
             font-size: 0.88rem;
             line-height: 1.55;
-            color: #475569;
+            color: #cbd5e1;
             margin: 0;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -912,13 +965,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #000000;
             box-shadow:
                 0 15px 40px rgba(0, 0, 0, 0.05),
-                0 0 20px rgba(255, 59, 48, 0.03);
+                0 0 20px rgba(185, 28, 28, 0.03);
             border: 1px solid rgba(15, 23, 42, 0.06);
             transition: border-color 0.3s ease;
         }
 
         .video-player-box:hover {
-            border-color: rgba(255, 59, 48, 0.25);
+            border-color: rgba(185, 28, 28, 0.25);
         }
 
         .video-player-box iframe {
@@ -953,9 +1006,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 6px;
             padding: 6px 14px;
-            background: rgba(255, 59, 48, 0.05);
-            border: 1px solid rgba(255, 59, 48, 0.15);
-            color: #ff3b30;
+            background: rgba(185, 28, 28, 0.05);
+            border: 1px solid rgba(185, 28, 28, 0.15);
+            color: #b91c1c;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -979,7 +1032,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .meta-item svg {
-            color: #ff3b30;
+            color: #b91c1c;
         }
 
         /* Playlist Styling */
@@ -1021,7 +1074,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .playlist-header h3 svg {
-            color: #ff3b30;
+            color: #b91c1c;
         }
 
         .video-count-badge {
@@ -1068,15 +1121,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .playlist-items li:hover {
-            background: rgba(255, 59, 48, 0.03);
-            border-color: rgba(255, 59, 48, 0.1);
+            background: rgba(185, 28, 28, 0.03);
+            border-color: rgba(185, 28, 28, 0.1);
             transform: translateY(-2px);
         }
 
         .playlist-items li.active {
-            background: rgba(255, 59, 48, 0.05);
-            border-color: rgba(255, 59, 48, 0.18);
-            box-shadow: 0 4px 12px rgba(255, 59, 48, 0.02);
+            background: rgba(185, 28, 28, 0.05);
+            border-color: rgba(185, 28, 28, 0.18);
+            box-shadow: 0 4px 12px rgba(185, 28, 28, 0.02);
         }
 
         .playlist-items li p.title {
@@ -1089,7 +1142,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .playlist-items li.active p.title {
-            color: #ff3b30 !important;
+            color: #b91c1c !important;
         }
 
         .playlist-items li p.details {
@@ -1109,7 +1162,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .playlist-items li p.details svg {
-            color: #ff3b30 !important;
+            color: #b91c1c !important;
         }
 
         /* ── Section 6: Form ──────────────── */
@@ -1127,7 +1180,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 50px 40px;
             box-shadow:
                 0 25px 60px rgba(0, 0, 0, 0.02),
-                0 0 30px rgba(255, 59, 48, 0.02);
+                0 0 30px rgba(185, 28, 28, 0.02);
             position: relative;
             overflow: hidden;
         }
@@ -1185,9 +1238,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .form-control:focus {
             outline: none;
-            border-color: #ff3b30;
+            border-color: #b91c1c;
             background: #ffffff;
-            box-shadow: 0 0 10px rgba(255, 59, 48, 0.06);
+            box-shadow: 0 0 10px rgba(185, 28, 28, 0.06);
         }
 
         textarea.form-control {
@@ -1197,7 +1250,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* Errors */
         .error-message {
-            color: #ff3b30;
+            color: #b91c1c;
             font-size: 0.8rem;
             margin-top: 6px;
             display: none;
@@ -1278,12 +1331,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .coop-title svg {
-            color: #ff3b30;
+            color: #b91c1c;
         }
 
         .coop-title b {
-            color: #ff3b30;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 100%);
+            color: #b91c1c;
+            background: linear-gradient(135deg, #fca5a5 0%, #b91c1c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1320,8 +1373,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .coop-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 59, 48, 0.08);
-            border-color: rgba(255, 59, 48, 0.25);
+            box-shadow: 0 15px 35px rgba(185, 28, 28, 0.08);
+            border-color: rgba(185, 28, 28, 0.25);
         }
 
         .coop-card img {
@@ -1571,7 +1624,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <div class="section-divider"></div>
 
-        <!-- Section 4: Horizontal Timeline (Full Width Layout / Fluid / No container box) -->
+        <!-- Section 4: Horizontal Timeline (DARK UI) -->
         <section class="section-featured" id="featured-webinars">
             <div class="timeline-container-fluid">
                 <div class="talk-section-header">
