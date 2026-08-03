@@ -2425,19 +2425,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const targetSec = document.getElementById('register');
             if (selectEl) {
                 let matchedValue = "";
-                const cleanInput = topicName.toLowerCase().replace(/[^a-z0-9]/g, "");
+                const cleanStr = (s) => {
+                    if (!s) return "";
+                    return s.normalize("NFD")
+                            .replace(/[\u0300-\u036f]/g, "")
+                            .replace(/[đĐ]/g, "d")
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]/g, "");
+                };
+                const cleanInput = cleanStr(topicName);
                 for (let i = 0; i < selectEl.options.length; i++) {
                     const optVal = selectEl.options[i].value;
-                    const cleanOpt = optVal.toLowerCase().replace(/[^a-z0-9]/g, "");
-                    if (cleanOpt.indexOf(cleanInput) !== -1 || cleanInput.indexOf(cleanOpt) !== -1) {
+                    const cleanOpt = cleanStr(optVal);
+                    if (cleanOpt && (cleanOpt.indexOf(cleanInput) !== -1 || cleanInput.indexOf(cleanOpt) !== -1)) {
                         matchedValue = optVal;
                         break;
                     }
                 }
                 if (matchedValue) {
                     selectEl.value = matchedValue;
+                    selectEl.dispatchEvent(new Event('change'));
                 } else {
                     selectEl.value = topicName;
+                    selectEl.dispatchEvent(new Event('change'));
                 }
             }
             if (targetSec) {
