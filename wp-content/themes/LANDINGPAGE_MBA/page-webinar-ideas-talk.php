@@ -706,6 +706,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #fffdfd;
         }
 
+        .topic-badge-row.hot-card {
+            border-color: rgba(185, 28, 28, 0.18);
+            background: linear-gradient(135deg, #ffffff 0%, #fffefe 60%, rgba(185, 28, 28, 0.015) 100%);
+            box-shadow: 0 4px 25px rgba(185, 28, 28, 0.02);
+        }
+
+        .topic-badge-row.hot-card::before {
+            transform: scaleY(1);
+        }
+
+        .topic-badge-row.hot-card .topic-tag.hot {
+            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(185, 28, 28, 0.2);
+        }
+
         .topic-tag-col {
             width: 200px;
             flex-shrink: 0;
@@ -825,6 +842,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: auto;
                 flex-shrink: 1;
             }
+            .timeline-nav-btn {
+                display: none;
+            }
+            .timeline-track-wrapper {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
         }
 
         /* ── Section 4: Horizontal Timeline (DARK UI) ── */
@@ -857,31 +881,57 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow-x: auto;
             padding: 20px 0;
             width: 100%;
-            padding-left: calc(max(20px, (100vw - 1200px) / 2));
-            padding-right: calc(max(20px, (100vw - 1200px) / 2));
-            scrollbar-width: thin;
-            scrollbar-color: rgba(185, 28, 28, 0.4) rgba(255, 255, 255, 0.02);
+            padding-left: 50px;
+            padding-right: 50px;
+            scrollbar-width: none; /* Hide for Firefox */
             -webkit-overflow-scrolling: touch;
             box-sizing: border-box;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar {
-            height: 5px;
+            display: none; /* Hide for Chrome, Safari, Opera */
         }
 
-        .timeline-track-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(185, 28, 28, 0.35);
-            border-radius: 10px;
-            transition: background 0.3s ease;
+        /* Timeline Navigation Buttons */
+        .timeline-nav-btn {
+            position: absolute;
+            top: 55%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(9, 5, 6, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
-        .timeline-track-wrapper:hover::-webkit-scrollbar-thumb {
+        .timeline-nav-btn:hover {
             background: #b91c1c;
+            border-color: #b91c1c;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(185, 28, 28, 0.4);
+            transform: translateY(-50%) scale(1.05);
         }
 
-        .timeline-track-wrapper::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
+        .timeline-nav-btn.prev-btn {
+            left: 20px;
+        }
+
+        .timeline-nav-btn.next-btn {
+            right: 20px;
+        }
+
+        .timeline-nav-btn svg {
+            width: 14px;
+            height: 14px;
+            display: block;
         }
 
         .timeline-track {
@@ -1625,11 +1675,46 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: scale(1.03);
         }
 
-        /* Helper spacing */
-        .ideas_header .container {
-            max-width: 1360px !important;
-            width: 100% !important;
-            padding: 0 20px !important;
+        @media (max-width: 768px) {
+            .section-intro,
+            .section-why,
+            .section-topics,
+            .section-featured,
+            .section-form,
+            .talk-coop {
+                padding: 55px 0 !important;
+            }
+            .talk-hero {
+                padding: 130px 15px 70px !important;
+                min-height: auto !important;
+            }
+            .talk-hero h1 {
+                font-size: 2.3rem !important;
+                margin-bottom: 12px;
+            }
+            .talk-hero-ctas {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                max-width: 320px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .talk-hero-ctas .btn-talk {
+                width: 100%;
+                text-align: center;
+                margin: 0;
+            }
+            .timeline-track-wrapper {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+            .why-sticky-image-wrapper {
+                aspect-ratio: 16 / 9;
+            }
+            .form-content-col {
+                padding: 30px 20px !important;
+            }
         }
     </style>
     <?php wp_head(); ?>
@@ -1813,7 +1898,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="topics-list-col">
                         <div class="topics-list">
                             <!-- Topic 1 -->
-                            <div class="topic-badge-row">
+                            <div class="topic-badge-row hot-card scroll-reveal stagger-item">
                                 <div class="topic-tag-col">
                                     <span class="topic-tag hot">
                                         <svg viewBox="0 0 512 512" fill="currentColor" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c17.7 0 32 14.3 32 32V64.3c52.5 11.7 94 53.2 105.7 105.7H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H453.7C442 320.5 400.5 362 348 373.7V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V447.7c-52.5-11.7-94-53.2-105.7-105.7H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h57.7c11.7-52.5 53.2-94 105.7-105.7V32c0-17.7 14.3-32 32-32zm80 256c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80z"/></svg>
@@ -1826,7 +1911,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
 
                             <!-- Topic 2 -->
-                            <div class="topic-badge-row">
+                            <div class="topic-badge-row scroll-reveal stagger-item">
                                 <div class="topic-tag-col">
                                     <span class="topic-tag">Leadership</span>
                                 </div>
@@ -1836,7 +1921,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
 
                             <!-- Topic 3 -->
-                            <div class="topic-badge-row">
+                            <div class="topic-badge-row scroll-reveal stagger-item">
                                 <div class="topic-tag-col">
                                     <span class="topic-tag">Marketing &amp; Sales</span>
                                 </div>
@@ -1846,7 +1931,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
 
                             <!-- Topic 4 -->
-                            <div class="topic-badge-row">
+                            <div class="topic-badge-row scroll-reveal stagger-item">
                                 <div class="topic-tag-col">
                                     <span class="topic-tag">Finance</span>
                                 </div>
@@ -1856,7 +1941,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
 
                             <!-- Topic 5 -->
-                            <div class="topic-badge-row">
+                            <div class="topic-badge-row scroll-reveal stagger-item">
                                 <div class="topic-tag-col">
                                     <span class="topic-tag">Soft Skills</span>
                                 </div>
@@ -1887,6 +1972,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p><?php echo $is_en ? 'Explore our upcoming topics and register for your slots.' : 'Xem danh sách và lộ trình các buổi chia sẻ hữu ích tiếp theo.'; ?></p>
                 </div>
                 
+                <!-- Navigation buttons for timeline scroll simulation -->
+                <button class="timeline-nav-btn prev-btn" aria-label="Previous">
+                    <svg viewBox="0 0 320 512" fill="currentColor"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                </button>
+                <button class="timeline-nav-btn next-btn" aria-label="Next">
+                    <svg viewBox="0 0 320 512" fill="currentColor"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                </button>
+
                 <div class="timeline-track-wrapper">
                     <div class="timeline-track">
                         <div class="timeline-line"></div>
@@ -2438,6 +2531,50 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     btn.innerHTML = originalBtnHtml;
                 }
             });
+        });
+
+        // Horizontal Timeline Navigation
+        document.addEventListener("DOMContentLoaded", function () {
+            const wrapper = document.querySelector(".timeline-track-wrapper");
+            const prevBtn = document.querySelector(".prev-btn");
+            const nextBtn = document.querySelector(".next-btn");
+
+            if (wrapper && prevBtn && nextBtn) {
+                const scrollAmount = 350;
+                
+                prevBtn.addEventListener("click", function () {
+                    wrapper.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+                });
+                
+                nextBtn.addEventListener("click", function () {
+                    wrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
+                });
+
+                function toggleNavButtons() {
+                    const scrollLeft = wrapper.scrollLeft;
+                    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+                    
+                    if (scrollLeft <= 10) {
+                        prevBtn.style.opacity = "0.2";
+                        prevBtn.style.pointerEvents = "none";
+                    } else {
+                        prevBtn.style.opacity = "1";
+                        prevBtn.style.pointerEvents = "auto";
+                    }
+
+                    if (scrollLeft >= maxScroll - 10) {
+                        nextBtn.style.opacity = "0.2";
+                        nextBtn.style.pointerEvents = "none";
+                    } else {
+                        nextBtn.style.opacity = "1";
+                        nextBtn.style.pointerEvents = "auto";
+                    }
+                }
+
+                wrapper.addEventListener("scroll", toggleNavButtons);
+                window.addEventListener("resize", toggleNavButtons);
+                setTimeout(toggleNavButtons, 300);
+            }
         });
 
         // Intersection Observer for scroll reveal animations
