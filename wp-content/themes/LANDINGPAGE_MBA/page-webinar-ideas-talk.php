@@ -2498,7 +2498,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         }
                     }
                 }
-                
                 if (matchedValue) {
                     selectEl.value = matchedValue;
                     console.log('[registerForTopic] Set native select value to:', matchedValue);
@@ -2541,18 +2540,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 setTimeout(() => {
                     console.log('[registerForTopic] Custom select list sync search target:', cleanTarget);
-                    const customOpts = document.querySelectorAll('.nice-select .option, [class*="select"] li, .select-items div, [role="option"]');
+                    const customOpts = document.querySelectorAll('.nice-select .option, .custom-select-option, [class*="select"] li, .select-items div, [role="option"]');
                     console.log(`[registerForTopic] Found ${customOpts.length} custom option items in DOM`);
                     let clicked = false;
                     customOpts.forEach((opt, idx) => {
                         const val = opt.getAttribute('data-value') || opt.textContent;
                         if (val && cleanStrHelper(val) === cleanTarget) {
                             console.log(`[registerForTopic] Match found at index ${idx}: Clicking custom element`, opt);
-                            // Only click if it is not already selected to avoid infinite loops
-                            if (!opt.classList.contains('selected') && !opt.classList.contains('active')) {
-                                opt.click();
-                                clicked = true;
-                            }
+                            opt.click();
+                            clicked = true;
                         }
                     });
                     if (!clicked) {
