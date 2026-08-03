@@ -1,6 +1,6 @@
 <?php
-// Load WordPress bootstrap
-require_once(__DIR__ . '/wp-load.php');
+// Load WordPress bootstrap (4 levels up from theme folder)
+require_once(__DIR__ . '/../../../../wp-load.php');
 
 // Define page slug and template name
 $slug = 'webinar-ideas-talk';
