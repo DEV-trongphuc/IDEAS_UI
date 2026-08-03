@@ -122,19 +122,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
         }
 
-        .talk-section-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 800;
-            color: #0f172a;
-            margin-bottom: 14px;
-            letter-spacing: -0.02em;
+        .talk-section-header h2,
+        .talk-section-header .talk-section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+            font-weight: 800 !important;
+            color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
+            background: none !important;
+            background-clip: border-box !important;
+            margin-bottom: 14px !important;
+            letter-spacing: -0.02em !important;
+            display: block !important;
         }
 
-        .talk-section-header h2 span {
+        .talk-section-header h2 span,
+        .talk-section-header .talk-section-title span {
             color: #b91c1c !important;
             background: none !important;
             -webkit-text-fill-color: #b91c1c !important;
-            display: inline-block;
+            background-clip: border-box !important;
+            display: inline-block !important;
         }
 
         .talk-section-header p {
