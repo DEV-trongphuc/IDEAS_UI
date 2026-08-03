@@ -877,19 +877,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 100%;
         }
 
+        html, body {
+            overflow-x: hidden !important;
+        }
+
         .timeline-track-wrapper {
             overflow-x: auto;
             padding: 20px 0;
             width: 100%;
             padding-left: 50px;
             padding-right: 50px;
-            scrollbar-width: none; /* Hide for Firefox */
+            scrollbar-width: none !important; /* Hide for Firefox */
+            -ms-overflow-style: none !important;  /* Hide for IE/Edge */
             -webkit-overflow-scrolling: touch;
             box-sizing: border-box;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar {
-            display: none; /* Hide for Chrome, Safari, Opera */
+            display: none !important; /* Hide for Chrome, Safari, Opera */
+            width: 0 !important;
+            height: 0 !important;
+            background: transparent !important;
         }
 
         /* Timeline Navigation Buttons */
@@ -2152,6 +2160,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <!-- Section 6: Form (Split Grid Box with Image Left) -->
         <section class="section-form scroll-reveal" id="register">
             <div class="talk-container">
+                <div class="talk-section-header scroll-reveal" id="form-header">
+                    <h2><?php echo $is_en ? 'Ready to Elevate Your Capacity with IDEAS?' : 'Sẵn Sàng Bứt Phá Năng Lực Cùng IDEAS'; ?></h2>
+                    <p><?php echo $is_en ? 'Register today to receive Zoom credentials and exclusive templates before the webinar starts.' : 'Đăng ký ngay hôm nay để nhận thông tin phòng Zoom và bộ tài liệu độc quyền trước giờ G.'; ?></p>
+                </div>
+
                 <div class="form-grid-box">
                     <div class="form-image-col">
                         <img src="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" alt="IDEAS UMEF Workshop" class="form-side-img">
@@ -2162,11 +2175,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     
                     <div class="form-content-col">
-                        <div class="form-header" id="form-header">
-                            <h2><?php echo $is_en ? 'Ready to Elevate Your Capacity with IDEAS?' : 'Sẵn Sàng Bứt Phá Năng Lực Cùng IDEAS'; ?></h2>
-                            <p><?php echo $is_en ? 'Register today to receive Zoom credentials and exclusive templates before the webinar starts.' : 'Đăng ký ngay hôm nay để nhận thông tin phòng Zoom và bộ tài liệu độc quyền trước giờ G.'; ?></p>
-                        </div>
-
                         <div class="success-box" id="page-form-success">
                             <div class="success-icon-wrap">
                                 <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
