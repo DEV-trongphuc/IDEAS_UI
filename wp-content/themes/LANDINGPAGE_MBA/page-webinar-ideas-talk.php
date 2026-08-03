@@ -128,10 +128,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #0f172a;
             margin-bottom: 14px;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #0f172a 40%, #b91c1c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        }
+
+        .talk-section-header h2 span {
+            color: #b91c1c !important;
+            background: none !important;
+            -webkit-text-fill-color: #b91c1c !important;
+            display: inline-block;
         }
 
         .talk-section-header p {
@@ -186,8 +189,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             will-change: transform;
             transform: translate3d(0, 0, 0) scale(1.1);
             z-index: 1;
-            opacity: 0.22;
-            filter: brightness(75%) contrast(110%);
+            opacity: 0.38;
+            filter: brightness(85%) contrast(100%);
         }
 
         .talk-hero-overlay {
@@ -196,10 +199,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             z-index: 2;
             background:
                 linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.75) 0%,
-                    rgba(8, 4, 5, 0.9) 60%,
-                    #080405 100%),
-                radial-gradient(circle at 50% 40%, rgba(185, 28, 28, 0.45) 0%, transparent 70%);
+                    rgba(8, 4, 5, 0.45) 0%,
+                    rgba(8, 4, 5, 0.7) 65%,
+                    rgba(8, 4, 5, 0.9) 100%),
+                radial-gradient(circle at 50% 40%, rgba(185, 28, 28, 0.32) 0%, transparent 80%);
         }
 
         .talk-hero-container {
@@ -908,8 +911,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: rgba(9, 5, 6, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #b91c1c;
+            border: 1px solid #b91c1c;
             color: #ffffff;
             display: flex;
             align-items: center;
@@ -917,15 +920,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             cursor: pointer;
             z-index: 10;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(185, 28, 28, 0.3);
         }
 
         .timeline-nav-btn:hover {
-            background: #b91c1c;
-            border-color: #b91c1c;
+            background: #e11d48;
+            border-color: #e11d48;
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(185, 28, 28, 0.4);
-            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 0 20px rgba(185, 28, 28, 0.5);
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .timeline-nav-btn.disabled {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            color: rgba(255, 255, 255, 0.2) !important;
+            cursor: not-allowed !important;
+            pointer-events: none !important;
+            box-shadow: none !important;
         }
 
         .timeline-nav-btn.prev-btn {
@@ -1829,7 +1841,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="talk-container">
                 <div class="why-split-container">
                     <div class="why-left-sticky scroll-reveal">
-                        <h2><?php echo $is_en ? 'Why You Shouldn\'t Miss IDEAS Talk Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi Webinar của IDEAS?'; ?></h2>
+                        <h2><?php echo $is_en ? 'Why You Shouldn\'t Miss <span>IDEAS Talk</span> Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi <span>Webinar của IDEAS</span>?'; ?></h2>
                         <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
                         
                         <div class="why-sticky-image-wrapper">
@@ -1898,7 +1910,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="section-topics" id="topics">
             <div class="talk-container">
                 <div class="talk-section-header">
-                    <h2><?php echo $is_en ? 'Core Themes at IDEAS Talk' : 'Các Chủ Đề Trọng Tâm Tại IDEAS TALK'; ?></h2>
+                    <h2><?php echo $is_en ? 'Core Themes at <span>IDEAS Talk</span>' : 'Các Chủ Đề Trọng Tâm Tại <span>IDEAS TALK</span>'; ?></h2>
                     <p><?php echo $is_en ? 'Our webinar topics cover key business pillars, designed to provide comprehensive tools and strategies.' : 'Các chủ đề được lựa chọn cẩn thận bao quanh các trụ cột cốt lõi của doanh nghiệp.'; ?></p>
                 </div>
                 
@@ -2161,7 +2173,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="section-form scroll-reveal" id="register">
             <div class="talk-container">
                 <div class="talk-section-header scroll-reveal" id="form-header">
-                    <h2><?php echo $is_en ? 'Ready to Elevate Your Capacity with IDEAS?' : 'Sẵn Sàng Bứt Phá Năng Lực Cùng IDEAS'; ?></h2>
+                    <h2><?php echo $is_en ? 'Ready to <span>Elevate Your Capacity</span> with IDEAS?' : 'Sẵn Sàng <span>Bứt Phá Năng Lực</span> Cùng IDEAS'; ?></h2>
                     <p><?php echo $is_en ? 'Register today to receive Zoom credentials and exclusive templates before the webinar starts.' : 'Đăng ký ngay hôm nay để nhận thông tin phòng Zoom và bộ tài liệu độc quyền trước giờ G.'; ?></p>
                 </div>
 
@@ -2384,7 +2396,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const selectEl = document.getElementById('interest');
             const targetSec = document.getElementById('register');
             if (selectEl) {
-                selectEl.value = topicName;
+                let matchedValue = "";
+                const cleanInput = topicName.toLowerCase().replace(/[^a-z0-9]/g, "");
+                for (let i = 0; i < selectEl.options.length; i++) {
+                    const optVal = selectEl.options[i].value;
+                    const cleanOpt = optVal.toLowerCase().replace(/[^a-z0-9]/g, "");
+                    if (cleanOpt.indexOf(cleanInput) !== -1 || cleanInput.indexOf(cleanOpt) !== -1) {
+                        matchedValue = optVal;
+                        break;
+                    }
+                }
+                if (matchedValue) {
+                    selectEl.value = matchedValue;
+                } else {
+                    selectEl.value = topicName;
+                }
             }
             if (targetSec) {
                 targetSec.scrollIntoView({ behavior: 'smooth' });
@@ -2563,19 +2589,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
                     
                     if (scrollLeft <= 10) {
-                        prevBtn.style.opacity = "0.2";
-                        prevBtn.style.pointerEvents = "none";
+                        prevBtn.classList.add("disabled");
                     } else {
-                        prevBtn.style.opacity = "1";
-                        prevBtn.style.pointerEvents = "auto";
+                        prevBtn.classList.remove("disabled");
                     }
 
                     if (scrollLeft >= maxScroll - 10) {
-                        nextBtn.style.opacity = "0.2";
-                        nextBtn.style.pointerEvents = "none";
+                        nextBtn.classList.add("disabled");
                     } else {
-                        nextBtn.style.opacity = "1";
-                        nextBtn.style.pointerEvents = "auto";
+                        nextBtn.classList.remove("disabled");
                     }
                 }
 
