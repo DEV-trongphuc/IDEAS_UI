@@ -71,6 +71,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0 auto;
             width: 100%;
             padding: 0 20px;
+            box-sizing: border-box;
         }
 
         /* ── Button Styles ────────────────── */
@@ -313,16 +314,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #ffffff !important;
         }
 
-        /* ── Section 1: Intro (High-Impact Design) ── */
+        /* ── Section 1: Intro (Image Left-Right Contrast) ── */
         .section-intro {
-            padding: 90px 0 50px;
+            padding: 95px 0;
             position: relative;
-            background-color: #fcfcfd;
+            background-color: #ffffff; /* Clean light background */
         }
 
         .intro-grid {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 60px;
             align-items: center;
         }
@@ -388,116 +389,126 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             line-height: 1.75;
             color: #475569;
             font-weight: 500;
-            margin: 0;
+            margin: 0 0 30px;
         }
 
-        .intro-cards-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        /* 3 horizontal info cards */
+        .intro-horizontal-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        .intro-card {
-            background: #ffffff;
+        @media (max-width: 768px) {
+            .intro-horizontal-cards {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        .intro-mini-card {
+            background: #fcfcfd;
             border: 1px solid rgba(15, 23, 42, 0.04);
-            border-radius: 20px;
-            padding: 24px 28px;
+            border-radius: 16px;
+            padding: 16px;
             display: flex;
             align-items: center;
-            gap: 24px;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.015);
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.008);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            overflow: hidden;
         }
 
-        .intro-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(185, 28, 28, 0.01), rgba(185, 28, 28, 0.03));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .intro-card:hover {
-            transform: translateY(-4px) scale(1.01);
+        .intro-mini-card:hover {
+            transform: translateY(-3px);
             border-color: rgba(185, 28, 28, 0.15);
-            box-shadow: 0 15px 35px rgba(185, 28, 28, 0.04), 0 0 1px rgba(185, 28, 28, 0.1);
+            box-shadow: 0 10px 25px rgba(185, 28, 28, 0.03);
+            background: #ffffff;
         }
 
-        .intro-card:hover::before {
-            opacity: 1;
-        }
-
-        .intro-card-icon {
-            width: 62px;
-            height: 62px;
-            background: #fef2f2;
-            border: 1px solid #fee2e2;
-            border-radius: 16px;
+        .mini-card-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(185, 28, 28, 0.05);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #b91c1c;
             flex-shrink: 0;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(185, 28, 28, 0.05);
         }
 
-        .intro-card:hover .intro-card-icon {
+        .intro-mini-card:hover .mini-card-icon {
             background: #b91c1c;
             color: #ffffff;
-            border-color: #b91c1c;
-            transform: rotate(-3deg) scale(1.05);
-            box-shadow: 0 8px 20px rgba(185, 28, 28, 0.25);
+            transform: scale(1.05);
         }
 
-        .intro-card-icon svg {
-            width: 26px;
-            height: 26px;
-            transition: transform 0.3s ease;
+        .mini-card-icon svg {
+            width: 18px;
+            height: 18px;
         }
 
-        .intro-card-content h4 {
-            margin: 0 0 6px;
-            font-size: 1.15rem;
+        .mini-card-text strong {
+            display: block;
+            font-size: 0.85rem;
             font-weight: 800;
             color: #0f172a;
-            transition: color 0.3s ease;
+            margin-bottom: 2px;
         }
 
-        .intro-card:hover h4 {
-            color: #b91c1c;
-        }
-
-        .intro-card-content p {
-            margin: 0;
-            font-size: 0.98rem;
-            color: #475569;
+        .mini-card-text span {
+            font-size: 0.76rem;
+            color: #64748b;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.25;
+            display: block;
         }
 
-        .intro-card-tag {
+        /* Image Column */
+        .intro-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            aspect-ratio: 4 / 3;
+            background: #f1f5f9;
+        }
+
+        .intro-img-main {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .intro-image-wrapper:hover .intro-img-main {
+            transform: scale(1.03);
+        }
+
+        .img-floating-badge {
             position: absolute;
-            top: 14px;
-            right: 20px;
-            background: linear-gradient(135deg, #fca5a5 0%, #b91c1c 100%);
+            bottom: 20px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
             color: #ffffff;
-            font-size: 0.65rem;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.78rem;
             font-weight: 800;
-            padding: 3px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             letter-spacing: 0.05em;
-            box-shadow: 0 2px 8px rgba(185, 28, 28, 0.15);
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        /* ── Section 2: Why Attend (Split List Layout - Professional & No Emojis) ── */
+        /* ── Section 2: Why Attend (Split List - Alternate Contrast Background) ── */
         .section-why {
-            padding: 40px 0;
-            background-color: #fcfcfd;
+            padding: 95px 0;
+            background-color: #f1f5f9; /* Soft cool contrast grey background */
         }
 
         .why-split-container {
@@ -537,6 +548,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #64748b;
             line-height: 1.65;
             margin-bottom: 30px;
+        }
+
+        .why-sticky-image-wrapper {
+            margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(15, 23, 42, 0.05);
+            aspect-ratio: 16 / 10;
+            background: #e2e8f0;
+        }
+
+        .why-sticky-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .why-sticky-image-wrapper:hover .why-sticky-img {
+            transform: scale(1.03);
         }
 
         .why-right-list {
@@ -609,17 +641,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
-        /* ── Section 3: Topics (Clean Row List - No Emoji, ALIGNED) ── */
+        /* ── Section 3: Topics (Clean Split Grid - Alternate White Background) ── */
         .section-topics {
-            padding: 40px 0;
+            padding: 95px 0;
+            background-color: #ffffff; /* Clean contrast background */
+        }
+
+        .topics-split-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .topics-split-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         .topics-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .topic-badge-row {
@@ -682,6 +727,54 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 500;
         }
 
+        /* Image card right in Topics */
+        .topics-featured-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(15, 23, 42, 0.05);
+            aspect-ratio: 4 / 3;
+            background: #e2e8f0;
+        }
+
+        .topics-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .topics-featured-card:hover .topics-card-img {
+            transform: scale(1.03);
+        }
+
+        .topics-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(360deg, rgba(9, 5, 6, 0.8) 0%, rgba(9, 5, 6, 0.25) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: #ffffff;
+        }
+
+        .topics-card-overlay h4 {
+            margin: 0 0 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .topics-card-overlay p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
         @media (max-width: 768px) {
             .topic-badge-row {
                 flex-direction: column;
@@ -700,7 +793,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 80px 0;
             width: 100%;
             overflow: hidden;
-            background-color: #090506; /* Dark background as requested */
+            background-color: #090506;
             position: relative;
         }
 
@@ -1165,28 +1258,83 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #b91c1c !important;
         }
 
-        /* ── Section 6: Form ──────────────── */
+        /* ── Section 6: Form (Split Grid Box with Image Left) ── */
         .section-form {
-            padding: 80px 0;
+            padding: 85px 0;
             position: relative;
         }
 
-        .form-glow-box {
-            max-width: 700px;
+        .form-grid-box {
+            max-width: 1050px;
             margin: 0 auto;
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.06);
-            border-radius: 28px;
-            padding: 50px 40px;
+            border-radius: 32px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            overflow: hidden;
             box-shadow:
                 0 25px 60px rgba(0, 0, 0, 0.02),
-                0 0 30px rgba(185, 28, 28, 0.02);
-            position: relative;
-            overflow: hidden;
+                0 0 35px rgba(185, 28, 28, 0.015);
         }
 
-        @media (max-width: 600px) {
-            .form-glow-box {
+        @media (max-width: 992px) {
+            .form-grid-box {
+                grid-template-columns: 1fr;
+            }
+            .form-image-col {
+                display: none;
+            }
+        }
+
+        .form-image-col {
+            position: relative;
+            background: #f1f5f9;
+            height: 100%;
+            min-height: 580px;
+        }
+
+        .form-side-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(360deg, rgba(9, 5, 6, 0.9) 0%, rgba(9, 5, 6, 0.35) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            color: #ffffff;
+        }
+
+        .form-image-overlay h3 {
+            margin: 0 0 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .form-image-overlay p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .form-content-col {
+            padding: 50px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 576px) {
+            .form-content-col {
                 padding: 35px 20px;
             }
         }
@@ -1420,7 +1568,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h1><span>IDEAS TALK</span></h1>
                 <div class="talk-tagline"><?php echo $is_en ? 'Actionable Knowledge Transfer' : 'Tri Thức Thực Chiến Chuyển Đổi'; ?></div>
                 <div class="verify-slogan">
-                    <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '“Tri thức nguyên bản - Đồng hành Bản địa”'; ?>
+                    <?php echo $is_en ? '“Original Knowledge - Localized Mentorship”' : '“Tri thức nguyên bản - Đồng hành Bản địa”'; ?>
                 </div>
 
                 <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
@@ -1436,7 +1584,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- Section 1: Intro (Sleek Redesigned Style) -->
+        <!-- Section 1: Intro (Image Left-Right Contrast) -->
         <section class="section-intro" id="about">
             <div class="talk-container">
                 <div class="intro-grid">
@@ -1448,39 +1596,45 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </h3>
                         <div class="intro-line-decorator"></div>
                         <p><?php echo $is_en ? 'No academic theory, no generic scripts. Each Webinar is a "real battle" case solving thoroughly one big problem of the enterprise — directly with Experts (Enterprise Doctors from IDEAS) & experienced managers.' : 'Không lý thuyết hàn lâm, không kịch bản chung chung. Mỗi buổi Webinar là một ca "thực chiến" giải quyết triệt để 1 bài toán lớn của doanh nghiệp — trực tiếp cùng Chuyên gia (Bác sĩ Doanh nghiệp từ IDEAS) & Nhà quản trị dày dặn kinh nghiệm.'; ?></p>
+                        
+                        <div class="intro-horizontal-cards">
+                            <!-- Info Card 1 -->
+                            <div class="intro-mini-card">
+                                <div class="mini-card-icon">
+                                    <svg viewBox="0 0 448 512" fill="currentColor"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z"/></svg>
+                                </div>
+                                <div class="mini-card-text">
+                                    <strong><?php echo $is_en ? 'Timeline' : 'Thời gian'; ?></strong>
+                                    <span><?php echo $is_en ? 'Thursday at 19:30 - 21:00' : 'Thứ 5 lúc 19:30 - 21:00'; ?></span>
+                                </div>
+                            </div>
+                            <!-- Info Card 2 -->
+                            <div class="intro-mini-card">
+                                <div class="mini-card-icon">
+                                    <svg viewBox="0 0 576 512" fill="currentColor"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
+                                </div>
+                                <div class="mini-card-text">
+                                    <strong><?php echo $is_en ? 'Format' : 'Hình thức'; ?></strong>
+                                    <span><?php echo $is_en ? 'Live via Zoom' : 'Trực tiếp qua Zoom'; ?></span>
+                                </div>
+                            </div>
+                            <!-- Info Card 3 -->
+                            <div class="intro-mini-card">
+                                <div class="mini-card-icon">
+                                    <svg viewBox="0 0 512 512" fill="currentColor"><path d="M190.4 48.4c10-3.1 20.7 2.4 23.9 12.4l34.4 107.1L209 177.1c-22.3-10.3-48.4-1.2-59.5 21l-34.4-107.1c-3.1-10 2.4-20.7 12.4-23.9l62.9-19.8zm231 231c10 3.1 15.5 13.8 12.4 23.9l-34.4 107.1c-11.1 22.3-37.2 31.4-59.5 21l-39.7 9.2 34.4-107.1c3.1-10 13.8-15.5 23.9-12.4l62.9 18.3zm-63.5-84.7c22.3 10.3 31.4 36.4 21 58.7l-159.2 346c-10.3 22.3-36.4 31.4-58.7 21l-31.5-14.5c-22.3-10.3-31.4-36.4-21-58.7l159.2-346c10.3-22.3 36.4-31.4 58.7-21l31.5 14.5z"/></svg>
+                                </div>
+                                <div class="mini-card-text">
+                                    <strong><?php echo $is_en ? 'Privilege' : 'Đặc quyền'; ?></strong>
+                                    <span><?php echo $is_en ? 'Free Templates' : 'Tặng bộ tài liệu áp dụng ngay'; ?></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="intro-right">
-                        <div class="intro-cards-stack">
-                            <!-- Card 1 -->
-                            <div class="intro-card">
-                                <div class="intro-card-icon">
-                                    <svg viewBox="0 0 448 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z"/></svg>
-                                </div>
-                                <div class="intro-card-content">
-                                    <h4><?php echo $is_en ? 'Timeline' : 'Thời gian'; ?></h4>
-                                    <p><?php echo $is_en ? 'Thursday at 19:30 - 21:00' : 'Thứ 5 lúc 19:30 - 21:00'; ?></p>
-                                </div>
-                            </div>
-                            <!-- Card 2 -->
-                            <div class="intro-card">
-                                <div class="intro-card-icon">
-                                    <svg viewBox="0 0 576 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
-                                </div>
-                                <div class="intro-card-content">
-                                    <h4><?php echo $is_en ? 'Format' : 'Hình thức'; ?></h4>
-                                    <p><?php echo $is_en ? 'Live via Zoom' : 'Trực tiếp qua Zoom'; ?></p>
-                                </div>
-                            </div>
-                            <!-- Card 3 -->
-                            <div class="intro-card">
-                                <span class="intro-card-tag"><?php echo $is_en ? 'Free' : 'Đặc quyền'; ?></span>
-                                <div class="intro-card-icon">
-                                    <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M190.4 48.4c10-3.1 20.7 2.4 23.9 12.4l34.4 107.1L209 177.1c-22.3-10.3-48.4-1.2-59.5 21l-34.4-107.1c-3.1-10 2.4-20.7 12.4-23.9l62.9-19.8zm231 231c10 3.1 15.5 13.8 12.4 23.9l-34.4 107.1c-11.1 22.3-37.2 31.4-59.5 21l-39.7 9.2 34.4-107.1c3.1-10 13.8-15.5 23.9-12.4l62.9 18.3zm-63.5-84.7c22.3 10.3 31.4 36.4 21 58.7l-159.2 346c-10.3 22.3-36.4 31.4-58.7 21l-31.5-14.5c-22.3-10.3-31.4-36.4-21-58.7l159.2-346c10.3-22.3 36.4-31.4 58.7-21l31.5 14.5z"/></svg>
-                                </div>
-                                <div class="intro-card-content">
-                                    <h4><?php echo $is_en ? 'Privilege' : 'Đặc quyền'; ?></h4>
-                                    <p><?php echo $is_en ? 'Free applicable Templates/Documents' : 'Tặng bộ Template/Tài liệu áp dụng ngay'; ?></p>
-                                </div>
+                        <div class="intro-image-wrapper">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp" alt="IDEAS AI Workshop" class="intro-img-main">
+                            <div class="img-floating-badge">
+                                <span>AI Workshop</span>
                             </div>
                         </div>
                     </div>
@@ -1488,15 +1642,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <div class="section-divider"></div>
-
-        <!-- Section 2: Why Attend (Split List Layout - Professional & No Emojis) -->
+        <!-- Section 2: Why Attend (Split List - Alternate Contrast Background) -->
         <section class="section-why" id="why-attend">
             <div class="talk-container">
                 <div class="why-split-container">
                     <div class="why-left-sticky">
                         <h2><?php echo $is_en ? 'Why You Shouldn\'t Miss IDEAS Talk Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi Webinar của IDEAS?'; ?></h2>
                         <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
+                        
+                        <div class="why-sticky-image-wrapper">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" alt="IDEAS Live Workshop Session" class="why-sticky-img">
+                        </div>
+
                         <a href="#register" class="btn-talk btn-talk-primary">
                             <?php echo $is_en ? 'Register Today' : 'Đăng ký ngay hôm nay'; ?>
                         </a>
@@ -1555,9 +1712,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <div class="section-divider"></div>
-
-        <!-- Section 3: Key Topics (Clean Row List - No Emoji, ALIGNED) -->
+        <!-- Section 3: Key Topics (Clean Split Grid - Alternate White Background) -->
         <section class="section-topics" id="topics">
             <div class="talk-container">
                 <div class="talk-section-header">
@@ -1565,64 +1720,75 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p><?php echo $is_en ? 'Our webinar topics cover key business pillars, designed to provide comprehensive tools and strategies.' : 'Các chủ đề được lựa chọn cẩn thận bao quanh các trụ cột cốt lõi của doanh nghiệp.'; ?></p>
                 </div>
                 
-                <div class="topics-list">
-                    <!-- Topic 1 -->
-                    <div class="topic-badge-row">
-                        <div class="topic-tag-col">
-                            <span class="topic-tag hot">
-                                <svg viewBox="0 0 512 512" fill="currentColor" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c17.7 0 32 14.3 32 32V64.3c52.5 11.7 94 53.2 105.7 105.7H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H453.7C442 320.5 400.5 362 348 373.7V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V447.7c-52.5-11.7-94-53.2-105.7-105.7H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h57.7c11.7-52.5 53.2-94 105.7-105.7V32c0-17.7 14.3-32 32-32zm80 256c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80z"/></svg>
-                                AI &amp; Tech [Hot]
-                            </span>
-                        </div>
-                        <div class="topic-desc-col">
-                            <p class="topic-desc"><?php echo $is_en ? 'Break through 10x performance with the latest AI tools & technology.' : 'Bứt phá 10x hiệu suất cùng công nghệ & công cụ AI mới nhất. [Hot topic Tháng 8]'; ?></p>
+                <div class="topics-split-grid">
+                    <div class="topics-list-col">
+                        <div class="topics-list">
+                            <!-- Topic 1 -->
+                            <div class="topic-badge-row">
+                                <div class="topic-tag-col">
+                                    <span class="topic-tag hot">
+                                        <svg viewBox="0 0 512 512" fill="currentColor" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c17.7 0 32 14.3 32 32V64.3c52.5 11.7 94 53.2 105.7 105.7H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H453.7C442 320.5 400.5 362 348 373.7V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V447.7c-52.5-11.7-94-53.2-105.7-105.7H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h57.7c11.7-52.5 53.2-94 105.7-105.7V32c0-17.7 14.3-32 32-32zm80 256c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80z"/></svg>
+                                        AI &amp; Tech [Hot]
+                                    </span>
+                                </div>
+                                <div class="topic-desc-col">
+                                    <p class="topic-desc"><?php echo $is_en ? 'Break through 10x performance with the latest AI tools & technology.' : 'Bứt phá 10x hiệu suất cùng công nghệ & công cụ AI mới nhất. [Hot topic Tháng 8]'; ?></p>
+                                </div>
+                            </div>
+
+                            <!-- Topic 2 -->
+                            <div class="topic-badge-row">
+                                <div class="topic-tag-col">
+                                    <span class="topic-tag">Leadership</span>
+                                </div>
+                                <div class="topic-desc-col">
+                                    <p class="topic-desc"><?php echo $is_en ? 'Unblock management bottlenecks & build leading capacity.' : 'Tháo gỡ điểm nghẽn quản trị & năng lực dẫn dắt.'; ?></p>
+                                </div>
+                            </div>
+
+                            <!-- Topic 3 -->
+                            <div class="topic-badge-row">
+                                <div class="topic-tag-col">
+                                    <span class="topic-tag">Marketing &amp; Sales</span>
+                                </div>
+                                <div class="topic-desc-col">
+                                    <p class="topic-desc"><?php echo $is_en ? 'Breakthrough revenue growth with practical sales & marketing solutions.' : 'Đột phá tăng trưởng doanh số với giải pháp tiếp thị thực chiến.'; ?></p>
+                                </div>
+                            </div>
+
+                            <!-- Topic 4 -->
+                            <div class="topic-badge-row">
+                                <div class="topic-tag-col">
+                                    <span class="topic-tag">Finance</span>
+                                </div>
+                                <div class="topic-desc-col">
+                                    <p class="topic-desc"><?php echo $is_en ? 'Optimize cash flows & manage corporate financial health.' : 'Tối ưu dòng tiền & quản trị sức khỏe tài chính doanh nghiệp.'; ?></p>
+                                </div>
+                            </div>
+
+                            <!-- Topic 5 -->
+                            <div class="topic-badge-row">
+                                <div class="topic-tag-col">
+                                    <span class="topic-tag">Soft Skills</span>
+                                </div>
+                                <div class="topic-desc-col">
+                                    <p class="topic-desc"><?php echo $is_en ? 'Elevate personal capacity & working mindsets in the new era.' : 'Nâng tầm năng lực cá nhân & tư duy làm việc thời đại mới.'; ?></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Topic 2 -->
-                    <div class="topic-badge-row">
-                        <div class="topic-tag-col">
-                            <span class="topic-tag">Leadership</span>
-                        </div>
-                        <div class="topic-desc-col">
-                            <p class="topic-desc"><?php echo $is_en ? 'Unblock management bottlenecks & build leading capacity.' : 'Tháo gỡ điểm nghẽn quản trị & năng lực dẫn dắt.'; ?></p>
-                        </div>
-                    </div>
-
-                    <!-- Topic 3 -->
-                    <div class="topic-badge-row">
-                        <div class="topic-tag-col">
-                            <span class="topic-tag">Marketing &amp; Sales</span>
-                        </div>
-                        <div class="topic-desc-col">
-                            <p class="topic-desc"><?php echo $is_en ? 'Breakthrough revenue growth with practical sales & marketing solutions.' : 'Đột phá tăng trưởng doanh số với giải pháp tiếp thị thực chiến.'; ?></p>
-                        </div>
-                    </div>
-
-                    <!-- Topic 4 -->
-                    <div class="topic-badge-row">
-                        <div class="topic-tag-col">
-                            <span class="topic-tag">Finance</span>
-                        </div>
-                        <div class="topic-desc-col">
-                            <p class="topic-desc"><?php echo $is_en ? 'Optimize cash flows & manage corporate financial health.' : 'Tối ưu dòng tiền & quản trị sức khỏe tài chính doanh nghiệp.'; ?></p>
-                        </div>
-                    </div>
-
-                    <!-- Topic 5 -->
-                    <div class="topic-badge-row">
-                        <div class="topic-tag-col">
-                            <span class="topic-tag">Soft Skills</span>
-                        </div>
-                        <div class="topic-desc-col">
-                            <p class="topic-desc"><?php echo $is_en ? 'Elevate personal capacity & working mindsets in the new era.' : 'Nâng tầm năng lực cá nhân & tư duy làm việc thời đại mới.'; ?></p>
+                    <div class="topics-image-col">
+                        <div class="topics-featured-card">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp" alt="IDEAS Academic Conference" class="topics-card-img">
+                            <div class="topics-card-overlay">
+                                <h4>IDEAS Conference</h4>
+                                <p><?php echo $is_en ? 'Connecting original business frameworks and local practices.' : 'Nơi kết nối các hệ thống tri thức nguyên bản và thực tế quản trị.'; ?></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <div class="section-divider"></div>
 
         <!-- Section 4: Horizontal Timeline (DARK UI) -->
         <section class="section-featured" id="featured-webinars">
@@ -1801,76 +1967,87 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <div class="section-divider"></div>
 
-        <!-- Section 6: Form -->
+        <!-- Section 6: Form (Split Grid Box with Image Left) -->
         <section class="section-form" id="register">
             <div class="talk-container">
-                <div class="form-glow-box">
-                    <div class="form-header" id="form-header">
-                        <h2><?php echo $is_en ? 'Ready to Elevate Your Capacity with IDEAS?' : 'Sẵn Sàng Bứt Phá Năng Lực Cùng IDEAS'; ?></h2>
-                        <p><?php echo $is_en ? 'Register today to receive Zoom credentials and exclusive templates before the webinar starts.' : 'Đăng ký ngay hôm nay để nhận thông tin phòng Zoom và bộ tài liệu độc quyền trước giờ G.'; ?></p>
+                <div class="form-grid-box">
+                    <div class="form-image-col">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2023/07/umefws.webp" alt="IDEAS UMEF Workshop" class="form-side-img">
+                        <div class="form-image-overlay">
+                            <h3><?php echo $is_en ? 'Join the Elite AI Community' : 'Gia Nhập Cộng Đồng Tri Thức AI'; ?></h3>
+                            <p><?php echo $is_en ? 'Interact with doctors, experts and managers from top-tier academic institutes.' : 'Học tập cùng hội đồng chuyên gia, bác sĩ doanh nghiệp và các quản trị viên xuất sắc.'; ?></p>
+                        </div>
                     </div>
-
-                    <div class="success-box" id="page-form-success">
-                        <div class="success-icon-wrap">
-                            <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                    
+                    <div class="form-content-col">
+                        <div class="form-header" id="form-header">
+                            <h2><?php echo $is_en ? 'Ready to Elevate Your Capacity with IDEAS?' : 'Sẵn Sàng Bứt Phá Năng Lực Cùng IDEAS'; ?></h2>
+                            <p><?php echo $is_en ? 'Register today to receive Zoom credentials and exclusive templates before the webinar starts.' : 'Đăng ký ngay hôm nay để nhận thông tin phòng Zoom và bộ tài liệu độc quyền trước giờ G.'; ?></p>
                         </div>
-                        <h3><?php echo $is_en ? 'Registration Successful!' : 'Đăng Ký Thành Công!'; ?></h3>
-                        <p id="success-msg"></p>
+
+                        <div class="success-box" id="page-form-success">
+                            <div class="success-icon-wrap">
+                                <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                            </div>
+                            <h3><?php echo $is_en ? 'Registration Successful!' : 'Đăng Ký Thành Công!'; ?></h3>
+                            <p id="success-msg"></p>
+                        </div>
+
+                        <form id="page-contact-form" novalidate>
+                            <div class="form-group">
+                                <label class="form-label" for="fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
+                                <input class="form-control" type="text" id="fullname" placeholder="<?php echo $is_en ? 'Enter your full name' : 'Nhập họ và tên của bạn'; ?>" required>
+                                <span class="error-message" id="fullname-error">
+                                    <?php echo $is_en ? 'Please enter your name' : 'Vui lòng nhập họ và tên'; ?>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
+                                <input class="form-control" type="tel" id="phone" placeholder="<?php echo $is_en ? 'Enter your phone number' : 'Nhập số điện thoại'; ?>" required>
+                                <span class="error-message" id="phone-error">
+                                    <?php echo $is_en ? 'Please enter a valid phone number (at least 8 digits)' : 'Vui lòng nhập số điện thoại hợp lệ (tối thiểu 8 chữ số)'; ?>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email"><?php echo $is_en ? 'Email Address *' : 'Địa chỉ Email *'; ?></label>
+                                <input class="form-control" type="email" id="email" placeholder="<?php echo $is_en ? 'Enter your email' : 'Nhập địa chỉ email'; ?>" required>
+                                <span class="error-message" id="email-error">
+                                    <?php echo $is_en ? 'Please enter a valid email address' : 'Vui lòng nhập địa chỉ email hợp lệ'; ?>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="interest"><?php echo $is_en ? 'Your Favorite Topic *' : 'Chủ đề bạn quan tâm *'; ?></label>
+                                <select class="form-control" id="interest" required>
+                                    <option value="" disabled selected><?php echo $is_en ? '-- Select a topic --' : '-- Chọn chủ đề bạn muốn tham gia --'; ?></option>
+                                    <option value="Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)"><?php echo $is_en ? 'Webinar 01: AI in Learning & Research (13/08)' : 'Webinar 01: Ứng dụng AI trong học tập & nghiên cứu (13/08)'; ?></option>
+                                    <option value="Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)"><?php echo $is_en ? 'Webinar 02: Management in the AI Era (27/08)' : 'Webinar 02: Nâng cao năng lực quản trị trong thời đại AI (27/08)'; ?></option>
+                                    <option value="AI & Technology"><?php echo $is_en ? 'Category: AI & Technology' : 'Chuyên đề: AI & Technology'; ?></option>
+                                    <option value="Leadership & Management"><?php echo $is_en ? 'Category: Leadership & Management' : 'Chuyên đề: Leadership & Management'; ?></option>
+                                    <option value="Marketing & Sales"><?php echo $is_en ? 'Category: Marketing & Sales' : 'Chuyên đề: Marketing & Sales'; ?></option>
+                                    <option value="Finance & Business"><?php echo $is_en ? 'Category: Finance & Business' : 'Chuyên đề: Finance & Business'; ?></option>
+                                    <option value="Soft & Human Skills"><?php echo $is_en ? 'Category: Soft & Human Skills' : 'Chuyên đề: Soft & Human Skills'; ?></option>
+                                </select>
+                                <span class="error-message" id="interest-error">
+                                    <?php echo $is_en ? 'Please select a topic' : 'Vui lòng chọn một chủ đề';
+                                    ?>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="question"><?php echo $is_en ? 'Your Questions for Experts' : 'Câu hỏi dành cho Chuyên gia'; ?></label>
+                                <textarea class="form-control" id="question" placeholder="<?php echo $is_en ? 'Ask your questions here...' : 'Nhập câu hỏi hoặc vấn đề doanh nghiệp cần tháo gỡ...'; ?>"></textarea>
+                            </div>
+
+                            <div style="margin-top: 36px; text-align: center;">
+                                <button type="submit" id="form-submit-btn" class="btn-talk btn-talk-primary" style="width: 100%;">
+                                    <?php echo $is_en ? 'Confirm Free Registration' : 'Xác nhận đăng ký miễn phí'; ?>
+                                </button>
+                            </div>
+                        </form>
                     </div>
-
-                    <form id="page-contact-form" novalidate>
-                        <div class="form-group">
-                            <label class="form-label" for="fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
-                            <input class="form-control" type="text" id="fullname" placeholder="<?php echo $is_en ? 'Enter your full name' : 'Nhập họ và tên của bạn'; ?>" required>
-                            <span class="error-message" id="fullname-error">
-                                <?php echo $is_en ? 'Please enter your name' : 'Vui lòng nhập họ và tên'; ?>
-                            </span>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
-                            <input class="form-control" type="tel" id="phone" placeholder="<?php echo $is_en ? 'Enter your phone number' : 'Nhập số điện thoại'; ?>" required>
-                            <span class="error-message" id="phone-error">
-                                <?php echo $is_en ? 'Please enter a valid phone number (at least 8 digits)' : 'Vui lòng nhập số điện thoại hợp lệ (tối thiểu 8 chữ số)'; ?>
-                            </span>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="email"><?php echo $is_en ? 'Email Address *' : 'Địa chỉ Email *'; ?></label>
-                            <input class="form-control" type="email" id="email" placeholder="<?php echo $is_en ? 'Enter your email' : 'Nhập địa chỉ email'; ?>" required>
-                            <span class="error-message" id="email-error">
-                                <?php echo $is_en ? 'Please enter a valid email address' : 'Vui lòng nhập địa chỉ email hợp lệ'; ?>
-                            </span>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="interest"><?php echo $is_en ? 'Your Favorite Topic *' : 'Chủ đề bạn quan tâm *'; ?></label>
-                            <select class="form-control" id="interest" required>
-                                <option value="" disabled selected><?php echo $is_en ? '-- Select a topic --' : '-- Chọn chủ đề bạn muốn tham gia --'; ?></option>
-                                <option value="Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)"><?php echo $is_en ? 'Webinar 01: AI in Learning & Research (13/08)' : 'Webinar 01: Ứng dụng AI trong học tập & nghiên cứu (13/08)'; ?></option>
-                                <option value="Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)"><?php echo $is_en ? 'Webinar 02: Management in the AI Era (27/08)' : 'Webinar 02: Nâng cao năng lực quản trị trong thời đại AI (27/08)'; ?></option>
-                                <option value="AI & Technology"><?php echo $is_en ? 'Category: AI & Technology' : 'Chuyên đề: AI & Technology'; ?></option>
-                                <option value="Leadership & Management"><?php echo $is_en ? 'Category: Leadership & Management' : 'Chuyên đề: Leadership & Management'; ?></option>
-                                <option value="Marketing & Sales"><?php echo $is_en ? 'Category: Marketing & Sales' : 'Chuyên đề: Marketing & Sales'; ?></option>
-                                <option value="Finance & Business"><?php echo $is_en ? 'Category: Finance & Business' : 'Chuyên đề: Finance & Business'; ?></option>
-                                <option value="Soft & Human Skills"><?php echo $is_en ? 'Category: Soft & Human Skills' : 'Chuyên đề: Soft & Human Skills'; ?></option>
-                            </select>
-                            <span class="error-message" id="interest-error">
-                                <?php echo $is_en ? 'Please select a topic' : 'Vui lòng chọn một chủ đề'; ?>
-                            </span>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="question"><?php echo $is_en ? 'Your Questions for Experts' : 'Câu hỏi dành cho Chuyên gia'; ?></label>
-                            <textarea class="form-control" id="question" placeholder="<?php echo $is_en ? 'Ask your questions here...' : 'Nhập câu hỏi hoặc vấn đề doanh nghiệp cần tháo gỡ...'; ?>"></textarea>
-                        </div>
-
-                        <div style="margin-top: 36px; text-align: center;">
-                            <button type="submit" id="form-submit-btn" class="btn-talk btn-talk-primary" style="width: 100%;">
-                                <?php echo $is_en ? 'Confirm Free Registration' : 'Xác nhận đăng ký miễn phí'; ?>
-                            </button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </section>
