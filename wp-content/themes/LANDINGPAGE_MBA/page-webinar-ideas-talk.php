@@ -24,7 +24,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- Preconnect to external domains for faster resource loading --><!-- Preload LCP hero background image -->
     <link rel="preload" fetchpriority="high" as="image"
-        href="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
+        href="https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp" />
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title><?php echo $is_en ? 'IDEAS Talk – AI Webinars &amp; Seminars | IDEAS' : 'IDEAS Talk – Webinar &amp; Chuyên đề AI | IDEAS'; ?></title>
     <?php endif; ?>
@@ -37,7 +37,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <meta property="og:title" content="<?php echo $is_en ? 'IDEAS Talk – AI Webinars &amp; Seminars' : 'IDEAS Talk – Webinar &amp; Chuyên đề AI'; ?>" />
         <meta property="og:description"
             content="<?php echo $is_en ? 'Update monthly technology workshops and hands-on AI application guides from the IDEAS expert board.' : 'Cập nhật các buổi Monthly Workshop công nghệ, hướng dẫn ứng dụng AI thực chiến từ hội đồng chuyên gia IDEAS.'; ?>" />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?><!-- Booking Modal stylesheet -->
     <?php
@@ -1646,7 +1646,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <!-- Hero Section: Keep Dark/Black -->
         <section class="talk-hero" id="hero">
             <div class="talk-hero-bg"
-                style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');">
+                style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp');">
             </div>
             <div class="talk-hero-overlay"></div>
             <div class="talk-hero-container">
