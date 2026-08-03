@@ -166,10 +166,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Hero: Dark/Black Theme ────────── */
         .talk-hero {
             position: relative;
-            padding: 220px 20px 140px;
+            padding: 160px 20px 100px;
             overflow: hidden;
             background-color: #080405;
-            min-height: 75vh;
+            min-height: 55vh;
             display: flex;
             align-items: center;
             border-bottom: none;
@@ -446,8 +446,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .mini-card-icon svg {
-            width: 18px;
-            height: 18px;
+            width: 20px !important;
+            height: 20px !important;
+            display: block !important;
+            flex-shrink: 0 !important;
         }
 
         .mini-card-text strong {
@@ -671,18 +673,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.05);
             border-radius: 18px;
-            padding: 20px 30px;
+            padding: 24px 30px;
             display: flex;
             align-items: center;
-            gap: 30px;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+            gap: 24px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.008);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-badge-row::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #e11d48, #b91c1c);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .topic-badge-row:hover::before {
+            transform: scaleY(1);
         }
 
         .topic-badge-row:hover {
-            border-color: rgba(185, 28, 28, 0.2);
+            border-color: rgba(185, 28, 28, 0.15);
             transform: translateX(8px);
             box-shadow: 0 12px 30px rgba(185, 28, 28, 0.04);
+            background: #fffdfd;
         }
 
         .topic-tag-col {
@@ -693,26 +714,39 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .topic-tag {
             width: 100%;
-            background: rgba(185, 28, 28, 0.05);
-            border: 1px solid rgba(185, 28, 28, 0.15);
-            padding: 8px 18px;
-            border-radius: 80px;
-            font-size: 0.8rem;
+            background: rgba(15, 23, 42, 0.03);
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 0.85rem;
             font-weight: 800;
-            color: #b91c1c;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            color: #0f172a;
+            letter-spacing: 0.02em;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            text-align: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .topic-badge-row:hover .topic-tag {
+            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(185, 28, 28, 0.25);
         }
 
         .topic-tag.hot {
-            background: linear-gradient(135deg, rgba(185, 28, 28, 0.06) 0%, rgba(217, 119, 6, 0.06) 100%);
-            border-color: rgba(185, 28, 28, 0.25);
+            background: rgba(217, 119, 6, 0.05);
+            border-color: rgba(217, 119, 6, 0.15);
             color: #d97706;
+        }
+
+        .topic-badge-row:hover .topic-tag.hot {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.25);
         }
 
         .topic-desc-col {
@@ -722,9 +756,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .topic-desc {
             font-size: 1.05rem;
             color: #334155;
-            line-height: 1.55;
+            line-height: 1.6;
             margin: 0;
-            font-weight: 500;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .topic-badge-row:hover .topic-desc {
+            color: #0f172a;
         }
 
         /* Image card right in Topics */
@@ -821,22 +860,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding-left: calc(max(20px, (100vw - 1200px) / 2));
             padding-right: calc(max(20px, (100vw - 1200px) / 2));
             scrollbar-width: thin;
-            scrollbar-color: #b91c1c rgba(255, 255, 255, 0.05);
+            scrollbar-color: rgba(185, 28, 28, 0.4) rgba(255, 255, 255, 0.02);
             -webkit-overflow-scrolling: touch;
             box-sizing: border-box;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar {
-            height: 6px;
+            height: 5px;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar-thumb {
-            background: #b91c1c;
+            background: rgba(185, 28, 28, 0.35);
             border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .timeline-track-wrapper:hover::-webkit-scrollbar-thumb {
+            background: #b91c1c;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
         }
 
         .timeline-track {
@@ -846,13 +891,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             min-width: max-content;
         }
 
+        @keyframes timeline-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .timeline-line {
             position: absolute;
             top: 12px;
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #b91c1c 40%, rgba(255, 255, 255, 0.05) 80%);
+            background: linear-gradient(90deg, #b91c1c, #e11d48, #b91c1c, rgba(255, 255, 255, 0.05));
+            background-size: 300% 100%;
+            animation: timeline-flow 6s ease infinite;
             z-index: 1;
         }
 
@@ -882,6 +935,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #b91c1c;
             transform: scale(1.25);
             box-shadow: 0 0 15px rgba(185, 28, 28, 0.6);
+        }
+
+        .timeline-node.active .timeline-dot::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid #b91c1c;
+            border-radius: 50%;
+            animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
         }
 
         .timeline-node.updating .timeline-dot {
@@ -1265,13 +1337,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .form-grid-box {
-            max-width: 1050px;
+            max-width: 1200px;
             margin: 0 auto;
             background: #ffffff;
             border: 1px solid rgba(15, 23, 42, 0.06);
             border-radius: 32px;
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1.35fr 1fr;
             overflow: hidden;
             box-shadow:
                 0 25px 60px rgba(0, 0, 0, 0.02),
@@ -1309,6 +1381,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             justify-content: flex-end;
             padding: 40px;
             color: #ffffff;
+        }
+
+        /* ── Scroll Reveal Animations ────────────────── */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            transition-delay: 0.1s;
         }
 
         .form-image-overlay h3 {
@@ -1585,10 +1674,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </section>
 
         <!-- Section 1: Intro (Image Left-Right Contrast) -->
-        <section class="section-intro" id="about">
+        <section class="section-intro scroll-reveal" id="about">
             <div class="talk-container">
                 <div class="intro-grid">
-                    <div class="intro-left">
+                    <div class="intro-left scroll-reveal">
                         <span class="intro-badge-accent"><?php echo $is_en ? 'IDEAS TALK VALUE' : 'GIÁ TRỊ TỪ IDEAS TALK'; ?></span>
                         <h3>
                             <span class="highlight-number">90</span> <?php echo $is_en ? 'Minutes Solving Pain Points' : 'Phút Tháo Gỡ Pain Point'; ?><br>
@@ -1599,9 +1688,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         
                         <div class="intro-horizontal-cards">
                             <!-- Info Card 1 -->
-                            <div class="intro-mini-card">
+                            <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 448 512" fill="currentColor"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z"/></svg>
+                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z"/></svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Timeline' : 'Thời gian'; ?></strong>
@@ -1609,9 +1698,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                             <!-- Info Card 2 -->
-                            <div class="intro-mini-card">
+                            <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 576 512" fill="currentColor"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
+                                    <svg viewBox="0 0 576 512" fill="currentColor" width="20" height="20"><path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V354c0 11.8-6.5 22.6-16.9 28.2l-112 60.2c-15.6 8.4-34.6-2.9-34.6-20.8V90.6c0-17.9 19-29.2 34.6-20.8l112 60.2z"/></svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Format' : 'Hình thức'; ?></strong>
@@ -1619,9 +1708,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                             <!-- Info Card 3 -->
-                            <div class="intro-mini-card">
+                            <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 512 512" fill="currentColor"><path d="M190.4 48.4c10-3.1 20.7 2.4 23.9 12.4l34.4 107.1L209 177.1c-22.3-10.3-48.4-1.2-59.5 21l-34.4-107.1c-3.1-10 2.4-20.7 12.4-23.9l62.9-19.8zm231 231c10 3.1 15.5 13.8 12.4 23.9l-34.4 107.1c-11.1 22.3-37.2 31.4-59.5 21l-39.7 9.2 34.4-107.1c3.1-10 13.8-15.5 23.9-12.4l62.9 18.3zm-63.5-84.7c22.3 10.3 31.4 36.4 21 58.7l-159.2 346c-10.3 22.3-36.4 31.4-58.7 21l-31.5-14.5c-22.3-10.3-31.4-36.4-21-58.7l159.2-346c10.3-22.3 36.4-31.4 58.7-21l31.5 14.5z"/></svg>
+                                    <svg viewBox="0 0 512 512" fill="currentColor" width="20" height="20"><path d="M190.4 48.4c10-3.1 20.7 2.4 23.9 12.4l34.4 107.1L209 177.1c-22.3-10.3-48.4-1.2-59.5 21l-34.4-107.1c-3.1-10 2.4-20.7 12.4-23.9l62.9-19.8zm231 231c10 3.1 15.5 13.8 12.4 23.9l-34.4 107.1c-11.1 22.3-37.2 31.4-59.5 21l-39.7 9.2 34.4-107.1c3.1-10 13.8-15.5 23.9-12.4l62.9 18.3zm-63.5-84.7c22.3 10.3 31.4 36.4 21 58.7l-159.2 346c-10.3 22.3-36.4 31.4-58.7 21l-31.5-14.5c-22.3-10.3-31.4-36.4-21-58.7l159.2-346c10.3-22.3 36.4-31.4 58.7-21l31.5 14.5z"/></svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Privilege' : 'Đặc quyền'; ?></strong>
@@ -1630,7 +1719,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                     </div>
-                    <div class="intro-right">
+                    <div class="intro-right scroll-reveal">
                         <div class="intro-image-wrapper">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp" alt="IDEAS AI Workshop" class="intro-img-main">
                             <div class="img-floating-badge">
@@ -1643,15 +1732,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </section>
 
         <!-- Section 2: Why Attend (Split List - Alternate Contrast Background) -->
-        <section class="section-why" id="why-attend">
+        <section class="section-why scroll-reveal" id="why-attend">
             <div class="talk-container">
                 <div class="why-split-container">
-                    <div class="why-left-sticky">
+                    <div class="why-left-sticky scroll-reveal">
                         <h2><?php echo $is_en ? 'Why You Shouldn\'t Miss IDEAS Talk Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi Webinar của IDEAS?'; ?></h2>
                         <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
                         
                         <div class="why-sticky-image-wrapper">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" alt="IDEAS Live Workshop Session" class="why-sticky-img">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2023/07/umefws.webp" alt="IDEAS Live Workshop Session" class="why-sticky-img">
                         </div>
 
                         <a href="#register" class="btn-talk btn-talk-primary">
@@ -1661,7 +1750,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     
                     <div class="why-right-list">
                         <!-- Point 1 -->
-                        <div class="why-list-item">
+                        <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">01</span>
                             <div class="why-item-icon-wrapper">
                                 <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C40.2 288 0 328.2 0 377.6V448c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-70.4c0-49.4-40.2-89.6-94.4-89.6z"/></svg>
@@ -1673,7 +1762,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
 
                         <!-- Point 2 -->
-                        <div class="why-list-item">
+                        <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">02</span>
                             <div class="why-item-icon-wrapper">
                                 <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zm0 448c-105.9 0-192-86.1-192-192S150.1 64 256 64s192 86.1 192 192s-86.1 192-192 192zm0-320c-70.6 0-128 57.4-128 128s57.4 128 128 128s128-57.4 128-128s-57.4-128-128-128zm0 192c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
@@ -1685,7 +1774,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
 
                         <!-- Point 3 -->
-                        <div class="why-list-item">
+                        <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">03</span>
                             <div class="why-item-icon-wrapper">
                                 <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512S0 397.4 0 256S114.6 0 256 0zM128 224v64h256v-64H128z"/></svg>
@@ -1697,7 +1786,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
 
                         <!-- Point 4 -->
-                        <div class="why-list-item">
+                        <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">04</span>
                             <div class="why-item-icon-wrapper">
                                 <svg viewBox="0 0 640 512" fill="currentColor"><path d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm368 0c61.9 0 112-50.1 112-112s-50.1-112-112-112-112 50.1-112 112 50.1 112 112 112zm-368 32c-65.9 0-192 32.9-192 98v50c0 17.7 14.3 32 32 32h320c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98zm368 0c-17.9 0-45 4.3-73.1 12.8 29.3 20.5 49.1 52.6 49.1 89.2v50c0 4.4-.9 8.6-2.5 12.5L608 448c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98z"/></svg>
@@ -1777,9 +1866,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
                     </div>
-                    <div class="topics-image-col">
+                    <div class="topics-image-col scroll-reveal">
                         <div class="topics-featured-card">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp" alt="IDEAS Academic Conference" class="topics-card-img">
+                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/webinar.png" alt="IDEAS Academic Conference" class="topics-card-img">
                             <div class="topics-card-overlay">
                                 <h4>IDEAS Conference</h4>
                                 <p><?php echo $is_en ? 'Connecting original business frameworks and local practices.' : 'Nơi kết nối các hệ thống tri thức nguyên bản và thực tế quản trị.'; ?></p>
@@ -1968,11 +2057,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="section-divider"></div>
 
         <!-- Section 6: Form (Split Grid Box with Image Left) -->
-        <section class="section-form" id="register">
+        <section class="section-form scroll-reveal" id="register">
             <div class="talk-container">
                 <div class="form-grid-box">
                     <div class="form-image-col">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2023/07/umefws.webp" alt="IDEAS UMEF Workshop" class="form-side-img">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/08/wsoff16_8.webp" alt="IDEAS UMEF Workshop" class="form-side-img">
                         <div class="form-image-overlay">
                             <h3><?php echo $is_en ? 'Join the Elite AI Community' : 'Gia Nhập Cộng Đồng Tri Thức AI'; ?></h3>
                             <p><?php echo $is_en ? 'Interact with doctors, experts and managers from top-tier academic institutes.' : 'Học tập cùng hội đồng chuyên gia, bác sĩ doanh nghiệp và các quản trị viên xuất sắc.'; ?></p>
@@ -2348,6 +2437,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     btn.style.opacity = '1';
                     btn.innerHTML = originalBtnHtml;
                 }
+            });
+        });
+
+        // Intersection Observer for scroll reveal animations
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".scroll-reveal");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("revealed");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -40px 0px"
+            });
+            
+            reveals.forEach((el, index) => {
+                if (el.classList.contains("stagger-item")) {
+                    const delay = (index % 4) * 0.12;
+                    el.style.transitionDelay = `${delay}s`;
+                }
+                observer.observe(el);
             });
         });
     </script>
