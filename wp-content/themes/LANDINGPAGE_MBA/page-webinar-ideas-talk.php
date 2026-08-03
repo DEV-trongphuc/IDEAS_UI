@@ -905,7 +905,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .section-featured .talk-section-header p {
-            color: #94a3b8;
+            color: rgba(255, 255, 255, 0.75) !important;
         }
 
         .timeline-container-fluid {
@@ -1812,7 +1812,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .timeline-track-wrapper {
                 padding-left: 20px !important;
                 padding-right: 20px !important;
-                padding-top: 0px !important; /* Remove top padding since line/dots are gone */
+                padding-top: 10px;
                 padding-bottom: 20px;
             }
             .timeline-node {
@@ -1849,10 +1849,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 margin-bottom: 15px !important;
             }
             .timeline-dot {
-                display: none !important; /* Hide horizontal timeline dots on mobile */
+                width: 18px !important;
+                height: 18px !important;
+                border-width: 3px !important;
+                margin-bottom: 16px !important;
             }
             .timeline-line {
-                display: none !important; /* Hide horizontal timeline line on mobile */
+                top: 9px !important;
             }
 
             .why-sticky-image-wrapper {
