@@ -6206,11 +6206,13 @@ add_action('manage_ideas_clinic_booking_posts_custom_column', function($column, 
 }, 10, 2);
 
 /**
- * 9. Custom Open Graph & Social sharing thumbnail for Bác sĩ Doanh nghiệp template
+ * 9. Custom Open Graph & Social sharing thumbnail for Bác sĩ Doanh nghiệp & Ideas Talk templates
  */
 add_filter('wpseo_opengraph_image', function($image) {
     if (is_page_template('page-bac-si-doanh-nghiep.php')) {
         return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    } elseif (is_page_template('page-webinar-ideas-talk.php') || is_page_template('page-ideas-talk.php')) {
+        return 'https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp';
     }
     return $image;
 }, 99);
@@ -6218,6 +6220,8 @@ add_filter('wpseo_opengraph_image', function($image) {
 add_filter('rank_math/frontend/open_graph/image', function($image) {
     if (is_page_template('page-bac-si-doanh-nghiep.php')) {
         return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    } elseif (is_page_template('page-webinar-ideas-talk.php') || is_page_template('page-ideas-talk.php')) {
+        return 'https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp';
     }
     return $image;
 }, 99);
@@ -6225,6 +6229,8 @@ add_filter('rank_math/frontend/open_graph/image', function($image) {
 add_filter('rank_math/opengraph/facebook/image', function($image) {
     if (is_page_template('page-bac-si-doanh-nghiep.php')) {
          return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    } elseif (is_page_template('page-webinar-ideas-talk.php') || is_page_template('page-ideas-talk.php')) {
+         return 'https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp';
     }
     return $image;
 }, 99);
@@ -6232,6 +6238,8 @@ add_filter('rank_math/opengraph/facebook/image', function($image) {
 add_filter('rank_math/opengraph/twitter/image', function($image) {
     if (is_page_template('page-bac-si-doanh-nghiep.php')) {
          return 'https://ideas.edu.vn/wp-content/uploads/2025/03/buoihuongdan-optimized.webp';
+    } elseif (is_page_template('page-webinar-ideas-talk.php') || is_page_template('page-ideas-talk.php')) {
+         return 'https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp';
     }
     return $image;
 }, 99);
