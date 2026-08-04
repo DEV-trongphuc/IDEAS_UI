@@ -175,155 +175,1038 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 0 10px rgba(185, 28, 28, 0.5);
         }
 
-        /* ── Hero: Dark/Black Theme ────────── */
+        /* ── Hero: Redesigned Premium Aesthetic ────────── */
         .talk-hero {
             position: relative;
-            padding: 160px 20px 100px;
+            padding: 160px 0 110px;
             overflow: hidden;
-            background-color: #080405;
-            min-height: 55vh;
+            background-color: #050203;
+            min-height: 80vh;
             display: flex;
             align-items: center;
-            border-bottom: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Subtle grid background mesh */
+        .talk-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
+            mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 80%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Drifting glowing orbs */
+        .talk-hero-glow-1,
+        .talk-hero-glow-2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.16;
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: screen;
+            will-change: transform;
+            animation: float-glow 12s infinite alternate ease-in-out;
+        }
+
+        .talk-hero-glow-1 {
+            width: 400px;
+            height: 400px;
+            background: #e11d48; /* Ruby Red */
+            top: 5%;
+            left: 10%;
+        }
+
+        .talk-hero-glow-2 {
+            width: 450px;
+            height: 450px;
+            background: #4f46e5; /* Indigo */
+            bottom: 5%;
+            right: 10%;
+            animation-delay: -6s;
+        }
+
+        @keyframes float-glow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 30px) scale(1.15); }
         }
 
         .talk-hero-bg {
             position: absolute;
-            top: -150px;
-            left: -5%;
-            width: 110%;
-            height: calc(100% + 300px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
-            will-change: transform;
-            transform: translate3d(0, 0, 0) scale(1.1);
+            opacity: 0.22;
+            filter: brightness(60%) contrast(110%);
             z-index: 1;
-            opacity: 0.38;
-            filter: brightness(85%) contrast(100%);
+            pointer-events: none;
         }
 
         .talk-hero-overlay {
             position: absolute;
             inset: 0;
             z-index: 2;
-            background:
-                linear-gradient(180deg,
-                    rgba(8, 4, 5, 0.45) 0%,
-                    rgba(8, 4, 5, 0.7) 65%,
-                    rgba(8, 4, 5, 0.9) 100%),
-                radial-gradient(circle at 50% 40%, rgba(185, 28, 28, 0.32) 0%, transparent 80%);
+            background: linear-gradient(180deg, rgba(5, 2, 3, 0.4) 0%, rgba(5, 2, 3, 0.8) 70%, #050203 100%);
+            pointer-events: none;
         }
 
         .talk-hero-container {
             position: relative;
             z-index: 3;
-            max-width: 950px;
+            max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .talk-hero-content {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+        }
+
+        .talk-hero-visual {
+            display: flex;
             justify-content: center;
-            text-align: center;
+            align-items: center;
+            width: 100%;
         }
 
         .talk-hero-badge {
-            background: rgba(185, 28, 28, 0.12);
-            border: 1px solid rgba(185, 28, 28, 0.25);
-            padding: 8px 24px;
+            background: rgba(225, 29, 72, 0.08);
+            border: 1px solid rgba(225, 29, 72, 0.25);
+            padding: 6px 18px;
             border-radius: 100px;
-            color: #fca5a5;
-            font-size: 0.8rem;
+            color: #fecdd3;
+            font-size: 0.78rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 24px;
-            box-shadow: 0 4px 20px rgba(185, 28, 28, 0.1);
+            box-shadow: 0 0 20px rgba(225, 29, 72, 0.1);
             backdrop-filter: blur(12px);
+            width: fit-content;
         }
 
         .talk-hero-badge svg {
             color: #fca5a5;
-            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.8; }
+        .talk-hero-badge .live-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse-green 1.6s infinite;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { opacity: 0.4; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
 
         .talk-hero h1 {
-            font-size: clamp(3rem, 7vw, 4.8rem);
+            font-size: clamp(3.2rem, 6vw, 4.6rem);
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             letter-spacing: -0.03em;
-            line-height: 1.1;
+            line-height: 1.05;
             color: #ffffff !important;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            text-align: left;
         }
 
-        .talk-hero h1 span {
-            background: linear-gradient(135deg, #fca5a5 0%, #b91c1c 100%) !important;
+        .talk-hero h1 span.ideas-title {
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text;
+        }
+
+        .talk-hero h1 span.talk-title {
+            background: linear-gradient(135deg, #ff5e62 0%, #e11d48 50%, #b91c1c 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
+            position: relative;
         }
 
-        .verify-slogan {
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
-            font-weight: 600;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.75) !important;
-            -webkit-text-fill-color: rgba(255, 255, 255, 0.75) !important;
-            background: none !important;
-            margin-bottom: 25px;
-            font-style: italic;
+        .talk-hero h1 span.talk-title::after {
+            content: '.';
+            color: #e11d48;
+            -webkit-text-fill-color: #e11d48 !important;
+            animation: pulse-red 2s infinite alternate;
+        }
+
+        @keyframes pulse-red {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         .talk-tagline {
-            font-size: clamp(1.15rem, 2.5vw, 1.35rem);
-            font-weight: 850;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 800;
             color: #fca5a5 !important;
-            letter-spacing: 0.08em;
-            margin-bottom: 26px;
+            letter-spacing: 0.14em;
+            margin-bottom: 24px;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .talk-tagline::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(252, 165, 165, 0.35), transparent);
         }
 
         .talk-hero p {
-            font-size: 1.2rem;
-            color: #e2e8f0 !important;
-            max-width: 750px;
+            font-size: 1.12rem;
+            color: #cbd5e1 !important;
+            max-width: 650px;
             margin-bottom: 40px;
-            line-height: 1.65;
-            font-weight: 500;
+            line-height: 1.7;
+            font-weight: 400;
+            text-align: left;
         }
 
         .talk-hero-ctas {
             display: flex;
             gap: 16px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .btn-talk-primary {
+            position: relative;
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+            color: #ffffff !important;
+            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.3);
+            overflow: hidden;
+        }
+
+        .btn-talk-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 150%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: skewX(-20deg);
+            animation: btn-shine 4s infinite ease-in-out;
+        }
+
+        @keyframes btn-shine {
+            0% { left: -150%; }
+            45% { left: 150%; }
+            100% { left: 150%; }
         }
 
         .btn-talk-secondary-dark {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
             color: #ffffff !important;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
             backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         .btn-talk-secondary-dark:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.15);
             transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             color: #ffffff !important;
+        }
+
+        /* ── Hero Interactive Glass Ticket Card ── */
+        .hero-ticket-card {
+            background: rgba(15, 12, 13, 0.7);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(225, 29, 72, 0.06) inset;
+            transform: perspective(1000px) rotateY(-6deg) rotateX(3deg) scale(0.98);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s, box-shadow 0.3s;
+            z-index: 5;
+            width: 100%;
+            max-width: 440px;
+            box-sizing: border-box;
+        }
+
+        .hero-ticket-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 45%, rgba(225, 29, 72, 0.15) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-ticket-card:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-8px) scale(1.02);
+            border-color: rgba(225, 29, 72, 0.35);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(225, 29, 72, 0.15);
+        }
+
+        .ticket-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #fda4af;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+            padding: 5px 14px;
+            border-radius: 100px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .ticket-badge .pulse-red {
+            width: 6px;
+            height: 6px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ef4444;
+            animation: pulse-red-dot 1.2s infinite;
+        }
+
+        @keyframes pulse-red-dot {
+            0%, 100% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        .ticket-title {
+            font-size: 1.22rem !important;
+            font-weight: 800 !important;
+            color: #ffffff !important;
+            line-height: 1.45 !important;
+            margin: 0 0 20px 0 !important;
+            display: block !important;
+            text-align: left !important;
+            -webkit-text-fill-color: initial !important;
+            background: none !important;
+        }
+
+        .ticket-countdown-container {
+            margin-bottom: 22px;
+            padding-bottom: 22px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 10px 5px;
+            text-align: center;
+        }
+
+        .countdown-box .num {
+            font-size: 1.45rem;
+            font-weight: 850;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            line-height: 1.1;
+        }
+
+        .countdown-box .lbl {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .ticket-speakers-section {
+            margin-bottom: 22px;
+            text-align: left;
+        }
+
+        .speakers-title {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .speakers-avatars-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .speaker-avatar-wrap {
+            position: relative;
+            margin-right: -10px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .speaker-avatar-wrap:hover {
+            transform: translateY(-5px) scale(1.15);
+            z-index: 10;
+        }
+
+        .speaker-avatar-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #0f0c0d;
+            object-fit: cover;
+            background-color: #334155;
+            display: block;
+        }
+
+        .speakers-count-badge {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .ticket-slots-section {
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .slots-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+
+        .slots-header span.highlight {
+            color: #f43f5e;
+            animation: text-pulse 1.5s infinite alternate;
+        }
+
+        @keyframes text-pulse {
+            0% { text-shadow: 0 0 0px transparent; }
+            100% { text-shadow: 0 0 8px rgba(244, 63, 94, 0.4); }
+        }
+
+        .slots-progress-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .slots-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #e11d48, #f43f5e);
+            border-radius: 10px;
+            width: 89%;
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+        }
+
+        /* ── Section: Webinar Brief (Premium Interactive Dashboard) ── */
+        .talk-brief {
+            background-color: #0c080a;
+            padding: 85px 0;
+            position: relative;
+            z-index: 3;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .talk-brief::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .brief-dashboard {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+        }
+
+        @media (max-width: 768px) {
+            .brief-dashboard {
+                padding: 24px 16px;
+            }
+        }
+
+        /* Brief Tabs Header */
+        .brief-tabs-nav {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 16px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .brief-tabs-nav::-webkit-scrollbar {
+            display: none; /* Safari/Chrome */
+        }
+
+        .brief-tab-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: #94a3b8;
+            font-size: 0.92rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .brief-tab-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .brief-tab-btn.active {
+            color: #ffffff;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.25);
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.15);
+        }
+
+        /* Brief Tab Content */
+        .brief-tab-panel {
+            display: none;
+            animation: briefFadeIn 0.4s ease-in-out forwards;
+        }
+
+        .brief-tab-panel.active {
+            display: block;
+        }
+
+        @keyframes briefFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tab 1: Context Style */
+        .brief-context-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .brief-context-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .context-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 18px;
+            padding: 24px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .context-card h4 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            -webkit-text-fill-color: initial !important;
+            background: none !important;
+        }
+
+        .context-card h4 .icon {
+            color: #e11d48;
+        }
+
+        .context-card p {
+            color: #cbd5e1 !important;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* Tab 2: Speakers Grid */
+        .brief-speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 991px) {
+            .brief-speakers-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .brief-speaker-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+
+        .brief-speaker-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(225, 29, 72, 0.25);
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .brief-speaker-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid rgba(225, 29, 72, 0.25);
+            margin: 0 auto 16px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .brief-speaker-name {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .brief-speaker-role {
+            color: #fda4af;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+            padding: 4px 12px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .brief-speaker-perspective {
+            color: #cbd5e1 !important;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* Tab 3: Stepper Agenda */
+        .brief-agenda-list {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .brief-agenda-list::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .brief-agenda-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .brief-agenda-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .brief-agenda-dot {
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #0c080a;
+            border: 3px solid #e11d48;
+            box-shadow: 0 0 10px rgba(225, 29, 72, 0.5);
+            z-index: 2;
+        }
+
+        .brief-agenda-content {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .brief-agenda-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+
+        .brief-agenda-title-part {
+            flex-grow: 1;
+        }
+
+        .brief-agenda-time {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 14px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        .brief-agenda-part-title {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin: 0 0 6px 0;
+        }
+
+        .brief-agenda-desc {
+            color: #94a3b8 !important;
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Tab 4: Roadmap Timeline */
+        .brief-roadmap {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            position: relative;
+        }
+
+        @media (max-width: 991px) {
+            .brief-roadmap {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding-left: 20px;
+            }
+            .brief-roadmap::before {
+                content: '';
+                position: absolute;
+                left: 6px;
+                top: 10px;
+                bottom: 10px;
+                width: 2px;
+                background: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        .roadmap-node {
+            position: relative;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 16px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        @media (min-width: 992px) {
+            .roadmap-node::after {
+                content: '→';
+                position: absolute;
+                right: -12px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: rgba(255, 255, 255, 0.15);
+                font-size: 1.2rem;
+            }
+            .roadmap-node:last-child::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .roadmap-node::before {
+                content: '';
+                position: absolute;
+                left: -20px;
+                top: 25px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.1);
+                border: 2px solid rgba(255,255,255,0.2);
+            }
+            .roadmap-node.active::before,
+            .roadmap-node.done::before {
+                background: #e11d48;
+                border-color: #ef4444;
+                box-shadow: 0 0 8px #ef4444;
+            }
+        }
+
+        .roadmap-node.done {
+            border-color: rgba(34, 197, 94, 0.2);
+            background: rgba(34, 197, 94, 0.02);
+        }
+
+        .roadmap-node.active {
+            border-color: rgba(225, 29, 72, 0.3);
+            background: rgba(225, 29, 72, 0.04);
+            box-shadow: 0 5px 15px rgba(225, 29, 72, 0.04);
+        }
+
+        .roadmap-status {
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 100px;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .roadmap-node.done .roadmap-status {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+        }
+
+        .roadmap-node.active .roadmap-status {
+            background: rgba(225, 29, 72, 0.15);
+            color: #fda4af;
+            animation: pulse-border 1.5s infinite alternate;
+        }
+
+        .roadmap-node.todo .roadmap-status {
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0px rgba(225,29,72,0); }
+            100% { box-shadow: 0 0 8px rgba(225,29,72,0.3); }
+        }
+
+        .roadmap-date {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .roadmap-node.active .roadmap-date {
+            color: #ffffff;
+        }
+
+        .roadmap-title {
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 750;
+            margin: 0 0 6px 0;
+            line-height: 1.35;
+        }
+
+        .roadmap-desc {
+            color: #94a3b8 !important;
+            font-size: 0.75rem;
+            margin: 0;
+            line-height: 1.45;
+        }
+
+        /* Tab 5: Targets & Privilege Card */
+        .brief-targets-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 991px) {
+            .brief-targets-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        .targets-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 500px) {
+            .targets-stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .target-stat-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .target-stat-num {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .target-stat-lbl {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-weight: 700;
+            line-height: 1.35;
+            display: block;
+        }
+
+        .privilege-banner-card {
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.12) 0%, rgba(79, 70, 229, 0.1) 100%);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+            border-radius: 20px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.05);
+            box-sizing: border-box;
+        }
+
+        .privilege-banner-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(225, 29, 72, 0.15);
+            filter: blur(40px);
+            z-index: 1;
+        }
+
+        .privilege-badge {
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            background: #e11d48;
+            padding: 4px 10px;
+            border-radius: 100px;
+            width: fit-content;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .privilege-title {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .privilege-desc {
+            color: #cbd5e1 !important;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin: 0;
+            position: relative;
+            z-index: 2;
         }
 
         /* ── Section 1: Intro (Image Left-Right Contrast) ── */
@@ -332,6 +1215,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
             background-color: #ffffff; /* Clean light background */
         }
+
 
         .intro-grid {
             display: grid;
@@ -1743,12 +2627,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 padding: 55px 0 !important;
             }
             .talk-hero {
-                padding: 130px 15px 70px !important;
+                padding: 120px 15px 70px !important;
                 min-height: auto !important;
             }
+            .talk-hero-container {
+                grid-template-columns: 1fr !important;
+                text-align: center !important;
+                gap: 40px !important;
+            }
+            .talk-hero-content {
+                align-items: center !important;
+            }
+            .talk-hero-visual {
+                width: 100% !important;
+            }
             .talk-hero h1 {
-                font-size: 2.3rem !important;
+                font-size: 2.4rem !important;
                 margin-bottom: 12px;
+                text-align: center !important;
+            }
+            .talk-tagline {
+                justify-content: center !important;
+            }
+            .talk-tagline::after {
+                display: none !important;
+            }
+            .talk-hero p {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                margin-bottom: 30px !important;
             }
             .talk-hero-ctas {
                 flex-direction: column;
@@ -1757,11 +2665,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 max-width: 320px;
                 margin-left: auto;
                 margin-right: auto;
+                justify-content: center !important;
             }
             .talk-hero-ctas .btn-talk {
                 width: 100%;
                 text-align: center;
                 margin: 0;
+            }
+            .hero-ticket-card {
+                transform: none !important;
+                margin: 15px auto 0 !important;
+                max-width: 400px !important;
+                padding: 24px 20px !important;
+            }
+            .countdown-box .num {
+                font-size: 1.25rem !important;
             }
             
             /* Section 1: Intro Center Alignment on Mobile */
@@ -1879,27 +2797,287 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <main id="content">
         <!-- Hero Section: Keep Dark/Black -->
         <section class="talk-hero" id="hero">
+            <!-- Glowing background elements -->
+            <div class="talk-hero-glow-1"></div>
+            <div class="talk-hero-glow-2"></div>
+            
             <div class="talk-hero-bg"
                 style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp');">
             </div>
             <div class="talk-hero-overlay"></div>
+            
             <div class="talk-hero-container">
-                <span class="talk-hero-badge">
-                    <svg class="svg-icon fa-globe fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2-40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z"/></svg> 
-                    <?php echo $is_en ? 'Webinar Series' : 'Chuỗi Webinar'; ?>
-                </span>
-                <h1><span>IDEAS TALK</span></h1>
-                <div class="talk-tagline"><?php echo $is_en ? 'Actionable Knowledge Transfer' : 'Tri Thức Thực Chiến Chuyển Đổi'; ?></div>
+                <!-- Column 1: Content -->
+                <div class="talk-hero-content">
+                    <span class="talk-hero-badge">
+                        <span class="live-dot"></span>
+                        <?php echo $is_en ? 'Webinar Series' : 'Chuỗi Webinar'; ?>
+                    </span>
+                    <h1>
+                        <span class="ideas-title">IDEAS</span> <span class="talk-title">TALK</span>
+                    </h1>
+                    <div class="talk-tagline"><?php echo $is_en ? 'Actionable Knowledge Transfer' : 'Tri Thức Thực Chiến Chuyển Đổi'; ?></div>
 
-                <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
-                
-                <div class="talk-hero-ctas">
-                    <a href="#register" class="btn-talk btn-talk-primary">
-                        <?php echo $is_en ? 'Register Now' : 'Đăng ký tham gia ngay'; ?>
-                    </a>
-                    <a href="#recap" class="btn-talk btn-talk-secondary-dark">
-                        <?php echo $is_en ? 'Watch Latest Recap' : 'Xem Recap buổi gần nhất'; ?>
-                    </a>
+                    <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
+                    
+                    <div class="talk-hero-ctas">
+                        <a href="javascript:void(0)" onclick="openWebinarRegisterModal('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
+                            <?php echo $is_en ? 'Register Now' : 'Đăng ký tham gia ngay'; ?>
+                        </a>
+                        <a href="#recap" class="btn-talk btn-talk-secondary-dark">
+                            <?php echo $is_en ? 'Watch Latest Recap' : 'Xem Recap buổi gần nhất'; ?>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Visual Card (Ticket) -->
+                <div class="talk-hero-visual">
+                    <div class="hero-ticket-card" id="hero-ticket">
+                        <span class="ticket-badge">
+                            <span class="pulse-red"></span>
+                            <?php echo $is_en ? 'Upcoming Session' : 'Sự Kiện Tiếp Theo'; ?>
+                        </span>
+                        
+                        <h3 class="ticket-title">
+                            <?php echo $is_en ? 'Applying AI in Learning & Research: Multidimensional Perspectives' : 'Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều'; ?>
+                        </h3>
+                        
+                        <div class="ticket-countdown-container">
+                            <div class="countdown-grid" id="countdown-timer">
+                                <div class="countdown-box">
+                                    <span class="num" id="days">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="num" id="hours">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Hrs' : 'Giờ'; ?></span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="num" id="minutes">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Mins' : 'Phút'; ?></span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="num" id="seconds">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Secs' : 'Giây'; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="ticket-speakers-section">
+                            <span class="speakers-title"><?php echo $is_en ? 'Expert Speaker Panel' : 'Hội đồng chuyên gia'; ?></span>
+                            <div class="speakers-avatars-row">
+                                <div class="speaker-avatar-wrap" title="Dr. Nguyen - Enterprise Doctor">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-1.webp" alt="Speaker 1" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <div class="speaker-avatar-wrap" title="MBA Tuan - Strategy Specialist">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-2.webp" alt="Speaker 2" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <div class="speaker-avatar-wrap" title="AI Architect Nam">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-3.webp" alt="Speaker 3" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <span class="speakers-count-badge">+3</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ticket-slots-section">
+                            <div class="slots-header">
+                                <span><?php echo $is_en ? 'Registered' : 'Đã đăng ký'; ?>: <strong style="color:#ffffff;">89%</strong></span>
+                                <span class="highlight"><?php echo $is_en ? 'Only 15 seats left!' : 'Chỉ còn 15 chỗ!'; ?></span>
+                            </div>
+                            <div class="slots-progress-track">
+                                <div class="slots-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Webinar Brief (Premium Proposal Layout) -->
+        <section class="talk-brief scroll-reveal" id="brief">
+            <div class="talk-container">
+                <div class="talk-section-header">
+                    <span class="intro-badge-accent"><?php echo $is_en ? 'Webinar Brief' : 'BRIEF ĐỀ XUẤT WEBINAR'; ?></span>
+                    <div class="talk-section-title" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important; margin-bottom: 14px !important; display: block !important;">
+                        <?php echo $is_en ? 'August 2026 Session <span>Brief & Roadmap</span>' : 'Đề Xuất Chuyên Đề <span>Tháng 8/2026</span>'; ?>
+                    </div>
+                    <p style="color:#94a3b8; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Detailed proposal and operational plan for the webinar "Applying AI in Learning & Research: Multidimensional Perspectives from 3 Experts".' : 'Kế hoạch chuẩn bị và nội dung chi tiết buổi chia sẻ "Ứng Dụng AI Trong Học Tập & Nghiên Cứu: Góc Nhìn Đa Chiều Từ 3 Chuyên Gia".'; ?></p>
+                </div>
+
+                <div class="brief-dashboard">
+                    <!-- Tab Switcher Nav -->
+                    <div class="brief-tabs-nav">
+                        <button class="brief-tab-btn active" onclick="switchBriefTab(event, 'brief-tab-overview')">
+                            <?php echo $is_en ? 'Context & Goals' : '1. Bối Cảnh & Lý Do'; ?>
+                        </button>
+                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-speakers')">
+                            <?php echo $is_en ? 'Speakers Panel' : '2. Hội Đồng Diễn Giả'; ?>
+                        </button>
+                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-agenda')">
+                            <?php echo $is_en ? '90-min Agenda' : '3. Cấu Trúc 90 Phút'; ?>
+                        </button>
+                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-roadmap')">
+                            <?php echo $is_en ? 'Preparation Plan' : '4. Kế Hoạch Chuẩn Bị'; ?>
+                        </button>
+                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-targets')">
+                            <?php echo $is_en ? 'Targets & Offers' : '5. Kỳ Vọng & Ưu Đãi'; ?>
+                        </button>
+                    </div>
+
+                    <!-- Panel 1: Overview -->
+                    <div class="brief-tab-panel active" id="brief-tab-overview">
+                        <div class="brief-context-grid">
+                            <div class="context-card">
+                                <h4>
+                                    <span class="icon">🎯</span>
+                                    <?php echo $is_en ? 'Community Context' : 'Nhu Cầu Cộng Đồng & Bối Cảnh'; ?>
+                                </h4>
+                                <p><?php echo $is_en ? 'Students and professionals are overwhelmed by hundreds of new AI tools but struggle with methodologies to adopt AI effectively and reliably in their learning and research workflows.' : 'Cộng đồng học viên và người đi làm đang có nhu cầu cực kỳ lớn về ứng dụng AI vào học tập & nghiên cứu. Tuy nhiên, đa số bị choáng ngợp giữa hàng trăm công cụ mới ra mắt hàng ngày và thiếu một phương pháp luận chuẩn xác để viết prompt, kiểm chứng dữ liệu, dẫn đến kết quả nghiên cứu thiếu tin cậy.'; ?></p>
+                            </div>
+                            <div class="context-card">
+                                <h4>
+                                    <span class="icon">💡</span>
+                                    <?php echo $is_en ? 'Strategic Rationale' : 'Lý Do Chọn Chủ Đề & Tối Ưu Nguồn Lực'; ?>
+                                </h4>
+                                <p><?php echo $is_en ? 'Opening the August series with a panel discussion utilizing internal experts. It ensures complete control over scheduling and alignment of perspectives while providing highly authoritative insights.' : 'Đây là chủ đề lý tưởng để khởi động chuỗi Webinar tháng 8, tận dụng tối đa nguồn lực giảng viên nội bộ chất lượng của IDEAS. Chương trình được chuẩn bị khép kín, chủ động hoàn toàn về lịch trình, không phụ thuộc chuyên gia bên ngoài, đảm bảo sự thống nhất cao độ về mặt thông điệp.'; ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Speakers -->
+                    <div class="brief-tab-panel" id="brief-tab-speakers">
+                        <div class="brief-speakers-grid">
+                            <!-- Speaker 1 -->
+                            <div class="brief-speaker-card">
+                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-1.webp" alt="Anh Vinh Phạm" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <span class="brief-speaker-name">Anh Vinh Phạm</span>
+                                <span class="brief-speaker-role"><?php echo $is_en ? 'Mindset & Leadership' : 'Tư Duy & Lãnh Đạo'; ?></span>
+                                <p class="brief-speaker-perspective"><?php echo $is_en ? 'Focuses on shift of learning habits: Adopting active AI integration mindsets to escape traditional bookish learning models.' : 'Chia sẻ góc nhìn về <strong>Tư duy thay đổi thói quen học tập truyền thống</strong>: Cách tiếp cận chủ động với AI, thiết lập phương pháp luận tự học và giải phóng thời gian nghiên cứu học thuật.'; ?></p>
+                            </div>
+                            <!-- Speaker 2 -->
+                            <div class="brief-speaker-card">
+                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-2.webp" alt="Anh Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <span class="brief-speaker-name">Anh Dương</span>
+                                <span class="brief-speaker-role"><?php echo $is_en ? 'Practical Tools & Prompting' : 'Công Cụ & Prompt Thực Chiến'; ?></span>
+                                <p class="brief-speaker-perspective"><?php echo $is_en ? 'Guides direct prompting methods and highlights essential AI tools for reading, summarizing, and structural planning.' : 'Hướng dẫn <strong>Kỹ thuật viết Prompt thực chiến</strong> và công cụ AI bổ trợ đắc lực: Tóm tắt bài viết khoa học, tra cứu tài liệu nhanh và lập cấu trúc báo cáo tự động.'; ?></p>
+                            </div>
+                            <!-- Speaker 3 -->
+                            <div class="brief-speaker-card">
+                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-3.webp" alt="Anh Vũ" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <span class="brief-speaker-name">Anh Vũ</span>
+                                <span class="brief-speaker-role"><?php echo $is_en ? 'Technology & AI Architecture' : 'Công Nghệ & Kỹ Thuật'; ?></span>
+                                <p class="brief-speaker-perspective"><?php echo $is_en ? 'Explains fundamental LLM concepts, data structures, and accuracy verification to ensure sustainable research applications.' : 'Giải mã <strong>Nguyên lý kỹ thuật cốt lõi của mô hình AI</strong>: Cách dữ liệu được xử lý, hiểu rõ giới hạn và cơ chế xác thực để loại bỏ thông tin AI sai lệch (Hallucination).'; ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 3: Agenda -->
+                    <div class="brief-tab-panel" id="brief-tab-agenda">
+                        <div class="brief-agenda-list">
+                            <!-- Part 1 -->
+                            <div class="brief-agenda-item">
+                                <div class="brief-agenda-dot"></div>
+                                <div class="brief-agenda-content">
+                                    <div class="brief-agenda-title-part">
+                                        <h4 class="brief-agenda-part-title"><?php echo $is_en ? 'Part 1: Launch & Warm-up' : 'Phần 1: Khởi Động & Giới Thiệu'; ?></h4>
+                                        <p class="brief-agenda-desc"><?php echo $is_en ? 'Host introduces the main topic, panel speakers, and guidelines for the Zoom session.' : 'Host giới thiệu chủ đề tổng quan, giới thiệu 3 chuyên gia và thiết lập nguyên tắc thảo luận.'; ?></p>
+                                    </div>
+                                    <span class="brief-agenda-time"><?php echo $is_en ? '10 Mins (19:30 - 19:40)' : '10 Phút (19:30 - 19:40)'; ?></span>
+                                </div>
+                            </div>
+                            <!-- Part 2 -->
+                            <div class="brief-agenda-item">
+                                <div class="brief-agenda-dot"></div>
+                                <div class="brief-agenda-content">
+                                    <div class="brief-agenda-title-part">
+                                        <h4 class="brief-agenda-part-title"><?php echo $is_en ? 'Part 2: Expert Panel Perspectives' : 'Phần 2: Tọa Đàm - 3 Góc Nhìn Chuyên Sâu'; ?></h4>
+                                        <p class="brief-agenda-desc"><?php echo $is_en ? 'Each speaker presents their designated segment: Mindset (Vinh Pham) -> Prompting (Duong) -> Technology (Vu).' : '3 diễn giả lần lượt chia sẻ 3 góc nhìn hỗ trợ nhau (20 phút/diễn giả): Anh Vinh Phạm (Tư duy) -> Anh Dương (Công cụ) -> Anh Vũ (Nguyên lý công nghệ).'; ?></p>
+                                    </div>
+                                    <span class="brief-agenda-time"><?php echo $is_en ? '60 Mins (19:40 - 20:40)' : '60 Phút (19:40 - 20:40)'; ?></span>
+                                </div>
+                            </div>
+                            <!-- Part 3 -->
+                            <div class="brief-agenda-item">
+                                <div class="brief-agenda-dot"></div>
+                                <div class="brief-agenda-content">
+                                    <div class="brief-agenda-title-part">
+                                        <h4 class="brief-agenda-part-title"><?php echo $is_en ? 'Part 3: Interactive Q&A' : 'Phần 3: Đối Thoại Trực Tiếp & Q&A'; ?></h4>
+                                        <p class="brief-agenda-desc"><?php echo $is_en ? 'Open panel Q&A with attendees. Launching the special 7-day AI Platform trial and introducing materials.' : 'Chuyên gia giải đáp trực tiếp các thắc mắc của khán giả. Host giới thiệu tự nhiên quà tặng độc quyền (AI Book, 7 ngày trải nghiệm hệ sinh thái AI).'; ?></p>
+                                    </div>
+                                    <span class="brief-agenda-time"><?php echo $is_en ? '20 Mins (20:40 - 21:00)' : '20 Phút (20:40 - 21:00)'; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 4: Roadmap -->
+                    <div class="brief-tab-panel" id="brief-tab-roadmap">
+                        <div class="brief-roadmap">
+                            <!-- Node 1 -->
+                            <div class="roadmap-node done">
+                                <span class="roadmap-status">Done</span>
+                                <span class="roadmap-date">27/07/2026</span>
+                                <h5 class="roadmap-title"><?php echo $is_en ? 'Brief Alignment' : 'Thống Nhất Brief'; ?></h5>
+                                <p class="roadmap-desc"><?php echo $is_en ? 'Finalized topic, speaker outlines to avoid overlapping perspectives.' : 'Thống nhất kịch bản chi tiết 3 diễn giả, tránh trùng lặp nội dung.'; ?></p>
+                            </div>
+                            <!-- Node 2 -->
+                            <div class="roadmap-node done">
+                                <span class="roadmap-status">Done</span>
+                                <span class="roadmap-date">30/07/2026</span>
+                                <h5 class="roadmap-title"><?php echo $is_en ? 'LP & Assets' : ' Landing Page & Media'; ?></h5>
+                                <p class="roadmap-desc"><?php echo $is_en ? 'Webinar landing page deployed and registration forms synced.' : 'Hoàn thiện trang đăng ký và thiết kế banner truyền thông.'; ?></p>
+                            </div>
+                            <!-- Node 3 -->
+                            <div class="roadmap-node active">
+                                <span class="roadmap-status">Running</span>
+                                <span class="roadmap-date">03/08/2026</span>
+                                <h5 class="roadmap-title"><?php echo $is_en ? 'Marketing Push' : 'Chiến Dịch Truyền Thông'; ?></h5>
+                                <p class="roadmap-desc"><?php echo $is_en ? 'Email campaign launched, social media posts with gifts.' : 'Phát đi chuỗi email mời dự sự kiện, đăng bài phễu tặng quà MXH.'; ?></p>
+                            </div>
+                            <!-- Node 4 -->
+                            <div class="roadmap-node todo">
+                                <span class="roadmap-status">Todo</span>
+                                <span class="roadmap-date">10/08/2026</span>
+                                <h5 class="roadmap-title"><?php echo $is_en ? 'Reminders & Notifications' : 'Nhắc Lịch & Zalo OA'; ?></h5>
+                                <p class="roadmap-desc"><?php echo $is_en ? 'Zalo OA push, T-1 email reminder with Zoom meeting codes.' : 'Nhắc lịch học qua Zalo OA; gửi Email Reminder kèm phòng Zoom.'; ?></p>
+                            </div>
+                            <!-- Node 5 -->
+                            <div class="roadmap-node todo">
+                                <span class="roadmap-status">Todo</span>
+                                <span class="roadmap-date">13/08/2026</span>
+                                <h5 class="roadmap-title"><?php echo $is_en ? 'Live Event' : 'Tổ Chức Sự Kiện'; ?></h5>
+                                <p class="roadmap-desc"><?php echo $is_en ? 'Panel discussion live, introducing AI Book and Platform.' : 'Tổ chức panel trực tiếp trên Zoom, kết nối AI Book tự nhiên.'; ?></p>
+                            </div>
+                            <!-- Node 6 -->
+                            <div class="roadmap-node todo">
+                                <span class="roadmap-status">Todo</span>
+                                <span class="roadmap-date">Post-Event</span>
+                                <h5 class="roadmap-title"><?php echo $is_en ? 'Sales Handover' : 'Chăm Sóc Sau Sự Kiện'; ?></h5>
+                                <p class="roadmap-desc"><?php echo $is_en ? 'Send survey, record link, hand over active leads to sales.' : 'Gửi form khảo sát, link record, bàn giao tệp lead cho Sales.'; ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 5: Targets & Privilege -->
+                    <div class="brief-tab-panel" id="brief-tab-targets">
+                        <div class="brief-targets-grid">
+                            <div class="targets-stats-grid">
+                                <div class="target-stat-card">
+                                    <span class="target-stat-num">50-100</span>
+                                    <span class="target-stat-lbl"><?php echo $is_en ? 'Target Registrations' : 'Lượt đăng ký dự kiến'; ?></span>
+                                </div>
+                                <div class="target-stat-card">
+                                    <span class="target-stat-num">89%+</span>
+                                    <span class="target-stat-lbl"><?php echo $is_en ? 'Satisfaction Target' : 'Tỉ lệ hài lòng kỳ vọng'; ?></span>
+                                </div>
+                            </div>
+                            <div class="privilege-banner-card">
+                                <span class="privilege-badge"><?php echo $is_en ? 'Special Privilege' : 'Đặc Quyền Tham Gia'; ?></span>
+                                <h4 class="privilege-title"><?php echo $is_en ? 'Free 7-Day Trial of AI IDEAS Platform' : 'Trải nghiệm AI IDEAS Platform 7 ngày miễn phí'; ?></h4>
+                                <p class="privilege-desc"><?php echo $is_en ? 'Every webinar participant receives instant credentials to explore the advanced LMS & AI assistant suite.' : 'Tất cả các học viên đăng ký tham gia trực tiếp sẽ nhận được tài khoản kích hoạt dùng thử 7 ngày hệ sinh thái trợ lý AI độc quyền của IDEAS.'; ?></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2150,7 +3328,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <p class="timeline-desc"><?php echo $is_en ? 'Learn original AI framework: adaptation mindset, prompting technical tools, and core data structures.' : 'Giải mã bài toán ứng dụng AI qua 3 góc nhìn: Tư duy tiếp cận chủ động, Kỹ thuật prompting, và Nền tảng mô hình dữ liệu.'; ?></p>
                                 </div>
                                 <div class="timeline-btn-wrapper">
-                                    <button onclick="registerForTopic('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
+                                    <button onclick="openWebinarRegisterModal('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
                                         <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
                                     </button>
                                 </div>
@@ -2911,6 +4089,113 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <script
         src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/booking-modal.min.js?v=<?php echo $bk_js_version; ?>"
         defer></script>
+
+    <!-- Custom Premium Hero Script (Countdown, Tilt, Modal & Tabs) -->
+    <script>
+        // Global function to open registration modal for webinar with specific topic name
+        function openWebinarRegisterModal(topicName) {
+            console.log('[openWebinarRegisterModal] Opening modal for topic:', topicName);
+            
+            // Set CTA source tracking globally
+            if (typeof activeCtaSource !== 'undefined') {
+                activeCtaSource = topicName;
+            }
+            
+            const regModal = document.getElementById('reg-modal');
+            if (regModal) {
+                // Dynamically update modal headers to align with the chosen topic
+                const modalTitleEl = regModal.querySelector('.modal-form-header h3');
+                const modalSubtitleEl = regModal.querySelector('.modal-form-header p');
+                if (modalTitleEl) {
+                    modalTitleEl.innerHTML = `Đăng ký tham gia <br><span class="gradient-text">${topicName}</span>`;
+                }
+                if (modalSubtitleEl) {
+                    modalSubtitleEl.textContent = 'Điền thông tin bên dưới để đăng ký phòng Zoom và nhận gói quà tặng trải nghiệm AI Platform 7 ngày.';
+                }
+                
+                regModal.style.display = 'flex';
+                setTimeout(function () {
+                    regModal.classList.add('open');
+                    regModal.setAttribute('aria-hidden', 'false');
+                }, 10);
+            } else {
+                console.warn('[openWebinarRegisterModal] Registration modal #reg-modal not found');
+            }
+        }
+
+        // Global function to switch tabs in the Webinar Brief section
+        function switchBriefTab(event, tabId) {
+            event.preventDefault();
+            const btn = event.currentTarget;
+            const nav = btn.closest('.brief-tabs-nav');
+            const container = btn.closest('.brief-dashboard');
+            
+            if (nav && container) {
+                nav.querySelectorAll('.brief-tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                container.querySelectorAll('.brief-tab-panel').forEach(p => p.classList.remove('active'));
+                const activePanel = container.querySelector('#' + tabId);
+                if (activePanel) {
+                    activePanel.classList.add('active');
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Live countdown timer to 13/08/2026 19:30
+            var countDownDate = new Date("2026-08-13T19:30:00+07:00").getTime();
+            
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("days").innerText = "00";
+                    document.getElementById("hours").innerText = "00";
+                    document.getElementById("minutes").innerText = "00";
+                    document.getElementById("seconds").innerText = "00";
+                    return;
+                }
+                
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            }, 1000);
+
+            // 3D Tilt Effect on Ticket Card (Desktop Only)
+            const ticketCard = document.getElementById('hero-ticket');
+            if (ticketCard && window.innerWidth > 991) {
+                const cardEl = ticketCard;
+                
+                document.addEventListener('mousemove', function(e) {
+                    const rect = cardEl.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    const distance = Math.sqrt(x*x + y*y);
+                    if (distance < rect.width * 2) {
+                        const tiltX = (y / (rect.height / 2)) * -6; // max 6 deg
+                        const tiltY = (x / (rect.width / 2)) * 6; // max 6 deg
+                        cardEl.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`;
+                    } else {
+                        cardEl.style.transform = 'perspective(1000px) rotateY(-6deg) rotateX(3deg) scale(0.98)';
+                    }
+                });
+
+                cardEl.addEventListener('mouseleave', function() {
+                    cardEl.style.transform = 'perspective(1000px) rotateY(-6deg) rotateX(3deg) scale(0.98)';
+                });
+            }
+        });
+    </script>
 
     <?php get_footer(); ?>
 </body>
