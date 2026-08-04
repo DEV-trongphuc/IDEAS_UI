@@ -2813,7 +2813,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Info Card 4 -->
                             <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 640 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h74.7c58.9 0 106.7 47.8 106.7 106.7v3.2c0 28-22.8 50.7-50.7 50.7H50.7C22.8 353.3 0 330.5 0 302.5l0-3.8zm352 54.6c0-28 22.8-50.7 50.7-50.7h130.7c28 0 50.7 22.8 50.7 50.7l0 3.8c0 58.9-47.8 106.7-106.7 106.7H458.7C399.8 464 352 416.2 352 357.3l0-4z"/></svg>
+                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Experts' : 'Chuyên gia'; ?></strong>
