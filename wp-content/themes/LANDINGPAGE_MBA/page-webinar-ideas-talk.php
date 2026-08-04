@@ -805,7 +805,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .brief-tab-btn.active {
             color: #b91c1c !important;
             background: rgba(185, 28, 28, 0.05) !important;
-            font-weight: 800;
             border: none !important;
             outline: none !important;
         }
