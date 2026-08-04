@@ -1150,11 +1150,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* 3 horizontal info cards */
         .intro-horizontal-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 580px) {
             .intro-horizontal-cards {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -2809,6 +2809,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Privilege' : 'Đặc quyền'; ?></strong>
                                     <span><?php echo $is_en ? 'Free Templates' : 'Tặng bộ tài liệu áp dụng ngay'; ?></span>
+                                </div>
+                            </div>
+                            <!-- Info Card 4 -->
+                            <div class="intro-mini-card scroll-reveal stagger-item">
+                                <div class="mini-card-icon">
+                                    <svg viewBox="0 0 640 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h74.7c58.9 0 106.7 47.8 106.7 106.7v3.2c0 28-22.8 50.7-50.7 50.7H50.7C22.8 353.3 0 330.5 0 302.5l0-3.8zm352 54.6c0-28 22.8-50.7 50.7-50.7h130.7c28 0 50.7 22.8 50.7 50.7l0 3.8c0 58.9-47.8 106.7-106.7 106.7H458.7C399.8 464 352 416.2 352 357.3l0-4z"/></svg>
+                                </div>
+                                <div class="mini-card-text">
+                                    <strong><?php echo $is_en ? 'Experts' : 'Chuyên gia'; ?></strong>
+                                    <span><?php echo $is_en ? 'Meet 3 practical speakers' : 'Gặp gỡ 3 diễn giả thực chiến'; ?></span>
                                 </div>
                             </div>
                         </div>
