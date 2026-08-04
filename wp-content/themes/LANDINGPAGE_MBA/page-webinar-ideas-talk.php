@@ -667,82 +667,149 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
         }
 
-        /* ── Section: Webinar Brief (Premium Interactive Dashboard) ── */
+        /* ── Section: Webinar Brief (Premium Light Sidebar Tabs) ── */
         .talk-brief {
-            background-color: #0c080a;
-            padding: 85px 0;
+            background-color: #f8fafc; /* Clean light slate background */
+            padding: 90px 0;
             position: relative;
             z-index: 3;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
         }
 
-        .talk-brief::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.06) 0%, transparent 60%);
-            pointer-events: none;
+        /* Brief Section Header (Light Theme) */
+        .talk-brief .talk-section-header .intro-badge-accent {
+            color: #b91c1c;
+            background: rgba(185, 28, 28, 0.08);
+            border: 1px solid rgba(185, 28, 28, 0.15);
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-bottom: 12px;
         }
 
+        .talk-brief .talk-section-header .talk-section-title {
+            color: #0f172a !important;
+            -webkit-text-fill-color: #0f172a !important;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .talk-brief .talk-section-header .talk-section-title span {
+            color: #b91c1c !important;
+            -webkit-text-fill-color: #b91c1c !important;
+            background: none !important;
+        }
+
+        /* Dashboard Container */
         .brief-dashboard {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(12px);
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            box-sizing: border-box;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 991px) {
             .brief-dashboard {
+                grid-template-columns: 1fr;
+                gap: 30px;
                 padding: 24px 16px;
             }
         }
 
-        /* Brief Tabs Header */
+        /* Vertical Sidebar Tabs Navigation */
         .brief-tabs-nav {
             display: flex;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 16px;
-            margin-bottom: 30px;
-            overflow-x: auto;
-            scrollbar-width: none; /* Firefox */
+            flex-direction: column;
+            gap: 8px;
+            border-right: 1px solid #e2e8f0;
+            padding-right: 24px;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            overflow-x: visible;
         }
 
-        .brief-tabs-nav::-webkit-scrollbar {
-            display: none; /* Safari/Chrome */
+        @media (max-width: 991px) {
+            .brief-tabs-nav {
+                flex-direction: row;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+                padding-right: 0;
+                padding-bottom: 12px;
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+            .brief-tabs-nav::-webkit-scrollbar {
+                display: none;
+            }
         }
 
         .brief-tab-btn {
             background: transparent;
-            border: 1px solid transparent;
-            color: #94a3b8;
-            font-size: 0.92rem;
+            border: none;
+            color: #64748b;
+            font-size: 0.98rem;
             font-weight: 700;
-            padding: 10px 20px;
+            padding: 14px 20px;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 12px;
+            text-align: left;
+            transition: all 0.25s ease;
             white-space: nowrap;
-            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 991px) {
+            .brief-tab-btn {
+                padding: 10px 16px;
+                border-radius: 8px;
+            }
         }
 
         .brief-tab-btn:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.03);
+            color: #0f172a;
+            background: #f1f5f9;
         }
 
         .brief-tab-btn.active {
-            color: #ffffff;
-            background: rgba(225, 29, 72, 0.12);
-            border: 1px solid rgba(225, 29, 72, 0.25);
-            box-shadow: 0 0 15px rgba(225, 29, 72, 0.15);
+            color: #b91c1c;
+            background: rgba(185, 28, 28, 0.05);
+            font-weight: 800;
         }
 
-        /* Brief Tab Content */
+        @media (min-width: 992px) {
+            .brief-tab-btn.active {
+                border-left: 3px solid #b91c1c;
+                border-radius: 0 12px 12px 0;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .brief-tab-btn.active {
+                border: 1px solid rgba(185, 28, 28, 0.2);
+                box-shadow: 0 4px 10px rgba(185, 28, 28, 0.05);
+            }
+        }
+
+        /* Content Panel */
         .brief-tab-panel {
             display: none;
-            animation: briefFadeIn 0.4s ease-in-out forwards;
+            animation: briefFadeIn 0.4s ease-out forwards;
         }
 
         .brief-tab-panel.active {
@@ -754,11 +821,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Tab 1: Context Style */
+        /* Context Cards (Light Theme) */
         .brief-context-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 24px;
         }
 
         @media (max-width: 768px) {
@@ -769,16 +836,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .context-card {
-            background: rgba(255, 255, 255, 0.015);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 18px;
-            padding: 24px;
+            padding: 28px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
             height: 100%;
             box-sizing: border-box;
         }
 
         .context-card h4 {
-            color: #ffffff;
+            color: #0f172a;
             font-size: 1.15rem;
             font-weight: 800;
             margin: 0 0 14px 0;
@@ -790,17 +858,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .context-card h4 .icon {
-            color: #e11d48;
+            color: #b91c1c;
         }
 
         .context-card p {
-            color: #cbd5e1 !important;
-            font-size: 0.95rem;
+            color: #475569 !important;
+            font-size: 0.98rem;
             line-height: 1.65;
             margin: 0;
         }
 
-        /* Tab 2: Speakers Grid */
+        /* Speakers Grid */
         .brief-speakers-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -814,35 +882,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
+        /* Speaker Cards (Light Theme) */
         .brief-speaker-card {
-            background: rgba(255, 255, 255, 0.015);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
             border-radius: 20px;
             padding: 24px;
             text-align: center;
-            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-sizing: border-box;
         }
 
         .brief-speaker-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(225, 29, 72, 0.25);
-            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.08);
-            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-4px);
+            border-color: rgba(185, 28, 28, 0.25);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
         }
 
         .brief-speaker-avatar {
-            width: 80px;
-            height: 80px;
+            width: 84px;
+            height: 84px;
             border-radius: 50%;
-            border: 3px solid rgba(225, 29, 72, 0.25);
+            border: 3px solid rgba(185, 28, 28, 0.15);
             margin: 0 auto 16px;
             object-fit: cover;
             display: block;
         }
 
         .brief-speaker-name {
-            color: #ffffff;
+            color: #0f172a;
             font-size: 1.15rem;
             font-weight: 800;
             margin-bottom: 4px;
@@ -850,13 +919,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .brief-speaker-role {
-            color: #fda4af;
+            color: #b91c1c;
+            background: rgba(185, 28, 28, 0.06);
+            border: 1px solid rgba(185, 28, 28, 0.1);
             font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            background: rgba(225, 29, 72, 0.12);
-            border: 1px solid rgba(225, 29, 72, 0.2);
             padding: 4px 12px;
             border-radius: 100px;
             display: inline-block;
@@ -864,245 +933,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .brief-speaker-perspective {
-            color: #cbd5e1 !important;
-            font-size: 0.9rem;
+            color: #475569 !important;
+            font-size: 0.92rem;
             line-height: 1.55;
             margin: 0;
             text-align: left;
         }
 
-        /* Tab 3: Stepper Agenda */
-        .brief-agenda-list {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .brief-agenda-list::before {
-            content: '';
-            position: absolute;
-            left: 8px;
-            top: 10px;
-            bottom: 10px;
-            width: 2px;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .brief-agenda-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .brief-agenda-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .brief-agenda-dot {
-            position: absolute;
-            left: -30px;
-            top: 4px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #0c080a;
-            border: 3px solid #e11d48;
-            box-shadow: 0 0 10px rgba(225, 29, 72, 0.5);
-            z-index: 2;
-        }
-
-        .brief-agenda-content {
-            background: rgba(255, 255, 255, 0.015);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 20px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        @media (max-width: 600px) {
-            .brief-agenda-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-        }
-
-        .brief-agenda-title-part {
-            flex-grow: 1;
-        }
-
-        .brief-agenda-time {
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 5px 14px;
-            border-radius: 8px;
-            white-space: nowrap;
-        }
-
-        .brief-agenda-part-title {
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin: 0 0 6px 0;
-        }
-
-        .brief-agenda-desc {
-            color: #94a3b8 !important;
-            font-size: 0.9rem;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* Tab 4: Roadmap Timeline */
-        .brief-roadmap {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 15px;
-            position: relative;
-        }
-
-        @media (max-width: 991px) {
-            .brief-roadmap {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                padding-left: 20px;
-            }
-            .brief-roadmap::before {
-                content: '';
-                position: absolute;
-                left: 6px;
-                top: 10px;
-                bottom: 10px;
-                width: 2px;
-                background: rgba(255, 255, 255, 0.08);
-            }
-        }
-
-        .roadmap-node {
-            position: relative;
-            background: rgba(255, 255, 255, 0.01);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 16px;
-            padding: 16px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        @media (min-width: 992px) {
-            .roadmap-node::after {
-                content: '→';
-                position: absolute;
-                right: -12px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: rgba(255, 255, 255, 0.15);
-                font-size: 1.2rem;
-            }
-            .roadmap-node:last-child::after {
-                display: none;
-            }
-        }
-
-        @media (max-width: 991px) {
-            .roadmap-node::before {
-                content: '';
-                position: absolute;
-                left: -20px;
-                top: 25px;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: rgba(255,255,255,0.1);
-                border: 2px solid rgba(255,255,255,0.2);
-            }
-            .roadmap-node.active::before,
-            .roadmap-node.done::before {
-                background: #e11d48;
-                border-color: #ef4444;
-                box-shadow: 0 0 8px #ef4444;
-            }
-        }
-
-        .roadmap-node.done {
-            border-color: rgba(34, 197, 94, 0.2);
-            background: rgba(34, 197, 94, 0.02);
-        }
-
-        .roadmap-node.active {
-            border-color: rgba(225, 29, 72, 0.3);
-            background: rgba(225, 29, 72, 0.04);
-            box-shadow: 0 5px 15px rgba(225, 29, 72, 0.04);
-        }
-
-        .roadmap-status {
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 2px 8px;
-            border-radius: 100px;
-            margin-bottom: 12px;
-            width: fit-content;
-        }
-
-        .roadmap-node.done .roadmap-status {
-            background: rgba(34, 197, 94, 0.12);
-            color: #4ade80;
-        }
-
-        .roadmap-node.active .roadmap-status {
-            background: rgba(225, 29, 72, 0.15);
-            color: #fda4af;
-            animation: pulse-border 1.5s infinite alternate;
-        }
-
-        .roadmap-node.todo .roadmap-status {
-            background: rgba(255, 255, 255, 0.05);
-            color: #94a3b8;
-        }
-
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 0px rgba(225,29,72,0); }
-            100% { box-shadow: 0 0 8px rgba(225,29,72,0.3); }
-        }
-
-        .roadmap-date {
-            font-size: 0.78rem;
-            font-weight: 800;
-            color: #94a3b8;
-            margin-bottom: 6px;
-        }
-
-        .roadmap-node.active .roadmap-date {
-            color: #ffffff;
-        }
-
-        .roadmap-title {
-            color: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 750;
-            margin: 0 0 6px 0;
-            line-height: 1.35;
-        }
-
-        .roadmap-desc {
-            color: #94a3b8 !important;
-            font-size: 0.75rem;
-            margin: 0;
-            line-height: 1.45;
-        }
-
-        /* Tab 5: Targets & Privilege Card */
+        /* Target Stats & Privilege (Light Theme) */
         .brief-targets-grid {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 30px;
+            gap: 24px;
         }
 
         @media (max-width: 991px) {
@@ -1125,24 +967,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .target-stat-card {
-            background: rgba(255, 255, 255, 0.015);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 16px;
-            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+            padding: 24px;
             text-align: center;
         }
 
         .target-stat-num {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             font-weight: 900;
-            color: #ffffff;
             line-height: 1.1;
             margin-bottom: 4px;
             display: block;
         }
 
         .target-stat-lbl {
-            color: #94a3b8;
+            color: #64748b;
             font-size: 0.85rem;
             font-weight: 700;
             line-height: 1.35;
@@ -1150,8 +992,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .privilege-banner-card {
-            background: linear-gradient(135deg, rgba(225, 29, 72, 0.12) 0%, rgba(79, 70, 229, 0.1) 100%);
-            border: 1px solid rgba(225, 29, 72, 0.2);
+            background: linear-gradient(135deg, rgba(185, 28, 28, 0.08) 0%, rgba(79, 70, 229, 0.05) 100%);
+            border: 1px solid rgba(185, 28, 28, 0.15);
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02);
             border-radius: 20px;
             padding: 24px;
             position: relative;
@@ -1159,7 +1002,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             flex-direction: column;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(225, 29, 72, 0.05);
             box-sizing: border-box;
         }
 
@@ -1171,7 +1013,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: rgba(225, 29, 72, 0.15);
+            background: rgba(185, 28, 28, 0.08);
             filter: blur(40px);
             z-index: 1;
         }
@@ -1182,7 +1024,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: #ffffff;
-            background: #e11d48;
+            background: #b91c1c;
             padding: 4px 10px;
             border-radius: 100px;
             width: fit-content;
@@ -1192,7 +1034,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .privilege-title {
-            color: #ffffff;
+            color: #0f172a;
             font-size: 1.15rem;
             font-weight: 800;
             margin: 0 0 8px 0;
@@ -1201,7 +1043,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .privilege-desc {
-            color: #cbd5e1 !important;
+            color: #475569 !important;
             font-size: 0.88rem;
             line-height: 1.5;
             margin: 0;
@@ -3237,10 +3079,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="talk-container">
                 <div class="talk-section-header">
                     <span class="intro-badge-accent"><?php echo $is_en ? 'Webinar Highlights' : 'NỘI DUNG CHƯƠNG TRÌNH'; ?></span>
-                    <div class="talk-section-title" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important; margin-bottom: 14px !important; display: block !important;">
+                    <div class="talk-section-title" style="margin-bottom: 14px !important; display: block !important;">
                         <?php echo $is_en ? 'August 13 Session <span>Highlights & Privileges</span>' : 'Giá Trị & Đặc Quyền <span>Chuyên Đề 13/08</span>'; ?>
                     </div>
-                    <p style="color:#94a3b8; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia, đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
+                    <p style="color:#475569; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia, đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
                 </div>
 
                 <div class="brief-dashboard">
@@ -3332,7 +3174,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="brief-targets-grid">
                             <div class="targets-stats-grid">
                                 <div class="target-stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <span class="target-stat-num" style="color: #e11d48;">7 <?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
+                                    <span class="target-stat-num" style="color: #b91c1c;">7 <?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
                                     <span class="target-stat-lbl"><?php echo $is_en ? 'AI IDEAS Platform Access' : 'Trải nghiệm AI Platform miễn phí'; ?></span>
                                 </div>
                                 <div class="target-stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
