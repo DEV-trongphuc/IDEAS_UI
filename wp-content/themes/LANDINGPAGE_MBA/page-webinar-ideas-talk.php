@@ -1151,10 +1151,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .intro-horizontal-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1100px) {
             .intro-horizontal-cards {
                 grid-template-columns: 1fr;
                 gap: 12px;
@@ -1165,10 +1165,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #fcfcfd;
             border: 1px solid rgba(15, 23, 42, 0.04);
             border-radius: 16px;
-            padding: 16px;
+            padding: 18px 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.008);
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
@@ -1368,12 +1368,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .why-item-number {
+            position: absolute;
+            top: 24px;
+            right: 30px;
             font-size: 2.2rem;
             font-weight: 900;
             color: rgba(185, 28, 28, 0.15);
             line-height: 1;
             font-family: inherit;
-            flex-shrink: 0;
             transition: color 0.3s ease;
         }
 
@@ -2782,7 +2784,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Info Card 1 -->
                             <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z"/></svg>
+                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Timeline' : 'Thời gian'; ?></strong>
