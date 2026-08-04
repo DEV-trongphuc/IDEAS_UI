@@ -95,9 +95,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .btn-talk-primary {
-            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #850a00 100%);
             color: #ffffff !important;
-            box-shadow: 0 10px 25px rgba(185, 28, 28, 0.25);
+            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.25);
         }
 
         .btn-talk-primary:hover {
@@ -223,7 +223,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .talk-hero-glow-1 {
             width: 400px;
             height: 400px;
-            background: #e11d48; /* Ruby Red */
+            background: #ab0e00; /* Brand Red */
             top: 5%;
             left: 10%;
         }
@@ -312,7 +312,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .talk-hero-badge svg {
-            color: #fca5a5;
+            color: #ff8c8c;
         }
 
         .talk-hero-badge .live-dot {
@@ -349,7 +349,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .talk-hero h1 span.talk-title {
-            background: linear-gradient(135deg, #ff5e62 0%, #e11d48 50%, #b91c1c 100%) !important;
+            background: linear-gradient(135deg, #ff4c4c 0%, #ab0e00 50%, #850a00 100%) !important;
             -webkit-background-clip: text !important;
             -webkit-text-fill-color: transparent !important;
             background-clip: text !important;
@@ -358,8 +358,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .talk-hero h1 span.talk-title::after {
             content: '.';
-            color: #e11d48;
-            -webkit-text-fill-color: #e11d48 !important;
+            color: #ab0e00;
+            -webkit-text-fill-color: #ab0e00 !important;
             animation: pulse-red 2s infinite alternate;
         }
 
@@ -371,7 +371,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .talk-tagline {
             font-size: clamp(1rem, 2vw, 1.2rem);
             font-weight: 800;
-            color: #fca5a5 !important;
+            color: #ff9c9c !important;
             letter-spacing: 0.14em;
             margin-bottom: 24px;
             text-transform: uppercase;
@@ -408,9 +408,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .btn-talk-primary {
             position: relative;
-            background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #850a00 100%);
             color: #ffffff !important;
-            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.3);
+            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.3);
             overflow: hidden;
         }
 
@@ -476,17 +476,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             right: -1px;
             bottom: -1px;
             border-radius: 24px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 45%, rgba(225, 29, 72, 0.15) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 45%, rgba(171, 14, 0, 0.15) 100%);
             pointer-events: none;
             z-index: -1;
         }
 
         .hero-ticket-card:hover {
             transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-8px) scale(1.02);
-            border-color: rgba(225, 29, 72, 0.35);
+            border-color: rgba(171, 14, 0, 0.35);
             box-shadow: 
                 0 35px 70px rgba(0, 0, 0, 0.6),
-                0 0 40px rgba(225, 29, 72, 0.15);
+                0 0 40px rgba(171, 14, 0, 0.15);
         }
 
         .ticket-badge {
@@ -494,9 +494,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: #fda4af;
-            background: rgba(225, 29, 72, 0.12);
-            border: 1px solid rgba(225, 29, 72, 0.2);
+            color: #ff9e9e;
+            background: rgba(171, 14, 0, 0.12);
+            border: 1px solid rgba(171, 14, 0, 0.2);
             padding: 5px 14px;
             border-radius: 100px;
             display: inline-flex;
@@ -644,13 +644,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .slots-header span.highlight {
-            color: #f43f5e;
+            color: #ff4c4c;
             animation: text-pulse 1.5s infinite alternate;
         }
 
         @keyframes text-pulse {
             0% { text-shadow: 0 0 0px transparent; }
-            100% { text-shadow: 0 0 8px rgba(244, 63, 94, 0.4); }
+            100% { text-shadow: 0 0 8px rgba(171, 14, 0, 0.4); }
         }
 
         .slots-progress-track {
@@ -664,10 +664,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .slots-progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #e11d48, #f43f5e);
+            background: linear-gradient(90deg, #ab0e00, #ff4c4c);
             border-radius: 10px;
             width: 89%;
-            box-shadow: 0 0 10px rgba(244, 63, 94, 0.5);
+            box-shadow: 0 0 10px rgba(171, 14, 0, 0.5);
         }
 
         /* ── Section: Webinar Brief (Premium Light Sidebar Tabs) ── */
@@ -1125,7 +1125,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .intro-left .highlight-number {
             font-size: 1.15em;
             font-weight: 900;
-            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #850a00 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
@@ -1460,7 +1460,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(180deg, #e11d48, #b91c1c);
+            background: linear-gradient(180deg, #ab0e00, #850a00);
             transform: scaleY(0);
             transition: transform 0.3s ease;
         }
@@ -1487,7 +1487,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .topic-badge-row.hot-card .topic-tag.hot {
-            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #850a00 100%);
             color: #ffffff;
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(185, 28, 28, 0.2);
@@ -1517,7 +1517,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .topic-badge-row:hover .topic-tag {
-            background: linear-gradient(135deg, #e11d48 0%, #b91c1c 100%);
+            background: linear-gradient(135deg, #ab0e00 0%, #850a00 100%);
             color: #ffffff;
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(185, 28, 28, 0.25);
@@ -1718,10 +1718,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-nav-btn:hover {
-            background: #e11d48;
-            border-color: #e11d48;
+            background: #ab0e00;
+            border-color: #ab0e00;
             color: #ffffff;
-            box-shadow: 0 0 20px rgba(185, 28, 28, 0.5);
+            box-shadow: 0 0 20px rgba(171, 14, 0, 0.5);
             transform: translateY(-50%) scale(1.08);
         }
 
@@ -1767,7 +1767,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #b91c1c, #e11d48, #b91c1c, rgba(255, 255, 255, 0.05));
+            background: linear-gradient(90deg, #ab0e00, #ff4c4c, #ab0e00, rgba(255, 255, 255, 0.05));
             background-size: 300% 100%;
             animation: timeline-flow 6s ease infinite;
             z-index: 1;
@@ -1853,9 +1853,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-badge {
-            background: rgba(185, 28, 28, 0.12);
-            border: 1px solid rgba(185, 28, 28, 0.3);
-            color: #fca5a5;
+            background: rgba(171, 14, 0, 0.12);
+            border: 1px solid rgba(171, 14, 0, 0.3);
+            color: #ff8c8c;
             padding: 4px 12px;
             border-radius: 6px;
             font-size: 0.72rem;
