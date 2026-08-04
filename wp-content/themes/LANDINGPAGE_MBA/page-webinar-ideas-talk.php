@@ -20,6 +20,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 <html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <?php get_template_part('shared-head'); ?>
 
     <!-- Preconnect to external domains for faster resource loading --><!-- Preload LCP hero background image -->
@@ -687,13 +690,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: rgba(185, 28, 28, 0.08);
             border: 1px solid rgba(185, 28, 28, 0.15);
             font-weight: 700;
-            padding: 6px 14px;
+            padding: 6px 14px !important;
+            padding-left: 14px !important;
             border-radius: 100px;
             text-transform: uppercase;
             font-size: 0.72rem;
             letter-spacing: 0.05em;
             display: inline-block;
             margin-bottom: 12px;
+        }
+
+        .talk-brief .talk-section-header .intro-badge-accent::before {
+            display: none !important;
         }
 
         .talk-brief .talk-section-header .talk-section-title {
@@ -951,17 +959,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         /* Target Stats & Privilege (Light Theme) */
-        .brief-targets-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 24px;
+        .brief-targets-vertical-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
         }
 
-        @media (max-width: 991px) {
-            .brief-targets-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+        .privilege-banner-card {
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
 
         .targets-stats-grid {
@@ -1614,13 +1621,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
-        /* ── Section 4: Horizontal Timeline (DARK UI) ── */
         .section-featured {
             padding: 80px 0;
             width: 100%;
             overflow: hidden;
-            background-color: #090506;
+            background-image: linear-gradient(180deg, rgba(9, 5, 6, 0.93) 0%, rgba(9, 5, 6, 0.97) 100%), url('https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: relative;
+        }
+
+        .section-featured::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(185, 28, 28, 0.2) 1.5px, transparent 1.5px);
+            background-size: 32px 32px;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 1;
         }
 
         .section-featured .talk-section-header h2,
@@ -2416,11 +2436,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .coop-title b {
-            color: #b91c1c;
-            background: linear-gradient(135deg, #fca5a5 0%, #b91c1c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #b91c1c !important;
+            background: none !important;
+            -webkit-background-clip: border-box !important;
+            -webkit-text-fill-color: #b91c1c !important;
+            background-clip: border-box !important;
         }
 
         .coop-sub {
@@ -2718,16 +2738,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ticket-speakers-section">
                             <span class="speakers-title"><?php echo $is_en ? 'Expert Speaker Panel' : 'Hội đồng chuyên gia'; ?></span>
                             <div class="speakers-avatars-row">
-                                <div class="speaker-avatar-wrap" title="Dr. Nguyen - Enterprise Doctor">
-                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-1.webp" alt="Speaker 1" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <div class="speaker-avatar-wrap" title="TS. Phạm Quang Vinh">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
-                                <div class="speaker-avatar-wrap" title="MBA Tuan - Strategy Specialist">
-                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-2.webp" alt="Speaker 2" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <div class="speaker-avatar-wrap" title="Mr. Võ Trùng Dương">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="Mr. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
-                                <div class="speaker-avatar-wrap" title="AI Architect Nam">
-                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2023/12/expert-3.webp" alt="Speaker 3" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <div class="speaker-avatar-wrap" title="NCS. Phạm Phi Vũ">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
-                                <span class="speakers-count-badge">+3</span>
                             </div>
                         </div>
                         
@@ -3177,7 +3196,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                     <!-- Panel 4: Privileges & Offers -->
                     <div class="brief-tab-panel" id="brief-tab-privileges">
-                        <div class="brief-targets-grid">
+                        <div class="brief-targets-vertical-stack">
                             <div class="targets-stats-grid">
                                 <div class="target-stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                                     <span class="target-stat-num" style="color: #b91c1c;">7 <?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
