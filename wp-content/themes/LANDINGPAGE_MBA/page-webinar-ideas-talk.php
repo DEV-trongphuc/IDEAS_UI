@@ -677,6 +677,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-bottom: 1px solid #e2e8f0;
         }
 
+        .talk-brief .talk-container {
+            max-width: 1360px !important;
+        }
+
         /* Brief Section Header (Light Theme) */
         .talk-brief .talk-section-header .intro-badge-accent {
             color: #b91c1c;
@@ -757,8 +761,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .brief-tab-btn {
-            background: transparent;
-            border: none;
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
             color: #64748b;
             font-size: 0.98rem;
             font-weight: 700;
@@ -782,27 +788,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .brief-tab-btn:hover {
-            color: #0f172a;
-            background: #f1f5f9;
+            color: #0f172a !important;
+            background: #f1f5f9 !important;
+            border: none !important;
+            outline: none !important;
         }
 
         .brief-tab-btn.active {
-            color: #b91c1c;
-            background: rgba(185, 28, 28, 0.05);
+            color: #b91c1c !important;
+            background: rgba(185, 28, 28, 0.05) !important;
             font-weight: 800;
+            border: none !important;
+            outline: none !important;
         }
 
         @media (min-width: 992px) {
             .brief-tab-btn.active {
-                border-left: 3px solid #b91c1c;
-                border-radius: 0 12px 12px 0;
+                border-left: 4px solid #b91c1c !important;
+                border-radius: 0 12px 12px 0 !important;
             }
         }
 
         @media (max-width: 991px) {
             .brief-tab-btn.active {
-                border: 1px solid rgba(185, 28, 28, 0.2);
-                box-shadow: 0 4px 10px rgba(185, 28, 28, 0.05);
+                border: 1px solid rgba(185, 28, 28, 0.2) !important;
+                box-shadow: 0 4px 10px rgba(185, 28, 28, 0.05) !important;
             }
         }
 
@@ -3107,14 +3117,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="brief-context-grid">
                             <div class="context-card">
                                 <h4>
-                                    <span class="icon">🚀</span>
                                     <?php echo $is_en ? 'Shift Learning Mindset' : 'Đột Phá Tư Duy Tự Học & Nghiên Cứu'; ?>
                                 </h4>
                                 <p><?php echo $is_en ? 'Escape traditional learning boundaries. Learn how to strategically integrate AI models as intellectual partners to accelerate text reading, literature review, and academic research.' : 'Vượt qua giới hạn của phương pháp học truyền thống. Thấu hiểu cách tích hợp AI như một người cộng sự học thuật để rút ngắn 80% thời gian đọc hiểu tài liệu, nghiên cứu và lập luận.'; ?></p>
                             </div>
                             <div class="context-card">
                                 <h4>
-                                    <span class="icon">🔧</span>
                                     <?php echo $is_en ? 'Master Practical Prompting' : 'Làm Chủ Kỹ Thuật Prompting Thực Chiến'; ?>
                                 </h4>
                                 <p><?php echo $is_en ? 'Get hands-on frameworks to write high-precision prompts. Automate report structuring, document summarizing, and translate complex concepts with absolute reliability.' : 'Sở hữu các cấu trúc prompt thực tiễn và chuẩn xác để tự động hóa việc tóm tắt bài viết khoa học, lập cấu trúc báo cáo phức tạp và kiểm chứng thông tin nhằm tránh lỗi sai lệch dữ liệu của AI.'; ?></p>
@@ -3127,22 +3135,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="brief-speakers-grid">
                             <!-- Speaker 1 -->
                             <div class="brief-speaker-card">
-                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="Anh Vinh Phạm" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
-                                <span class="brief-speaker-name">Anh Vinh Phạm</span>
+                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <span class="brief-speaker-name">TS. Phạm Quang Vinh</span>
                                 <span class="brief-speaker-role"><?php echo $is_en ? 'Mindset & Leadership' : 'Tư Duy & Lãnh Đạo'; ?></span>
                                 <p class="brief-speaker-perspective"><?php echo $is_en ? 'Focuses on shift of learning habits: Adopting active AI integration mindsets to escape traditional bookish learning models.' : 'Chia sẻ góc nhìn về <strong>Tư duy thay đổi thói quen học tập truyền thống</strong>: Cách tiếp cận chủ động với AI, thiết lập phương pháp luận tự học và giải phóng thời gian nghiên cứu học thuật.'; ?></p>
                             </div>
                             <!-- Speaker 2 -->
                             <div class="brief-speaker-card">
-                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="Anh Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
-                                <span class="brief-speaker-name">Anh Dương</span>
+                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="Mr. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <span class="brief-speaker-name">Mr. Võ Trùng Dương</span>
                                 <span class="brief-speaker-role"><?php echo $is_en ? 'Practical Tools & Prompting' : 'Công Cụ & Prompt Thực Chiến'; ?></span>
                                 <p class="brief-speaker-perspective"><?php echo $is_en ? 'Guides direct prompting methods and highlights essential AI tools for reading, summarizing, and structural planning.' : 'Hướng dẫn <strong>Kỹ thuật viết Prompt thực chiến</strong> và công cụ AI bổ trợ đắc lực: Tóm tắt bài viết khoa học, tra cứu tài liệu nhanh và lập cấu trúc báo cáo tự động.'; ?></p>
                             </div>
                             <!-- Speaker 3 -->
                             <div class="brief-speaker-card">
-                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="Anh Vũ" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
-                                <span class="brief-speaker-name">Anh Vũ</span>
+                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <span class="brief-speaker-name">NCS. Phạm Phi Vũ</span>
                                 <span class="brief-speaker-role"><?php echo $is_en ? 'Technology & AI Architecture' : 'Công Nghệ & Kỹ Thuật'; ?></span>
                                 <p class="brief-speaker-perspective"><?php echo $is_en ? 'Explains fundamental LLM concepts, data structures, and accuracy verification to ensure sustainable research applications.' : 'Giải mã <strong>Nguyên lý kỹ thuật cốt lõi của mô hình AI</strong>: Cách dữ liệu được xử lý, hiểu rõ giới hạn và cơ chế xác thực để loại bỏ thông tin AI sai lệch (Hallucination).'; ?></p>
                             </div>
@@ -3154,14 +3162,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="brief-context-grid">
                             <div class="context-card">
                                 <h4>
-                                    <span class="icon">🎓</span>
                                     <?php echo $is_en ? 'Students & Researchers' : 'Học Viên Cao Học & Nhà Nghiên Cứu'; ?>
                                 </h4>
                                 <p><?php echo $is_en ? 'Ideal for MBA/DBA students and academics who need to digest massive research papers, write thesis outlines, and summarize literature with academic rigor.' : 'Phù hợp cho các học viên MBA, DBA, và nhà nghiên cứu cần đọc lượng lớn tài liệu, tổng hợp dữ liệu chuyên ngành, và xây dựng đề cương luận văn chuẩn mực.'; ?></p>
                             </div>
                             <div class="context-card">
                                 <h4>
-                                    <span class="icon">💼</span>
                                     <?php echo $is_en ? 'Professionals & Managers' : 'Nhà Quản Trị & Chuyên Viên Trẻ'; ?>
                                 </h4>
                                 <p><?php echo $is_en ? 'For managers and knowledge workers aiming to automate reporting, perform fast industry audits, and upgrade their workflow with structured AI capabilities.' : 'Dành cho các quản lý, trưởng bộ phận muốn ứng dụng AI để tự động hóa báo cáo, lập kế hoạch kinh doanh và nghiên cứu thị trường tinh gọn.'; ?></p>
