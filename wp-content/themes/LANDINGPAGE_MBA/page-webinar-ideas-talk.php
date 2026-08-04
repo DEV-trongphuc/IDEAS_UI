@@ -2742,11 +2742,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="speaker-avatar-wrap" title="TS. Phạm Quang Vinh">
                                     <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
+                                <div class="speaker-avatar-wrap" title="TS. Dương Văn Thịnh">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <div class="speaker-avatar-wrap" title="TS. Mang Viên Hoàng Nhật">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp" alt="TS. Mang Viên Hoàng Nhật" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <div class="speaker-avatar-wrap" title="ThS. Lê Sơn Phong">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.webp" alt="ThS. Lê Sơn Phong" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
                                 <div class="speaker-avatar-wrap" title="Mr. Võ Trùng Dương">
                                     <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="Mr. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
                                 <div class="speaker-avatar-wrap" title="NCS. Phạm Phi Vũ">
                                     <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <div class="speaker-avatar-wrap" title="TS. Phạm Quang Quý">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2025/04/speaker-3.webp" alt="TS. Phạm Quang Quý" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <div class="speaker-avatar-wrap" title="ThS. Nguyễn Vũ Linh">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/nguyenvulinh.webp" alt="ThS. Nguyễn Vũ Linh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                </div>
+                                <div class="speaker-avatar-wrap" title="TS. Phạm Minh Khánh">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/phamminhkhanh.webp" alt="TS. Phạm Minh Khánh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
                             </div>
                         </div>
