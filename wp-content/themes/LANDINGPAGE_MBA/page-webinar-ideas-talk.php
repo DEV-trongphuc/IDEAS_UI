@@ -2835,12 +2835,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- Section 2: Why Attend (Split List - Alternate Contrast Background) -->
         <section class="section-why scroll-reveal" id="why-attend">
             <div class="talk-container">
                 <div class="why-split-container">
                     <div class="why-left-sticky scroll-reveal">
-                        <div class="talk-section-title"><?php echo $is_en ? 'Why You Shouldn\'t Miss <span>IDEAS Talk</span> Webinar Series?' : 'Tại Sao Bạn Không Nên Bỏ Lỡ Chuỗi <span>Webinar của IDEAS</span>?'; ?></div>
+                        <div class="talk-section-title" style="display: flex; flex-direction: column; gap: 6px; line-height: 1.15; text-align: left !important; margin-bottom: 18px !important;">
+                            <span style="font-size: 0.52em; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.08em; display: block; background: none !important; -webkit-text-fill-color: #475569 !important;">
+                                <?php echo $is_en ? "Why you shouldn't miss" : "Tại sao bạn không nên bỏ lỡ"; ?>
+                            </span>
+                            <span style="color: #ab0e00 !important; display: block; -webkit-text-fill-color: #ab0e00 !important; font-size: 1.02em; font-weight: 900; letter-spacing: -0.02em; background: none !important; background-clip: border-box !important;">
+                                <?php echo $is_en ? "IDEAS Talk Webinar Series?" : "Chuỗi Webinar của IDEAS?"; ?>
+                            </span>
+                        </div>
                         <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
                         
                         <div class="why-sticky-image-wrapper">
