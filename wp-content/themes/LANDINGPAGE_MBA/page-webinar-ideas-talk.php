@@ -3232,53 +3232,50 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- Section: Webinar Brief (Premium Proposal Layout) -->
+        <!-- Section: Webinar Brief (Premium Public Details Dashboard) -->
         <section class="talk-brief scroll-reveal" id="brief">
             <div class="talk-container">
                 <div class="talk-section-header">
-                    <span class="intro-badge-accent"><?php echo $is_en ? 'Webinar Brief' : 'BRIEF ĐỀ XUẤT WEBINAR'; ?></span>
+                    <span class="intro-badge-accent"><?php echo $is_en ? 'Webinar Highlights' : 'NỘI DUNG CHƯƠNG TRÌNH'; ?></span>
                     <div class="talk-section-title" style="color:#ffffff !important;-webkit-text-fill-color:#ffffff !important; margin-bottom: 14px !important; display: block !important;">
-                        <?php echo $is_en ? 'August 2026 Session <span>Brief & Roadmap</span>' : 'Đề Xuất Chuyên Đề <span>Tháng 8/2026</span>'; ?>
+                        <?php echo $is_en ? 'August 13 Session <span>Highlights & Privileges</span>' : 'Giá Trị & Đặc Quyền <span>Chuyên Đề 13/08</span>'; ?>
                     </div>
-                    <p style="color:#94a3b8; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Detailed proposal and operational plan for the webinar "Applying AI in Learning & Research: Multidimensional Perspectives from 3 Experts".' : 'Kế hoạch chuẩn bị và nội dung chi tiết buổi chia sẻ "Ứng Dụng AI Trong Học Tập & Nghiên Cứu: Góc Nhìn Đa Chiều Từ 3 Chuyên Gia".'; ?></p>
+                    <p style="color:#94a3b8; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia, đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
                 </div>
 
                 <div class="brief-dashboard">
                     <!-- Tab Switcher Nav -->
                     <div class="brief-tabs-nav">
-                        <button class="brief-tab-btn active" onclick="switchBriefTab(event, 'brief-tab-overview')">
-                            <?php echo $is_en ? 'Context & Goals' : '1. Bối Cảnh & Lý Do'; ?>
+                        <button class="brief-tab-btn active" onclick="switchBriefTab(event, 'brief-tab-values')">
+                            <?php echo $is_en ? 'What You Will Learn' : '1. Giá Trị Nhận Được'; ?>
                         </button>
                         <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-speakers')">
-                            <?php echo $is_en ? 'Speakers Panel' : '2. Hội Đồng Diễn Giả'; ?>
+                            <?php echo $is_en ? 'Expert Panel' : '2. Hội Đồng Diễn Giả'; ?>
                         </button>
-                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-agenda')">
-                            <?php echo $is_en ? '90-min Agenda' : '3. Cấu Trúc 90 Phút'; ?>
+                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-audience')">
+                            <?php echo $is_en ? 'Who Should Attend' : '3. Đối Tượng Phù Hợp'; ?>
                         </button>
-                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-roadmap')">
-                            <?php echo $is_en ? 'Preparation Plan' : '4. Kế Hoạch Chuẩn Bị'; ?>
-                        </button>
-                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-targets')">
-                            <?php echo $is_en ? 'Targets & Offers' : '5. Kỳ Vọng & Ưu Đãi'; ?>
+                        <button class="brief-tab-btn" onclick="switchBriefTab(event, 'brief-tab-privileges')">
+                            <?php echo $is_en ? 'Exclusive Offers' : '4. Đặc Quyền & Quà Tặng'; ?>
                         </button>
                     </div>
 
-                    <!-- Panel 1: Overview -->
-                    <div class="brief-tab-panel active" id="brief-tab-overview">
+                    <!-- Panel 1: What You Will Learn -->
+                    <div class="brief-tab-panel active" id="brief-tab-values">
                         <div class="brief-context-grid">
                             <div class="context-card">
                                 <h4>
-                                    <span class="icon">🎯</span>
-                                    <?php echo $is_en ? 'Community Context' : 'Nhu Cầu Cộng Đồng & Bối Cảnh'; ?>
+                                    <span class="icon">🚀</span>
+                                    <?php echo $is_en ? 'Shift Learning Mindset' : 'Đột Phá Tư Duy Tự Học & Nghiên Cứu'; ?>
                                 </h4>
-                                <p><?php echo $is_en ? 'Students and professionals are overwhelmed by hundreds of new AI tools but struggle with methodologies to adopt AI effectively and reliably in their learning and research workflows.' : 'Cộng đồng học viên và người đi làm đang có nhu cầu cực kỳ lớn về ứng dụng AI vào học tập & nghiên cứu. Tuy nhiên, đa số bị choáng ngợp giữa hàng trăm công cụ mới ra mắt hàng ngày và thiếu một phương pháp luận chuẩn xác để viết prompt, kiểm chứng dữ liệu, dẫn đến kết quả nghiên cứu thiếu tin cậy.'; ?></p>
+                                <p><?php echo $is_en ? 'Escape traditional learning boundaries. Learn how to strategically integrate AI models as intellectual partners to accelerate text reading, literature review, and academic research.' : 'Vượt qua giới hạn của phương pháp học truyền thống. Thấu hiểu cách tích hợp AI như một người cộng sự học thuật để rút ngắn 80% thời gian đọc hiểu tài liệu, nghiên cứu và lập luận.'; ?></p>
                             </div>
                             <div class="context-card">
                                 <h4>
-                                    <span class="icon">💡</span>
-                                    <?php echo $is_en ? 'Strategic Rationale' : 'Lý Do Chọn Chủ Đề & Tối Ưu Nguồn Lực'; ?>
+                                    <span class="icon">🔧</span>
+                                    <?php echo $is_en ? 'Master Practical Prompting' : 'Làm Chủ Kỹ Thuật Prompting Thực Chiến'; ?>
                                 </h4>
-                                <p><?php echo $is_en ? 'Opening the August series with a panel discussion utilizing internal experts. It ensures complete control over scheduling and alignment of perspectives while providing highly authoritative insights.' : 'Đây là chủ đề lý tưởng để khởi động chuỗi Webinar tháng 8, tận dụng tối đa nguồn lực giảng viên nội bộ chất lượng của IDEAS. Chương trình được chuẩn bị khép kín, chủ động hoàn toàn về lịch trình, không phụ thuộc chuyên gia bên ngoài, đảm bảo sự thống nhất cao độ về mặt thông điệp.'; ?></p>
+                                <p><?php echo $is_en ? 'Get hands-on frameworks to write high-precision prompts. Automate report structuring, document summarizing, and translate complex concepts with absolute reliability.' : 'Sở hữu các cấu trúc prompt thực tiễn và chuẩn xác để tự động hóa việc tóm tắt bài viết khoa học, lập cấu trúc báo cáo phức tạp và kiểm chứng thông tin nhằm tránh lỗi sai lệch dữ liệu của AI.'; ?></p>
                             </div>
                         </div>
                     </div>
@@ -3310,110 +3307,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
 
-                    <!-- Panel 3: Agenda -->
-                    <div class="brief-tab-panel" id="brief-tab-agenda">
-                        <div class="brief-agenda-list">
-                            <!-- Part 1 -->
-                            <div class="brief-agenda-item">
-                                <div class="brief-agenda-dot"></div>
-                                <div class="brief-agenda-content">
-                                    <div class="brief-agenda-title-part">
-                                        <h4 class="brief-agenda-part-title"><?php echo $is_en ? 'Part 1: Launch & Warm-up' : 'Phần 1: Khởi Động & Giới Thiệu'; ?></h4>
-                                        <p class="brief-agenda-desc"><?php echo $is_en ? 'Host introduces the main topic, panel speakers, and guidelines for the Zoom session.' : 'Host giới thiệu chủ đề tổng quan, giới thiệu 3 chuyên gia và thiết lập nguyên tắc thảo luận.'; ?></p>
-                                    </div>
-                                    <span class="brief-agenda-time"><?php echo $is_en ? '10 Mins (19:30 - 19:40)' : '10 Phút (19:30 - 19:40)'; ?></span>
-                                </div>
+                    <!-- Panel 3: Target Audience -->
+                    <div class="brief-tab-panel" id="brief-tab-audience">
+                        <div class="brief-context-grid">
+                            <div class="context-card">
+                                <h4>
+                                    <span class="icon">🎓</span>
+                                    <?php echo $is_en ? 'Students & Researchers' : 'Học Viên Cao Học & Nhà Nghiên Cứu'; ?>
+                                </h4>
+                                <p><?php echo $is_en ? 'Ideal for MBA/DBA students and academics who need to digest massive research papers, write thesis outlines, and summarize literature with academic rigor.' : 'Phù hợp cho các học viên MBA, DBA, và nhà nghiên cứu cần đọc lượng lớn tài liệu, tổng hợp dữ liệu chuyên ngành, và xây dựng đề cương luận văn chuẩn mực.'; ?></p>
                             </div>
-                            <!-- Part 2 -->
-                            <div class="brief-agenda-item">
-                                <div class="brief-agenda-dot"></div>
-                                <div class="brief-agenda-content">
-                                    <div class="brief-agenda-title-part">
-                                        <h4 class="brief-agenda-part-title"><?php echo $is_en ? 'Part 2: Expert Panel Perspectives' : 'Phần 2: Tọa Đàm - 3 Góc Nhìn Chuyên Sâu'; ?></h4>
-                                        <p class="brief-agenda-desc"><?php echo $is_en ? 'Each speaker presents their designated segment: Mindset (Vinh Pham) -> Prompting (Duong) -> Technology (Vu).' : '3 diễn giả lần lượt chia sẻ 3 góc nhìn hỗ trợ nhau (20 phút/diễn giả): Anh Vinh Phạm (Tư duy) -> Anh Dương (Công cụ) -> Anh Vũ (Nguyên lý công nghệ).'; ?></p>
-                                    </div>
-                                    <span class="brief-agenda-time"><?php echo $is_en ? '60 Mins (19:40 - 20:40)' : '60 Phút (19:40 - 20:40)'; ?></span>
-                                </div>
-                            </div>
-                            <!-- Part 3 -->
-                            <div class="brief-agenda-item">
-                                <div class="brief-agenda-dot"></div>
-                                <div class="brief-agenda-content">
-                                    <div class="brief-agenda-title-part">
-                                        <h4 class="brief-agenda-part-title"><?php echo $is_en ? 'Part 3: Interactive Q&A' : 'Phần 3: Đối Thoại Trực Tiếp & Q&A'; ?></h4>
-                                        <p class="brief-agenda-desc"><?php echo $is_en ? 'Open panel Q&A with attendees. Launching the special 7-day AI Platform trial and introducing materials.' : 'Chuyên gia giải đáp trực tiếp các thắc mắc của khán giả. Host giới thiệu tự nhiên quà tặng độc quyền (AI Book, 7 ngày trải nghiệm hệ sinh thái AI).'; ?></p>
-                                    </div>
-                                    <span class="brief-agenda-time"><?php echo $is_en ? '20 Mins (20:40 - 21:00)' : '20 Phút (20:40 - 21:00)'; ?></span>
-                                </div>
+                            <div class="context-card">
+                                <h4>
+                                    <span class="icon">💼</span>
+                                    <?php echo $is_en ? 'Professionals & Managers' : 'Nhà Quản Trị & Chuyên Viên Trẻ'; ?>
+                                </h4>
+                                <p><?php echo $is_en ? 'For managers and knowledge workers aiming to automate reporting, perform fast industry audits, and upgrade their workflow with structured AI capabilities.' : 'Dành cho các quản lý, trưởng bộ phận muốn ứng dụng AI để tự động hóa báo cáo, lập kế hoạch kinh doanh và nghiên cứu thị trường tinh gọn.'; ?></p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Panel 4: Roadmap -->
-                    <div class="brief-tab-panel" id="brief-tab-roadmap">
-                        <div class="brief-roadmap">
-                            <!-- Node 1 -->
-                            <div class="roadmap-node done">
-                                <span class="roadmap-status">Done</span>
-                                <span class="roadmap-date">27/07/2026</span>
-                                <h5 class="roadmap-title"><?php echo $is_en ? 'Brief Alignment' : 'Thống Nhất Brief'; ?></h5>
-                                <p class="roadmap-desc"><?php echo $is_en ? 'Finalized topic, speaker outlines to avoid overlapping perspectives.' : 'Thống nhất kịch bản chi tiết 3 diễn giả, tránh trùng lặp nội dung.'; ?></p>
-                            </div>
-                            <!-- Node 2 -->
-                            <div class="roadmap-node done">
-                                <span class="roadmap-status">Done</span>
-                                <span class="roadmap-date">30/07/2026</span>
-                                <h5 class="roadmap-title"><?php echo $is_en ? 'LP & Assets' : ' Landing Page & Media'; ?></h5>
-                                <p class="roadmap-desc"><?php echo $is_en ? 'Webinar landing page deployed and registration forms synced.' : 'Hoàn thiện trang đăng ký và thiết kế banner truyền thông.'; ?></p>
-                            </div>
-                            <!-- Node 3 -->
-                            <div class="roadmap-node active">
-                                <span class="roadmap-status">Running</span>
-                                <span class="roadmap-date">03/08/2026</span>
-                                <h5 class="roadmap-title"><?php echo $is_en ? 'Marketing Push' : 'Chiến Dịch Truyền Thông'; ?></h5>
-                                <p class="roadmap-desc"><?php echo $is_en ? 'Email campaign launched, social media posts with gifts.' : 'Phát đi chuỗi email mời dự sự kiện, đăng bài phễu tặng quà MXH.'; ?></p>
-                            </div>
-                            <!-- Node 4 -->
-                            <div class="roadmap-node todo">
-                                <span class="roadmap-status">Todo</span>
-                                <span class="roadmap-date">10/08/2026</span>
-                                <h5 class="roadmap-title"><?php echo $is_en ? 'Reminders & Notifications' : 'Nhắc Lịch & Zalo OA'; ?></h5>
-                                <p class="roadmap-desc"><?php echo $is_en ? 'Zalo OA push, T-1 email reminder with Zoom meeting codes.' : 'Nhắc lịch học qua Zalo OA; gửi Email Reminder kèm phòng Zoom.'; ?></p>
-                            </div>
-                            <!-- Node 5 -->
-                            <div class="roadmap-node todo">
-                                <span class="roadmap-status">Todo</span>
-                                <span class="roadmap-date">13/08/2026</span>
-                                <h5 class="roadmap-title"><?php echo $is_en ? 'Live Event' : 'Tổ Chức Sự Kiện'; ?></h5>
-                                <p class="roadmap-desc"><?php echo $is_en ? 'Panel discussion live, introducing AI Book and Platform.' : 'Tổ chức panel trực tiếp trên Zoom, kết nối AI Book tự nhiên.'; ?></p>
-                            </div>
-                            <!-- Node 6 -->
-                            <div class="roadmap-node todo">
-                                <span class="roadmap-status">Todo</span>
-                                <span class="roadmap-date">Post-Event</span>
-                                <h5 class="roadmap-title"><?php echo $is_en ? 'Sales Handover' : 'Chăm Sóc Sau Sự Kiện'; ?></h5>
-                                <p class="roadmap-desc"><?php echo $is_en ? 'Send survey, record link, hand over active leads to sales.' : 'Gửi form khảo sát, link record, bàn giao tệp lead cho Sales.'; ?></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Panel 5: Targets & Privilege -->
-                    <div class="brief-tab-panel" id="brief-tab-targets">
+                    <!-- Panel 4: Privileges & Offers -->
+                    <div class="brief-tab-panel" id="brief-tab-privileges">
                         <div class="brief-targets-grid">
                             <div class="targets-stats-grid">
-                                <div class="target-stat-card">
-                                    <span class="target-stat-num">50-100</span>
-                                    <span class="target-stat-lbl"><?php echo $is_en ? 'Target Registrations' : 'Lượt đăng ký dự kiến'; ?></span>
+                                <div class="target-stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                    <span class="target-stat-num" style="color: #e11d48;">7 <?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
+                                    <span class="target-stat-lbl"><?php echo $is_en ? 'AI IDEAS Platform Access' : 'Trải nghiệm AI Platform miễn phí'; ?></span>
                                 </div>
-                                <div class="target-stat-card">
-                                    <span class="target-stat-num">89%+</span>
-                                    <span class="target-stat-lbl"><?php echo $is_en ? 'Satisfaction Target' : 'Tỉ lệ hài lòng kỳ vọng'; ?></span>
+                                <div class="target-stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                                    <span class="target-stat-num" style="color: #10b981;">0đ</span>
+                                    <span class="target-stat-lbl"><?php echo $is_en ? 'Completely Free Admission' : 'Hoàn toàn miễn phí tham dự'; ?></span>
                                 </div>
                             </div>
                             <div class="privilege-banner-card">
                                 <span class="privilege-badge"><?php echo $is_en ? 'Special Privilege' : 'Đặc Quyền Tham Gia'; ?></span>
-                                <h4 class="privilege-title"><?php echo $is_en ? 'Free 7-Day Trial of AI IDEAS Platform' : 'Trải nghiệm AI IDEAS Platform 7 ngày miễn phí'; ?></h4>
-                                <p class="privilege-desc"><?php echo $is_en ? 'Every webinar participant receives instant credentials to explore the advanced LMS & AI assistant suite.' : 'Tất cả các học viên đăng ký tham gia trực tiếp sẽ nhận được tài khoản kích hoạt dùng thử 7 ngày hệ sinh thái trợ lý AI độc quyền của IDEAS.'; ?></p>
+                                <h4 class="privilege-title"><?php echo $is_en ? 'Free 7-Day Trial of AI IDEAS Platform & AI Book' : 'Trải nghiệm AI IDEAS Platform 7 ngày miễn phí & Nhận AI Book'; ?></h4>
+                                <p class="privilege-desc"><?php echo $is_en ? 'Every participant receives instant credentials to explore the advanced LMS & AI assistant suite, alongside practical materials and templates.' : 'Tất cả các học viên đăng ký tham gia trực tiếp sẽ nhận được tài khoản kích hoạt dùng thử 7 ngày hệ sinh thái trợ lý AI độc quyền của IDEAS, tặng kèm tài liệu phân tích viết prompt chuyên sâu và sách hướng dẫn thực chiến.'; ?></p>
                             </div>
                         </div>
                     </div>
