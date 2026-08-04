@@ -3113,7 +3113,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="talk-section-title" style="margin-bottom: 14px !important; display: block !important;">
                         <?php echo $is_en ? 'August 13 Session <span>Highlights & Privileges</span>' : 'Giá Trị & Đặc Quyền <span>Chuyên Đề 13/08</span>'; ?>
                     </div>
-                    <p style="color:#475569; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia, đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
+                    <p style="color:#475569; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia,<br>đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
                 </div>
 
                 <div class="brief-dashboard">
