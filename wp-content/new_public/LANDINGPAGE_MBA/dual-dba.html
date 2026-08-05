@@ -5631,6 +5631,24 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="chuc_danh">Chức danh *</label>
+                                <select id="chuc_danh" name="chuc_danh" required>
+                                    <option value="">-- Chọn chức danh --</option>
+                                    <option value="Chủ DN">Chủ DN / Founder / Owner</option>
+                                    <option value="Giám đốc">CEO / Giám đốc / C-level</option>
+                                    <option value="Manager">Manager / Trưởng phòng</option>
+                                    <option value="Khác">Nhân viên / Khác</option>
+                                </select>
+                                <span class="form-error" id="chuc_danh-error" role="alert"></span>
+                            </div>
+                            <div class="form-group" id="other-chuc_danh-group" style="display: none;">
+                                <label for="other_chuc_danh">Chức danh khác *</label>
+                                <input type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="Nhập chức danh của bạn" />
+                                <span class="form-error" id="other-chuc_danh-error" role="alert"></span>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="message">Nội dung bạn muốn chia sẽ / thời gian có thể nghe tư vấn 1:1</label>
                             <textarea id="message" name="message"
@@ -5755,6 +5773,24 @@
                             </select>
                         </div>
                     </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modal-chuc_danh">Chức danh *</label>
+                        <select id="modal-chuc_danh" name="chuc_danh" required>
+                            <option value="">-- Chọn chức danh --</option>
+                            <option value="Chủ DN">Chủ DN / Founder / Owner</option>
+                            <option value="Giám đốc">CEO / Giám đốc / C-level</option>
+                            <option value="Manager">Manager / Trưởng phòng</option>
+                            <option value="Khác">Nhân viên / Khác</option>
+                        </select>
+                        <span class="form-error" id="modal-chuc_danh-error"></span>
+                    </div>
+                    <div class="form-group" id="modal-other-chuc_danh-group" style="display: none;">
+                        <label for="modal-other_chuc_danh">Chức danh khác *</label>
+                        <input type="text" id="modal-other_chuc_danh" name="other_chuc_danh" placeholder="Nhập chức danh của bạn" />
+                        <span class="form-error" id="modal-other-chuc-danh-error"></span>
+                    </div>
+                </div>
 
                     <div class="form-group">
                         <label for="modal-message">Nội dung bạn muốn chia sẽ / thời gian có thể nghe tư vấn 1:1</label>
@@ -5908,6 +5944,28 @@
                             </div>
                         </div>
                     </div>
+                <div class="bk-row-2">
+                    <div class="bk-field">
+                        <label for="bk-chuc_danh">Chức danh <span class="bk-required">*</span></label>
+                        <div class="bk-select-wrap">
+                            <select id="bk-chuc_danh" name="chuc_danh" required>
+                                <option value="">-- Chọn chức danh --</option>
+                                <option value="Chủ DN">Chủ DN / Founder / Owner</option>
+                                <option value="Giám đốc">CEO / Giám đốc / C-level</option>
+                                <option value="Manager">Manager / Trưởng phòng</option>
+                                <option value="Khác">Nhân viên / Khác</option>
+                            </select>
+                        </div>
+                        <span class="bk-err" id="bk-chuc_danh-err"></span>
+                    </div>
+                    <div class="bk-field" id="bk-other-chuc-danh-group" style="display: none;">
+                        <label for="bk-other-chuc-danh">Chức danh khác <span class="bk-required">*</span></label>
+                        <div class="bk-input-wrap">
+                            <input type="text" id="bk-other-chuc-danh" name="other_chuc_danh" placeholder="Nhập chức danh của bạn" />
+                        </div>
+                        <span class="bk-err" id="bk-other-chuc_danh-err"></span>
+                    </div>
+                </div>
 
                     <div class="bk-field">
                         <label>Chương trình quan tâm <span class="bk-required">*</span></label>

@@ -1203,6 +1203,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <input type="email" placeholder="<?php echo $is_en ? 'Email address' : 'Địa chỉ email'; ?>" required
                         style="width: 100%; padding: 14px 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #fff; font-size: 0.95rem;" />
                 </div>
+                <div class="form-group" style="margin-bottom: 20px; text-align: left;">
+                    <select id="chuc_danh" name="chuc_danh" required
+                        style="width: 100%; padding: 14px 20px; border-radius: 12px; background: #13141f; border: 1px solid rgba(255,255,255,0.08); color: #fff; font-size: 0.95rem; appearance: none; -webkit-appearance: none;">
+                        <option value=""><?php echo $is_en ? '-- Select Job Title * --' : '-- Chọn chức danh * --'; ?></option>
+                        <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                        <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                        <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                        <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
+                    </select>
+                </div>
+                <div class="form-group" id="other-chuc_danh-group" style="display: none; margin-bottom: 20px; text-align: left;">
+                    <input type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>"
+                        style="width: 100%; padding: 14px 20px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #fff; font-size: 0.95rem;" />
+                </div>
                 <button type="submit" class="btn btn-primary btn-full"
                     style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
                     <?php echo $is_en ? 'Register for Consultation Now' : 'Đăng ký tư vấn ngay'; ?>
@@ -1242,21 +1256,52 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('lms-register-form');
             if (form) {
+                // Toggle custom job title inputs
+                const chucDanhSel = form.querySelector('#chuc_danh');
+                if (chucDanhSel) {
+                    chucDanhSel.addEventListener('change', function () {
+                        const otherGroup = form.querySelector('#other-chuc_danh-group');
+                        const otherInput = form.querySelector('#other_chuc_danh');
+                        if (otherGroup && otherInput) {
+                            if (this.value === 'Khác') {
+                                otherGroup.style.display = 'block';
+                                otherInput.required = true;
+                            } else {
+                                otherGroup.style.display = 'none';
+                                otherInput.required = false;
+                                otherInput.value = '';
+                            }
+                        }
+                    });
+                }
+
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
+                    const isEn = <?php echo $is_en ? 'true' : 'false'; ?>;
 
                     const nameInput = form.querySelector('input[placeholder*="<?php echo $is_en ? 'Your full name' : 'Họ và tên'; ?>"]') || form.querySelector('input[type="text"]');
                     const phoneInput = form.querySelector('input[placeholder*="<?php echo $is_en ? 'Phone number' : 'Số điện thoại'; ?>"]') || form.querySelector('input[type="tel"]');
                     const emailInput = form.querySelector('input[placeholder*="email"]') || form.querySelector('input[type="email"]');
+                    const chucDanhSelect = form.querySelector('#chuc_danh');
+                    const otherChucDanhInput = form.querySelector('#other_chuc_danh');
 
                     const name = nameInput ? nameInput.value.trim() : '';
                     const phone = phoneInput ? phoneInput.value.trim() : '';
                     const email = emailInput ? emailInput.value.trim() : '';
+                    const chucDanhVal = chucDanhSelect ? chucDanhSelect.value : '';
+                    const otherChucDanhVal = otherChucDanhInput ? otherChucDanhInput.value.trim() : '';
 
-                    if (!name || !phone || !email) {
+                    if (!name || !phone || !email || !chucDanhVal) {
                         alert('<?php echo $is_en ? 'Please fill in all required fields.' : 'Vui lòng điền đầy đủ các thông tin bắt buộc.'; ?>');
                         return;
                     }
+
+                    if (chucDanhVal === 'Khác' && !otherChucDanhVal) {
+                        alert('<?php echo $is_en ? 'Please specify your job title.' : 'Vui lòng nhập chức danh khác.'; ?>');
+                        return;
+                    }
+
+                    const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
 
                     // Prepare submission payloads
                     const payload = {
@@ -1265,8 +1310,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         firstName: name,
                         phoneNumber: phone,
                         time_dat_lich: "",
-                        note_dat_lich: $is_en ? 'Registered from LMS Page' : 'Đăng ký từ trang LMS',
-                        chuong_trinh_dat_lich: $is_en ? 'LMS Moodle & Ecosystem' : 'LMS Moodle và Hệ sinh thái'
+                        note_dat_lich: (isEn ? 'Registered from LMS Page' : 'Đăng ký từ trang LMS') + ' | Chức danh: ' + chucDanhText,
+                        chuong_trinh_dat_lich: isEn ? 'LMS Moodle & Ecosystem' : 'LMS Moodle và Hệ sinh thái',
+                        chuc_danh: chucDanhText
                     };
 
                     const webhookPayload = {
@@ -1277,9 +1323,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         type: "lms_page_registration",
                         tieng_anh: "",
                         hoc_van: "",
+                        chuc_danh: chucDanhText,
                         time_dat_lich: "",
-                        chuong_trinh: $is_en ? 'LMS Moodle & Ecosystem' : 'LMS Moodle và Hệ sinh thái',
-                        nhu_cau: $is_en ? 'Request consultation and LMS Moodle / AI Assistant trial' : 'Đăng ký tư vấn và cấp tài khoản LMS Moodle / Trợ lý AI'
+                        chuong_trinh: isEn ? 'LMS Moodle & Ecosystem' : 'LMS Moodle và Hệ sinh thái',
+                        nhu_cau: (isEn ? 'Request consultation and LMS Moodle / AI Assistant trial' : 'Đăng ký tư vấn và cấp tài khoản LMS Moodle / Trợ lý AI') + ' | Chức danh: ' + chucDanhText
                     };
 
                     // Bind UTMs

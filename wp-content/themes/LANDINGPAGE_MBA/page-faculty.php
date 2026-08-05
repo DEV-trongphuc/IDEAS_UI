@@ -1141,6 +1141,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "Industry 4.0 Project Portfolio Manager - Bosch (Automotive Manufacturing)",
                         "IT Systems Engineer at Intel (Semiconductor Manufacturing)",
                     ]
+                },
+                {
+                    name: "Vũ Minh Nam",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
+                    tag: "MBA",
+                    job: "Financial Consultant & Trainer",
+                    des: [
+                        "Over 22 years of senior leadership experience in top-tier multinational financial and life insurance corporations (Manulife, Hanwha Life, Great Eastern, AIA).",
+                        "Over 12 years dedicated to Product Strategy, Product Development, and Financial Portfolio Management.",
+                        "Over 16 years of experience (since 2010) as a Senior Executive Coach and Corporate Training Consultant for major banks (Techcombank, MB, HDBank) and national conglomerates (Vietjet Air, Petrolimex, VNPT).",
+                        "Sales Director at Affina Vietnam (2025 - Present).",
+                        "Former Director of Agency Quality & Process Management at Manulife Vietnam (2020 - 2023).",
+                        "Former Head of Product Development at Hanwha Life Vietnam (2013 - 2020).",
+                        "Master of Business Administration (MBA) in Financial Management - North Central University (USA)."
+                    ]
                 }
             ] : [
 {
@@ -1309,6 +1324,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "Kỹ sư hệ thống CNTT tại Intel (Semiconductor Manufacturing)",
                     ]
                 },
+                {
+                    name: "Vũ Minh Nam",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
+                    tag: "Thạc sĩ QTKD",
+                    job: "Chuyên gia tư vấn và đào tạo tài chính",
+                    des: [
+                        "Hơn 22 năm kinh nghiệm quản lý và điều hành cấp cao tại các tập đoàn tài chính & bảo hiểm nhân thọ đa quốc gia hàng đầu (Manulife, Hanwha Life, Great Eastern, AIA).",
+                        "Hơn 12 năm chuyên sâu về Chiến lược Sản phẩm, Phát triển Sản phẩm và Quản trị danh mục sản phẩm tài chính.",
+                        "Hơn 16 năm kinh nghiệm (từ 2010) là Chuyên gia Huấn luyện Điều hành (Executive Coach) & Đào tạo Doanh nghiệp cao cấp cho các ngân hàng lớn (Techcombank, MB, HDBank) và tập đoàn quốc gia (Vietjet Air, Petrolimex, VNPT).",
+                        "Giám đốc Kinh doanh (Sales Director) tại Affina Việt Nam (2025 - Nay).",
+                        "Cựu Giám đốc Quản lý Quy trình & Chất lượng Đại lý tại Manulife Việt Nam (2020 - 2023).",
+                        "Cựu Trưởng bộ phận Phát triển Sản phẩm tại Hanwha Life Việt Nam (2013 - 2020).",
+                        "Thạc sĩ Quản trị Kinh doanh (MBA) chuyên ngành Quản lý Tài chính - Đại học North Central (Hoa Kỳ)."
+                    ]
+                }
             ],cv: [
                 {
                     name: "Phạm Quang Vinh",

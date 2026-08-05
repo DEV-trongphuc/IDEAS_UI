@@ -6790,6 +6790,24 @@
                                 <span class="form-error" id="english-error" role="alert"></span>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="chuc_danh">Job Title *</label>
+                                <select id="chuc_danh" name="chuc_danh" required>
+                                    <option value="">-- Select Job Title --</option>
+                                    <option value="Chủ DN">Owner / Founder</option>
+                                    <option value="Giám đốc">CEO / Director / C-level</option>
+                                    <option value="Manager">Manager / Head of Dept</option>
+                                    <option value="Khác">Staff / Other</option>
+                                </select>
+                                <span class="form-error" id="chuc_danh-error" role="alert"></span>
+                            </div>
+                            <div class="form-group" id="other-chuc_danh-group" style="display: none;">
+                                <label for="other_chuc_danh">Specify other title *</label>
+                                <input type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="Please specify" />
+                                <span class="form-error" id="other-chuc_danh-error" role="alert"></span>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="message">Message / Preferred time for 1-on-1 consultation</label>
                             <textarea id="message" name="message"
@@ -6918,6 +6936,24 @@
                             <span class="form-error" id="modal-english-error"></span>
                         </div>
                     </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modal-chuc_danh">Job Title *</label>
+                        <select id="modal-chuc_danh" name="chuc_danh" required>
+                            <option value="">-- Select Job Title --</option>
+                            <option value="Chủ DN">Owner / Founder</option>
+                            <option value="Giám đốc">CEO / Director / C-level</option>
+                            <option value="Manager">Manager / Head of Dept</option>
+                            <option value="Khác">Staff / Other</option>
+                        </select>
+                        <span class="form-error" id="modal-chuc_danh-error"></span>
+                    </div>
+                    <div class="form-group" id="modal-other-chuc_danh-group" style="display: none;">
+                        <label for="modal-other_chuc_danh">Specify other title *</label>
+                        <input type="text" id="modal-other_chuc_danh" name="other_chuc_danh" placeholder="Please specify" />
+                        <span class="form-error" id="modal-other-chuc-danh-error"></span>
+                    </div>
+                </div>
 
                     <div class="form-group">
                         <label for="modal-message">Message / Preferred time for 1-on-1 consultation</label>
@@ -7076,6 +7112,28 @@
                             <span class="bk-err" id="bk-eng-err"></span>
                         </div>
                     </div>
+                <div class="bk-row-2">
+                    <div class="bk-field">
+                        <label for="bk-chuc_danh">Job Title <span class="bk-required">*</span></label>
+                        <div class="bk-select-wrap">
+                            <select id="bk-chuc_danh" name="chuc_danh" required>
+                                <option value="">-- Select Job Title --</option>
+                                <option value="Chủ DN">Owner / Founder</option>
+                                <option value="Giám đốc">CEO / Director / C-level</option>
+                                <option value="Manager">Manager / Head of Dept</option>
+                                <option value="Khác">Staff / Other</option>
+                            </select>
+                        </div>
+                        <span class="bk-err" id="bk-chuc_danh-err"></span>
+                    </div>
+                    <div class="bk-field" id="bk-other-chuc-danh-group" style="display: none;">
+                        <label for="bk-other-chuc-danh">Specify other title <span class="bk-required">*</span></label>
+                        <div class="bk-input-wrap">
+                            <input type="text" id="bk-other-chuc-danh" name="other_chuc_danh" placeholder="Specify your job title" />
+                        </div>
+                        <span class="bk-err" id="bk-other-chuc_danh-err"></span>
+                    </div>
+                </div>
 
                     <div class="bk-field">
                         <label>Program of Interest <span class="bk-required">*</span></label>

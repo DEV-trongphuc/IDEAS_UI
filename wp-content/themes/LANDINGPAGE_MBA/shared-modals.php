@@ -255,6 +255,23 @@ if ($is_en) {
                         </select>
                         <span class="form-error" id="modal-english-error"></span>
                     </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modal-chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
+                        <select id="modal-chuc_danh" name="chuc_danh" required>
+                            <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                            <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                            <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                            <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                            <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
+                        </select>
+                        <span class="form-error" id="modal-chuc_danh-error"></span>
+                    </div>
+                    <div class="form-group" id="modal-other-chuc_danh-group" style="display: none;">
+                        <label for="modal-other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
+                        <input type="text" id="modal-other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>" />
+                        <span class="form-error" id="modal-other-chuc_danh-error"></span>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -430,6 +447,29 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                             </select>
                         </div>
                         <span class="bk-err" id="bk-eng-err"></span>
+                    </div>
+                </div>
+
+                <div class="bk-row-2">
+                    <div class="bk-field">
+                        <label for="bk-chuc_danh"><?php echo $is_en ? 'Job Title' : 'Chức danh'; ?> <span class="bk-required">*</span></label>
+                        <div class="bk-select-wrap">
+                            <select id="bk-chuc_danh" name="chuc_danh" required>
+                                <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                                <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                                <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                                <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                                <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
+                            </select>
+                        </div>
+                        <span class="bk-err" id="bk-chuc_danh-err"></span>
+                    </div>
+                    <div class="bk-field" id="bk-other-chuc-danh-group" style="display: none;">
+                        <label for="bk-other-chuc-danh"><?php echo $is_en ? 'Specify other title' : 'Chức danh khác'; ?> <span class="bk-required">*</span></label>
+                        <div class="bk-input-wrap">
+                            <input type="text" id="bk-other-chuc-danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Specify your job title' : 'Nhập chức danh của bạn'; ?>" />
+                        </div>
+                        <span class="bk-err" id="bk-other-chuc_danh-err"></span>
                     </div>
                 </div>
 

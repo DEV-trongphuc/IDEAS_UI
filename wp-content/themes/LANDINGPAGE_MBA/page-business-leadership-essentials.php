@@ -4727,6 +4727,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="reg-chuc_danh">Chức danh *</label>
+                                    <select id="reg-chuc_danh" name="chuc_danh" required>
+                                        <option value="">-- Chọn chức danh --</option>
+                                        <option value="Chủ DN">Chủ DN / Founder / Owner</option>
+                                        <option value="Giám đốc">CEO / Giám đốc / C-level</option>
+                                        <option value="Manager">Manager / Trưởng phòng</option>
+                                        <option value="Khác">Nhân viên / Khác</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="reg-other-chuc_danh-group" style="display: none;">
+                                    <label for="reg-other_chuc_danh">Chức danh khác *</label>
+                                    <input type="text" id="reg-other_chuc_danh" name="other_chuc_danh" placeholder="Nhập chức danh của bạn" />
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="reg-message">Nội dung bạn muốn chia sẻ / thời gian có thể nghe tư vấn 1:1</label>
                                 <textarea id="reg-message" name="message" rows="3" placeholder="Ví dụ: Tôi muốn tìm hiểu lộ trình học tập, thời gian khai giảng..."></textarea>
@@ -5081,6 +5097,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('ble-bottom-reg-form');
             if (form) {
+                // Toggle custom job title inputs
+                const chucDanhSel = document.getElementById('reg-chuc_danh');
+                if (chucDanhSel) {
+                    chucDanhSel.addEventListener('change', function () {
+                        const otherGroup = document.getElementById('reg-other-chuc_danh-group');
+                        const otherInput = document.getElementById('reg-other_chuc_danh');
+                        if (otherGroup && otherInput) {
+                            if (this.value === 'Khác') {
+                                otherGroup.style.display = 'block';
+                                otherInput.required = true;
+                            } else {
+                                otherGroup.style.display = 'none';
+                                otherInput.required = false;
+                                otherInput.value = '';
+                            }
+                        }
+                    });
+                }
+
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
  
@@ -5089,6 +5124,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     const emailInput = document.getElementById('reg-email');
                     const eduInput = document.getElementById('reg-education');
                     const engInput = document.getElementById('reg-english');
+                    const chucDanhSelect = document.getElementById('reg-chuc_danh');
+                    const otherChucDanhInput = document.getElementById('reg-other_chuc_danh');
                     const msgInput = document.getElementById('reg-message');
  
                     const name = nameInput ? nameInput.value.trim() : '';
@@ -5096,18 +5133,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     const email = emailInput ? emailInput.value.trim() : '';
                     const education = eduInput ? eduInput.value : '';
                     const english = engInput ? engInput.value : '';
+                    const chucDanhVal = chucDanhSelect ? chucDanhSelect.value : '';
+                    const otherChucDanhVal = otherChucDanhInput ? otherChucDanhInput.value.trim() : '';
                     const message = msgInput ? msgInput.value.trim() : '';
  
-                    if (!name || !phone || !email || !education || !english) {
+                    if (!name || !phone || !email || !education || !english || !chucDanhVal) {
                         alert('Vui lòng điền đầy đủ các trường thông tin bắt buộc (*).');
+                        return;
+                    }
+
+                    if (chucDanhVal === 'Khác' && !otherChucDanhVal) {
+                        alert('Vui lòng nhập chức danh khác.');
                         return;
                     }
  
                     // Map values for readable notes
                     const eduLabel = eduInput.options[eduInput.selectedIndex].text;
                     const engLabel = engInput.options[engInput.selectedIndex].text;
+                    const chucDanhLabel = chucDanhSelect.options[chucDanhSelect.selectedIndex].text;
+                    const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
+                    const chucDanhTextLabel = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhLabel;
  
-                    const noteText = `Học vấn: ${eduLabel} | Tiếng Anh: ${engLabel}${message ? ' | Lời nhắn: ' + message : ''}`;
+                    const noteText = `Chức danh: ${chucDanhTextLabel} | Học vấn: ${eduLabel} | Tiếng Anh: ${engLabel}${message ? ' | Lời nhắn: ' + message : ''}`;
  
                     const payload = {
                         form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
@@ -5116,7 +5163,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         phoneNumber: phone,
                         time_dat_lich: "",
                         note_dat_lich: noteText,
-                        chuong_trinh_dat_lich: 'Business Leadership Essentials'
+                        chuong_trinh_dat_lich: 'Business Leadership Essentials',
+                        chuc_danh: chucDanhText
                     };
  
                     const webhookPayload = {
@@ -5127,6 +5175,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         type: "ble_page_registration",
                         tieng_anh: english,
                         hoc_van: education,
+                        chuc_danh: chucDanhText,
                         time_dat_lich: "",
                         chuong_trinh: 'Business Leadership Essentials',
                         nhu_cau: noteText

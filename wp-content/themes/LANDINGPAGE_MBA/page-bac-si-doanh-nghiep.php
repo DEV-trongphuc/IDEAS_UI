@@ -1999,23 +1999,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <input type="email" class="clinic-form-input" id="booking-email" required />
                             </div>
                             <div class="clinic-form-group">
-                                <label class="clinic-form-label"><?php echo $is_en ? 'Company' : 'Tên doanh nghiệp'; ?></label>
-                                <input type="text" class="clinic-form-input" id="booking-company" required />
+                                <label class="clinic-form-label"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
+                                <select class="clinic-form-select" id="booking-chuc_danh" required>
+                                    <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                                    <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder / Owner' : 'Chủ DN / Founder / Owner'; ?></option>
+                                    <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                                    <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                                    <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="clinic-form-group">
-                            <label class="clinic-form-label"><?php echo $is_en ? 'Preferred Time' : 'Thời gian mong muốn'; ?></label>
-                            <select class="clinic-form-select" id="booking-time" required>
-                                <option value="Cuối tuần (Sáng Chủ nhật)"><?php echo $is_en ? 'Weekend (Sunday Morning)' : 'Cuối tuần (Sáng Chủ nhật)'; ?></option>
-                                <option value="Buổi tối trong tuần (20h - 22h)"><?php echo $is_en ? 'Weekday Evening (20:00 - 22:00)' : 'Buổi tối trong tuần (20h - 22h)'; ?></option>
-                                <option value="Hẹn riêng linh hoạt"><?php echo $is_en ? 'Flexible Private Schedule' : 'Hẹn riêng linh hoạt'; ?></option>
+                        <div class="clinic-form-group" id="booking-other-chuc-danh-group" style="display:none; margin-top: 10px;">
+                            <label class="clinic-form-label"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
+                            <input type="text" class="clinic-form-input" id="booking-other-chuc-danh" />
+                        </div>
+
+                        <div class="clinic-form-group" style="margin-top: 10px;">
+                            <label class="clinic-form-label"><?php echo $is_en ? 'Registration Goal *' : 'Mục tiêu đăng ký *'; ?></label>
+                            <select class="clinic-form-select" id="booking-muc_dich" required>
+                                <option value=""><?php echo $is_en ? '-- Select Goal --' : '-- Chọn mục tiêu đăng ký --'; ?></option>
+                                <option value="Giải quyết bài toán DN"><?php echo $is_en ? 'Solve business problems' : 'Giải quyết bài toán DN'; ?></option>
+                                <option value="Nâng cao năng lực quản lý"><?php echo $is_en ? 'Improve management capacity' : 'Nâng cao năng lực quản lý'; ?></option>
+                                <option value="Phát triển sự nghiệp"><?php echo $is_en ? 'Career development' : 'Phát triển sự nghiệp'; ?></option>
+                                <option value="Khác"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
                             </select>
                         </div>
 
-                        <div class="clinic-form-group">
-                            <label class="clinic-form-label"><?php echo $is_en ? 'Describe Bottlenecks' : 'Mô tả chi tiết điểm nghẽn của doanh nghiệp'; ?></label>
-                            <textarea class="clinic-form-textarea" id="booking-desc" rows="4" placeholder="<?php echo $is_en ? 'Outline the core issues or strategic problem...' : 'Mô tả ngắn gọn về khó khăn vận hành, tài chính, nhân sự...'; ?>" required></textarea>
+                        <div class="clinic-form-group" id="booking-other-muc-dich-group" style="display:none; margin-top: 10px;">
+                            <label class="clinic-form-label"><?php echo $is_en ? 'Specify other goal *' : 'Mục tiêu khác *'; ?></label>
+                            <input type="text" class="clinic-form-input" id="booking-other-muc-dich" />
                         </div>
 
                         <button type="submit" class="btn-primary-premium" style="width:100%; justify-content:center; margin-top:8px;">
@@ -2238,6 +2251,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             initFormSelects();
             loadForumData();
             initGoogleLogin();
+
+            // Toggle custom job title / goal inputs
+            const bChucDanh = document.getElementById('booking-chuc_danh');
+            if (bChucDanh) {
+                bChucDanh.addEventListener('change', function () {
+                    const otherGroup = document.getElementById('booking-other-chuc-danh-group');
+                    const otherInput = document.getElementById('booking-other-chuc-danh');
+                    if (otherGroup && otherInput) {
+                        if (this.value === 'Khác') {
+                            otherGroup.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherGroup.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                });
+            }
+
+            const bMucDich = document.getElementById('booking-muc_dich');
+            if (bMucDich) {
+                bMucDich.addEventListener('change', function () {
+                    const otherGroup = document.getElementById('booking-other-muc-dich-group');
+                    const otherInput = document.getElementById('booking-other-muc-dich');
+                    if (otherGroup && otherInput) {
+                        if (this.value === 'Khác') {
+                            otherGroup.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherGroup.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                });
+            }
         });
 
         // Interactive function to switch active pain point node
@@ -2702,12 +2752,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 mentor = selectElement.value;
             }
 
-            const name = document.getElementById('booking-name').value;
-            const phone = document.getElementById('booking-phone').value;
-            const email = document.getElementById('booking-email').value;
-            const company = document.getElementById('booking-company').value;
-            const time = document.getElementById('booking-time').value;
-            const desc = document.getElementById('booking-desc').value;
+            const name = document.getElementById('booking-name').value.trim();
+            const phone = document.getElementById('booking-phone').value.trim();
+            const email = document.getElementById('booking-email').value.trim();
+            
+            const chucDanhSelect = document.getElementById('booking-chuc_danh');
+            const chucDanhVal = chucDanhSelect ? chucDanhSelect.value : '';
+            const otherChucDanh = document.getElementById('booking-other-chuc-danh').value.trim();
+            const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanh : chucDanhVal;
+
+            const mucDichSelect = document.getElementById('booking-muc_dich');
+            const mucDichVal = mucDichSelect ? mucDichSelect.value : '';
+            const otherMucDich = document.getElementById('booking-other-muc-dich').value.trim();
+            const mucDichText = mucDichVal === 'Khác' ? otherMucDich : mucDichVal;
+
+            if (chucDanhVal === 'Khác' && !otherChucDanh) {
+                showToast(isEnglish ? 'Please specify your job title.' : 'Vui lòng nhập chức danh khác.');
+                return;
+            }
+            if (mucDichVal === 'Khác' && !otherMucDich) {
+                showToast(isEnglish ? 'Please specify your registration goal.' : 'Vui lòng nhập mục tiêu khác.');
+                return;
+            }
 
             const formData = new FormData();
             formData.append('action', 'ideas_submit_booking');
@@ -2715,9 +2781,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             formData.append('name', name);
             formData.append('phone', phone);
             formData.append('email', email);
-            formData.append('company', company);
-            formData.append('time', time);
-            formData.append('desc', desc);
+            formData.append('chuc_danh', chucDanhText);
+            formData.append('muc_dich', mucDichText);
 
             fetch(ajaxUrl, { method: 'POST', body: formData })
                 .then(res => res.json())

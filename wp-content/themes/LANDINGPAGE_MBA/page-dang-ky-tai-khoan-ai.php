@@ -730,42 +730,39 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="interest"><?php echo $is_en ? 'Program of Study *' : 'Chương trình học *'; ?></label>
-                                    <select id="interest" name="interest" required>
-                                        <option value=""><?php echo $is_en ? '-- Select Program --' : '-- Chọn chương trình học --'; ?></option>
-                                        <option value="Online MBA">Online MBA</option>
-                                        <option value="Executive MBA">Executive MBA</option>
-                                        <option value="Master AI">Master AI (MSc AI)</option>
-                                        <option value="MBA in AI">MBA in AI</option>
-                                        <option value="Top-up BBA">Top-up BBA</option>
-                                        <option value="Global Online BBA">Global Online BBA</option>
-                                        <option value="Dual DBA">Dual DBA</option>
-                                        <option value="Khác"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
+                                    <label for="chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
+                                    <select id="chuc_danh" name="chuc_danh" required>
+                                        <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                                        <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                                        <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                                        <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                                        <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
                                     </select>
-                                    <span class="form-error" id="interest-error"><?php echo $is_en ? 'Please select program' : 'Vui lòng chọn chương trình học'; ?></span>
+                                    <span class="form-error" id="chuc_danh-error"><?php echo $is_en ? 'Please select job title' : 'Vui lòng chọn chức danh'; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="purpose"><?php echo $is_en ? 'Purpose of using IDEAS AI Platform *' : 'Mục đích sử dụng IDEAS AI Flatform *'; ?></label>
-                                    <select id="purpose" name="purpose" required onchange="toggleOtherPurpose(this.value)">
-                                        <option value=""><?php echo $is_en ? '-- Select Purpose --' : '-- Chọn mục đích sử dụng --'; ?></option>
-                                        <option value="Học tập & nghiên cứu"><?php echo $is_en ? 'Study & Research' : 'Học tập & nghiên cứu'; ?></option>
-                                        <option value="Hướng dẫn làm Assignment"><?php echo $is_en ? 'Assignment Guidance' : 'Hướng dẫn làm Assignment'; ?></option>
-                                        <option value="Ứng dụng AI trong công việc"><?php echo $is_en ? 'Apply AI at work' : 'Ứng dụng AI trong công việc'; ?></option>
-                                        <option value="Khác"><?php echo $is_en ? 'Other / Specify' : 'Khác'; ?></option>
+                                    <label for="muc_dich"><?php echo $is_en ? 'Registration Goal *' : 'Mục tiêu đăng ký *'; ?></label>
+                                    <select id="muc_dich" name="muc_dich" required>
+                                        <option value=""><?php echo $is_en ? '-- Select Goal --' : '-- Chọn mục tiêu đăng ký --'; ?></option>
+                                        <option value="Giải quyết bài toán DN"><?php echo $is_en ? 'Solve business problems' : 'Giải quyết bài toán DN'; ?></option>
+                                        <option value="Nâng cao năng lực quản lý"><?php echo $is_en ? 'Improve management capacity' : 'Nâng cao năng lực quản lý'; ?></option>
+                                        <option value="Phát triển sự nghiệp"><?php echo $is_en ? 'Career development' : 'Phát triển sự nghiệp'; ?></option>
+                                        <option value="Khác"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
                                     </select>
-                                    <span class="form-error" id="purpose-error"><?php echo $is_en ? 'Please select purpose' : 'Vui lòng chọn mục đích sử dụng'; ?></span>
+                                    <span class="form-error" id="muc_dich-error"><?php echo $is_en ? 'Please select registration goal' : 'Vui lòng chọn mục tiêu đăng ký'; ?></span>
                                 </div>
                             </div>
                             
-                            <div class="form-group" id="other-purpose-group" style="display: none;">
-                                <label for="other_purpose"><?php echo $is_en ? 'Specify other purpose *' : 'Mục đích khác *'; ?></label>
-                                <input type="text" id="other_purpose" name="other_purpose" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập mục đích khác của bạn'; ?>" />
-                                <span class="form-error" id="other-purpose-error"><?php echo $is_en ? 'Please specify your purpose' : 'Vui lòng nhập mục đích khác'; ?></span>
+                            <div class="form-group" id="other-chuc_danh-group" style="display: none; margin-bottom: 20px;">
+                                <label for="other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
+                                <input type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>" />
+                                <span class="form-error" id="other-chuc_danh-error"><?php echo $is_en ? 'Please specify your job title' : 'Vui lòng nhập chức danh khác'; ?></span>
                             </div>
 
-                            <div class="form-group">
-                                <label for="message"><?php echo $is_en ? 'What do you expect IDEAS AI Platform to support you with?' : 'Bạn mong muốn IDEAS AI Flatform hỗ trợ điều gì?'; ?></label>
-                                <textarea id="message" name="message" placeholder="<?php echo $is_en ? 'e.g., I want to write essays, find research papers...' : 'Ví dụ: Tôi muốn hỗ trợ viết luận văn, tìm kiếm tài liệu nghiên cứu...'; ?>" rows="3"></textarea>
+                            <div class="form-group" id="other-muc_dich-group" style="display: none; margin-bottom: 20px;">
+                                <label for="other_muc_dich"><?php echo $is_en ? 'Specify other goal *' : 'Mục tiêu khác *'; ?></label>
+                                <input type="text" id="other_muc_dich" name="other_muc_dich" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập mục tiêu khác của bạn'; ?>" />
+                                <span class="form-error" id="other-muc_dich-error"><?php echo $is_en ? 'Please specify your registration goal' : 'Vui lòng nhập mục tiêu khác'; ?></span>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn" style="border: none; cursor: pointer; font-family: inherit;">
@@ -802,23 +799,47 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- Form Submit Handler & Toggle Script -->
     <script>
-        function toggleOtherPurpose(val) {
-            const otherGroup = document.getElementById('other-purpose-group');
-            const otherInput = document.getElementById('other_purpose');
-            if (val === 'Khác') {
-                otherGroup.style.display = 'block';
-                otherInput.required = true;
-            } else {
-                otherGroup.style.display = 'none';
-                otherInput.required = false;
-                otherInput.value = '';
-            }
-        }
-
         if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('page-contact-form');
             if (!form) return;
+
+            // Toggle custom job title / goal inputs
+            const chucDanhSelect = document.getElementById('chuc_danh');
+            if (chucDanhSelect) {
+                chucDanhSelect.addEventListener('change', function () {
+                    const otherGroup = document.getElementById('other-chuc_danh-group');
+                    const otherInput = document.getElementById('other_chuc_danh');
+                    if (otherGroup && otherInput) {
+                        if (this.value === 'Khác') {
+                            otherGroup.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherGroup.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                });
+            }
+
+            const mucDichSelect = document.getElementById('muc_dich');
+            if (mucDichSelect) {
+                mucDichSelect.addEventListener('change', function () {
+                    const otherGroup = document.getElementById('other-muc_dich-group');
+                    const otherInput = document.getElementById('other_muc_dich');
+                    if (otherGroup && otherInput) {
+                        if (this.value === 'Khác') {
+                            otherGroup.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherGroup.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                });
+            }
 
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
@@ -827,35 +848,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const nameInput = document.getElementById('fullname');
                 const phoneInput = document.getElementById('phone');
                 const emailInput = document.getElementById('email');
-                const interestSelect = document.getElementById('interest');
-                const purposeSelect = document.getElementById('purpose');
-                const otherPurposeInput = document.getElementById('other_purpose');
-                const messageInput = document.getElementById('message');
+                const chucDanhSelect = document.getElementById('chuc_danh');
+                const otherChucDanhInput = document.getElementById('other_chuc_danh');
+                const mucDichSelect = document.getElementById('muc_dich');
+                const otherMucDichInput = document.getElementById('other_muc_dich');
 
                 // Error Spans
                 const nameErr = document.getElementById('fullname-error');
                 const phoneErr = document.getElementById('phone-error');
                 const emailErr = document.getElementById('email-error');
-                const interestErr = document.getElementById('interest-error');
-                const purposeErr = document.getElementById('purpose-error');
-                const otherPurposeErr = document.getElementById('other-purpose-error');
+                const chucDanhErr = document.getElementById('chuc_danh-error');
+                const otherChucDanhErr = document.getElementById('other-chuc_danh-error');
+                const mucDichErr = document.getElementById('muc_dich-error');
+                const otherMucDichErr = document.getElementById('other-muc_dich-error');
 
                 // Reset Errors
                 nameErr.classList.remove('active');
                 phoneErr.classList.remove('active');
                 emailErr.classList.remove('active');
-                interestErr.classList.remove('active');
-                purposeErr.classList.remove('active');
-                if (otherPurposeErr) otherPurposeErr.classList.remove('active');
+                if (chucDanhErr) chucDanhErr.classList.remove('active');
+                if (otherChucDanhErr) otherChucDanhErr.classList.remove('active');
+                if (mucDichErr) mucDichErr.classList.remove('active');
+                if (otherMucDichErr) otherMucDichErr.classList.remove('active');
 
                 // Read Values
                 const name = nameInput.value.trim();
                 const phone = phoneInput.value.trim();
                 const email = emailInput.value.trim();
-                const interestVal = interestSelect.value;
-                const purposeVal = purposeSelect.value;
-                const otherPurposeVal = otherPurposeInput ? otherPurposeInput.value.trim() : '';
-                const messageVal = messageInput.value.trim();
+                const chucDanhVal = chucDanhSelect ? chucDanhSelect.value : '';
+                const otherChucDanhVal = otherChucDanhInput ? otherChucDanhInput.value.trim() : '';
+                const mucDichVal = mucDichSelect ? mucDichSelect.value : '';
+                const otherMucDichVal = otherMucDichInput ? otherMucDichInput.value.trim() : '';
 
                 // Simple Validation
                 let isValid = true;
@@ -872,29 +895,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     emailErr.classList.add('active');
                     isValid = false;
                 }
-                if (!interestVal) {
-                    interestErr.classList.add('active');
+                if (!chucDanhVal) {
+                    if (chucDanhErr) chucDanhErr.classList.add('active');
                     isValid = false;
                 }
-                if (!purposeVal) {
-                    purposeErr.classList.add('active');
+                if (chucDanhVal === 'Khác' && !otherChucDanhVal) {
+                    if (otherChucDanhErr) otherChucDanhErr.classList.add('active');
                     isValid = false;
                 }
-                if (purposeVal === 'Khác' && !otherPurposeVal) {
-                    if (otherPurposeErr) otherPurposeErr.classList.add('active');
+                if (!mucDichVal) {
+                    if (mucDichErr) mucDichErr.classList.add('active');
+                    isValid = false;
+                }
+                if (mucDichVal === 'Khác' && !otherMucDichVal) {
+                    if (otherMucDichErr) otherMucDichErr.classList.add('active');
                     isValid = false;
                 }
 
                 if (!isValid) return;
 
-                // Setup Payload
-                const interestText = interestSelect.selectedIndex >= 0 ? interestSelect.options[interestSelect.selectedIndex].text : '';
-                const purposeText = purposeVal === 'Khác' ? `Khác: ${otherPurposeVal}` : purposeVal;
+                const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
+                const mucDichText = mucDichVal === 'Khác' ? otherMucDichVal : mucDichVal;
 
                 const noteParts = [];
-                if (interestText) noteParts.push('Chương trình học: ' + interestText);
-                if (purposeText) noteParts.push('Mục đích sử dụng AI: ' + purposeText);
-                if (messageVal) noteParts.push('Mong muốn hỗ trợ: ' + messageVal);
+                noteParts.push('Chức danh: ' + chucDanhText);
+                noteParts.push('Mục tiêu đăng ký: ' + mucDichText);
                 noteParts.push('CTA Source: ai_platform_registration_page');
                 const combinedNote = noteParts.join(' | ');
 
@@ -904,8 +929,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     email: email,
                     firstName: name,
                     phoneNumber: phone,
-                    chuong_trinh: interestVal,
-                    muc_dich: purposeVal,
+                    chuong_trinh: "IDEAS AI Platform",
+                    chuc_danh: chucDanhText,
+                    muc_dich: mucDichText,
                     note: combinedNote
                 };
 
@@ -929,9 +955,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         name: name,
                         email: email,
                         phone: phone,
-                        program: interestText,
-                        purpose: purposeText,
-                        message: messageVal,
+                        chuc_danh: chucDanhText,
+                        purpose: mucDichText,
                         lang: isEnMode ? 'en' : 'vi'
                     };
                     promises.push(

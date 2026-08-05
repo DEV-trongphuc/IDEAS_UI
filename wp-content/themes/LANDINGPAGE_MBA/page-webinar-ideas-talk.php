@@ -3358,26 +3358,47 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" for="interest"><?php echo $is_en ? 'Your Favorite Topic *' : 'Chủ đề bạn quan tâm *'; ?></label>
-                                <select class="form-control" id="interest" required>
-                                    <option value="" disabled selected><?php echo $is_en ? '-- Select a topic --' : '-- Chọn chủ đề bạn muốn tham gia --'; ?></option>
-                                    <option value="Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)"><?php echo $is_en ? 'Webinar 01: AI in Learning & Research (13/08)' : 'Webinar 01: Ứng dụng AI trong học tập & nghiên cứu (13/08)'; ?></option>
-                                    <option value="Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)"><?php echo $is_en ? 'Webinar 02: Management in the AI Era (27/08)' : 'Webinar 02: Nâng cao năng lực quản trị trong thời đại AI (27/08)'; ?></option>
-                                    <option value="AI & Technology"><?php echo $is_en ? 'Category: AI & Technology' : 'Chuyên đề: AI & Technology'; ?></option>
-                                    <option value="Leadership & Management"><?php echo $is_en ? 'Category: Leadership & Management' : 'Chuyên đề: Leadership & Management'; ?></option>
-                                    <option value="Marketing & Sales"><?php echo $is_en ? 'Category: Marketing & Sales' : 'Chuyên đề: Marketing & Sales'; ?></option>
-                                    <option value="Finance & Business"><?php echo $is_en ? 'Category: Finance & Business' : 'Chuyên đề: Finance & Business'; ?></option>
-                                    <option value="Soft & Human Skills"><?php echo $is_en ? 'Category: Soft & Human Skills' : 'Chuyên đề: Soft & Human Skills'; ?></option>
+                                <label class="form-label" for="chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
+                                <select class="form-control" id="chuc_danh" name="chuc_danh" required>
+                                    <option value="" disabled selected><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                                    <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                                    <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                                    <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                                    <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
                                 </select>
-                                <span class="error-message" id="interest-error">
-                                    <?php echo $is_en ? 'Please select a topic' : 'Vui lòng chọn một chủ đề';
-                                    ?>
+                                <span class="error-message" id="chuc_danh-error">
+                                    <?php echo $is_en ? 'Please select your job title' : 'Vui lòng chọn chức danh'; ?>
                                 </span>
                             </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="question"><?php echo $is_en ? 'Your Questions for Experts' : 'Câu hỏi dành cho Chuyên gia'; ?></label>
-                                <textarea class="form-control" id="question" placeholder="<?php echo $is_en ? 'Ask your questions here...' : 'Nhập câu hỏi hoặc vấn đề doanh nghiệp cần tháo gỡ...'; ?>"></textarea>
+                            <div class="form-group" id="other-chuc_danh-group" style="display: none; margin-top: 10px;">
+                                <label class="form-label" for="other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
+                                <input class="form-control" type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>">
+                                <span class="error-message" id="other-chuc_danh-error">
+                                    <?php echo $is_en ? 'Please specify your job title' : 'Vui lòng nhập chức danh khác'; ?>
+                                </span>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="form-label" for="muc_dich"><?php echo $is_en ? 'Registration Goal *' : 'Mục tiêu đăng ký *'; ?></label>
+                                <select class="form-control" id="muc_dich" name="muc_dich" required>
+                                    <option value="" disabled selected><?php echo $is_en ? '-- Select Goal --' : '-- Chọn mục tiêu đăng ký --'; ?></option>
+                                    <option value="Giải quyết bài toán DN"><?php echo $is_en ? 'Solve business problems' : 'Giải quyết bài toán DN'; ?></option>
+                                    <option value="Nâng cao năng lực quản lý"><?php echo $is_en ? 'Improve management capacity' : 'Nâng cao năng lực quản lý'; ?></option>
+                                    <option value="Phát triển sự nghiệp"><?php echo $is_en ? 'Career development' : 'Phát triển sự nghiệp'; ?></option>
+                                    <option value="Khác"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
+                                </select>
+                                <span class="error-message" id="muc_dich-error">
+                                    <?php echo $is_en ? 'Please select your registration goal' : 'Vui lòng chọn mục tiêu đăng ký'; ?>
+                                </span>
+                            </div>
+
+                            <div class="form-group" id="other-muc_dich-group" style="display: none; margin-top: 10px;">
+                                <label class="form-label" for="other_muc_dich"><?php echo $is_en ? 'Specify other goal *' : 'Mục tiêu khác *'; ?></label>
+                                <input class="form-control" type="text" id="other_muc_dich" name="other_muc_dich" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập mục tiêu khác của bạn'; ?>">
+                                <span class="error-message" id="other-muc_dich-error">
+                                    <?php echo $is_en ? 'Please specify your registration goal' : 'Vui lòng nhập mục tiêu khác'; ?>
+                                </span>
                             </div>
 
                             <div style="margin-top: 36px; text-align: center;">
@@ -3672,6 +3693,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const form = document.getElementById('page-contact-form');
             if (!form) return;
 
+            // Toggle custom job title / goal inputs
+            const chucDanhSelect = document.getElementById('chuc_danh');
+            if (chucDanhSelect) {
+                chucDanhSelect.addEventListener('change', function () {
+                    const otherGroup = document.getElementById('other-chuc_danh-group');
+                    const otherInput = document.getElementById('other_chuc_danh');
+                    if (otherGroup && otherInput) {
+                        if (this.value === 'Khác') {
+                            otherGroup.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherGroup.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                });
+            }
+
+            const mucDichSelect = document.getElementById('muc_dich');
+            if (mucDichSelect) {
+                mucDichSelect.addEventListener('change', function () {
+                    const otherGroup = document.getElementById('other-muc_dich-group');
+                    const otherInput = document.getElementById('other_muc_dich');
+                    if (otherGroup && otherInput) {
+                        if (this.value === 'Khác') {
+                            otherGroup.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherGroup.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                });
+            }
+
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
@@ -3679,27 +3737,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const nameInput = document.getElementById('fullname');
                 const phoneInput = document.getElementById('phone');
                 const emailInput = document.getElementById('email');
-                const interestSelect = document.getElementById('interest');
-                const questionInput = document.getElementById('question');
+                
+                const chucDanhSel = document.getElementById('chuc_danh');
+                const otherChucDanhInput = document.getElementById('other_chuc_danh');
+                const mucDichSel = document.getElementById('muc_dich');
+                const otherMucDichInput = document.getElementById('other_muc_dich');
 
                 // Error Spans
                 const nameErr = document.getElementById('fullname-error');
                 const phoneErr = document.getElementById('phone-error');
                 const emailErr = document.getElementById('email-error');
-                const interestErr = document.getElementById('interest-error');
+                const chucDanhErr = document.getElementById('chuc_danh-error');
+                const otherChucDanhErr = document.getElementById('other-chuc_danh-error');
+                const mucDichErr = document.getElementById('muc_dich-error');
+                const otherMucDichErr = document.getElementById('other-muc_dich-error');
 
                 // Reset Errors
                 nameErr.classList.remove('active');
                 phoneErr.classList.remove('active');
                 emailErr.classList.remove('active');
-                interestErr.classList.remove('active');
+                if (chucDanhErr) chucDanhErr.classList.remove('active');
+                if (otherChucDanhErr) otherChucDanhErr.classList.remove('active');
+                if (mucDichErr) mucDichErr.classList.remove('active');
+                if (otherMucDichErr) otherMucDichErr.classList.remove('active');
 
                 // Values
                 const name = nameInput.value.trim();
                 const phone = phoneInput.value.trim();
                 const email = emailInput.value.trim();
-                const interestVal = interestSelect.value;
-                const questionVal = questionInput.value.trim();
+                const chucDanhVal = chucDanhSel ? chucDanhSel.value : '';
+                const otherChucDanhVal = otherChucDanhInput ? otherChucDanhInput.value.trim() : '';
+                const mucDichVal = mucDichSel ? mucDichSel.value : '';
+                const otherMucDichVal = otherMucDichInput ? otherMucDichInput.value.trim() : '';
 
                 let isValid = true;
 
@@ -3715,16 +3784,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     emailErr.classList.add('active');
                     isValid = false;
                 }
-                if (!interestVal) {
-                    interestErr.classList.add('active');
+                if (!chucDanhVal) {
+                    if (chucDanhErr) chucDanhErr.classList.add('active');
+                    isValid = false;
+                }
+                if (chucDanhVal === 'Khác' && !otherChucDanhVal) {
+                    if (otherChucDanhErr) otherChucDanhErr.classList.add('active');
+                    isValid = false;
+                }
+                if (!mucDichVal) {
+                    if (mucDichErr) mucDichErr.classList.add('active');
+                    isValid = false;
+                }
+                if (mucDichVal === 'Khác' && !otherMucDichVal) {
+                    if (otherMucDichErr) otherMucDichErr.classList.add('active');
                     isValid = false;
                 }
 
                 if (!isValid) return;
 
+                const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
+                const mucDichText = mucDichVal === 'Khác' ? otherMucDichVal : mucDichVal;
+
                 const noteParts = [];
-                noteParts.push('Chủ đề webinar: ' + interestVal);
-                if (questionVal) noteParts.push('Câu hỏi: ' + questionVal);
+                noteParts.push('Chức danh: ' + chucDanhText);
+                noteParts.push('Mục tiêu đăng ký: ' + mucDichText);
                 noteParts.push('CTA Source: ideas_talk_webinar_page');
                 const combinedNote = noteParts.join(' | ');
 
@@ -3736,7 +3820,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     phoneNumber: phone,
                     time_dat_lich: "",
                     note_dat_lich: `Đăng ký Webinar IDEAS Talk | ${combinedNote}`,
-                    chuong_trinh_dat_lich: interestVal
+                    chuong_trinh_dat_lich: "IDEAS Talk Webinar",
+                    chuc_danh: chucDanhText
                 };
 
                 // Webhook Payload for open.domation.net
@@ -3747,7 +3832,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     source: "Ideas_Talk_Webinar_Landing_Page",
                     type: "webinar_registration",
                     chuong_trinh: "IDEAS Talk Webinar",
-                    nhu_cau: `Đăng ký Webinar IDEAS Talk | Chủ đề quan tâm: ${interestVal} | Câu hỏi: ${questionVal}`
+                    chuc_danh: chucDanhText,
+                    nhu_cau: `Đăng ký Webinar IDEAS Talk | Chức danh: ${chucDanhText} | Mục tiêu đăng ký: ${mucDichText}`
                 };
 
                 // Append UTMs

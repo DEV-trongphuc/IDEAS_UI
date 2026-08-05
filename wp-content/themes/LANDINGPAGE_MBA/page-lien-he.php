@@ -748,6 +748,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </select>
                                     <span class="form-error" id="english-error"><?php echo $is_en ? 'Please select English level' : 'Vui lòng chọn trình độ Tiếng Anh'; ?></span>
                                 </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
+                                    <select id="chuc_danh" name="chuc_danh" required>
+                                        <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                                        <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                                        <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                                        <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                                        <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
+                                    </select>
+                                    <span class="form-error" id="chuc_danh-error"><?php echo $is_en ? 'Please select job title' : 'Vui lòng chọn chức danh'; ?></span>
+                                </div>
+                                <div class="form-group" id="other-chuc_danh-group" style="display: none;">
+                                    <label for="other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
+                                    <input type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>" />
+                                    <span class="form-error" id="other-chuc_danh-error"><?php echo $is_en ? 'Please specify your job title' : 'Vui lòng nhập chức danh khác'; ?></span>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -810,6 +827,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const form = document.getElementById('page-contact-form');
             if (!form) return;
 
+            // Toggle custom job title inputs
+            const chucDanhSel = document.getElementById('chuc_danh');
+            if (chucDanhSel) {
+                chucDanhSel.addEventListener('change', function () {
+                    const otherGroup = document.getElementById('other-chuc_danh-group');
+                    const otherInput = document.getElementById('other_chuc_danh');
+                    if (otherGroup && otherInput) {
+                        if (this.value === 'Khác') {
+                            otherGroup.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherGroup.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                });
+            }
+
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
@@ -819,6 +855,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const emailInput = document.getElementById('email');
                 const eduSelect = document.getElementById('education');
                 const engSelect = document.getElementById('english');
+                const chucDanhSelect = document.getElementById('chuc_danh');
+                const otherChucDanhInput = document.getElementById('other_chuc_danh');
                 const interestSelect = document.getElementById('interest');
                 const messageInput = document.getElementById('message');
 
@@ -828,6 +866,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const emailErr = document.getElementById('email-error');
                 const eduErr = document.getElementById('education-error');
                 const engErr = document.getElementById('english-error');
+                const chucDanhErr = document.getElementById('chuc_danh-error');
+                const otherChucDanhErr = document.getElementById('other-chuc_danh-error');
                 const interestErr = document.getElementById('interest-error');
 
                 // Reset Errors
@@ -836,6 +876,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 emailErr.classList.remove('active');
                 eduErr.classList.remove('active');
                 engErr.classList.remove('active');
+                if (chucDanhErr) chucDanhErr.classList.remove('active');
+                if (otherChucDanhErr) otherChucDanhErr.classList.remove('active');
                 interestErr.classList.remove('active');
 
                 // Read Values
@@ -844,6 +886,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const email = emailInput.value.trim();
                 const eduVal = eduSelect.value;
                 const engVal = engSelect.value;
+                const chucDanhVal = chucDanhSelect ? chucDanhSelect.value : '';
+                const otherChucDanhVal = otherChucDanhInput ? otherChucDanhInput.value.trim() : '';
                 const interestVal = interestSelect.value;
                 const messageVal = messageInput.value.trim();
 
@@ -870,6 +914,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     engErr.classList.add('active');
                     isValid = false;
                 }
+                if (!chucDanhVal) {
+                    if (chucDanhErr) chucDanhErr.classList.add('active');
+                    isValid = false;
+                }
+                if (chucDanhVal === 'Khác' && !otherChucDanhVal) {
+                    if (otherChucDanhErr) otherChucDanhErr.classList.add('active');
+                    isValid = false;
+                }
                 if (!interestVal) {
                     interestErr.classList.add('active');
                     isValid = false;
@@ -881,8 +933,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 const eduText = eduSelect.selectedIndex >= 0 ? eduSelect.options[eduSelect.selectedIndex].text : '';
                 const engText = engSelect.selectedIndex >= 0 ? engSelect.options[engSelect.selectedIndex].text : '';
                 const interestText = interestSelect.selectedIndex >= 0 ? interestSelect.options[interestSelect.selectedIndex].text : '';
+                const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
 
                 const noteParts = [];
+                if (chucDanhText) noteParts.push('Chức danh: ' + chucDanhText);
                 if (eduText) noteParts.push('Học vấn: ' + eduText);
                 if (engText) noteParts.push('Tiếng Anh: ' + engText);
                 if (messageVal) noteParts.push(messageVal);
@@ -896,7 +950,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     phoneNumber: phone,
                     time_dat_lich: "",
                     note_dat_lich: `Đăng ký tuyển sinh từ trang Liên hệ | ${combinedNote}`,
-                    chuong_trinh_dat_lich: interestVal
+                    chuong_trinh_dat_lich: interestVal,
+                    chuc_danh: chucDanhText
                 };
 
                 const webhookPayload = {
@@ -907,6 +962,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     type: "contact_page_registration",
                     tieng_anh: engText,
                     hoc_van: eduText,
+                    chuc_danh: chucDanhText,
                     time_dat_lich: "",
                     chuong_trinh: interestVal,
                     nhu_cau: `Đăng ký tuyển sinh từ trang Liên hệ | Note: ${combinedNote}`

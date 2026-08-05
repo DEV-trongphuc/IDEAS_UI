@@ -139,6 +139,7 @@
                     if (idx === 0) return; // skip placeholder
                     // Update native select
                     nativeSelect.value = opt.value;
+                    nativeSelect.dispatchEvent(new Event('change'));
                     // Update trigger
                     textSpan.textContent = opt.text;
                     trigger.classList.remove('bk-placeholder');
@@ -394,6 +395,21 @@
             ok = false;
         }
 
+        const chucDanh = document.getElementById('bk-chuc_danh');
+        const otherChucDanh = document.getElementById('bk-other-chuc-danh');
+        clearErr('bk-chuc_danh-err');
+        clearErr('bk-other-chuc_danh-err');
+
+        if (chucDanh) {
+            if (!chucDanh.value) {
+                showErr('bk-chuc_danh-err', isEn ? 'Please select your job title.' : 'Vui lòng chọn chức danh.');
+                ok = false;
+            } else if (chucDanh.value === 'Khác' && (!otherChucDanh || !otherChucDanh.value.trim())) {
+                showErr('bk-other-chuc_danh-err', isEn ? 'Please specify your job title.' : 'Vui lòng nhập chức danh khác.');
+                ok = false;
+            }
+        }
+
         if (ok) goToStep(2);
     });
 
@@ -427,6 +443,8 @@
         const programEl = document.querySelector('input[name="bk-program"]:checked');
         const eduEl = document.getElementById('bk-edu');
         const engEl = document.getElementById('bk-eng');
+        const chucDanhEl = document.getElementById('bk-chuc_danh');
+        const otherChucDanhEl = document.getElementById('bk-other-chuc-danh');
 
         const nameVal = nameEl ? nameEl.value.trim() : '';
         const phoneVal = phoneEl ? phoneEl.value.trim() : '';
@@ -440,6 +458,8 @@
         // note_dat_lich: program + optional education/english
         const eduVal = eduEl ? eduEl.value : '';
         const engVal = engEl ? engEl.value : '';
+        const chucDanhVal = chucDanhEl ? chucDanhEl.value : '';
+        const otherChucDanhVal = otherChucDanhEl ? otherChucDanhEl.value.trim() : '';
 
         const getSelectText = (el) => {
             if (!el) return '';
@@ -471,7 +491,22 @@
         const eduText = getSelectText(eduEl);
         const engText = getSelectText(engEl);
 
-        const noteParts = [programVal, eduText || eduVal, engText || engVal].filter(Boolean);
+        const getChucDanhText = () => {
+            if (!chucDanhVal) return '';
+            if (chucDanhVal === 'Khác') return otherChucDanhVal || 'Khác';
+            if (chucDanhEl && chucDanhEl.selectedIndex >= 0) {
+                return chucDanhEl.options[chucDanhEl.selectedIndex].text;
+            }
+            return chucDanhVal;
+        };
+        const chucDanhText = getChucDanhText();
+
+        const noteParts = [
+            programVal, 
+            chucDanhText ? (isEn ? 'Job: ' : 'Chức danh: ') + chucDanhText : '',
+            eduText || eduVal, 
+            engText || engVal
+        ].filter(Boolean);
         const noteDatLich = noteParts.join(' | ');
 
         // Tự động phân loại source và chuong_trinh theo pathname
@@ -517,6 +552,7 @@
             phoneNumber: phoneVal,
             time_dat_lich: timeDatLich,
             note_dat_lich: noteDatLich,
+            chuc_danh: chucDanhText,
             chuong_trinh_dat_lich: chuongTrinhVal
         };
 
@@ -529,9 +565,10 @@
             type: "dat_lich_tu_van",
             hoc_van: eduText || eduVal,
             tieng_anh: engText || engVal,
+            chuc_danh: chucDanhText,
             time_dat_lich: timeDatLich,
             chuong_trinh: chuongTrinhVal,
-            nhu_cau: `Đặt lịch tư vấn: ${timeDatLich}`
+            nhu_cau: (chucDanhText ? (isEn ? "Job: " : "Chức danh: ") + chucDanhText + " | " : "") + `Đặt lịch tư vấn: ${timeDatLich}`
         };
 
         // Trích xuất các tham số UTM và đẩy vào webhookPayload
@@ -816,4 +853,24 @@
         initCustomSelects();
         initCalendar();
     }
+
+    // Toggle other job title group in booking modal
+    document.addEventListener('change', function (e) {
+        if (e.target && e.target.id === 'bk-chuc_danh') {
+            const otherGroup = document.getElementById('bk-other-chuc-danh-group');
+            const otherInput = document.getElementById('bk-other-chuc-danh');
+            if (otherGroup && otherInput) {
+                if (e.target.value === 'Khác') {
+                    otherGroup.style.display = 'block';
+                    otherInput.required = true;
+                } else {
+                    otherGroup.style.display = 'none';
+                    otherInput.required = false;
+                    otherInput.value = '';
+                    const errorEl = document.getElementById('bk-other-chuc_danh-err');
+                    if (errorEl) errorEl.textContent = '';
+                }
+            }
+        }
+    });
 })();

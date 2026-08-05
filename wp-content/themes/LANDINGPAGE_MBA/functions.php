@@ -6065,15 +6065,14 @@ function ideas_ajax_submit_booking() {
     $name = sanitize_text_field($_POST['name']);
     $phone = sanitize_text_field($_POST['phone']);
     $email = sanitize_email($_POST['email']);
-    $company = sanitize_text_field($_POST['company']);
-    $desc = sanitize_textarea_field($_POST['desc']);
-    $time = sanitize_text_field($_POST['time']);
+    $chuc_danh = sanitize_text_field($_POST['chuc_danh']);
+    $muc_dich = sanitize_text_field($_POST['muc_dich']);
 
-    if (empty($mentor) || empty($name) || empty($phone) || empty($email) || empty($company) || empty($desc)) {
+    if (empty($mentor) || empty($name) || empty($phone) || empty($email) || empty($chuc_danh) || empty($muc_dich)) {
         wp_send_json_error('Vui lòng điền đầy đủ tất cả các trường bắt buộc.');
     }
 
-    $booking_title = sprintf('Lịch đặt hẹn: %s - Chuyên gia %s (%s)', $company, $mentor, date('d/m/Y H:i'));
+    $booking_title = sprintf('Lịch đặt hẹn: %s - Chức danh %s (%s)', $name, $chuc_danh, date('d/m/Y H:i'));
 
     $post_data = [
         'post_title' => $booking_title,
@@ -6091,14 +6090,17 @@ function ideas_ajax_submit_booking() {
     update_post_meta($post_id, 'contact_name', $name);
     update_post_meta($post_id, 'contact_phone', $phone);
     update_post_meta($post_id, 'contact_email', $email);
-    update_post_meta($post_id, 'company_name', $company);
-    update_post_meta($post_id, 'pain_point_desc', $desc);
-    update_post_meta($post_id, 'booking_time', $time);
+    update_post_meta($post_id, 'chuc_danh', $chuc_danh);
+    update_post_meta($post_id, 'muc_dich', $muc_dich);
+    // Aliases for compatibility
+    update_post_meta($post_id, 'company_name', $chuc_danh);
+    update_post_meta($post_id, 'pain_point_desc', $muc_dich);
+    update_post_meta($post_id, 'booking_time', $muc_dich);
 
     // Gửi email thông báo cho quản trị
     $admin_email = get_option('admin_email');
     $subject = 'Có yêu cầu Đặt lịch Tư vấn Doanh nghiệp mới';
-    $message = "Họ tên: $name\nSố điện thoại: $phone\nEmail: $email\nDoanh nghiệp: $company\nChuyên gia yêu cầu: $mentor\nThời gian mong muốn: $time\nMô tả điểm nghẽn: $desc";
+    $message = "Họ tên: $name\nSố điện thoại: $phone\nEmail: $email\nChức danh: $chuc_danh\nChuyên gia yêu cầu: $mentor\nMục tiêu đăng ký: $muc_dich";
     wp_mail($admin_email, $subject, $message);
 
     wp_send_json_success('Yêu cầu đặt lịch của bạn đã được gửi. Chuyên viên tư vấn học vụ của IDEAS sẽ liên hệ với bạn trong vòng 24h.');
@@ -6184,9 +6186,12 @@ add_action('manage_ideas_clinic_topic_posts_custom_column', function($column, $p
  */
 add_filter('manage_ideas_clinic_booking_posts_columns', function($columns) {
     $columns['contact_info'] = 'Liên hệ';
-    $columns['company_name'] = 'Doanh nghiệp';
+    $columns['chuc_danh'] = 'Chức danh';
     $columns['selected_mentor'] = 'Chuyên gia yêu cầu';
-    $columns['booking_time'] = 'Thời gian hẹn';
+    $columns['muc_dich'] = 'Mục tiêu đăng ký';
+    // Remove the old ones
+    unset($columns['company_name']);
+    unset($columns['booking_time']);
     return $columns;
 });
 
@@ -6196,12 +6201,12 @@ add_action('manage_ideas_clinic_booking_posts_custom_column', function($column, 
         $phone = get_post_meta($post_id, 'contact_phone', true);
         $email = get_post_meta($post_id, 'contact_email', true);
         echo "<b>$name</b><br>📞 $phone<br>📧 $email";
-    } elseif ($column === 'company_name') {
-        echo get_post_meta($post_id, 'company_name', true);
+    } elseif ($column === 'chuc_danh') {
+        echo esc_html(get_post_meta($post_id, 'chuc_danh', true));
     } elseif ($column === 'selected_mentor') {
-        echo "👨‍⚕️ " . get_post_meta($post_id, 'selected_mentor', true);
-    } elseif ($column === 'booking_time') {
-        echo "🕒 " . get_post_meta($post_id, 'booking_time', true);
+        echo "👨‍⚕️ " . esc_html(get_post_meta($post_id, 'selected_mentor', true));
+    } elseif ($column === 'muc_dich') {
+        echo "🎯 " . esc_html(get_post_meta($post_id, 'muc_dich', true));
     }
 }, 10, 2);
 

@@ -380,6 +380,14 @@ const isEn = document.documentElement.lang === 'en';
                 el: form.querySelector('[name="message"]'),
                 errorEl: form.querySelector('.form-error[id*="message-error"]')
             },
+            chuc_danh: {
+                el: form.querySelector('[name="chuc_danh"]'),
+                errorEl: form.querySelector('.form-error[id*="chuc_danh-error"]')
+            },
+            other_chuc_danh: {
+                el: form.querySelector('[name="other_chuc_danh"]'),
+                errorEl: form.querySelector('.form-error[id*="other-chuc_danh-error"]')
+            }
         };
 
         function validatePhone(val) {
@@ -444,6 +452,25 @@ const isEn = document.documentElement.lang === 'en';
             });
         }
 
+        if (fields.chuc_danh.el) {
+            fields.chuc_danh.el.addEventListener('change', () => {
+                const val = fields.chuc_danh.el.value;
+                if (!val) showError(fields.chuc_danh, isEn ? 'Please select your job title.' : 'Vui lòng chọn chức danh.');
+                else {
+                    clearError(fields.chuc_danh);
+                    if (val !== 'Khác') clearError(fields.other_chuc_danh);
+                }
+            });
+        }
+
+        if (fields.other_chuc_danh.el) {
+            fields.other_chuc_danh.el.addEventListener('blur', () => {
+                if (fields.chuc_danh.el && fields.chuc_danh.el.value === 'Khác' && !fields.other_chuc_danh.el.value.trim()) {
+                    showError(fields.other_chuc_danh, isEn ? 'Please specify your job title.' : 'Vui lòng nhập chức danh khác.');
+                } else clearError(fields.other_chuc_danh);
+            });
+        }
+
         // Clear errors on input
         Object.values(fields).forEach(f => {
             if (f.el) f.el.addEventListener('input', () => clearError(f));
@@ -473,16 +500,35 @@ const isEn = document.documentElement.lang === 'en';
             } else clearError(fields.email);
 
             const eduVal = fields.education.el ? fields.education.el.value : '';
-            if (!eduVal) {
-                showError(fields.education, isEn ? 'Please select your education level.' : 'Vui lòng chọn trình độ học vấn.');
-                valid = false;
-            } else clearError(fields.education);
+            if (fields.education.el) {
+                if (!eduVal) {
+                    showError(fields.education, isEn ? 'Please select your education level.' : 'Vui lòng chọn trình độ học vấn.');
+                    valid = false;
+                } else clearError(fields.education);
+            }
 
             const engVal = fields.english.el ? fields.english.el.value : '';
-            if (!engVal) {
-                showError(fields.english, isEn ? 'Please select your English level.' : 'Vui lòng chọn trình độ Tiếng Anh.');
-                valid = false;
-            } else clearError(fields.english);
+            if (fields.english.el) {
+                if (!engVal) {
+                    showError(fields.english, isEn ? 'Please select your English level.' : 'Vui lòng chọn trình độ Tiếng Anh.');
+                    valid = false;
+                } else clearError(fields.english);
+            }
+
+            const chucDanhVal = fields.chuc_danh.el ? fields.chuc_danh.el.value : '';
+            const otherChucDanhVal = fields.other_chuc_danh.el ? fields.other_chuc_danh.el.value.trim() : '';
+            if (fields.chuc_danh.el) {
+                if (!chucDanhVal) {
+                    showError(fields.chuc_danh, isEn ? 'Please select your job title.' : 'Vui lòng chọn chức danh.');
+                    valid = false;
+                } else if (chucDanhVal === 'Khác' && !otherChucDanhVal) {
+                    showError(fields.other_chuc_danh, isEn ? 'Please specify your job title.' : 'Vui lòng nhập chức danh khác.');
+                    valid = false;
+                } else {
+                    clearError(fields.chuc_danh);
+                    clearError(fields.other_chuc_danh);
+                }
+            }
 
             if (!valid) {
                 submitBtn.style.animation = 'shake 0.4s ease';
@@ -533,8 +579,19 @@ const isEn = document.documentElement.lang === 'en';
             const eduText = getSelectText(eduEl);
             const engText = getSelectText(engEl);
 
+            const getChucDanhText = () => {
+                if (!chucDanhVal) return '';
+                if (chucDanhVal === 'Khác') return otherChucDanhVal || 'Khác';
+                if (fields.chuc_danh.el && fields.chuc_danh.el.selectedIndex >= 0) {
+                    return fields.chuc_danh.el.options[fields.chuc_danh.el.selectedIndex].text;
+                }
+                return chucDanhVal;
+            };
+            const chucDanhText = getChucDanhText();
+
             // Gộp học vấn + tiếng Anh vào note
             const noteParts = [];
+            if (chucDanhText) noteParts.push((isEn ? 'Job Title: ' : 'Chức danh: ') + chucDanhText);
             if (eduText) noteParts.push((isEn ? 'Education: ' : 'Học vấn: ') + eduText);
             if (engText) noteParts.push((isEn ? 'English: ' : 'Tiếng Anh: ') + engText);
             if (msgVal) noteParts.push(msgVal);
@@ -632,6 +689,7 @@ const isEn = document.documentElement.lang === 'en';
                 phoneNumber: phoneVal,
                 hoc_van: eduText || eduVal,
                 tieng_anh: engText || engVal,
+                chuc_danh: chucDanhText,
                 khach_note: combinedNote,
                 chuong_trinh: chuongTrinhVal
             };
@@ -645,7 +703,8 @@ const isEn = document.documentElement.lang === 'en';
                 type: (formId === 'modal-cta-form') ? ctaSource : "form_dang_ky",
                 hoc_van: eduText || eduVal,
                 tieng_anh: engText || engVal,
-                nhu_cau: (msgVal ? msgVal + " | " : "") + "Submit từ CTA: " + ctaSource,
+                chuc_danh: chucDanhText,
+                nhu_cau: (chucDanhText ? (isEn ? "Job: " : "Chức danh: ") + chucDanhText + " | " : "") + (msgVal ? msgVal + " | " : "") + "Submit từ CTA: " + ctaSource,
                 chuong_trinh: chuongTrinhVal
             };
 
@@ -713,6 +772,29 @@ const isEn = document.documentElement.lang === 'en';
     // Initialize both forms
     initForm('cta-form', 'form-success');
     initForm('modal-cta-form', 'modal-form-success');
+
+    // Centralized event listener to toggle custom job title input
+    document.addEventListener('change', function (e) {
+        if (e.target && e.target.name === 'chuc_danh') {
+            const form = e.target.closest('form');
+            if (!form) return;
+            const otherGroup = form.querySelector('[id*="other-chuc_danh-group"]');
+            const otherInput = form.querySelector('[name="other_chuc_danh"]');
+            if (otherGroup && otherInput) {
+                if (e.target.value === 'Khác') {
+                    otherGroup.style.display = 'block';
+                    otherInput.required = true;
+                } else {
+                    otherGroup.style.display = 'none';
+                    otherInput.required = false;
+                    otherInput.value = '';
+                    const errorEl = form.querySelector('.form-error[id*="other-chuc_danh-error"]');
+                    if (errorEl) errorEl.textContent = '';
+                    otherInput.classList.remove('error');
+                }
+            }
+        }
+    });
 
     /* ─── Registration Modal ─── */
     const regModal = document.getElementById('reg-modal');
