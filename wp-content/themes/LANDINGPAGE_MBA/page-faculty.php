@@ -931,7 +931,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="tab-nav" id="faculty-tabs" role="tablist">
             <button class="tab-btn active" id="tab-gv" data-tab="gv" role="tab" aria-selected="true">
                 <svg class="svg-icon fa-chalkboard-user fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M160 64c0-35.3 28.7-64 64-64L576 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64l-239.2 0c-11.8-25.5-29.9-47.5-52.4-64l99.6 0 0-32c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 32 64 0 0-288L224 64l0 49.1C205.2 102.2 183.3 96 160 96l0-32zm0 64a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM133.3 352l53.3 0C260.3 352 320 411.7 320 485.3c0 14.7-11.9 26.7-26.7 26.7L26.7 512C11.9 512 0 500.1 0 485.3C0 411.7 59.7 352 133.3 352z"/></svg> <?php echo $is_en ? 'Lecturers' : 'Giảng viên'; ?>
-                <span class="tab-count" id="count-gv">15</span>
+                <span class="tab-count" id="count-gv">16</span>
             </button>
             <button class="tab-btn" id="tab-cv" data-tab="cv" role="tab" aria-selected="false">
                 <svg class="svg-icon fa-globe fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z"/></svg> <?php echo $is_en ? 'International Advisors' : 'Cố vấn Quốc tế'; ?>
@@ -1022,18 +1022,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     ]
                 },
                 {
-                    name: "Trần Hoàng Hiệp",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp",
-                    tag: "MBA from McFord University",
-                    job: "Deputy General Director – Business Smart JSC",
-                    des: [
-                        "Over 31 years of business experience",
-                        "Consultant and implementation expert for international capacity building projects in Singapore, Malaysia, and Myanmar",
-                        "Participated in the $49M Banking Modernization Project funded by the World Bank (WB)",
-                        "Certified trainer for John Kotter's [Leading Bold Change] program (Harvard University, USA)",
-                    ]
-                },
-                {
                     name: "Nguyễn Thị Minh Đoan",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp",
                     tag: "PhD in Business Administration",
@@ -1052,6 +1040,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "25 years of experience in Pharmaceuticals, Vaccines, and Medical Devices business",
                         "11 years of senior management experience at GlaxoSmithKline (GSK), Roche, Menarini, and Takeda",
                         "3 years of experience in education, guest lecturer, and university speaker",
+                    ]
+                },
+                {
+                    name: "Nguyễn Thanh Tuấn",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
+                    tag: "PhD in Business Administration",
+                    job: "Lecturer",
+                    des: [
+                        "Over 20 years of teaching experience at domestic and international universities",
+                        "Topics: Business Research Methods, International Management, Organizational Behavior, Marketing Strategy, HRM",
+                    ]
+                },
+                {
+                    name: "Trần Hoàng Hiệp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp",
+                    tag: "MBA from McFord University",
+                    job: "Deputy General Director – Business Smart JSC",
+                    des: [
+                        "Over 31 years of business experience",
+                        "Consultant and implementation expert for international capacity building projects in Singapore, Malaysia, and Myanmar",
+                        "Participated in the $49M Banking Modernization Project funded by the World Bank (WB)",
+                        "Certified trainer for John Kotter's [Leading Bold Change] program (Harvard University, USA)",
                     ]
                 },
                 {
@@ -1118,16 +1128,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "Over 16 years of experience in Business Management, Operations, and Petroleum Engineering",
                         "Adjunct Faculty - FPT University & International Management Institute",
                         "Senior Engineer with over 10 years of experience at Schlumberger, Petronas, and Petrovietnam",
-                    ]
-                },
-                {
-                    name: "Nguyễn Thanh Tuấn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
-                    tag: "PhD in Business Administration",
-                    job: "Lecturer",
-                    des: [
-                        "Over 20 years of teaching experience at domestic and international universities",
-                        "Topics: Business Research Methods, International Management, Organizational Behavior, Marketing Strategy, HRM",
                     ]
                 },
                 {
@@ -1204,18 +1204,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     ]
                 },
                 {
-                    name: "Trần Hoàng Hiệp",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp",
-                    tag: "Thạc sĩ QTKD MCFORD University",
-                    job: "Phó Tổng giám đốc – Business Smart JSC",
-                    des: [
-                        "Hơn 31 năm kinh nghiệm kinh doanh",
-                        "Chuyên gia tư vấn và triển khai các dự án quốc tế về phát triển năng lực tại Singapore, Malaysia, Myanmar",
-                        "Tham gia Dự án Hiện đại hóa Ngân hàng trị giá 49 triệu USD do Ngân hàng Thế giới (WB) tài trợ",
-                        "Giảng viên được chứng nhận cho chương trình [Lãnh đạo Thay đổi Táo bạo] của John Kotter (Đại học Harvard, Hoa Kỳ)",
-                    ]
-                },
-                {
                     name: "Nguyễn Thị Minh Đoan",
                     avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/Doan-optimized.webp",
                     tag: "Tiến sĩ QTKD",
@@ -1234,6 +1222,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "25 năm kinh nghiệm trong lĩnh vực kinh doanh Dược Phẩm, Vaccine, Thiết Bị Y Tế",
                         "11 năm kinh nghiệm quản lý cấp cao tại GlaxoSmithKline (GSK), Roche, Menarini, Takeda",
                         "3 năm kinh nghiệm trong lĩnh vực giáo dục, giảng viên thỉnh giảng, diễn giả của Trường Đại Học",
+                    ]
+                },
+                {
+                    name: "Nguyễn Thanh Tuấn",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
+                    tag: "Tiến sĩ QTKD",
+                    job: "Giảng viên",
+                    des: [
+                        "Hơn 20 năm kinh nghiệm giảng dạy tại các trường đại học trong nước và quốc tế",
+                        "Chủ đề: PPNCKD, quản lý quốc tế, hành vi tổ chức, marketing strategy, HRM",
+                    ]
+                },
+                {
+                    name: "Trần Hoàng Hiệp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2022/05/tran-hoang-hiep.webp",
+                    tag: "Thạc sĩ QTKD MCFORD University",
+                    job: "Phó Tổng giám đốc – Business Smart JSC",
+                    des: [
+                        "Hơn 31 năm kinh nghiệm kinh doanh",
+                        "Chuyên gia tư vấn và triển khai các dự án quốc tế về phát triển năng lực tại Singapore, Malaysia, Myanmar",
+                        "Tham gia Dự án Hiện đại hóa Ngân hàng trị giá 49 triệu USD do Ngân hàng Thế giới (WB) tài trợ",
+                        "Giảng viên được chứng nhận cho chương trình [Lãnh đạo Thay đổi Táo bạo] của John Kotter (Đại học Harvard, Hoa Kỳ)",
                     ]
                 },
                 {
@@ -1300,16 +1310,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "Hơn 16 năm kinh nghiệm trong Quản trị Kinh doanh, Vận hành, và Kỹ thuật Dầu khí",
                         "Giảng viên Hợp đồng - Đại học FPT & Viện Quản lý Kinh doanh Quốc tế",
                         "Kỹ sư chuyên môn cao với hơn 10 năm kinh nghiệm tại Schlumberger, Petronas, Petrovietnam",
-                    ]
-                },
-                {
-                    name: "Nguyễn Thanh Tuấn",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
-                    tag: "Tiến sĩ QTKD",
-                    job: "Giảng viên",
-                    des: [
-                        "Hơn 20 năm kinh nghiệm giảng dạy tại các trường đại học trong nước và quốc tế",
-                        "Chủ đề: PPNCKD, quản lý quốc tế, hành vi tổ chức, marketing strategy, HRM",
                     ]
                 },
                 {

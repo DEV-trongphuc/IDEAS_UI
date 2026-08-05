@@ -212,10 +212,29 @@ if ($is_en) {
             <?php endif; ?>
 
             <form class="cta-form modal-form" id="modal-cta-form" data-submit-handler-registered="true" novalidate>
-                <div class="form-group">
-                    <label for="modal-fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
-                    <input type="text" id="modal-fullname" name="fullname" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" required />
-                    <span class="form-error" id="modal-fullname-error"></span>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="modal-fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
+                        <input type="text" id="modal-fullname" name="fullname" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" required />
+                        <span class="form-error" id="modal-fullname-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
+                        <select id="modal-chuc_danh" name="chuc_danh" required>
+                            <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                            <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                            <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                            <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                            <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
+                        </select>
+                        <span class="form-error" id="modal-chuc_danh-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" id="modal-other-chuc_danh-group" style="display: none;">
+                    <label for="modal-other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
+                    <input type="text" id="modal-other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>" />
+                    <span class="form-error" id="modal-other-chuc-danh-error"></span>
                 </div>
 
                 <div class="form-row">
@@ -254,23 +273,6 @@ if ($is_en) {
                             <option value="other"><?php echo $is_en ? 'Other / No Score' : 'Khác / Chưa thi'; ?></option>
                         </select>
                         <span class="form-error" id="modal-english-error"></span>
-                    </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="modal-chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
-                        <select id="modal-chuc_danh" name="chuc_danh" required>
-                            <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
-                            <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
-                            <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
-                            <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
-                            <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
-                        </select>
-                        <span class="form-error" id="modal-chuc_danh-error"></span>
-                    </div>
-                    <div class="form-group" id="modal-other-chuc_danh-group" style="display: none;">
-                        <label for="modal-other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
-                        <input type="text" id="modal-other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>" />
-                        <span class="form-error" id="modal-other-chuc_danh-error"></span>
                     </div>
                 </div>
 
