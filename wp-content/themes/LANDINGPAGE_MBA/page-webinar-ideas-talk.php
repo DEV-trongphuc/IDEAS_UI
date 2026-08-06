@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the New Webinar Ideas Talk page
  * Template Name: Premium Webinar Ideas Talk Template
@@ -35,7 +36,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta name="description"
             content="<?php echo $is_en ? 'A series of discussion and practice seminars on AI application in study, research, and business management organized by IDEAS.' : 'Chuỗi chuyên đề thảo luận và thực hành ứng dụng AI trong học tập, nghiên cứu và quản trị doanh nghiệp tổ chức bởi IDEAS.'; ?>" />
-    <?php endif; ?><?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+        <?php endif; ?><?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <meta property="og:type" content="article" />
         <meta property="og:title" content="<?php echo $is_en ? 'IDEAS Talk – AI Webinars &amp; Seminars' : 'IDEAS Talk – Webinar &amp; Chuyên đề AI'; ?>" />
         <meta property="og:description"
@@ -195,7 +196,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             content: '';
             position: absolute;
             inset: 0;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
             background-size: 40px 40px;
@@ -223,7 +224,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .talk-hero-glow-1 {
             width: 400px;
             height: 400px;
-            background: #ab0e00; /* Brand Red */
+            background: #ab0e00;
+            /* Brand Red */
             top: 5%;
             left: 10%;
         }
@@ -231,15 +233,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .talk-hero-glow-2 {
             width: 450px;
             height: 450px;
-            background: #4f46e5; /* Indigo */
+            background: #4f46e5;
+            /* Indigo */
             bottom: 5%;
             right: 10%;
             animation-delay: -6s;
         }
 
         @keyframes float-glow {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, 30px) scale(1.15); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(40px, 30px) scale(1.15);
+            }
         }
 
         .talk-hero-bg {
@@ -326,8 +334,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes pulse-green {
-            0%, 100% { opacity: 0.4; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1.2); }
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
         }
 
         .talk-hero h1 {
@@ -364,8 +381,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes pulse-red {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .talk-tagline {
@@ -427,9 +449,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes btn-shine {
-            0% { left: -150%; }
-            45% { left: 150%; }
-            100% { left: 150%; }
+            0% {
+                left: -150%;
+            }
+
+            45% {
+                left: 150%;
+            }
+
+            100% {
+                left: 150%;
+            }
         }
 
         .btn-talk-secondary-dark {
@@ -457,7 +487,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 24px;
             padding: 30px;
             position: relative;
-            box-shadow: 
+            box-shadow:
                 0 30px 60px rgba(0, 0, 0, 0.5),
                 0 0 100px rgba(225, 29, 72, 0.06) inset;
             transform: perspective(1000px) rotateY(-6deg) rotateX(3deg) scale(0.98);
@@ -484,7 +514,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .hero-ticket-card:hover {
             transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-8px) scale(1.02);
             border-color: rgba(171, 14, 0, 0.35);
-            box-shadow: 
+            box-shadow:
                 0 35px 70px rgba(0, 0, 0, 0.6),
                 0 0 40px rgba(171, 14, 0, 0.15);
         }
@@ -515,8 +545,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes pulse-red-dot {
-            0%, 100% { opacity: 0.5; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1.3); }
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.3);
+            }
         }
 
         .ticket-title {
@@ -649,8 +688,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes text-pulse {
-            0% { text-shadow: 0 0 0px transparent; }
-            100% { text-shadow: 0 0 8px rgba(171, 14, 0, 0.4); }
+            0% {
+                text-shadow: 0 0 0px transparent;
+            }
+
+            100% {
+                text-shadow: 0 0 8px rgba(171, 14, 0, 0.4);
+            }
         }
 
         .slots-progress-track {
@@ -672,7 +716,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Section: Webinar Brief (Premium Light Sidebar Tabs) ── */
         .talk-brief {
-            background-color: #f8fafc; /* Clean light slate background */
+            background-color: #f8fafc;
+            /* Clean light slate background */
             padding: 90px 0;
             position: relative;
             z-index: 3;
@@ -763,6 +808,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 overflow-x: auto;
                 scrollbar-width: none;
             }
+
             .brief-tabs-nav::-webkit-scrollbar {
                 display: none;
             }
@@ -834,8 +880,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes briefFadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Context Cards (Light Theme) */
@@ -1071,7 +1124,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .section-intro {
             padding: 95px 0;
             position: relative;
-            background-color: #ffffff; /* Clean light background */
+            background-color: #ffffff;
+            /* Clean light background */
         }
 
 
@@ -1258,13 +1312,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1px solid rgba(255, 255, 255, 0.1);
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* ── Section 2: Why Attend (Split List - Alternate Contrast Background) ── */
         .section-why {
             padding: 95px 0;
-            background-color: #f1f5f9; /* Soft cool contrast grey background */
+            background-color: #f1f5f9;
+            /* Soft cool contrast grey background */
         }
 
         .why-split-container {
@@ -1279,6 +1334,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
             .why-left-sticky {
                 position: relative !important;
                 top: 0 !important;
@@ -1417,7 +1473,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── Section 3: Topics (Clean Split Grid - Alternate White Background) ── */
         .section-topics {
             padding: 95px 0;
-            background-color: #ffffff; /* Clean contrast background */
+            background-color: #ffffff;
+            /* Clean contrast background */
         }
 
         .topics-split-grid {
@@ -1609,13 +1666,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 gap: 12px;
                 padding: 20px;
             }
+
             .topic-tag-col {
                 width: auto;
                 flex-shrink: 1;
             }
+
             .timeline-nav-btn {
                 display: none;
             }
+
             .timeline-track-wrapper {
                 padding-left: 20px;
                 padding-right: 20px;
@@ -1671,11 +1731,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 100%;
         }
 
-        html, body {
+        html,
+        body {
             overflow-x: clip !important;
         }
 
-        #content, .site, #page {
+        #content,
+        .site,
+        #page {
             overflow: visible !important;
         }
 
@@ -1685,14 +1748,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 100%;
             padding-left: 50px;
             padding-right: 50px;
-            scrollbar-width: none !important; /* Hide for Firefox */
-            -ms-overflow-style: none !important;  /* Hide for IE/Edge */
+            scrollbar-width: none !important;
+            /* Hide for Firefox */
+            -ms-overflow-style: none !important;
+            /* Hide for IE/Edge */
             -webkit-overflow-scrolling: touch;
             box-sizing: border-box;
         }
 
         .timeline-track-wrapper::-webkit-scrollbar {
-            display: none !important; /* Hide for Chrome, Safari, Opera */
+            display: none !important;
+            /* Hide for Chrome, Safari, Opera */
             width: 0 !important;
             height: 0 !important;
             background: transparent !important;
@@ -1757,9 +1823,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes timeline-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .timeline-line {
@@ -1815,7 +1889,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @keyframes ping {
-            75%, 100% {
+
+            75%,
+            100% {
                 transform: scale(2.2);
                 opacity: 0;
             }
@@ -2219,6 +2295,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .form-grid-box {
                 grid-template-columns: 1fr;
             }
+
             .form-image-col {
                 display: none;
             }
@@ -2494,6 +2571,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @media (max-width: 768px) {
+
             .section-intro,
             .section-why,
             .section-topics,
@@ -2502,38 +2580,47 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .talk-coop {
                 padding: 55px 0 !important;
             }
+
             .talk-hero {
                 padding: 120px 15px 70px !important;
                 min-height: auto !important;
             }
+
             .talk-hero-container {
                 grid-template-columns: 1fr !important;
                 text-align: center !important;
                 gap: 40px !important;
             }
+
             .talk-hero-content {
                 align-items: center !important;
             }
+
             .talk-hero-visual {
                 width: 100% !important;
             }
+
             .talk-hero h1 {
                 font-size: 2.4rem !important;
                 margin-bottom: 12px;
                 text-align: center !important;
             }
+
             .talk-tagline {
                 justify-content: center !important;
             }
+
             .talk-tagline::after {
                 display: none !important;
             }
+
             .talk-hero p {
                 text-align: center !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
                 margin-bottom: 30px !important;
             }
+
             .talk-hero-ctas {
                 flex-direction: column;
                 gap: 12px;
@@ -2543,21 +2630,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 margin-right: auto;
                 justify-content: center !important;
             }
+
             .talk-hero-ctas .btn-talk {
                 width: 100%;
                 text-align: center;
                 margin: 0;
             }
+
             .hero-ticket-card {
                 transform: none !important;
                 margin: 15px auto 0 !important;
                 max-width: 400px !important;
                 padding: 24px 20px !important;
             }
+
             .countdown-box .num {
                 font-size: 1.25rem !important;
             }
-            
+
             /* Section 1: Intro Center Alignment on Mobile */
             .intro-left {
                 text-align: center;
@@ -2565,28 +2655,33 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 flex-direction: column;
                 align-items: center;
             }
+
             .intro-badge-accent {
                 padding-left: 0;
                 margin-left: auto;
                 margin-right: auto;
             }
+
             .intro-badge-accent::before {
                 display: none;
             }
+
             .intro-line-decorator {
                 margin-left: auto;
                 margin-right: auto;
                 background: linear-gradient(90deg, transparent, #b91c1c, transparent);
             }
-            
+
             /* Section 2: Why Attend - Clean Non-Squished Mobile Layout */
             .why-list-item {
                 position: relative !important;
-                padding: 38px 20px 24px !important; /* Top padding to accommodate float number */
+                padding: 38px 20px 24px !important;
+                /* Top padding to accommodate float number */
                 flex-direction: row !important;
                 gap: 16px !important;
                 align-items: flex-start !important;
             }
+
             .why-item-number {
                 position: absolute !important;
                 top: 15px !important;
@@ -2595,59 +2690,78 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 font-weight: 900 !important;
                 color: rgba(185, 28, 28, 0.18) !important;
             }
-            
+
             /* Section 4: Timeline Mobile Enhancements & High Contrast Text */
             .timeline-nav-btn {
-                display: none !important; /* Hide next/prev buttons on mobile */
+                display: none !important;
+                /* Hide next/prev buttons on mobile */
             }
+
             .timeline-node.updating {
-                display: none !important; /* Hide empty/updating placeholder nodes */
+                display: none !important;
+                /* Hide empty/updating placeholder nodes */
             }
+
             .timeline-track-wrapper {
                 padding-left: 20px !important;
                 padding-right: 20px !important;
                 padding-top: 10px;
                 padding-bottom: 20px;
             }
+
             .timeline-node {
-                width: 290px !important; /* Compact mobile width */
+                width: 290px !important;
+                /* Compact mobile width */
             }
+
             .timeline-content-card {
                 padding: 20px !important;
-                height: auto !important; /* Auto height to fit text neatly */
+                height: auto !important;
+                /* Auto height to fit text neatly */
                 min-height: 310px !important;
-                background: #110d0e !important; /* Lighter background for higher contrast */
-                border: 1.5px solid rgba(255, 255, 255, 0.25) !important; /* Brighter border */
+                background: #110d0e !important;
+                /* Lighter background for higher contrast */
+                border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+                /* Brighter border */
             }
+
             .timeline-node.active .timeline-content-card {
                 border-color: rgba(185, 28, 28, 0.6) !important;
                 box-shadow: 0 10px 25px rgba(185, 28, 28, 0.25) !important;
             }
+
             .timeline-content-card h3 {
                 font-size: 1.05rem !important;
                 height: auto !important;
-                color: #ffffff !important; /* High contrast white heading */
+                color: #ffffff !important;
+                /* High contrast white heading */
                 -webkit-line-clamp: 2 !important;
                 margin-bottom: 8px !important;
             }
+
             .timeline-meta-item {
-                color: #e2e8f0 !important; /* Light slate color for sub-text */
+                color: #e2e8f0 !important;
+                /* Light slate color for sub-text */
                 font-size: 0.8rem !important;
             }
+
             .timeline-desc {
                 font-size: 0.84rem !important;
-                color: #f1f5f9 !important; /* Bright white-grey description text */
+                color: #f1f5f9 !important;
+                /* Bright white-grey description text */
                 height: auto !important;
                 line-height: 1.6 !important;
                 -webkit-line-clamp: 3 !important;
                 margin-bottom: 15px !important;
             }
+
             .timeline-dot {
                 width: 18px !important;
                 height: 18px !important;
                 border-width: 3px !important;
                 margin-bottom: 16px !important;
             }
+
             .timeline-line {
                 top: 9px !important;
             }
@@ -2655,6 +2769,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .why-sticky-image-wrapper {
                 aspect-ratio: 16 / 9;
             }
+
             .form-content-col {
                 padding: 30px 20px !important;
             }
@@ -2676,12 +2791,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- Glowing background elements -->
             <div class="talk-hero-glow-1"></div>
             <div class="talk-hero-glow-2"></div>
-            
+
             <div class="talk-hero-bg"
                 style="background-image: url('https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp');">
             </div>
             <div class="talk-hero-overlay"></div>
-            
+
             <div class="talk-hero-container">
                 <!-- Column 1: Content -->
                 <div class="talk-hero-content">
@@ -2695,7 +2810,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="talk-tagline"><?php echo $is_en ? 'Actionable Knowledge Transfer' : 'Tri Thức Thực Chiến Chuyển Đổi'; ?></div>
 
                     <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
-                    
+
                     <div class="talk-hero-ctas">
                         <a href="javascript:void(0)" onclick="registerForTopic('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
                             <?php echo $is_en ? 'Register Now' : 'Đăng ký tham gia ngay'; ?>
@@ -2713,11 +2828,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="pulse-red"></span>
                             <?php echo $is_en ? 'Upcoming Session' : 'Sự Kiện Tiếp Theo'; ?>
                         </span>
-                        
+
                         <h3 class="ticket-title">
                             <?php echo $is_en ? 'Applying AI in Learning & Research: Multidimensional Perspectives' : 'Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều'; ?>
                         </h3>
-                        
+
                         <div class="ticket-countdown-container">
                             <div class="countdown-grid" id="countdown-timer">
                                 <div class="countdown-box">
@@ -2738,7 +2853,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="ticket-speakers-section">
                             <span class="speakers-title"><?php echo $is_en ? 'Expert Speaker Panel' : 'Hội đồng chuyên gia'; ?></span>
                             <div class="speakers-avatars-row">
@@ -2754,8 +2869,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="speaker-avatar-wrap" title="ThS. Lê Sơn Phong">
                                     <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.webp" alt="ThS. Lê Sơn Phong" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
-                                <div class="speaker-avatar-wrap" title="Mr. Võ Trùng Dương">
-                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="Mr. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <div class="speaker-avatar-wrap" title="NCS. Võ Trùng Dương">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="NCS. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
                                 <div class="speaker-avatar-wrap" title="NCS. Phạm Phi Vũ">
                                     <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/07/tsphivu.webp" alt="NCS. Phạm Phi Vũ" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
@@ -2771,7 +2886,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="ticket-slots-section">
                             <div class="slots-header">
                                 <span><?php echo $is_en ? 'Registered' : 'Đã đăng ký'; ?>: <strong style="color:#ffffff;">89%</strong></span>
@@ -2799,12 +2914,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </h3>
                         <div class="intro-line-decorator"></div>
                         <p><?php echo $is_en ? 'No academic theory, no generic scripts. Each Webinar is a "real battle" case solving thoroughly one big problem of the enterprise — directly with Experts (Enterprise Doctors from IDEAS) & experienced managers.' : 'Không lý thuyết hàn lâm, không kịch bản chung chung. Mỗi buổi Webinar là một ca "thực chiến" giải quyết triệt để 1 bài toán lớn của doanh nghiệp — trực tiếp cùng Chuyên gia (Bác sĩ Doanh nghiệp từ IDEAS) & Nhà quản trị dày dặn kinh nghiệm.'; ?></p>
-                        
+
                         <div class="intro-horizontal-cards">
                             <!-- Info Card 1 -->
                             <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
+                                    </svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Timeline' : 'Thời gian'; ?></strong>
@@ -2824,7 +2941,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Info Card 3 -->
                             <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 16 16" fill="currentColor" width="20" height="20"><path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zM1 4v2h6V4zm8 0v2h6V4zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5z"/></svg>
+                                    <svg viewBox="0 0 16 16" fill="currentColor" width="20" height="20">
+                                        <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zM1 4v2h6V4zm8 0v2h6V4zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5z" />
+                                    </svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Privilege' : 'Đặc quyền'; ?></strong>
@@ -2834,7 +2953,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Info Card 4 -->
                             <div class="intro-mini-card scroll-reveal stagger-item">
                                 <div class="mini-card-icon">
-                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                                    <svg viewBox="0 0 448 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                    </svg>
                                 </div>
                                 <div class="mini-card-text">
                                     <strong><?php echo $is_en ? 'Experts' : 'Chuyên gia'; ?></strong>
@@ -2868,7 +2989,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </span>
                         </div>
                         <p><?php echo $is_en ? '90 minutes is not just about learning knowledge, but a hands-on experience solving problems directly with Experts.' : '90 phút không chỉ là học tri thức, mà là trải nghiệm tháo gỡ khó khăn trực tiếp cùng Chuyên gia.'; ?></p>
-                        
+
                         <div class="why-sticky-image-wrapper">
                             <img src="https://ideas.edu.vn/wp-content/uploads/2023/07/umefws.webp" alt="IDEAS Live Workshop Session" class="why-sticky-img">
                         </div>
@@ -2877,13 +2998,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <?php echo $is_en ? 'Register Today' : 'Đăng ký ngay hôm nay'; ?>
                         </a>
                     </div>
-                    
+
                     <div class="why-right-list">
                         <!-- Point 1 -->
                         <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">01</span>
                             <div class="why-item-icon-wrapper">
-                                <svg viewBox="0 0 448 512" fill="currentColor"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C40.2 288 0 328.2 0 377.6V448c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-70.4c0-49.4-40.2-89.6-94.4-89.6z"/></svg>
+                                <svg viewBox="0 0 448 512" fill="currentColor">
+                                    <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C40.2 288 0 328.2 0 377.6V448c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-70.4c0-49.4-40.2-89.6-94.4-89.6z" />
+                                </svg>
                             </div>
                             <div class="why-item-content">
                                 <h3><?php echo $is_en ? 'Accompanied by the IDEAS "Enterprise Doctor" team' : 'Đồng hành cùng đội ngũ "Bác sĩ Doanh nghiệp" IDEAS'; ?></h3>
@@ -2895,7 +3018,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">02</span>
                             <div class="why-item-icon-wrapper">
-                                <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zm0 448c-105.9 0-192-86.1-192-192S150.1 64 256 64s192 86.1 192 192s-86.1 192-192 192zm0-320c-70.6 0-128 57.4-128 128s57.4 128 128 128s128-57.4 128-128s-57.4-128-128-128zm0 192c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
+                                <svg viewBox="0 0 512 512" fill="currentColor">
+                                    <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zm0 448c-105.9 0-192-86.1-192-192S150.1 64 256 64s192 86.1 192 192s-86.1 192-192 192zm0-320c-70.6 0-128 57.4-128 128s57.4 128 128 128s128-57.4 128-128s-57.4-128-128-128zm0 192c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z" />
+                                </svg>
                             </div>
                             <div class="why-item-content">
                                 <h3><?php echo $is_en ? 'Thoroughly solve 01 practical problem' : 'Giải quyết dứt điểm 01 bài toán thực tế'; ?></h3>
@@ -2907,7 +3032,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">03</span>
                             <div class="why-item-icon-wrapper">
-                                <svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512S0 397.4 0 256S114.6 0 256 0zM128 224v64h256v-64H128z"/></svg>
+                                <svg viewBox="0 0 512 512" fill="currentColor">
+                                    <path d="M256 0c141.4 0 256 114.6 256 256S397.4 512 256 512S0 397.4 0 256S114.6 0 256 0zM128 224v64h256v-64H128z" />
+                                </svg>
                             </div>
                             <div class="why-item-content">
                                 <h3><?php echo $is_en ? 'Receive Full Practical Gift Package' : 'Đóng gói & Nhận trọn bộ Quà tặng Thực chiến'; ?></h3>
@@ -2919,7 +3046,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="why-list-item scroll-reveal stagger-item">
                             <span class="why-item-number">04</span>
                             <div class="why-item-icon-wrapper">
-                                <svg viewBox="0 0 640 512" fill="currentColor"><path d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm368 0c61.9 0 112-50.1 112-112s-50.1-112-112-112-112 50.1-112 112 50.1 112 112 112zm-368 32c-65.9 0-192 32.9-192 98v50c0 17.7 14.3 32 32 32h320c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98zm368 0c-17.9 0-45 4.3-73.1 12.8 29.3 20.5 49.1 52.6 49.1 89.2v50c0 4.4-.9 8.6-2.5 12.5L608 448c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98z"/></svg>
+                                <svg viewBox="0 0 640 512" fill="currentColor">
+                                    <path d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm368 0c61.9 0 112-50.1 112-112s-50.1-112-112-112-112 50.1-112 112 50.1 112 112 112zm-368 32c-65.9 0-192 32.9-192 98v50c0 17.7 14.3 32 32 32h320c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98zm368 0c-17.9 0-45 4.3-73.1 12.8 29.3 20.5 49.1 52.6 49.1 89.2v50c0 4.4-.9 8.6-2.5 12.5L608 448c17.7 0 32-14.3 32-32v-50c0-65.1-126.1-98-192-98z" />
+                                </svg>
                             </div>
                             <div class="why-item-content">
                                 <h3><?php echo $is_en ? 'Connect with Practical Knowledge Community' : 'Kết nối Cộng đồng Tri thức Thực chiến'; ?></h3>
@@ -2938,7 +3067,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="talk-section-title"><?php echo $is_en ? 'Core Themes at <span>IDEAS Talk</span>' : 'Các Chủ Đề Trọng Tâm Tại <span>IDEAS TALK</span>'; ?></div>
                     <p><?php echo $is_en ? 'Our webinar topics cover key business pillars, designed to provide comprehensive tools and strategies.' : 'Các chủ đề được lựa chọn cẩn thận bao quanh các trụ cột cốt lõi của doanh nghiệp.'; ?></p>
                 </div>
-                
+
                 <div class="topics-split-grid">
                     <div class="topics-list-col">
                         <div class="topics-list">
@@ -2946,7 +3075,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="topic-badge-row hot-card scroll-reveal stagger-item">
                                 <div class="topic-tag-col">
                                     <span class="topic-tag hot">
-                                        <svg viewBox="0 0 512 512" fill="currentColor" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M256 0c17.7 0 32 14.3 32 32V64.3c52.5 11.7 94 53.2 105.7 105.7H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H453.7C442 320.5 400.5 362 348 373.7V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V447.7c-52.5-11.7-94-53.2-105.7-105.7H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h57.7c11.7-52.5 53.2-94 105.7-105.7V32c0-17.7 14.3-32 32-32zm80 256c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80z"/></svg>
+                                        <svg viewBox="0 0 512 512" fill="currentColor" width="14" height="14" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M256 0c17.7 0 32 14.3 32 32V64.3c52.5 11.7 94 53.2 105.7 105.7H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H453.7C442 320.5 400.5 362 348 373.7V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V447.7c-52.5-11.7-94-53.2-105.7-105.7H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h57.7c11.7-52.5 53.2-94 105.7-105.7V32c0-17.7 14.3-32 32-32zm80 256c0-44.2-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80s80-35.8 80-80z" />
+                                        </svg>
                                         AI &amp; Tech [Hot]
                                     </span>
                                 </div>
@@ -3016,19 +3147,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="talk-section-title"><?php echo $is_en ? 'Webinar <span>Schedule</span>' : 'Lịch Trình <span>Webinar</span>'; ?></div>
                     <p><?php echo $is_en ? 'Explore our upcoming topics and register for your slots.' : 'Xem danh sách và lộ trình các buổi chia sẻ hữu ích tiếp theo.'; ?></p>
                 </div>
-                
+
                 <!-- Navigation buttons for timeline scroll simulation -->
                 <button class="timeline-nav-btn prev-btn" aria-label="Previous">
-                    <svg viewBox="0 0 320 512" fill="currentColor"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                    <svg viewBox="0 0 320 512" fill="currentColor">
+                        <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
+                    </svg>
                 </button>
                 <button class="timeline-nav-btn next-btn" aria-label="Next">
-                    <svg viewBox="0 0 320 512" fill="currentColor"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+                    <svg viewBox="0 0 320 512" fill="currentColor">
+                        <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                    </svg>
                 </button>
 
                 <div class="timeline-track-wrapper">
                     <div class="timeline-track">
                         <div class="timeline-line"></div>
-                        
+
                         <!-- Topic 1 -->
                         <div class="timeline-node active">
                             <div class="timeline-dot"></div>
@@ -3038,7 +3173,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3><?php echo $is_en ? 'Applying AI in Learning & Research: Multidimensional Perspectives from 3 Experts' : 'Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item">
-                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
+                                            </svg>
                                             13/08/2026 (19:30 - 21:00)
                                         </div>
                                         <div class="timeline-meta-item" style="display: flex; align-items: center; gap: 6px;">
@@ -3055,7 +3192,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Topic 2 -->
                         <div class="timeline-node active">
                             <div class="timeline-dot"></div>
@@ -3065,7 +3202,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3><?php echo $is_en ? 'Improving Management Capabilities in the AI Era' : 'Nâng cao năng lực quản trị trong thời đại AI'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item">
-                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
+                                            </svg>
                                             <?php echo $is_en ? 'Expected: 27/08/2026' : 'Dự kiến: 27/08/2026'; ?>
                                         </div>
                                         <div class="timeline-meta-item" style="display: flex; align-items: center; gap: 6px;">
@@ -3082,7 +3221,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Topic 3 -->
                         <div class="timeline-node updating">
                             <div class="timeline-dot"></div>
@@ -3092,7 +3231,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3><?php echo $is_en ? 'Synergizing AI with Talent Management in the New Era' : 'Khi AI đồng hành cùng Quản trị Nhân tài thời đại mới'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item">
-                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
+                                            </svg>
                                             Updating...
                                         </div>
                                     </div>
@@ -3100,7 +3241,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Topic 4 -->
                         <div class="timeline-node updating">
                             <div class="timeline-dot"></div>
@@ -3110,7 +3251,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3><?php echo $is_en ? 'From Manager to Leader: 5 Essential Skills for the Next 5 Years' : 'Từ Quản lý đến Nhà lãnh đạo: 5 Kỹ năng Thiết yếu cho 5 năm tới'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item">
-                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
+                                            </svg>
                                             Updating...
                                         </div>
                                     </div>
@@ -3118,7 +3261,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Topic 5 -->
                         <div class="timeline-node updating">
                             <div class="timeline-dot"></div>
@@ -3128,7 +3271,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <h3><?php echo $is_en ? 'Building a High-Performance Team in the AI Era' : 'Xây dựng Đội ngũ Hiệu suất Cao trong Kỷ nguyên AI'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item">
-                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
+                                            </svg>
                                             Updating...
                                         </div>
                                     </div>
@@ -3199,8 +3344,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <!-- Speaker 2 -->
                             <div class="brief-speaker-card">
-                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="Mr. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
-                                <span class="brief-speaker-name">Mr. Võ Trùng Dương</span>
+                                <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="NCS. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                <span class="brief-speaker-name">NCS. Võ Trùng Dương</span>
                                 <span class="brief-speaker-role"><?php echo $is_en ? 'Practical Tools & Prompting' : 'Công Cụ & Prompt Thực Chiến'; ?></span>
                                 <p class="brief-speaker-perspective"><?php echo $is_en ? 'Guides direct prompting methods and highlights essential AI tools for reading, summarizing, and structural planning.' : 'Hướng dẫn <strong>Kỹ thuật viết Prompt thực chiến</strong> và công cụ AI bổ trợ đắc lực: Tóm tắt bài viết khoa học, tra cứu tài liệu nhanh và lập cấu trúc báo cáo tự động.'; ?></p>
                             </div>
@@ -3277,11 +3422,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <h2 id="current-video-title"><?php echo $is_en ? 'Loading video...' : 'Đang tải video...'; ?></h2>
                             <div class="meta-row">
                                 <div class="meta-item">
-                                    <svg viewBox="0 0 448 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z"/></svg>
+                                    <svg viewBox="0 0 448 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zm-28.8 96c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zm358.1 0c17.7 0 32 14.3 32 32v272c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM128 448h192V192H128v256z" />
+                                    </svg>
                                     <span id="current-video-date">-</span>
                                 </div>
                                 <div class="meta-item">
-                                    <svg viewBox="0 0 384 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                                    <svg viewBox="0 0 384 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
+                                    </svg>
                                     <span><?php echo $is_en ? 'Live Broadcast' : 'Phát sóng trực tiếp'; ?></span>
                                 </div>
                             </div>
@@ -3292,7 +3441,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="playlist-column">
                         <div class="playlist-header">
                             <h3>
-                                <svg viewBox="0 0 576 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M0 96C0 60.7 28.7 32 64 32l448 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM128 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm32-128a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM128 384a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm96-248c-13.3 0-24 10.7-24 24s10.7 24 24 24l224 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-224 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l224 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-224 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l224 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-224 0z"/></svg> 
+                                <svg viewBox="0 0 576 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 96C0 60.7 28.7 32 64 32l448 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM128 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm32-128a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM128 384a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm96-248c-13.3 0-24 10.7-24 24s10.7 24 24 24l224 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-224 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l224 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-224 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l224 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-224 0z" />
+                                </svg>
                                 <?php echo $is_en ? 'Playlist' : 'Danh sách phát'; ?>
                             </h3>
                             <span class="video-count-badge" id="video-count"><?php echo $is_en ? '0 videos' : '0 video'; ?></span>
@@ -3325,11 +3476,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <p><?php echo $is_en ? 'Interact with doctors, experts and managers from top-tier academic institutes.' : 'Học tập cùng hội đồng chuyên gia, bác sĩ doanh nghiệp và các quản trị viên xuất sắc.'; ?></p>
                         </div>
                     </div>
-                    
+
                     <div class="form-content-col">
                         <div class="success-box" id="page-form-success">
                             <div class="success-icon-wrap">
-                                <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                                <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+                                </svg>
                             </div>
                             <h3><?php echo $is_en ? 'Registration Successful!' : 'Đăng Ký Thành Công!'; ?></h3>
                             <p id="success-msg"></p>
@@ -3419,7 +3572,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <section class="talk-coop">
             <div class="coop-container">
                 <h2 class="coop-title">
-                    <svg viewBox="0 0 640 512" width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L550.2 352l41.8 0c26.5 0 48-21.5 48-48l0-128c0-26.5-21.5-48-48-48l-76 0-4 0-.7 0-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48-80 0c-26.5 0-48 21.5-48 48L0 304c0 26.5 21.5 48 48 48l108.2 0 91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123z"/></svg>
+                    <svg viewBox="0 0 640 512" width="24" height="24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L550.2 352l41.8 0c26.5 0 48-21.5 48-48l0-128c0-26.5-21.5-48-48-48l-76 0-4 0-.7 0-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48-80 0c-26.5 0-48 21.5-48 48L0 304c0 26.5 21.5 48 48 48l108.2 0 91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123z" />
+                    </svg>
                     <?php echo $is_en ? 'Co-organizing <b>Partners</b>' : 'Đơn vị <b>Đồng hành</b>'; ?>
                 </h2>
                 <p class="coop-sub"><?php echo $is_en ? 'Prestigious partners and academic organizations co-hosting the IDEAS Talk event series' : 'Các đối tác và tổ chức học thuật uy tín đồng tổ chức chuỗi sự kiện IDEAS Talk'; ?></p>
@@ -3442,13 +3597,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- Playlist and Player Controller Script -->
     <script>
-        if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
+        if (typeof isEnMode === 'undefined') {
+            var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>;
+        }
         const workshop_data = {
             series1: {
                 name: isEnMode ? "Breaking English Barriers" : "Vượt rào cản tiếng Anh",
                 name_sub: isEnMode ? "#by applying AI in learning" : "#bằng cách ứng dụng AI trong học tập",
-                data: [
-                    {
+                data: [{
                         type: "IDEAS Talk - AI",
                         date: "29/06/2025",
                         title: isEnMode ? "VIBE CODING - Build your own app with AI" : "VIBE CODING - Tự tạo ứng dụng bằng AI",
@@ -3482,7 +3638,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             },
         };
 
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const iframeElement = document.querySelector("#main_iframe");
             const listElement = document.querySelector("#playlist-list");
             const lenElement = document.querySelector("#video-count");
@@ -3527,7 +3683,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             // Handle switching tracks on playlist click
             if (listElement) {
-                listElement.addEventListener("click", function (e) {
+                listElement.addEventListener("click", function(e) {
                     const li = e.target.closest("li");
                     if (!li) return;
 
@@ -3558,7 +3714,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         function registerForTopic(topicName) {
             console.log('[registerForTopic] Target topicName requested:', topicName);
             window.selectedWebinarTopic = topicName;
-            
+
             // Try to pre-select relevant goal in the select field
             const mucDichSel = document.getElementById('muc_dich');
             if (mucDichSel) {
@@ -3568,15 +3724,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     mucDichSel.value = '';
                 }
                 mucDichSel.dispatchEvent(new Event('change'));
-                
+
                 if (typeof jQuery !== 'undefined' && jQuery.fn.niceSelect) {
                     jQuery(mucDichSel).niceSelect('update');
                 }
             }
-            
+
             const targetSec = document.getElementById('register');
             if (targetSec) {
-                targetSec.scrollIntoView({ behavior: 'smooth' });
+                targetSec.scrollIntoView({
+                    behavior: 'smooth'
+                });
                 console.log('[registerForTopic] Scrolled to form section');
             } else {
                 console.warn('[registerForTopic] targetSec form element not found in DOM');
@@ -3584,14 +3742,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         // Form submission AJAX
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('page-contact-form');
             if (!form) return;
 
             // Toggle custom job title / goal inputs
             const chucDanhSelect = document.getElementById('chuc_danh');
             if (chucDanhSelect) {
-                chucDanhSelect.addEventListener('change', function () {
+                chucDanhSelect.addEventListener('change', function() {
                     const otherGroup = document.getElementById('other-chuc_danh-group');
                     const otherInput = document.getElementById('other_chuc_danh');
                     if (otherGroup && otherInput) {
@@ -3609,7 +3767,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             const mucDichSelect = document.getElementById('muc_dich');
             if (mucDichSelect) {
-                mucDichSelect.addEventListener('change', function () {
+                mucDichSelect.addEventListener('change', function() {
                     const otherGroup = document.getElementById('other-muc_dich-group');
                     const otherInput = document.getElementById('other_muc_dich');
                     if (otherGroup && otherInput) {
@@ -3625,14 +3783,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 });
             }
 
-            form.addEventListener('submit', async function (e) {
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
                 // Inputs
                 const nameInput = document.getElementById('fullname');
                 const phoneInput = document.getElementById('phone');
                 const emailInput = document.getElementById('email');
-                
+
                 const chucDanhSel = document.getElementById('chuc_danh');
                 const otherChucDanhInput = document.getElementById('other_chuc_danh');
                 const mucDichSel = document.getElementById('muc_dich');
@@ -3716,7 +3874,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     firstName: name,
                     phoneNumber: phone,
                     jobTitle: chucDanhText,
-                    
+
                     // Strange info (additional custom keys)
                     muc_dich: mucDichText,
                     registrationGoal: mucDichText,
@@ -3740,7 +3898,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 try {
                     await fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
                         method: "POST",
-                        headers: { "Content-Type": "application/json" },
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
                         body: JSON.stringify(payload)
                     });
 
@@ -3757,11 +3917,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     const successBox = document.getElementById('page-form-success');
                     const successMsg = document.getElementById('success-msg');
                     if (successMsg && name) {
-                        successMsg.innerHTML = isEnMode 
-                            ? 'Thank you <strong>' + name + '</strong>. Your registration for <strong>' + interestVal + '</strong> has been submitted. We will send the Zoom details to your email/phone soon.' 
-                            : 'Cảm ơn bạn <strong>' + name + '</strong> đã đăng ký tham gia <strong>' + interestVal + '</strong>. Thông tin phòng Zoom và tài liệu đi kèm sẽ được gửi qua Email/Zalo của bạn trước giờ diễn ra.';
+                        successMsg.innerHTML = isEnMode ?
+                            'Thank you <strong>' + name + '</strong>. Your registration for <strong>' + interestVal + '</strong> has been submitted. We will send the Zoom details to your email/phone soon.' :
+                            'Cảm ơn bạn <strong>' + name + '</strong> đã đăng ký tham gia <strong>' + interestVal + '</strong>. Thông tin phòng Zoom và tài liệu đi kèm sẽ được gửi qua Email/Zalo của bạn trước giờ diễn ra.';
                     }
-                    
+
                     form.style.display = 'none';
                     document.getElementById('form-header').style.display = 'none';
                     successBox.classList.add('visible');
@@ -3778,26 +3938,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         });
 
         // Horizontal Timeline Navigation
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const wrapper = document.querySelector(".timeline-track-wrapper");
             const prevBtn = document.querySelector(".prev-btn");
             const nextBtn = document.querySelector(".next-btn");
 
             if (wrapper && prevBtn && nextBtn) {
                 const scrollAmount = 350;
-                
-                prevBtn.addEventListener("click", function () {
-                    wrapper.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+
+                prevBtn.addEventListener("click", function() {
+                    wrapper.scrollBy({
+                        left: -scrollAmount,
+                        behavior: "smooth"
+                    });
                 });
-                
-                nextBtn.addEventListener("click", function () {
-                    wrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
+
+                nextBtn.addEventListener("click", function() {
+                    wrapper.scrollBy({
+                        left: scrollAmount,
+                        behavior: "smooth"
+                    });
                 });
 
                 function toggleNavButtons() {
                     const scrollLeft = wrapper.scrollLeft;
                     const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
-                    
+
                     if (scrollLeft <= 10) {
                         prevBtn.classList.add("disabled");
                     } else {
@@ -3831,7 +3997,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 threshold: 0.05,
                 rootMargin: "0px 0px -40px 0px"
             });
-            
+
             reveals.forEach((el, index) => {
                 if (el.classList.contains("stagger-item")) {
                     const delay = (index % 4) * 0.12;
@@ -3842,22 +4008,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         });
 
         // Overwrite window.showform to scroll directly to the inline registration form
-        window.showform = function (ctaSource = 'header') {
+        window.showform = function(ctaSource = 'header') {
             console.log('[showform] Overridden showform called from:', ctaSource);
             const target = document.getElementById('register');
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         };
 
         // Scroll to register section on load if URL has #register hash
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             if (window.location.hash === '#register') {
                 console.log('[HashScroll] #register hash detected on load');
                 const target = document.getElementById('register');
                 if (target) {
                     setTimeout(() => {
-                        target.scrollIntoView({ behavior: 'smooth' });
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }, 400);
                 }
             }
@@ -3888,12 +4058,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         // Global function to open registration modal for webinar with specific topic name
         function openWebinarRegisterModal(topicName) {
             console.log('[openWebinarRegisterModal] Opening modal for topic:', topicName);
-            
+
             // Set CTA source tracking globally
             if (typeof activeCtaSource !== 'undefined') {
                 activeCtaSource = topicName;
             }
-            
+
             const regModal = document.getElementById('reg-modal');
             if (regModal) {
                 // Dynamically update modal headers to align with the chosen topic
@@ -3905,9 +4075,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 if (modalSubtitleEl) {
                     modalSubtitleEl.textContent = 'Điền thông tin bên dưới để đăng ký phòng Zoom và nhận gói quà tặng trải nghiệm AI Platform 7 ngày.';
                 }
-                
+
                 regModal.style.display = 'flex';
-                setTimeout(function () {
+                setTimeout(function() {
                     regModal.classList.add('open');
                     regModal.setAttribute('aria-hidden', 'false');
                 }, 10);
@@ -3922,11 +4092,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const btn = event.currentTarget;
             const nav = btn.closest('.brief-tabs-nav');
             const container = btn.closest('.brief-dashboard');
-            
+
             if (nav && container) {
                 nav.querySelectorAll('.brief-tab-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
+
                 container.querySelectorAll('.brief-tab-panel').forEach(p => p.classList.remove('active'));
                 const activePanel = container.querySelector('#' + tabId);
                 if (activePanel) {
@@ -3935,14 +4105,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Live countdown timer to 13/08/2026 19:30
             var countDownDate = new Date("2026-08-13T19:30:00+07:00").getTime();
-            
+
             var x = setInterval(function() {
                 var now = new Date().getTime();
                 var distance = countDownDate - now;
-                
+
                 if (distance < 0) {
                     clearInterval(x);
                     document.getElementById("days").innerText = "00";
@@ -3951,12 +4121,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     document.getElementById("seconds").innerText = "00";
                     return;
                 }
-                
+
                 var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
+
                 document.getElementById("days").innerText = days.toString().padStart(2, '0');
                 document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
                 document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
@@ -3967,13 +4137,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const ticketCard = document.getElementById('hero-ticket');
             if (ticketCard && window.innerWidth > 991) {
                 const cardEl = ticketCard;
-                
+
                 document.addEventListener('mousemove', function(e) {
                     const rect = cardEl.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
-                    
-                    const distance = Math.sqrt(x*x + y*y);
+
+                    const distance = Math.sqrt(x * x + y * y);
                     if (distance < rect.width * 2) {
                         const tiltX = (y / (rect.height / 2)) * -6; // max 6 deg
                         const tiltY = (x / (rect.width / 2)) * 6; // max 6 deg
