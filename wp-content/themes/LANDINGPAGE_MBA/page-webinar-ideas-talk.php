@@ -3185,11 +3185,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                     <p class="timeline-desc"><?php echo $is_en ? 'Learn original AI framework: adaptation mindset, prompting technical tools, and core data structures.' : 'Giải mã bài toán ứng dụng AI qua 3 góc nhìn: Tư duy tiếp cận chủ động, Kỹ thuật prompting, và Nền tảng mô hình dữ liệu.'; ?></p>
                                 </div>
-                                <div class="timeline-btn-wrapper">
-                                    <button onclick="registerForTopic('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
-                                        <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
 
@@ -3214,11 +3210,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                     <p class="timeline-desc"><?php echo $is_en ? 'Elevate team management, workflows, and strategy using automation.' : 'Ứng dụng AI giúp tối ưu hiệu suất quản lý dự án, tối ưu quy trình và xây dựng kế hoạch bứt phá.'; ?></p>
                                 </div>
-                                <div class="timeline-btn-wrapper">
-                                    <button onclick="registerForTopic('Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)')" class="btn-talk btn-talk-primary">
-                                        <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
 
@@ -3295,6 +3287,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <?php echo $is_en ? 'August 13 Session <span>Highlights & Privileges</span>' : 'Giá Trị & Đặc Quyền <span>Chuyên Đề 13/08</span>'; ?>
                     </div>
                     <p style="color:#475569; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia,<br>đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
+                </div>
+
+                <!-- Banner Image -->
+                <div class="brief-banner" style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-05-webinar.webp" alt="<?php echo $is_en ? 'Webinar Program Content' : 'Nội dung chương trình'; ?>" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border: 1px solid rgba(15, 23, 42, 0.05);">
                 </div>
 
                 <div class="brief-dashboard">
