@@ -1144,7 +1144,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Vũ Minh Nam",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/1785982968529_2141578413905312186_2310722037673454867_70fdec013e35d92e7e9793e6009d791a.jpg",
                     tag: "MBA",
                     job: "Financial Consultant & Trainer",
                     des: [
@@ -1326,7 +1326,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Vũ Minh Nam",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/1785982968529_2141578413905312186_2310722037673454867_70fdec013e35d92e7e9793e6009d791a.jpg",
                     tag: "Thạc sĩ QTKD",
                     job: "Chuyên gia tư vấn và đào tạo tài chính",
                     des: [
