@@ -2209,7 +2209,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 32px;
             display: grid;
             grid-template-columns: 1.35fr 1fr;
-            overflow: hidden;
+            overflow: visible;
             box-shadow:
                 0 25px 60px rgba(0, 0, 0, 0.02),
                 0 0 35px rgba(185, 28, 28, 0.015);
@@ -2229,6 +2229,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #f1f5f9;
             height: 100%;
             min-height: 580px;
+            border-top-left-radius: 32px;
+            border-bottom-left-radius: 32px;
+            overflow: hidden;
         }
 
         .form-side-img {
@@ -2694,7 +2697,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
                     
                     <div class="talk-hero-ctas">
-                        <a href="javascript:void(0)" onclick="openWebinarRegisterModal('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
+                        <a href="javascript:void(0)" onclick="registerForTopic('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
                             <?php echo $is_en ? 'Register Now' : 'Đăng ký tham gia ngay'; ?>
                         </a>
                         <a href="#recap" class="btn-talk btn-talk-secondary-dark">
@@ -3046,7 +3049,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <p class="timeline-desc"><?php echo $is_en ? 'Learn original AI framework: adaptation mindset, prompting technical tools, and core data structures.' : 'Giải mã bài toán ứng dụng AI qua 3 góc nhìn: Tư duy tiếp cận chủ động, Kỹ thuật prompting, và Nền tảng mô hình dữ liệu.'; ?></p>
                                 </div>
                                 <div class="timeline-btn-wrapper">
-                                    <button onclick="openWebinarRegisterModal('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
+                                    <button onclick="registerForTopic('Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)')" class="btn-talk btn-talk-primary">
                                         <?php echo $is_en ? 'Register' : 'Đăng ký'; ?>
                                     </button>
                                 </div>
@@ -3549,137 +3552,29 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         });
 
+        window.selectedWebinarTopic = 'Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)';
+
         // Function to select topic and scroll to register form
         function registerForTopic(topicName) {
             console.log('[registerForTopic] Target topicName requested:', topicName);
-            const selectEl = document.querySelector('#page-contact-form #interest') || document.getElementById('interest');
-            const targetSec = document.getElementById('register');
-            console.log('[registerForTopic] Select element resolved:', selectEl);
+            window.selectedWebinarTopic = topicName;
             
-            if (selectEl) {
-                const lowerInput = topicName.toLowerCase();
-                let matchedValue = "";
-                
-                // 1. Direct case-insensitive match
-                for (let i = 0; i < selectEl.options.length; i++) {
-                    const optVal = selectEl.options[i].value;
-                    console.log(`[registerForTopic] Option index ${i} value: "${optVal}"`);
-                    if (optVal && optVal.toLowerCase() === lowerInput) {
-                        matchedValue = optVal;
-                        console.log('[registerForTopic] Match type: Direct match ->', matchedValue);
-                        break;
-                    }
-                }
-                
-                // 2. Specific keyword-based logic (robust to slight string format changes)
-                if (!matchedValue) {
-                    if (lowerInput.includes('học tập') || lowerInput.includes('learning') || lowerInput.includes('hoc tap')) {
-                        console.log('[registerForTopic] Using keyword check: học tập / learning');
-                        for (let i = 0; i < selectEl.options.length; i++) {
-                            const optVal = selectEl.options[i].value;
-                            if (optVal && (optVal.toLowerCase().includes('học tập') || optVal.toLowerCase().includes('learning'))) {
-                                matchedValue = optVal;
-                                console.log('[registerForTopic] Match type: Keyword (học tập/learning) ->', matchedValue);
-                                break;
-                            }
-                        }
-                    } else if (lowerInput.includes('quản trị') || lowerInput.includes('management') || lowerInput.includes('quan tri')) {
-                        console.log('[registerForTopic] Using keyword check: quản trị / management');
-                        for (let i = 0; i < selectEl.options.length; i++) {
-                            const optVal = selectEl.options[i].value;
-                            if (optVal && (optVal.toLowerCase().includes('quản trị') || optVal.toLowerCase().includes('management'))) {
-                                matchedValue = optVal;
-                                console.log('[registerForTopic] Match type: Keyword (quản trị/management) ->', matchedValue);
-                                break;
-                            }
-                        }
-                    }
-                }
-                
-                // 3. Fallback: normalize Vietnamese accents and match alphanumerics
-                if (!matchedValue) {
-                    console.log('[registerForTopic] Attempting alphanumeric normalization match');
-                    const cleanStr = (s) => {
-                        if (!s) return "";
-                        return s.normalize("NFD")
-                                .replace(/[\u0300-\u036f]/g, "")
-                                .replace(/[đĐ]/g, "d")
-                                .toLowerCase()
-                                .replace(/[^a-z0-9]/g, "");
-                    };
-                    const cleanInput = cleanStr(topicName);
-                    console.log('[registerForTopic] Cleaned input string:', cleanInput);
-                    
-                    for (let i = 0; i < selectEl.options.length; i++) {
-                        const optVal = selectEl.options[i].value;
-                        const cleanOpt = cleanStr(optVal);
-                        console.log(`[registerForTopic] Cleaned option ${i}: "${cleanOpt}"`);
-                        if (cleanOpt && (cleanOpt.indexOf(cleanInput) !== -1 || cleanInput.indexOf(cleanOpt) !== -1)) {
-                            matchedValue = optVal;
-                            console.log('[registerForTopic] Match type: Normalized fallback ->', matchedValue);
-                            break;
-                        }
-                    }
-                }
-                if (matchedValue) {
-                    selectEl.value = matchedValue;
-                    console.log('[registerForTopic] Set native select value to:', matchedValue);
+            // Try to pre-select relevant goal in the select field
+            const mucDichSel = document.getElementById('muc_dich');
+            if (mucDichSel) {
+                if (topicName.toLowerCase().includes('quản trị') || topicName.toLowerCase().includes('quản lý') || topicName.toLowerCase().includes('management')) {
+                    mucDichSel.value = 'Nâng cao năng lực quản lý';
                 } else {
-                    selectEl.value = topicName;
-                    console.log('[registerForTopic] No match, fallback setting native select value to topicName:', topicName);
+                    mucDichSel.value = '';
                 }
+                mucDichSel.dispatchEvent(new Event('change'));
                 
-                // Dispatch native change event
-                selectEl.dispatchEvent(new Event('change'));
-                console.log('[registerForTopic] Dispatched native change event');
-
-                // 4. Update jQuery select plugins (NiceSelect, Select2, etc.)
-                if (typeof jQuery !== 'undefined') {
-                    console.log('[registerForTopic] jQuery detected in global namespace');
-                    const $sel = jQuery(selectEl);
-                    $sel.val(selectEl.value).trigger('change');
-                    if (jQuery.fn.niceSelect) {
-                        console.log('[registerForTopic] niceSelect jQuery plugin found, updating UI');
-                        $sel.niceSelect('update');
-                    }
-                    if (jQuery.fn.select2) {
-                        console.log('[registerForTopic] select2 jQuery plugin found, triggering change.select2');
-                        $sel.trigger('change.select2');
-                    }
-                } else {
-                    console.log('[registerForTopic] jQuery NOT detected in global namespace');
+                if (typeof jQuery !== 'undefined' && jQuery.fn.niceSelect) {
+                    jQuery(mucDichSel).niceSelect('update');
                 }
-
-                // 5. Click matching custom dropdown list items (NiceSelect options, selectivity divs, custom select lis)
-                const cleanStrHelper = (s) => {
-                    if (!s) return "";
-                    return s.normalize("NFD")
-                            .replace(/[\u0300-\u036f]/g, "")
-                            .replace(/[đĐ]/g, "d")
-                            .toLowerCase()
-                            .replace(/[^a-z0-9]/g, "");
-                };
-                const cleanTarget = cleanStrHelper(selectEl.value);
-
-                setTimeout(() => {
-                    console.log('[registerForTopic] Custom select list sync search target:', cleanTarget);
-                    const customOpts = document.querySelectorAll('.nice-select .option, .custom-select-option, [class*="select"] li, .select-items div, [role="option"]');
-                    console.log(`[registerForTopic] Found ${customOpts.length} custom option items in DOM`);
-                    let clicked = false;
-                    customOpts.forEach((opt, idx) => {
-                        const val = opt.getAttribute('data-value') || opt.textContent;
-                        if (val && cleanStrHelper(val) === cleanTarget) {
-                            console.log(`[registerForTopic] Match found at index ${idx}: Clicking custom element`, opt);
-                            opt.click();
-                            clicked = true;
-                        }
-                    });
-                    if (!clicked) {
-                        console.log('[registerForTopic] No custom option matched & clicked in setTimeout block');
-                    }
-                }, 100);
             }
             
+            const targetSec = document.getElementById('register');
             if (targetSec) {
                 targetSec.scrollIntoView({ behavior: 'smooth' });
                 console.log('[registerForTopic] Scrolled to form section');
@@ -3805,23 +3700,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
                 const mucDichText = mucDichVal === 'Khác' ? otherMucDichVal : mucDichVal;
+                const interestVal = window.selectedWebinarTopic || 'Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)';
 
                 const noteParts = [];
                 noteParts.push('Chức danh: ' + chucDanhText);
                 noteParts.push('Mục tiêu đăng ký: ' + mucDichText);
+                noteParts.push('Topic: ' + interestVal);
                 noteParts.push('CTA Source: ideas_talk_webinar_page');
                 const combinedNote = noteParts.join(' | ');
 
                 // API Playload for automation.ideas.edu.vn
                 const payload = {
-                    form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
+                    form_id: "98a05f1a82226e1c84c32f48f21f891d",
                     email: email,
                     firstName: name,
                     phoneNumber: phone,
+                    jobTitle: chucDanhText,
+                    
+                    // Strange info (additional custom keys)
+                    muc_dich: mucDichText,
+                    registrationGoal: mucDichText,
+                    webinarTopic: interestVal,
                     time_dat_lich: "",
                     note_dat_lich: `Đăng ký Webinar IDEAS Talk | ${combinedNote}`,
-                    chuong_trinh_dat_lich: "IDEAS Talk Webinar",
-                    chuc_danh: chucDanhText
+                    chuong_trinh_dat_lich: "IDEAS Talk Webinar"
                 };
 
                 // Webhook Payload for open.domation.net
@@ -3833,7 +3735,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     type: "webinar_registration",
                     chuong_trinh: "IDEAS Talk Webinar",
                     chuc_danh: chucDanhText,
-                    nhu_cau: `Đăng ký Webinar IDEAS Talk | Chức danh: ${chucDanhText} | Mục tiêu đăng ký: ${mucDichText}`
+                    nhu_cau: `Đăng ký Webinar IDEAS Talk | Chức danh: ${chucDanhText} | Mục tiêu đăng ký: ${mucDichText} | Topic: ${interestVal}`
                 };
 
                 // Append UTMs
