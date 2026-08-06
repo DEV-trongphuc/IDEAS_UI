@@ -3726,26 +3726,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     chuong_trinh_dat_lich: "IDEAS Talk Webinar"
                 };
 
-                // Webhook Payload for open.domation.net
-                const webhookPayload = {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    source: "Ideas_Talk_Webinar_Landing_Page",
-                    type: "webinar_registration",
-                    chuong_trinh: "IDEAS Talk Webinar",
-                    chuc_danh: chucDanhText,
-                    nhu_cau: `Đăng ký Webinar IDEAS Talk | Chức danh: ${chucDanhText} | Mục tiêu đăng ký: ${mucDichText} | Topic: ${interestVal}`
-                };
-
-                // Append UTMs
-                const urlParams = new URLSearchParams(window.location.search);
-                const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
-                utmParams.forEach(param => {
-                    const val = urlParams.get(param);
-                    if (val) webhookPayload[param] = val;
-                });
-
                 // Disable submit button during request
                 const btn = document.getElementById('form-submit-btn');
                 const originalBtnHtml = btn.innerHTML;
@@ -3758,19 +3738,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 document.head.appendChild(style);
 
                 try {
-                    const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+                    await fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(payload)
                     });
-
-                    const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(webhookPayload)
-                    });
-
-                    await Promise.allSettled([p1, p2]);
 
                     // Google Ads Conversion tracking
                     if (typeof window.gtag === 'function') {
