@@ -2577,8 +2577,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .section-topics,
             .section-featured,
             .section-form,
-            .talk-coop {
-                padding: 55px 0 !important;
+            .talk-coop,
+            .talk-brief {
+                padding: 45px 0 !important;
             }
 
             .talk-hero {
@@ -2615,10 +2616,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .talk-hero p {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+                color: #cbd5e1 !important;
                 text-align: center !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
-                margin-bottom: 30px !important;
+                margin-bottom: 24px !important;
             }
 
             .talk-hero-ctas {
@@ -2648,6 +2652,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 font-size: 1.25rem !important;
             }
 
+            .speakers-avatars-row {
+                flex-wrap: wrap !important;
+                row-gap: 8px !important;
+            }
+
             /* Section 1: Intro Center Alignment on Mobile */
             .intro-left {
                 text-align: center;
@@ -2672,14 +2681,54 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 background: linear-gradient(90deg, transparent, #b91c1c, transparent);
             }
 
+            @media (max-width: 580px) {
+                .intro-mini-card {
+                    padding: 14px 18px !important;
+                    border-radius: 12px !important;
+                    gap: 12px !important;
+                }
+                .mini-card-icon {
+                    width: 36px !important;
+                    height: 36px !important;
+                    border-radius: 8px !important;
+                }
+                .mini-card-icon svg {
+                    width: 16px !important;
+                    height: 16px !important;
+                }
+                .mini-card-text strong {
+                    font-size: 0.8rem !important;
+                }
+                .mini-card-text span {
+                    font-size: 0.72rem !important;
+                }
+            }
+
             /* Section 2: Why Attend - Clean Non-Squished Mobile Layout */
             .why-list-item {
                 position: relative !important;
                 padding: 38px 20px 24px !important;
-                /* Top padding to accommodate float number */
                 flex-direction: row !important;
                 gap: 16px !important;
                 align-items: flex-start !important;
+            }
+
+            @media (max-width: 576px) {
+                .why-list-item {
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                    gap: 12px !important;
+                    padding: 40px 18px 20px !important;
+                }
+                .why-item-icon-wrapper {
+                    width: 40px !important;
+                    height: 40px !important;
+                    border-radius: 8px !important;
+                }
+                .why-item-icon-wrapper svg {
+                    width: 18px !important;
+                    height: 18px !important;
+                }
             }
 
             .why-item-number {
@@ -2772,6 +2821,55 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             .form-content-col {
                 padding: 30px 20px !important;
+            }
+
+            /* Extra Mobile Improvements */
+            .brief-speaker-card {
+                padding: 20px 16px !important;
+            }
+            .brief-speaker-avatar {
+                width: 72px !important;
+                height: 72px !important;
+                margin-bottom: 12px !important;
+            }
+            .brief-speaker-name {
+                font-size: 1.05rem !important;
+            }
+
+            .coop-card {
+                padding: 16px 24px !important;
+                height: 75px !important;
+            }
+            .coop-card img {
+                max-height: 40px !important;
+            }
+            .coop-grid {
+                gap: 16px !important;
+            }
+
+            .form-grid-box {
+                border-radius: 24px !important;
+            }
+            .playlist-items li {
+                padding: 10px 12px !important;
+                border-radius: 10px !important;
+            }
+            .playlist-items li p.title {
+                font-size: 0.82rem !important;
+            }
+            .playlist-items li p.details {
+                font-size: 0.74rem !important;
+            }
+
+            .brief-banner {
+                margin-top: 24px !important;
+                margin-bottom: 24px !important;
+            }
+            .brief-banner img {
+                border-radius: 12px !important;
+            }
+            .talk-section-header {
+                margin-bottom: 30px !important;
             }
         }
     </style>
@@ -2984,7 +3082,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span style="font-size: 0.52em; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.08em; display: block; background: none !important; -webkit-text-fill-color: #475569 !important;">
                                 <?php echo $is_en ? "Why you shouldn't miss" : "Tại sao bạn không nên bỏ lỡ"; ?>
                             </span>
-                            <span style="color: #ab0e00 !important; display: block; -webkit-text-fill-color: #ab0e00 !important; font-size: 1.02em; font-weight: 900; letter-spacing: -0.02em; background: none !important; background-clip: border-box !important;">
+                            <span style="color: #ab0e00 !important; display: block; -webkit-text-fill-color: #ab0e00 !important; font-size: clamp(1.35rem, 2.7vw, 1.9rem) !important; font-weight: 900; letter-spacing: -0.02em; background: none !important; background-clip: border-box !important;">
                                 <?php echo $is_en ? "IDEAS Talk Webinar Series?" : "Chuỗi Webinar của IDEAS?"; ?>
                             </span>
                         </div>
