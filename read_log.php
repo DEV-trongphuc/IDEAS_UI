@@ -15,11 +15,16 @@ if (!is_dir($logDir)) {
             return filemtime($b) - filemtime($a);
         });
         
-        echo "Found " . count($files) . " log files. Showing latest:\n\n";
-        foreach (array_slice($files, 0, 3) as $f) {
-            echo "--- LOG FILE: " . basename($f) . " (" . date('Y-m-d H:i:s', filemtime($f)) . ") ---\n";
+        echo "Found " . count($files) . " log files. Listing latest:\n";
+        foreach (array_slice($files, 0, 5) as $f) {
+            echo "  - " . basename($f) . " | size: " . filesize($f) . " bytes | mtime: " . date('Y-m-d H:i:s', filemtime($f)) . "\n";
+        }
+        echo "\n";
+        
+        foreach (array_slice($files, 0, 1) as $f) {
+            echo "--- CONTENT OF: " . basename($f) . " ---\n";
             echo file_get_contents($f);
-            echo "\n\n";
+            echo "\n";
         }
     }
 }
