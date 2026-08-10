@@ -6,7 +6,7 @@ $logDir = '/home/vhvxoigh/.cpanel/logs/';
 if (!is_dir($logDir)) {
     echo "ERROR: Log directory $logDir does not exist or is not readable.";
 } else {
-    $files = glob($logDir . '*.log');
+    $files = glob($logDir . 'vc_*.log');
     if (empty($files)) {
         echo "No log files found in $logDir";
     } else {
