@@ -1,0 +1,62 @@
+Line 5: <script>
+Line 16: </script>
+Line 30: <meta name="description"
+Line 49: <meta property="og:description"
+Line 59: <meta name="twitter:description"
+Line 68: <script>
+Line 73: </script>
+Line 74: <script src="https://automation.ideas.edu.vn/tracker.js" defer></script>
+Line 76: <script type="application/ld+json">
+Line 91: "description": "IDEAS cung cấp dịch vụ tư vấn và hỗ trợ học thuật chuyên nghiệp cho các chương trình liên kết quốc tế bậc Cử nhân, Thạc sĩ, Tiến sĩ ch
+Line 136: "description": "Chương trình đào tạo Cử nhân quản trị kinh doanh Quốc tế trực tuyến 100% do Swiss UMEF Thụy Sĩ cấp bằng, thời gian 36 tháng, 180 ECTS.
+Line 159: "description": "Chương trình đào tạo Thạc sĩ Quản trị Kinh doanh (MBA) chuẩn châu Âu do Swiss UMEF Thụy Sĩ cấp bằng trực tiếp.",
+Line 177: "description": "Chương trình Thạc sĩ Khoa học Trí tuệ nhân tạo (MSc AI) song bằng quốc tế từ Estiam và Ascencia Business School Pháp.",
+Line 195: "description": "Chương trình Tiến sĩ Quản trị Kinh doanh Dual DBA song bằng từ đại học Estiam Pháp và Swiss UMEF Thụy Sĩ.",
+Line 212: </script>
+Line 214: <script type="application/ld+json">
+Line 261: </script>
+Line 3502: <!-- Google tag (gtag.js) -->
+Line 3503: <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKV7LKNLLH"></script>
+Line 3504: <script>
+Line 3507: gtag('js', new Date());
+Line 3510: </script>
+Line 3513: <script>
+Line 3528: </script>
+Line 5810: <a href="javascript:void(0)" onclick="openProfileBook()" class="dropdown-item-simple">
+Line 6173: <a href="javascript:void(0)" onclick="openProfileBook()" class="mobile-dropdown-item-simple">
+Line 6683: <script>
+Line 6712: </script>
+Line 8288: alt="AI-Platform" width="53" height="28"
+Line 8601: <!-- Data will be loaded here via JS -->
+Line 9181: /* Reduced vertical spacing from description to card */
+Line 10384: <script>
+Line 10621: </script>
+Line 11001: <!-- Column 1: Logo, description, social icons -->
+Line 11178: <script>
+Line 11201: </script>
+Line 11794: <script src="common-assets/js/variables.min.js?v=1786345059" defer></script>
+Line 11795: <script src="common-assets/js/script.min.js?v=1786345059" defer></script>
+Line 11796: <script src="common-assets/js/booking-modal.min.js?v=1786345059" defer></script>
+Line 12312: Swiss UMEF Program Orientation Quiz JS
+Line 12314: <script>
+Line 12627: </script>
+Line 12629: <!-- FAQ Control Script -->
+Line 12630: <script>
+Line 12663: </script>
+Line 12667: <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.36/dist/lenis.min.js"></script>
+Line 12668: <script>
+Line 12706: </script>
+Line 13120: <script>
+Line 13145: </script>
+Line 13212: <!-- Pathfinder, Accreditations & Compare Modal Script -->
+Line 13213: <script>
+Line 13286: <p class="prog-card-desc-new">${prog.description}</p>
+Line 13662: </script>
+Line 13665: <script>
+Line 13848: </script>
+Line 14079: <script>
+Line 14193: </script>
+Line 14380: <!-- Javascript will generate 32 pages here -->
+Line 14404: <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+Line 14405: <script>
+Line 14538: </script>
