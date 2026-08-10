@@ -319,7 +319,6 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
             <div class="nav-dropdown">
                 <button type="button" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                     <?php echo $is_en ? 'Policies' : 'Chính sách'; ?>
-                    <span class="menu-badge">N</span>
                     <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -634,7 +633,6 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
     <div class="mobile-dropdown">
         <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
             <?php echo $is_en ? 'Policies' : 'Chính sách'; ?>
-            <span class="menu-badge">N</span>
             <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
