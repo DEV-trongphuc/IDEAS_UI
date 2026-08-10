@@ -24,8 +24,8 @@ if (!is_dir($logDir)) {
         foreach (array_slice($files, 0, 1) as $f) {
             echo "--- CONTENT OF: " . basename($f) . " ---\n";
             $content = file_get_contents($f);
-            // Replace null bytes and escape HTML
-            $content = str_replace("\0", "[NULL]", $content);
+            // Replace null bytes and non-printable control characters
+            $content = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/', ' ', $content);
             echo htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
             echo "\n";
         }
