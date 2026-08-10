@@ -2879,12 +2879,12 @@ function initHomepageToastPopup() {
     if (sessionStorage.getItem('ideas-toast-dismissed-tri-tue')) return;
 
     const isEn = path.includes('/en/') || path.includes('/en') || path.startsWith('/en');
-    const toastLink = '/tin-tuc-moi/ideas-ai-platform-tro-ly-ai-hoc-thuat.html';
-    const toastTag = 'IDEAS AI Platform';
+    const toastLink = isEn ? '/en/webinar-ideas-talk' : '/webinar-ideas-talk';
+    const toastTag = 'IDEAS TALK';
     const toastTitle = isEn 
-        ? 'IDEAS AI Platform - 24/7 Smart Academic AI Assistant' 
-        : 'IDEAS AI Platform - Trợ lý AI học thuật hỗ trợ học viên 24/7';
-    const toastImage = 'https://ideas.edu.vn/wp-content/uploads/2026/07/AI-platform.png';
+        ? 'Actionable Knowledge for Transformation' 
+        : 'Tri Thức Thực Chiến Chuyển Đổi';
+    const toastImage = 'https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-05-webinar.webp';
 
     // Inject CSS
     const style = document.createElement('style');
