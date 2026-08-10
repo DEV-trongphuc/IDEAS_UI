@@ -1,0 +1,126 @@
+Found 884 log files. Listing latest:
+  - vc_1786345949.46781_git_deploy.log | size: 2645 bytes | mtime: 2026-08-10 14:12:29
+  - vc_1786345926.76977_git_deploy.log | size: 2660 bytes | mtime: 2026-08-10 14:12:07
+  - vc_1786345905.3798_git_deploy.log | size: 2644 bytes | mtime: 2026-08-10 14:11:45
+  - vc_1786345870.97019_git_deploy.log | size: 2660 bytes | mtime: 2026-08-10 14:11:11
+  - vc_1786345843.48226_git_deploy.log | size: 2660 bytes | mtime: 2026-08-10 14:10:43
+
+--- CONTENT OF: vc_1786345949.46781_git_deploy.log ---
+1786345949.701245753
+$ export DEPLOYPATH=$HOME/ideas.edu.vn
+
+Task completed with exit code 0.
+
+1786345949.703700809
+$ mkdir -p $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
+
+Task completed with exit code 0.
+
+1786345949.706666455
+$ mkdir -p $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
+
+Task completed with exit code 0.
+
+1786345949.709680180
+$ cp .htaccess $DEPLOYPATH/.htaccess
+
+Task completed with exit code 0.
+
+1786345949.713063976
+$ cp purge-cache.php $DEPLOYPATH/purge-cache.php
+
+Task completed with exit code 0.
+
+1786345949.721710986
+$ cp check_size.php $DEPLOYPATH/check_size.php
+
+Task completed with exit code 0.
+
+1786345949.729359447
+$ cp read_log.php $DEPLOYPATH/read_log.php
+
+Task completed with exit code 0.
+
+1786345949.732179297
+$ cp wp-convert-webp.php $DEPLOYPATH/wp-convert-webp.php
+
+Task completed with exit code 0.
+
+1786345949.734938533
+$ cp wp-migrate-db-webp.php $DEPLOYPATH/wp-migrate-db-webp.php
+
+Task completed with exit code 0.
+
+1786345949.737528901
+$ cp export_references.php $DEPLOYPATH/export_references.php
+
+Task completed with exit code 0.
+
+1786345949.740181144
+$ cp restore_receiver.php $DEPLOYPATH/restore_receiver.php
+
+Task completed with exit code 0.
+
+1786345949.742909945
+$ cp check_index_headline.php $DEPLOYPATH/check_index_headline.php
+
+Task completed with exit code 0.
+
+1786345949.745569089
+$ /bin/rsync -av --exclude=&#039;.git*&#039; wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
+sending incremental file list
+./
+bba.html
+dat-lich.html
+dual-dba.html
+emba.html
+fullbba.html
+index.html
+mba.html
+mbainai.html
+mscai.html
+tri-tue-song-hanh.html
+en/
+en/bba.html
+en/dat-lich.html
+en/dual-dba.html
+en/emba.html
+en/fullbba.html
+en/index.html
+en/mba.html
+en/mbainai.html
+en/mscai.html
+
+sent 8,993,515 bytes  received 397 bytes  17,987,824.00 bytes/sec
+total size is 18,030,067  speedup is 2.00
+
+Task completed with exit code 0.
+
+1786345949.784652910
+$ /bin/rsync -av --exclude=&#039;.git*&#039; wp-content/themes/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/
+sending incremental file list
+./
+header.php
+
+sent 4,876 bytes  received 45 bytes  9,842.00 bytes/sec
+total size is 55,608,595  speedup is 11,300.26
+
+Task completed with exit code 0.
+
+1786345949.789406943
+$ mkdir -p $DEPLOYPATH/wp-content/uploads/
+
+Task completed with exit code 0.
+
+1786345949.792635279
+$ /bin/rsync -av --exclude=&#039;.git*&#039; wp-content/uploads/ $DEPLOYPATH/wp-content/uploads/
+sending incremental file list
+
+sent 6,099 bytes  received 32 bytes  12,262.00 bytes/sec
+total size is 6,353,427  speedup is 1,036.28
+
+Task completed with exit code 0.
+
+1786345949.79812
+Build completed with exit code 0
+

@@ -9,6 +9,7 @@ deployment:
     - cp purge-cache.php $DEPLOYPATH/purge-cache.php
     - cp check_size.php $DEPLOYPATH/check_size.php
     - cp read_log.php $DEPLOYPATH/read_log.php
+    - cp check_git.php $DEPLOYPATH/check_git.php
     - cp wp-convert-webp.php $DEPLOYPATH/wp-convert-webp.php
     - cp wp-migrate-db-webp.php $DEPLOYPATH/wp-migrate-db-webp.php
     - cp export_references.php $DEPLOYPATH/export_references.php
