@@ -4380,11 +4380,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Expert 4 -->
                             <div class="fac-card">
                                 <div class="fac-avatar-wrap">
-                                    <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp" alt="TS. Mang Viên Hoàng Nhật" class="fac-avatar">
+                                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/08/cnhat_aodai.webp" alt="TS. Mang Viên Hoàng Nhật" class="fac-avatar">
                                 </div>
                                 <h4 class="fac-name">TS. Mang Viên Hoàng Nhật</h4>
                                 <div class="fac-role">Tiến sĩ Quản Trị Kinh Doanh</div>
-                                <p class="fac-bio">Hơn 25 năm kinh nghiệm quản lý, điều hành trong ngành Dược phẩm, Thiết bị Y tế; 11 năm giữ vị trí cấp cao tại GSK, Roche, Takeda.</p>
+                                <p class="fac-bio">Hơn 25 năm kinh nghiệm quản lý, điều hành trong ngành Dược phẩm, Thiết bị Y tế; 15 năm kinh nghiệm quản lý cấp cao tại GlaxoSmithKline (GSK), Roche, Menarini, Takeda Pierre Fabre Việt Nam.</p>
                             </div>
 
                             <!-- Expert 5 -->

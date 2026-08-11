@@ -1033,12 +1033,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Mang Viên Hoàng Nhật",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/cnhat_aodai.webp",
                     tag: "PhD in Business Administration",
                     job: "Lecturer at IDEAS",
                     des: [
                         "25 years of experience in Pharmaceuticals, Vaccines, and Medical Devices business",
-                        "11 years of senior management experience at GlaxoSmithKline (GSK), Roche, Menarini, and Takeda",
+                        "15 years of senior management experience at GlaxoSmithKline (GSK), Roche, Menarini, Takeda, and Pierre Fabre Vietnam",
                         "3 years of experience in education, guest lecturer, and university speaker",
                     ]
                 },
@@ -1215,12 +1215,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 },
                 {
                     name: "Mang Viên Hoàng Nhật",
-                    avatar: "https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp",
+                    avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/cnhat_aodai.webp",
                     tag: "Tiến sĩ QTKD",
                     job: "Giảng viên IDEAS",
                     des: [
                         "25 năm kinh nghiệm trong lĩnh vực kinh doanh Dược Phẩm, Vaccine, Thiết Bị Y Tế",
-                        "11 năm kinh nghiệm quản lý cấp cao tại GlaxoSmithKline (GSK), Roche, Menarini, Takeda",
+                        "15 năm kinh nghiệm quản lý cấp cao tại GlaxoSmithKline (GSK), Roche, Menarini, Takeda Pierre Fabre Việt Nam",
                         "3 năm kinh nghiệm trong lĩnh vực giáo dục, giảng viên thỉnh giảng, diễn giả của Trường Đại Học",
                     ]
                 },

@@ -2962,7 +2962,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
                                 <div class="speaker-avatar-wrap" title="TS. Mang Viên Hoàng Nhật">
-                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2024/04/cNhat-optimized.webp" alt="TS. Mang Viên Hoàng Nhật" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
+                                    <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2026/08/cnhat_aodai.webp" alt="TS. Mang Viên Hoàng Nhật" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 </div>
                                 <div class="speaker-avatar-wrap" title="ThS. Lê Sơn Phong">
                                     <img class="speaker-avatar-img" src="https://ideas.edu.vn/wp-content/uploads/2025/04/lesonphong-1.webp" alt="ThS. Lê Sơn Phong" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
