@@ -1220,7 +1220,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     job: "Giảng viên IDEAS",
                     des: [
                         "25 năm kinh nghiệm trong lĩnh vực kinh doanh Dược Phẩm, Vaccine, Thiết Bị Y Tế",
-                        "15 năm kinh nghiệm quản lý cấp cao tại GlaxoSmithKline (GSK), Roche, Menarini, Takeda Pierre Fabre Việt Nam",
+                        "15 năm kinh nghiệm quản lý cấp cao tại GlaxoSmithKline (GSK), Roche, Menarini, Takeda, Pierre Fabre Việt Nam",
                         "3 năm kinh nghiệm trong lĩnh vực giáo dục, giảng viên thỉnh giảng, diễn giả của Trường Đại Học",
                     ]
                 },
