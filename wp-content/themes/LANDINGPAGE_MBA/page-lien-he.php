@@ -386,7 +386,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 0 20px 45px rgba(15, 23, 42, 0.04),
                 0 4px 12px rgba(15, 23, 42, 0.01);
             position: relative;
-            overflow: hidden;
+            /* overflow: hidden; removed to allow custom select dropdowns to show fully */
             transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
             color: #1e293b;
         }
@@ -411,6 +411,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 100%;
             height: 4px;
             background: linear-gradient(90deg, #ff8e8e, #ff3b30);
+            border-radius: 28px 28px 0 0;
         }
 
         .form-card-header {
