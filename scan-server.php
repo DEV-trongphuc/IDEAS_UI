@@ -1,34 +1,39 @@
 <?php
 /**
- * Standalone Security Scanner for IDEAS website
- * Scans files and database for remaining obfuscated scripts.
+ * Standalone Security Scanner V2 for IDEAS website
+ * Searches the entire filesystem for sc_payload_t or _transient_sc_payload_t.
  */
 header('Content-Type: text/plain; charset=utf-8');
 
 $deploy_path = __DIR__;
-echo "Starting comprehensive security scan in: $deploy_path\n\n";
+echo "Starting comprehensive search for loaders in: $deploy_path\n\n";
 
-$signatures = ['_0x47a840be2f7c', 'ozL12p', 'wpHealthSampled7', 'site-helper-'];
+$signatures = ['sc_payload_t', '_transient_sc_payload_t', 'wpHealthSampled7', 'shb323c450e00e'];
 
-// 1. Scan files recursively
-function scan_files($dir, $signatures) {
+// Recursively scan all files in a directory
+function scan_recursive($dir, $signatures) {
     if (!file_exists($dir)) return;
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+    $iterator = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::SELF_FIRST
+    );
+    
     foreach ($iterator as $file) {
-        if ($file->isFile() && in_array(strtolower($file->getExtension()), ['php', 'js', 'html', 'htaccess'])) {
-            $content = @file_get_contents($file->getPathname());
+        if ($file->isFile() && strtolower($file->getExtension()) === 'php') {
+            $path = $file->getPathname();
+            // Skip uploads to save time (already cleaned)
+            if (strpos($path, 'wp-content/uploads') !== false) continue;
+            
+            $content = @file_get_contents($path);
             if ($content === false) continue;
             
             foreach ($signatures as $sig) {
                 if (strpos($content, $sig) !== false) {
-                    echo "[FILE MATCH] Found '$sig' in: " . $file->getPathname() . "\n";
-                    // Print lines containing signature
+                    echo "[MATCH] Found '$sig' in file: $path\n";
                     $lines = explode("\n", $content);
                     foreach ($lines as $idx => $line) {
                         if (strpos($line, $sig) !== false) {
-                            $snippet = trim($line);
-                            if (strlen($snippet) > 150) $snippet = substr($snippet, 0, 150) . "...";
-                            echo "  Line " . ($idx + 1) . ": $snippet\n";
+                            echo "  Line " . ($idx + 1) . ": " . trim($line) . "\n";
                         }
                     }
                 }
@@ -37,66 +42,47 @@ function scan_files($dir, $signatures) {
     }
 }
 
-echo "=== SCANNING THEME FILES ===\n";
-scan_files($deploy_path . '/wp-content/themes/LANDINGPAGE_MBA', $signatures);
+echo "=== SCANNING ALL FILESYSTEM (EXCLUDING UPLOADS) ===\n";
+scan_recursive($deploy_path, $signatures);
 
-echo "\n=== SCANNING ROOT FILES ===\n";
-foreach (scandir($deploy_path) as $item) {
-    if ($item == '.' || $item == '..') continue;
-    $path = $deploy_path . '/' . $item;
-    if (is_file($path) && in_array(pathinfo($path, PATHINFO_EXTENSION), ['php', 'js', 'html', 'htaccess'])) {
-        $content = @file_get_contents($path);
-        if ($content === false) continue;
-        foreach ($signatures as $sig) {
-            if (strpos($content, $sig) !== false) {
-                echo "[FILE MATCH] Found '$sig' in root file: $item\n";
-            }
-        }
-    }
-}
-
-// 2. Load WordPress to scan the Database
+// Load WordPress to delete the database option
 if (file_exists($deploy_path . '/wp-load.php')) {
-    echo "\n=== SCANNING DATABASE ===\n";
+    echo "\n=== CONNECTING TO DATABASE ===\n";
     define('WP_USE_THEMES', false);
     require_once $deploy_path . '/wp-load.php';
     
     global $wpdb;
     
-    // Search options table
-    echo "Scanning wp_options table...\n";
-    foreach ($signatures as $sig) {
-        $results = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT option_name, SUBSTRING(option_value, 1, 100) as val FROM {$wpdb->options} WHERE option_value LIKE %s",
-                '%' . $wpdb->esc_like($sig) . '%'
-            )
-        );
-        if (!empty($results)) {
-            foreach ($results as $row) {
-                echo "[DB MATCH] Found '$sig' in option '{$row->option_name}' (value preview: {$row->val}...)\n";
+    // Delete the transient option
+    echo "Deleting transient options containing sc_payload_t...\n";
+    
+    $options_to_delete = [
+        '_transient_sc_payload_t',
+        '_transient_timeout_sc_payload_t',
+        '_transient_sc_payload_t_backup',
+        'sc_payload_t'
+    ];
+    
+    foreach ($options_to_delete as $opt) {
+        $deleted = delete_option($opt);
+        if ($deleted) {
+            echo "SUCCESS: Deleted option '$opt' from database.\n";
+        } else {
+            // Try direct SQL in case it's not a standard option format
+            $sql_deleted = $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name = %s", $opt));
+            if ($sql_deleted) {
+                echo "SUCCESS (SQL): Deleted option '$opt' from database.\n";
+            } else {
+                echo "No option '$opt' existed or could not be deleted.\n";
             }
         }
     }
     
-    // Search posts table
-    echo "Scanning wp_posts table...\n";
-    foreach ($signatures as $sig) {
-        $results = $wpdb->get_results(
-            $wpdb->prepare(
-                "SELECT ID, post_title, post_type FROM {$wpdb->posts} WHERE post_content LIKE %s OR post_excerpt LIKE %s",
-                '%' . $wpdb->esc_like($sig) . '%',
-                '%' . $wpdb->esc_like($sig) . '%'
-            )
-        );
-        if (!empty($results)) {
-            foreach ($results as $row) {
-                echo "[DB MATCH] Found '$sig' in post ID {$row->ID} '{$row->post_title}' (Type: {$row->post_type})\n";
-            }
-        }
+    // Clear any transients matching wildcard
+    $wildcard_deleted = $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '%sc_payload_t%'");
+    if ($wildcard_deleted) {
+        echo "SUCCESS (SQL): Deleted $wildcard_deleted wildcard option(s) matching '%sc_payload_t%'.\n";
     }
-} else {
-    echo "\nwp-load.php not found. Cannot scan database.\n";
 }
 
 // Self destruct
