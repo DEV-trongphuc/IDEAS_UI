@@ -7,7 +7,7 @@ deployment:
     # Deploy .htaccess and root scripts
     - cp .htaccess $DEPLOYPATH/.htaccess
     - cp purge-cache.php $DEPLOYPATH/purge-cache.php
-    - cp clean-wpbakery-folder.php $DEPLOYPATH/clean-wpbakery-folder.php
+    - cp check-db2.php $DEPLOYPATH/check-db2.php
     - cp wp-convert-webp.php $DEPLOYPATH/wp-convert-webp.php
     - cp wp-migrate-db-webp.php $DEPLOYPATH/wp-migrate-db-webp.php
     - cp export_references.php $DEPLOYPATH/export_references.php
