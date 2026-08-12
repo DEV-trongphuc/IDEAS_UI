@@ -52,8 +52,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <style>
         :root {
-            --umef-primary: var(--clr-primary, #61A60E);
-            --umef-primary-hover: var(--clr-primary-d, #4d840b);
+            --umef-primary: var(--clr-primary, #ab0e00);
+            --umef-primary-hover: var(--clr-primary-d, #8c1000);
         }
 
         /* ══════════════════════════════════════
@@ -77,9 +77,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             inset: 0;
             z-index: -1;
             background-image:
-                radial-gradient(circle at 5% 15%, rgba(97, 166, 14, 0.04) 0%, transparent 45%),
-                radial-gradient(circle at 95% 75%, rgba(97, 166, 14, 0.03) 0%, transparent 40%),
-                radial-gradient(rgba(61, 69, 67, 0.025) 1px, transparent 1px);
+                radial-gradient(circle at 5% 15%, rgba(239, 68, 68, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at 95% 75%, rgba(239, 68, 68, 0.03) 0%, transparent 40%),
+                radial-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 28px 28px;
             pointer-events: none;
             will-change: transform;
@@ -143,7 +143,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             z-index: 2;
             background:
                 linear-gradient(180deg, rgba(4, 5, 8, 0.55) 0%, rgba(6, 9, 14, 0.92) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(97, 166, 14, 0.18) 0%, transparent 65%);
+                radial-gradient(ellipse at 50% 50%, rgba(217, 38, 38, 0.18) 0%, transparent 65%);
         }
 
         .umef-hero-container {
@@ -154,11 +154,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-hero-badge {
-            background: rgba(97, 166, 14, 0.14);
-            border: 1px solid rgba(97, 166, 14, 0.4);
+            background: rgba(217, 38, 38, 0.14);
+            border: 1px solid rgba(217, 38, 38, 0.4);
             padding: 8px 22px;
             border-radius: 100px;
-            color: #d2f5a6;
+            color: #ff8a8a;
             font-size: 0.82rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -180,7 +180,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-hero h1 span {
-            background: linear-gradient(135deg, #d2f5a6 0%, var(--umef-primary) 60%, var(--umef-primary-hover) 100%);
+            background: linear-gradient(135deg, #ff8a8a 0%, var(--umef-primary) 60%, var(--umef-primary-hover) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -245,7 +245,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-hero .umef-stat-num {
-            background: linear-gradient(135deg, #d2f5a6, var(--umef-primary));
+            background: linear-gradient(135deg, #ff8a8a, var(--umef-primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -275,7 +275,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-section-dark .section-title span {
-            background: linear-gradient(135deg, #d2f5a6 0%, var(--umef-primary) 60%, var(--umef-primary-hover) 100%);
+            background: linear-gradient(135deg, #ff8a8a 0%, var(--umef-primary) 60%, var(--umef-primary-hover) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1170,7 +1170,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             top: 25px;
             right: 40px;
             font-size: 4rem;
-            color: rgba(97, 166, 14, 0.04);
+            color: rgba(239, 68, 68, 0.04);
         }
 
         .testi-text {
@@ -1851,7 +1851,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 6px;
             background: rgba(217, 38, 38, 0.15);
             border: 1px solid rgba(217, 38, 38, 0.3);
-            color: #d2f5a6;
+            color: #ff8a8a;
             font-size: 0.72rem;
             font-weight: 700;
             padding: 3px 11px;
@@ -1870,7 +1870,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-video-card:hover .umef-video-title {
-            color: #d2f5a6;
+            color: #ff8a8a;
         }
 
         .umef-video-desc {
@@ -1979,9 +1979,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-video-carousel-btn:hover {
-            background: var(--umef-primary, #61A60E);
+            background: var(--umef-primary, #ab0e00);
             color: #ffffff;
-            border-color: var(--umef-primary, #61A60E);
+            border-color: var(--umef-primary, #ab0e00);
             box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
         }
 
@@ -2015,7 +2015,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-video-dot.active {
-            background: var(--umef-primary, #61A60E);
+            background: var(--umef-primary, #ab0e00);
             width: 24px;
             border-radius: 5px;
         }
@@ -2045,7 +2045,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .hero-social-proof p strong {
-                color: #61A60E !important;
+                color: #ab0e00 !important;
                 font-size: 1.4rem !important;
                 display: inline-flex !important;
                 justify-content: center !important;
@@ -2067,7 +2067,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
 
             .hero-social-proof>div:not(.avatars) strong {
-                color: #61A60E !important;
+                color: #ab0e00 !important;
                 font-size: 1.4rem !important;
                 display: inline-flex !important;
                 justify-content: center !important;
@@ -2275,7 +2275,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section umef-section-dark" style="background: #040508;">
         <div class="gallery-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <span style="color: #61A60E; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Học Tập Tại Trái Tim Thủ Đô Paris</span>
+                <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Học Tập Tại Trái Tim Thủ Đô Paris</span>
                 <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-top: 10px;">Cơ Sở Campus <span>ISTEC Paris</span></h2>
                 <p style="color: #94a3b8; max-width: 700px; margin: 15px auto 0; line-height: 1.6;">
                     Campus Jemmapes của ISTEC tọa lạc dọc theo kênh đào nổi tiếng Canal Saint-Martin, ngay tại trung tâm sôi động quận 10 Paris. Một không gian học tập hiện đại, kết nối và mang đậm hơi thở văn hóa Pháp.
@@ -2312,7 +2312,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section umef-news-section" id="tin-tuc-su-kien">
         <div class="news-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <span style="color: #61A60E; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hành Trình Hơn 6 Thập Kỷ Đào Tạo Lãnh Đạo</span>
+                <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hành Trình Hơn 6 Thập Kỷ Đào Tạo Lãnh Đạo</span>
                 <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Lịch Sử & <span>Vị Thế Uy Tín</span> Của ISTEC</h2>
             </div>
             
@@ -2327,15 +2327,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </p>
                     <ul style="list-style: none; padding: 0; margin: 0;">
                         <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
-                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #61A60E; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #ab0e00; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <span style="color: #334155; font-weight: 600;">Hạng 8 trường Post-Bac có chương trình Grande École tốt nhất nước Pháp theo Le Parisien năm 2026.</span>
                         </li>
                         <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
-                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #61A60E; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #ab0e00; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <span style="color: #334155; font-weight: 600;">Hơn 100 trường đại học đối tác trao đổi và cấp bằng liên kết trên khắp thế giới.</span>
                         </li>
                         <li style="display: flex; align-items: flex-start; gap: 12px;">
-                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #61A60E; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #ab0e00; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
                             <span style="color: #334155; font-weight: 600;">Hợp tác chính thức cùng Tổ chức Giáo dục IDEAS mang đến các chương trình thạc sĩ & tiến sĩ xuất sắc tại Việt Nam.</span>
                         </li>
                     </ul>
@@ -2348,7 +2348,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section" id="cac-chuong-trinh">
         <div class="programs-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <span style="color: #61A60E; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hệ Thống Đào Tạo Đa Dạng Quốc Tế</span>
+                <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hệ Thống Đào Tạo Đa Dạng Quốc Tế</span>
                 <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Các Chương Trình <span>Liên Kết Tuyển Sinh</span></h2>
                 <p style="color: #64748b; max-width: 700px; margin: 15px auto 0; line-height: 1.6;">
                     Khám phá hệ thống đào tạo chất lượng cao của ISTEC Paris phối hợp cùng IDEAS triển khai cho học viên và các nhà quản trị Việt Nam.
@@ -2358,7 +2358,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="prog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
                 <!-- DBA Card -->
                 <div class="prog-card" style="background:#fff; padding:30px; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 10px 30px rgba(0,0,0,0.05); display:flex; flex-direction:column;">
-                    <div style="color: #61A60E; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-user-tie fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg></div>
+                    <div style="color: #ab0e00; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-user-tie fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg></div>
                     <h3 style="font-size: 1.4rem; font-weight: 800; color:#1e293b; margin-bottom: 12px;">Tiến sĩ DBA (Bac+8)</h3>
                     <p style="color:#64748b; font-size:0.95rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình Tiến sĩ Quản trị Kinh doanh cao cấp dành riêng cho nhà quản lý, CEO, và chuyên gia xuất sắc muốn nâng tầm học thuật và đóng góp tri thức cho ngành.
@@ -2368,12 +2368,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li>✓ Ngôn ngữ: Tiếng Anh / Tiếng Pháp</li>
                         <li>✓ Bằng cấp chính thức từ ISTEC Paris</li>
                     </ul>
-                    <a href="javascript:void(0)" onclick="showform('istec_dba')" style="background:#61A60E; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#4d840b'" onmouseout="this.style.backgroundColor='#61A60E'">Đăng Ký Tư Vấn</a>
+                    <a href="javascript:void(0)" onclick="showform('istec_dba')" style="background:#ab0e00; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#8c1000'" onmouseout="this.style.backgroundColor='#ab0e00'">Đăng Ký Tư Vấn</a>
                 </div>
                 
                 <!-- MBA Card -->
                 <div class="prog-card" style="background:#fff; padding:30px; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 10px 30px rgba(0,0,0,0.05); display:flex; flex-direction:column;">
-                    <div style="color: #61A60E; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg></div>
+                    <div style="color: #ab0e00; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg></div>
                     <h3 style="font-size: 1.4rem; font-weight: 800; color:#1e293b; margin-bottom: 12px;">Thạc sĩ MBA (Bac+5)</h3>
                     <p style="color:#64748b; font-size:0.95rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.
@@ -2383,12 +2383,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li>✓ Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG</li>
                         <li>✓ Hình thức học tập linh hoạt, ưu việt</li>
                     </ul>
-                    <a href="javascript:void(0)" onclick="showform('istec_mba')" style="background:#61A60E; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#4d840b'" onmouseout="this.style.backgroundColor='#61A60E'">Đăng Ký Tư Vấn</a>
+                    <a href="javascript:void(0)" onclick="showform('istec_mba')" style="background:#ab0e00; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#8c1000'" onmouseout="this.style.backgroundColor='#ab0e00'">Đăng Ký Tư Vấn</a>
                 </div>
 
                 <!-- BBA Card -->
                 <div class="prog-card" style="background:#fff; padding:30px; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 10px 30px rgba(0,0,0,0.05); display:flex; flex-direction:column;">
-                    <div style="color: #61A60E; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-book fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 448c-17.7 0-32-14.3-32-32l0-64 352 0c17.7 0 32-14.3 32-32l0-288c0-17.7-14.3-32-32-32L96 0zM64 80c0-8.8 7.2-16 16-16l256 0c8.8 0 16 7.2 16 16l0 208L64 304 64 80z"/></svg></div>
+                    <div style="color: #ab0e00; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-book fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 448c-17.7 0-32-14.3-32-32l0-64 352 0c17.7 0 32-14.3 32-32l0-288c0-17.7-14.3-32-32-32L96 0zM64 80c0-8.8 7.2-16 16-16l256 0c8.8 0 16 7.2 16 16l0 208L64 304 64 80z"/></svg></div>
                     <h3 style="font-size: 1.4rem; font-weight: 800; color:#1e293b; margin-bottom: 12px;">Cử nhân BBA (Bac+3)</h3>
                     <p style="color:#64748b; font-size:0.95rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình đào tạo Cử nhân Quản trị Kinh doanh chính quy (Bachelor in Management) giúp người học nắm vững kiến thức quản trị, tiếp thị, và vận hành doanh nghiệp đạt chuẩn quốc tế.
@@ -2398,7 +2398,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li>✓ Đạt chuẩn "Grade de Licence" quốc gia</li>
                         <li>✓ Mở rộng cơ hội nghề nghiệp quốc tế</li>
                     </ul>
-                    <a href="javascript:void(0)" onclick="showform('istec_bba')" style="background:#61A60E; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#4d840b'" onmouseout="this.style.backgroundColor='#61A60E'">Đăng Ký Tư Vấn</a>
+                    <a href="javascript:void(0)" onclick="showform('istec_bba')" style="background:#ab0e00; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#8c1000'" onmouseout="this.style.backgroundColor='#ab0e00'">Đăng Ký Tư Vấn</a>
                 </div>
             </div>
         </div>
@@ -2407,7 +2407,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- ISTEC Paris Combined Videos Section -->
     <section class="umef-section umef-videos-section" style="background:#0f172a; padding:80px 20px;">
         <div style="max-width:1200px; margin:0 auto; text-align:center; margin-bottom:50px;">
-            <span style="color: #61A60E; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Khám Phá Qua Video</span>
+            <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Khám Phá Qua Video</span>
             <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-top: 10px;">Trực Quan Về <span>ISTEC Paris</span></h2>
         </div>
         
@@ -2420,7 +2420,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section testimonials-section" style="background:#f8fafc; padding:80px 20px;">
         <div style="max-width:1200px; margin:0 auto;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <span style="color: #61A60E; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Chia Sẻ Của Học Viên</span>
+                <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Chia Sẻ Của Học Viên</span>
                 <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Cảm Nhận Thực Tế</h2>
             </div>
             
@@ -2430,7 +2430,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "Học tập chương trình liên kết của ISTEC tại Việt Nam giúp tôi cân bằng giữa công việc bận rộn tại doanh nghiệp và ước mơ nghiên cứu Tiến sĩ. Chương trình đào tạo cực kỳ bài bản và bám sát thực tiễn doanh nghiệp."
                     </p>
                     <div style="display:flex; align-items:center; gap:15px;">
-                        <div style="width:48px; height:48px; border-radius:50%; background:#61A60E; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold;">HN</div>
+                        <div style="width:48px; height:48px; border-radius:50%; background:#ab0e00; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold;">HN</div>
                         <div>
                             <h4 style="color:#1e293b; font-weight:700; margin:0;">Hà Minh Nam</h4>
                             <span style="color:#64748b; font-size:0.85rem;">Học viên Tiến sĩ DBA khóa 1</span>
@@ -2443,7 +2443,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         "Bằng cấp của ISTEC Paris được công nhận quốc tế và là tấm vé vàng để tôi thăng tiến lên các vị trí quản trị cao cấp. Đội ngũ giáo sư cực kỳ tận tâm và có chuyên môn sâu sắc."
                     </p>
                     <div style="display:flex; align-items:center; gap:15px;">
-                        <div style="width:48px; height:48px; border-radius:50%; background:#61A60E; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold;">TL</div>
+                        <div style="width:48px; height:48px; border-radius:50%; background:#ab0e00; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold;">TL</div>
                         <div>
                             <h4 style="color:#1e293b; font-weight:700; margin:0;">Trần Thu Liên</h4>
                             <span style="color:#64748b; font-size:0.85rem;">Học viên Executive MBA</span>
