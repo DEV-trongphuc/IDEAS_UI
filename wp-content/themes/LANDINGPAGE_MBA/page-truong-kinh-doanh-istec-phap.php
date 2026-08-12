@@ -319,10 +319,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .prog-card a {
             transition: all 0.3s ease;
         }
-        .prog-card a:hover {
-            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.3);
-            transform: translateY(-1px);
-        }
+        
 
         /* ── Dark Section Contrast Rules ── */
         .umef-section-dark .section-title {
@@ -2582,66 +2579,66 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             
             <div class="prog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
                 <!-- DBA Card -->
-                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #2563eb !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
+                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #ab0e00 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
                     <h3 style="font-size: 1.5rem; font-weight: 850; color:#1e293b; margin-top: 0; margin-bottom: 6px;">Tiến sĩ DBA</h3>
-                    <span style="color: #2563eb; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+8</span>
+                    <span style="color: #ab0e00; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+8</span>
                     <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình Tiến sĩ Quản trị Kinh doanh cao cấp dành riêng cho nhà quản lý, CEO, và chuyên gia xuất sắc muốn nâng tầm học thuật và đóng góp tri thức cho ngành.
                     </p>
                     <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:1.8;">
                         <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#2563eb; font-weight:bold;">•</span> Thời gian: 3 - 4 năm
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Thời gian: 3 - 4 năm
                         </li>
                         <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#2563eb; font-weight:bold;">•</span> Ngôn ngữ: Tiếng Anh / Tiếng Pháp
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Ngôn ngữ: Tiếng Anh / Tiếng Pháp
                         </li>
                         <li style="position:relative; padding-left:18px;">
-                            <span style="position:absolute; left:0; color:#2563eb; font-weight:bold;">•</span> Bằng cấp chính thức từ ISTEC Paris
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Bằng cấp chính thức từ ISTEC Paris
                         </li>
                     </ul>
-                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #2563eb; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
+                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #ab0e00; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
                 </div>
                 
                 <!-- MBA Card -->
-                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #eab308 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
+                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #ab0e00 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
                     <h3 style="font-size: 1.5rem; font-weight: 850; color:#1e293b; margin-top: 0; margin-bottom: 6px;">Thạc sĩ MBA</h3>
-                    <span style="color: #eab308; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+5</span>
+                    <span style="color: #ab0e00; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+5</span>
                     <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.
                     </p>
                     <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:1.8;">
                         <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#eab308; font-weight:bold;">•</span> Thời gian: 18 - 24 tháng
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Thời gian: 18 - 24 tháng
                         </li>
                         <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#eab308; font-weight:bold;">•</span> Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG
                         </li>
                         <li style="position:relative; padding-left:18px;">
-                            <span style="position:absolute; left:0; color:#eab308; font-weight:bold;">•</span> Hình thức học tập linh hoạt, ưu việt
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Hình thức học tập linh hoạt, ưu việt
                         </li>
                     </ul>
-                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #eab308; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
+                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #ab0e00; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
                 </div>
 
                 <!-- BBA Card -->
-                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #a21caf !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
+                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #ab0e00 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
                     <h3 style="font-size: 1.5rem; font-weight: 850; color:#1e293b; margin-top: 0; margin-bottom: 6px;">Cử nhân BBA</h3>
-                    <span style="color: #a21caf; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+3</span>
+                    <span style="color: #ab0e00; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+3</span>
                     <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình đào tạo Cử nhân Quản trị Kinh doanh chính quy (Bachelor in Management) giúp người học nắm vững kiến thức quản trị, tiếp thị, và vận hành doanh nghiệp đạt chuẩn quốc tế.
                     </p>
                     <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:1.8;">
                         <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#a21caf; font-weight:bold;">•</span> Thời gian: 3 năm (hoặc 1 năm Top-up)
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Thời gian: 3 năm (hoặc 1 năm Top-up)
                         </li>
                         <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#a21caf; font-weight:bold;">•</span> Đạt chuẩn "Grade de Licence" quốc gia
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Đạt chuẩn "Grade de Licence" quốc gia
                         </li>
                         <li style="position:relative; padding-left:18px;">
-                            <span style="position:absolute; left:0; color:#a21caf; font-weight:bold;">•</span> Mở rộng cơ hội nghề nghiệp quốc tế
+                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Mở rộng cơ hội nghề nghiệp quốc tế
                         </li>
                     </ul>
-                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #a21caf; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
+                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #ab0e00; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
                 </div>
             </div>
         </div>
