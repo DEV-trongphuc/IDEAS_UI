@@ -2483,7 +2483,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <div class="news-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
             <div style="text-align: center; margin-bottom: 50px;">
                 <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hành Trình Hơn 6 Thập Kỷ Đào Tạo Lãnh Đạo</span>
-                <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Lịch Sử & <span>Vị Thế Uy Tín</span> Của ISTEC</h2>
+                <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Lịch Sử & Vị Thế <span>Uy Tín Của ISTEC</span></h2>
             </div>
             
             <div class="news-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
