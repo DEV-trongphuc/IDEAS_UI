@@ -6248,3 +6248,311 @@ add_filter('rank_math/opengraph/twitter/image', function($image) {
     }
     return $image;
 }, 99);
+
+/**
+ * REST API Endpoints for Corporate Doctor / Bác sĩ Doanh nghiệp Clinic
+ * To prevent Cloudflare WAF block on wp-admin/admin-ajax.php
+ */
+add_action('rest_api_init', function () {
+    $namespace = 'ideas/v1';
+
+    // GET /wp-json/ideas/v1/clinic-data
+    register_rest_route($namespace, '/clinic-data', array(
+        'methods' => 'GET',
+        'callback' => 'ideas_rest_get_clinic_data',
+        'permission_callback' => '__return_true',
+    ));
+
+    // POST /wp-json/ideas/v1/upvote-topic
+    register_rest_route($namespace, '/upvote-topic', array(
+        'methods' => 'POST',
+        'callback' => 'ideas_rest_upvote_topic',
+        'permission_callback' => '__return_true',
+    ));
+
+    // POST /wp-json/ideas/v1/submit-clinic-comment
+    register_rest_route($namespace, '/submit-clinic-comment', array(
+        'methods' => 'POST',
+        'callback' => 'ideas_rest_submit_clinic_comment',
+        'permission_callback' => '__return_true',
+    ));
+
+    // POST /wp-json/ideas/v1/submit-booking
+    register_rest_route($namespace, '/submit-booking', array(
+        'methods' => 'POST',
+        'callback' => 'ideas_rest_submit_booking',
+        'permission_callback' => '__return_true',
+    ));
+
+    // POST /wp-json/ideas/v1/submit-clinic-topic
+    register_rest_route($namespace, '/submit-clinic-topic', array(
+        'methods' => 'POST',
+        'callback' => 'ideas_rest_submit_clinic_topic',
+        'permission_callback' => '__return_true',
+    ));
+});
+
+// REST Callback: Lấy danh sách điểm nghẽn & Thống kê
+function ideas_rest_get_clinic_data($request) {
+    $is_en = ($request->get_param('lang') === 'en');
+    
+    // Lấy danh sách bài đăng đã duyệt từ database
+    $args = [
+        'post_type' => 'ideas_clinic_topic',
+        'post_status' => 'publish',
+        'posts_per_page' => 100,
+        'orderby' => 'date',
+        'order' => 'DESC'
+    ];
+    $posts = get_posts($args);
+    $topics = [];
+
+    foreach ($posts as $post) {
+        $comments_query = get_comments(['post_id' => $post->ID, 'status' => 'approve']);
+        $comments = [];
+        foreach ($comments_query as $c) {
+            $comments[] = [
+                'author' => $c->comment_author,
+                'content' => wpautop($c->comment_content),
+                'date' => date('d/m/Y H:i', strtotime($c->comment_date)),
+                'is_mentor' => get_comment_meta($c->comment_ID, 'is_mentor', true) === '1'
+            ];
+        }
+
+        $topics[] = [
+            'id' => $post->ID,
+            'title' => $post->post_title,
+            'content' => wpautop($post->post_content),
+            'date' => date('d/m/Y H:i', strtotime($post->post_date)),
+            'is_anonymous' => get_post_meta($post->ID, 'is_anonymous', true) === '1',
+            'author_name' => get_post_meta($post->ID, 'author_name', true) ?: 'Doanh nghiệp',
+            'target_mentor' => get_post_meta($post->ID, 'target_mentor', true) ?: '',
+            'tags' => get_post_meta($post->ID, 'tags', true) ?: [],
+            'upvotes' => intval(get_post_meta($post->ID, 'upvotes', true) ?: 0),
+            'comments' => $comments
+        ];
+    }
+
+    // Nếu database chưa có dữ liệu, trả về danh sách điểm nghẽn mẫu cực đẹp để trang luôn đầy đủ
+    if (empty($topics)) {
+        $topics = [
+            [
+                'id' => 'mock_1',
+                'title' => 'Làm sao giải quyết mâu thuẫn nội bộ giữa thế hệ Founder cũ và Co-founder trẻ tuổi?',
+                'content' => 'Doanh nghiệp dược phẩm của chúng tôi thành lập được 12 năm, hiện đang cơ cấu lại phòng ban công nghệ và marketing. Nhóm sáng lập cũ thiên về kinh nghiệm thực tế truyền thống, trong khi các bạn Co-founder mới tham gia có xu hướng đẩy mạnh ứng dụng AI và chuyển đổi số. Sự bất đồng về tư duy vận hành đang khiến tiến độ dự án bị chậm gần 4 tháng. Rất mong được các chuyên gia tư vấn giải pháp.',
+                'date' => '25/07/2026 14:30',
+                'is_anonymous' => true,
+                'author_name' => 'Doanh nghiệp ẩn danh',
+                'target_mentor' => 'Phạm Quang Vinh',
+                'tags' => ['NhânSựRờiBỏ', 'QuảnTrịChiếnLược'],
+                'upvotes' => 42,
+                'comments' => [
+                    [
+                        'author' => 'Dr. Phạm Quang Vinh',
+                        'content' => 'Chào bạn, mâu thuẫn thế hệ trong doanh nghiệp chuyển đổi số là điểm nghẽn rất phổ biến. Hướng đi cho bạn là cần xây dựng một "Vùng đệm công nghệ" độc lập dưới dạng Sandbox để nhóm trẻ thử nghiệm trước. Đồng thời nhóm sáng lập cũ đóng vai trò Mentor kiểm duyệt rủi ro tài chính chứ không can thiệp sâu vào phương thức vận hành kỹ thuật của dự án AI.',
+                        'date' => '25/07/2026 16:15',
+                        'is_mentor' => true
+                    ]
+                ]
+            ],
+            [
+                'id' => 'mock_2',
+                'title' => 'Doanh thu sụt giảm 30% sau khi cắt giảm ngân sách quảng cáo Facebook/Google, làm sao tối ưu chi phí?',
+                'content' => 'Doanh nghiệp F&B của chúng tôi có chuỗi 8 cửa hàng tại TP.HCM. Do áp lực mặt bằng, chúng tôi đã cắt giảm 50% chi phí chạy quảng cáo trực tuyến và ngay lập tức doanh thu tổng thể sụt giảm hơn 30%. Có cách nào để xây dựng phễu khách hàng tự nhiên (organic) mà không phụ thuộc quá nhiều vào ngân sách trả phí không?',
+                'date' => '26/07/2026 09:12',
+                'is_anonymous' => false,
+                'author_name' => 'CEO Chuỗi F&B Sài Gòn',
+                'target_mentor' => 'Trần Hoàng Hiệp',
+                'tags' => ['SụtGiảmDoanhThu', 'TốiƯuChiPhí'],
+                'upvotes' => 28,
+                'comments' => [
+                    [
+                        'author' => 'MSc. Trần Hoàng Hiệp',
+                        'content' => 'Chào bạn, việc đột ngột cắt giảm chi phí quảng cáo mà không có kênh giữ chân (retention) là sai lầm phổ biến. Bạn nên dịch chuyển ngân sách còn lại vào việc tối ưu hệ thống Zalo Mini App và tích điểm thành viên cho 8 cửa hàng hiện tại để khai thác lượng khách cũ. Tỷ lệ khách quay lại tăng 10% sẽ giúp bù đắp lượng khách mới bị sụt giảm từ quảng cáo.',
+                        'date' => '26/07/2026 11:30',
+                        'is_mentor' => true
+                    ]
+                ]
+            ]
+        ];
+    }
+
+    $stats = [
+        'total_cases' => count($topics) + 122,
+        'resolved_rate' => 92,
+        'pain_points_distribution' => [
+            ['label' => 'Chuyển đổi số & AI', 'value' => 65],
+            ['label' => 'Chiến lược & Quản trị', 'value' => 20],
+            ['label' => 'Cổ đông & Nhân sự', 'value' => 15]
+        ]
+    ];
+
+    return [
+        'success' => true,
+        'data' => [
+            'topics' => $topics,
+            'stats' => $stats
+        ]
+    ];
+}
+
+// REST Callback: Upvote bệnh án
+function ideas_rest_upvote_topic($request) {
+    $post_id = intval($request->get_param('post_id'));
+    if (!$post_id) {
+        return [
+            'success' => false,
+            'data' => 'Mã bài viết không hợp lệ.'
+        ];
+    }
+
+    $upvotes = intval(get_post_meta($post_id, 'upvotes', true) ?: 0);
+    $upvotes++;
+    update_post_meta($post_id, 'upvotes', $upvotes);
+
+    return [
+        'success' => true,
+        'data' => ['upvotes' => $upvotes]
+    ];
+}
+
+// REST Callback: Bình luận câu hỏi / Trả lời của chuyên gia
+function ideas_rest_submit_clinic_comment($request) {
+    $post_id = intval($request->get_param('post_id'));
+    $content = sanitize_textarea_field($request->get_param('content'));
+    $author = sanitize_text_field($request->get_param('author') ?? 'Người dùng');
+    $email = sanitize_email($request->get_param('email') ?? 'guest@ideas.edu.vn');
+    $is_mentor = $request->get_param('is_mentor') === 'true' ? '1' : '0';
+
+    if (empty($content) || !$post_id) {
+        return [
+            'success' => false,
+            'data' => 'Nội dung bình luận không được bỏ trống.'
+        ];
+    }
+
+    $comment_data = [
+        'comment_post_ID' => $post_id,
+        'comment_author' => $author,
+        'comment_author_email' => $email,
+        'comment_content' => $content,
+        'comment_approved' => 0, // Chờ duyệt mặc định
+        'comment_type' => 'comment'
+    ];
+
+    $comment_id = wp_insert_comment($comment_data);
+
+    if (!$comment_id) {
+        return [
+            'success' => false,
+            'data' => 'Có lỗi xảy ra khi gửi bình luận.'
+        ];
+    }
+
+    update_comment_meta($comment_id, 'is_mentor', $is_mentor);
+
+    return [
+        'success' => true,
+        'data' => 'Bình luận của bạn đã được gửi và đang chờ kiểm duyệt.'
+    ];
+}
+
+// REST Callback: Đặt lịch hẹn 1:1 với chuyên gia
+function ideas_rest_submit_booking($request) {
+    $mentor = sanitize_text_field($request->get_param('mentor'));
+    $name = sanitize_text_field($request->get_param('name'));
+    $phone = sanitize_text_field($request->get_param('phone'));
+    $email = sanitize_email($request->get_param('email'));
+    $chuc_danh = sanitize_text_field($request->get_param('chuc_danh'));
+    $muc_dich = sanitize_text_field($request->get_param('muc_dich'));
+
+    if (empty($mentor) || empty($name) || empty($phone) || empty($email) || empty($chuc_danh) || empty($muc_dich)) {
+        return [
+            'success' => false,
+            'data' => 'Vui lòng điền đầy đủ tất cả các trường bắt buộc.'
+        ];
+    }
+
+    $booking_title = sprintf('Lịch đặt hẹn: %s - Chức danh %s (%s)', $name, $chuc_danh, date('d/m/Y H:i'));
+
+    $post_data = [
+        'post_title' => $booking_title,
+        'post_status' => 'draft',
+        'post_type' => 'ideas_clinic_booking',
+    ];
+
+    $post_id = wp_insert_post($post_data);
+
+    if (is_wp_error($post_id)) {
+        return [
+            'success' => false,
+            'data' => 'Có lỗi xảy ra khi đặt lịch.'
+        ];
+    }
+
+    update_post_meta($post_id, 'selected_mentor', $mentor);
+    update_post_meta($post_id, 'contact_name', $name);
+    update_post_meta($post_id, 'contact_phone', $phone);
+    update_post_meta($post_id, 'contact_email', $email);
+    update_post_meta($post_id, 'chuc_danh', $chuc_danh);
+    update_post_meta($post_id, 'muc_dich', $muc_dich);
+    update_post_meta($post_id, 'company_name', $chuc_danh);
+    update_post_meta($post_id, 'pain_point_desc', $muc_dich);
+    update_post_meta($post_id, 'booking_time', $muc_dich);
+
+    $admin_email = get_option('admin_email');
+    $subject = 'Có yêu cầu Đặt lịch Tư vấn Doanh nghiệp mới';
+    $message = "Họ tên: $name\nSố điện thoại: $phone\nEmail: $email\nChức danh: $chuc_danh\nChuyên gia yêu cầu: $mentor\nMục tiêu đăng ký: $muc_dich";
+    wp_mail($admin_email, $subject, $message);
+
+    return [
+        'success' => true,
+        'data' => 'Yêu cầu đặt lịch của bạn đã được gửi. Chuyên viên tư vấn học vụ của IDEAS sẽ liên hệ với bạn trong vòng 24h.'
+    ];
+}
+
+// REST Callback: Đăng chủ đề thảo luận mới
+function ideas_rest_submit_clinic_topic($request) {
+    $title = sanitize_text_field($request->get_param('title'));
+    $content = sanitize_textarea_field($request->get_param('content'));
+    $is_anonymous = $request->get_param('is_anonymous') === 'true' ? '1' : '0';
+    $target_mentor = sanitize_text_field($request->get_param('target_mentor') ?? '');
+    $author_name = sanitize_text_field($request->get_param('author_name') ?? 'Doanh nghiệp ẩn danh');
+    $author_email = sanitize_email($request->get_param('author_email') ?? '');
+    $tags = array_map('sanitize_text_field', $request->get_param('tags') ?? []);
+
+    if (empty($title) || empty($content)) {
+        return [
+            'success' => false,
+            'data' => 'Tiêu đề và nội dung yêu cầu tư vấn không được để trống.'
+        ];
+    }
+
+    $post_data = [
+        'post_title' => $title,
+        'post_content' => $content,
+        'post_status' => 'pending',
+        'post_type' => 'ideas_clinic_topic',
+    ];
+
+    $post_id = wp_insert_post($post_data);
+
+    if (is_wp_error($post_id)) {
+        return [
+            'success' => false,
+            'data' => 'Có lỗi xảy ra khi lưu yêu cầu tư vấn.'
+        ];
+    }
+
+    update_post_meta($post_id, 'is_anonymous', $is_anonymous);
+    update_post_meta($post_id, 'target_mentor', $target_mentor);
+    update_post_meta($post_id, 'author_name', $author_name);
+    update_post_meta($post_id, 'author_email', $author_email);
+    update_post_meta($post_id, 'tags', $tags);
+    update_post_meta($post_id, 'upvotes', 0);
+
+    return [
+        'success' => true,
+        'data' => 'Yêu cầu tư vấn của bạn đã được gửi thành công và đang chờ Hội đồng Chuyên môn kiểm duyệt.'
+    ];
+}

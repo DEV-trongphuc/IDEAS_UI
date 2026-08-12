@@ -2108,6 +2108,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- ── JAVASCRIPT LOGIC ── -->
     <script>
         const ajaxUrl = '<?php echo admin_url('admin-ajax.php'); ?>';
+        const restUrl = '<?php echo esc_url(rest_url('ideas/v1/')); ?>';
         const isEnglish = <?php echo $is_en ? 'true' : 'false'; ?>;
         
         let currentUser = null; // Google Logged-in User Info
@@ -2517,7 +2518,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         // ── Forum AJAX Handlers ──
         function loadForumData() {
-            fetch(`${ajaxUrl}?action=ideas_get_clinic_data`)
+            fetch(`${restUrl}clinic-data${isEnglish ? '?lang=en' : ''}`)
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
@@ -2688,7 +2689,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             formData.append('action', 'ideas_upvote_topic');
             formData.append('post_id', topicId);
 
-            fetch(ajaxUrl, { method: 'POST', body: formData })
+            fetch(`${restUrl}upvote-topic`, { method: 'POST', body: formData })
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
@@ -2728,7 +2729,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             formData.append('email', currentUser ? currentUser.email : 'guest@ideas.edu.vn');
             formData.append('is_mentor', 'false');
 
-            fetch(ajaxUrl, { method: 'POST', body: formData })
+            fetch(`${restUrl}submit-clinic-comment`, { method: 'POST', body: formData })
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
@@ -2784,7 +2785,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             formData.append('chuc_danh', chucDanhText);
             formData.append('muc_dich', mucDichText);
 
-            fetch(ajaxUrl, { method: 'POST', body: formData })
+            fetch(`${restUrl}submit-booking`, { method: 'POST', body: formData })
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
@@ -2833,7 +2834,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 formData.append('tags[]', tag);
             });
 
-            fetch(ajaxUrl, { method: 'POST', body: formData })
+            fetch(`${restUrl}submit-clinic-topic`, { method: 'POST', body: formData })
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
