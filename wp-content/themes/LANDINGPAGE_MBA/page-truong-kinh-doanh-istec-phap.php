@@ -2433,7 +2433,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p>Hiệp hội các trường đại học quản lý và kinh doanh của Pháp được Bộ Giáo dục phê duyệt.</p>
                 </div>
                 <div class="acc-card">
-                    <img class="acc-card-logo" src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="Erasmus+" style="background:#fff; padding:6px; border-radius:6px;" />
+                    <img class="acc-card-logo" src="https://ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets/DUAL-DEGREE-5.webp" alt="Erasmus+" style="background:#fff; padding:6px; border-radius:6px;" />
                     <h4>Erasmus+ Partner</h4>
                     <p>Chương trình trao đổi và hợp tác học tập toàn châu Âu của Liên minh châu Âu (EU).</p>
                 </div>
