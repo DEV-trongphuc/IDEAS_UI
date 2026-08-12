@@ -269,6 +269,46 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow: hidden;
         }
 
+
+        /* ── Dark Section Glow & Contrast Rules ── */
+        .umef-section-dark {
+            background: #040508 !important;
+            position: relative;
+            overflow: hidden;
+        }
+        .umef-section-dark::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(217, 38, 38, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 70%, rgba(217, 38, 38, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .umef-section-dark .gallery-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── Premium Program Cards Style ── */
+        .prog-card {
+            border-top: 4px solid var(--umef-primary) !important;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+        .prog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08) !important;
+            border-color: var(--umef-primary) !important;
+        }
+        .prog-card a {
+            transition: all 0.3s ease;
+        }
+        .prog-card a:hover {
+            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.3);
+            transform: translateY(-1px);
+        }
+
         /* ── Dark Section Contrast Rules ── */
         .umef-section-dark .section-title {
             color: #ffffff !important;
@@ -2442,7 +2482,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     </section>
 
     <!-- Geneva Campus Gallery Section (Dark themed for prestige, history, and experience) -->
-    <section class="umef-section umef-section-dark" style="background: #040508;">
+    <section class="umef-section umef-section-dark">
         <div class="gallery-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
             <div style="text-align: center; margin-bottom: 50px;">
                 <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Học Tập Tại Trái Tim Thủ Đô Paris</span>
@@ -2573,6 +2613,82 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </div>
     </section>
+
+    <!-- ISTEC Paris Combined Videos Section -->
+    <section class="umef-section umef-videos-section">
+        <!-- Localized Background Decor -->
+        <div class="section-bg-decor">
+            <svg class="svg-icon fa-circle-play fa-solid bg-decor-icon decor-white decor-lg" style="top: 25%; left: 8%; animation-duration: 30s;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
+            <svg class="svg-icon fa-comments fa-solid bg-decor-icon decor-white decor-md" style="top: 60%; right: 9%; animation-duration: 26s;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2s0 0 0 0s0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.2-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9c0 0 0 0 0 0s0 0 0 0l-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></svg>
+        </div>
+        <div class="section-header">
+            <span class="section-badge" style="color:#ff9e9e;">HÌNH ẢNH THỰC TẾ</span>
+            <h2 class="section-title" style="color:#ffffff;">Lễ Tốt Nghiệp <span>ISTEC Paris</span></h2>
+            <p class="section-subtitle" style="color:#94a3b8;">Những khoảnh khắc vinh danh trang trọng và đầy cảm xúc của các tân học viên tại thủ đô Paris, Pháp.</p>
+        </div>
+
+        <div class="umef-video-carousel-container">
+            <button class="umef-video-carousel-btn prev" aria-label="Previous slide">
+                <svg class="svg-icon fa-chevron-left fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+            </button>
+            <div class="umef-video-carousel-track-wrapper">
+                <div class="umef-video-carousel-track">
+                    <!-- Video 1 -->
+                    <div class="umef-video-card umef-video-carousel-slide">
+                        <div class="umef-video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/99pGEp4Dkko"
+                                title="Lễ Tốt Nghiệp ISTEC Paris - Khoảnh Khắc Vinh Danh"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="umef-video-body">
+                            <span class="umef-video-tag"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                                Lễ Tốt Nghiệp</span>
+                            <h3 class="umef-video-title">Khoảnh Khắc Vinh Danh Lễ Tốt Nghiệp ISTEC Paris</h3>
+                            <p class="umef-video-desc">Lễ tốt nghiệp trang trọng tại Paris, ghi nhận hành trình học tập xuất sắc và vinh danh những nỗ lực học thuật vượt trội.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="umef-video-card umef-video-carousel-slide">
+                        <div class="umef-video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/qEVDffZwOtM"
+                                title="Lễ Tốt Nghiệp ISTEC Paris - Hành Trình Chinh Phục"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="umef-video-body">
+                            <span class="umef-video-tag"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                                Lễ Tốt Nghiệp</span>
+                            <h3 class="umef-video-title">Hành Trình Chinh Phục Cùng ISTEC Paris</h3>
+                            <p class="umef-video-desc">Ghi nhận những cột mốc rực rỡ và những khoảnh khắc nhận bằng thạc sĩ, tiến sĩ tự hào của học viên tại Pháp.</p>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="umef-video-card umef-video-carousel-slide">
+                        <div class="umef-video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/-wvOmcpqdKk"
+                                title="Lễ Tốt Nghiệp ISTEC Paris - Tự Hào & Vươn Xa"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="umef-video-body">
+                            <span class="umef-video-tag"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                                Lễ Tốt Nghiệp</span>
+                            <h3 class="umef-video-title">Tự Hào & Vươn Xa Lễ Tốt Nghiệp ISTEC Paris</h3>
+                            <p class="umef-video-desc">Nơi hội tụ tri thức quốc tế và những chia sẻ đầy tự hào của các tân thạc sĩ, tiến sĩ trong ngày lễ tốt nghiệp tại Paris.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="umef-video-carousel-btn next" aria-label="Next slide">
+                <svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+            </button>
+        </div>
+        <div class="umef-video-carousel-dots"></div>
+    </section>
+
 
     <!-- Student Testimonials Section -->
     <section class="umef-section testimonials-section" style="background:#f8fafc; padding:80px 20px;">

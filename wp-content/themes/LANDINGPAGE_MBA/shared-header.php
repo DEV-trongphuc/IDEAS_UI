@@ -225,6 +225,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                         </span>
                         <div class="submenu-box">
                             <a href="<?php echo esc_url($swiss_umef_url); ?>" class="dropdown-item-simple">Swiss UMEF</a>
+                            <a href="/truong-kinh-doanh-istec-phap" class="dropdown-item-simple">Istec Paris</a>
                             <a href="https://www.ascencia-business-school.com/en/" target="_blank" class="dropdown-item-simple">Ascencia Business School</a>
                             <a href="https://www.collegedeparis.fr/" target="_blank" class="dropdown-item-simple">College de Paris</a>
                             <a href="https://www.estiam.education/" target="_blank" class="dropdown-item-simple">Estiam</a>
@@ -549,6 +550,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
             </a>
             <div class="mobile-dropdown-section-title"><?php echo $is_en ? 'Partner University' : 'Trường đối tác'; ?></div>
             <a href="<?php echo esc_url($swiss_umef_url); ?>" class="mobile-dropdown-item-simple">Swiss UMEF</a>
+            <a href="/truong-kinh-doanh-istec-phap" class="mobile-dropdown-item-simple">Istec Paris</a>
             <a href="https://www.ascencia-business-school.com/en/" target="_blank" class="mobile-dropdown-item-simple">Ascencia Business School</a>
             <a href="https://www.collegedeparis.fr/" target="_blank" class="mobile-dropdown-item-simple">College de Paris</a>
             <a href="https://www.estiam.education/" target="_blank" class="mobile-dropdown-item-simple">Estiam</a>
