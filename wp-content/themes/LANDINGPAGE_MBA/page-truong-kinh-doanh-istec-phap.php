@@ -5,6 +5,21 @@
  */
 global $wp;
 
+// Override Yoast SEO and RankMath social preview images dynamically
+add_filter('wpseo_opengraph_image', function($img) {
+    return 'https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg';
+});
+add_filter('rank_math/frontend/show_facebook_image', function($attachment_url) {
+    return 'https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg';
+});
+add_filter('rank_math/opengraph/facebook/image', function($img) {
+    return 'https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg';
+});
+add_filter('rank_math/opengraph/twitter/image', function($img) {
+    return 'https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg';
+});
+
+
 // Block unwanted old theme styles
 ob_start(function ($html) {
     $html = preg_replace(
@@ -293,7 +308,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── Premium Program Cards Style ── */
         .prog-card {
-            border-top: 4px solid var(--umef-primary) !important;
+            
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
         }
         .prog-card:hover {
@@ -2567,48 +2582,51 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             
             <div class="prog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
                 <!-- DBA Card -->
-                <div class="prog-card" style="background:#fff; padding:30px; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 10px 30px rgba(0,0,0,0.05); display:flex; flex-direction:column;">
-                    <div style="color: #ab0e00; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-user-tie fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg></div>
-                    <h3 style="font-size: 1.4rem; font-weight: 800; color:#1e293b; margin-bottom: 12px;">Tiến sĩ DBA (Bac+8)</h3>
-                    <p style="color:#64748b; font-size:0.95rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
+                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:12px; border:1px solid #e2e8f0; border-top: 8px solid #2563eb !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
+                    <div style="color: #2563eb; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-user-tie fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg></div>
+                    <h3 style="font-size: 1.45rem; font-weight: 850; color:#1e293b; margin-bottom: 6px;">Tiến sĩ DBA</h3>
+                    <span style="color: #2563eb; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 15px; display: block;">Bac+8</span>
+                    <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình Tiến sĩ Quản trị Kinh doanh cao cấp dành riêng cho nhà quản lý, CEO, và chuyên gia xuất sắc muốn nâng tầm học thuật và đóng góp tri thức cho ngành.
                     </p>
-                    <ul style="list-style:none; padding:0; margin:0 0 24px; color:#475569; font-size:0.9rem; line-height:1.8;">
+                    <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:2;">
                         <li>✓ Thời gian: 3 - 4 năm</li>
                         <li>✓ Ngôn ngữ: Tiếng Anh / Tiếng Pháp</li>
                         <li>✓ Bằng cấp chính thức từ ISTEC Paris</li>
                     </ul>
-                    <a href="javascript:void(0)" onclick="showform('istec_dba')" style="background:#ab0e00; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#8c1000'" onmouseout="this.style.backgroundColor='#ab0e00'">Đăng Ký Tư Vấn</a>
+                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #2563eb; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
                 </div>
                 
                 <!-- MBA Card -->
-                <div class="prog-card" style="background:#fff; padding:30px; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 10px 30px rgba(0,0,0,0.05); display:flex; flex-direction:column;">
-                    <div style="color: #ab0e00; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg></div>
-                    <h3 style="font-size: 1.4rem; font-weight: 800; color:#1e293b; margin-bottom: 12px;">Thạc sĩ MBA (Bac+5)</h3>
-                    <p style="color:#64748b; font-size:0.95rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
+                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:12px; border:1px solid #e2e8f0; border-top: 8px solid #eab308 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
+                    <div style="color: #eab308; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg></div>
+                    <h3 style="font-size: 1.45rem; font-weight: 850; color:#1e293b; margin-bottom: 6px;">Thạc sĩ MBA</h3>
+                    <span style="color: #eab308; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 15px; display: block;">Bac+5</span>
+                    <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.
                     </p>
-                    <ul style="list-style:none; padding:0; margin:0 0 24px; color:#475569; font-size:0.9rem; line-height:1.8;">
+                    <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:2;">
                         <li>✓ Thời gian: 18 - 24 tháng</li>
                         <li>✓ Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG</li>
                         <li>✓ Hình thức học tập linh hoạt, ưu việt</li>
                     </ul>
-                    <a href="javascript:void(0)" onclick="showform('istec_mba')" style="background:#ab0e00; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#8c1000'" onmouseout="this.style.backgroundColor='#ab0e00'">Đăng Ký Tư Vấn</a>
+                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #eab308; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
                 </div>
 
                 <!-- BBA Card -->
-                <div class="prog-card" style="background:#fff; padding:30px; border-radius:16px; border:1px solid #e2e8f0; box-shadow:0 10px 30px rgba(0,0,0,0.05); display:flex; flex-direction:column;">
-                    <div style="color: #ab0e00; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-book fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 448c-17.7 0-32-14.3-32-32l0-64 352 0c17.7 0 32-14.3 32-32l0-288c0-17.7-14.3-32-32-32L96 0zM64 80c0-8.8 7.2-16 16-16l256 0c8.8 0 16 7.2 16 16l0 208L64 304 64 80z"/></svg></div>
-                    <h3 style="font-size: 1.4rem; font-weight: 800; color:#1e293b; margin-bottom: 12px;">Cử nhân BBA (Bac+3)</h3>
-                    <p style="color:#64748b; font-size:0.95rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
+                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:12px; border:1px solid #e2e8f0; border-top: 8px solid #a21caf !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
+                    <div style="color: #a21caf; font-size: 2rem; margin-bottom: 20px;"><svg class="svg-icon fa-book fa-solid" viewBox="0 0 448 512" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 448c-17.7 0-32-14.3-32-32l0-64 352 0c17.7 0 32-14.3 32-32l0-288c0-17.7-14.3-32-32-32L96 0zM64 80c0-8.8 7.2-16 16-16l256 0c8.8 0 16 7.2 16 16l0 208L64 304 64 80z"/></svg></div>
+                    <h3 style="font-size: 1.45rem; font-weight: 850; color:#1e293b; margin-bottom: 6px;">Cử nhân BBA</h3>
+                    <span style="color: #a21caf; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 15px; display: block;">Bac+3</span>
+                    <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
                         Chương trình đào tạo Cử nhân Quản trị Kinh doanh chính quy (Bachelor in Management) giúp người học nắm vững kiến thức quản trị, tiếp thị, và vận hành doanh nghiệp đạt chuẩn quốc tế.
                     </p>
-                    <ul style="list-style:none; padding:0; margin:0 0 24px; color:#475569; font-size:0.9rem; line-height:1.8;">
+                    <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:2;">
                         <li>✓ Thời gian: 3 năm (hoặc 1 năm Top-up)</li>
                         <li>✓ Đạt chuẩn "Grade de Licence" quốc gia</li>
                         <li>✓ Mở rộng cơ hội nghề nghiệp quốc tế</li>
                     </ul>
-                    <a href="javascript:void(0)" onclick="showform('istec_bba')" style="background:#ab0e00; color:#fff; text-align:center; padding:12px; border-radius:8px; font-weight:700; text-decoration:none; transition:background 0.3s;" onmouseover="this.style.backgroundColor='#8c1000'" onmouseout="this.style.backgroundColor='#ab0e00'">Đăng Ký Tư Vấn</a>
+                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #a21caf; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
                 </div>
             </div>
         </div>
