@@ -2109,6 +2109,127 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 text-align: left !important;
             }
         }
+
+        /* ══════════════════════════════════════
+           NEW SECTIONS STYLING (ISTEC ADDITIONS)
+           ══════════════════════════════════════ */
+        /* Why Choose Section */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .reason-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 2px 4px -1px rgba(0,0,0,0.01);
+        }
+        .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
+            border-color: var(--umef-primary);
+        }
+        .reason-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(171, 14, 0, 0.06);
+            color: var(--umef-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Admissions Steps */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            position: relative;
+        }
+        .step-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--umef-primary);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(171, 14, 0, 0.3);
+        }
+        
+        /* FAQ Accordion */
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .faq-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-item[open] {
+            border-color: var(--umef-primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+        .faq-item summary {
+            padding: 20px 24px;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            outline: none;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--umef-primary);
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+        .faq-content {
+            padding: 0 24px 20px;
+            color: #475569;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+        }
+
     </style>
     <?php wp_head(); ?>
 </head>
@@ -2159,7 +2280,56 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
+
+    <!-- Section: Why Choose ISTEC Paris -->
+    <section class="umef-section" id="tai-sao-chon-istec" style="background: #f8fafc; padding: 80px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span style="color: var(--umef-primary); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Giá Trị Khác Biệt</span>
+                <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Vì Sao Chọn <span>ISTEC Paris</span>?</h2>
+                <p style="color: #64748b; max-width: 700px; margin: 15px auto 0; line-height: 1.6;">
+                    ISTEC Paris mang đến mô hình đào tạo Grande École xuất sắc của Pháp, kết hợp hoàn hảo giữa lý thuyết khoa học và kinh nghiệm thực tiễn toàn cầu.
+                </p>
+            </div>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg class="svg-icon fa-award fa-solid" viewBox="0 0 384 512" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0L228 17.2c6 3.9 13 5.8 20.1 5.4l21.3-1.3c13.2-.8 25.6 6.4 31.5 18.2l9.6 19.1c3.2 6.4 8.4 11.5 14.7 14.7L344.5 83c11.8 5.9 19 18.3 18.2 31.5l-1.3 21.3c-.4 7.1 1.5 14.2 5.4 20.1l11.8 17.8c7.3 11 7.3 25.4 0 36.4L366.8 228c-3.9 6-5.8 13-5.4 20.1l1.3 21.3c.8 13.2-6.4 25.6-18.2 31.5l-19.1 9.6c-6.4 3.2-11.5 8.4-14.7 14.7L301 344.5c-5.9 11.8-18.3 19-31.5 18.2l-21.3-1.3c-7.1-.4-14.2 1.5-20.1 5.4l-17.8 11.8c-11 7.3-25.4 7.3-36.4 0L156 366.8c-6-3.9-13-5.8-20.1-5.4l-21.3 1.3c-13.2 .8-25.6-6.4-31.5-18.2l-9.6-19.1c-3.2-6.4-8.4-11.5-14.7-14.7L39.5 301c-11.8-5.9-19-18.3-18.2-31.5l1.3-21.3c.4-7.1-1.5-14.2-5.4-20.1L5.5 210.2c-7.3-11-7.3-25.4 0-36.4L17.2 156c3.9-6 5.8-13 5.4-20.1l-1.3-21.3c-.8-13.2 6.4-25.6 18.2-31.5l19.1-9.6C65 70.2 70.2 65 73.4 58.6L83 39.5c5.9-11.8 18.3-19 31.5-18.2l21.3 1.3c7.1 .4 14.2-1.5 20.1-5.4L173.8 5.5zM272 192a80 80 0 1 0 -160 0 80 80 0 1 0 160 0z"/></svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: #1e293b; margin-bottom: 12px;">Đẳng cấp "Grande École"</h3>
+                    <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6;">ISTEC Paris tự hào là thành viên chính thức của Conférence des Grandes Écoles (CGE), tổ chức đại diện cho các trường tinh hoa nhất nước Pháp.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg class="svg-icon fa-stamp fa-solid" viewBox="0 0 512 512" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M312 201.8c0-17.4 9.2-33.2 19.9-47C344.5 138.5 352 118.1 352 96c0-53-43-96-96-96s-96 43-96 96c0 22.1 7.5 42.5 20.1 58.8c10.7 13.8 19.9 29.6 19.9 47c0 29.9-24.3 54.2-54.2 54.2L112 256C50.1 256 0 306.1 0 368c0 20.9 13.4 38.7 32 45.3L32 464c0 26.5 21.5 48 48 48l352 0c26.5 0 48-21.5 48-48l0-50.7c18.6-6.6 32-24.4 32-45.3c0-61.9-50.1-112-112-112l-33.8 0c-29.9 0-54.2-24.3-54.2-54.2zM416 416l0 32L96 448l0-32 320 0z"/></svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: #1e293b; margin-bottom: 12px;">Kiểm Định Quốc Gia Cao Nhất</h3>
+                    <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6;">Đạt danh hiệu chất lượng học thuật Grade de Master & Grade de Licence do Bộ Giáo dục & Nghiên cứu Pháp trực tiếp phê duyệt.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg class="svg-icon fa-briefcase fa-solid" viewBox="0 0 512 512" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M128 0c-17.7 0-32 14.3-32 32l0 32L32 64C14.3 64 0 78.3 0 96L0 448c0 17.7 14.3 32 32 32l448 0c17.7 0 32-14.3 32-32l0-352c0-17.7-14.3-32-32-32l-64 0 0-32c0-17.7-14.3-32-32-32L128 0zm192 64L192 64l0-32 128 0 0 32z"/></svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: #1e293b; margin-bottom: 12px;">Mạng Lưới 3,000+ Doanh Nghiệp</h3>
+                    <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6;">Sinh viên và học viên tiếp cận mạng lưới kết nối sâu rộng với hàng ngàn tập đoàn đa quốc gia và doanh nghiệp lớn toàn cầu.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: #1e293b; margin-bottom: 12px;">Đồng Hành Bản Địa (IDEAS)</h3>
+                    <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6;">Học viên Việt Nam được hỗ trợ học thuật, phản biện, hướng dẫn nghiên cứu bởi các Mentor giàu kinh nghiệm thuộc mạng lưới IDEAS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Ported Accreditations & Quality Verification Section -->
+
     <section class="acc-section" id="kiem-dinh-quoc-te" aria-label="Kiểm định & Công nhận Quốc tế">
         <div class="acc-inner">
             <!-- Header -->
@@ -2454,7 +2624,49 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
+
+    <!-- Section: FAQs -->
+    <section class="umef-section" id="cau-hoi-thuong-gap" style="background: #ffffff; padding: 80px 20px; border-top: 1px solid #f1f5f9;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <span style="color: var(--umef-primary); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Giải Đáp Thắc Mắc</span>
+                <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Câu Hỏi <span>Thường Gặp</span></h2>
+            </div>
+            
+            <div class="faq-container">
+                <details class="faq-item" open>
+                    <summary>Bằng cấp của ISTEC Paris có được công nhận quốc tế và tại Việt Nam không?</summary>
+                    <div class="faq-content">
+                        Có. ISTEC Paris là trường lớn (Grande École) được công nhận chính thức bởi Nhà nước Pháp, thành viên CGE. Các văn bằng Cử nhân (BBA) và Thạc sĩ (PGE/MBA) đều đạt chuẩn châu Âu (ECTS) và được kiểm định bởi Bộ Giáo dục & Nghiên cứu Pháp. Tại Việt Nam, văn bằng có thể thực hiện thủ tục hợp pháp hóa lãnh sự tại Đại sứ quán Việt Nam tại Pháp theo đúng quy định pháp luật hiện hành.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Hình thức học tập của chương trình như thế nào? Có phải đi Pháp không?</summary>
+                    <div class="faq-content">
+                        Chương trình áp dụng mô hình học tập kết hợp (Hybrid/Blended Learning) tối ưu cho người đi làm. Học viên chủ yếu học tập và nghiên cứu tại Việt Nam với sự hỗ trợ của các cố vấn khoa học từ IDEAS và giáo sư Pháp giảng dạy. Vào cuối khóa học, học viên được khuyến khích sang Paris tham gia Lễ tốt nghiệp và trải nghiệm học tập ngắn hạn tại cơ sở của ISTEC Pháp.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Chương trình Tiến sĩ DBA yêu cầu điều kiện đầu vào như thế nào?</summary>
+                    <div class="faq-content">
+                        Ứng viên chương trình Tiến sĩ Quản trị Kinh doanh (DBA - Bac+8) cần có bằng Thạc sĩ chuyên ngành kinh tế, quản trị hoặc tương đương, đồng thời có tối thiểu 3-5 năm kinh nghiệm làm việc ở vị trí quản lý hoặc chuyên gia. Ứng viên cũng cần tham dự phỏng vấn khoa học thuyết minh về định hướng đề tài nghiên cứu của mình.
+                    </div>
+                </details>
+                
+                <details class="faq-item">
+                    <summary>Chương trình hỗ trợ ngôn ngữ thế nào cho học viên chưa tự tin tiếng Anh?</summary>
+                    <div class="faq-content">
+                        Mạng lưới cố vấn học thuật (Mentors) của IDEAS tại Việt Nam sẽ hỗ trợ đồng hành trực tiếp, hướng dẫn phương pháp nghiên cứu khoa học, giải thích tài liệu chuyên môn và hỗ trợ học viên trong suốt quá trình chuẩn bị các báo cáo, luận văn để tự tin trình bày trước hội đồng khoa học quốc tế.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- Tab Script & Form Submission handlers -->
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Accreditations Tab Switching
