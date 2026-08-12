@@ -171,7 +171,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .umef-hero h1 {
-            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 900;
             margin-bottom: 24px;
             letter-spacing: -0.025em;
