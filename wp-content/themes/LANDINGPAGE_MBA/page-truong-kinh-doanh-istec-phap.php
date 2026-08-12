@@ -271,6 +271,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 650;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 5px;
         }
 
         .umef-hero .umef-stat-lbl {
@@ -2316,17 +2318,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </p>
             <div class="umef-hero-stats">
                 <div class="umef-stat-card">
-                    <span class="umef-stat-num">1961</span>
                     <span class="umef-stat-lbl"><?php echo $is_en ? 'Founded Year' : 'Năm Thành Lập'; ?></span>
+                    <span class="umef-stat-num">1961</span>
                 </div>
                 <div class="umef-stat-card">
+                    <span class="umef-stat-lbl"><?php echo $is_en ? 'Grande École Member' : 'Uy tín tại Pháp'; ?></span>
                     <span class="umef-stat-num">CGE</span>
-                    <span
-                        class="umef-stat-lbl"><?php echo $is_en ? 'Grande École Member' : 'Uy tín tại Pháp'; ?></span>
                 </div>
                 <div class="umef-stat-card">
-                    <span class="umef-stat-num">Hạng 8</span>
                     <span class="umef-stat-lbl"><?php echo $is_en ? 'Post-Bac (Le Parisien)' : 'Trường Post-Bac (Le Parisien)'; ?></span>
+                    <span class="umef-stat-num">Hạng 8</span>
                 </div>
             </div>
         </div>
