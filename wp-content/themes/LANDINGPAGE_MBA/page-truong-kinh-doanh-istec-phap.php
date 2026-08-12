@@ -2270,7 +2270,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">CGE</span>
                     <span
-                        class="umef-stat-lbl"><?php echo $is_en ? 'Grande École Member' : 'Trường Lớn Pháp'; ?></span>
+                        class="umef-stat-lbl"><?php echo $is_en ? 'Grande École Member' : 'Uy tín tại Pháp'; ?></span>
                 </div>
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">Hạng 8</span>
