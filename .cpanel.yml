@@ -7,7 +7,7 @@ deployment:
     # Deploy .htaccess and root scripts
     - cp .htaccess $DEPLOYPATH/.htaccess
     - cp purge-cache.php $DEPLOYPATH/purge-cache.php
-    - cp read-smooth.php $DEPLOYPATH/read-smooth.php
+    - cp list-wp-content.php $DEPLOYPATH/list-wp-content.php
     - cp wp-convert-webp.php $DEPLOYPATH/wp-convert-webp.php
     - cp wp-migrate-db-webp.php $DEPLOYPATH/wp-migrate-db-webp.php
     - cp export_references.php $DEPLOYPATH/export_references.php
