@@ -2574,18 +2574,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ISTEC Paris Combined Videos Section -->
-    <section class="umef-section umef-videos-section" style="background:#0f172a; padding:80px 20px;">
-        <div style="max-width:1200px; margin:0 auto; text-align:center; margin-bottom:50px;">
-            <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Khám Phá Qua Video</span>
-            <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-top: 10px;">Trực Quan Về <span>ISTEC Paris</span></h2>
-        </div>
-        
-        <div style="max-width:800px; margin:0 auto; border-radius:16px; overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.3); border:1px solid #1e293b;">
-            <iframe width="100%" height="450" src="https://www.youtube.com/embed/33V0H0V6P00" title="Présentation ISTEC Business School" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </section>
-
     <!-- Student Testimonials Section -->
     <section class="umef-section testimonials-section" style="background:#f8fafc; padding:80px 20px;">
         <div style="max-width:1200px; margin:0 auto;">
