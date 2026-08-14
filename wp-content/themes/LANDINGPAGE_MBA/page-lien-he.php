@@ -748,40 +748,40 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <span class="form-error" id="english-error"><?php echo $is_en ? 'Please select English level' : 'Vui lòng chọn trình độ Tiếng Anh'; ?></span>
                                 </div>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
-                                    <select id="chuc_danh" name="chuc_danh" required>
-                                        <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
-                                        <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
-                                        <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
-                                        <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
-                                        <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
-                                    </select>
-                                    <span class="form-error" id="chuc_danh-error"><?php echo $is_en ? 'Please select job title' : 'Vui lòng chọn chức danh'; ?></span>
-                                </div>
-                                <div class="form-group" id="other-chuc_danh-group" style="display: none;">
-                                    <label for="other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
-                                    <input type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>" />
-                                    <span class="form-error" id="other-chuc_danh-error"><?php echo $is_en ? 'Please specify your job title' : 'Vui lòng nhập chức danh khác'; ?></span>
-                                </div>
-                            </div>
+                             <div class="form-row">
+                                 <div class="form-group">
+                                     <label for="chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
+                                     <select id="chuc_danh" name="chuc_danh" required>
+                                         <option value=""><?php echo $is_en ? '-- Select Job Title --' : '-- Chọn chức danh --'; ?></option>
+                                         <option value="Chủ DN"><?php echo $is_en ? 'Owner / Founder' : 'Chủ DN / Founder / Owner'; ?></option>
+                                         <option value="Giám đốc"><?php echo $is_en ? 'CEO / Director / C-level' : 'CEO / Giám đốc / C-level'; ?></option>
+                                         <option value="Manager"><?php echo $is_en ? 'Manager / Head of Dept' : 'Manager / Trưởng phòng'; ?></option>
+                                         <option value="Khác"><?php echo $is_en ? 'Staff / Other' : 'Nhân viên / Khác'; ?></option>
+                                     </select>
+                                     <span class="form-error" id="chuc_danh-error"><?php echo $is_en ? 'Please select job title' : 'Vui lòng chọn chức danh'; ?></span>
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="interest"><?php echo $is_en ? 'Program of Interest *' : 'Chương trình quan tâm *'; ?></label>
+                                     <select id="interest" name="interest" required>
+                                         <option value=""><?php echo $is_en ? '-- Select Program --' : '-- Chọn chương trình học --'; ?></option>
+                                         <option value="Online MBA"><?php echo $is_en ? 'Online MBA (Master of Business Administration)' : 'Online MBA (Thạc sĩ QTKD)'; ?></option>
+                                         <option value="Executive MBA"><?php echo $is_en ? 'Executive MBA' : 'Executive MBA (Thạc sĩ Điều hành)'; ?></option>
+                                         <option value="Master AI"><?php echo $is_en ? 'Master AI (MSc AI)' : 'Master AI (Thạc sĩ Khoa học AI)'; ?></option>
+                                         <option value="MBA in AI"><?php echo $is_en ? 'MBA in AI' : 'MBA in AI (Thạc sĩ QTKD Ứng dụng AI)'; ?></option>
+                                         <option value="Top-up BBA"><?php echo $is_en ? 'Top-up BBA (12-month Bachelor Top-up)' : 'Top-up BBA (Cử nhân liên thông 12 tháng)'; ?></option>
+                                         <option value="Full BBA">Global Online BBA</option>
+                                         <option value="Dual DBA"><?php echo $is_en ? 'Dual DBA (UK &amp; France Doctor of Business Administration)' : 'Dual DBA (Tiến sĩ song bằng Pháp &amp; Anh)'; ?></option>
+                                         <option value="Cần tư vấn chung"><?php echo $is_en ? 'General Inquiry (Scholarships &amp; Admissions)' : 'Cần tư vấn chung (Học bổng &amp; Tuyển sinh)'; ?></option>
+                                     </select>
+                                     <span class="form-error" id="interest-error"><?php echo $is_en ? 'Please select program' : 'Vui lòng chọn chương trình'; ?></span>
+                                 </div>
+                             </div>
 
-                            <div class="form-group">
-                                <label for="interest"><?php echo $is_en ? 'Program of Interest *' : 'Chương trình quan tâm *'; ?></label>
-                                <select id="interest" name="interest" required>
-                                    <option value=""><?php echo $is_en ? '-- Select Program --' : '-- Chọn chương trình học --'; ?></option>
-                                    <option value="Online MBA"><?php echo $is_en ? 'Online MBA (Master of Business Administration)' : 'Online MBA (Thạc sĩ QTKD)'; ?></option>
-                                    <option value="Executive MBA"><?php echo $is_en ? 'Executive MBA' : 'Executive MBA (Thạc sĩ Điều hành)'; ?></option>
-                                    <option value="Master AI"><?php echo $is_en ? 'Master AI (MSc AI)' : 'Master AI (Thạc sĩ Khoa học AI)'; ?></option>
-                                    <option value="MBA in AI"><?php echo $is_en ? 'MBA in AI' : 'MBA in AI (Thạc sĩ QTKD Ứng dụng AI)'; ?></option>
-                                    <option value="Top-up BBA"><?php echo $is_en ? 'Top-up BBA (12-month Bachelor Top-up)' : 'Top-up BBA (Cử nhân liên thông 12 tháng)'; ?></option>
-                                    <option value="Full BBA">Global Online BBA</option>
-                                    <option value="Dual DBA"><?php echo $is_en ? 'Dual DBA (UK &amp; France Doctor of Business Administration)' : 'Dual DBA (Tiến sĩ song bằng Pháp &amp; Anh)'; ?></option>
-                                    <option value="Cần tư vấn chung"><?php echo $is_en ? 'General Inquiry (Scholarships &amp; Admissions)' : 'Cần tư vấn chung (Học bổng &amp; Tuyển sinh)'; ?></option>
-                                </select>
-                                <span class="form-error" id="interest-error"><?php echo $is_en ? 'Please select program' : 'Vui lòng chọn chương trình'; ?></span>
-                            </div>
+                             <div class="form-group" id="other-chuc_danh-group" style="display: none;">
+                                 <label for="other_chuc_danh"><?php echo $is_en ? 'Specify other title *' : 'Chức danh khác *'; ?></label>
+                                 <input type="text" id="other_chuc_danh" name="other_chuc_danh" placeholder="<?php echo $is_en ? 'Please specify' : 'Nhập chức danh của bạn'; ?>" />
+                                 <span class="form-error" id="other-chuc_danh-error"><?php echo $is_en ? 'Please specify your job title' : 'Vui lòng nhập chức danh khác'; ?></span>
+                             </div>
 
                             <div class="form-group">
                                 <label for="message"><?php echo $is_en ? 'Message / preferred counseling time' : 'Nội dung bạn muốn chia sẻ / thời gian nghe tư vấn'; ?></label>
