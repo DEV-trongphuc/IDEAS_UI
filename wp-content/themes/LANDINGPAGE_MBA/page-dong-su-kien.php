@@ -783,7 +783,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             },
             {
                 type: "IDEAS at Mastery Forum",
-                place: "Hanoi, Vietnam",
+                place: "Ho Chi Minh City, Vietnam",
                 avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/767549056_1532029145390302_3735772663370339080_n.webp",
                 for: "International Forum",
                 name: "Mastery Forum 2026",
@@ -1091,7 +1091,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             },
             {
                 type: "IDEAS tại Mastery Forum",
-                place: "Hà Nội, Việt Nam",
+                place: "Hồ Chí Minh, Việt Nam",
                 avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/767549056_1532029145390302_3735772663370339080_n.webp",
                 for: "Diễn đàn quốc tế",
                 name: "Mastery Forum 2026",
