@@ -749,6 +749,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </select>
                                     <span class="form-error" id="english-error"><?php echo $is_en ? 'Please select English level' : 'Vui lòng chọn trình độ Tiếng Anh'; ?></span>
                                 </div>
+                            </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="chuc_danh"><?php echo $is_en ? 'Job Title *' : 'Chức danh *'; ?></label>
