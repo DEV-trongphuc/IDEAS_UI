@@ -773,6 +773,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         if (typeof isEnMode === 'undefined') { var isEnMode = <?php echo $is_en ? 'true' : 'false'; ?>; }
         const EVENTS_EN = [
             {
+                type: "Webinar",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-05-webinar.webp",
+                for: "IDEAS Talk",
+                name: "Applying AI in Learning & Research",
+                data: "13/08/2026",
+                link: "https://ideas.edu.vn/en/webinar-ideas-talk",
+            },
+            {
+                type: "IDEAS at Mastery Forum",
+                place: "Hanoi, Vietnam",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/767549056_1532029145390302_3735772663370339080_n.webp",
+                for: "International Forum",
+                name: "Mastery Forum 2026",
+                data: "06/08/2026",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid0hhCECxCECx6cGF62bKDYz9nRgzZcyt1RDXRSmDnx1QrWfChamGTi9cU5NVnGYmkJl",
+            },
+            {
                 type: "IDEAS x GrowthVerse 2026",
                 place: "SIHUB - Ho Chi Minh",
                 avatar: "https://ideas.edu.vn/wp-content/uploads/2026/04/recap_growverth.webp",
@@ -1062,6 +1080,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         ];
         const EVENTS_VI = [
+            {
+                type: "Webinar",
+                place: "Online Zoom",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-05-webinar.webp",
+                for: "IDEAS Talk",
+                name: "Ứng dụng AI trong học tập & nghiên cứu",
+                data: "13/08/2026",
+                link: "https://ideas.edu.vn/webinar-ideas-talk",
+            },
+            {
+                type: "IDEAS tại Mastery Forum",
+                place: "Hà Nội, Việt Nam",
+                avatar: "https://ideas.edu.vn/wp-content/uploads/2026/08/767549056_1532029145390302_3735772663370339080_n.webp",
+                for: "Diễn đàn quốc tế",
+                name: "Mastery Forum 2026",
+                data: "06/08/2026",
+                link: "https://www.facebook.com/ideas.edu.vn/posts/pfbid0hhCECxCECx6cGF62bKDYz9nRgzZcyt1RDXRSmDnx1QrWfChamGTi9cU5NVnGYmkJl",
+            },
             {
                 type: "IDEAS x GrowthVerse 2026",
                 place: "SIHUB - Hồ Chí Minh",
