@@ -1010,6 +1010,78 @@ if (!$is_reel_page):
 <?php endif; ?>
 
 <!-- Global Left Floating Campaign Popup Banner -->
+<style>
+.global-left-popup-banner {
+  position: fixed !important;
+  bottom: 25px !important;
+  left: 25px !important;
+  z-index: 2147483630 !important;
+  max-width: 260px !important;
+  border-radius: 16px !important;
+  overflow: visible !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease !important;
+  animation: popupBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}
+.global-left-popup-banner:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+}
+.global-left-popup-banner a {
+  display: block !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+.global-left-popup-banner img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 16px !important;
+  object-fit: cover !important;
+}
+.left-popup-close {
+  position: absolute !important;
+  top: -10px !important;
+  right: -10px !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 50% !important;
+  background: #ab0e00 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 10 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+.left-popup-close:hover {
+  background: #000000 !important;
+  transform: scale(1.15) !important;
+}
+@keyframes popupBounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 768px) {
+  .global-left-popup-banner {
+    max-width: 170px !important;
+    bottom: 20px !important;
+    left: 15px !important;
+  }
+}
+</style>
 <div class="global-left-popup-banner" id="global-left-popup-banner">
     <button class="left-popup-close" onclick="closeLeftPopupBanner(event)" aria-label="<?php echo $is_en ? 'Close popup' : 'Đóng popup'; ?>">&times;</button>
     <a href="javascript:void(0);" onclick="if(typeof openRegModal === 'function'){ openRegModal(); } else if(typeof openBookingModal === 'function'){ openBookingModal(); }" title="<?php echo $is_en ? 'Tuition discount up to 10% for IDEAS students relatives' : 'Ưu đãi học phí lên đến 10% cho người thân học viên tại IDEAS'; ?>">

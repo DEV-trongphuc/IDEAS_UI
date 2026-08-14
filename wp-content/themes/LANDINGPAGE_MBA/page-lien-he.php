@@ -488,10 +488,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transition: all 0.3s ease;
         }
 
-
-
-        .page-contact-form select {
-            display: block !important;
+        .form-group select.custom-select-native-hidden {
+            display: none !important;
         }
 
         .form-group input::placeholder,
@@ -741,7 +739,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="form-group">
                                     <label for="english"><?php echo $is_en ? 'English Level *' : 'Trình độ Tiếng Anh *'; ?></label>
                                     <select id="english" name="english" required>
-                                        <option value=""><?php echo $is_en ? '-- Select Education Level --' : '-- Chọn trình độ --'; ?></option>
+                                        <option value=""><?php echo $is_en ? '-- Select English Level --' : '-- Chọn trình độ --'; ?></option>
                                         <option value="below-5.0"><?php echo $is_en ? 'Below IELTS 5.0' : 'Dưới IELTS 5.0'; ?></option>
                                         <option value="5.0-5.5">IELTS 5.0 - 5.5</option>
                                         <option value="6.0-plus">IELTS 6.0+</option>
