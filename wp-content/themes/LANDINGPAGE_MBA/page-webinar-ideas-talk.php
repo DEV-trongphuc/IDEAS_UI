@@ -1944,6 +1944,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-self: flex-start;
         }
 
+        .timeline-badge.ended {
+            background: rgba(100, 116, 139, 0.15) !important;
+            border-color: rgba(100, 116, 139, 0.3) !important;
+            color: #94a3b8 !important;
+        }
+
+        .timeline-badge.upcoming {
+            background: rgba(34, 197, 94, 0.12) !important;
+            border-color: rgba(34, 197, 94, 0.3) !important;
+            color: #4ade80 !important;
+        }
+
         .timeline-badge.updating {
             background: rgba(255, 255, 255, 0.03);
             border-color: rgba(255, 255, 255, 0.1);
@@ -3259,7 +3271,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="timeline-dot"></div>
                             <div class="timeline-content-card">
                                 <div>
-                                    <span class="timeline-badge"><?php echo $is_en ? 'Webinar 01' : 'Chủ đề 01'; ?></span>
+                                    <span class="timeline-badge ended"><?php echo $is_en ? 'Webinar 01 • Ended' : 'Chủ đề 01 • Đã kết thúc'; ?></span>
                                     <h3><?php echo $is_en ? 'Applying AI in Learning & Research: Multidimensional Perspectives from 3 Experts' : 'Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item">
@@ -3284,7 +3296,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="timeline-dot"></div>
                             <div class="timeline-content-card">
                                 <div>
-                                    <span class="timeline-badge"><?php echo $is_en ? 'Webinar 02' : 'Chủ đề 02'; ?></span>
+                                    <span class="timeline-badge upcoming"><?php echo $is_en ? 'Webinar 02 • Upcoming' : 'Chủ đề 02 • Sắp diễn ra'; ?></span>
                                     <h3><?php echo $is_en ? 'Improving Management Capabilities in the AI Era' : 'Nâng cao năng lực quản trị trong thời đại AI'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item">
