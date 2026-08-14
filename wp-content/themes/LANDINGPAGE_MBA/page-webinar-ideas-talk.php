@@ -2922,8 +2922,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
 
                     <div class="talk-hero-ctas">
-                        <a href="javascript:void(0)" class="btn-talk btn-talk-primary" style="opacity: 0.6; cursor: not-allowed; background: #64748b !important; pointer-events: none;">
-                            <?php echo $is_en ? 'Ended' : 'Đã kết thúc'; ?>
+                        <a href="javascript:void(0)" onclick="registerForTopic('Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)')" class="btn-talk btn-talk-primary">
+                            <?php echo $is_en ? 'Register Now' : 'Đăng ký tham gia ngay'; ?>
                         </a>
                         <a href="#recap" class="btn-talk btn-talk-secondary-dark">
                             <?php echo $is_en ? 'Watch Latest Recap' : 'Xem Recap buổi gần nhất'; ?>
@@ -2934,26 +2934,34 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Column 2: Visual Card (Ticket) -->
                 <div class="talk-hero-visual">
                     <div class="hero-ticket-card" id="hero-ticket">
-                        <span class="ticket-badge" style="background: rgba(100, 116, 139, 0.15) !important; color: #94a3b8 !important; border: 1px solid rgba(100, 116, 139, 0.3) !important;">
-                            <span style="width: 7px; height: 7px; background-color: #64748b; border-radius: 50%; display: inline-block; margin-right: 6px;"></span>
-                            <?php echo $is_en ? 'Ended' : 'Đã kết thúc'; ?>
+                        <span class="ticket-badge" style="background: rgba(34, 197, 94, 0.12) !important; color: #4ade80 !important; border: 1px solid rgba(34, 197, 94, 0.3) !important;">
+                            <span style="width: 7px; height: 7px; background-color: #22c55e; border-radius: 50%; display: inline-block; margin-right: 6px; box-shadow: 0 0 8px #22c55e;"></span>
+                            <?php echo $is_en ? 'Upcoming' : 'Sắp diễn ra'; ?>
                         </span>
 
                         <h3 class="ticket-title">
-                            <?php echo $is_en ? 'Applying AI in Learning & Research: Multidimensional Perspectives' : 'Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều'; ?>
+                            <?php echo $is_en ? 'Improving Management Capabilities in the AI Era' : 'Nâng cao năng lực quản trị trong thời đại AI'; ?>
                         </h3>
 
-                        <div class="ticket-countdown-container" style="display: flex; justify-content: center; align-items: center; min-height: 80px; background: rgba(100, 116, 139, 0.08); border-radius: 12px; border: 1px solid rgba(100, 116, 139, 0.15); margin-top: 20px;">
-                            <span style="font-weight: 700; color: #64748b; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;">
-                                <svg class="svg-icon fa-calendar-check fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;"><path d="M438.6 150.6c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L370.7 128H192c-53 0-96 43-96 96v192c0 17.7 14.3 32 32 32s32-14.3 32-32V224c0-17.7 14.3-32 32-32h178.7l-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96z"/></svg>
-                                <?php echo $is_en ? 'Webinar Session Ended' : 'Sự kiện đã kết thúc'; ?>
-                            </span>
-                        </div>
-                        <div style="display: none;">
-                            <span id="days">00</span>
-                            <span id="hours">00</span>
-                            <span id="minutes">00</span>
-                            <span id="seconds">00</span>
+                        <div class="ticket-countdown-container">
+                            <div class="countdown-grid" id="countdown-timer">
+                                <div class="countdown-box">
+                                    <span class="num" id="days">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="num" id="hours">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Hrs' : 'Giờ'; ?></span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="num" id="minutes">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Mins' : 'Phút'; ?></span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="num" id="seconds">00</span>
+                                    <span class="lbl"><?php echo $is_en ? 'Secs' : 'Giây'; ?></span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="ticket-speakers-section">
@@ -3096,8 +3104,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <img src="https://ideas.edu.vn/wp-content/uploads/2023/07/umefws.webp" alt="IDEAS Live Workshop Session" class="why-sticky-img">
                         </div>
 
-                        <a href="javascript:void(0)" class="btn-talk btn-talk-primary" style="opacity: 0.6; cursor: not-allowed; background: #64748b !important; pointer-events: none;">
-                            <?php echo $is_en ? 'Ended' : 'Đã kết thúc'; ?>
+                        <a href="#register" class="btn-talk btn-talk-primary">
+                            <?php echo $is_en ? 'Register Today' : 'Đăng ký ngay hôm nay'; ?>
                         </a>
                     </div>
 
@@ -3577,19 +3585,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <div class="form-content-col">
-                        <div class="registration-closed-box" style="text-align: center; padding: 40px 24px; background: rgba(15, 23, 42, 0.02); border-radius: 16px; border: 1px dashed rgba(15, 23, 42, 0.15); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 250px; width: 100%; box-sizing: border-box;">
-                            <svg viewBox="0 0 512 512" fill="#64748b" xmlns="http://www.w3.org/2000/svg" style="width: 48px; height: 48px; margin-bottom: 16px;">
-                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zm0 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
-                            </svg>
-                            <h3 style="font-weight: 700; color: #0f172a; margin-bottom: 8px; font-size: 1.25rem;">
-                                <?php echo $is_en ? 'Registration Closed' : 'Đăng Ký Đã Đóng'; ?>
-                            </h3>
-                            <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5; max-width: 400px; margin: 0;">
-                                <?php echo $is_en ? 'This webinar session has ended on August 13, 2026. Thank you for your interest!' : 'Chuyên đề Webinar này đã diễn ra vào ngày 13/08/2026. Cảm ơn sự quan tâm của bạn!'; ?>
-                            </p>
-                        </div>
-
-                        <div class="success-box" id="page-form-success" style="display: none;">
+                        <div class="success-box" id="page-form-success">
                             <div class="success-icon-wrap">
                                 <svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
@@ -3599,7 +3595,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <p id="success-msg"></p>
                         </div>
 
-                        <form id="page-contact-form" novalidate style="display: none !important;">
+                        <form id="page-contact-form" novalidate>
                             <div class="form-group">
                                 <label class="form-label" for="fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
                                 <input class="form-control" type="text" id="fullname" placeholder="<?php echo $is_en ? 'Enter your full name' : 'Nhập họ và tên của bạn'; ?>" required>
@@ -3819,7 +3815,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         });
 
-        window.selectedWebinarTopic = 'Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)';
+        window.selectedWebinarTopic = 'Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)';
 
         // Function to select topic and scroll to register form
         function registerForTopic(topicName) {
@@ -3969,7 +3965,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
                 const mucDichText = mucDichVal === 'Khác' ? otherMucDichVal : mucDichVal;
-                const interestVal = window.selectedWebinarTopic || 'Ứng dụng AI trong học tập & nghiên cứu (13/08/2026)';
+                const interestVal = window.selectedWebinarTopic || 'Nâng cao năng lực quản trị trong thời đại AI (27/08/2026)';
 
                 const noteParts = [];
                 noteParts.push('Chức danh: ' + chucDanhText);
@@ -4217,8 +4213,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Live countdown timer to 13/08/2026 19:30
-            var countDownDate = new Date("2026-08-13T19:30:00+07:00").getTime();
+            // Live countdown timer to 27/08/2026 19:30
+            var countDownDate = new Date("2026-08-27T19:30:00+07:00").getTime();
 
             var x = setInterval(function() {
                 var now = new Date().getTime();
