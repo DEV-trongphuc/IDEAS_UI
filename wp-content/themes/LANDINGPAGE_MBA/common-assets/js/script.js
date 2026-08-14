@@ -2366,13 +2366,14 @@ function initWordPressBlog() {
             month: isEn ? 'short' : '2-digit'
         });
         
-        const fThumb = getWebpUrl(featuredPost.featured_image_url || 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp');
+        const fOriginal = featuredPost.featured_image_url || 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp';
+        const fThumb = getWebpUrl(fOriginal);
 
         let html = `
             <div class="news-featured">
                 <a href="${fLink}" target="_blank" class="featured-card">
                     <div class="thumb">
-                        <img src="${fThumb}" alt="${fTitle}" loading="lazy">
+                        <img src="${fThumb}" onerror="this.onerror=null; this.src='${fOriginal}';" alt="${fTitle}" loading="lazy">
                         <span class="date-badge">${fDate}</span>
                     </div>
                     <div class="content">
@@ -2394,12 +2395,13 @@ function initWordPressBlog() {
                 year: 'numeric'
             });
             
-            const lThumb = getWebpUrl(post.featured_image_url || 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp');
+            const lOriginal = post.featured_image_url || 'https://ideas.edu.vn/wp-content/uploads/2025/07/ideas_side2.webp';
+            const lThumb = getWebpUrl(lOriginal);
 
             html += `
                 <a href="${lLink}" target="_blank" class="news-item">
                     <div class="item-thumb">
-                        <img src="${lThumb}" alt="${lTitle}" loading="lazy">
+                        <img src="${lThumb}" onerror="this.onerror=null; this.src='${lOriginal}';" alt="${lTitle}" loading="lazy">
                     </div>
                     <div class="item-info">
                         <h4>${lTitle}</h4>
