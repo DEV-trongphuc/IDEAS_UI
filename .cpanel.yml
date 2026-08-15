@@ -9,9 +9,8 @@ deployment:
     - cp purge-cache.php $DEPLOYPATH/purge-cache.php
     - cp wp-convert-webp.php $DEPLOYPATH/wp-convert-webp.php
     - cp wp-migrate-db-webp.php $DEPLOYPATH/wp-migrate-db-webp.php
-    - cp export_references.php $DEPLOYPATH/export_references.php
-    - cp restore_receiver.php $DEPLOYPATH/restore_receiver.php
-    - cp check_index_headline.php $DEPLOYPATH/check_index_headline.php
+    # Clean up any leftover legacy utility scripts on the server
+    - rm -f $DEPLOYPATH/export_references.php $DEPLOYPATH/restore_receiver.php $DEPLOYPATH/check_index_headline.php
     # Deploy landing pages
     - /bin/rsync -av --exclude='.git*' wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/
     # Deploy WordPress themes (PHP, CSS, JS)

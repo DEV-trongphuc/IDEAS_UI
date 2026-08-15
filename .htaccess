@@ -176,3 +176,29 @@ RewriteRule . /index.php [L]
     ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
 # END Performance Tuning
+
+# BEGIN Security Hardening
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Block access to hidden/sensitive files
+<FilesMatch "^(\.git|\.env|\.cpanel\.yml|\.cpanelignore|wp-config\.php|license\.txt|readme\.html)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Block PHP Execution in wp-content/uploads
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^wp-content/uploads/.*\.php$ - [F,L,NC]
+</IfModule>
+# END Security Hardening
