@@ -185,8 +185,15 @@ RewriteRule . /index.php [L]
     Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
+# Block ClickFix / malicious ServiceWorker query strings
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{QUERY_STRING} (sc_[a-zA-Z0-9]+|wp-service-worker) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
 # Block access to hidden/sensitive files
-<FilesMatch "^(\.git|\.env|\.cpanel\.yml|\.cpanelignore|wp-config\.php|license\.txt|readme\.html)">
+<FilesMatch "^(\.git|\.env|\.cpanel\.yml|\.cpanelignore|wp-config\.php|license\.txt|readme\.html|run_search_.*\.php|query-mba-page\.php|activate-theme\.php)">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -196,9 +203,10 @@ RewriteRule . /index.php [L]
     </IfModule>
 </FilesMatch>
 
-# Block PHP Execution in wp-content/uploads
+# Block PHP Execution in wp-content/uploads and cache directories
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule ^wp-content/uploads/.*\.php$ - [F,L,NC]
+    RewriteRule ^wp-content/uploads/.*\.php[0-9]?$ - [F,L,NC]
+    RewriteRule ^wp-content/cache/.*\.php[0-9]?$ - [F,L,NC]
 </IfModule>
 # END Security Hardening
