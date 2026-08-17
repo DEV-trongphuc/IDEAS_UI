@@ -1913,7 +1913,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
-            height: 380px;
+            min-height: 400px;
+            height: 100%;
             justify-content: space-between;
         }
 
@@ -2008,7 +2009,71 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-btn-wrapper {
-            margin-top: 14px;
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        .btn-replay-webinar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 50%, #9f1239 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+            text-decoration: none !important;
+            box-sizing: border-box;
+            box-shadow: 0 4px 20px rgba(225, 29, 72, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+        }
+
+        .btn-replay-webinar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-replay-webinar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(225, 29, 72, 0.6), 0 0 18px rgba(255, 0, 50, 0.35);
+            background: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be123c 100%);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.45);
+        }
+
+        .btn-replay-webinar:hover::before {
+            left: 120%;
+        }
+
+        .btn-replay-webinar .play-icon {
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+            transition: transform 0.25s ease;
+        }
+
+        .btn-replay-webinar:hover .play-icon {
+            transform: scale(1.15);
+        }
+
+        .btn-replay-webinar .arrow-icon {
+            transition: transform 0.25s ease;
+        }
+
+        .btn-replay-webinar:hover .arrow-icon {
+            transform: translateX(4px);
         }
 
         .timeline-btn-wrapper button {
@@ -3295,7 +3360,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     </div>
                                     <p class="timeline-desc"><?php echo $is_en ? 'Learn original AI framework: adaptation mindset, prompting technical tools, and core data structures.' : 'Giải mã bài toán ứng dụng AI qua 3 góc nhìn: Tư duy tiếp cận chủ động, Kỹ thuật prompting, và Nền tảng mô hình dữ liệu.'; ?></p>
                                 </div>
-
+                                <div class="timeline-btn-wrapper">
+                                    <a href="https://youtu.be/7FJHzeIsoS0" target="_blank" rel="noopener noreferrer" class="btn-replay-webinar">
+                                        <svg class="play-icon" viewBox="0 0 576 512" fill="currentColor" width="16" height="16" style="flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                                        </svg>
+                                        <span><?php echo $is_en ? 'Watch Replay' : 'Xem lại Webinar'; ?></span>
+                                        <svg class="arrow-icon" viewBox="0 0 320 512" fill="currentColor" width="10" height="10" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -3399,9 +3474,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p style="color:#475569; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia,<br>đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
                 </div>
 
-                <!-- Banner Image -->
-                <div class="brief-banner" style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+                <!-- Banner Image & Replay CTA -->
+                <div class="brief-banner" style="text-align: center; margin-top: 40px; margin-bottom: 25px;">
                     <img src="https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-05-webinar.webp" alt="<?php echo $is_en ? 'Webinar Program Content' : 'Nội dung chương trình'; ?>" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border: 1px solid rgba(15, 23, 42, 0.05);">
+                </div>
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <a href="https://youtu.be/7FJHzeIsoS0" target="_blank" rel="noopener noreferrer" class="btn-talk btn-talk-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-size: 1rem; border-radius: 99px; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.35); text-decoration: none;">
+                        <svg viewBox="0 0 576 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                        </svg>
+                        <span><?php echo $is_en ? 'Watch Full Webinar Recording (13/08/2026)' : 'Xem lại toàn bộ Video ghi hình buổi 13/08/2026'; ?></span>
+                        <svg viewBox="0 0 320 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+                        </svg>
+                    </a>
                 </div>
 
                 <div class="brief-dashboard">
@@ -3712,6 +3798,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 name: isEnMode ? "Breaking English Barriers" : "Vượt rào cản tiếng Anh",
                 name_sub: isEnMode ? "#by applying AI in learning" : "#bằng cách ứng dụng AI trong học tập",
                 data: [{
+                        type: "IDEAS Talk - AI",
+                        date: "13/08/2026",
+                        title: isEnMode ? "Applying AI in Learning & Research: Multidimensional Perspectives from 3 Experts" : "Ứng dụng AI trong học tập & nghiên cứu: Góc Nhìn Đa Chiều từ 3 Chuyên gia",
+                        video: "https://www.youtube.com/embed/7FJHzeIsoS0",
+                    },
+                    {
                         type: "IDEAS Talk - AI",
                         date: "29/06/2025",
                         title: isEnMode ? "VIBE CODING - Build your own app with AI" : "VIBE CODING - Tự tạo ứng dụng bằng AI",
