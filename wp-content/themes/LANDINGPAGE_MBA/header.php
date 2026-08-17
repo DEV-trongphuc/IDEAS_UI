@@ -13,10 +13,10 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="viewport" content="width=device-width">
   <!-- Preconnect to external domains for faster resource loading -->
+  <link rel="preconnect" href="https://automation.ideas.edu.vn">
+  <link rel="dns-prefetch" href="https://automation.ideas.edu.vn">
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  
-  
   <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
   <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
@@ -24,7 +24,7 @@
   <?php endif; ?>
 
   <!-- Load JS sớm nhất -->
-  <script src="/wp-content/new_public/LANDINGPAGE_MBA/variable.js?v=1786939929"></script>
+  <script src="/wp-content/new_public/LANDINGPAGE_MBA/variable.js?v=1786957018"></script>
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

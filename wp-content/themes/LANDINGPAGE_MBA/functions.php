@@ -300,6 +300,18 @@ add_action('wp_head', 'ideas_add_tracking_scripts', 1);
 function ideas_add_tracking_scripts()
 {
     ?>
+    <link rel="preconnect" href="https://automation.ideas.edu.vn" />
+    <link rel="dns-prefetch" href="https://automation.ideas.edu.vn" />
+
+    <!-- MailFlow Pro Tracker & AI Chat -->
+    <script>
+        window._mf_config = {
+            property_id: "ce71ea2e-d841-4e0f-b3ad-332297cde330",
+            ai_chat: true
+        };
+    </script>
+    <script src="https://automation.ideas.edu.vn/tracker.js" defer></script>
+
     <!-- Event snippet for SUBMIT FORM conversion page -->
     <script>
         function gtag_report_conversion(url) {
