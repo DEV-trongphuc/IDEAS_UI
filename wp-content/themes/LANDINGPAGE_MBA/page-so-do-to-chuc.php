@@ -1181,9 +1181,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- COLUMN 3: Nguyễn Quang Tánh -->
                         <div class="org-branch-col has-sub-branches">
                             <div class="org-node">
-                                <div class="org-node-avatar-placeholder">NQT</div>
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2026/08/a_tanh_avatar_so_do.webp"
+                                    class="org-node-avatar" alt="<?php echo $is_en ? 'Vice Director - Nguyen Quang Tanh' : 'Phó Giám Đốc - Nguyễn Quang Tánh'; ?>" loading="lazy" decoding="async">
                                 <div class="org-node-body">
-                                    <div class="org-node-role"><?php echo $is_en ? 'Vice Director' : 'Viện Phó'; ?></div>
+                                    <div class="org-node-role"><?php echo $is_en ? 'Vice Director' : 'Phó Giám Đốc'; ?></div>
                                     <h3 class="org-node-name">Nguyễn Quang Tánh</h3>
                                     <div class="org-node-role"
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;"><?php echo $is_en ? 'Growth &amp; Technology' : 'Tăng Trưởng &amp; Công Nghệ'; ?></div>
