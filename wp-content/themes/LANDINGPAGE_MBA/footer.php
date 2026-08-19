@@ -18,6 +18,7 @@ $lms_url = $is_en ? '/en/lms-ecosystem' : '/he-thong-ho-tro-hoc-tap-lms-ideas';
 $faculty_url = $is_en ? '/en/faculty' : '/doi-ngu-giang-vien';
 $events_url = $is_en ? '/en/events' : '/dong-su-kien';
 $history_url = $is_en ? '/en/history' : '/lich-su-hinh-thanh-va-phat-trien-vien-ideas';
+$org_chart_url = $is_en ? '/en/organizational-chart' : '/so-do-to-chuc';
 $contact_url = $is_en ? '/en/contact' : '/lien-he';
 
 // Program links
@@ -71,6 +72,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
         <div class="footer-col-links">
             <h3><?php echo $is_en ? 'Main Links' : 'Danh Mục Chính'; ?></h3>
             <a href="<?php echo esc_url($home_url); ?>"><?php echo $is_en ? 'Home' : 'Trang chủ'; ?></a>
+            <a href="<?php echo esc_url($org_chart_url); ?>"><?php echo $is_en ? 'Staff Structure' : 'Sơ đồ tổ chức'; ?></a>
             <a href="<?php echo esc_url($lms_url); ?>"><?php echo $is_en ? 'LMS Ecosystem' : 'Hệ thống LMS'; ?></a>
             <a href="<?php echo esc_url($faculty_url); ?>"><?php echo $is_en ? 'Faculty Board' : 'Hội đồng chuyên môn'; ?></a>
             <a href="<?php echo esc_url($events_url); ?>"><?php echo $is_en ? 'Events' : 'Dòng sự kiện'; ?></a>

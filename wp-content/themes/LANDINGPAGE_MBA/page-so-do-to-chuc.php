@@ -124,6 +124,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background-clip: text;
         }
 
+        .verify-slogan {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-weight: 700;
+            font-style: italic;
+            color: #ab0e00;
+            margin-top: 4px;
+            margin-bottom: 18px;
+            letter-spacing: 0.04em;
+            text-shadow: none;
+            display: inline-block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
         .org-hero p {
             font-size: 1.05rem;
             color: #4b5563;
@@ -1112,7 +1125,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="org-node">
                                         <div class="org-node-avatar-placeholder">LHT</div>
                                         <div class="org-node-body">
-                                            <div class="org-node-role"><?php echo $is_en ? 'Academics' : 'Học thuật'; ?></div>
+                                            <div class="org-node-role"><?php echo $is_en ? 'Academic Affairs' : 'Học Vụ'; ?></div>
                                             <h3 class="org-node-name">Lê Huyền Trâm</h3>
                                         </div>
                                     </div>
@@ -1146,7 +1159,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="org-node">
                                         <div class="org-node-avatar-placeholder">DP</div>
                                         <div class="org-node-body">
-                                            <div class="org-node-role"><?php echo $is_en ? 'HR Manager' : 'Trưởng Phòng Nhân Sự'; ?></div>
+                                            <div class="org-node-role"><?php echo $is_en ? 'Human Resources' : 'Nhân Sự'; ?></div>
                                             <h3 class="org-node-name">Nguyễn Thị Duy Phương</h3>
                                         </div>
                                     </div>
@@ -1157,7 +1170,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                     <div class="org-node">
                                         <div class="org-node-avatar-placeholder">NTT</div>
                                         <div class="org-node-body">
-                                            <div class="org-node-role"><?php echo $is_en ? 'Chief Accountant' : 'Trưởng Phòng Kế Toán'; ?></div>
+                                            <div class="org-node-role"><?php echo $is_en ? 'Accounting' : 'Kế Toán'; ?></div>
                                             <h3 class="org-node-name">Nguyễn Thu Thảo</h3>
                                         </div>
                                     </div>
@@ -1165,18 +1178,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                         </div>
 
-                        <!-- COLUMN 3: Võ Trùng Dương -->
+                        <!-- COLUMN 3: Nguyễn Quang Tánh -->
                         <div class="org-branch-col has-sub-branches">
                             <div class="org-node">
-                                <div class="org-node-avatar-placeholder">VTD</div>
+                                <div class="org-node-avatar-placeholder">NQT</div>
                                 <div class="org-node-body">
-                                    <div class="org-node-role"><?php echo $is_en ? 'Division Head' : 'Trưởng Khối'; ?></div>
-                                    <h3 class="org-node-name">Võ Trùng Dương</h3>
+                                    <div class="org-node-role"><?php echo $is_en ? 'Vice Director' : 'Viện Phó'; ?></div>
+                                    <h3 class="org-node-name">Nguyễn Quang Tánh</h3>
                                     <div class="org-node-role"
                                         style="font-size:0.64rem; color:#64748b; margin-top:2px; font-weight:700;"><?php echo $is_en ? 'Growth &amp; Technology' : 'Tăng Trưởng &amp; Công Nghệ'; ?></div>
                                     <div class="org-node-info">
                                         <svg class="svg-icon fa-envelope fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-                                        <a href="mailto:duongvt@ideas.edu.vn">duongvt@ideas.edu.vn</a>
+                                        <a href="mailto:tanhnq@ideas.edu.vn">tanhnq@ideas.edu.vn</a>
                                     </div>
                                 </div>
                             </div>

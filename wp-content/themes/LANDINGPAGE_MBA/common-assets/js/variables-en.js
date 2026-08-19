@@ -348,7 +348,7 @@ const IDEAS_DATA = {
             },
             degree: {
                 back: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0002.webp",
-                front: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0001.webp",
+                front: "https://ideas.edu.vn/wp-content/uploads/2025/11/z7191978013846_36a81ec39301d05fedaf6d4cd0293f9c-1.webp",
                 transcript: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0003.webp",
             },
             fee_plane: "3,000",
@@ -486,7 +486,7 @@ const IDEAS_DATA = {
             },
             degree: {
                 back: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0002.webp",
-                front: "https://ideas.edu.vn/wp-content/uploads/2025/03/UMEF-MSc-Degree.webp",
+                front: "https://ideas.edu.vn/wp-content/uploads/2025/11/z7191978013846_36a81ec39301d05fedaf6d4cd0293f9c-1.webp",
                 transcript: "https://ideas.edu.vn/wp-content/uploads/2025/11/Sample_page-0003.webp",
             },
             fee_plane: "4,400",
