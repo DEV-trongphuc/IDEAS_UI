@@ -2453,9 +2453,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <a href="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" class="acc-cert-thumb" target="_blank" rel="noopener noreferrer">
                             Thành viên chính thức Conférence des Grandes Écoles (CGE)
                         </a>
-                        <a href="https://istec.fr/en/partenaires" class="acc-cert-thumb" target="_blank" rel="noopener noreferrer">
-                            Đại sứ quán & Đối tác Quốc tế xác thực
-                        </a>
                     </div>
                 </div>
             </div>
