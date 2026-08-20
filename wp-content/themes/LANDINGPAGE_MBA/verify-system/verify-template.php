@@ -538,7 +538,7 @@ if (!defined('ABSPATH')) {
             <div id="tab-code" class="tab-panel active">
                 <div class="form-group">
                     <label class="form-label" for="lookupCode">Mã chứng chỉ / CCCD / ID Học viên</label>
-                    <input type="text" id="lookupCode" class="input-control" placeholder="Ví dụ: IDEAS-KODA-001 hoặc KODA-001" autofocus />
+                    <input type="text" id="lookupCode" class="input-control" placeholder="Nhập mã chứng chỉ / CCCD / ID Học viên" autofocus />
                 </div>
                 <button type="button" id="btnLookupCode" class="btn-action-main">
                     <span>Tra cứu ngay</span>
@@ -552,7 +552,7 @@ if (!defined('ABSPATH')) {
                 <div id="emailStep1">
                     <div class="form-group">
                         <label class="form-label" for="lookupEmail">Email đăng ký tham gia đào tạo</label>
-                        <input type="email" id="lookupEmail" class="input-control" placeholder="Ví dụ: name@kodainternational.com" />
+                        <input type="email" id="lookupEmail" class="input-control" placeholder="Nhập email của bạn" />
                     </div>
                     <button type="button" id="btnSendEmailOtp" class="btn-action-main">
                         <span>Gửi mã xác thực OTP</span>
