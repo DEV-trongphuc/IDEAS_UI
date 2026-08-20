@@ -445,17 +445,16 @@ if (!defined('ABSPATH')) {
     <!-- ═══ TOP VERIFICATION BAR ═════════════════════════════════════════════ -->
     <div class="top-verification-bar">
         <div class="top-bar-content">
-            <div class="top-left-branding">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo" class="ideas-logo">
-                <div class="verification-badge">
-                    <svg class="verify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M9 12l2 2 4-4"></path>
-                    </svg>
-                    <span class="verification-text" id="verifyStatusText">VERIFIED</span>
-                </div>
+            <a href="https://ideas.edu.vn" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" alt="IDEAS Logo" class="ideas-logo" style="height: 44px; width: auto; object-fit: contain;">
+            </a>
+            <div class="verification-badge">
+                <svg class="verify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span class="verification-text" id="verifyStatusText">VERIFIED</span>
             </div>
-            <div></div>
         </div>
     </div>
 
@@ -463,7 +462,7 @@ if (!defined('ABSPATH')) {
     <div id="lookupModal" style="display: none;">
         <div class="lookup-box">
             <div class="lookup-logo-wrap">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp" alt="IDEAS Logo" style="height: 48px; width: auto; object-fit: contain;">
             </div>
             <h3>Tra Cứu & Xác Thực Chứng Chỉ</h3>
             <p class="lookup-desc">Nhập Email hoặc Mã chứng chỉ để xem hồ sơ chứng nhận chính thức từ Học viện IDEAS.</p>

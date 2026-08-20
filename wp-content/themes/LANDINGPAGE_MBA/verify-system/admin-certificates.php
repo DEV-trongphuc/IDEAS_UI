@@ -278,12 +278,13 @@ foreach ($all_courses_raw as $c) {
         background: #e2e8f0;
     }
     .btn-act-view {
-        background: #f0fdf4;
-        color: #15803d !important;
-        border-color: #bbf7d0;
+        background: #ffffff;
+        color: #ab0e00 !important;
+        border: 1.5px solid #ab0e00;
+        padding: 5px 14px;
     }
     .btn-act-view:hover {
-        background: #15803d;
+        background: #ab0e00;
         color: white !important;
     }
     .btn-act-delete {
@@ -472,7 +473,7 @@ foreach ($all_courses_raw as $c) {
                                         Sửa
                                     </button>
                                     <a href="/verify?id=<?php echo urlencode($c->cer_no); ?>" target="_blank" class="btn-act btn-act-view">
-                                        <span class="dashicons dashicons-visibility" style="font-size:16px; width:16px; height:16px; margin-top:-1px;"></span> Xem
+                                        Xem
                                     </a>
                                     <a href="?page=ideas-cert-list&action_type=delete&id=<?php echo $c->id; ?>" class="btn-act btn-act-delete" onclick="return confirm('Bạn có chắc muốn xóa vĩnh viễn chứng chỉ này cùng toàn bộ bảng điểm của học viên không?')">
                                         Xóa

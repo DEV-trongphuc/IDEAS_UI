@@ -280,8 +280,8 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FRO
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <a href="/verify?id=<?php echo urlencode($c->cer_no); ?>" target="_blank" class="button button-secondary" style="font-weight: 700; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">
-                                        <span class="dashicons dashicons-visibility" style="font-size: 16px; margin-top: 2px;"></span> Xem &rarr;
+                                    <a href="/verify?id=<?php echo urlencode($c->cer_no); ?>" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; padding: 6px 16px; background: #ffffff; color: #ab0e00 !important; border: 1.5px solid #ab0e00; border-radius: 6px; font-weight: 700; font-size: 13px; text-decoration: none !important; transition: all 0.2s ease; box-shadow: 0 1px 2px rgba(0,0,0,0.05);" onmouseover="this.style.background='#ab0e00'; this.style.color='#ffffff';" onmouseout="this.style.background='#ffffff'; this.style.color='#ab0e00';">
+                                        Xem &rarr;
                                     </a>
                                 </td>
                             </tr>
