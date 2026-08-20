@@ -299,28 +299,34 @@ foreach ($all_courses_raw as $c) {
 
     /* ═══ EDIT MODAL OVERLAY ═══════════════════════════════════════════════ */
     #editModal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(4px);
-        z-index: 99999;
-        display: flex;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(15, 23, 42, 0.65) !important;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 999999 !important;
+        display: none;
         align-items: center;
         justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
     }
-    .edit-box {
-        background: white;
-        padding: 36px;
+    .ideas-modal-box {
+        display: block !important;
+        background: #ffffff !important;
+        padding: 32px 36px;
         border-radius: 16px;
-        max-width: 720px;
-        width: 90%;
-        max-height: 85vh;
+        max-width: 760px;
+        width: 100%;
+        max-height: 88vh;
         overflow-y: auto;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
         border: 1px solid var(--border-slate);
+        position: relative;
+        z-index: 1000000 !important;
     }
     .form-row {
         display: grid;
@@ -485,7 +491,7 @@ foreach ($all_courses_raw as $c) {
                             </td>
                             <td>
                                 <div class="btn-action-group">
-                                    <button class="btn-act btn-act-edit" onclick='openEditModal(<?php echo json_encode($c); ?>)'>
+                                    <button type="button" class="btn-act btn-act-edit" onclick="openEditModal(JSON.parse(this.dataset.cert))" data-cert="<?php echo esc_attr(json_encode($c)); ?>">
                                         Sửa
                                     </button>
                                     <a href="/verify?id=<?php echo urlencode($c->cer_no); ?>" target="_blank" class="btn-act btn-act-view">
@@ -522,7 +528,7 @@ foreach ($all_courses_raw as $c) {
 
 <!-- Edit Certificate Modal -->
 <div id="editModal" style="display: none;">
-    <div class="edit-box">
+    <div class="ideas-modal-box">
         <h2 style="margin-top: 0; margin-bottom: 24px; font-weight: 800; border-bottom: 1px solid #f1f5f9; padding-bottom: 14px; display: flex; align-items: center; gap: 8px;">
             <span class="dashicons dashicons-edit" style="font-size: 24px; width:24px; height:24px; color:#e11d48; margin-top:2px;"></span> Chỉnh sửa Chứng chỉ & Bảng điểm
         </h2>
