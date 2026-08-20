@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) {
 
 global $wpdb;
 $table_groups = $wpdb->prefix . 'ideas_cert_groups';
+$table_certs = $wpdb->prefix . 'ideas_certificates';
 
 // Handle Add/Edit Group POST Submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ideas_save_group'])) {
@@ -49,27 +50,23 @@ if (isset($_GET['action_type']) && isset($_GET['id'])) {
     }
 }
 
-// Fetch all groups with student count
-$groups = $wpdb->get_results("
-    SELECT g.*, 
-           COUNT(c.id) AS student_count 
-    FROM $table_groups g
-    LEFT JOIN $table_certs c ON c.group_id = g.id
-    GROUP BY g.id
-    ORDER BY g.id ASC
-", ARRAY_A);
+// Fetch all groups
+$groups_raw = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRAY_A) ?: array();
 
 // Fetch all students mapped by group_id for detail modal
-$all_students_raw = $wpdb->get_results("
-    SELECT id, cer_no, name, student_id, email, date, status, group_id, avatar_url 
-    FROM $table_certs 
-    ORDER BY id DESC
-", ARRAY_A);
+$all_students_raw = $wpdb->get_results("SELECT id, cer_no, name, student_id, email, date, status, group_id, avatar_url FROM $table_certs ORDER BY id DESC", ARRAY_A) ?: array();
 
 $students_by_group = array();
 foreach ($all_students_raw as $st) {
     $gid = intval($st['group_id']);
     $students_by_group[$gid][] = $st;
+}
+
+$groups = array();
+foreach ($groups_raw as $g) {
+    $gid = intval($g['id']);
+    $g['student_count'] = isset($students_by_group[$gid]) ? count($students_by_group[$gid]) : 0;
+    $groups[] = $g;
 }
 ?>
 
