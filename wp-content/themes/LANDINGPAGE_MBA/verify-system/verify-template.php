@@ -530,12 +530,24 @@ if (!defined('ABSPATH')) {
 
             <!-- Tab Buttons (Clean, No Emojis) -->
             <div class="lookup-tabs">
-                <button type="button" class="lookup-tab-btn active" data-tab="tab-email">Xác thực qua Email (OTP)</button>
-                <button type="button" class="lookup-tab-btn" data-tab="tab-code">Tra cứu theo Mã số</button>
+                <button type="button" class="lookup-tab-btn active" data-tab="tab-code">Tra cứu theo Mã số</button>
+                <button type="button" class="lookup-tab-btn" data-tab="tab-email">Xác thực qua Email (OTP)</button>
             </div>
 
-            <!-- Tab 1: Email OTP -->
-            <div id="tab-email" class="tab-panel active">
+            <!-- Tab 1: Direct Code Lookup (Default) -->
+            <div id="tab-code" class="tab-panel active">
+                <div class="form-group">
+                    <label class="form-label" for="lookupCode">Mã chứng chỉ / CCCD / ID Học viên</label>
+                    <input type="text" id="lookupCode" class="input-control" placeholder="Ví dụ: IDEAS-KODA-001 hoặc KODA-001" autofocus />
+                </div>
+                <button type="button" id="btnLookupCode" class="btn-action-main">
+                    <span>Tra cứu ngay</span>
+                </button>
+                <p id="codeStatus" class="status-msg"></p>
+            </div>
+
+            <!-- Tab 2: Email OTP -->
+            <div id="tab-email" class="tab-panel">
                 <!-- Step 1: Input Email -->
                 <div id="emailStep1">
                     <div class="form-group">
@@ -566,18 +578,6 @@ if (!defined('ABSPATH')) {
                     </div>
                     <p id="emailStatus2" class="status-msg"></p>
                 </div>
-            </div>
-
-            <!-- Tab 2: Direct Code Lookup -->
-            <div id="tab-code" class="tab-panel">
-                <div class="form-group">
-                    <label class="form-label" for="lookupCode">Mã chứng chỉ / CCCD / ID Học viên</label>
-                    <input type="text" id="lookupCode" class="input-control" placeholder="Ví dụ: IDEAS-KODA-001 hoặc KODA-001" />
-                </div>
-                <button type="button" id="btnLookupCode" class="btn-action-main">
-                    <span>Tra cứu ngay</span>
-                </button>
-                <p id="codeStatus" class="status-msg"></p>
             </div>
         </div>
     </div>
