@@ -11,16 +11,17 @@ add_action('wp_ajax_ideas_verify_lookup', 'ideas_verify_lookup_handler');
 function ideas_verify_lookup_handler() {
     global $wpdb;
     $input = json_decode(file_get_contents('php://input'), true);
-    $code = sanitize_text_field($input['code'] ?? '');
+    $code = sanitize_text_field($input['code'] ?? $_POST['code'] ?? $_GET['code'] ?? '');
 
     if (empty($code)) {
         wp_send_json_error(array('error' => 'Vui lòng nhập mã ID / CCCD / Mã chứng chỉ'));
     }
 
+    $clean_code = trim($code);
     $table_certs = $wpdb->prefix . 'ideas_certificates';
     $cert = $wpdb->get_row($wpdb->prepare(
-        "SELECT cer_no FROM $table_certs WHERE cer_no = %s OR student_id = %s OR id_student = %s OR email = %s LIMIT 1",
-        $code, $code, $code, $code
+        "SELECT cer_no FROM $table_certs WHERE LOWER(TRIM(cer_no)) = LOWER(%s) OR LOWER(TRIM(student_id)) = LOWER(%s) OR LOWER(TRIM(id_student)) = LOWER(%s) OR LOWER(TRIM(email)) = LOWER(%s) LIMIT 1",
+        $clean_code, $clean_code, $clean_code, $clean_code
     ));
 
     if ($cert) {

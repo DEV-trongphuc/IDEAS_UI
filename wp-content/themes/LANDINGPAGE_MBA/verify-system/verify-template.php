@@ -663,11 +663,10 @@ if (!defined('ABSPATH')) {
                 emailStatus1.style.display = 'none';
 
                 try {
-                    const res = await fetch(ajaxurl, {
+                    const res = await fetch(`${ajaxurl}?action=ideas_verify_send_email_otp`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            action: 'ideas_verify_send_email_otp',
                             email: email
                         })
                     });
@@ -704,11 +703,10 @@ if (!defined('ABSPATH')) {
                     if (!currentEmail) return;
                     btnResendOtp.textContent = 'Đang gửi lại...';
                     try {
-                        const res = await fetch(ajaxurl, {
+                        const res = await fetch(`${ajaxurl}?action=ideas_verify_send_email_otp`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
-                                action: 'ideas_verify_send_email_otp',
                                 email: currentEmail
                             })
                         });
@@ -745,11 +743,10 @@ if (!defined('ABSPATH')) {
                 emailStatus2.style.display = 'none';
 
                 try {
-                    const res = await fetch(ajaxurl, {
+                    const res = await fetch(`${ajaxurl}?action=ideas_verify_verify_email_otp`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            action: 'ideas_verify_verify_email_otp',
                             email: currentEmail,
                             otp: otp
                         })
@@ -796,11 +793,10 @@ if (!defined('ABSPATH')) {
                 codeStatus.style.display = 'none';
 
                 try {
-                    const res = await fetch(ajaxurl, {
+                    const res = await fetch(`${ajaxurl}?action=ideas_verify_lookup`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            action: 'ideas_verify_lookup',
                             code: code
                         })
                     });
