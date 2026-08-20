@@ -473,16 +473,10 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
                                 </td>
                                 <td>
                                     <div class="btn-action-group">
-                                        <button class="btn-act btn-act-studio" onclick='startStudio(<?php echo json_encode($g); ?>)'>
+                                        <button type="button" class="btn-act btn-act-studio" onclick="startStudio(JSON.parse(this.dataset.group))" data-group="<?php echo esc_attr(json_encode($g)); ?>">
                                             <span class="dashicons dashicons-art"></span> Thiết kế
                                         </button>
-                                        <button class="btn-act" style="background:#f5f3ff; color:#6d28d9 !important; border-color:#ddd6fe;" onclick="downloadCSVTemplate(<?php echo $g['id']; ?>, '<?php echo esc_js($g['name']); ?>')">
-                                            Tải mẫu CSV
-                                        </button>
-                                        <button class="btn-act" style="background:#fff7ed; color:#c2410c !important; border-color:#ffedd5;" onclick="triggerCSVUpload(<?php echo $g['id']; ?>)">
-                                            Nhập CSV
-                                        </button>
-                                        <button class="btn-act btn-act-edit" onclick='editGroup(<?php echo json_encode($g); ?>)'>
+                                        <button type="button" class="btn-act btn-act-edit" onclick="editGroup(JSON.parse(this.dataset.group))" data-group="<?php echo esc_attr(json_encode($g)); ?>">
                                             Sửa
                                         </button>
                                         <a href="?page=ideas-cert-groups&action_type=delete&id=<?php echo $g['id']; ?>" class="btn-act btn-act-delete" onclick="return confirm('Bạn có chắc muốn xóa nhóm này không?')">
