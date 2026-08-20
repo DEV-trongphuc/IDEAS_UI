@@ -32,6 +32,15 @@ if (!defined('ABSPATH')) {
             print-color-adjust: exact;
         }
 
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #f1f5f9;
@@ -42,7 +51,6 @@ if (!defined('ABSPATH')) {
             align-items: center;
             justify-content: flex-start;
             padding: 0 0 60px 0;
-            overflow-x: hidden;
         }
 
         /* ═══ TOP BAR ══════════════════════════════════════════════════════════ */
@@ -67,19 +75,15 @@ if (!defined('ABSPATH')) {
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }
-
-        .top-left-branding {
-            display: flex;
-            align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .ideas-logo {
             height: 38px;
             width: auto;
+            max-width: 240px;
             object-fit: contain;
-            border-radius: 6px;
+            flex-shrink: 1;
         }
 
         .verification-badge {
@@ -89,17 +93,20 @@ if (!defined('ABSPATH')) {
             background: #ecfdf5;
             border: 1px solid #a7f3d0;
             color: #065f46;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 9999px;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .verify-icon {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             stroke: #059669;
+            flex-shrink: 0;
         }
 
         @media (max-width: 640px) {
@@ -108,31 +115,49 @@ if (!defined('ABSPATH')) {
                 margin-bottom: 20px;
             }
             .ideas-logo {
-                height: 30px !important;
+                height: 26px !important;
+                max-width: 130px !important;
             }
             .verification-badge {
                 padding: 4px 8px;
-                font-size: 11px;
+                font-size: 10px;
                 gap: 4px;
-                letter-spacing: 0.2px;
+                letter-spacing: 0;
             }
             .verify-icon {
-                width: 13px;
-                height: 13px;
+                width: 12px;
+                height: 12px;
             }
         }
 
         @media (max-width: 380px) {
             .ideas-logo {
-                height: 26px !important;
+                height: 22px !important;
+                max-width: 100px !important;
             }
             .verification-badge {
                 padding: 3px 6px;
-                font-size: 9.5px;
+                font-size: 8.5px;
             }
             .verify-icon {
-                width: 11px;
-                height: 11px;
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 820px) {
+            body {
+                padding: 0 0 40px 0;
+            }
+            .a4-wrapper {
+                width: 94% !important;
+                max-width: 94% !important;
+                margin: 0 auto 30px auto !important;
+                border-radius: 8px;
+                box-shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+            }
+            .a4-page {
+                border-radius: 8px;
             }
         }
 
@@ -404,10 +429,12 @@ if (!defined('ABSPATH')) {
 
         /* ═══ A4 CERTIFICATE RENDERER ═════════════════════════════════════════ */
         .a4-wrapper {
-            width: 100%;
+            width: 95%;
             max-width: var(--a4-width);
             position: relative;
             margin: 0 auto;
+            overflow: hidden;
+            border-radius: 6px;
         }
 
         .a4-wrapper::before {
