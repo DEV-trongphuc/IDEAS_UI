@@ -384,6 +384,22 @@ foreach ($all_courses_raw as $c) {
     .course-table input:focus {
         border-color: #e11d48;
     }
+    .table-scroll-container {
+        width: 100%;
+        max-height: 520px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        background: #ffffff;
+    }
+    .table-scroll-container .ideas-table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #f8fafc;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
 </style>
 
 <div class="ideas-wrap">
@@ -394,20 +410,20 @@ foreach ($all_courses_raw as $c) {
 
     <div class="ideas-box">
         <!-- Search and Filter Form -->
-        <form method="GET" class="filter-row">
+        <form method="GET" class="filter-row" style="display: flex; gap: 10px; align-items: center; margin-bottom: 24px; flex-wrap: wrap;">
             <input type="hidden" name="page" value="ideas-cert-list" />
-            <input type="text" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Tìm mã số, tên học viên, CCCD..." style="padding: 10px 14px; width: 320px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size:14px;" />
+            <input type="text" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Tìm mã số, tên học viên, CCCD..." style="height: 38px; padding: 0 14px; width: 300px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 13.5px; outline: none;" />
             
-            <select name="status" style="padding: 10px 14px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size:14px; background:#f8fafc;">
+            <select name="status" style="height: 38px; line-height: 36px; padding: 0 12px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 13.5px; background: #ffffff; cursor: pointer; outline: none;">
                 <option value="">-- Tất cả trạng thái --</option>
                 <option value="active" <?php selected($status_filter, 'active'); ?>>Hoạt động</option>
                 <option value="paused" <?php selected($status_filter, 'paused'); ?>>Tạm dừng</option>
                 <option value="locked" <?php selected($status_filter, 'locked'); ?>>Khóa</option>
             </select>
 
-            <button type="submit" class="button button-primary button-large" style="border-radius: 8px;">Tìm kiếm</button>
+            <button type="submit" class="button button-primary" style="height: 38px; line-height: 36px; padding: 0 18px; border-radius: 8px; font-weight: 600; font-size: 13.5px;">Tìm kiếm</button>
             <?php if (!empty($search) || !empty($status_filter)): ?>
-                <a href="?page=ideas-cert-list" class="button button-secondary button-large" style="border-radius: 8px;">Đặt lại</a>
+                <a href="?page=ideas-cert-list" class="button button-secondary" style="height: 38px; line-height: 36px; padding: 0 16px; border-radius: 8px; font-weight: 600; font-size: 13.5px;">Đặt lại</a>
             <?php endif; ?>
         </form>
 
@@ -426,7 +442,7 @@ foreach ($all_courses_raw as $c) {
                     </div>
                 <?php endif; ?>
             </div>
-            <div style="width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch;">
+            <div class="table-scroll-container">
             <table class="ideas-table">
                 <thead>
                     <tr>

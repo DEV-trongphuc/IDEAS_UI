@@ -16,8 +16,15 @@ $active_certs = $wpdb->get_var("SELECT COUNT(*) FROM $table_certs WHERE status='
 $pending_reqs = $wpdb->get_var("SELECT COUNT(*) FROM $table_requests WHERE status='pending'");
 $active_contracts = $wpdb->get_var("SELECT COUNT(*) FROM $table_contracts WHERE status='active'");
 
-// Fetch recent certificates
-$recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FROM $table_certs ORDER BY id DESC LIMIT 5");
+// Pagination (20 per page)
+$per_page = 20;
+$paged = max(1, intval($_GET['paged'] ?? 1));
+$offset = ($paged - 1) * $per_page;
+$total_items = intval($total_certs);
+$total_pages = max(1, ceil($total_items / $per_page));
+
+// Fetch certificates for current page
+$recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FROM $table_certs ORDER BY id DESC LIMIT $per_page OFFSET $offset");
 ?>
 <style>
     :root {
@@ -191,6 +198,22 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FRO
         border: 1px solid #fca5a5;
         display: inline-block;
     }
+    .table-scroll-container {
+        width: 100%;
+        max-height: 520px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        background: #ffffff;
+    }
+    .table-scroll-container .ideas-table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #f8fafc;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
 </style>
 
 <div class="ideas-wrap">
@@ -246,11 +269,19 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FRO
         </div>
     </div>
 
-    <!-- Recent Certs Table -->
+    <!-- Recent Certs Table with 20 items pagination -->
     <div class="ideas-section">
-        <h2><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Chứng chỉ vừa cấp gần đây</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+            <h2 style="margin: 0;"><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Danh sách chứng chỉ đã cấp</h2>
+            <?php if (!empty($recent_certs)): ?>
+                <div style="font-size: 13.5px; color: var(--text-muted);">
+                    Hiển thị <strong><?php echo min($total_items, $offset + 1); ?> - <?php echo min($total_items, $offset + count($recent_certs)); ?></strong> trong tổng số <strong><?php echo esc_html($total_items); ?></strong> chứng chỉ
+                </div>
+            <?php endif; ?>
+        </div>
+
         <?php if (!empty($recent_certs)): ?>
-            <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+            <div class="table-scroll-container">
                 <table class="ideas-table">
                     <thead>
                         <tr>
@@ -289,6 +320,30 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FRO
                     </tbody>
                 </table>
             </div>
+
+            <?php if ($total_pages > 1): ?>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid #f1f5f9; flex-wrap: wrap; gap: 12px;">
+                    <div style="font-size: 13.5px; color: var(--text-muted);">
+                        Trang <strong><?php echo $paged; ?></strong> / <strong><?php echo $total_pages; ?></strong>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <?php if ($paged > 1): ?>
+                            <a href="?page=ideas-verify-hub&paged=<?php echo ($paged - 1); ?>" class="button button-secondary" style="border-radius: 6px; font-weight: 600;">&laquo; Trang trước</a>
+                        <?php endif; ?>
+                        
+                        <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                            <a href="?page=ideas-verify-hub&paged=<?php echo $i; ?>" class="button <?php echo ($i === $paged) ? 'button-primary' : 'button-secondary'; ?>" style="border-radius: 6px; min-width: 32px; text-align: center; <?php echo ($i === $paged) ? 'background: #ab0e00; border-color: #ab0e00;' : ''; ?>">
+                                <?php echo $i; ?>
+                            </a>
+                        <?php endfor; ?>
+
+                        <?php if ($paged < $total_pages): ?>
+                            <a href="?page=ideas-verify-hub&paged=<?php echo ($paged + 1); ?>" class="button button-secondary" style="border-radius: 6px; font-weight: 600;">Trang tiếp &raquo;</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
         <?php else: ?>
             <p style="color: #64748b; font-style: italic; padding: 10px 0;">Chưa có chứng chỉ nào được cấp gần đây.</p>
         <?php endif; ?>
