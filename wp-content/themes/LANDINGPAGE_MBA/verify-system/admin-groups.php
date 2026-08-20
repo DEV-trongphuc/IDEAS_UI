@@ -49,8 +49,28 @@ if (isset($_GET['action_type']) && isset($_GET['id'])) {
     }
 }
 
-// Fetch all groups
-$groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRAY_A);
+// Fetch all groups with student count
+$groups = $wpdb->get_results("
+    SELECT g.*, 
+           COUNT(c.id) AS student_count 
+    FROM $table_groups g
+    LEFT JOIN $table_certs c ON c.group_id = g.id
+    GROUP BY g.id
+    ORDER BY g.id ASC
+", ARRAY_A);
+
+// Fetch all students mapped by group_id for detail modal
+$all_students_raw = $wpdb->get_results("
+    SELECT id, cer_no, name, student_id, email, date, status, group_id, avatar_url 
+    FROM $table_certs 
+    ORDER BY id DESC
+", ARRAY_A);
+
+$students_by_group = array();
+foreach ($all_students_raw as $st) {
+    $gid = intval($st['group_id']);
+    $students_by_group[$gid][] = $st;
+}
 ?>
 
 <style>
@@ -259,9 +279,47 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         background: #b91c1c;
         color: white !important;
     }
+    .btn-act-detail {
+        background: #f0fdf4;
+        color: #15803d !important;
+        border-color: #bbf7d0;
+    }
+    .btn-act-detail:hover {
+        background: #15803d;
+        color: #ffffff !important;
+    }
+    .student-count-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #f1f5f9;
+        color: #475569;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 5px 12px;
+        border-radius: 20px;
+        text-decoration: none !important;
+        border: 1px solid #cbd5e1;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    .student-count-badge:hover {
+        background: #e2e8f0;
+        border-color: #94a3b8;
+        transform: translateY(-1px);
+    }
+    .student-count-badge.has-students {
+        background: #eff6ff;
+        color: #1d4ed8;
+        border-color: #bfdbfe;
+    }
+    .student-count-badge.has-students:hover {
+        background: #dbeafe;
+        border-color: #93c5fd;
+    }
 
-    /* ═══ GROUP MODAL OVERLAY ═══════════════════════════════════════════════ */
-    #groupModal {
+    /* ═══ GROUP MODALS OVERLAYS ═════════════════════════════════════════════ */
+    #groupModal, #groupDetailModal {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
@@ -482,16 +540,28 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
             <table class="ideas-table">
                 <thead>
                     <tr>
-                        <th style="width: 25%;">Tên nhóm</th>
-                        <th style="width: 20%;">Mẫu chứng chỉ</th>
-                        <th style="width: 20%;">Mẫu bảng điểm</th>
-                        <th style="width: 35%;">Hành động</th>
+                        <th style="width: 22%;">Tên nhóm</th>
+                        <th style="width: 16%;">Số lượng học viên</th>
+                        <th style="width: 16%;">Mẫu chứng chỉ</th>
+                        <th style="width: 16%;">Mẫu bảng điểm</th>
+                        <th style="width: 30%;">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($groups as $g): ?>
                         <tr>
-                            <td><strong style="font-size: 15px; color: #0f172a;"><?php echo esc_html($g['name']); ?></strong></td>
+                            <td>
+                                <a href="javascript:void(0)" onclick="openGroupDetailModal(<?php echo $g['id']; ?>)" style="font-size: 15px; font-weight: 800; color: #0f172a; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="Xem chi tiết danh sách học viên trong nhóm">
+                                    <?php echo esc_html($g['name']); ?>
+                                    <span class="dashicons dashicons-external" style="font-size: 16px; width: 16px; height: 16px; color: #94a3b8;"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <button type="button" class="student-count-badge <?php echo ($g['student_count'] > 0) ? 'has-students' : ''; ?>" onclick="openGroupDetailModal(<?php echo $g['id']; ?>)" title="Nhấp để xem danh sách học viên">
+                                    <span class="dashicons dashicons-groups" style="font-size: 16px; width: 16px; height: 16px; margin-top: 1px;"></span>
+                                    <strong><?php echo intval($g['student_count']); ?></strong> học viên
+                                </button>
+                            </td>
                             <td>
                                 <?php if ($g['bg_cert']): ?>
                                     <div class="thumbnail-container">
@@ -512,6 +582,9 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
                             </td>
                             <td>
                                 <div class="btn-action-group">
+                                    <button type="button" class="btn-act btn-act-detail" onclick="openGroupDetailModal(<?php echo $g['id']; ?>)">
+                                        <span class="dashicons dashicons-visibility"></span> Chi tiết
+                                    </button>
                                     <button type="button" class="btn-act btn-act-studio" onclick="startStudio(JSON.parse(this.dataset.group))" data-group="<?php echo esc_attr(json_encode($g)); ?>">
                                         <span class="dashicons dashicons-art"></span> Thiết kế
                                     </button>
@@ -531,6 +604,68 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         <?php else: ?>
             <p style="color: #64748b; font-style: italic; padding: 20px 0; text-align: center;">Chưa có nhóm thiết kế chứng chỉ nào được tạo.</p>
         <?php endif; ?>
+    </div>
+</div>
+
+<!-- Group Details & Students List Modal -->
+<div id="groupDetailModal" style="display: none;">
+    <div class="ideas-modal-box" style="max-width: 900px; width: 95%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+            <div>
+                <h2 id="detailGroupTitle" style="margin: 0 0 4px 0; font-weight: 800; font-size: 20px; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                    <span class="dashicons dashicons-id-alt" style="font-size: 24px; width: 24px; height: 24px; color: #e11d48; margin-top: 2px;"></span>
+                    <span id="detailGroupName">Chi tiết nhóm</span>
+                </h2>
+                <div style="font-size: 13.5px; color: var(--text-muted);" id="detailGroupSubtitle">
+                    Danh sách học viên và mẫu thiết kế thuộc nhóm này
+                </div>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button type="button" id="btnDetailStudio" class="button button-primary" style="background:#16a34a; border-color:#16a34a; border-radius: 6px; font-weight: 700; font-size: 13px;">
+                    <span class="dashicons dashicons-art" style="margin-top: 3px;"></span> Mở Studio Thiết kế
+                </button>
+                <button type="button" class="button" onclick="closeGroupDetailModal()" style="border-radius: 6px; font-weight: 700; font-size: 15px; padding: 2px 10px;">✕</button>
+            </div>
+        </div>
+
+        <!-- Template Backgrounds Quick Bar -->
+        <div style="display: flex; gap: 16px; background: #f8fafc; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 20px; align-items: center; flex-wrap: wrap;">
+            <div style="font-size: 13px; font-weight: 700; color: #475569;">Mẫu nền:</div>
+            <div style="display: flex; gap: 14px; align-items: center;" id="detailTemplatePreviews">
+                <!-- Previews dynamically inserted by JS -->
+            </div>
+        </div>
+
+        <!-- Attendees Table Container with Search -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <h3 style="margin: 0; font-size: 15.5px; font-weight: 800; color: #1e293b;" id="detailStudentCountHeader">
+                Danh sách học viên (0)
+            </h3>
+            <input type="text" id="detailSearchInput" placeholder="Tìm theo tên, mã số, CCCD, email..." oninput="filterGroupStudents(this.value)" style="height: 36px; padding: 0 12px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-size: 13px; width: 280px; outline: none; background: #ffffff;" />
+        </div>
+
+        <div style="max-height: 380px; overflow: auto; border: 1px solid #e2e8f0; border-radius: 10px; background: white;">
+            <table class="ideas-table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="position: sticky; top: 0; background: #f8fafc; z-index: 5;">
+                        <th style="padding: 10px 14px; font-size: 12.5px;">Mã chứng chỉ</th>
+                        <th style="padding: 10px 14px; font-size: 12.5px;">Họ tên học viên</th>
+                        <th style="padding: 10px 14px; font-size: 12.5px;">Số ID / CCCD</th>
+                        <th style="padding: 10px 14px; font-size: 12.5px;">Ngày cấp</th>
+                        <th style="padding: 10px 14px; font-size: 12.5px;">Trạng thái</th>
+                        <th style="padding: 10px 14px; font-size: 12.5px; text-align: center;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="detailStudentsTableBody">
+                    <!-- Dynamic rows inserted by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 14px; border-top: 1px solid #f1f5f9;">
+            <a href="?page=ideas-cert-list" class="button button-secondary" style="border-radius: 6px; font-weight: 600;">Xem tất cả trong Danh sách cấp &rarr;</a>
+            <button type="button" class="button button-large" onclick="closeGroupDetailModal()" style="border-radius: 8px; font-weight: 600;">Đóng</button>
+        </div>
     </div>
 </div>
 
@@ -1269,6 +1404,129 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
             event.target.value = '';
             csvTargetGroupId = null;
         }
+    }
+
+    const allGroupsData = <?php echo json_encode($groups); ?>;
+    const studentsByGroupData = <?php echo json_encode($students_by_group); ?>;
+    let currentDetailGroupId = null;
+
+    function openGroupDetailModal(groupId) {
+        currentDetailGroupId = groupId;
+        const group = allGroupsData.find(g => parseInt(g.id) === parseInt(groupId));
+        if (!group) return;
+
+        document.getElementById('detailGroupName').textContent = group.name || 'Nhóm thiết kế';
+        document.getElementById('detailGroupSubtitle').textContent = `Mã nhóm #${group.id} • Quản lý thông tin & danh sách học viên`;
+        
+        // Studio button link
+        const studioBtn = document.getElementById('btnDetailStudio');
+        studioBtn.onclick = function() {
+            closeGroupDetailModal();
+            startStudio(group);
+        };
+
+        // Template previews
+        const prevContainer = document.getElementById('detailTemplatePreviews');
+        prevContainer.innerHTML = `
+            <div style="display:flex; align-items:center; gap:6px; font-size:12.5px;">
+                <strong>Chứng chỉ:</strong> 
+                ${group.bg_cert ? `<a href="${group.bg_cert}" target="_blank" style="color:#ab0e00; text-decoration:underline;">Xem ảnh A4</a>` : `<span style="color:#94a3b8;">Chưa có</span>`}
+            </div>
+            <span style="color:#cbd5e1;">•</span>
+            <div style="display:flex; align-items:center; gap:6px; font-size:12.5px;">
+                <strong>Bảng điểm:</strong> 
+                ${group.bg_transcript ? `<a href="${group.bg_transcript}" target="_blank" style="color:#ab0e00; text-decoration:underline;">Xem ảnh A4</a>` : `<span style="color:#94a3b8;">Chưa có</span>`}
+            </div>
+            <span style="color:#cbd5e1;">•</span>
+            <div style="display:flex; align-items:center; gap:6px; font-size:12.5px;">
+                <strong>Thẻ học viên:</strong> 
+                ${group.bg_card ? `<a href="${group.bg_card}" target="_blank" style="color:#ab0e00; text-decoration:underline;">Xem ảnh Card</a>` : `<span style="color:#94a3b8;">Chưa có</span>`}
+            </div>
+        `;
+
+        // Render attendees list
+        document.getElementById('detailSearchInput').value = '';
+        renderDetailStudentsList('');
+
+        document.getElementById('groupDetailModal').style.display = 'flex';
+    }
+
+    function renderDetailStudentsList(filterQuery) {
+        const tbody = document.getElementById('detailStudentsTableBody');
+        const students = studentsByGroupData[currentDetailGroupId] || [];
+        const countHeader = document.getElementById('detailStudentCountHeader');
+
+        const q = (filterQuery || '').toLowerCase().trim();
+        const filtered = students.filter(st => {
+            if (!q) return true;
+            return (st.cer_no && st.cer_no.toLowerCase().includes(q)) ||
+                   (st.name && st.name.toLowerCase().includes(q)) ||
+                   (st.student_id && st.student_id.toLowerCase().includes(q)) ||
+                   (st.email && st.email.toLowerCase().includes(q));
+        });
+
+        countHeader.innerHTML = `Danh sách học viên (${filtered.length}${filtered.length !== students.length ? ` / tổng ${students.length}` : ''})`;
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 28px 14px; color: #94a3b8; font-style: italic;">
+                        ${students.length === 0 ? 'Chưa có học viên nào được gán vào nhóm thiết kế này.' : 'Không tìm thấy học viên nào phù hợp với từ khóa tìm kiếm.'}
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        tbody.innerHTML = filtered.map(st => {
+            let statusBadge = '';
+            if (st.status === 'active') {
+                statusBadge = '<span class="badge-active" style="font-size:11.5px; padding:3px 8px;">Hoạt động</span>';
+            } else if (st.status === 'paused') {
+                statusBadge = '<span class="badge-paused" style="font-size:11.5px; padding:3px 8px;">Tạm dừng</span>';
+            } else {
+                statusBadge = '<span class="badge-locked" style="font-size:11.5px; padding:3px 8px;">Đã khóa</span>';
+            }
+
+            const dateFormatted = st.date ? st.date.split('-').reverse().join('/') : '—';
+
+            return `
+                <tr>
+                    <td style="padding: 10px 14px;"><strong style="color: #ab0e00; font-size: 13.5px;">${escapeHtml(st.cer_no)}</strong></td>
+                    <td style="padding: 10px 14px;">
+                        <strong style="color: #0f172a; font-size: 13.5px; text-transform: uppercase;">${escapeHtml(st.name)}</strong>
+                        ${st.email ? `<br><span style="font-size: 11.5px; color: #64748b;">${escapeHtml(st.email)}</span>` : ''}
+                    </td>
+                    <td style="padding: 10px 14px; font-size: 13px; color: #334155;">${escapeHtml(st.student_id || '—')}</td>
+                    <td style="padding: 10px 14px; font-size: 12.5px; color: #64748b;">${dateFormatted}</td>
+                    <td style="padding: 10px 14px;">${statusBadge}</td>
+                    <td style="padding: 10px 14px; text-align: center;">
+                        <a href="/verify?id=${encodeURIComponent(st.cer_no)}" target="_blank" class="button button-small" style="border-radius: 6px; font-weight: 700; color: #ab0e00; border-color: #ab0e00;">
+                            Xem &rarr;
+                        </a>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    function filterGroupStudents(query) {
+        renderDetailStudentsList(query);
+    }
+
+    function closeGroupDetailModal() {
+        document.getElementById('groupDetailModal').style.display = 'none';
+        currentDetailGroupId = null;
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
     }
 
     function openNewGroupModal() {
