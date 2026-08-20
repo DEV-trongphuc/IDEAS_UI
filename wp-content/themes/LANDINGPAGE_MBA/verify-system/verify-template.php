@@ -1,5 +1,5 @@
 <?php
-// verify-template.php - Public Certificate Verification Page
+// verify-template.php - Public Verification & Interactive A4 Renderer
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -9,14 +9,11 @@ if (!defined('ABSPATH')) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xác thực Chứng chỉ - IDEAS Verification</title>
+    <title>Xác Thực Chứng Chỉ - IDEAS Certificate Verification</title>
     <link rel="icon" href="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" sizes="32x32" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
-    
-    <!-- QRCode JS Library -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
@@ -31,136 +28,306 @@ if (!defined('ABSPATH')) {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #f8fafc;
+            color: #1e293b;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            padding: 100px 20px 40px;
+            justify-content: flex-start;
+            padding: 0 0 60px 0;
             overflow-x: hidden;
-            width: 100%;
         }
 
-        /* ═══ TOP VERIFICATION BAR ═════════════════════════════════════════════ */
+        /* ═══ TOP BAR ══════════════════════════════════════════════════════════ */
         .top-verification-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-            z-index: 1000;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: 30px;
         }
 
         .top-bar-content {
+            width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .top-left-branding {
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
 
         .ideas-logo {
-            height: 40px;
+            height: 38px;
+            width: auto;
             object-fit: contain;
         }
 
         .verification-badge {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            background: #f0fdf4;
-            padding: 8px 16px;
-            border-radius: 50px;
-            color: #166534;
-            border: 1px solid #bbf7d0;
+            gap: 6px;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         .verify-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 8px;
-            stroke: #166534;
+            width: 16px;
+            height: 16px;
+            stroke: #059669;
         }
 
-        .verification-text {
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            white-space: nowrap;
+        .btn-lookup-other {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
         }
 
-        /* ═══ LOOKUP MODAL ═══════════════════════════════════════════════════════ */
+        .btn-lookup-other:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* ═══ LOOKUP MODAL / HERO PORTAL ═══════════════════════════════════════ */
         #lookupModal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(8px);
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         .lookup-box {
             background: white;
-            padding: 40px;
-            border-radius: 16px;
-            max-width: 440px;
-            width: 90%;
+            padding: 36px 32px;
+            border-radius: 20px;
+            max-width: 480px;
+            width: 100%;
             text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             border: 1px solid #f1f5f9;
+            position: relative;
+            animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .lookup-logo-wrap {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .lookup-logo-wrap img {
             height: 48px;
+            object-fit: contain;
         }
 
         .lookup-box h3 {
-            margin-bottom: 12px;
-            font-size: 20px;
+            margin-bottom: 8px;
+            font-size: 22px;
             color: #0f172a;
             font-weight: 800;
         }
 
-        .lookup-box p {
-            margin-bottom: 24px;
+        .lookup-box p.lookup-desc {
+            margin-bottom: 20px;
             font-size: 14px;
             color: #64748b;
             line-height: 1.5;
         }
 
+        /* Tab Switcher */
+        .lookup-tabs {
+            display: flex;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            gap: 4px;
+        }
+
+        .lookup-tab-btn {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: #64748b;
+            font-size: 13.5px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lookup-tab-btn.active {
+            background: #ffffff;
+            color: var(--red);
+            font-weight: 700;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .tab-panel {
+            display: none;
+            text-align: left;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
         .input-control {
             width: 100%;
-            padding: 14px 18px;
+            padding: 13px 16px;
             border: 1.5px solid #cbd5e1;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            border-radius: 10px;
             font-size: 15px;
             font-family: inherit;
             outline: none;
             transition: all 0.2s;
+            background: #f8fafc;
         }
 
         .input-control:focus {
+            background: #ffffff;
             border-color: var(--red);
-            box-shadow: 0 0 0 3px rgba(171, 14, 0, 0.1);
+            box-shadow: 0 0 0 3px rgba(171, 14, 0, 0.12);
+        }
+
+        .input-otp-main {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 8px;
+            color: var(--red);
+            padding: 12px;
+        }
+
+        .otp-info-banner {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .btn-action-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--red), #d42a1a);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(171, 14, 0, 0.25);
+            transition: all 0.2s ease-in-out;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-action-main:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(171, 14, 0, 0.35);
+        }
+
+        .btn-action-main:disabled {
+            background: #94a3b8;
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .otp-actions-sub {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            font-size: 13px;
+        }
+
+        .otp-actions-sub a {
+            color: var(--red);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .otp-actions-sub a:hover {
+            text-decoration: underline;
+        }
+
+        .status-msg {
+            font-size: 13px;
+            color: var(--red);
+            display: none;
+            margin-top: 12px;
+            font-weight: 600;
+            text-align: center;
         }
 
         /* ═══ BUTTONS ═══════════════════════════════════════════════════════════ */
@@ -187,13 +354,6 @@ if (!defined('ABSPATH')) {
         .btn-transcript:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 24px rgba(171, 14, 0, 0.3);
-        }
-
-        .btn-transcript:disabled {
-            background: #94a3b8;
-            box-shadow: none;
-            cursor: not-allowed;
-            transform: none;
         }
 
         .btn-transcript-label {
@@ -301,28 +461,85 @@ if (!defined('ABSPATH')) {
     <!-- ═══ TOP VERIFICATION BAR ═════════════════════════════════════════════ -->
     <div class="top-verification-bar">
         <div class="top-bar-content">
-            <img src="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" alt="IDEAS Logo" class="ideas-logo">
-            <div class="verification-badge">
-                <svg class="verify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M9 12l2 2 4-4"></path>
-                </svg>
-                <span class="verification-text" id="verifyStatusText">VERIFIED</span>
+            <div class="top-left-branding">
+                <img src="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" alt="IDEAS Logo" class="ideas-logo">
+                <div class="verification-badge">
+                    <svg class="verify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9 12l2 2 4-4"></path>
+                    </svg>
+                    <span class="verification-text" id="verifyStatusText">VERIFIED</span>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="btnOpenLookup" class="btn-lookup-other">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    Tra cứu chứng chỉ khác
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- ═══ LOOKUP MODAL ═══════════════════════════════════════════════════════ -->
+    <!-- ═══ LOOKUP MODAL / HERO PORTAL ═══════════════════════════════════════ -->
     <div id="lookupModal" style="display: none;">
         <div class="lookup-box">
             <div class="lookup-logo-wrap">
                 <img src="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" alt="IDEAS Logo">
             </div>
-            <h3>Tra cứu Chứng chỉ</h3>
-            <p>Vui lòng nhập ID Student / CCCD của học viên hoặc mã số chứng chỉ để tiếp tục.</p>
-            <input type="text" id="lookupCode" class="input-control" placeholder="Nhập ID Student / CCCD / Mã chứng chỉ" />
-            <button id="btnLookup" class="btn-transcript" style="width: 100%;">Tra cứu</button>
-            <p id="lookupStatus" style="font-size: 13px; color: var(--red); display: none; margin-top: 14px; font-weight: 600;"></p>
+            <h3>Tra Cứu & Xác Thực Chứng Chỉ</h3>
+            <p class="lookup-desc">Nhập Email hoặc Mã chứng chỉ để xem hồ sơ chứng nhận chính thức từ Học viện IDEAS.</p>
+
+            <!-- Tab Buttons -->
+            <div class="lookup-tabs">
+                <button type="button" class="lookup-tab-btn active" data-tab="tab-email">✉️ Nhận qua Email OTP</button>
+                <button type="button" class="lookup-tab-btn" data-tab="tab-code">🔍 Tra cứu Mã số</button>
+            </div>
+
+            <!-- Tab 1: Email OTP -->
+            <div id="tab-email" class="tab-panel active">
+                <!-- Step 1: Input Email -->
+                <div id="emailStep1">
+                    <div class="form-group">
+                        <label class="form-label" for="lookupEmail">Email đăng ký tham gia đào tạo</label>
+                        <input type="email" id="lookupEmail" class="input-control" placeholder="Ví dụ: name@kodainternational.com" />
+                    </div>
+                    <button type="button" id="btnSendEmailOtp" class="btn-action-main">
+                        <span>Gửi mã xác thực OTP</span>
+                    </button>
+                    <p id="emailStatus1" class="status-msg"></p>
+                </div>
+
+                <!-- Step 2: Input OTP -->
+                <div id="emailStep2" style="display: none;">
+                    <div class="otp-info-banner">
+                        Mã OTP đã được gửi đến: <strong id="sentMaskedEmail"></strong>.<br>Vui lòng kiểm tra hộp thư đến (hoặc Spam).
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lookupEmailOtp">Nhập mã OTP 6 số</label>
+                        <input type="text" id="lookupEmailOtp" maxlength="6" class="input-control input-otp-main" placeholder="••••••" />
+                    </div>
+                    <button type="button" id="btnVerifyEmailOtp" class="btn-action-main">
+                        <span>Xác thực & Mở Chứng Chỉ</span>
+                    </button>
+                    <div class="otp-actions-sub">
+                        <a id="btnResendOtp">Gửi lại mã OTP</a>
+                        <a id="btnChangeEmail">Đổi email khác</a>
+                    </div>
+                    <p id="emailStatus2" class="status-msg"></p>
+                </div>
+            </div>
+
+            <!-- Tab 2: Direct Code Lookup -->
+            <div id="tab-code" class="tab-panel">
+                <div class="form-group">
+                    <label class="form-label" for="lookupCode">Mã chứng chỉ / CCCD / ID Học viên</label>
+                    <input type="text" id="lookupCode" class="input-control" placeholder="Ví dụ: IDEAS-KODA-001 hoặc KODA-001" />
+                </div>
+                <button type="button" id="btnLookupCode" class="btn-action-main">
+                    <span>Tra cứu ngay</span>
+                </button>
+                <p id="codeStatus" class="status-msg"></p>
+            </div>
         </div>
     </div>
 
@@ -367,57 +584,220 @@ if (!defined('ABSPATH')) {
                 transcriptLink.href = `/verify?action=transcript&id=${encodeURIComponent(cerId || '')}`;
             }
 
-            // Lookup Modal Logic
-            const btnLookup = document.getElementById('btnLookup');
-            if (btnLookup) {
-                btnLookup.addEventListener('click', async () => {
-                    const code = document.getElementById('lookupCode')?.value.trim();
-                    const statusEl = document.getElementById('lookupStatus');
+            // Setup Tab Switchers
+            document.querySelectorAll('.lookup-tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.lookup-tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                    btn.classList.add('active');
+                    const tabId = btn.getAttribute('data-tab');
+                    const panel = document.getElementById(tabId);
+                    if (panel) panel.classList.add('active');
+                });
+            });
 
-                    if (!code) {
-                        if (statusEl) {
-                            statusEl.textContent = 'Vui lòng nhập mã ID / Mã chứng chỉ / Email';
-                            statusEl.style.display = 'block';
-                        }
-                        return;
+            // "Tra cứu chứng chỉ khác" Button
+            const btnOpenLookup = document.getElementById('btnOpenLookup');
+            if (btnOpenLookup) {
+                btnOpenLookup.addEventListener('click', () => {
+                    const lookupModal = document.getElementById('lookupModal');
+                    if (lookupModal) lookupModal.style.display = 'flex';
+                });
+            }
+
+            // ═══ TAB 1: EMAIL OTP FLOW ══════════════════════════════════════
+            const btnSendEmailOtp = document.getElementById('btnSendEmailOtp');
+            const btnVerifyEmailOtp = document.getElementById('btnVerifyEmailOtp');
+            const btnResendOtp = document.getElementById('btnResendOtp');
+            const btnChangeEmail = document.getElementById('btnChangeEmail');
+            const emailInput = document.getElementById('lookupEmail');
+            const otpInput = document.getElementById('lookupEmailOtp');
+            const emailStep1 = document.getElementById('emailStep1');
+            const emailStep2 = document.getElementById('emailStep2');
+            const emailStatus1 = document.getElementById('emailStatus1');
+            const emailStatus2 = document.getElementById('emailStatus2');
+            const sentMaskedEmail = document.getElementById('sentMaskedEmail');
+
+            let currentEmail = '';
+
+            async function handleSendOtp() {
+                const email = emailInput.value.trim();
+                if (!email || !email.includes('@')) {
+                    emailStatus1.textContent = 'Vui lòng nhập địa chỉ email hợp lệ.';
+                    emailStatus1.style.display = 'block';
+                    return;
+                }
+
+                btnSendEmailOtp.disabled = true;
+                btnSendEmailOtp.innerHTML = '<span>Đang gửi mã OTP...</span>';
+                emailStatus1.style.display = 'none';
+
+                try {
+                    const res = await fetch(ajaxurl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'ideas_verify_send_email_otp',
+                            email: email
+                        })
+                    });
+                    const data = await res.json();
+                    if (data.success && data.data) {
+                        currentEmail = email;
+                        sentMaskedEmail.textContent = data.data.masked_email || email;
+                        emailStep1.style.display = 'none';
+                        emailStep2.style.display = 'block';
+                        otpInput.value = '';
+                        otpInput.focus();
+                    } else {
+                        emailStatus1.textContent = (data.data && data.data.error) || 'Không tìm thấy chứng chỉ liên kết với email này.';
+                        emailStatus1.style.display = 'block';
                     }
+                } catch (err) {
+                    emailStatus1.textContent = 'Lỗi kết nối máy chủ. Vui lòng thử lại sau.';
+                    emailStatus1.style.display = 'block';
+                } finally {
+                    btnSendEmailOtp.disabled = false;
+                    btnSendEmailOtp.innerHTML = '<span>Gửi mã xác thực OTP</span>';
+                }
+            }
 
-                    btnLookup.disabled = true;
-                    btnLookup.textContent = 'Đang tra cứu...';
-                    if (statusEl) statusEl.style.display = 'none';
+            if (btnSendEmailOtp) btnSendEmailOtp.addEventListener('click', handleSendOtp);
+            if (emailInput) {
+                emailInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') handleSendOtp();
+                });
+            }
 
+            if (btnResendOtp) {
+                btnResendOtp.addEventListener('click', async () => {
+                    if (!currentEmail) return;
+                    btnResendOtp.textContent = 'Đang gửi lại...';
                     try {
                         const res = await fetch(ajaxurl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
-                                action: 'ideas_verify_lookup',
-                                code: code
+                                action: 'ideas_verify_send_email_otp',
+                                email: currentEmail
                             })
                         });
                         const data = await res.json();
-                        
-                        if (data.success && data.data && data.data.cer_no) {
-                            window.location.href = '?id=' + encodeURIComponent(data.data.cer_no);
-                        } else {
-                            if (statusEl) {
-                                statusEl.textContent = ((data.data && data.data.error) || 'Không tìm thấy dữ liệu.');
-                                statusEl.style.display = 'block';
-                            }
-                            btnLookup.disabled = false;
-                            btnLookup.textContent = 'Tra cứu';
+                        if (data.success) {
+                            emailStatus2.textContent = 'Đã gửi lại mã OTP thành công!';
+                            emailStatus2.style.color = '#166534';
+                            emailStatus2.style.display = 'block';
+                            setTimeout(() => { emailStatus2.style.display = 'none'; emailStatus2.style.color = 'var(--red)'; }, 4000);
                         }
-                    } catch (err) {
-                        if (statusEl) {
-                            statusEl.textContent = 'Lỗi kết nối. Thử lại sau.';
-                            statusEl.style.display = 'block';
-                        }
-                        btnLookup.disabled = false;
-                        btnLookup.textContent = 'Tra cứu';
-                    }
+                    } catch (e) {}
+                    btnResendOtp.textContent = 'Gửi lại mã OTP';
                 });
             }
 
+            if (btnChangeEmail) {
+                btnChangeEmail.addEventListener('click', () => {
+                    emailStep2.style.display = 'none';
+                    emailStep1.style.display = 'block';
+                    emailStatus1.style.display = 'none';
+                });
+            }
+
+            async function handleVerifyOtp() {
+                const otp = otpInput.value.trim();
+                if (!otp || otp.length < 4) {
+                    emailStatus2.textContent = 'Vui lòng nhập đầy đủ mã OTP 6 số.';
+                    emailStatus2.style.display = 'block';
+                    return;
+                }
+
+                btnVerifyEmailOtp.disabled = true;
+                btnVerifyEmailOtp.innerHTML = '<span>Đang xác thực...</span>';
+                emailStatus2.style.display = 'none';
+
+                try {
+                    const res = await fetch(ajaxurl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'ideas_verify_verify_email_otp',
+                            email: currentEmail,
+                            otp: otp
+                        })
+                    });
+                    const data = await res.json();
+                    if (data.success && data.data && data.data.cer_no) {
+                        // Redirect to the public certificate URL
+                        window.location.href = '?id=' + encodeURIComponent(data.data.cer_no);
+                    } else {
+                        emailStatus2.textContent = (data.data && data.data.error) || 'Mã OTP không chính xác.';
+                        emailStatus2.style.display = 'block';
+                    }
+                } catch (err) {
+                    emailStatus2.textContent = 'Lỗi xác thực máy chủ. Thử lại sau.';
+                    emailStatus2.style.display = 'block';
+                } finally {
+                    btnVerifyEmailOtp.disabled = false;
+                    btnVerifyEmailOtp.innerHTML = '<span>Xác thực & Mở Chứng Chỉ</span>';
+                }
+            }
+
+            if (btnVerifyEmailOtp) btnVerifyEmailOtp.addEventListener('click', handleVerifyOtp);
+            if (otpInput) {
+                otpInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') handleVerifyOtp();
+                });
+            }
+
+            // ═══ TAB 2: DIRECT CODE LOOKUP ══════════════════════════════════
+            const btnLookupCode = document.getElementById('btnLookupCode');
+            const codeInput = document.getElementById('lookupCode');
+            const codeStatus = document.getElementById('codeStatus');
+
+            async function handleDirectLookup() {
+                const code = codeInput.value.trim();
+                if (!code) {
+                    codeStatus.textContent = 'Vui lòng nhập mã chứng chỉ / CCCD / ID Học viên.';
+                    codeStatus.style.display = 'block';
+                    return;
+                }
+
+                btnLookupCode.disabled = true;
+                btnLookupCode.innerHTML = '<span>Đang tra cứu...</span>';
+                codeStatus.style.display = 'none';
+
+                try {
+                    const res = await fetch(ajaxurl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            action: 'ideas_verify_lookup',
+                            code: code
+                        })
+                    });
+                    const data = await res.json();
+                    if (data.success && data.data && data.data.cer_no) {
+                        window.location.href = '?id=' + encodeURIComponent(data.data.cer_no);
+                    } else {
+                        codeStatus.textContent = (data.data && data.data.error) || 'Không tìm thấy chứng chỉ phù hợp.';
+                        codeStatus.style.display = 'block';
+                    }
+                } catch (err) {
+                    codeStatus.textContent = 'Lỗi kết nối máy chủ.';
+                    codeStatus.style.display = 'block';
+                } finally {
+                    btnLookupCode.disabled = false;
+                    btnLookupCode.innerHTML = '<span>Tra cứu ngay</span>';
+                }
+            }
+
+            if (btnLookupCode) btnLookupCode.addEventListener('click', handleDirectLookup);
+            if (codeInput) {
+                codeInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') handleDirectLookup();
+                });
+            }
+
+            // ═══ CERTIFICATE LOADING / DISPLAY ══════════════════════════════
             const cerIdsParam = urlParams.get('cer_ids') || urlParams.get('ids');
             if (!cerId && !cerIdsParam) {
                 const certWrapper = document.getElementById('certificateWrapper');
@@ -461,13 +841,8 @@ if (!defined('ABSPATH')) {
                     if (transcriptWrap) transcriptWrap.style.display = 'none';
                     if (lookupModal) {
                         lookupModal.style.display = 'flex';
-                        const statusEl = document.getElementById('lookupStatus');
-                        if (statusEl) {
-                            statusEl.textContent = 'Không tìm thấy chứng chỉ với mã yêu cầu.';
-                            statusEl.style.display = 'block';
-                        }
-                    } else {
-                        alert("Không tìm thấy dữ liệu chứng chỉ!");
+                        codeStatus.textContent = 'Không tìm thấy chứng chỉ với mã yêu cầu.';
+                        codeStatus.style.display = 'block';
                     }
                     return;
                 }
@@ -477,7 +852,7 @@ if (!defined('ABSPATH')) {
                 if (lookupModal) lookupModal.style.display = 'none';
 
                 // Display Verification Header Text
-                const verifyEl = document.getElementById('verifiedNumber');
+                const verifyEl = document.getElementById('verifyStatusText');
                 if (verifyEl && validDataList.length > 0) {
                     verifyEl.textContent = `VERIFIED: ${validDataList[0].cer_no || validDataList[0].cert_number}`;
                 }
@@ -491,7 +866,7 @@ if (!defined('ABSPATH')) {
                     clone.id = 'certificateWrapper_' + index;
                     clone.style.display = 'flex';
 
-                    const layer = clone.querySelector('.dynamic-layer');
+                    const layer = clone.querySelector('.dynamic-layer') || clone.querySelector('.page-content');
                     const bgEl = clone.querySelector('.page-background');
 
                     parent.insertBefore(clone, document.querySelector('.transcript-btn-wrap'));
@@ -625,30 +1000,20 @@ if (!defined('ABSPATH')) {
 
         function resizeCertificate() {
             const wrappers = document.querySelectorAll('.a4-wrapper');
-            const availableWidth = document.documentElement.clientWidth - 40;
-            wrappers.forEach(wrapper => {
-                let targetWidth = Math.min(availableWidth, 794);
-                wrapper.style.setProperty('--scale', targetWidth / 794);
+            wrappers.forEach(wrap => {
+                const containerWidth = wrap.clientWidth;
+                const scale = containerWidth / 794;
+                wrap.style.setProperty('--scale', scale);
             });
         }
-        window.addEventListener('resize', resizeCertificate);
-        setTimeout(resizeCertificate, 50);
-        resizeCertificate();
 
-        function resolveBgUrl(path) {
-            if (!path) return '';
-            if (path.includes('assets/')) {
-                const parts = path.split('assets/');
-                return `/wp-content/themes/LANDINGPAGE_MBA/verify-system/assets/${parts[1]}`;
-            }
-            if (path.startsWith('http://') || path.startsWith('https://')) {
-                return path;
-            }
-            let clean = path.replace(/^\/+/, '');
-            while (clean.startsWith('verify/')) {
-                clean = clean.substring(7);
-            }
-            return clean;
+        window.addEventListener('resize', resizeCertificate);
+        window.addEventListener('load', resizeCertificate);
+
+        function resolveBgUrl(url) {
+            if (!url) return '';
+            if (url.startsWith('http://') || url.startsWith('https://')) return url;
+            return url.startsWith('/') ? url : '/' + url;
         }
     </script>
 </body>
