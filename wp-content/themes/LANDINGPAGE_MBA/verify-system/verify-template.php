@@ -102,6 +102,40 @@ if (!defined('ABSPATH')) {
             stroke: #059669;
         }
 
+        @media (max-width: 640px) {
+            .top-verification-bar {
+                padding: 10px 12px;
+                margin-bottom: 20px;
+            }
+            .ideas-logo {
+                height: 30px !important;
+            }
+            .verification-badge {
+                padding: 4px 8px;
+                font-size: 11px;
+                gap: 4px;
+                letter-spacing: 0.2px;
+            }
+            .verify-icon {
+                width: 13px;
+                height: 13px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .ideas-logo {
+                height: 26px !important;
+            }
+            .verification-badge {
+                padding: 3px 6px;
+                font-size: 9.5px;
+            }
+            .verify-icon {
+                width: 11px;
+                height: 11px;
+            }
+        }
+
         /* ═══ LOOKUP MODAL / HERO PORTAL ═══════════════════════════════════════ */
         #lookupModal {
             position: fixed;
