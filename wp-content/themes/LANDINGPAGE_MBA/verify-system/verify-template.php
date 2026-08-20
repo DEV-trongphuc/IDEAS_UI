@@ -331,7 +331,7 @@ if (!defined('ABSPATH')) {
         <div class="a4-page" id="certificatePage">
             <!-- Background Image Placement -->
             <div class="page-background" id="bgLayer"></div>
-            <div class="page-content" id="renderContainer">
+            <div class="page-content dynamic-layer" id="renderContainer">
                 <!-- JavaScript will dynamically render coordinates here -->
             </div>
         </div>
@@ -359,18 +359,12 @@ if (!defined('ABSPATH')) {
 
         document.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const cerId = urlParams.get('cer_id');
+            const cerId = urlParams.get('id') || urlParams.get('cer_id');
 
             // Wire up Transcript Page URL
             const transcriptLink = document.getElementById('transcriptLink');
             if (transcriptLink) {
-                const transcriptUrl = cerId
-                    ? `/verify/transcript.html?cer_id=${encodeURIComponent(cerId)}`
-                    : '/verify/transcript.html';
-                // Wait! Since we are implementing transcript page in WordPress routing, 
-                // we can redirect it to /verify?action=transcript&cer_id=... or a direct custom route /verify/transcript
-                // Let's redirect to: /verify?action=transcript&cer_id=cer_id
-                transcriptLink.href = `/verify?action=transcript&cer_id=${encodeURIComponent(cerId || '')}`;
+                transcriptLink.href = `/verify?action=transcript&id=${encodeURIComponent(cerId || '')}`;
             }
 
             // Lookup Modal Logic
@@ -382,7 +376,7 @@ if (!defined('ABSPATH')) {
 
                     if (!code) {
                         if (statusEl) {
-                            statusEl.textContent = 'Vui lòng nhập mã ID';
+                            statusEl.textContent = 'Vui lòng nhập mã ID / Mã chứng chỉ / Email';
                             statusEl.style.display = 'block';
                         }
                         return;
@@ -403,9 +397,8 @@ if (!defined('ABSPATH')) {
                         });
                         const data = await res.json();
                         
-                        // Wait! WordPress wp_send_json responds with { success: true/false, data: { ... } }
                         if (data.success && data.data && data.data.cer_no) {
-                            window.location.href = '?cer_id=' + encodeURIComponent(data.data.cer_no);
+                            window.location.href = '?id=' + encodeURIComponent(data.data.cer_no);
                         } else {
                             if (statusEl) {
                                 statusEl.textContent = ((data.data && data.data.error) || 'Không tìm thấy dữ liệu.');
@@ -425,7 +418,7 @@ if (!defined('ABSPATH')) {
                 });
             }
 
-            const cerIdsParam = urlParams.get('cer_ids');
+            const cerIdsParam = urlParams.get('cer_ids') || urlParams.get('ids');
             if (!cerId && !cerIdsParam) {
                 const certWrapper = document.getElementById('certificateWrapper');
                 const transcriptWrap = document.querySelector('.transcript-btn-wrap');
@@ -449,7 +442,7 @@ if (!defined('ABSPATH')) {
                 }
 
                 const fetches = cerIdsList.map(id => 
-                    fetch(`${ajaxurl}?action=ideas_verify_get_cert&cer_id=${encodeURIComponent(id)}`)
+                    fetch(`${ajaxurl}?action=ideas_verify_get_cert&id=${encodeURIComponent(id)}`)
                     .then(r => r.json())
                 );
                 const results = await Promise.all(fetches);
@@ -470,7 +463,7 @@ if (!defined('ABSPATH')) {
                         lookupModal.style.display = 'flex';
                         const statusEl = document.getElementById('lookupStatus');
                         if (statusEl) {
-                            statusEl.textContent = 'Không tìm thấy dữ liệu chứng chỉ. Bạn hãy thử nhập lại ID.';
+                            statusEl.textContent = 'Không tìm thấy chứng chỉ với mã yêu cầu.';
                             statusEl.style.display = 'block';
                         }
                     } else {
@@ -479,24 +472,26 @@ if (!defined('ABSPATH')) {
                     return;
                 }
 
-                const verifyEl = document.getElementById('verifyStatusText');
-                if (verifyEl && validDataList.length === 1) {
+                // Hide Lookup Modal
+                const lookupModal = document.getElementById('lookupModal');
+                if (lookupModal) lookupModal.style.display = 'none';
+
+                // Display Verification Header Text
+                const verifyEl = document.getElementById('verifiedNumber');
+                if (verifyEl && validDataList.length > 0) {
                     verifyEl.textContent = `VERIFIED: ${validDataList[0].cer_no || validDataList[0].cert_number}`;
                 }
 
                 const parent = document.getElementById('certificateWrapper').parentElement;
                 const template = document.getElementById('certificateWrapper');
-                template.style.display = 'none';
+                template.style.display = 'none'; 
 
                 validDataList.forEach((data, index) => {
                     const clone = template.cloneNode(true);
                     clone.id = 'certificateWrapper_' + index;
-                    clone.style.display = 'block';
-                    clone.style.pageBreakAfter = 'always';
+                    clone.style.display = 'flex';
 
-                    const layer = clone.querySelector('.page-content');
-                    layer.id = 'renderContainer_' + index;
-                    
+                    const layer = clone.querySelector('.dynamic-layer');
                     const bgEl = clone.querySelector('.page-background');
 
                     parent.insertBefore(clone, document.querySelector('.transcript-btn-wrap'));
@@ -560,7 +555,7 @@ if (!defined('ABSPATH')) {
 
                     if(typeof QRCode !== 'undefined') {
                         new QRCode(qrWrap, {
-                            text: window.location.origin + "/verify/?cer_id=" + encodeURIComponent(data.cer_no || ''),
+                            text: window.location.origin + "/verify?id=" + encodeURIComponent(data.cer_no || ''),
                             width: 256,
                             height: 256,
                             colorDark : box.color || "#000000",
@@ -577,12 +572,13 @@ if (!defined('ABSPATH')) {
                 }
                 
                 let val = '';
-                let prefix = (box.showLabel !== false && box.label) ? box.label + " " : "";
+                let prefix = (box.showLabel !== false && box.label && k !== 'course_name' && k !== 'course_title') ? box.label + " " : "";
 
                 if (k === 'name') val = data.name || "N/A";
                 else if (k === 'student_id' || k === 'id_no') val = prefix + (data.student_id || "N/A");
                 else if (k === 'cer_no') val = prefix + (data.cer_no || data.cert_number || "N/A");
                 else if (k === 'date') val = prefix + (data.date || "N/A");
+                else if (k === 'course_name' || k === 'course_title') val = (data.course_name || box.label || "AI Awareness Training");
                 else val = box.label || '';
 
                 const escapeHTML = str => String(str).replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));

@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$cer_id = sanitize_text_field($_GET['cer_id'] ?? '');
+$cer_id = sanitize_text_field($_GET['cer_id'] ?? $_GET['id'] ?? '');
 ?>
 <!DOCTYPE html>
 <html lang="vi">

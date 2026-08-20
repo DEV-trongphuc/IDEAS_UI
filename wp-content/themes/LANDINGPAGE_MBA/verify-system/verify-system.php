@@ -13,15 +13,21 @@ require_once get_template_directory() . '/verify-system/routing.php';
 require_once get_template_directory() . '/verify-system/ajax-api.php';
 require_once get_template_directory() . '/verify-system/admin-menu.php';
 
-// 2. Initialize database tables automatically
-add_action('admin_init', 'ideas_verify_auto_init');
-function ideas_verify_auto_init() {
-    // Only run database setup if the tables do not exist or during admin area loading
+// 2. Initialize database tables and sync program certificates automatically
+add_action('init', 'ideas_verify_auto_init_public', 5);
+function ideas_verify_auto_init_public() {
+    $seeded = get_option('ideas_verify_koda_synced_v1', 0);
+    if (!$seeded) {
+        ideas_verify_init_db();
+        update_option('ideas_verify_koda_synced_v1', 1);
+    }
+}
+
+add_action('admin_init', 'ideas_verify_auto_init_admin');
+function ideas_verify_auto_init_admin() {
     if (is_admin() && current_user_can('manage_options')) {
-        // Run database initialization
         ideas_verify_init_db();
 
-        // Flush rewrite rules dynamically when setting up
         $flushed = get_option('ideas_verify_rewrite_flushed', 0);
         if (!$flushed) {
             ideas_verify_add_rewrite_rules();

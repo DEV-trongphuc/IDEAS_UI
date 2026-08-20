@@ -19,8 +19,8 @@ function ideas_verify_lookup_handler() {
 
     $table_certs = $wpdb->prefix . 'ideas_certificates';
     $cert = $wpdb->get_row($wpdb->prepare(
-        "SELECT cer_no FROM $table_certs WHERE cer_no = %s OR student_id = %s OR id_student = %s LIMIT 1",
-        $code, $code, $code
+        "SELECT cer_no FROM $table_certs WHERE cer_no = %s OR student_id = %s OR id_student = %s OR email = %s LIMIT 1",
+        $code, $code, $code, $code
     ));
 
     if ($cert) {
@@ -35,7 +35,7 @@ add_action('wp_ajax_nopriv_ideas_verify_get_cert', 'ideas_verify_get_cert_handle
 add_action('wp_ajax_ideas_verify_get_cert', 'ideas_verify_get_cert_handler');
 function ideas_verify_get_cert_handler() {
     global $wpdb;
-    $cer_id = sanitize_text_field($_GET['cer_id'] ?? '');
+    $cer_id = sanitize_text_field($_GET['cer_id'] ?? $_GET['id'] ?? '');
 
     if (empty($cer_id)) {
         wp_send_json_error(array('error' => 'Thiếu mã chứng chỉ.'));
