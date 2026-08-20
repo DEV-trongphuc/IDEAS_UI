@@ -34,8 +34,8 @@ if (!defined('ABSPATH')) {
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
+            background-color: #f1f5f9;
+            color: #0f172a;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -50,15 +50,15 @@ if (!defined('ABSPATH')) {
             width: 100%;
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
-            padding: 12px 24px;
+            padding: 14px 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
             position: sticky;
             top: 0;
             z-index: 100;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         .top-bar-content {
@@ -79,6 +79,7 @@ if (!defined('ABSPATH')) {
             height: 38px;
             width: auto;
             object-fit: contain;
+            border-radius: 6px;
         }
 
         .verification-badge {
@@ -101,27 +102,6 @@ if (!defined('ABSPATH')) {
             stroke: #059669;
         }
 
-        .btn-lookup-other {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: #f1f5f9;
-            color: #334155;
-            border: 1px solid #cbd5e1;
-            padding: 7px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .btn-lookup-other:hover {
-            background: #e2e8f0;
-            color: #0f172a;
-        }
-
         /* ═══ LOOKUP MODAL / HERO PORTAL ═══════════════════════════════════════ */
         #lookupModal {
             position: fixed;
@@ -129,7 +109,7 @@ if (!defined('ABSPATH')) {
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(8px);
             z-index: 9999;
             display: flex;
@@ -139,30 +119,33 @@ if (!defined('ABSPATH')) {
         }
 
         .lookup-box {
-            background: white;
-            padding: 36px 32px;
-            border-radius: 20px;
-            max-width: 480px;
+            background: #ffffff;
+            padding: 40px 36px;
+            border-radius: 24px;
+            max-width: 460px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border: 1px solid #f1f5f9;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(0,0,0,0.05);
             position: relative;
-            animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: modalFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            from { opacity: 0; transform: scale(0.96) translateY(8px); }
             to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .lookup-logo-wrap {
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .lookup-logo-wrap img {
-            height: 48px;
+            height: 52px;
+            width: auto;
             object-fit: contain;
+            border-radius: 8px;
         }
 
         .lookup-box h3 {
@@ -170,16 +153,17 @@ if (!defined('ABSPATH')) {
             font-size: 22px;
             color: #0f172a;
             font-weight: 800;
+            letter-spacing: -0.3px;
         }
 
         .lookup-box p.lookup-desc {
-            margin-bottom: 20px;
-            font-size: 14px;
+            margin-bottom: 24px;
+            font-size: 13.5px;
             color: #64748b;
             line-height: 1.5;
         }
 
-        /* Tab Switcher */
+        /* Clean Segmented Tab Switcher (No Emojis) */
         .lookup-tabs {
             display: flex;
             background: #f1f5f9;
@@ -236,7 +220,7 @@ if (!defined('ABSPATH')) {
             padding: 13px 16px;
             border: 1.5px solid #cbd5e1;
             border-radius: 10px;
-            font-size: 15px;
+            font-size: 14.5px;
             font-family: inherit;
             outline: none;
             transition: all 0.2s;
@@ -462,7 +446,7 @@ if (!defined('ABSPATH')) {
     <div class="top-verification-bar">
         <div class="top-bar-content">
             <div class="top-left-branding">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo" class="ideas-logo" style="height: 38px; width: auto; object-fit: contain; border-radius: 4px;">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo" class="ideas-logo">
                 <div class="verification-badge">
                     <svg class="verify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -471,12 +455,7 @@ if (!defined('ABSPATH')) {
                     <span class="verification-text" id="verifyStatusText">VERIFIED</span>
                 </div>
             </div>
-            <div>
-                <button type="button" id="btnOpenLookup" class="btn-lookup-other">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                    Tra cứu chứng chỉ khác
-                </button>
-            </div>
+            <div></div>
         </div>
     </div>
 
@@ -484,15 +463,15 @@ if (!defined('ABSPATH')) {
     <div id="lookupModal" style="display: none;">
         <div class="lookup-box">
             <div class="lookup-logo-wrap">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo" style="height: 48px; width: auto; object-fit: contain; border-radius: 6px;">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo">
             </div>
             <h3>Tra Cứu & Xác Thực Chứng Chỉ</h3>
             <p class="lookup-desc">Nhập Email hoặc Mã chứng chỉ để xem hồ sơ chứng nhận chính thức từ Học viện IDEAS.</p>
 
-            <!-- Tab Buttons -->
+            <!-- Tab Buttons (Clean, No Emojis) -->
             <div class="lookup-tabs">
-                <button type="button" class="lookup-tab-btn active" data-tab="tab-email">✉️ Nhận qua Email OTP</button>
-                <button type="button" class="lookup-tab-btn" data-tab="tab-code">🔍 Tra cứu Mã số</button>
+                <button type="button" class="lookup-tab-btn active" data-tab="tab-email">Xác thực qua Email (OTP)</button>
+                <button type="button" class="lookup-tab-btn" data-tab="tab-code">Tra cứu theo Mã số</button>
             </div>
 
             <!-- Tab 1: Email OTP -->
@@ -595,15 +574,6 @@ if (!defined('ABSPATH')) {
                     if (panel) panel.classList.add('active');
                 });
             });
-
-            // "Tra cứu chứng chỉ khác" Button
-            const btnOpenLookup = document.getElementById('btnOpenLookup');
-            if (btnOpenLookup) {
-                btnOpenLookup.addEventListener('click', () => {
-                    const lookupModal = document.getElementById('lookupModal');
-                    if (lookupModal) lookupModal.style.display = 'flex';
-                });
-            }
 
             // ═══ TAB 1: EMAIL OTP FLOW ══════════════════════════════════════
             const btnSendEmailOtp = document.getElementById('btnSendEmailOtp');

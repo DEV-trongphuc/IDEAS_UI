@@ -1233,4 +1233,42 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
             csvTargetGroupId = null;
         }
     }
+
+    function editGroup(group) {
+        document.getElementById('group_id').value = group.id;
+        document.getElementById('group_name').value = group.name || '';
+        document.getElementById('bg_cert').value = group.bg_cert || '';
+        document.getElementById('bg_transcript').value = group.bg_transcript || '';
+        document.getElementById('bg_card').value = group.bg_card || '';
+
+        const titleEl = document.getElementById('formTitle');
+        if (titleEl) {
+            titleEl.innerHTML = '<span class="dashicons dashicons-edit" style="margin-top: 4px; color: #e11d48;"></span> Cập nhật nhóm: ' + (group.name || '');
+        }
+        const cancelBtn = document.getElementById('btnCancelEdit');
+        if (cancelBtn) cancelBtn.style.display = 'inline-block';
+
+        const submitBtn = document.querySelector('button[type="submit"].btn-ideas');
+        if (submitBtn) submitBtn.textContent = 'Cập nhật nhóm thiết kế';
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetForm() {
+        document.getElementById('group_id').value = 0;
+        document.getElementById('group_name').value = '';
+        document.getElementById('bg_cert').value = '';
+        document.getElementById('bg_transcript').value = '';
+        document.getElementById('bg_card').value = '';
+
+        const titleEl = document.getElementById('formTitle');
+        if (titleEl) {
+            titleEl.innerHTML = '<span class="dashicons dashicons-welcome-add-page" style="margin-top: 4px;"></span> Tạo nhóm chứng chỉ mới';
+        }
+        const cancelBtn = document.getElementById('btnCancelEdit');
+        if (cancelBtn) cancelBtn.style.display = 'none';
+
+        const submitBtn = document.querySelector('button[type="submit"].btn-ideas');
+        if (submitBtn) submitBtn.textContent = 'Lưu nhóm thiết kế';
+    }
 </script>
