@@ -93,24 +93,32 @@ if (isset($_GET['action_type']) && isset($_GET['id'])) {
     }
 }
 
-// Search and pagination
+// Search and pagination (20 per page)
 $search = sanitize_text_field($_GET['s'] ?? '');
 $status_filter = sanitize_text_field($_GET['status'] ?? '');
+$per_page = 20;
+$paged = max(1, intval($_GET['paged'] ?? 1));
+$offset = ($paged - 1) * $per_page;
 
-$sql = "SELECT * FROM $table_certs WHERE 1=1";
+$where = " WHERE 1=1";
 $params = array();
 if (!empty($search)) {
-    $sql .= " AND (cer_no LIKE %s OR name LIKE %s OR student_id LIKE %s)";
+    $where .= " AND (cer_no LIKE %s OR name LIKE %s OR student_id LIKE %s OR email LIKE %s)";
+    $params[] = "%$search%";
     $params[] = "%$search%";
     $params[] = "%$search%";
     $params[] = "%$search%";
 }
 if (!empty($status_filter)) {
-    $sql .= " AND status = %s";
+    $where .= " AND status = %s";
     $params[] = $status_filter;
 }
-$sql .= " ORDER BY created_at DESC";
 
+$count_sql = "SELECT COUNT(*) FROM $table_certs" . $where;
+$total_items = !empty($params) ? $wpdb->get_var($wpdb->prepare($count_sql, $params)) : $wpdb->get_var($count_sql);
+$total_pages = max(1, ceil($total_items / $per_page));
+
+$sql = "SELECT * FROM $table_certs" . $where . " ORDER BY id DESC LIMIT $per_page OFFSET $offset";
 if (!empty($params)) {
     $certs = $wpdb->get_results($wpdb->prepare($sql, $params));
 } else {
@@ -403,6 +411,21 @@ foreach ($all_courses_raw as $c) {
         </form>
 
         <?php if (!empty($certs)): ?>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; font-size:13.5px; color:var(--text-muted);">
+                <div>Hiển thị <strong><?php echo min($total_items, $offset + 1); ?> - <?php echo min($total_items, $offset + count($certs)); ?></strong> trong tổng số <strong><?php echo esc_html($total_items); ?></strong> chứng chỉ</div>
+                <?php if ($total_pages > 1): ?>
+                    <div style="display:flex; gap:6px; align-items:center;">
+                        <?php if ($paged > 1): ?>
+                            <a href="?page=ideas-cert-list&paged=<?php echo ($paged - 1); ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button button-small" style="border-radius:6px;">&laquo; Trang trước</a>
+                        <?php endif; ?>
+                        <span style="padding:0 6px;">Trang <strong><?php echo $paged; ?></strong> / <?php echo $total_pages; ?></span>
+                        <?php if ($paged < $total_pages): ?>
+                            <a href="?page=ideas-cert-list&paged=<?php echo ($paged + 1); ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button button-small" style="border-radius:6px;">Trang tiếp &raquo;</a>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div style="width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch;">
             <table class="ideas-table">
                 <thead>
                     <tr>
@@ -448,8 +471,8 @@ foreach ($all_courses_raw as $c) {
                                     <button class="btn-act btn-act-edit" onclick='openEditModal(<?php echo json_encode($c); ?>)'>
                                         Sửa
                                     </button>
-                                    <a href="/verify/?cer_id=<?php echo urlencode($c->cer_no); ?>" target="_blank" class="btn-act btn-act-view">
-                                        <span class="dashicons dashicons-external" style="font-size:16px; width:16px; height:16px; margin-top:-1px;"></span> Tra cứu
+                                    <a href="/verify?id=<?php echo urlencode($c->cer_no); ?>" target="_blank" class="btn-act btn-act-view">
+                                        <span class="dashicons dashicons-visibility" style="font-size:16px; width:16px; height:16px; margin-top:-1px;"></span> Xem
                                     </a>
                                     <a href="?page=ideas-cert-list&action_type=delete&id=<?php echo $c->id; ?>" class="btn-act btn-act-delete" onclick="return confirm('Bạn có chắc muốn xóa vĩnh viễn chứng chỉ này cùng toàn bộ bảng điểm của học viên không?')">
                                         Xóa
@@ -460,6 +483,20 @@ foreach ($all_courses_raw as $c) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            </div>
+            <?php if ($total_pages > 1): ?>
+                <div style="display:flex; justify-content:flex-end; gap:6px; align-items:center; margin-top:20px;">
+                    <?php if ($paged > 1): ?>
+                        <a href="?page=ideas-cert-list&paged=<?php echo ($paged - 1); ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button" style="border-radius:6px;">&laquo; Trang trước</a>
+                    <?php endif; ?>
+                    <?php for ($p = 1; $p <= $total_pages; $p++): ?>
+                        <a href="?page=ideas-cert-list&paged=<?php echo $p; ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button <?php echo ($p == $paged) ? 'button-primary' : ''; ?>" style="border-radius:6px;"><?php echo $p; ?></a>
+                    <?php endfor; ?>
+                    <?php if ($paged < $total_pages): ?>
+                        <a href="?page=ideas-cert-list&paged=<?php echo ($paged + 1); ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button" style="border-radius:6px;">Trang tiếp &raquo;</a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         <?php else: ?>
             <p style="color: #64748b; font-style: italic; padding: 20px 0; text-align: center;">Không tìm thấy chứng chỉ nào phù hợp.</p>
         <?php endif; ?>

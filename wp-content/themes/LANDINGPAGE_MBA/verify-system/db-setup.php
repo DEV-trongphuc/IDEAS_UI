@@ -133,6 +133,24 @@ function ideas_verify_init_db() {
 
     // Seed/Sync Group: Chứng chỉ chương trình (AI Awareness Training) & 31 Attendee Certificates
     ideas_verify_sync_koda_program();
+
+    // Seed Partner Contract: KODA AI Awareness Training
+    ideas_verify_sync_koda_contract();
+}
+
+function ideas_verify_sync_koda_contract() {
+    global $wpdb;
+    $table_contracts = $wpdb->prefix . 'ideas_certificate_contracts';
+    $contract_code = 'KODA_AI_2026';
+    $exists = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table_contracts WHERE contract_code = %s", $contract_code));
+    if ($exists == 0) {
+        $wpdb->insert($table_contracts, array(
+            'contract_code' => $contract_code,
+            'partner_name' => 'KODA International',
+            'course_name' => 'AI Awareness Training',
+            'status' => 'active'
+        ));
+    }
 }
 
 function ideas_verify_sync_koda_program() {
@@ -142,7 +160,7 @@ function ideas_verify_sync_koda_program() {
 
     $group_name = 'Chứng chỉ chương trình';
     $bg_cert_url = 'https://ideas.edu.vn/wp-content/uploads/2026/08/20260714-certificate-01.webp';
-    $config_cert_json = '{"name": {"id": "name", "label": "Họ và tên", "top": 42.0, "left": 10.2, "width": 52.0, "height": 4.8, "fontSize": 36, "color": "#0f172a", "align": "left", "weight": 800, "fontFamily": "Montserrat, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}, "course_name": {"id": "course_name", "label": "AI Awareness Training", "showLabel": true, "top": 53.5, "left": 10.2, "width": 75.0, "height": 5.0, "fontSize": 32, "color": "#ab0e00", "align": "left", "weight": 800, "fontFamily": "Montserrat, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}, "qr_code": {"id": "qr_code", "label": "Mã QR Code", "top": 68.5, "left": 37.5, "width": 13.0, "height": 9.2, "fontSize": 24, "color": "#000000", "align": "left", "weight": 600, "fontFamily": "Inter, sans-serif", "borderWidth": 1, "borderRadius": 4, "borderColor": "#cbd5e1"}, "cer_no": {"id": "cer_no", "label": "No.:", "showLabel": true, "top": 84.5, "left": 10.2, "width": 38.0, "height": 3.0, "fontSize": 14, "color": "#475569", "align": "left", "weight": 600, "fontFamily": "Plus Jakarta Sans, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}, "date": {"id": "date", "label": "Date:", "showLabel": true, "top": 88.0, "left": 10.2, "width": 38.0, "height": 3.0, "fontSize": 14, "color": "#475569", "align": "left", "weight": 500, "fontFamily": "Plus Jakarta Sans, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}}';
+    $config_cert_json = '{"name": {"id": "name", "label": "Họ và tên", "top": 42.0, "left": 10.2, "width": 52.0, "height": 4.8, "fontSize": 36, "color": "#0f172a", "align": "left", "weight": 800, "fontFamily": "Montserrat, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}, "course_name": {"id": "course_name", "label": "AI Awareness Training", "showLabel": true, "top": 53.5, "left": 10.2, "width": 75.0, "height": 5.0, "fontSize": 32, "color": "#ab0e00", "align": "left", "weight": 800, "fontFamily": "Montserrat, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}, "qr_code": {"id": "qr_code", "label": "Mã QR Code", "top": 83.8, "left": 10.2, "width": 7.0, "height": 4.95, "fontSize": 20, "color": "#000000", "align": "left", "weight": 600, "fontFamily": "Inter, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}, "cer_no": {"id": "cer_no", "label": "No.:", "showLabel": true, "top": 84.2, "left": 18.5, "width": 35.0, "height": 2.8, "fontSize": 13.5, "color": "#475569", "align": "left", "weight": 600, "fontFamily": "Plus Jakarta Sans, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}, "date": {"id": "date", "label": "Date:", "showLabel": true, "top": 87.2, "left": 18.5, "width": 35.0, "height": 2.8, "fontSize": 13.5, "color": "#475569", "align": "left", "weight": 500, "fontFamily": "Plus Jakarta Sans, sans-serif", "borderWidth": 0, "borderRadius": 0, "borderColor": "#000000"}}';
 
     // Check if group exists
     $group = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_groups WHERE name = %s LIMIT 1", $group_name));

@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xác Thực Chứng Chỉ - IDEAS Certificate Verification</title>
-    <link rel="icon" href="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" sizes="32x32" />
+    <link rel="icon" href="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" sizes="32x32" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -462,7 +462,7 @@ if (!defined('ABSPATH')) {
     <div class="top-verification-bar">
         <div class="top-bar-content">
             <div class="top-left-branding">
-                <img src="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" alt="IDEAS Logo" class="ideas-logo">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo" class="ideas-logo" style="height: 38px; width: auto; object-fit: contain; border-radius: 4px;">
                 <div class="verification-badge">
                     <svg class="verify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -484,7 +484,7 @@ if (!defined('ABSPATH')) {
     <div id="lookupModal" style="display: none;">
         <div class="lookup-box">
             <div class="lookup-logo-wrap">
-                <img src="/wp-content/uploads/external-migrated/angry_icon_d339ae28.webp" alt="IDEAS Logo">
+                <img src="https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp" alt="IDEAS Logo" style="height: 48px; width: auto; object-fit: contain; border-radius: 6px;">
             </div>
             <h3>Tra Cứu & Xác Thực Chứng Chỉ</h3>
             <p class="lookup-desc">Nhập Email hoặc Mã chứng chỉ để xem hồ sơ chứng nhận chính thức từ Học viện IDEAS.</p>
@@ -874,10 +874,14 @@ if (!defined('ABSPATH')) {
                     renderCertificateInstance(data, layer, bgEl);
                 });
 
-                // Display Transcript Button
+                // Display Transcript Button ONLY if transcript background & courses exist
                 const transcriptWrap = document.querySelector('.transcript-btn-wrap');
-                if (transcriptWrap && validDataList.length === 1) {
-                    transcriptWrap.style.display = 'flex';
+                if (transcriptWrap) {
+                    if (validDataList.length === 1 && validDataList[0].bg_transcript && validDataList[0].courses && validDataList[0].courses.length > 0) {
+                        transcriptWrap.style.display = 'flex';
+                    } else {
+                        transcriptWrap.style.display = 'none';
+                    }
                 }
 
                 if (urlParams.get('print') === '1') {
