@@ -16,15 +16,40 @@ $active_certs = $wpdb->get_var("SELECT COUNT(*) FROM $table_certs WHERE status='
 $pending_reqs = $wpdb->get_var("SELECT COUNT(*) FROM $table_requests WHERE status='pending'");
 $active_contracts = $wpdb->get_var("SELECT COUNT(*) FROM $table_contracts WHERE status='active'");
 
+// Search and Filter for Dashboard
+$search = sanitize_text_field($_GET['s'] ?? '');
+$status_filter = sanitize_text_field($_GET['status'] ?? '');
+
+$where = " WHERE 1=1";
+$params = array();
+if (!empty($search)) {
+    $where .= " AND (cer_no LIKE %s OR name LIKE %s OR student_id LIKE %s OR email LIKE %s)";
+    $params[] = "%$search%";
+    $params[] = "%$search%";
+    $params[] = "%$search%";
+    $params[] = "%$search%";
+}
+if (!empty($status_filter)) {
+    $where .= " AND status = %s";
+    $params[] = $status_filter;
+}
+
+$count_sql = "SELECT COUNT(*) FROM $table_certs" . $where;
+$total_items = !empty($params) ? intval($wpdb->get_var($wpdb->prepare($count_sql, $params))) : intval($wpdb->get_var($count_sql));
+
 // Pagination (20 per page)
 $per_page = 20;
 $paged = max(1, intval($_GET['paged'] ?? 1));
 $offset = ($paged - 1) * $per_page;
-$total_items = intval($total_certs);
 $total_pages = max(1, ceil($total_items / $per_page));
 
 // Fetch certificates for current page
-$recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FROM $table_certs ORDER BY id DESC LIMIT $per_page OFFSET $offset");
+$sql = "SELECT cer_no, name, email, date, status FROM $table_certs" . $where . " ORDER BY id DESC LIMIT $per_page OFFSET $offset";
+if (!empty($params)) {
+    $recent_certs = $wpdb->get_results($wpdb->prepare($sql, $params));
+} else {
+    $recent_certs = $wpdb->get_results($sql);
+}
 ?>
 <style>
     :root {
@@ -273,12 +298,30 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FRO
     <div class="ideas-section">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
             <h2 style="margin: 0;"><span class="dashicons dashicons-id-alt" style="margin-top: 4px;"></span> Danh sách chứng chỉ đã cấp</h2>
-            <?php if (!empty($recent_certs)): ?>
+            <?php if ($total_items > 0): ?>
                 <div style="font-size: 13.5px; color: var(--text-muted);">
                     Hiển thị <strong><?php echo min($total_items, $offset + 1); ?> - <?php echo min($total_items, $offset + count($recent_certs)); ?></strong> trong tổng số <strong><?php echo esc_html($total_items); ?></strong> chứng chỉ
                 </div>
             <?php endif; ?>
         </div>
+
+        <!-- Search and Filter Form -->
+        <form method="GET" class="filter-row" style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px; flex-wrap: wrap;">
+            <input type="hidden" name="page" value="ideas-verify-hub" />
+            <input type="text" name="s" value="<?php echo esc_attr($search); ?>" placeholder="Tìm mã số, tên học viên, email..." style="height: 38px; padding: 0 14px; width: 300px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 13.5px; outline: none;" />
+            
+            <select name="status" style="height: 38px; line-height: 36px; padding: 0 12px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 13.5px; background: #ffffff; cursor: pointer; outline: none;">
+                <option value="">-- Tất cả trạng thái --</option>
+                <option value="active" <?php selected($status_filter, 'active'); ?>>Hoạt động</option>
+                <option value="paused" <?php selected($status_filter, 'paused'); ?>>Tạm dừng</option>
+                <option value="locked" <?php selected($status_filter, 'locked'); ?>>Khóa</option>
+            </select>
+
+            <button type="submit" class="button button-primary" style="height: 38px; line-height: 36px; padding: 0 18px; border-radius: 8px; font-weight: 600; font-size: 13.5px;">Tìm kiếm</button>
+            <?php if (!empty($search) || !empty($status_filter)): ?>
+                <a href="?page=ideas-verify-hub" class="button button-secondary" style="height: 38px; line-height: 36px; padding: 0 16px; border-radius: 8px; font-weight: 600; font-size: 13.5px;">Đặt lại</a>
+            <?php endif; ?>
+        </form>
 
         <?php if (!empty($recent_certs)): ?>
             <div class="table-scroll-container">
@@ -328,24 +371,24 @@ $recent_certs = $wpdb->get_results("SELECT cer_no, name, email, date, status FRO
                     </div>
                     <div style="display: flex; gap: 8px; align-items: center;">
                         <?php if ($paged > 1): ?>
-                            <a href="?page=ideas-verify-hub&paged=<?php echo ($paged - 1); ?>" class="button button-secondary" style="border-radius: 6px; font-weight: 600;">&laquo; Trang trước</a>
+                            <a href="?page=ideas-verify-hub&paged=<?php echo ($paged - 1); ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button button-secondary" style="border-radius: 6px; font-weight: 600;">&laquo; Trang trước</a>
                         <?php endif; ?>
                         
                         <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                            <a href="?page=ideas-verify-hub&paged=<?php echo $i; ?>" class="button <?php echo ($i === $paged) ? 'button-primary' : 'button-secondary'; ?>" style="border-radius: 6px; min-width: 32px; text-align: center; <?php echo ($i === $paged) ? 'background: #ab0e00; border-color: #ab0e00;' : ''; ?>">
+                            <a href="?page=ideas-verify-hub&paged=<?php echo $i; ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button <?php echo ($i === $paged) ? 'button-primary' : 'button-secondary'; ?>" style="border-radius: 6px; min-width: 32px; text-align: center; <?php echo ($i === $paged) ? 'background: #ab0e00; border-color: #ab0e00;' : ''; ?>">
                                 <?php echo $i; ?>
                             </a>
                         <?php endfor; ?>
 
                         <?php if ($paged < $total_pages): ?>
-                            <a href="?page=ideas-verify-hub&paged=<?php echo ($paged + 1); ?>" class="button button-secondary" style="border-radius: 6px; font-weight: 600;">Trang tiếp &raquo;</a>
+                            <a href="?page=ideas-verify-hub&paged=<?php echo ($paged + 1); ?>&s=<?php echo urlencode($search); ?>&status=<?php echo urlencode($status_filter); ?>" class="button button-secondary" style="border-radius: 6px; font-weight: 600;">Trang tiếp &raquo;</a>
                         <?php endif; ?>
                     </div>
                 </div>
             <?php endif; ?>
 
         <?php else: ?>
-            <p style="color: #64748b; font-style: italic; padding: 10px 0;">Chưa có chứng chỉ nào được cấp gần đây.</p>
+            <p style="color: #64748b; font-style: italic; padding: 10px 0;">Không tìm thấy chứng chỉ nào phù hợp với tìm kiếm.</p>
         <?php endif; ?>
     </div>
 </div>
