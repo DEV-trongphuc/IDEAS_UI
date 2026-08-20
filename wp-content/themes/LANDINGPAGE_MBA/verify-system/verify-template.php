@@ -988,11 +988,11 @@ if (!defined('ABSPATH')) {
 
                 const escapeHTML = str => String(str).replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
 
-                el.innerHTML = `<span style="font-family:${box.fontFamily || "'Plus Jakarta Sans', sans-serif"}; font-size:${box.fontSize}px; color:${box.color || '#1a1a1a'}; font-weight:${box.weight}; text-align:${box.align}; white-space:nowrap; transform-origin:center center;">${escapeHTML(val)}</span>`;
+                el.innerHTML = `<span style="font-family:${box.fontFamily || "'Plus Jakarta Sans', sans-serif"}; font-size:${box.fontSize}px; color:${box.color || '#1a1a1a'}; font-weight:${box.weight}; text-align:${box.align}; white-space:nowrap;">${escapeHTML(val)}</span>`;
                 
                 layer.appendChild(el);
                 const span = el.querySelector('span');
-                if (span) {
+                if (span && k !== 'name') {
                     requestAnimationFrame(() => {
                         if (span.scrollWidth > el.clientWidth && el.clientWidth > 0) {
                             const scale = el.clientWidth / span.scrollWidth;
