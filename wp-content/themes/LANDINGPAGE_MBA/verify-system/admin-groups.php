@@ -260,6 +260,38 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         color: white !important;
     }
 
+    /* ═══ GROUP MODAL OVERLAY ═══════════════════════════════════════════════ */
+    #groupModal {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(15, 23, 42, 0.65) !important;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 999999 !important;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .ideas-modal-box {
+        display: block !important;
+        background: #ffffff !important;
+        padding: 32px 36px;
+        border-radius: 16px;
+        max-width: 600px;
+        width: 100%;
+        max-height: 88vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+        border: 1px solid var(--border-slate);
+        position: relative;
+        z-index: 1000000 !important;
+    }
+
     /* ═══ FULLSCREEN DYNAMIC STUDIO OVERLAY ═══════════════════════════════ */
     #studioOverlay {
         position: fixed;
@@ -430,118 +462,129 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
 </style>
 
 <div class="ideas-wrap">
-    <div class="ideas-header">
-        <h1>Nhóm thiết kế & Layout Studio</h1>
-        <p>Tạo các nhóm thiết kế chứng chỉ riêng biệt và tùy chỉnh vị trí thông tin kéo thả bằng Canvas Studio.</p>
+    <div class="ideas-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+        <div>
+            <h1>Nhóm thiết kế & Layout Studio</h1>
+            <p>Tạo các nhóm thiết kế chứng chỉ riêng biệt và tùy chỉnh vị trí thông tin kéo thả bằng Canvas Studio.</p>
+        </div>
+        <div>
+            <button type="button" class="button button-primary button-large" onclick="openNewGroupModal()" style="height: 40px; border-radius: 8px; font-weight: 700; background: var(--primary-gradient); border: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);">
+                <span class="dashicons dashicons-plus-alt2" style="font-size: 18px; margin-top: 2px;"></span> Tạo nhóm mới
+            </button>
+        </div>
     </div>
 
-    <div class="ideas-row">
-        <!-- Groups List Table -->
-        <div class="ideas-box">
-            <h2><span class="dashicons dashicons-layout" style="margin-top: 4px;"></span> Nhóm thiết kế hiện có</h2>
-            <?php if (!empty($groups)): ?>
-                <table class="ideas-table">
-                    <thead>
+    <!-- Groups List Table (Full Width) -->
+    <div class="ideas-box">
+        <h2 style="margin: 0 0 20px 0;"><span class="dashicons dashicons-layout" style="margin-top: 4px;"></span> Danh sách nhóm thiết kế (<?php echo count($groups); ?>)</h2>
+        <?php if (!empty($groups)): ?>
+            <div style="width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+            <table class="ideas-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Tên nhóm</th>
+                        <th style="width: 20%;">Mẫu chứng chỉ</th>
+                        <th style="width: 20%;">Mẫu bảng điểm</th>
+                        <th style="width: 35%;">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($groups as $g): ?>
                         <tr>
-                            <th>Tên nhóm</th>
-                            <th>Mẫu chứng chỉ</th>
-                            <th>Mẫu bảng điểm</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($groups as $g): ?>
-                            <tr>
-                                <td><strong style="font-size: 15px; color: #0f172a;"><?php echo esc_html($g['name']); ?></strong></td>
-                                <td>
-                                    <?php if ($g['bg_cert']): ?>
-                                        <div class="thumbnail-container">
-                                            <img src="<?php echo esc_url($g['bg_cert']); ?>" class="thumbnail-img" />
-                                        </div>
-                                    <?php else: ?>
-                                        <span style="color: #94a3b8; font-style: italic; font-size: 13px;">Chưa cài đặt</span>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if ($g['bg_transcript']): ?>
-                                        <div class="thumbnail-container">
-                                            <img src="<?php echo esc_url($g['bg_transcript']); ?>" class="thumbnail-img" />
-                                        </div>
-                                    <?php else: ?>
-                                        <span style="color: #94a3b8; font-style: italic; font-size: 13px;">Chưa cài đặt</span>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <div class="btn-action-group">
-                                        <button type="button" class="btn-act btn-act-studio" onclick="startStudio(JSON.parse(this.dataset.group))" data-group="<?php echo esc_attr(json_encode($g)); ?>">
-                                            <span class="dashicons dashicons-art"></span> Thiết kế
-                                        </button>
-                                        <button type="button" class="btn-act btn-act-edit" onclick="editGroup(JSON.parse(this.dataset.group))" data-group="<?php echo esc_attr(json_encode($g)); ?>">
-                                            Sửa
-                                        </button>
-                                        <a href="?page=ideas-cert-groups&action_type=delete&id=<?php echo $g['id']; ?>" class="btn-act btn-act-delete" onclick="return confirm('Bạn có chắc muốn xóa nhóm này không?')">
-                                            Xóa
-                                        </a>
+                            <td><strong style="font-size: 15px; color: #0f172a;"><?php echo esc_html($g['name']); ?></strong></td>
+                            <td>
+                                <?php if ($g['bg_cert']): ?>
+                                    <div class="thumbnail-container">
+                                        <img src="<?php echo esc_url($g['bg_cert']); ?>" class="thumbnail-img" />
                                     </div>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <p style="color: #64748b; font-style: italic; padding: 20px 0; text-align: center;">Chưa có nhóm thiết kế chứng chỉ nào được tạo.</p>
-            <?php endif; ?>
-        </div>
+                                <?php else: ?>
+                                    <span style="color: #94a3b8; font-style: italic; font-size: 13px;">Chưa cài đặt</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php if ($g['bg_transcript']): ?>
+                                    <div class="thumbnail-container">
+                                        <img src="<?php echo esc_url($g['bg_transcript']); ?>" class="thumbnail-img" />
+                                    </div>
+                                <?php else: ?>
+                                    <span style="color: #94a3b8; font-style: italic; font-size: 13px;">Chưa cài đặt</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <div class="btn-action-group">
+                                    <button type="button" class="btn-act btn-act-studio" onclick="startStudio(JSON.parse(this.dataset.group))" data-group="<?php echo esc_attr(json_encode($g)); ?>">
+                                        <span class="dashicons dashicons-art"></span> Thiết kế
+                                    </button>
+                                    <button type="button" class="btn-act btn-act-edit" onclick="editGroup(JSON.parse(this.dataset.group))" data-group="<?php echo esc_attr(json_encode($g)); ?>">
+                                        Sửa
+                                    </button>
+                                    <a href="?page=ideas-cert-groups&action_type=delete&id=<?php echo $g['id']; ?>" class="btn-act btn-act-delete" onclick="return confirm('Bạn có chắc muốn xóa nhóm này không?')">
+                                        Xóa
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            </div>
+        <?php else: ?>
+            <p style="color: #64748b; font-style: italic; padding: 20px 0; text-align: center;">Chưa có nhóm thiết kế chứng chỉ nào được tạo.</p>
+        <?php endif; ?>
+    </div>
+</div>
 
-        <!-- Add/Edit Group Form -->
-        <div class="ideas-box" style="height: fit-content;">
-            <h2 id="formTitle"><span class="dashicons dashicons-welcome-add-page" style="margin-top: 4px;"></span> Tạo nhóm chứng chỉ mới</h2>
-            <form method="POST">
-                <?php wp_nonce_field('ideas_save_group_nonce'); ?>
-                <input type="hidden" id="group_id" name="group_id" value="0" />
-                <input type="hidden" name="ideas_save_group" value="1" />
+<!-- Add/Edit Group Modal -->
+<div id="groupModal" style="display: none;">
+    <div class="ideas-modal-box">
+        <h2 id="formTitle" style="margin-top: 0; margin-bottom: 20px; font-weight: 800; border-bottom: 1px solid #f1f5f9; padding-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+            <span class="dashicons dashicons-welcome-add-page" style="font-size: 24px; width: 24px; height: 24px; color: #e11d48; margin-top: 2px;"></span> Tạo nhóm chứng chỉ mới
+        </h2>
+        <form method="POST">
+            <?php wp_nonce_field('ideas_save_group_nonce'); ?>
+            <input type="hidden" id="group_id" name="group_id" value="0" />
+            <input type="hidden" name="ideas_save_group" value="1" />
 
-                <div class="form-group">
-                    <label for="group_name">Tên nhóm thiết kế</label>
-                    <input type="text" id="group_name" name="group_name" required placeholder="Ví dụ: Pre-Top up MBA" />
+            <div class="form-group">
+                <label for="group_name">Tên nhóm thiết kế <span>*</span></label>
+                <input type="text" id="group_name" name="group_name" required placeholder="Ví dụ: Pre-Top up MBA" />
+            </div>
+
+            <div class="form-group">
+                <label for="bg_cert">Ảnh nền chứng chỉ (Khổ A4)</label>
+                <input type="text" id="bg_cert" name="bg_cert_url" placeholder="https://..." />
+                <div class="image-preview-btn-wrap">
+                    <button type="button" class="button button-secondary" style="width: 100%; border-radius: 6px;" onclick="openMediaUploader('bg_cert')">
+                        <span class="dashicons dashicons-admin-media" style="margin-top: 3px; font-size: 18px;"></span> Chọn ảnh từ Media
+                    </button>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="bg_cert">Ảnh nền chứng chỉ (Khổ A4)</label>
-                    <input type="text" id="bg_cert" name="bg_cert_url" placeholder="https://..." />
-                    <div class="image-preview-btn-wrap">
-                        <button type="button" class="button button-secondary" style="width: 100%; border-radius: 6px;" onclick="openMediaUploader('bg_cert')">
-                            <span class="dashicons dashicons-admin-media" style="margin-top: 3px; font-size: 18px;"></span> Chọn ảnh từ Media
-                        </button>
-                    </div>
+            <div class="form-group">
+                <label for="bg_transcript">Ảnh nền bảng điểm (Khổ A4)</label>
+                <input type="text" id="bg_transcript" name="bg_transcript_url" placeholder="https://..." />
+                <div class="image-preview-btn-wrap">
+                    <button type="button" class="button button-secondary" style="width: 100%; border-radius: 6px;" onclick="openMediaUploader('bg_transcript')">
+                        <span class="dashicons dashicons-admin-media" style="margin-top: 3px; font-size: 18px;"></span> Chọn ảnh từ Media
+                    </button>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="bg_transcript">Ảnh nền bảng điểm (Khổ A4)</label>
-                    <input type="text" id="bg_transcript" name="bg_transcript_url" placeholder="https://..." />
-                    <div class="image-preview-btn-wrap">
-                        <button type="button" class="button button-secondary" style="width: 100%; border-radius: 6px;" onclick="openMediaUploader('bg_transcript')">
-                            <span class="dashicons dashicons-admin-media" style="margin-top: 3px; font-size: 18px;"></span> Chọn ảnh từ Media
-                        </button>
-                    </div>
+            <div class="form-group">
+                <label for="bg_card">Ảnh nền thẻ học viên (Card)</label>
+                <input type="text" id="bg_card" name="bg_card_url" placeholder="https://..." />
+                <div class="image-preview-btn-wrap">
+                    <button type="button" class="button button-secondary" style="width: 100%; border-radius: 6px;" onclick="openMediaUploader('bg_card')">
+                        <span class="dashicons dashicons-admin-media" style="margin-top: 3px; font-size: 18px;"></span> Chọn ảnh từ Media
+                    </button>
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="bg_card">Ảnh nền thẻ học viên (Card)</label>
-                    <input type="text" id="bg_card" name="bg_card_url" placeholder="https://..." />
-                    <div class="image-preview-btn-wrap">
-                        <button type="button" class="button button-secondary" style="width: 100%; border-radius: 6px;" onclick="openMediaUploader('bg_card')">
-                            <span class="dashicons dashicons-admin-media" style="margin-top: 3px; font-size: 18px;"></span> Chọn ảnh từ Media
-                        </button>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 10px; margin-top: 24px;">
-                    <button type="submit" class="btn-ideas" style="flex: 1; border-radius: 8px;">Lưu nhóm thiết kế</button>
-                    <button type="button" class="button button-large" onclick="resetForm()" style="display: none; border-radius: 8px;" id="btnCancelEdit">Hủy</button>
-                </div>
-            </form>
-        </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                <button type="button" class="button button-large" onclick="closeGroupModal()" style="border-radius: 8px;">Hủy</button>
+                <button type="submit" class="btn-ideas" style="border-radius: 8px; padding: 10px 24px;" id="submitGroupBtn">Lưu nhóm thiết kế</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -1228,6 +1271,23 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
         }
     }
 
+    function openNewGroupModal() {
+        document.getElementById('group_id').value = 0;
+        document.getElementById('group_name').value = '';
+        document.getElementById('bg_cert').value = '';
+        document.getElementById('bg_transcript').value = '';
+        document.getElementById('bg_card').value = '';
+
+        const titleEl = document.getElementById('formTitle');
+        if (titleEl) {
+            titleEl.innerHTML = '<span class="dashicons dashicons-welcome-add-page" style="font-size: 24px; width: 24px; height: 24px; color: #e11d48; margin-top: 2px;"></span> Tạo nhóm chứng chỉ mới';
+        }
+        const submitBtn = document.getElementById('submitGroupBtn');
+        if (submitBtn) submitBtn.textContent = 'Lưu nhóm thiết kế';
+
+        document.getElementById('groupModal').style.display = 'flex';
+    }
+
     function editGroup(group) {
         document.getElementById('group_id').value = group.id;
         document.getElementById('group_name').value = group.name || '';
@@ -1237,32 +1297,15 @@ $groups = $wpdb->get_results("SELECT * FROM $table_groups ORDER BY id ASC", ARRA
 
         const titleEl = document.getElementById('formTitle');
         if (titleEl) {
-            titleEl.innerHTML = '<span class="dashicons dashicons-edit" style="margin-top: 4px; color: #e11d48;"></span> Cập nhật nhóm: ' + (group.name || '');
+            titleEl.innerHTML = '<span class="dashicons dashicons-edit" style="font-size: 24px; width: 24px; height: 24px; color: #e11d48; margin-top: 2px;"></span> Cập nhật nhóm: ' + (group.name || '');
         }
-        const cancelBtn = document.getElementById('btnCancelEdit');
-        if (cancelBtn) cancelBtn.style.display = 'inline-block';
-
-        const submitBtn = document.querySelector('button[type="submit"].btn-ideas');
+        const submitBtn = document.getElementById('submitGroupBtn');
         if (submitBtn) submitBtn.textContent = 'Cập nhật nhóm thiết kế';
 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.getElementById('groupModal').style.display = 'flex';
     }
 
-    function resetForm() {
-        document.getElementById('group_id').value = 0;
-        document.getElementById('group_name').value = '';
-        document.getElementById('bg_cert').value = '';
-        document.getElementById('bg_transcript').value = '';
-        document.getElementById('bg_card').value = '';
-
-        const titleEl = document.getElementById('formTitle');
-        if (titleEl) {
-            titleEl.innerHTML = '<span class="dashicons dashicons-welcome-add-page" style="margin-top: 4px;"></span> Tạo nhóm chứng chỉ mới';
-        }
-        const cancelBtn = document.getElementById('btnCancelEdit');
-        if (cancelBtn) cancelBtn.style.display = 'none';
-
-        const submitBtn = document.querySelector('button[type="submit"].btn-ideas');
-        if (submitBtn) submitBtn.textContent = 'Lưu nhóm thiết kế';
+    function closeGroupModal() {
+        document.getElementById('groupModal').style.display = 'none';
     }
 </script>
