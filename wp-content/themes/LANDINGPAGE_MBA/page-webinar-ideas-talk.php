@@ -1840,15 +1840,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .timeline-line {
             position: absolute;
-            top: 13px;
+            top: 11px;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 2px;
             background: linear-gradient(90deg, #ab0e00, #ff4c4c, #ab0e00, rgba(255, 255, 255, 0.08));
             background-size: 300% 100%;
             animation: timeline-flow 6s ease infinite;
             z-index: 1;
-            box-shadow: 0 0 12px rgba(255, 76, 76, 0.45);
+            box-shadow: 0 0 8px rgba(255, 76, 76, 0.35);
         }
 
         .timeline-node {
@@ -1861,12 +1861,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .timeline-dot {
-            width: 26px;
-            height: 26px;
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            min-height: 22px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            aspect-ratio: 1 / 1;
             background: #14090b;
-            border: 3px solid #b91c1c;
+            border: 2.5px solid #b91c1c;
             border-radius: 50%;
-            box-shadow: 0 0 12px rgba(185, 28, 28, 0.4), inset 0 0 6px rgba(185, 28, 28, 0.3);
+            box-shadow: 0 0 8px rgba(185, 28, 28, 0.4);
             z-index: 3;
             margin-bottom: 24px;
             position: relative;
@@ -1875,29 +1880,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .timeline-node.active .timeline-dot {
             background: #ef4444;
-            border-color: #ffffff;
-            transform: scale(1.3);
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.8), 0 0 35px rgba(239, 68, 68, 0.4);
+            border: 3px solid #ffffff;
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            min-height: 22px;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.35), 0 0 16px rgba(239, 68, 68, 0.7);
+            animation: active-dot-pulse 2.2s ease-in-out infinite alternate;
         }
 
-        .timeline-node.active .timeline-dot::after {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            right: -6px;
-            bottom: -6px;
-            border: 2px solid #ef4444;
-            border-radius: 50%;
-            animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-
-        @keyframes ping {
-            75%,
-            100% {
-                transform: scale(2.3);
-                opacity: 0;
+        @keyframes active-dot-pulse {
+            0% {
+                box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25), 0 0 10px rgba(239, 68, 68, 0.5);
             }
+            100% {
+                box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.45), 0 0 20px rgba(239, 68, 68, 0.85);
+            }
+        }
+
+        .timeline-node:hover .timeline-dot {
+            border-color: #ef4444;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
         }
 
         .timeline-node.updating .timeline-dot {
@@ -3079,7 +3082,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .timeline-dot {
                 width: 20px !important;
                 height: 20px !important;
-                border-width: 3px !important;
+                min-width: 20px !important;
+                min-height: 20px !important;
+                border-width: 2.5px !important;
                 margin-bottom: 16px !important;
             }
 
