@@ -1905,7 +1905,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .timeline-node.updating .timeline-dot {
             border-color: #475569;
+            background: #0f172a;
             box-shadow: none;
+        }
+
+        .timeline-node.updating .timeline-content-card {
+            border: 1px dashed rgba(255, 255, 255, 0.14);
+            background: linear-gradient(168deg, rgba(20, 15, 20, 0.7) 0%, rgba(10, 8, 10, 0.85) 100%);
+            opacity: 0.85;
+        }
+
+        .timeline-node.updating:hover .timeline-content-card {
+            opacity: 1;
+            border-color: rgba(255, 255, 255, 0.25);
         }
 
         /* Card Container - Ultra Premium Glassmorphism */
@@ -3600,7 +3612,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
                                             </svg>
-                                            <?php echo $is_en ? 'Time: 17/09/2026 (19:30 - 21:00)' : 'Thời gian: 17/09/2026 (19:30 - 21:00)'; ?>
+                                            <?php echo $is_en ? 'Time: 17/09/2026 (14:00 - 15:30)' : 'Thời gian: 17/09/2026 (14:00 - 15:30)'; ?>
                                         </div>
                                         <div class="timeline-meta-item" style="display: flex; align-items: center; gap: 6px;">
                                             <img src="https://assets-global.website-files.com/637501ee593ea3846f81d45e/63ea7af9128d3e56379023e6_zoom-logo-in-blue-colors-meetings-app-logotype-illustration-free-png.png" alt="Zoom" style="height: 12px; width: auto; object-fit: contain;">
@@ -3640,7 +3652,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
                                             </svg>
-                                            <?php echo $is_en ? 'Expected: 01/10/2026 (14:00)' : 'Dự kiến: 01/10/2026 (14:00)'; ?>
+                                            <?php echo $is_en ? 'Expected: 01/10/2026 (19:30)' : 'Dự kiến: 01/10/2026 (19:30)'; ?>
                                         </div>
                                         <div class="timeline-meta-item" style="display: flex; align-items: center; gap: 6px;">
                                             <img src="https://assets-global.website-files.com/637501ee593ea3846f81d45e/63ea7af9128d3e56379023e6_zoom-logo-in-blue-colors-meetings-app-logotype-illustration-free-png.png" alt="Zoom" style="height: 12px; width: auto; object-fit: contain;">
@@ -3693,6 +3705,40 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </svg>
                                         <span><?php echo $is_en ? 'Reserve a Slot' : 'Đăng ký giữ chỗ'; ?></span>
                                     </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Topic 5 (Đang cập nhật) -->
+                        <div class="timeline-node updating">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content-card">
+                                <div>
+                                    <div class="timeline-card-header">
+                                        <span class="timeline-badge" style="background: rgba(255, 255, 255, 0.06) !important; border-color: rgba(255, 255, 255, 0.12) !important; color: #94a3b8 !important;">
+                                            <?php echo $is_en ? 'Topic 05 • Coming Soon' : 'Chủ đề 05 • Sắp ra mắt'; ?>
+                                        </span>
+                                        <span class="timeline-card-format-tag"><?php echo $is_en ? 'TBA' : 'Dự kiến'; ?></span>
+                                    </div>
+                                    <h3><?php echo $is_en ? 'Upcoming Topics Are Being Curated with Industry Experts' : 'Chuyên đề tiếp theo đang được hoàn thiện cùng Hội đồng chuyên gia'; ?></h3>
+                                    <div class="timeline-meta">
+                                        <div class="timeline-meta-item date-item">
+                                            <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
+                                            </svg>
+                                            <?php echo $is_en ? 'Expected: November 2026' : 'Dự kiến: Tháng 11/2026'; ?>
+                                        </div>
+                                        <div class="timeline-meta-item" style="display: flex; align-items: center; gap: 6px;">
+                                            <img src="https://assets-global.website-files.com/637501ee593ea3846f81d45e/63ea7af9128d3e56379023e6_zoom-logo-in-blue-colors-meetings-app-logotype-illustration-free-png.png" alt="Zoom" style="height: 12px; width: auto; object-fit: contain;">
+                                            Zoom Meeting
+                                        </div>
+                                    </div>
+                                    <p class="timeline-desc"><?php echo $is_en ? 'Stay tuned for upcoming high-impact management & AI application workshops organized by IDEAS.' : 'Đón chờ các chuyên đề tiếp theo về ứng dụng AI, quản trị tài chính và nâng chuẩn năng lực lãnh đạo đột phá từ IDEAS.'; ?></p>
+                                </div>
+                                <div class="timeline-btn-wrapper">
+                                    <button type="button" class="btn-register-outline-timeline" style="opacity: 0.6; cursor: not-allowed; width: 100%;" disabled>
+                                        <span><?php echo $is_en ? 'Updating Schedule...' : 'Đang cập nhật...'; ?></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -4547,8 +4593,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Live countdown timer to 17/09/2026 19:30
-            var countDownDate = new Date("2026-09-17T19:30:00+07:00").getTime();
+            // Live countdown timer to 17/09/2026 14:00
+            var countDownDate = new Date("2026-09-17T14:00:00+07:00").getTime();
 
             var x = setInterval(function() {
                 var now = new Date().getTime();
