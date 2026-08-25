@@ -132,9 +132,9 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
                 <span>
                     <strong><?php echo $is_en ? 'Office:' : 'Văn phòng:'; ?></strong> 
                     <?php if ($is_en): ?>
-                        4th Floor, Hai Au Building, 39B Truong Son, Tan Son Nhat Ward, Tan Binh District, HCMC
+                        B82 Bach Dang, Tan Son Hoa, Ho Chi Minh City
                     <?php else: ?>
-                        Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, TP.HCM
+                        B82 Bạch Đằng, Tân Sơn Hòa, Hồ Chí Minh
                     <?php endif; ?>
                 </span>
             </p>

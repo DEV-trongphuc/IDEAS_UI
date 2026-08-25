@@ -653,7 +653,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="info-icon"><svg class="svg-icon fa-location-dot fa-solid" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg></div>
                                 <div class="info-content">
                                     <span class="info-label"><?php echo $is_en ? 'Headquarters' : 'Trụ sở chính'; ?></span>
-                                    <span class="info-value"><?php echo $is_en ? '4th Floor, Hai Au Building, 39B Truong Son, Tan Son Nhat Ward, Tan Binh District, HCMC' : 'Tầng 4, Tòa nhà Hải Âu, 39B Trường Sơn, Phường Tân Sơn Nhất, Quận Tân Bình, TP.HCM'; ?></span>
+                                    <span class="info-value"><?php echo $is_en ? 'B82 Bach Dang, Tan Son Hoa, Ho Chi Minh City' : 'B82 Bạch Đằng, Tân Sơn Hòa, Hồ Chí Minh'; ?></span>
                                 </div>
                             </div>
                             <div class="info-item">
