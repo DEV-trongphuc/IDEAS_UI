@@ -2966,7 +2966,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- DBA Card -->
                 <div class="prog-card">
                     <div class="prog-card-thumb">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp" alt="Tiến sĩ DBA - ISTEC Paris" loading="lazy" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" alt="Tiến sĩ DBA - ISTEC Paris" loading="lazy" decoding="async" />
                         <span class="prog-card-badge">Bac+8</span>
                     </div>
                     <div class="prog-card-body">
@@ -3002,7 +3002,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- MBA Card -->
                 <div class="prog-card">
                     <div class="prog-card-thumb">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp" alt="Thạc sĩ MBA - ISTEC Paris" loading="lazy" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Thạc sĩ MBA - ISTEC Paris" loading="lazy" decoding="async" />
                         <span class="prog-card-badge">Bac+5</span>
                     </div>
                     <div class="prog-card-body">
