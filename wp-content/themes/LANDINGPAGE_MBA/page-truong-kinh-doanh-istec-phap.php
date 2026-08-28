@@ -2284,6 +2284,218 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding-top: 15px;
         }
 
+        /* ISTEC Prestige & History Section */
+        .istec-prestige-section {
+            background: linear-gradient(180deg, #f8fafc 0%, #fdfdfd 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+        .istec-prestige-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .istec-prestige-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .istec-prestige-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            background: #f1f5f9;
+        }
+        .istec-prestige-image img {
+            width: 100%;
+            height: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .istec-prestige-image:hover img {
+            transform: scale(1.03);
+        }
+        .istec-prestige-content h3 {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            color: #1e293b;
+            margin-top: 0;
+            margin-bottom: 18px;
+            line-height: 1.35;
+        }
+        .istec-prestige-content p {
+            color: #475569;
+            font-size: 1.02rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .istec-prestige-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .istec-prestige-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .istec-prestige-checklist li svg {
+            color: var(--umef-primary, #ab0e00);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .istec-prestige-checklist li span {
+            color: #334155;
+            font-weight: 600;
+            font-size: 0.98rem;
+            line-height: 1.55;
+        }
+
+        /* ISTEC Campus Dark Section & Card Contrast */
+        .umef-section-dark .gallery-inner {
+            position: relative;
+            z-index: 2;
+        }
+        .istec-campus-card {
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .istec-campus-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(239, 68, 68, 0.45);
+            box-shadow: 0 20px 40px rgba(217, 38, 38, 0.15);
+        }
+        .istec-campus-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        .istec-campus-card-body {
+            padding: 24px;
+        }
+        .istec-campus-card-body h4 {
+            color: #ffffff !important;
+            font-size: 1.2rem;
+            font-weight: 750;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+        .istec-campus-card-body p {
+            color: #e2e8f0 !important;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin: 0;
+        }
+        .campus-dark-badge {
+            color: #ff9e9e !important;
+            background: rgba(217, 38, 38, 0.16) !important;
+            border: 1px solid rgba(217, 38, 38, 0.35) !important;
+            padding: 6px 18px;
+            border-radius: 99px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .campus-dark-desc {
+            color: #e2e8f0 !important;
+            max-width: 700px;
+            margin: 15px auto 0;
+            line-height: 1.7;
+            font-size: 1.02rem;
+        }
+
+        /* ISTEC Campus & Program Grids */
+        .istec-campus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .prog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .istec-testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .istec-prestige-section {
+                padding: 60px 16px;
+            }
+            .istec-prestige-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .istec-prestige-image {
+                max-height: 380px;
+            }
+            .istec-prestige-image img {
+                max-height: 380px;
+            }
+        }
+        @media (max-width: 768px) {
+            .istec-prestige-section {
+                padding: 48px 16px;
+            }
+            .istec-prestige-grid {
+                gap: 24px;
+            }
+            .istec-prestige-content h3 {
+                font-size: 1.35rem;
+                margin-bottom: 14px;
+            }
+            .istec-prestige-content p {
+                font-size: 0.92rem;
+                line-height: 1.65;
+                margin-bottom: 18px;
+            }
+            .istec-prestige-checklist {
+                gap: 12px;
+            }
+            .istec-prestige-checklist li {
+                gap: 10px;
+            }
+            .istec-prestige-checklist li svg {
+                width: 16px;
+                height: 16px;
+                margin-top: 2px;
+            }
+            .istec-prestige-checklist li span {
+                font-size: 0.9rem;
+            }
+            .istec-campus-grid,
+            .prog-grid,
+            .istec-testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .section-title {
+                font-size: 1.6rem !important;
+            }
+        }
     </style>
     <?php wp_head(); ?>
 </head>
@@ -2495,33 +2707,33 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section umef-section-dark">
         <div class="gallery-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Học Tập Tại Trái Tim Thủ Đô Paris</span>
+                <span class="campus-dark-badge">Học Tập Tại Trái Tim Thủ Đô Paris</span>
                 <h2 style="font-size: 2.5rem; font-weight: 900; color: #fff; margin-top: 10px;">Cơ Sở Campus <span>ISTEC Paris</span></h2>
-                <p style="color: #94a3b8; max-width: 700px; margin: 15px auto 0; line-height: 1.6;">
+                <p class="campus-dark-desc">
                     Campus Jemmapes của ISTEC tọa lạc dọc theo kênh đào nổi tiếng Canal Saint-Martin, ngay tại trung tâm sôi động quận 10 Paris. Một không gian học tập hiện đại, kết nối và mang đậm hơi thở văn hóa Pháp.
                 </p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div style="background: #0f172a; border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; transition: transform 0.3s;">
-                    <img src="https://istec.fr/wp-content/uploads/2025/07/campus-e1771781716554.png" alt="Campus Jemmapes Paris" style="width: 100%; height: 240px; object-fit: cover;" />
-                    <div style="padding: 24px;">
-                        <h4 style="color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">Campus Jemmapes (Paris)</h4>
-                        <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.6;">Trang bị giảng đường hiện đại, phòng thảo luận nhóm, thư viện số và khu vực sinh hoạt chung năng động cho sinh viên quốc tế.</p>
+            <div class="istec-campus-grid">
+                <div class="istec-campus-card">
+                    <img src="https://istec.fr/wp-content/uploads/2025/07/campus-e1771781716554.png" alt="Campus Jemmapes Paris" loading="lazy" decoding="async" />
+                    <div class="istec-campus-card-body">
+                        <h4>Campus Jemmapes (Paris)</h4>
+                        <p>Trang bị giảng đường hiện đại, phòng thảo luận nhóm, thư viện số và khu vực sinh hoạt chung năng động cho sinh viên quốc tế.</p>
                     </div>
                 </div>
-                <div style="background: #0f172a; border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; transition: transform 0.3s;">
-                    <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Môi trường học tập" style="width: 100%; height: 240px; object-fit: cover;" />
-                    <div style="padding: 24px;">
-                        <h4 style="color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">Mô Hình Đào Tạo Trải Nghiệm</h4>
-                        <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.6;">Áp dụng triệt để phương pháp giảng dạy dựa trên thực hành thực tế, giải quyết các dự án doanh nghiệp và thảo luận tình huống thực tế toàn cầu.</p>
+                <div class="istec-campus-card">
+                    <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Môi trường học tập" loading="lazy" decoding="async" />
+                    <div class="istec-campus-card-body">
+                        <h4>Mô Hình Đào Tạo Trải Nghiệm</h4>
+                        <p>Áp dụng triệt để phương pháp giảng dạy dựa trên thực hành thực tế, giải quyết các dự án doanh nghiệp và thảo luận tình huống thực tế toàn cầu.</p>
                     </div>
                 </div>
-                <div style="background: #0f172a; border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; transition: transform 0.3s;">
-                    <img src="https://istec.fr/wp-content/uploads/2025/05/JK-200929_0791__-1-scaled.jpg" alt="Work-Study Alternance" style="width: 100%; height: 240px; object-fit: cover;" />
-                    <div style="padding: 24px;">
-                        <h4 style="color: #fff; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">Liên Kết Doanh Nghiệp (Alternance)</h4>
-                        <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.6;">Mạng lưới hơn 3,000 đối tác doanh nghiệp lớn tại Pháp và quốc tế giúp sinh viên dễ dàng tiếp cận cơ hội thực tập và học tập kết hợp làm việc thực tế.</p>
+                <div class="istec-campus-card">
+                    <img src="https://istec.fr/wp-content/uploads/2025/05/JK-200929_0791__-1-scaled.jpg" alt="Work-Study Alternance" loading="lazy" decoding="async" />
+                    <div class="istec-campus-card-body">
+                        <h4>Liên Kết Doanh Nghiệp (Alternance)</h4>
+                        <p>Mạng lưới hơn 3,000 đối tác doanh nghiệp lớn tại Pháp và quốc tế giúp sinh viên dễ dàng tiếp cận cơ hội thực tập và học tập kết hợp làm việc thực tế.</p>
                     </div>
                 </div>
             </div>
@@ -2529,34 +2741,34 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     </section>
 
     <!-- ISTEC Paris News & Prestige Section -->
-    <section class="umef-section umef-news-section" id="tin-tuc-su-kien">
-        <div class="news-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hành Trình Hơn 6 Thập Kỷ Đào Tạo Lãnh Đạo</span>
-                <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Lịch Sử & Vị Thế <span>Uy Tín Của ISTEC</span></h2>
+    <section class="umef-section istec-prestige-section" id="tin-tuc-su-kien">
+        <div class="istec-prestige-inner">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <span class="section-badge"><?php echo $is_en ? 'Over 6 Decades of Leadership Education' : 'Hành Trình Hơn 6 Thập Kỷ Đào Tạo Lãnh Đạo'; ?></span>
+                <h2 class="section-title"><?php echo $is_en ? 'History & Prestige <span>Of ISTEC Paris</span>' : 'Lịch Sử & Vị Thế <span>Uy Tín Của ISTEC</span>'; ?></h2>
             </div>
             
-            <div class="news-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                <div>
-                    <img src="https://istec.fr/wp-content/uploads/2025/10/istec_bs25.jpg" alt="Vị thế ISTEC" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); object-fit: cover;" />
+            <div class="istec-prestige-grid">
+                <div class="istec-prestige-image">
+                    <img src="https://istec.fr/wp-content/uploads/2025/10/istec_bs25.jpg" alt="Vị thế ISTEC" loading="lazy" decoding="async" />
                 </div>
-                <div>
-                    <h3 style="font-size: 1.8rem; font-weight: 800; color: #1e293b; margin-bottom: 20px; line-height: 1.3;">Mạng lưới 15,000+ Cựu sinh viên toàn cầu và 60+ năm lịch sử</h3>
-                    <p style="color: #475569; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
-                        Thành lập từ năm 1961, ISTEC Paris đã và đang là một trong những trường lớn (Grande École) lâu đời nhất của nước Pháp. Trường tập trung phát triển các chương trình giảng dạy chất lượng cao về Quản trị Kinh doanh, Marketing, Tài chính và Lãnh đạo Chiến lược.
+                <div class="istec-prestige-content">
+                    <h3><?php echo $is_en ? 'Network of 15,000+ Global Alumni & 60+ Years of History' : 'Mạng lưới 15,000+ Cựu sinh viên toàn cầu và 60+ năm lịch sử'; ?></h3>
+                    <p>
+                        <?php echo $is_en ? 'Founded in 1961, ISTEC Paris has been one of the oldest Grande École business schools in France. The institution focuses on high-quality programs in Business Administration, Marketing, Finance, and Strategic Leadership.' : 'Thành lập từ năm 1961, ISTEC Paris đã và đang là một trong những trường lớn (Grande École) lâu đời nhất của nước Pháp. Trường tập trung phát triển các chương trình giảng dạy chất lượng cao về Quản trị Kinh doanh, Marketing, Tài chính và Lãnh đạo Chiến lược.'; ?>
                     </p>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
-                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #ab0e00; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
-                            <span style="color: #334155; font-weight: 600;">Hạng 8 trường Post-Bac có chương trình Grande École tốt nhất nước Pháp theo Le Parisien năm 2026.</span>
+                    <ul class="istec-prestige-checklist">
+                        <li>
+                            <svg class="svg-icon fa-check-circle fa-solid" viewBox="0 0 512 512" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                            <span><?php echo $is_en ? 'Top 8 Post-Bac business schools with the best Grande École program in France according to Le Parisien 2026.' : 'Hạng 8 trường Post-Bac có chương trình Grande École tốt nhất nước Pháp theo Le Parisien năm 2026.'; ?></span>
                         </li>
-                        <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px;">
-                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #ab0e00; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
-                            <span style="color: #334155; font-weight: 600;">Hơn 100 trường đại học đối tác trao đổi và cấp bằng liên kết trên khắp thế giới.</span>
+                        <li>
+                            <svg class="svg-icon fa-check-circle fa-solid" viewBox="0 0 512 512" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                            <span><?php echo $is_en ? 'Over 100 partner universities for student exchange and joint degree programs worldwide.' : 'Hơn 100 trường đại học đối tác trao đổi và cấp bằng liên kết trên khắp thế giới.'; ?></span>
                         </li>
-                        <li style="display: flex; align-items: flex-start; gap: 12px;">
-                            <svg class="svg-icon fa-check-circle fa-solid" style="color: #ab0e00; font-size: 1.2rem; flex-shrink: 0; margin-top: 3px;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
-                            <span style="color: #334155; font-weight: 600;">Hợp tác chính thức cùng Tổ chức Giáo dục IDEAS mang đến các chương trình thạc sĩ & tiến sĩ xuất sắc tại Việt Nam.</span>
+                        <li>
+                            <svg class="svg-icon fa-check-circle fa-solid" viewBox="0 0 512 512" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                            <span><?php echo $is_en ? 'Official partnership with IDEAS Education Organization delivering outstanding master & doctorate degrees in Vietnam.' : 'Hợp tác chính thức cùng Tổ chức Giáo dục IDEAS mang đến các chương trình thạc sĩ & tiến sĩ xuất sắc tại Việt Nam.'; ?></span>
                         </li>
                     </ul>
                 </div>
@@ -2575,7 +2787,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </p>
             </div>
             
-            <div class="prog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="prog-grid">
                 <!-- DBA Card -->
                 <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #ab0e00 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
                     <h3 style="font-size: 1.5rem; font-weight: 850; color:#1e293b; margin-top: 0; margin-bottom: 6px;">Tiến sĩ DBA</h3>
@@ -2726,7 +2938,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Cảm Nhận Thực Tế</h2>
             </div>
             
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
+            <div class="istec-testimonials-grid">
                 <div style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.03); border:1px solid #f1f5f9;">
                     <p style="color:#475569; font-style:italic; line-height:1.7; margin-bottom:20px;">
                         "Học tập chương trình liên kết của ISTEC tại Việt Nam giúp tôi cân bằng giữa công việc bận rộn tại doanh nghiệp và ước mơ nghiên cứu Tiến sĩ. Chương trình đào tạo cực kỳ bài bản và bám sát thực tiễn doanh nghiệp."
