@@ -309,17 +309,174 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         /* ── Premium Program Cards Style ── */
+        .prog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
         .prog-card {
-            
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid #ab0e00 !important;
+            border-radius: 16px !important;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
         .prog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08) !important;
-            border-color: var(--umef-primary) !important;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.12) !important;
+            border-color: rgba(171, 14, 0, 0.35) !important;
         }
-        .prog-card a {
-            transition: all 0.3s ease;
+        .prog-card-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+        .prog-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .prog-card:hover .prog-card-thumb img {
+            transform: scale(1.06);
+        }
+        .prog-card-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 99px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.35);
+            z-index: 2;
+        }
+        .prog-card-body {
+            padding: 28px 26px 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .prog-card-title {
+            font-size: 1.45rem;
+            font-weight: 850;
+            color: #1e293b;
+            margin-top: 0;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        .prog-card-subtitle {
+            color: var(--umef-primary);
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .prog-card-desc {
+            color: #64748b;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        .prog-card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            color: #475569;
+            font-size: 0.88rem;
+            line-height: 1.8;
+        }
+        .prog-card-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        .prog-card-list li:last-child {
+            margin-bottom: 0;
+        }
+        .prog-card-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--umef-primary);
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1;
+        }
+        .prog-card-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: auto;
+            padding-top: 18px;
+            border-top: 1px solid #f1f5f9;
+        }
+        .prog-btn-reg {
+            flex: 1;
+            padding: 11px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(171, 14, 0, 0.22);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+        }
+        .prog-btn-reg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(171, 14, 0, 0.35);
+            background: linear-gradient(135deg, #bf1100 0%, #9e1200 100%);
+            color: #ffffff;
+        }
+        .prog-btn-reg svg {
+            transition: transform 0.3s ease;
+        }
+        .prog-btn-reg:hover svg {
+            transform: translateX(2px) translateY(-2px);
+        }
+        .prog-btn-more {
+            padding: 11px 16px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #475569;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+        .prog-btn-more:hover {
+            background: #f1f5f9;
+            color: var(--umef-primary);
+            border-color: #cbd5e1;
         }
         
 
@@ -2432,8 +2589,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
         .prog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px;
+            max-width: 960px;
+            margin: 0 auto;
         }
         .istec-testimonials-grid {
             display: grid;
@@ -2487,10 +2646,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 font-size: 0.9rem;
             }
             .istec-campus-grid,
-            .prog-grid,
             .istec-testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            .prog-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+                max-width: 480px !important;
+            }
+            .prog-card-body {
+                padding: 22px 18px 18px !important;
+            }
+            .prog-card-actions {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            .prog-btn-reg,
+            .prog-btn-more {
+                width: 100% !important;
+                justify-content: center !important;
             }
             .section-title {
                 font-size: 1.6rem !important;
@@ -2789,66 +2964,75 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             
             <div class="prog-grid">
                 <!-- DBA Card -->
-                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #ab0e00 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
-                    <h3 style="font-size: 1.5rem; font-weight: 850; color:#1e293b; margin-top: 0; margin-bottom: 6px;">Tiến sĩ DBA</h3>
-                    <span style="color: #ab0e00; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+8</span>
-                    <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
-                        Chương trình Tiến sĩ Quản trị Kinh doanh cao cấp dành riêng cho nhà quản lý, CEO, và chuyên gia xuất sắc muốn nâng tầm học thuật và đóng góp tri thức cho ngành.
-                    </p>
-                    <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:1.8;">
-                        <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Thời gian: 3 - 4 năm
-                        </li>
-                        <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Ngôn ngữ: Tiếng Anh / Tiếng Pháp
-                        </li>
-                        <li style="position:relative; padding-left:18px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Bằng cấp chính thức từ ISTEC Paris
-                        </li>
-                    </ul>
-                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #ab0e00; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
+                <div class="prog-card">
+                    <div class="prog-card-thumb">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp" alt="Tiến sĩ DBA - ISTEC Paris" loading="lazy" decoding="async" />
+                        <span class="prog-card-badge">Bac+8</span>
+                    </div>
+                    <div class="prog-card-body">
+                        <h3 class="prog-card-title"><?php echo $is_en ? 'Doctorate DBA' : 'Tiến sĩ DBA'; ?></h3>
+                        <span class="prog-card-subtitle"><?php echo $is_en ? 'Doctor of Business Administration' : 'Doctor of Business Administration'; ?></span>
+                        <p class="prog-card-desc">
+                            <?php echo $is_en ? 'Senior executive doctorate program designed for business leaders, CEOs, and exceptional experts seeking to advance academic depth and contribute impactful industry research.' : 'Chương trình Tiến sĩ Quản trị Kinh doanh cao cấp dành riêng cho nhà quản lý, CEO, và chuyên gia xuất sắc muốn nâng tầm học thuật và đóng góp tri thức cho ngành.'; ?>
+                        </p>
+                        <ul class="prog-card-list">
+                            <li>
+                                <?php echo $is_en ? 'Duration: 3 - 4 years' : 'Thời gian: 3 - 4 năm'; ?>
+                            </li>
+                            <li>
+                                <?php echo $is_en ? 'Language: English / French' : 'Ngôn ngữ: Tiếng Anh / Tiếng Pháp'; ?>
+                            </li>
+                            <li>
+                                <?php echo $is_en ? 'Official Degree directly awarded by ISTEC Paris' : 'Bằng cấp chính thức từ ISTEC Paris'; ?>
+                            </li>
+                        </ul>
+                        <div class="prog-card-actions">
+                            <button type="button" class="prog-btn-reg"
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('istec-paris-dba'); } else if(typeof window.showform === 'function') { window.showform('istec-paris-dba'); }">
+                                <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+                                <span><?php echo $is_en ? 'Register Consultation' : 'Đăng ký tư vấn'; ?></span>
+                            </button>
+                            <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="prog-btn-more">
+                                <span><?php echo $is_en ? 'Details' : 'Tìm hiểu thêm'; ?></span> &rarr;
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- MBA Card -->
-                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #ab0e00 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
-                    <h3 style="font-size: 1.5rem; font-weight: 850; color:#1e293b; margin-top: 0; margin-bottom: 6px;">Thạc sĩ MBA</h3>
-                    <span style="color: #ab0e00; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+5</span>
-                    <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
-                        Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.
-                    </p>
-                    <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:1.8;">
-                        <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Thời gian: 18 - 24 tháng
-                        </li>
-                        <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG
-                        </li>
-                        <li style="position:relative; padding-left:18px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Hình thức học tập linh hoạt, ưu việt
-                        </li>
-                    </ul>
-                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #ab0e00; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
-                </div>
-
-                <!-- BBA Card -->
-                <div class="prog-card" style="background:#fff; padding:40px 30px; border-radius:0 !important; border:1px solid #e2e8f0; border-top: 8px solid #ab0e00 !important; box-shadow:0 10px 30px rgba(0,0,0,0.03); display:flex; flex-direction:column; position:relative;">
-                    <h3 style="font-size: 1.5rem; font-weight: 850; color:#1e293b; margin-top: 0; margin-bottom: 6px;">Cử nhân BBA</h3>
-                    <span style="color: #ab0e00; font-weight: 700; font-size: 0.95rem; text-transform: uppercase; margin-bottom: 20px; display: block;">Bac+3</span>
-                    <p style="color:#64748b; font-size:0.92rem; line-height:1.6; margin-bottom:20px; flex-grow:1;">
-                        Chương trình đào tạo Cử nhân Quản trị Kinh doanh chính quy (Bachelor in Management) giúp người học nắm vững kiến thức quản trị, tiếp thị, và vận hành doanh nghiệp đạt chuẩn quốc tế.
-                    </p>
-                    <ul style="list-style:none; padding:0; margin:0 0 30px; color:#475569; font-size:0.88rem; line-height:1.8;">
-                        <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Thời gian: 3 năm (hoặc 1 năm Top-up)
-                        </li>
-                        <li style="position:relative; padding-left:18px; margin-bottom:8px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Đạt chuẩn "Grade de Licence" quốc gia
-                        </li>
-                        <li style="position:relative; padding-left:18px;">
-                            <span style="position:absolute; left:0; color:#ab0e00; font-weight:bold;">•</span> Mở rộng cơ hội nghề nghiệp quốc tế
-                        </li>
-                    </ul>
-                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" style="align-self: flex-end; margin-top: auto; color: #ab0e00; font-weight: 800; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s;" onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='none'">Tìm hiểu thêm &rarr;</a>
+                <div class="prog-card">
+                    <div class="prog-card-thumb">
+                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp" alt="Thạc sĩ MBA - ISTEC Paris" loading="lazy" decoding="async" />
+                        <span class="prog-card-badge">Bac+5</span>
+                    </div>
+                    <div class="prog-card-body">
+                        <h3 class="prog-card-title"><?php echo $is_en ? 'Master MBA' : 'Thạc sĩ MBA'; ?></h3>
+                        <span class="prog-card-subtitle"><?php echo $is_en ? 'Executive Master of Business Administration' : 'Executive Master of Business Administration'; ?></span>
+                        <p class="prog-card-desc">
+                            <?php echo $is_en ? 'Executive MBA program enhancing strategic planning capabilities, corporate financial mastery, and global operational leadership for management personnel.' : 'Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.'; ?>
+                        </p>
+                        <ul class="prog-card-list">
+                            <li>
+                                <?php echo $is_en ? 'Duration: 18 - 24 months' : 'Thời gian: 18 - 24 tháng'; ?>
+                            </li>
+                            <li>
+                                <?php echo $is_en ? 'National Master Degree recognized by CEFDG' : 'Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG'; ?>
+                            </li>
+                            <li>
+                                <?php echo $is_en ? 'Flexible, modern hybrid learning model' : 'Hình thức học tập linh hoạt, ưu việt'; ?>
+                            </li>
+                        </ul>
+                        <div class="prog-card-actions">
+                            <button type="button" class="prog-btn-reg"
+                                onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('istec-paris-mba'); } else if(typeof window.showform === 'function') { window.showform('istec-paris-mba'); }">
+                                <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+                                <span><?php echo $is_en ? 'Register Consultation' : 'Đăng ký tư vấn'; ?></span>
+                            </button>
+                            <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="prog-btn-more">
+                                <span><?php echo $is_en ? 'Details' : 'Tìm hiểu thêm'; ?></span> &rarr;
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
