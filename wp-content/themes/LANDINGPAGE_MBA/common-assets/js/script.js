@@ -595,6 +595,8 @@ const isEn = document.documentElement.lang === 'en';
             if (eduText) noteParts.push((isEn ? 'Education: ' : 'Học vấn: ') + eduText);
             if (engText) noteParts.push((isEn ? 'English: ' : 'Tiếng Anh: ') + engText);
             if (msgVal) noteParts.push(msgVal);
+            const programInterestVal = form.querySelector('[name="program_interest"]')?.value;
+            if (programInterestVal) noteParts.push((isEn ? 'Program: ' : 'Chương trình quan tâm: ') + programInterestVal);
 
             const ctaSource = (formId === 'modal-cta-form') ? activeCtaSource : 'inline_form';
             noteParts.push('CTA Source: ' + ctaSource);
@@ -620,7 +622,7 @@ const isEn = document.documentElement.lang === 'en';
                 // Prioritize the user's explicit selection from the "Chương trình quan tâm" dropdown if present
                 const programSelect = form.querySelector('[name="program"]');
                 const selectedProgramVal = programSelect ? programSelect.value : '';
-                if (selectedProgramVal) {
+                if (selectedProgramVal && selectedProgramVal !== 'ISTEC Paris Business School') {
                     if (selectedProgramVal === 'Full BBA') resolvedProgramKey = 'IDEAS01';
                     else if (selectedProgramVal === 'Top-up BBA') resolvedProgramKey = 'IDEAS07';
                     else if (selectedProgramVal === 'Online MBA') resolvedProgramKey = 'IDEAS02';
@@ -633,7 +635,9 @@ const isEn = document.documentElement.lang === 'en';
                     }
                 } else {
                     const path = window.location.pathname.toLowerCase();
-                    if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
+                    if (path.includes("istec")) {
+                        resolvedProgramKey = 'ISTEC';
+                    } else if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
                         resolvedProgramKey = 'IDEAS05';
                     } else if (path.includes("mscinai") || path.includes("mscai")) {
                         resolvedProgramKey = 'IDEAS04';
@@ -652,7 +656,11 @@ const isEn = document.documentElement.lang === 'en';
             }
 
             // Map programKey to sourceVal and chuongTrinhVal
-            if (resolvedProgramKey === 'IDEAS05') {
+            if (resolvedProgramKey === 'ISTEC') {
+                const selectedInterest = form.querySelector('[name="program_interest"]')?.value || 'ISTEC Paris Programs';
+                sourceVal = "Landing_ISTEC";
+                chuongTrinhVal = "ISTEC Paris - " + selectedInterest;
+            } else if (resolvedProgramKey === 'IDEAS05') {
                 sourceVal = "Landing_MBA_AI";
                 chuongTrinhVal = "Online MBA in AI";
             } else if (resolvedProgramKey === 'IDEAS04') {
