@@ -733,6 +733,79 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 4px 14px rgba(0, 92, 77, 0.25) !important;
         }
 
+        /* ── SECTION LỘ TRÌNH 15 MÔN: NỀN XANH TỐI, CÁC ITEM VẪN TRẮNG ── */
+        .section-syllabus-darkgreen {
+            background: #002c24 !important; /* Xanh tối đặc trưng ISTEC */
+            color: #ffffff;
+            position: relative;
+            padding: 85px 0 !important;
+        }
+
+        .section-syllabus-darkgreen .istec-label-top {
+            color: #6ee7b7 !important; /* Xanh ngọc mint sáng */
+        }
+
+        .section-syllabus-darkgreen .istec-heading-large {
+            color: #ffffff !important;
+        }
+
+        .section-syllabus-darkgreen .istec-body-lead {
+            color: #cbd5e1 !important;
+        }
+
+        /* Tabs trên nền xanh tối */
+        .section-syllabus-darkgreen .btn-tab-square {
+            background: rgba(255, 255, 255, 0.08);
+            color: #f1f5f9;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        .section-syllabus-darkgreen .btn-tab-square:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.18);
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .section-syllabus-darkgreen .btn-tab-square.active {
+            background: #ffffff !important;
+            color: #002c24 !important;
+            font-weight: 800 !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+        }
+
+        /* CÁC ITEM ACCORDION VẪN TRẮNG NGUYÊN BẢN TRÊN NỀN XANH TỐI */
+        .section-syllabus-darkgreen .acc-square-box {
+            background: #ffffff !important;
+            border: none !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+            margin-bottom: 14px;
+        }
+
+        .section-syllabus-darkgreen .acc-square-header {
+            background: #ffffff !important;
+            color: var(--dark-main) !important;
+        }
+
+        .section-syllabus-darkgreen .acc-square-header:hover {
+            background: #f8fafc !important;
+        }
+
+        .section-syllabus-darkgreen .acc-square-title {
+            color: var(--dark-main) !important;
+        }
+
+        .section-syllabus-darkgreen .acc-square-panel {
+            background: #ffffff !important;
+        }
+
+        .section-syllabus-darkgreen .course-row-square {
+            background: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
+            color: var(--dark-main) !important;
+        }
+
         /* ── BỐ CỤC 2 CỘT: FAQ BÊN TRÁI, FORM BÊN PHẢI ── */
         .faq-form-grid-2 {
             display: grid;
@@ -962,8 +1035,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .acc-square-box.open {
-            border-color: #b91c1c !important;
-            box-shadow: 0 4px 14px rgba(185, 28, 28, 0.08) !important;
+            border-color: var(--istec-deep-green) !important;
+            box-shadow: 0 6px 20px rgba(0, 92, 77, 0.12) !important;
         }
 
         .acc-square-header {
@@ -985,7 +1058,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .acc-square-box.open .acc-square-header svg {
             transform: rotate(180deg);
-            color: #b91c1c;
+            color: var(--istec-deep-green);
         }
 
         .acc-square-header:hover {
@@ -1583,8 +1656,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 8. TIMELINE 15 MÔN HỌC & LUẬN VĂN (ACTIVE MÀU XANH BRAND ISTEC) ══ -->
-    <section class="istec-section-box bg-alt">
+    <!-- ══ 8. TIMELINE 15 MÔN HỌC & LUẬN VĂN (NỀN XANH TỐI, ITEM TRẮNG) ══ -->
+    <section class="istec-section-box section-syllabus-darkgreen" id="chuong-trinh">
         <div class="container">
             <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
                 <span class="istec-label-top">SYLLABUS DETAILS</span>
@@ -1850,58 +1923,58 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 11. KHÔNG GIAN HỌC XÁ TRUNG TÂM PARIS (IN THE HEART OF PARIS CHUẨN SCREENSHOT) ══ -->
+    <!-- ══ 11. KHÔNG GIAN HỌC XÁ TRUNG TÂM PARIS (LINH HOẠT NỘI DUNG CHUẨN MBA) ══ -->
     <section class="istec-section-box" id="campus-paris">
         <div class="container">
             <div class="campus-paris-grid">
-                <!-- Cột trái: Giới thiệu học xá & Danh mục mở rộng kiểu trường ISTEC -->
+                <!-- Cột trái: Nội dung linh hoạt chuẩn học viên MBA -->
                 <div class="campus-paris-info">
-                    <span class="istec-label-top" style="color: var(--istec-bright-green); font-weight: 800; letter-spacing: 0.1em; font-size: 0.82rem;">IN THE HEART OF PARIS</span>
-                    <h2 style="font-size: clamp(2rem, 3.2vw, 2.75rem); font-weight: 800; color: var(--dark-main); line-height: 1.2; margin: 12px 0 20px; letter-spacing: -0.015em;">
-                        A campus that fosters innovation and learning
+                    <span class="istec-label-top" style="color: var(--istec-bright-green); font-weight: 800; letter-spacing: 0.1em; font-size: 0.82rem;">TRẢI NGHIỆM HỌC THUẬT QUỐC TẾ</span>
+                    <h2 style="font-size: clamp(1.85rem, 3vw, 2.5rem); font-weight: 800; color: var(--dark-main); line-height: 1.25; margin: 12px 0 20px; letter-spacing: -0.015em;">
+                        Môi trường học tập đỉnh cao & kết nối doanh nghiệp toàn cầu
                     </h2>
                     <p style="font-size: 0.98rem; color: var(--dark-sub); line-height: 1.65; margin-bottom: 14px;">
-                        Tọa lạc ngay giữa trái tim thủ đô Paris (bên bờ kênh Saint-Martin thơ mộng), ISTEC mang đến cho học viên một môi trường học thuật năng động, kết nối trực tiếp với các tập đoàn đa quốc gia, vườn ươm khởi nghiệp và giới chuyên gia kinh tế hàng đầu.
+                        Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) tại ISTEC Business School Paris là sự kết hợp tối ưu giữa tính linh hoạt của nền tảng trực tuyến và cơ hội trải nghiệm học thuật thực tế ngay tại trung tâm thủ đô Paris hoa lệ.
                     </p>
                     <p style="font-size: 0.95rem; color: var(--dark-muted); line-height: 1.65; margin-bottom: 24px;">
-                        Học xá hiện đại và thân thiện thúc đẩy tính sáng tạo, hợp tác và phương pháp học tập trải nghiệm thực tế, trang bị cho bạn bản lĩnh sẵn sàng trước mọi thách thức của thế giới kinh doanh.
+                        Học xá ISTEC bên bờ kênh Saint-Martin thơ mộng là nơi giao thoa của tinh thần đổi mới sáng tạo, phương pháp đào tạo tình huống (Case-study) và cơ hội mở rộng mạng lưới quan hệ cùng các nhà quản trị đa quốc gia.
                     </p>
 
-                    <!-- 3 Dòng Accordion tương tác chuẩn screenshot -->
+                    <!-- 3 Dòng Accordion tương tác linh hoạt cho học viên MBA -->
                     <div class="campus-features-list">
                         <div class="campus-feature-item">
                             <button class="campus-feature-btn" type="button" onclick="toggleCampusTab(this)">
                                 <span class="campus-arrow-icon">→</span>
-                                <span class="campus-feature-title">Studying and living in Paris</span>
+                                <span class="campus-feature-title">Trải nghiệm thực tế tại Paris & Lễ tốt nghiệp danh giá</span>
                             </button>
                             <div class="campus-feature-panel">
-                                <p>Cơ hội tham gia các chuyến Study Tour tại Paris, giao lưu cùng học viên quốc tế và tham dự Lễ tốt nghiệp trang trọng tại các khán phòng nghệ thuật biểu tượng như Le Grand Rex.</p>
+                                <p>Đặc quyền tham gia các chuyến Study Tour tại Paris, tham quan các tập đoàn Châu Âu hàng đầu và tham dự Lễ vinh danh tốt nghiệp trang trọng tại các khán phòng nghệ thuật biểu tượng của Pháp như Le Grand Rex.</p>
                             </div>
                         </div>
 
                         <div class="campus-feature-item">
                             <button class="campus-feature-btn" type="button" onclick="toggleCampusTab(this)">
                                 <span class="campus-arrow-icon">→</span>
-                                <span class="campus-feature-title">An outstanding faculty</span>
+                                <span class="campus-feature-title">Hội đồng học thuật & Giảng viên đầu ngành Châu Âu</span>
                             </button>
                             <div class="campus-feature-panel">
-                                <p>Hội tụ đội ngũ Giáo sư, Tiến sĩ và Chuyên gia tư vấn chiến lược hàng đầu tại Pháp và Châu Âu với nhiều công trình nghiên cứu được xuất bản quốc tế.</p>
+                                <p>Hội tụ 100% Giáo sư, Tiến sĩ và Chuyên gia tư vấn chiến lược dày dạn kinh nghiệm quốc tế, trực tiếp đồng hành giải quyết các bài toán vận hành và quản trị thực tiễn cho doanh nghiệp của bạn.</p>
                             </div>
                         </div>
 
                         <div class="campus-feature-item">
                             <button class="campus-feature-btn" type="button" onclick="toggleCampusTab(this)">
                                 <span class="campus-arrow-icon">→</span>
-                                <span class="campus-feature-title">An international program</span>
+                                <span class="campus-feature-title">Bằng Thạc sĩ quốc gia Pháp & Mạng lưới Alumni 40+ quốc gia</span>
                             </button>
                             <div class="campus-feature-panel">
-                                <p>Chương trình MBA đạt kiểm định chuẩn quốc gia Pháp RNCP Level 7 (Bac+5), kết nối mạng lưới hơn 8.000 cựu học viên và 3.500 doanh nghiệp đối tác toàn cầu.</p>
+                                <p>Bằng Thạc sĩ MBA RNCP Level 7 (Bac+5) được Bộ Giáo dục Đại học & Nghiên cứu Pháp chứng nhận, mở ra cơ hội kết nối với hơn 8.000 cựu học viên và 3.500 doanh nghiệp đối tác trên khắp thế giới.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cột phải: Ảnh lớn kênh Saint-Martin Paris tuyệt đẹp chuẩn ảnh mẫu của trường -->
+                <!-- Cột phải: Ảnh lớn kênh Saint-Martin Paris -->
                 <div class="campus-paris-media">
                     <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0776_LD-scaled.jpg" 
                          alt="ISTEC Campus in the heart of Paris" 
@@ -1918,28 +1991,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <div class="faq-form-grid-2">
                 <!-- CỘT TRÁI: CÂU HỎI THƯỜNG GẶP (FAQ) & KHỐI THÔNG ĐIỆP ĐẶC TRƯNG -->
                 <div class="faq-col-left">
-                    <!-- KHỐI THÔNG ĐIỆP ĐẶC TRƯNG CHUẨN SCREENSHOT -->
+                    <!-- KHỐI THÔNG ĐIỆP ĐẶC TRƯNG CHUẨN BRAND ISTEC -->
                     <div style="margin-bottom: 28px;">
                         <h2 style="font-size: clamp(1.85rem, 2.8vw, 2.45rem); font-weight: 800; color: var(--dark-main); line-height: 1.25; margin-bottom: 20px; letter-spacing: -0.015em;">
                             Đừng để sự nghiệp của bạn<br>
-                            <span style="color: #b91c1c; position: relative; display: inline-block;">
+                            <span style="color: var(--istec-deep-green); position: relative; display: inline-block;">
                                 tiếp tục đứng yên
-                                <span style="position: absolute; bottom: 3px; left: 0; width: 100%; height: 7px; background: rgba(185, 28, 28, 0.15); z-index: -1;"></span>
+                                <span style="position: absolute; bottom: 3px; left: 0; width: 100%; height: 7px; background: rgba(0, 92, 77, 0.12); z-index: -1;"></span>
                             </span><br>
                             thêm 1–2 năm nữa
                         </h2>
 
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
                             <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 1.02rem; color: var(--dark-sub); line-height: 1.55;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
                                 <span>Tấm bằng <strong>Thạc sĩ Quản trị kinh doanh Pháp (ISTEC Paris)</strong> – RNCP Level 7 (Bac+5)</span>
                             </li>
                             <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 1.02rem; color: var(--dark-sub); line-height: 1.55;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
                                 <span>Lộ trình đào tạo <strong>tối ưu cho người bận rộn</strong> (100% Online)</span>
                             </li>
                             <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 1.02rem; color: var(--dark-sub); line-height: 1.55;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
                                 <span>IDEAS <strong>đồng hành và hỗ trợ học thuật</strong> trong suốt quá trình học</span>
                             </li>
                         </ul>
