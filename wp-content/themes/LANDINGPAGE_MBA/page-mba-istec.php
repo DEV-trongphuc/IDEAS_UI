@@ -128,7 +128,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
           "name": "Học phí chương trình MBA ISTEC là bao nhiêu?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Học phí chương trình là 6.500 EUR trọn gói. Học viên có thể trả góp 0% qua thẻ tín dụng Sacombank từ 12 - 24 tháng."
+            "text": "Học phí công bố (public) là 8.500 EUR. Học viên đăng ký qua Viện IDEAS được hưởng mức ưu đãi đặc biệt còn 6.500 EUR + 200 EUR lệ phí xét tuyển hồ sơ (LPHS). Có hỗ trợ trả góp 0% qua thẻ tín dụng Sacombank từ 12 - 24 tháng."
           }
         }
       ]
@@ -1827,9 +1827,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <div class="tuition-box-clean">
                 <div class="tuition-top-banner">
-                    <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8;">Học phí trọn khóa MBA</span>
-                    <div class="tuition-main-price">6.500 EUR</div>
-                    <p style="color: #cbd5e1; font-size: 0.92rem; margin: 0;">Chính sách thanh toán linh hoạt theo học kỳ hoặc trả góp 0%</p>
+                    <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8;">Học phí & Lệ phí tuyển sinh</span>
+                    
+                    <div style="margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                        <span style="font-size: 1.4rem; text-decoration: line-through; color: #94a3b8; font-weight: 600;">8.500 EUR</span>
+                        <div class="tuition-main-price" style="margin: 0;">6.500 EUR</div>
+                        <span style="background: rgba(97, 166, 14, 0.25); color: #a3e635; font-size: 0.85rem; font-weight: 800; padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(163, 230, 53, 0.3);">
+                            TIẾT KIỆM 2.000 EUR
+                        </span>
+                    </div>
+
+                    <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.98rem; color: #f1f5f9;">
+                        Lệ phí hồ sơ (LPHS): <strong style="color: var(--istec-green); font-size: 1.15rem; margin-left: 4px;">200 EUR</strong>
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.88rem; margin: 8px 0 0;">Học phí công bố (public): 8.500 EUR • Ưu đãi đặc biệt: 6.500 EUR + 200 EUR LPHS</p>
                 </div>
 
                 <div class="tuition-body-clean">
@@ -1963,7 +1974,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </button>
                     <div class="faq-body">
                         <div class="faq-body-inner">
-                            Chương trình có mức phí 6.500 EUR cùng nhiều chính sách đóng học phí linh hoạt và hỗ trợ trả góp qua thẻ tín dụng Sacombank từ 12 - 24 tháng. Vui lòng liên hệ hotline 028 2244 2244 để nhận lộ trình chi phí chi tiết.
+                            Học phí công bố chính thức (public) của chương trình MBA ISTEC Paris là <strong>8.500 EUR</strong>. Hiện tại, học viên đăng ký qua đối tác tuyển sinh chính thức Viện IDEAS được áp dụng mức học phí ưu đãi chỉ còn <strong>6.500 EUR</strong> cùng <strong>200 EUR</strong> lệ phí xét tuyển hồ sơ (LPHS). Học viên được hỗ trợ trả góp 0% lãi suất qua thẻ tín dụng Sacombank linh hoạt từ 12 - 24 tháng.
                         </div>
                     </div>
                 </div>
