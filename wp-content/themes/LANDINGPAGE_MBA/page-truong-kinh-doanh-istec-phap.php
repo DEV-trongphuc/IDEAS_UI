@@ -310,26 +310,45 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 700;
         }
 
-        /* Fast info badges row */
+        /* Decor icons opacity */
+        .istec-hero .bg-decor-icon {
+            opacity: 0.08 !important;
+            pointer-events: none;
+            user-select: none;
+            filter: blur(0.5px);
+            transition: opacity 0.3s ease;
+        }
+
+        /* Fast info badges row (Không xuống hàng) */
         .istec-hero .hero-badges-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-wrap: nowrap;
+            gap: 8px;
             margin-bottom: 24px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px;
+        }
+
+        .istec-hero .hero-badges-row::-webkit-scrollbar {
+            display: none;
         }
 
         .istec-hero .info-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 7px 14px;
+            gap: 6px;
+            padding: 6px 11px;
             background: #ffffff;
-            border: 1px solid rgba(97, 166, 14, 0.2);
+            border: 1px solid rgba(97, 166, 14, 0.22);
             border-radius: 12px;
-            font-size: 0.84rem;
+            font-size: 0.78rem;
             font-weight: 650;
             color: #1e293b;
             box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            white-space: nowrap;
+            flex-shrink: 0;
             transition: all 0.25s ease;
         }
 
@@ -440,30 +459,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translateY(-2px);
         }
 
-        /* Social proof */
+        /* Trust & Global Network proof (Bỏ ảnh học viên theo feedback) */
         .istec-hero .hero-social-proof {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
-        .istec-hero .avatars {
-            display: flex;
-            align-items: center;
-        }
-
-        .istec-hero .avatar {
+        .istec-hero .network-proof-icon {
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            border: 2px solid #ffffff;
-            margin-left: -10px;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
-        }
-
-        .istec-hero .avatar:first-child {
-            margin-left: 0;
+            background: rgba(97, 166, 14, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1.5px solid rgba(97, 166, 14, 0.28);
+            color: #61A60E;
         }
 
         .istec-hero .hero-social-proof p {
@@ -476,6 +489,94 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .istec-hero .hero-social-proof p strong {
             color: #0f172a;
             font-weight: 800;
+        }
+
+        /* ── Full-width Infinite Accreditation Marquee ── */
+        .istec-marquee-section {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.88);
+            border-top: 1px solid rgba(97, 166, 14, 0.14);
+            border-bottom: 1px solid rgba(97, 166, 14, 0.14);
+            backdrop-filter: blur(12px);
+            margin-top: 48px;
+        }
+
+        .istec-marquee-wrapper {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .istec-marquee-fade-left,
+        .istec-marquee-fade-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .istec-marquee-fade-left {
+            left: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95), transparent);
+        }
+
+        .istec-marquee-fade-right {
+            right: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.95), transparent);
+        }
+
+        .istec-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: istec-marquee-scroll 32s linear infinite;
+        }
+
+        .istec-marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .istec-marquee-group {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            padding-right: 48px;
+            flex-shrink: 0;
+        }
+
+        .istec-marquee-group .logos__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.25s ease;
+        }
+
+        .istec-marquee-group img {
+            height: 38px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            filter: grayscale(20%) contrast(105%);
+            transition: all 0.25s ease;
+        }
+
+        .istec-marquee-group img:hover {
+            filter: grayscale(0%) contrast(110%);
+            transform: scale(1.1);
+        }
+
+        @keyframes istec-marquee-scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* ── Right Column: Hero Visual Panel ── */
@@ -492,18 +593,56 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: #e2e8f0;
         }
 
-        .istec-hero .hero-photo-main > img {
+        .istec-hero .hero-photo-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: #ffffff;
+        }
+
+        .istec-hero .hero-photo-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .istec-hero .hero-photo-top img {
             width: 100%;
-            height: 560px;
+            height: 290px;
             object-fit: cover;
-            object-position: center 35%;
+            object-position: center top;
             display: block;
-            border-radius: 24px;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .istec-hero .hero-photo-main:hover > img {
+        .istec-hero .hero-photo-bottom img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .istec-hero .hero-photo-main:hover .hero-photo-top img,
+        .istec-hero .hero-photo-main:hover .hero-photo-bottom img {
             transform: scale(1.03);
+        }
+
+        .istec-hero .hero-photo-caption {
+            position: absolute;
+            bottom: 12px;
+            left: 14px;
+            background: rgba(15, 23, 42, 0.76);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 0.74rem;
+            font-weight: 650;
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.02em;
+            pointer-events: none;
+            display: inline-flex;
+            align-items: center;
         }
 
         /* Floating stat badges */
@@ -512,32 +651,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(97, 166, 14, 0.25);
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(97, 166, 14, 0.28);
             border-radius: 16px;
             padding: 12px 18px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
             backdrop-filter: blur(14px);
-            min-width: 170px;
-            z-index: 3;
+            min-width: 165px;
+            z-index: 10;
             animation: float-gentle 4.5s ease-in-out infinite alternate;
         }
 
         .istec-hero .hero-float-1 {
             top: 24px;
-            left: -18px;
+            left: -20px;
             animation-delay: 0s;
         }
 
         .istec-hero .hero-float-2 {
-            top: 45%;
-            right: -20px;
+            top: 48%;
+            right: -24px;
             animation-delay: 1.2s;
         }
 
         .istec-hero .hero-float-3 {
             bottom: 24px;
-            left: 20px;
+            left: -16px;
             animation-delay: 2.2s;
         }
 
@@ -571,14 +710,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .istec-hero .hero-video-thumb {
             position: absolute;
             bottom: -18px;
-            right: -16px;
+            right: 18px;
             width: 200px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
             border: 3px solid #ffffff;
             background: #0f172a;
-            z-index: 4;
+            z-index: 12;
             text-decoration: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -656,8 +795,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 max-width: 580px;
                 margin: 0 auto;
             }
-            .istec-hero .hero-photo-main > img {
-                height: 420px;
+            .istec-hero .hero-photo-top img {
+                height: 220px;
+            }
+            .istec-hero .hero-photo-bottom img {
+                height: 200px;
             }
             .istec-hero .hero-float-1 {
                 left: 12px;
@@ -684,8 +826,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .istec-hero .hero-headline {
                 font-size: 1.85rem;
             }
-            .istec-hero .hero-photo-main > img {
-                height: 320px;
+            .istec-hero .hero-photo-top img {
+                height: 180px;
+            }
+            .istec-hero .hero-photo-bottom img {
+                height: 160px;
             }
             .istec-hero .hero-float-badge {
                 min-width: 135px;
@@ -3117,10 +3262,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Modern Impressive Hero Area (ISTEC Green & mba.html Style) -->
     <section class="istec-hero" id="trang-chu" aria-labelledby="hero-headline">
         <div class="hero-bg">
-            <!-- Localized Background Decor Icons -->
+            <!-- Localized Background Decor Icons (Mờ nhẹ tinh tế) -->
             <div class="section-bg-decor">
-                <svg class="svg-icon fa-graduation-cap fa-solid bg-decor-icon decor-lg" style="top: 10%; left: 4%; animation-duration: 28s;" viewBox="0 0 640 512" width="18" height="18" fill="#61A60E"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
-                <svg class="svg-icon fa-book fa-solid bg-decor-icon decor-sm" style="top: 60%; right: 3%; animation-duration: 32s;" viewBox="0 0 448 512" width="16" height="16" fill="#61A60E"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
+                <svg class="svg-icon fa-graduation-cap fa-solid bg-decor-icon decor-lg" style="top: 10%; left: 4%; animation-duration: 28s; opacity: 0.08;" viewBox="0 0 640 512" width="18" height="18" fill="#61A60E"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                <svg class="svg-icon fa-book fa-solid bg-decor-icon decor-sm" style="top: 60%; right: 3%; animation-duration: 32s; opacity: 0.08;" viewBox="0 0 448 512" width="16" height="16" fill="#61A60E"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
             </div>
             <div class="hero-orb hero-orb-1"></div>
             <div class="hero-orb hero-orb-2"></div>
@@ -3210,55 +3355,63 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <div class="hero-social-proof">
-                    <div class="avatars" aria-hidden="true">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="Học viên 1" class="avatar" loading="lazy" width="36" height="36">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp" alt="Học viên 2" class="avatar" loading="lazy" width="36" height="36">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp" alt="Học viên 3" class="avatar" loading="lazy" width="36" height="36">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp" alt="Học viên 4" class="avatar" loading="lazy" width="36" height="36">
-                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/chu_hoang_thai.webp" alt="Học viên 5" class="avatar" loading="lazy" width="36" height="36">
+                    <div class="network-proof-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#61A60E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
-                    <p><?php echo $is_en ? '<strong>15,000+</strong> Global Alumni &amp; Executive Network in Vietnam with IDEAS' : '<strong>15,000+</strong> Cựu sinh viên toàn cầu &amp; Mạng lưới học viên tại Việt Nam cùng IDEAS'; ?></p>
+                    <p><?php echo $is_en ? '<strong>15,000+</strong> Global Alumni in 40+ countries &bull; ISTEC Paris Business School' : '<strong>15,000+</strong> Cựu sinh viên toàn cầu tại 40+ quốc gia &bull; ISTEC Paris'; ?></p>
                 </div>
             </div>
 
-            <!-- RIGHT: Hero Visual Panel -->
+            <!-- RIGHT: Hero Visual Panel (Thêm ảnh Campus Jemmapes thay thế khoảng trắng) -->
             <div class="hero-visual reveal-up">
                 <div class="hero-photo-main">
-                    <img decoding="async" src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg"
-                        alt="Sinh viên Trường Kinh Doanh ISTEC Paris" width="620" height="560"
-                        loading="eager" fetchpriority="high" />
-
-                    <!-- Floating Stat 1: Bac 8+ (Feedback) -->
-                    <div class="hero-float-badge hero-float-1">
-                        <div class="float-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    <div class="hero-photo-grid">
+                        <div class="hero-photo-item hero-photo-top">
+                            <img decoding="async" src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg"
+                                alt="Sinh viên Trường Kinh Doanh ISTEC Paris" width="620" height="290"
+                                loading="eager" fetchpriority="high" />
                         </div>
-                        <div>
-                            <div class="float-value">Bac 8+</div>
-                            <div class="float-label"><?php echo $is_en ? 'Terminal Degree (DBA)' : 'Chương trình cao nhất'; ?></div>
-                        </div>
-                    </div>
-
-                    <!-- Floating Stat 2: Top 8 (Le Parisien) -->
-                    <div class="hero-float-badge hero-float-2">
-                        <div class="float-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                        </div>
-                        <div>
-                            <div class="float-value">Top 8</div>
-                            <div class="float-label">Post-Bac (Le Parisien)</div>
+                        <div class="hero-photo-item hero-photo-bottom">
+                            <img decoding="async" src="https://istec.fr/wp-content/uploads/2025/07/campus-e1771781716554.png"
+                                alt="Cơ sở Campus Jemmapes ISTEC Paris" width="620" height="270"
+                                loading="lazy" />
+                            <div class="hero-photo-caption">
+                                <span>Campus Jemmapes – Canal Saint-Martin, Paris</span>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Floating Stat 3: CGE -->
-                    <div class="hero-float-badge hero-float-3">
-                        <div class="float-icon">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-                        </div>
-                        <div>
-                            <div class="float-value">CGE</div>
-                            <div class="float-label"><?php echo $is_en ? 'Grande École Member' : 'Hiệp hội Trường Lớn'; ?></div>
-                        </div>
+                <!-- Floating Stat 1: Bac 8+ (Feedback) -->
+                <div class="hero-float-badge hero-float-1">
+                    <div class="float-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <div>
+                        <div class="float-value">Bac 8+</div>
+                        <div class="float-label"><?php echo $is_en ? 'Terminal Degree (DBA)' : 'Chương trình cao nhất'; ?></div>
+                    </div>
+                </div>
+
+                <!-- Floating Stat 2: Top 8 (Le Parisien) -->
+                <div class="hero-float-badge hero-float-2">
+                    <div class="float-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    </div>
+                    <div>
+                        <div class="float-value">Top 8</div>
+                        <div class="float-label">Post-Bac (Le Parisien)</div>
+                    </div>
+                </div>
+
+                <!-- Floating Stat 3: CGE -->
+                <div class="hero-float-badge hero-float-3">
+                    <div class="float-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    </div>
+                    <div>
+                        <div class="float-value">CGE</div>
+                        <div class="float-label"><?php echo $is_en ? 'Grande École Member' : 'Hiệp hội Trường Lớn'; ?></div>
                     </div>
                 </div>
 
@@ -3272,6 +3425,75 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <span class="video-play-title"><?php echo $is_en ? 'Graduation Ceremony' : 'Lễ Tốt Nghiệp ISTEC'; ?></span>
                     </div>
                 </a>
+            </div>
+        </div>
+
+        <!-- Infinite Accreditation Marquee Strip (Hàng kiểm định chạy ngang vô tận) -->
+        <div class="istec-marquee-section" aria-label="Các kiểm định và công nhận quốc tế của ISTEC Paris">
+            <div class="istec-marquee-wrapper">
+                <div class="istec-marquee-fade-left"></div>
+                <div class="istec-marquee-fade-right"></div>
+                <div class="istec-marquee-track">
+                    <div class="istec-marquee-group">
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="France Compétences">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="France Compétences RNCP" width="130" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Campus France">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/campus-france-logo.png" alt="Campus France" width="124" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="CEFDG">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/CEFDG-1.webp" alt="CEFDG" width="80" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Bienvenue en France">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/logo-bienvenue-en-france.png" alt="Bienvenue en France" width="48" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Erasmus+">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/Erasmus_Logo.svg.png" alt="Erasmus+" width="130" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="CGE - Conférence des Grandes Écoles">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="CGE - Conférence des Grandes Écoles" width="85" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Qualiopi">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/qualiopi-logo-png.png" alt="Qualiopi" width="75" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="AACSB Member">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2025/07/AACSB.webp" alt="AACSB Member" width="85" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="EFMD Member">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/01/EFMD-Logo-2-300x122-1.png" alt="EFMD Member" width="95" height="38" />
+                        </a>
+                    </div>
+                    <!-- Duplicate group for infinite continuous loop -->
+                    <div class="istec-marquee-group" aria-hidden="true">
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="France Compétences">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="France Compétences RNCP" width="130" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Campus France">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/campus-france-logo.png" alt="Campus France" width="124" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="CEFDG">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/CEFDG-1.webp" alt="CEFDG" width="80" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Bienvenue en France">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/logo-bienvenue-en-france.png" alt="Bienvenue en France" width="48" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Erasmus+">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/Erasmus_Logo.svg.png" alt="Erasmus+" width="130" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="CGE - Conférence des Grandes Écoles">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="CGE - Conférence des Grandes Écoles" width="85" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="Qualiopi">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/02/qualiopi-logo-png.png" alt="Qualiopi" width="75" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="AACSB Member">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2025/07/AACSB.webp" alt="AACSB Member" width="85" height="38" />
+                        </a>
+                        <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="logos__link" title="EFMD Member">
+                            <img loading="lazy" src="https://istec.fr/wp-content/uploads/2026/01/EFMD-Logo-2-300x122-1.png" alt="EFMD Member" width="95" height="38" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
