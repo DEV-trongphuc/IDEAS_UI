@@ -260,8 +260,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 6px 18px rgba(97, 166, 14, 0.3);
         }
 
-        /* ── FULL WIDTH PARALLAX BANNER SECTION (100VW TRÀN VIỀN TOÀN KHUNG) ── */
-        .istec-parallax-fullwidth {
+        /* ── REAL PARALLAX FULLWIDTH BANNER (ẢNH CUỘN PARALLAX THỰC SỰ, KHÔNG PHẢI NỀN BỊ CẮT) ── */
+        .istec-real-parallax-wrap {
             width: 100vw;
             position: relative;
             left: 50%;
@@ -269,27 +269,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-left: -50vw;
             margin-right: -50vw;
             height: 480px;
-            background-size: cover;
-            background-position: center 30%;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             overflow: hidden;
             display: flex;
             align-items: flex-end;
             padding: 36px 60px;
             box-sizing: border-box;
-            box-shadow: inset 0 20px 30px rgba(0,0,0,0.08), inset 0 -20px 30px rgba(0,0,0,0.08);
+            background: #0f172a;
         }
 
-        .parallax-students-banner {
-            background-image: url('https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg');
+        .istec-parallax-img-holder {
+            position: absolute;
+            top: -25%;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        .parallax-paris-banner {
-            background-image: url('https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg');
+        .parallax-inner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%;
+            display: block;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
         }
 
         .parallax-caption-tag {
+            position: relative;
+            z-index: 2;
             background: rgba(17, 24, 39, 0.75);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -1081,11 +1091,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 <!-- NỘI DUNG CHÍNH (TIÊU ĐỀ 2-TONE & MÔ TẢ PHONG CÁCH CHÂU ÂU) -->
                 <div class="istec-hero-main-content">
-                    <!-- Logo ISTEC Paris chính thức ngay bên trên title -->
-                    <div style="margin-bottom: 20px;">
+                    <!-- Logo ISTEC Paris chính thức to rõ hơn -->
+                    <div style="margin-bottom: 22px;">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/logo-istec-paris.svg" 
                              alt="ISTEC Business School Paris Logo" 
-                             style="height: 46px; width: auto; display: block;" />
+                             style="height: 72px; width: auto; display: block;" />
                     </div>
 
                     <h1 class="istec-hero-headline">
@@ -1115,8 +1125,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ FULL-WIDTH PARALLAX BANNER (HÌNH ẢNH SINH VIÊN RỘNG TOÀN KHUNG 100VW) ══ -->
-    <div class="istec-parallax-fullwidth parallax-students-banner" role="img" aria-label="Sinh viên trường Kinh doanh ISTEC Paris">
+    <!-- ══ FULL-WIDTH REAL PARALLAX BANNER (ẢNH CUỘN PARALLAX THỰC SỰ TRÊN ẢNH SINH VIÊN) ══ -->
+    <div class="istec-real-parallax-wrap" id="parallaxWrap1">
+        <div class="istec-parallax-img-holder">
+            <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" 
+                 alt="Sinh viên trường Kinh doanh ISTEC Paris" 
+                 class="parallax-inner-img" 
+                 id="parallaxImg1" 
+                 loading="eager" />
+        </div>
         <div class="parallax-caption-tag">
             <span>ISTEC BUSINESS SCHOOL PARIS • CAMPUS LIFE</span>
         </div>
@@ -1681,8 +1698,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ FULL-WIDTH PARALLAX BANNER (PARIS GRADUATION & CAMPUS) ══ -->
-    <div class="istec-parallax-fullwidth parallax-paris-banner" role="img" aria-label="Lễ tốt nghiệp ISTEC tại Nhà hát Grand Rex Paris">
+    <!-- ══ FULL-WIDTH REAL PARALLAX BANNER (PARIS GRADUATION & CAMPUS) ══ -->
+    <div class="istec-real-parallax-wrap" id="parallaxWrap2">
+        <div class="istec-parallax-img-holder">
+            <img src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" 
+                 alt="Lễ tốt nghiệp ISTEC tại Nhà hát Grand Rex Paris" 
+                 class="parallax-inner-img" 
+                 id="parallaxImg2" 
+                 loading="lazy" />
+        </div>
         <div class="parallax-caption-tag">
             <span>DIPLÔME DE L'ISTEC • GRADUATION AT LE GRAND REX PARIS</span>
         </div>
@@ -2068,6 +2092,47 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 msg.style.display = 'block';
                 form.reset();
             }, 600);
+        }
+
+        // ── 4. REAL PARALLAX SCROLL CONTROLLER TRÊN ẢNH ──
+        function initRealParallax() {
+            const parallaxWraps = [
+                { wrap: document.getElementById('parallaxWrap1'), img: document.getElementById('parallaxImg1') },
+                { wrap: document.getElementById('parallaxWrap2'), img: document.getElementById('parallaxImg2') }
+            ];
+
+            let ticking = false;
+
+            function updateParallaxPositions() {
+                const winH = window.innerHeight;
+                parallaxWraps.forEach(item => {
+                    if (!item.wrap || !item.img) return;
+                    const rect = item.wrap.getBoundingClientRect();
+                    if (rect.top < winH && rect.bottom > 0) {
+                        const midElement = rect.top + rect.height / 2;
+                        const midWindow = winH / 2;
+                        const dist = midElement - midWindow;
+                        const translateY = (dist / winH) * 75; // 75px smooth glide
+                        item.img.style.transform = `translate3d(0, ${translateY}px, 0)`;
+                    }
+                });
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallaxPositions);
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            updateParallaxPositions();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initRealParallax);
+        } else {
+            initRealParallax();
         }
     </script>
 </body>
