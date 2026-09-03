@@ -1163,14 +1163,132 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
+        .istec-hero-btn-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* Nút Scroll Top nổi */
+        .btn-scroll-top {
+            position: fixed;
+            bottom: 85px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: var(--istec-deep-green);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-square);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 92, 77, 0.35);
+            cursor: pointer !important;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.3s ease;
+            z-index: 99999;
+        }
+
+        .btn-scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-scroll-top:hover {
+            background: var(--istec-deep-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 92, 77, 0.45);
+        }
+
         @media (max-width: 768px) {
             .istec-hero-container {
                 padding: 85px 0 35px;
             }
             .istec-hero-headline {
-                font-size: 1.9rem !important;
+                font-size: 1.85rem !important;
                 line-height: 1.25 !important;
             }
+
+            /* 2 nút hero trên mobile nằm trên 1 hàng */
+            .istec-hero-btn-group {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 10px !important;
+                width: 100% !important;
+            }
+            .istec-hero-btn-group .btn-istec-square-dark,
+            .istec-hero-btn-group .btn-istec-square-green {
+                width: 100% !important;
+                padding: 12px 6px !important;
+                font-size: 0.84rem !important;
+                justify-content: center !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+                white-space: nowrap !important;
+                gap: 6px !important;
+            }
+            .istec-hero-btn-group svg {
+                width: 13px !important;
+                height: 13px !important;
+            }
+
+            /* Bỏ 4 nút kỳ trên mobile (học viên tự dropdown toggle card) */
+            .timeline-tabs-clean {
+                display: none !important;
+            }
+
+            /* Thách thức trên mobile dạng slidedot */
+            .challenges-slider-container {
+                position: relative;
+                width: 100%;
+            }
+            .challenges-slider-container .grid-3-cols {
+                display: flex !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                scroll-behavior: smooth !important;
+                gap: 14px !important;
+                padding: 4px 4px 14px !important;
+                -webkit-overflow-scrolling: touch !important;
+                scrollbar-width: none !important;
+            }
+            .challenges-slider-container .grid-3-cols::-webkit-scrollbar {
+                display: none !important;
+            }
+            .challenges-slider-container .grid-3-cols .istec-square-card {
+                flex: 0 0 88% !important;
+                min-width: 88% !important;
+                max-width: 88% !important;
+                scroll-snap-align: center !important;
+                margin: 0 !important;
+            }
+            .challenge-dots-wrap {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 8px !important;
+                margin-top: 14px !important;
+            }
+            .challenge-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #cbd5e1;
+                transition: all 0.25s ease;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+            }
+            .challenge-dot.active {
+                width: 22px;
+                border-radius: 4px;
+                background: var(--istec-deep-green);
+            }
+
             .istec-real-parallax-wrap {
                 height: 300px;
                 padding: 20px 20px;
@@ -1181,9 +1299,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .form-grid-2-fields {
                 grid-template-columns: 1fr;
             }
-            .grid-3-cols {
-                grid-template-columns: 1fr;
-            }
             .grid-2-cols {
                 grid-template-columns: 1fr;
             }
@@ -1192,6 +1307,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
             .expert-card-left-text {
                 padding: 28px 20px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .challenge-dots-wrap {
+                display: none !important;
             }
         }
     </style>
@@ -1267,7 +1388,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         Trong một môi trường kinh doanh ngày càng phức tạp, năng lực chuyên môn giỏi là chưa đủ. Chương trình MBA tại ISTEC Business School Paris giúp người học mở rộng tư duy quản trị đa chiều từ Chiến lược, Lãnh đạo, Tài chính, Vận hành đến Đổi mới sáng tạo và AI, trang bị bản lĩnh sẵn sàng đảm nhận các cương vị quản lý và điều hành cấp cao.
                     </p>
 
-                    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                    <div class="istec-hero-btn-group">
                         <a href="#faq-dang-ky" class="btn-istec-square-dark">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             <span>Đăng ký xét tuyển</span>
@@ -1376,41 +1497,53 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </p>
             </div>
 
-            <div class="grid-3-cols">
-                <div class="istec-square-card">
-                    <div class="num-square-badge">01</div>
-                    <h3 class="card-inner-title">Ra quyết định trong bức tranh lớn</h3>
-                    <p class="card-inner-desc">Không chỉ giải quyết công việc nội bộ mà phải đánh giá tác động toàn diện đến hiệu quả tài chính và chiến lược của doanh nghiệp.</p>
+            <div class="challenges-slider-container">
+                <div class="grid-3-cols" id="challengeTrack">
+                    <div class="istec-square-card">
+                        <div class="num-square-badge">01</div>
+                        <h3 class="card-inner-title">Ra quyết định trong bức tranh lớn</h3>
+                        <p class="card-inner-desc">Không chỉ giải quyết công việc nội bộ mà phải đánh giá tác động toàn diện đến hiệu quả tài chính và chiến lược của doanh nghiệp.</p>
+                    </div>
+
+                    <div class="istec-square-card">
+                        <div class="num-square-badge">02</div>
+                        <h3 class="card-inner-title">Dẫn dắt con người & xây dựng đội ngũ</h3>
+                        <p class="card-inner-desc">Từ người trực tiếp thực thi sang người tạo ảnh hưởng, truyền cảm hứng, giải quyết xung đột và thúc đẩy hiệu suất đội nhóm.</p>
+                    </div>
+
+                    <div class="istec-square-card">
+                        <div class="num-square-badge">03</div>
+                        <h3 class="card-inner-title">Kết nối các phòng ban chức năng</h3>
+                        <p class="card-inner-desc">Hợp nhất hoạt động của tài chính, marketing, vận hành và nhân sự để đạt được mục tiêu chung của tổ chức.</p>
+                    </div>
+
+                    <div class="istec-square-card">
+                        <div class="num-square-badge">04</div>
+                        <h3 class="card-inner-title">Thích ứng công nghệ và AI</h3>
+                        <p class="card-inner-desc">Hiểu và vận dụng công nghệ mới dưới góc nhìn chiến lược ứng dụng kinh doanh, nâng cao lợi thế cạnh tranh.</p>
+                    </div>
+
+                    <div class="istec-square-card">
+                        <div class="num-square-badge">05</div>
+                        <h3 class="card-inner-title">Tư duy kinh doanh quốc tế</h3>
+                        <p class="card-inner-desc">Trang bị tư duy quản trị đa quốc gia, làm việc tự tin trong môi trường đa văn hóa và chuỗi cung ứng toàn cầu.</p>
+                    </div>
+
+                    <div class="istec-square-card">
+                        <div class="num-square-badge">06</div>
+                        <h3 class="card-inner-title">Mở rộng cơ hội nghề nghiệp đa ngành</h3>
+                        <p class="card-inner-desc">Xây dựng kiến thức quản trị tổng quát vững chắc, sẵn sàng đón nhận cơ hội lãnh đạo cấp cao trong nhiều lĩnh vực.</p>
+                    </div>
                 </div>
 
-                <div class="istec-square-card">
-                    <div class="num-square-badge">02</div>
-                    <h3 class="card-inner-title">Dẫn dắt con người & xây dựng đội ngũ</h3>
-                    <p class="card-inner-desc">Từ người trực tiếp thực thi sang người tạo ảnh hưởng, truyền cảm hứng, giải quyết xung đột và thúc đẩy hiệu suất đội nhóm.</p>
-                </div>
-
-                <div class="istec-square-card">
-                    <div class="num-square-badge">03</div>
-                    <h3 class="card-inner-title">Kết nối các phòng ban chức năng</h3>
-                    <p class="card-inner-desc">Hợp nhất hoạt động của tài chính, marketing, vận hành và nhân sự để đạt được mục tiêu chung của tổ chức.</p>
-                </div>
-
-                <div class="istec-square-card">
-                    <div class="num-square-badge">04</div>
-                    <h3 class="card-inner-title">Thích ứng công nghệ và AI</h3>
-                    <p class="card-inner-desc">Hiểu và vận dụng công nghệ mới dưới góc nhìn chiến lược ứng dụng kinh doanh, nâng cao lợi thế cạnh tranh.</p>
-                </div>
-
-                <div class="istec-square-card">
-                    <div class="num-square-badge">05</div>
-                    <h3 class="card-inner-title">Tư duy kinh doanh quốc tế</h3>
-                    <p class="card-inner-desc">Trang bị tư duy quản trị đa quốc gia, làm việc tự tin trong môi trường đa văn hóa và chuỗi cung ứng toàn cầu.</p>
-                </div>
-
-                <div class="istec-square-card">
-                    <div class="num-square-badge">06</div>
-                    <h3 class="card-inner-title">Mở rộng cơ hội nghề nghiệp đa ngành</h3>
-                    <p class="card-inner-desc">Xây dựng kiến thức quản trị tổng quát vững chắc, sẵn sàng đón nhận cơ hội lãnh đạo cấp cao trong nhiều lĩnh vực.</p>
+                <!-- Dấu chấm phân trang slidedot trên mobile -->
+                <div class="challenge-dots-wrap" id="challengeDots">
+                    <button class="challenge-dot active" onclick="goChallengeSlide(0)" type="button" aria-label="Thách thức 1"></button>
+                    <button class="challenge-dot" onclick="goChallengeSlide(1)" type="button" aria-label="Thách thức 2"></button>
+                    <button class="challenge-dot" onclick="goChallengeSlide(2)" type="button" aria-label="Thách thức 3"></button>
+                    <button class="challenge-dot" onclick="goChallengeSlide(3)" type="button" aria-label="Thách thức 4"></button>
+                    <button class="challenge-dot" onclick="goChallengeSlide(4)" type="button" aria-label="Thách thức 5"></button>
+                    <button class="challenge-dot" onclick="goChallengeSlide(5)" type="button" aria-label="Thách thức 6"></button>
                 </div>
             </div>
         </div>
@@ -2172,6 +2305,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
+    <!-- ══ NÚT CUỘN LÊN ĐẦU TRANG (SCROLL TOP BUTTON) ══ -->
+    <button id="btnScrollTop" class="btn-scroll-top" onclick="scrollToTop()" type="button" aria-label="Cuộn lên đầu trang">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
     <!-- ══ FOOTER CHUẨN ĐỒNG BỘ CỦA WEBSITE IDEAS ══ -->
     <?php get_footer(); ?>
 
@@ -2355,6 +2493,45 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         } else {
             initRealParallax();
         }
+
+        // ── 6. SLIDEDOT CHO SECTION THÁCH THỨC TRÊN MOBILE ──
+        const challengeTrack = document.getElementById('challengeTrack');
+        const challengeDots = document.querySelectorAll('.challenge-dot');
+
+        if (challengeTrack && challengeDots.length > 0) {
+            challengeTrack.addEventListener('scroll', () => {
+                const scrollLeft = challengeTrack.scrollLeft;
+                const cardWidth = challengeTrack.querySelector('.istec-square-card')?.offsetWidth || 1;
+                const activeIndex = Math.round(scrollLeft / (cardWidth + 14));
+                challengeDots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIndex);
+                });
+            }, { passive: true });
+        }
+
+        window.goChallengeSlide = function (idx) {
+            if (!challengeTrack) return;
+            const cards = challengeTrack.querySelectorAll('.istec-square-card');
+            if (cards[idx]) {
+                cards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+        };
+
+        // ── 7. NÚT SCROLL TO TOP ──
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('btnScrollTop');
+            if (btn) {
+                if (window.scrollY > 350) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }
+        }, { passive: true });
+
+        window.scrollToTop = function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
     </script>
 </body>
 
