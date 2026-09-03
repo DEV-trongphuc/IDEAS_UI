@@ -1124,8 +1124,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             padding: 36px 32px;
         }
 
+        .istec-hero-logo {
+            height: 68px;
+            width: auto;
+            display: block;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
+            .istec-hero-container {
+                padding-top: 130px !important;
+            }
             .istec-hero-flex {
                 flex-direction: column-reverse !important;
                 gap: 32px;
@@ -1206,10 +1215,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         @media (max-width: 768px) {
             .istec-hero-container {
-                padding: 85px 0 35px;
+                padding-top: 130px !important;
+                padding-bottom: 35px !important;
+            }
+            .istec-hero-logo {
+                height: 40px !important;
+                width: auto !important;
+                margin-bottom: 14px !important;
             }
             .istec-hero-headline {
-                font-size: 1.85rem !important;
+                font-size: 1.75rem !important;
                 line-height: 1.25 !important;
             }
 
@@ -1370,10 +1385,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- NỘI DUNG CHÍNH (TIÊU ĐỀ 2-TONE & MÔ TẢ PHONG CÁCH CHÂU ÂU) -->
                 <div class="istec-hero-main-content">
                     <!-- Logo ISTEC Paris chính thức to rõ hơn -->
-                    <div style="margin-bottom: 22px;">
+                    <div style="margin-bottom: 18px;">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/logo-istec-paris.svg" 
                              alt="ISTEC Business School Paris Logo" 
-                             style="height: 72px; width: auto; display: block;" />
+                             class="istec-hero-logo" />
                     </div>
 
                     <h1 class="istec-hero-headline">
