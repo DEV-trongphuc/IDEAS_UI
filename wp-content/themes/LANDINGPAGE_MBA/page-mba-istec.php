@@ -1178,39 +1178,53 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-wrap: wrap;
         }
 
-        /* Nút Scroll Top nổi */
-        .btn-scroll-top {
-            position: fixed;
-            bottom: 85px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            background: var(--istec-deep-green);
-            color: #ffffff;
-            border: none;
-            border-radius: var(--radius-square);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 20px rgba(0, 92, 77, 0.35);
-            cursor: pointer !important;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(12px);
-            transition: all 0.3s ease;
-            z-index: 99999;
+        /* Nút Scroll Top kiểu App trên Mobile (chỉ hiện trên mobile, cách xuống, không đè nút Reels) */
+        .app-back-to-top {
+            display: none !important;
         }
 
-        .btn-scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        @media (max-width: 768px) {
+            .app-back-to-top {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                position: fixed;
+                bottom: 22px;
+                left: 50%;
+                transform: translateX(-50%) translateY(20px);
+                background: rgba(0, 44, 36, 0.96);
+                color: #ffffff;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 9999px;
+                padding: 8px 18px;
+                font-size: 0.82rem;
+                font-weight: 700;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+                z-index: 99999;
+                opacity: 0;
+                pointer-events: none;
+                transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+                white-space: nowrap;
+                cursor: pointer !important;
+            }
 
-        .btn-scroll-top:hover {
-            background: var(--istec-deep-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 92, 77, 0.45);
+            .app-back-to-top.visible {
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                transform: translateX(-50%) translateY(0) !important;
+            }
+
+            .app-back-to-top:hover,
+            .app-back-to-top:active {
+                background: #00221c;
+                transform: translateX(-50%) translateY(-2px) !important;
+            }
+
+            .app-back-to-top svg {
+                width: 13px;
+                height: 13px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1323,6 +1337,71 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .expert-card-left-text {
                 padding: 28px 20px;
             }
+
+            .istec-stats-strip {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            .stat-strip-num {
+                font-size: 1.75rem !important;
+            }
+            .admission-grid-wrap {
+                grid-template-columns: 1fr !important;
+            }
+            .steps-grid-inner {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* ── 4 CON SỐ ẤN TƯỢNG (BRIEF) ── */
+        .istec-stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 36px;
+        }
+
+        .stat-strip-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-square);
+            padding: 24px 20px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .stat-strip-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--istec-deep-green);
+        }
+
+        .stat-strip-num {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--istec-deep-green);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .stat-strip-label {
+            font-size: 0.88rem;
+            color: var(--dark-muted);
+            line-height: 1.45;
+        }
+
+        /* ── QUY TRÌNH TUYỂN SINH (BRIEF) ── */
+        .admission-grid-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .steps-grid-inner {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
         }
 
         @media (min-width: 769px) {
@@ -1455,6 +1534,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     Học viên được trang bị tư duy quản trị tổng thể kết hợp phương pháp luận phân tích kinh doanh dữ liệu lớn và chiến lược tích hợp trí tuệ nhân tạo (AI) vào giải quyết các bài toán vận hành thực tiễn của doanh nghiệp.
                 </p>
             </div>
+
+            <!-- 4 Con số ấn tượng từ Brief ISTEC -->
+            <div class="istec-stats-strip">
+                <div class="stat-strip-card">
+                    <div class="stat-strip-num">60+</div>
+                    <div class="stat-strip-label">Năm đào tạo kinh doanh & quản trị tại Pháp</div>
+                </div>
+                <div class="stat-strip-card">
+                    <div class="stat-strip-num">3.500+</div>
+                    <div class="stat-strip-label">Doanh nghiệp đối tác toàn cầu</div>
+                </div>
+                <div class="stat-strip-card">
+                    <div class="stat-strip-num">8.000+</div>
+                    <div class="stat-strip-label">Cựu học viên trên 40 quốc gia</div>
+                </div>
+                <div class="stat-strip-card">
+                    <div class="stat-strip-num">Top 8</div>
+                    <div class="stat-strip-label">Trường Kinh doanh Post-Bac (Le Parisien)</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1481,7 +1580,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Khối 2: Goals -->
-            <div>
+            <div style="margin-bottom: 48px;">
                 <h3 class="istec-green-block-title">Goals (Mục tiêu năng lực đầu ra)</h3>
                 <div class="istec-white-goals-card">
                     <div class="goal-item-tick">
@@ -1495,6 +1594,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="goal-item-tick">
                         <span><strong>Ứng dụng AI vào vận hành thực tế:</strong> Khai phóng tiềm năng tự động hóa và trí tuệ nhân tạo để gia tăng hiệu suất kinh doanh vượt bậc.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khối 3: 4 Phương pháp đào tạo thực chiến chuẩn Brief -->
+            <div>
+                <h3 class="istec-green-block-title">Methodology (4 Phương pháp đào tạo thực chiến)</h3>
+                <div class="istec-white-bar-card">
+                    <div class="bar-item-tick">
+                        <span><strong>CASE STUDY:</strong> Phân tích các tình huống kinh doanh thực tế toàn cầu</span>
+                    </div>
+                    <div class="bar-item-tick">
+                        <span><strong>PROJECT:</strong> Ứng dụng kiến thức giải quyết vấn đề trực tiếp của tổ chức</span>
+                    </div>
+                    <div class="bar-item-tick">
+                        <span><strong>DISCUSSION:</strong> Trao đổi và mở rộng góc nhìn cùng chuyên gia & học viên</span>
+                    </div>
+                    <div class="bar-item-tick">
+                        <span><strong>APPLIED LEARNING:</strong> Kết nối nội dung học với công việc và doanh nghiệp</span>
                     </div>
                 </div>
             </div>
@@ -2136,6 +2254,78 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
+    <!-- ══ 11B. THÔNG TIN TUYỂN SINH: ĐIỀU KIỆN & QUY TRÌNH 4 BƯỚC ĐƠN GIẢN (CHUẨN BRIEF) ══ -->
+    <section class="istec-section-box" id="tuyen-sinh" style="border-top: 1px solid var(--border-light);">
+        <div class="container">
+            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
+                <span class="istec-label-top">ADMISSION PROCESS</span>
+                <h2 class="istec-heading-large">Điều kiện & Quy trình tuyển sinh 4 bước đơn giản</h2>
+                <p class="istec-body-lead" style="margin: 0 auto;">
+                    Quy trình xét tuyển được thiết kế tinh gọn, đánh giá toàn diện năng lực học thuật và tiềm năng lãnh đạo của ứng viên.
+                </p>
+            </div>
+
+            <!-- Điều kiện & 4 bước -->
+            <div class="admission-grid-wrap">
+                <!-- Cột trái: Điều kiện đầu vào -->
+                <div class="istec-square-card" style="padding: 32px; border-left: 4px solid var(--istec-deep-green); background: #ffffff;">
+                    <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-deep-green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+                        YÊU CẦU ĐẦU VÀO
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--dark-main); margin-bottom: 16px;">
+                        Hồ sơ ứng tuyển MBA
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
+                        <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: var(--dark-sub); line-height: 1.55;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Bằng tốt nghiệp <strong>Cử nhân (Đại học)</strong> và bảng điểm các chuyên ngành.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: var(--dark-sub); line-height: 1.55;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Trình độ tiếng Anh tương đương <strong>IELTS 6.0</strong> (hoặc tham gia phỏng vấn đánh giá năng lực trực tuyến cùng đại diện trường).</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: var(--dark-sub); line-height: 1.55;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 2px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Ưu tiên ứng viên có từ <strong>1 - 2 năm kinh nghiệm</strong> làm việc tại các doanh nghiệp.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cột phải: Quy trình 4 bước -->
+                <div class="istec-square-card" style="padding: 32px; background: #ffffff;">
+                    <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-bright-green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+                        LỘ TRÌNH NHẬP HỌC
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--dark-main); margin-bottom: 20px;">
+                        Quy trình 4 bước đơn giản
+                    </h3>
+                    <div class="steps-grid-inner">
+                        <div style="padding: 16px; background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-square);">
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-deep-green); margin-bottom: 4px;">BƯỚC 01</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--dark-main); margin-bottom: 4px;">Nộp hồ sơ xét tuyển</div>
+                            <div style="font-size: 0.85rem; color: var(--dark-muted); line-height: 1.45;">Điền form và gửi bản scan bằng ĐH, bảng điểm, CV.</div>
+                        </div>
+                        <div style="padding: 16px; background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-square);">
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-deep-green); margin-bottom: 4px;">BƯỚC 02</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--dark-main); margin-bottom: 4px;">Thẩm định & Phỏng vấn</div>
+                            <div style="font-size: 0.85rem; color: var(--dark-muted); line-height: 1.45;">Phỏng vấn trực tuyến 1:1 cùng Hội đồng học thuật.</div>
+                        </div>
+                        <div style="padding: 16px; background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-square);">
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-deep-green); margin-bottom: 4px;">BƯỚC 03</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--dark-main); margin-bottom: 4px;">Thư trúng tuyển</div>
+                            <div style="font-size: 0.85rem; color: var(--dark-muted); line-height: 1.45;">Nhận Letter of Acceptance chính thức từ ISTEC Paris.</div>
+                        </div>
+                        <div style="padding: 16px; background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-square);">
+                            <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-deep-green); margin-bottom: 4px;">BƯỚC 04</div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--dark-main); margin-bottom: 4px;">Nhập học & Khai giảng</div>
+                            <div style="font-size: 0.85rem; color: var(--dark-muted); line-height: 1.45;">Kích hoạt tài khoản LMS/AI và bắt đầu học kỳ I.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ══ 12. BỐ CỤC 2 CỘT: FAQ BÊN TRÁI & FORM ĐẦY ĐỦ CÁC TRƯỜNG BÊN PHẢI ══ -->
     <section class="istec-section-box bg-alt" id="faq-dang-ky">
         <div class="container">
@@ -2178,7 +2368,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </button>
                             <div class="acc-square-panel" style="max-height: 400px;">
                                 <div class="acc-square-content">
-                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">MBA ISTEC phù hợp với những ai muốn nâng tầm từ năng lực chuyên môn lên tư duy quản trị chiến lược: Chuyên viên giàu kinh nghiệm, Quản lý cấp trung, Trưởng bộ phận, và Doanh nhân muốn hệ thống hóa quy trình quản trị doanh nghiệp.</p>
+                                    <p style="margin: 0 0 10px; color: var(--dark-sub); line-height: 1.65;">MBA ISTEC phù hợp với những người đang muốn phát triển từ năng lực chuyên môn sang tư duy quản trị và lãnh đạo, bao gồm:</p>
+                                    <ul style="margin: 0; padding-left: 20px; color: var(--dark-muted); line-height: 1.6; font-size: 0.92rem;">
+                                        <li>Chuyên viên giàu kinh nghiệm đang hướng đến vai trò quản lý.</li>
+                                        <li>Quản lý cấp trung muốn phát triển tư duy chiến lược và năng lực quản trị toàn diện.</li>
+                                        <li>Trưởng nhóm hoặc trưởng bộ phận cần mở rộng góc nhìn về hoạt động tổng thể của doanh nghiệp.</li>
+                                        <li>Người đang chuẩn bị cho bước tiến tiếp theo trong sự nghiệp và muốn bổ sung nền tảng quản trị quốc tế.</li>
+                                        <li>Doanh nhân hoặc người đang vận hành doanh nghiệp muốn hệ thống hóa tư duy quản trị và nâng cao năng lực ra quyết định.</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -2186,12 +2383,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- FAQ 2 -->
                         <div class="acc-square-box">
                             <button class="acc-square-header faq-acc-btn" type="button">
-                                <span class="acc-square-title">Thời gian đào tạo chương trình là bao lâu?</span>
+                                <span class="acc-square-title">MBA ISTEC học trong bao lâu?</span>
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
                             <div class="acc-square-panel">
                                 <div class="acc-square-content">
-                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Chương trình kéo dài 12 tháng, gồm 3 học kỳ (mỗi kỳ 3 tháng) và giai đoạn thực hiện luận văn/dự án cuối khóa trong 2 tháng.</p>
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Chương trình kéo dài 12 tháng, gồm 3 học kỳ nền tảng (mỗi kỳ 3 tháng) và giai đoạn thực hiện luận văn/dự án kinh doanh ứng dụng cuối khóa trong 2 tháng (tổng 60 tín chỉ ECTS Châu Âu).</p>
                                 </div>
                             </div>
                         </div>
@@ -2199,17 +2396,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- FAQ 3 -->
                         <div class="acc-square-box">
                             <button class="acc-square-header faq-acc-btn" type="button">
-                                <span class="acc-square-title">Không có bằng cử nhân kinh tế có học được không?</span>
+                                <span class="acc-square-title">Tôi không bằng cấp chuyên ngành kinh doanh có theo học được không?</span>
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
                             <div class="acc-square-panel">
                                 <div class="acc-square-content">
-                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Hoàn toàn được. Chương trình chào đón người tốt nghiệp Đại học các ngành Kỹ thuật, Y tế, Xã hội, Ngôn ngữ... muốn phát triển năng lực quản lý điều hành.</p>
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Hoàn toàn được. MBA ISTEC phù hợp với người đã tốt nghiệp Đại học ở bất kỳ chuyên ngành nào (Kỹ thuật, Y tế, Xã hội, Ngôn ngữ...) và mong muốn phát triển năng lực quản lý. Điều kiện cụ thể sẽ được tư vấn dựa trên hồ sơ tuyển sinh.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- FAQ 4 -->
+                        <!-- FAQ 4 (AI trong chương trình chuẩn brief) -->
+                        <div class="acc-square-box">
+                            <button class="acc-square-header faq-acc-btn" type="button">
+                                <span class="acc-square-title">MBA ISTEC có nội dung về AI không?</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="acc-square-panel">
+                                <div class="acc-square-content">
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Có. Học viên được tiếp cận học phần chuyên sâu <strong>Digital Transformation & AI Strategy</strong>, giúp hiểu sâu sắc vai trò của công nghệ và trí tuệ nhân tạo (AI) trong hoạch định chiến lược kinh doanh cũng như tối ưu hóa quy trình vận hành của doanh nghiệp.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 5 (Học phí chuẩn brief) -->
                         <div class="acc-square-box">
                             <button class="acc-square-header faq-acc-btn" type="button">
                                 <span class="acc-square-title">Học phí chương trình MBA ISTEC là bao nhiêu?</span>
@@ -2217,7 +2427,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </button>
                             <div class="acc-square-panel">
                                 <div class="acc-square-content">
-                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Học phí công bố (public) là 8.500 EUR. Học viên đăng ký qua Viện IDEAS được hưởng ưu đãi còn <strong>6.500 EUR</strong> cùng <strong>200 EUR</strong> lệ phí xét tuyển hồ sơ (LPHS). Có hỗ trợ trả góp 0% qua Sacombank.</p>
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Chương trình có mức phí cạnh tranh cùng nhiều chính sách đóng học phí linh hoạt và hỗ trợ trả góp qua thẻ tín dụng Sacombank từ 12 - 24 tháng (lãi suất 0%). Học phí ưu đãi qua Viện IDEAS còn <strong>6.500 EUR</strong> (tiết kiệm 2.000 EUR so với giá công bố 8.500 EUR) cùng 200 EUR lệ phí xét tuyển hồ sơ. Vui lòng liên hệ hotline <strong>028 2244 2244</strong> để nhận lộ trình chi phí chi tiết.</p>
                                 </div>
                             </div>
                         </div>
@@ -2320,9 +2530,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ NÚT CUỘN LÊN ĐẦU TRANG (SCROLL TOP BUTTON) ══ -->
-    <button id="btnScrollTop" class="btn-scroll-top" onclick="scrollToTop()" type="button" aria-label="Cuộn lên đầu trang">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    <!-- ══ NÚT CUỘN LÊN ĐẦU TRANG KIỂU APP NỔI TRÊN MOBILE (CÁCH XUỐNG DƯỚI, KHÔNG ĐÈ REELS) ══ -->
+    <button id="btnScrollTop" class="app-back-to-top" onclick="scrollToTop()" type="button" aria-label="Lên đầu trang">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+        <span>Lên đầu trang</span>
     </button>
 
     <!-- ══ FOOTER CHUẨN ĐỒNG BỘ CỦA WEBSITE IDEAS ══ -->
