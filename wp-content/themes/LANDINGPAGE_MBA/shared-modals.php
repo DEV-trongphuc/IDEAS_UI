@@ -1041,23 +1041,25 @@ if (!$is_reel_page):
 }
 .left-popup-close {
   position: absolute !important;
-  top: -10px !important;
-  right: -10px !important;
-  width: 26px !important;
-  height: 26px !important;
+  top: -12px !important;
+  right: -12px !important;
+  width: 32px !important;
+  height: 32px !important;
   border-radius: 50% !important;
   background: #ab0e00 !important;
   color: #ffffff !important;
   border: 2px solid #ffffff !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
   font-weight: bold !important;
   line-height: 1 !important;
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  z-index: 10 !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  z-index: 99999999 !important;
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
   transition: transform 0.2s ease, background 0.2s ease !important;
 }
 .left-popup-close:hover {
@@ -1082,25 +1084,21 @@ if (!$is_reel_page):
   }
 }
 </style>
-<div class="global-left-popup-banner" id="global-left-popup-banner">
-    <button class="left-popup-close" onclick="closeLeftPopupBanner(event)" aria-label="<?php echo $is_en ? 'Close popup' : 'Đóng popup'; ?>">&times;</button>
-    <a href="javascript:void(0);" onclick="if(typeof openRegModal === 'function'){ openRegModal(); } else if(typeof openBookingModal === 'function'){ openBookingModal(); }" title="<?php echo $is_en ? 'Tuition discount up to 10% for IDEAS students relatives' : 'Ưu đãi học phí lên đến 10% cho người thân học viên tại IDEAS'; ?>">
-        <img src="https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-12-KV-campaign.png" alt="<?php echo $is_en ? 'Tuition discount up to 10% for IDEAS students relatives' : 'Ưu đãi học phí lên đến 10% cho người thân học viên tại IDEAS'; ?>" loading="lazy" decoding="async" />
-    </a>
-</div>
 <script>
 function closeLeftPopupBanner(e) {
     if (e) {
-        e.preventDefault();
-        e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
     }
     const banner = document.getElementById('global-left-popup-banner');
     if (banner) {
         banner.style.display = 'none';
+        banner.remove();
         try {
             sessionStorage.setItem('left_popup_closed', 'true');
         } catch(err) {}
     }
+    return false;
 }
 document.addEventListener('DOMContentLoaded', function() {
     try {
@@ -1111,6 +1109,12 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch(err) {}
 });
 </script>
+<div class="global-left-popup-banner" id="global-left-popup-banner">
+    <button type="button" class="left-popup-close" onpointerdown="closeLeftPopupBanner(event)" ontouchend="closeLeftPopupBanner(event)" onclick="closeLeftPopupBanner(event); return false;" aria-label="<?php echo $is_en ? 'Close popup' : 'Đóng popup'; ?>">&times;</button>
+    <a href="javascript:void(0);" onclick="if(typeof openRegModal === 'function'){ openRegModal(); } else if(typeof openBookingModal === 'function'){ openBookingModal(); }" title="<?php echo $is_en ? 'Tuition discount up to 10% for IDEAS students relatives' : 'Ưu đãi học phí lên đến 10% cho người thân học viên tại IDEAS'; ?>">
+        <img src="https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-12-KV-campaign.png" alt="<?php echo $is_en ? 'Tuition discount up to 10% for IDEAS students relatives' : 'Ưu đãi học phí lên đến 10% cho người thân học viên tại IDEAS'; ?>" loading="lazy" decoding="async" />
+    </a>
+</div>
 
 <!-- Book Flip Profile Modal -->
 <style>

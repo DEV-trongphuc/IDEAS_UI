@@ -90,20 +90,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Custom CSS: Chuẩn phong cách thiết kế ISTEC Paris (Vuông vức, Clean, Sang trọng, Không lỗi ngắt dòng) -->
     <style>
         :root {
-            --istec-deep-green: #005C4D;      /* Xanh đậm signature của website istec.fr */
+            --istec-deep-green: #005C4D;      /* Xanh đậm signature của istec.fr */
             --istec-deep-hover: #004439;
-            --istec-bright-green: #61A60E;    /* Xanh lá tươi nhận diện ISTEC */
+            --istec-bright-green: #61A60E;    /* Xanh lá tươi ISTEC */
             --istec-teal: #00876C;            /* Xanh mòng két tiêu đề nhãn */
-            --dark-main: #111827;             /* Chữ đen than chuẩn */
+            --dark-main: #111827;             /* Chữ đen than */
             --dark-sub: #374151;              /* Chữ nội dung */
             --dark-muted: #6b7280;            /* Chữ phụ */
             --border-light: #e5e7eb;          /* Viền mảnh thanh lịch */
             --border-subtle: #f3f4f6;
             --bg-page: #ffffff;
             --bg-alt: #f9fafb;
-            --radius-square: 4px;             /* Phong cách vuông vức của ISTEC */
+            --radius-square: 4px;             /* Phong cách vuông vức chuẩn ISTEC */
             --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
             --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Ẩn popup banner khuyến mãi Swiss UMEF trên landing page ISTEC Paris để tránh xung đột */
+        #global-left-popup-banner {
+            display: none !important;
         }
 
         /* Đồng bộ font chữ Plus Jakarta Sans toàn trang */
@@ -112,9 +117,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-sizing: border-box;
         }
 
-        /* ── HERO SECTION THEO PHONG CÁCH CHUẨN ISTEC (Screenshot 3) ── */
+        /* ── HERO SECTION: CÁCH TOP XUỐNG ĐẦY ĐỦ THOÁNG ĐÃNG ── */
         .istec-hero-container {
-            padding: 50px 0 30px;
+            padding: 100px 0 35px;
             background: #ffffff;
         }
 
@@ -244,7 +249,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: translateY(-2px);
         }
 
-        /* Banner hình ảnh sinh viên chân thực rộng toàn khung (Ảnh 3) */
+        /* Banner hình ảnh sinh viên chân thực rộng toàn khung */
         .istec-hero-banner-img {
             width: 100%;
             height: 380px;
@@ -261,7 +266,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: block;
         }
 
-        /* ── SECTION HEADER CHUẨN (Ảnh 4: CURRICULUM / Program) ── */
+        /* ── SECTION HEADER CHUẨN ── */
         .istec-section-box {
             padding: 80px 0;
             background: #ffffff;
@@ -378,7 +383,161 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             line-height: 1.5;
         }
 
-        /* ── 6 THÁCH THỨC SỰ NGHIỆP (3 Cột vuông vức) ── */
+        /* ── SECTION CHUYÊN GIA / BAN LÃNH ĐẠO (CHUẨN SCREENSHOT 3 CỦA ISTEC) ── */
+        .istec-expert-quote-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-square);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            min-height: 480px;
+            position: relative;
+        }
+
+        .expert-quote-left {
+            padding: 48px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .expert-quote-symbol {
+            width: 48px;
+            height: 38px;
+            margin-bottom: 24px;
+        }
+
+        .expert-name-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--dark-main);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        .expert-role-subtitle {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--istec-bright-green);
+            margin-bottom: 22px;
+        }
+
+        .expert-quote-body {
+            font-size: 0.98rem;
+            color: var(--dark-sub);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .expert-quote-right {
+            position: relative;
+            background: #f8fafc;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .expert-photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        /* Thanh phân trang điều khiển các chuyên gia/giáo sư */
+        .expert-nav-lines {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .expert-nav-item {
+            width: 38px;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0;
+        }
+
+        .expert-nav-item.active {
+            background: var(--dark-main);
+            width: 54px;
+        }
+
+        /* ── MARQUEE LOGO KIỂM ĐỊNH CHẠY LIÊN TỤC CHUẨN ISTEC ── */
+        .marquee-square-container {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-square);
+            padding: 34px 0;
+            overflow: hidden;
+            margin-bottom: 36px;
+            position: relative;
+        }
+
+        .marquee-track-infinite {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+        }
+
+        .marquee-slides-track {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-shrink: 0;
+            min-width: 100%;
+            animation: istecScrollMarquee 25s linear infinite;
+        }
+
+        @keyframes istecScrollMarquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .logo-acc-istec {
+            height: 48px;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.82;
+            transition: all 0.25s ease;
+        }
+
+        .logo-acc-istec:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* ── BỐ CỤC 2 CỘT: FAQ BÊN TRÁI, FORM BÊN PHẢI ── */
+        .faq-form-grid-2 {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .faq-col-left {
+            padding-right: 10px;
+        }
+
+        .form-col-right {
+            position: sticky;
+            top: 90px;
+        }
+
+        /* ── 6 THÁCH THỨC SỰ NGHIỆP ── */
         .grid-3-cols {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -414,7 +573,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             line-height: 1.6;
         }
 
-        /* ── 5 GIÁ TRỊ CỐT LÕI (Không ngắt dòng xấu) ── */
+        /* ── 5 GIÁ TRỊ CỐT LÕI ── */
         .grid-5-cols {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -521,61 +680,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 3px;
         }
 
-        /* ── FACULTY SLIDER ── */
-        .faculty-track-wrap {
-            overflow: hidden;
-            padding: 4px 2px 20px;
-        }
-
-        .faculty-track {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .faculty-card-square {
-            flex: 0 0 calc((100% - 60px) / 4);
-            min-width: 250px;
-            background: #ffffff;
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-square);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-        }
-
-        .faculty-img-square {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            object-position: center top;
-            background: #f1f5f9;
-        }
-
-        .faculty-content-pad {
-            padding: 18px;
-        }
-
-        .faculty-name-bold {
-            font-size: 1.05rem;
-            font-weight: 800;
-            color: var(--dark-main);
-            margin-bottom: 4px;
-        }
-
-        .faculty-sub-role {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--istec-bright-green);
-            margin-bottom: 8px;
-            line-height: 1.35;
-        }
-
-        .faculty-short-bio {
-            font-size: 0.84rem;
-            color: var(--dark-muted);
-            line-height: 1.5;
-        }
-
         /* ── TIMELINE 15 MÔN HỌC & ACCORDION ── */
         .timeline-tabs-clean {
             display: flex;
@@ -604,8 +708,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .accordion-square-wrap {
-            max-width: 920px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -620,7 +722,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .acc-square-header {
             width: 100%;
-            padding: 20px 24px;
+            padding: 18px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -635,7 +737,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .acc-square-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 800;
             color: var(--dark-main);
         }
@@ -648,7 +750,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .acc-square-content {
-            padding: 0 24px 22px;
+            padding: 0 22px 20px;
         }
 
         .course-row-square {
@@ -663,51 +765,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.92rem;
         }
 
-        /* ── MARQUEE LOGO KIỂM ĐỊNH ── */
-        .marquee-square-container {
-            background: #ffffff;
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-square);
-            padding: 30px 20px;
-            overflow: hidden;
-            margin-bottom: 36px;
-        }
-
-        .marquee-track-infinite {
-            display: flex;
-            overflow: hidden;
-            mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
-        }
-
-        .marquee-slides-track {
-            display: flex;
-            gap: 54px;
-            align-items: center;
-            animation: istec-scroll 24s linear infinite;
-            white-space: nowrap;
-        }
-
-        .marquee-slides-track:hover {
-            animation-play-state: paused;
-        }
-
-        .logo-acc-istec {
-            height: 46px;
-            width: auto;
-            max-width: 150px;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.85;
-            transition: all 0.25s ease;
-        }
-
-        .logo-acc-istec:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        /* ── KHUNG HỌC PHÍ VUÔNG VỨC & RÕ RÀNG ── */
+        /* ── KHUNG HỌC PHÍ VUÔNG VỨC ── */
         .tuition-square-card {
             max-width: 820px;
             margin: 0 auto;
@@ -751,18 +809,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .istec-white-bar-card {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .istec-expert-quote-card {
+                grid-template-columns: 1fr;
+            }
+            .expert-quote-right {
+                height: 380px;
+            }
+            .faq-form-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .form-col-right {
+                position: static;
+            }
             .grid-3-cols {
                 grid-template-columns: repeat(2, 1fr);
             }
             .grid-5-cols {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .faculty-card-square {
-                flex: 0 0 calc((100% - 20px) / 2);
-            }
         }
 
         @media (max-width: 768px) {
+            .istec-hero-container {
+                padding: 85px 0 25px;
+            }
             .istec-hero-banner-img {
                 height: 240px;
             }
@@ -778,8 +849,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .grid-5-cols {
                 grid-template-columns: 1fr;
             }
-            .faculty-card-square {
-                flex: 0 0 100%;
+            .expert-quote-left {
+                padding: 32px 24px;
             }
         }
     </style>
@@ -790,11 +861,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- ══ HEADER ĐỒNG BỘ CHUẨN IDEAS ══ -->
     <?php get_template_part('shared-header'); ?>
 
-    <!-- ══ 1. HERO SECTION (CHUẨN STYLE ISTEC TỪ SCREENSHOT 3) ══ -->
+    <!-- ══ 1. HERO SECTION (CÁCH TOP XUỐNG ĐẦY ĐỦ, CHUẨN STYLE ISTEC) ══ -->
     <section class="istec-hero-container">
         <div class="container">
             <div class="istec-hero-flex">
-                <!-- HỘP THÔNG SỐ NỔI VUÔNG VỨC (ACCESS, RHYTHM, BACK TO SCHOOL, DIPLOMA) -->
+                <!-- HỘP THÔNG SỐ NỔI VUÔNG VỨC (ACCESS, RHYTHM, BACK TO SCHOOL, DIPLOMA, TUITION) -->
                 <div class="istec-spec-box">
                     <div class="spec-item">
                         <div class="spec-label">ACCESS</div>
@@ -849,7 +920,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </p>
 
                     <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                        <a href="#dang-ky-ngay" class="btn-istec-square-dark">
+                        <a href="#faq-dang-ky" class="btn-istec-square-dark">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             <span>Đăng ký xét tuyển</span>
                         </a>
@@ -861,7 +932,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
             </div>
 
-            <!-- BĂNG ẢNH SINH VIÊN RỘNG TOÀN KHUNG THEO CHUẨN ISTEC (ẢNH 3) -->
+            <!-- BĂNG ẢNH SINH VIÊN RỘNG TOÀN KHUNG THEO CHUẨN ISTEC -->
             <div class="istec-hero-banner-img">
                 <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Sinh viên trường Kinh doanh ISTEC Paris" loading="eager" fetchpriority="high" />
             </div>
@@ -937,7 +1008,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 4. 6 THÁCH THỨC SỰ NGHIỆP (VUÔNG VỨC, KHÔNG LỖI NGẮT DÒNG) ══ -->
+    <!-- ══ 4. 6 THÁCH THỨC SỰ NGHIỆP ══ -->
     <section class="istec-section-box bg-alt" id="thach-thuc">
         <div class="container">
             <div style="margin-bottom: 40px;">
@@ -988,7 +1059,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 5. 5 GIÁ TRỊ CỐT LÕI (FIX HOÀN TOÀN LỖI NGẮT DÒNG) ══ -->
+    <!-- ══ 5. 5 GIÁ TRỊ CỐT LÕI ══ -->
     <section class="istec-section-box" id="gia-tri">
         <div class="container">
             <div style="margin-bottom: 32px;">
@@ -1115,111 +1186,58 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 7. ĐỘI NGŨ GIẢNG VIÊN (CAROUSEL VUÔNG VỨC) ══ -->
-    <section class="istec-section-box" id="giang-vien">
+    <!-- ══ 7. SECTION CHUYÊN GIA & LÃNH ĐẠO (ĐÚNG THEO SCREENSHOT 3 CỦA ISTEC) ══ -->
+    <section class="istec-section-box" id="chuyen-gia">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 16px;">
-                <div>
-                    <span class="istec-label-top">FACULTY MEMBERS</span>
-                    <h2 class="istec-heading-large" style="margin-bottom: 6px;">Học hỏi từ đội ngũ giáo sư & chuyên gia</h2>
-                    <p class="istec-body-lead">Đội ngũ giảng viên quốc tế giàu kinh nghiệm học thuật và điều hành doanh nghiệp thực tiễn.</p>
-                </div>
-                <div style="display: flex; gap: 8px;">
-                    <button class="btn-tab-square" id="btnPrevFac" aria-label="Trước" style="padding: 10px 16px;">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-                    </button>
-                    <button class="btn-tab-square" id="btnNextFac" aria-label="Sau" style="padding: 10px 16px;">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-                    </button>
-                </div>
+            <div style="margin-bottom: 32px;">
+                <span class="istec-label-top">LEADERSHIP & FACULTY</span>
+                <h2 class="istec-heading-large">Thông điệp từ Ban lãnh đạo & Hội đồng học thuật</h2>
             </div>
 
-            <div class="faculty-track-wrap">
-                <div class="faculty-track" id="facSliderTrack">
-                    <!-- Giáo sư 1 -->
-                    <div class="faculty-card-square">
-                        <img src="https://istec.fr/wp-content/uploads/2025/02/Adel_aloui.png" alt="Prof. Adel ALOUI" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">Prof. Adel ALOUI</h3>
-                            <div class="faculty-sub-role">Professeur-chercheur en Management</div>
-                            <p class="faculty-short-bio">Chuyên gia Quản trị Chiến lược và Chuỗi cung ứng (Supply Chain) tại ISTEC Paris.</p>
+            <div class="istec-expert-quote-card" id="expertSlider">
+                <!-- Slide 1: Jean-Nicolas MANNONI -->
+                <div class="expert-slide-item active" style="display: contents;" id="expertSlide1">
+                    <div class="expert-quote-left">
+                        <div>
+                            <!-- Biểu tượng ngoặc kép xanh ISTEC (Screenshot 3) -->
+                            <svg class="expert-quote-symbol" viewBox="0 0 65 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M27.2 0H11.5C5.1 0 0 5.1 0 11.5V27.2C0 33.6 5.1 38.7 11.5 38.7H19.2V51.2H0V38.7C0 24.5 11.5 13 25.7 13V0H27.2ZM64.8 0H49.1C42.7 0 37.6 5.1 37.6 11.5V27.2C37.6 33.6 42.7 38.7 49.1 38.7H56.8V51.2H37.6V38.7C37.6 24.5 49.1 13 63.3 13V0H64.8Z" fill="#61A60E"/>
+                            </svg>
+
+                            <div class="expert-name-title" id="expName">Jean-Nicolas MANNONI</div>
+                            <div class="expert-role-subtitle" id="expRole">Director General of Istec</div>
+
+                            <p class="expert-quote-body" id="expQuote">
+                                "Là một cựu sinh viên ISTEC Business School, tôi vô cùng tự hào khi chứng kiến sự phát triển không ngừng của nhà trường: ngày càng đòi hỏi tiêu chuẩn cao hơn, đổi mới sáng tạo hơn, nhưng luôn lấy con người làm trung tâm. Trong một thế giới biến động nhanh chóng, ISTEC tập trung vào điều cốt lõi: trang bị năng lực thực tiễn vững chắc và kỹ năng học tập suốt đời. Học tập chủ động, đánh giá bài bản và kết nối trực tiếp với doanh nghiệp – nơi năng lực quản trị được xây dựng và chứng minh."
+                            </p>
+                        </div>
+
+                        <!-- Thanh điều hướng gạch ngang chuẩn Screenshot 3 -->
+                        <div class="expert-nav-lines">
+                            <button class="expert-nav-item active" onclick="switchExpertSlide(0)" aria-label="Jean-Nicolas MANNONI"></button>
+                            <button class="expert-nav-item" onclick="switchExpertSlide(1)" aria-label="Prof. Adel ALOUI"></button>
+                            <button class="expert-nav-item" onclick="switchExpertSlide(2)" aria-label="TS. Phạm Quang Vinh"></button>
+                            <button class="expert-nav-item" onclick="switchExpertSlide(3)" aria-label="Prof. Rey DANG"></button>
                         </div>
                     </div>
-                    <!-- Giáo sư 2 -->
-                    <div class="faculty-card-square">
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0547_LD-scaled-e1771806022893.jpg" alt="Prof. Jérôme BÊCHE" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">Prof. Jérôme BÊCHE</h3>
-                            <div class="faculty-sub-role">Docteur en Sciences de Gestion</div>
-                            <p class="faculty-short-bio">Tiến sĩ Khoa học Quản lý, Giảng viên - Nhà nghiên cứu cao cấp tại ISTEC Paris.</p>
-                        </div>
-                    </div>
-                    <!-- Giáo sư 3 -->
-                    <div class="faculty-card-square">
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/Christophe_bezes-2.png" alt="Prof. Christophe BEZES" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">Prof. Christophe BEZES</h3>
-                            <div class="faculty-sub-role">Professeur Chercheur H.D.R</div>
-                            <p class="faculty-short-bio">Tiến sĩ Khoa học Quản lý H.D.R, Chuyên gia đầu ngành Marketing và Chiến lược Thương hiệu.</p>
-                        </div>
-                    </div>
-                    <!-- Giáo sư 4 -->
-                    <div class="faculty-card-square">
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0641_LD-scaled-e1771802103644.jpg" alt="Prof. Sophie CANEVET" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">Prof. Sophie CANEVET</h3>
-                            <div class="faculty-sub-role">PhD London School of Economics (LSE)</div>
-                            <p class="faculty-short-bio">Giáo sư - Nhà nghiên cứu, Tiến sĩ từ Đại học Kinh tế Luân Đôn (LSE).</p>
-                        </div>
-                    </div>
-                    <!-- Giáo sư 5 -->
-                    <div class="faculty-card-square">
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0630_LD-scaled-e1771801981334.jpg" alt="Prof. Rey DANG" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">Prof. Rey DANG</h3>
-                            <div class="faculty-sub-role">Directeur de la Recherche</div>
-                            <p class="faculty-short-bio">Giám đốc Viện Nghiên cứu CERI ISTEC Paris, Tiến sĩ Khoa học Quản trị Doanh nghiệp.</p>
-                        </div>
-                    </div>
-                    <!-- Giáo sư 6 -->
-                    <div class="faculty-card-square">
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/ADO_web-1.jpg" alt="Prof. Istifanous ADO" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">Prof. Istifanous ADO</h3>
-                            <div class="faculty-sub-role">Entrepreneuriat & Innovation</div>
-                            <p class="faculty-short-bio">Trưởng bộ môn Khởi nghiệp & Đổi mới sáng tạo, Cố vấn ươm tạo doanh nghiệp khởi nghiệp.</p>
-                        </div>
-                    </div>
-                    <!-- Giáo sư 7 -->
-                    <div class="faculty-card-square">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">TS. Phạm Quang Vinh</h3>
-                            <div class="faculty-sub-role">Viện trưởng Viện IDEAS</div>
-                            <p class="faculty-short-bio">Tiến sĩ Quản trị Kinh doanh (Hoa Kỳ), hơn 25 năm kinh nghiệm quản trị và đối ngoại quốc tế.</p>
-                        </div>
-                    </div>
-                    <!-- Giáo sư 8 -->
-                    <div class="faculty-card-square">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2024/04/Thay-thinh-optimized.webp" alt="TS. Dương Văn Thịnh" class="faculty-img-square" loading="lazy" />
-                        <div class="faculty-content-pad">
-                            <h3 class="faculty-name-bold">TS. Dương Văn Thịnh</h3>
-                            <div class="faculty-sub-role">Phó Chủ tịch AI, VERON Group</div>
-                            <p class="faculty-short-bio">Tiến sĩ QTKD (Pháp), Chuyên gia cấp cao về Trí tuệ nhân tạo (AI) và Chuyển đổi số.</p>
-                        </div>
+
+                    <div class="expert-quote-right">
+                        <img src="https://istec.fr/wp-content/uploads/2026/02/JK260212_0603_LD-scaled.jpg"
+                             alt="Jean-Nicolas MANNONI - Director General of Istec"
+                             class="expert-photo-img" id="expImg" loading="lazy" />
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ══ 8. TIMELINE 15 MÔN HỌC & LUẬN VĂN (ACCORDION VUÔNG VỨC) ══ -->
+    <!-- ══ 8. TIMELINE 15 MÔN HỌC & LUẬN VĂN ══ -->
     <section class="istec-section-box bg-alt">
         <div class="container">
             <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
                 <span class="istec-label-top">SYLLABUS DETAILS</span>
                 <h2 class="istec-heading-large">Chi tiết lộ trình 15 môn học & Luận văn</h2>
-                <p class="istec-body-lead" style="margin: 0 auto;">Cấu trúc khoa học gồm 3 học kỳ nền tảng và giai đoạn thực hiện luận văn tốt nghiệp.</p>
+                <p class="istec-body-lead" style="margin: 0 auto;">Cấu trúc khoa học gồm 3 học kỳ nền tảng và giai đoạn thực hiện luận văn tốt nghiệp (60 tín chỉ ECTS Châu Âu).</p>
             </div>
 
             <!-- Timeline Navigation Buttons -->
@@ -1230,7 +1248,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <button class="btn-tab-square" data-term="boxTerm4">Luận Văn Tốt Nghiệp (2 Tháng)</button>
             </div>
 
-            <div class="accordion-square-wrap">
+            <div class="accordion-square-wrap" style="max-width: 920px; margin: 0 auto;">
                 <!-- Kỳ 1 -->
                 <div class="acc-square-box" id="boxTerm1">
                     <button class="acc-square-header" type="button">
@@ -1349,7 +1367,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 9. VĂN BẰNG & MARQUEE KIỂM ĐỊNH BỰ LÊN ══ -->
+    <!-- ══ 9. VĂN BẰNG & MARQUEE KIỂM ĐỊNH CHẠY LIÊN TỤC ══ -->
     <section class="istec-section-box" id="kiem-dinh">
         <div class="container">
             <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
@@ -1360,7 +1378,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </p>
             </div>
 
-            <!-- Slide Marquee Bự Lên -->
+            <!-- Slide Marquee Bự Lên Chạy Liên Tục -->
             <div class="marquee-square-container">
                 <div class="marquee-track-infinite">
                     <div class="marquee-slides-track">
@@ -1371,7 +1389,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <img src="https://istec.fr/wp-content/uploads/2026/01/EFMD-Logo-2-300x122-1.png" alt="EFMD Global Member" class="logo-acc-istec" />
                         <img src="https://istec.fr/wp-content/uploads/2026/02/campus-france-logo.png" alt="Campus France" class="logo-acc-istec" />
                         <img src="https://istec.fr/wp-content/uploads/2026/02/qualiopi-logo-png.png" alt="Qualiopi France" class="logo-acc-istec" />
-                        <!-- Lặp lại -->
+                        <!-- Lặp lại để cuộn vô tận mượt mà -->
                         <img src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="France Compétences RNCP" class="logo-acc-istec" />
                         <img src="https://istec.fr/wp-content/uploads/2026/02/CEFDG-1.webp" alt="CEFDG France" class="logo-acc-istec" />
                         <img src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="Conférence des Grandes Écoles (CGE)" class="logo-acc-istec" />
@@ -1409,7 +1427,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 10. HỌC PHÍ VÀ LỘ TRÌNH TÀI CHÍNH (8500 PUBLIC / 6500 + 200 LPHS) ══ -->
+    <!-- ══ 10. HỌC PHÍ VÀ LỘ TRÌNH TÀI CHÍNH ══ -->
     <section class="istec-section-box bg-alt" id="hoc-phi">
         <div class="container">
             <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
@@ -1456,7 +1474,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
 
                     <div style="text-align: center;">
-                        <a href="#dang-ky-ngay" class="btn-istec-square-dark">
+                        <a href="#faq-dang-ky" class="btn-istec-square-dark">
                             <span>Nhận tư vấn lộ trình học phí chi tiết</span>
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
@@ -1489,121 +1507,125 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 12. FAQ (CÂU HỎI THƯỜNG GẶP) ══ -->
-    <section class="istec-section-box bg-alt" id="faq">
+    <!-- ══ 12. BỐ CỤC 2 CỘT: FAQ BÊN TRÁI & FORM XÉT TUYỂN BÊN PHẢI ══ -->
+    <section class="istec-section-box bg-alt" id="faq-dang-ky">
         <div class="container">
-            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
-                <span class="istec-label-top">FREQUENTLY ASKED QUESTIONS</span>
-                <h2 class="istec-heading-large">Câu hỏi thường gặp</h2>
-            </div>
+            <div class="faq-form-grid-2">
+                <!-- CỘT TRÁI: CÂU HỎI THƯỜNG GẶP (FAQ) -->
+                <div class="faq-col-left">
+                    <span class="istec-label-top">FREQUENTLY ASKED QUESTIONS</span>
+                    <h2 class="istec-heading-large" style="margin-bottom: 12px;">Câu hỏi thường gặp</h2>
+                    <p class="istec-body-lead" style="margin-bottom: 28px;">
+                        Những thắc mắc phổ biến nhất của học viên về chương trình MBA ISTEC Paris.
+                    </p>
 
-            <div class="accordion-square-wrap">
-                <!-- FAQ 1 -->
-                <div class="acc-square-box">
-                    <button class="acc-square-header faq-acc-btn" type="button">
-                        <span class="acc-square-title">MBA ISTEC phù hợp với ai?</span>
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="acc-square-panel" style="max-height: 400px;">
-                        <div class="acc-square-content">
-                            <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">MBA ISTEC phù hợp với những ai muốn nâng tầm từ năng lực chuyên môn lên tư duy quản trị chiến lược: Chuyên viên giàu kinh nghiệm, Quản lý cấp trung, Trưởng bộ phận, và Doanh nhân muốn hệ thống hóa quy trình quản trị doanh nghiệp.</p>
+                    <div class="accordion-square-wrap">
+                        <!-- FAQ 1 -->
+                        <div class="acc-square-box">
+                            <button class="acc-square-header faq-acc-btn" type="button">
+                                <span class="acc-square-title">MBA ISTEC phù hợp với ai?</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="acc-square-panel" style="max-height: 400px;">
+                                <div class="acc-square-content">
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">MBA ISTEC phù hợp với những ai muốn nâng tầm từ năng lực chuyên môn lên tư duy quản trị chiến lược: Chuyên viên giàu kinh nghiệm, Quản lý cấp trung, Trưởng bộ phận, và Doanh nhân muốn hệ thống hóa quy trình quản trị doanh nghiệp.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="acc-square-box">
+                            <button class="acc-square-header faq-acc-btn" type="button">
+                                <span class="acc-square-title">Thời gian đào tạo chương trình là bao lâu?</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="acc-square-panel">
+                                <div class="acc-square-content">
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Chương trình kéo dài 12 tháng, gồm 3 học kỳ (mỗi kỳ 3 tháng) và giai đoạn thực hiện luận văn/dự án cuối khóa trong 2 tháng.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="acc-square-box">
+                            <button class="acc-square-header faq-acc-btn" type="button">
+                                <span class="acc-square-title">Không có bằng cử nhân kinh tế có học được không?</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="acc-square-panel">
+                                <div class="acc-square-content">
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Hoàn toàn được. Chương trình chào đón người tốt nghiệp Đại học các ngành Kỹ thuật, Y tế, Xã hội, Ngôn ngữ... muốn phát triển năng lực quản lý điều hành.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="acc-square-box">
+                            <button class="acc-square-header faq-acc-btn" type="button">
+                                <span class="acc-square-title">Học phí chương trình MBA ISTEC là bao nhiêu?</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="acc-square-panel">
+                                <div class="acc-square-content">
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Học phí công bố (public) là 8.500 EUR. Học viên đăng ký qua Viện IDEAS được hưởng ưu đãi còn <strong>6.500 EUR</strong> cùng <strong>200 EUR</strong> lệ phí xét tuyển hồ sơ (LPHS). Có hỗ trợ trả góp 0% qua Sacombank.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- FAQ 2 -->
-                <div class="acc-square-box">
-                    <button class="acc-square-header faq-acc-btn" type="button">
-                        <span class="acc-square-title">Thời gian đào tạo chương trình là bao lâu?</span>
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="acc-square-panel">
-                        <div class="acc-square-content">
-                            <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Chương trình kéo dài 12 tháng, gồm 3 học kỳ (mỗi kỳ 3 tháng) và giai đoạn thực hiện luận văn/dự án cuối khóa trong 2 tháng.</p>
+                <!-- CỘT PHẢI: FORM ĐĂNG KÝ XÉT TUYỂN & NHẬN TƯ VẤN 1:1 -->
+                <div class="form-col-right" id="dang-ky-ngay">
+                    <div class="istec-square-card" style="padding: 36px 30px; background: #ffffff; border: 1px solid var(--border-light); box-shadow: 0 10px 35px rgba(0,0,0,0.06);">
+                        <div style="margin-bottom: 22px;">
+                            <span class="istec-label-top">ADMISSIONS FORM</span>
+                            <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">Đăng ký tư vấn & xét tuyển MBA</h3>
+                            <p style="color: var(--dark-muted); font-size: 0.92rem; margin: 0;">Hội đồng học thuật sẽ liên hệ thẩm định hồ sơ trong vòng 24h.</p>
                         </div>
+
+                        <form id="istecLeadFormPhp" onsubmit="handleFormSubmitPhp(event)">
+                            <div style="display: flex; flex-direction: column; gap: 14px;">
+                                <div>
+                                    <label style="display: block; font-size: 0.84rem; font-weight: 750; color: var(--dark-main); margin-bottom: 4px;" for="inpName">Họ và tên *</label>
+                                    <input type="text" id="inpName" name="fullname" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;" placeholder="Nguyễn Văn A" required />
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.84rem; font-weight: 750; color: var(--dark-main); margin-bottom: 4px;" for="inpPhone">Số điện thoại *</label>
+                                    <input type="tel" id="inpPhone" name="phone" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;" placeholder="0901 234 567" required />
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.84rem; font-weight: 750; color: var(--dark-main); margin-bottom: 4px;" for="inpEmail">Địa chỉ Email *</label>
+                                    <input type="email" id="inpEmail" name="email" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;" placeholder="email@domain.com" required />
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.84rem; font-weight: 750; color: var(--dark-main); margin-bottom: 4px;" for="inpEdu">Trình độ học vấn</label>
+                                    <select id="inpEdu" name="education" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;">
+                                        <option value="Đại học">Đã tốt nghiệp Đại học</option>
+                                        <option value="Cao đẳng">Đã tốt nghiệp Cao đẳng</option>
+                                        <option value="Thạc sĩ">Đã có bằng Thạc sĩ</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.84rem; font-weight: 750; color: var(--dark-main); margin-bottom: 4px;" for="inpExp">Kinh nghiệm làm việc</label>
+                                    <select id="inpExp" name="experience" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;">
+                                        <option value="Dưới 3 năm">Dưới 3 năm</option>
+                                        <option value="3 - 5 năm" selected>Từ 3 - 5 năm</option>
+                                        <option value="Trên 5 năm">Trên 5 năm</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-istec-square-dark" style="width: 100%; justify-content: center; margin-top: 20px; padding: 14px;">
+                                <span>GỬI ĐĂNG KÝ XÉT TUYỂN</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+
+                            <div id="formSuccessPhp" style="display: none; padding: 14px; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; border-radius: var(--radius-square); font-weight: 700; text-align: center; margin-top: 16px;">
+                                Cảm ơn bạn! Thông tin đã được tiếp nhận. Ban tuyển sinh ISTEC Paris sẽ liên hệ sớm nhất.
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-                <!-- FAQ 3 -->
-                <div class="acc-square-box">
-                    <button class="acc-square-header faq-acc-btn" type="button">
-                        <span class="acc-square-title">Không có bằng cử nhân kinh tế có học được không?</span>
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="acc-square-panel">
-                        <div class="acc-square-content">
-                            <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Hoàn toàn được. Chương trình chào đón người tốt nghiệp Đại học các ngành Kỹ thuật, Y tế, Xã hội, Ngôn ngữ... muốn phát triển năng lực quản lý điều hành.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="acc-square-box">
-                    <button class="acc-square-header faq-acc-btn" type="button">
-                        <span class="acc-square-title">Học phí chương trình MBA ISTEC là bao nhiêu?</span>
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="acc-square-panel">
-                        <div class="acc-square-content">
-                            <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Học phí công bố (public) là 8.500 EUR. Học viên đăng ký qua Viện IDEAS được hưởng ưu đãi còn <strong>6.500 EUR</strong> cùng <strong>200 EUR</strong> lệ phí xét tuyển hồ sơ (LPHS). Có hỗ trợ trả góp 0% qua Sacombank.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ══ 13. FORM ĐĂNG KÝ XÉT TUYỂN (VUÔNG VỨC, GỌN GÀNG) ══ -->
-    <section class="istec-section-box" id="dang-ky-ngay">
-        <div class="container">
-            <div class="istec-square-card" style="max-width: 680px; margin: 0 auto; padding: 40px 36px;">
-                <div style="text-align: center; margin-bottom: 28px;">
-                    <span class="istec-label-top">APPLICATION FORM</span>
-                    <h2 class="istec-heading-large" style="margin-bottom: 8px;">Đăng ký tư vấn & xét tuyển MBA ISTEC</h2>
-                    <p style="color: var(--dark-muted); font-size: 0.94rem; margin: 0;">Điền thông tin để Ban tuyển sinh Viện IDEAS & ISTEC Paris liên hệ hỗ trợ bạn.</p>
-                </div>
-
-                <form id="istecLeadFormPhp" onsubmit="handleFormSubmitPhp(event)">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                        <div>
-                            <label style="display: block; font-size: 0.85rem; font-weight: 750; color: var(--dark-main); margin-bottom: 6px;" for="inpName">Họ và tên *</label>
-                            <input type="text" id="inpName" name="fullname" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;" placeholder="Nguyễn Văn A" required />
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 0.85rem; font-weight: 750; color: var(--dark-main); margin-bottom: 6px;" for="inpPhone">Số điện thoại *</label>
-                            <input type="tel" id="inpPhone" name="phone" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;" placeholder="0901 234 567" required />
-                        </div>
-                        <div style="grid-column: 1 / -1;">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 750; color: var(--dark-main); margin-bottom: 6px;" for="inpEmail">Địa chỉ Email *</label>
-                            <input type="email" id="inpEmail" name="email" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;" placeholder="email@domain.com" required />
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 0.85rem; font-weight: 750; color: var(--dark-main); margin-bottom: 6px;" for="inpEdu">Trình độ học vấn</label>
-                            <select id="inpEdu" name="education" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;">
-                                <option value="Đại học">Đã tốt nghiệp Đại học</option>
-                                <option value="Cao đẳng">Đã tốt nghiệp Cao đẳng</option>
-                                <option value="Thạc sĩ">Đã có bằng Thạc sĩ</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 0.85rem; font-weight: 750; color: var(--dark-main); margin-bottom: 6px;" for="inpExp">Kinh nghiệm làm việc</label>
-                            <select id="inpExp" name="experience" style="width: 100%; padding: 11px 14px; border: 1px solid var(--border-light); border-radius: var(--radius-square); font-size: 0.95rem;">
-                                <option value="Dưới 3 năm">Dưới 3 năm</option>
-                                <option value="3 - 5 năm" selected>Từ 3 - 5 năm</option>
-                                <option value="Trên 5 năm">Trên 5 năm</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-istec-square-dark" style="width: 100%; justify-content: center; margin-top: 20px; padding: 14px;">
-                        <span>GỬI ĐĂNG KÝ XÉT TUYỂN</span>
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </button>
-
-                    <div id="formSuccessPhp" style="display: none; padding: 14px; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; border-radius: var(--radius-square); font-weight: 700; text-align: center; margin-top: 16px;">
-                        Cảm ơn bạn! Thông tin đã được tiếp nhận. Ban tuyển sinh ISTEC Paris sẽ liên hệ sớm nhất.
-                    </div>
-                </form>
             </div>
         </div>
     </section>
@@ -1616,48 +1638,63 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ JAVASCRIPT ĐIỀU KHIỂN TƯƠNG TÁC ══ -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // 1. Faculty Slider
-            const facTrack = document.getElementById('facSliderTrack');
-            const facPrev = document.getElementById('btnPrevFac');
-            const facNext = document.getElementById('btnNextFac');
-
-            if (facTrack && facPrev && facNext) {
-                let currentIdx = 0;
-                function getVisible() {
-                    if (window.innerWidth <= 768) return 1;
-                    if (window.innerWidth <= 1024) return 2;
-                    return 4;
-                }
-
-                function updateFacSlider() {
-                    const total = facTrack.children.length;
-                    const visible = getVisible();
-                    const max = total - visible;
-                    if (currentIdx > max) currentIdx = max;
-                    if (currentIdx < 0) currentIdx = 0;
-
-                    const width = facTrack.children[0].offsetWidth;
-                    const gap = 20;
-                    facTrack.style.transform = `translateX(-${currentIdx * (width + gap)}px)`;
-                }
-
-                facNext.addEventListener('click', () => {
-                    const max = facTrack.children.length - getVisible();
-                    currentIdx = (currentIdx < max) ? currentIdx + 1 : 0;
-                    updateFacSlider();
-                });
-
-                facPrev.addEventListener('click', () => {
-                    const max = facTrack.children.length - getVisible();
-                    currentIdx = (currentIdx > 0) ? currentIdx - 1 : max;
-                    updateFacSlider();
-                });
-
-                window.addEventListener('resize', updateFacSlider);
+        // Dữ liệu slider chuyên gia / ban lãnh đạo (Screenshot 3 của ISTEC)
+        const expertData = [
+            {
+                name: "Jean-Nicolas MANNONI",
+                role: "Director General of Istec",
+                quote: "\"Là một cựu sinh viên ISTEC Business School, tôi vô cùng tự hào khi chứng kiến sự phát triển không ngừng của nhà trường: ngày càng đòi hỏi tiêu chuẩn cao hơn, đổi mới sáng tạo hơn, nhưng luôn lấy con người làm trung tâm. Trong một thế giới biến động nhanh chóng, ISTEC tập trung vào điều cốt lõi: trang bị năng lực thực tiễn vững chắc và kỹ năng học tập suốt đời. Học tập chủ động, đánh giá bài bản và kết nối trực tiếp với doanh nghiệp – nơi năng lực quản trị được xây dựng và chứng minh.\"",
+                img: "https://istec.fr/wp-content/uploads/2026/02/JK260212_0603_LD-scaled.jpg"
+            },
+            {
+                name: "Prof. Adel ALOUI",
+                role: "Professeur-chercheur en Management & Supply Chain",
+                quote: "\"Tại ISTEC Paris, chúng tôi không chỉ giảng dạy lý thuyết hàn lâm đơn thuần. Học viên MBA được đặt vào trung tâm của các tình huống quản trị chiến lược đa quốc gia, học cách tối ưu chuỗi cung ứng toàn cầu và ra quyết định dựa trên dữ liệu kinh doanh thực tế trong kỷ nguyên số.\"",
+                img: "https://istec.fr/wp-content/uploads/2025/02/Adel_aloui.png"
+            },
+            {
+                name: "TS. Phạm Quang Vinh",
+                role: "Viện trưởng Viện IDEAS, Tiến sĩ QTKD Hoa Kỳ",
+                quote: "\"Sứ mệnh của IDEAS khi hợp tác cùng trường kinh doanh danh tiếng hàng đầu nước Pháp ISTEC là mang lại chương trình đào tạo chuẩn Grande École nguyên bản, đồng thời có sự đồng hành hỗ trợ bản địa sâu sát để mỗi học viên đều phát huy tối đa năng lực lãnh đạo và sự nghiệp.\"",
+                img: "https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp"
+            },
+            {
+                name: "Prof. Rey DANG",
+                role: "Directeur de la Recherche, CERI ISTEC Paris",
+                quote: "\"Viện nghiên cứu CERI ISTEC Paris cam kết mang những nghiên cứu ứng dụng tiên tiến nhất về Trí tuệ nhân tạo, Quản trị bền vững và Chuyển đổi số vào nội dung đào tạo MBA, giúp học viên luôn dẫn đầu xu thế kinh doanh hiện đại.\"",
+                img: "https://istec.fr/wp-content/uploads/2025/07/JK260212_0630_LD-scaled-e1771801981334.jpg"
             }
+        ];
 
-            // 2. Timeline Tabs & Accordion
+        let currentExpertIdx = 0;
+        function switchExpertSlide(idx) {
+            currentExpertIdx = idx;
+            const data = expertData[idx];
+            if (!data) return;
+
+            const nameEl = document.getElementById('expName');
+            const roleEl = document.getElementById('expRole');
+            const quoteEl = document.getElementById('expQuote');
+            const imgEl = document.getElementById('expImg');
+
+            if (nameEl) nameEl.textContent = data.name;
+            if (roleEl) roleEl.textContent = data.role;
+            if (quoteEl) quoteEl.textContent = data.quote;
+            if (imgEl) imgEl.src = data.img;
+
+            document.querySelectorAll('.expert-nav-item').forEach((btn, i) => {
+                btn.classList.toggle('active', i === idx);
+            });
+        }
+
+        // Tự động chuyển slide chuyên gia mỗi 8 giây
+        setInterval(() => {
+            currentExpertIdx = (currentExpertIdx + 1) % expertData.length;
+            switchExpertSlide(currentExpertIdx);
+        }, 8000);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Timeline Tabs & Accordion
             const tBtns = document.querySelectorAll('.btn-tab-square');
             const accBlocks = document.querySelectorAll('.acc-square-box');
 
@@ -1696,7 +1733,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             });
         });
 
-        // 3. Form Submission
+        // Form Submission
         function handleFormSubmitPhp(e) {
             e.preventDefault();
             const form = e.target;
