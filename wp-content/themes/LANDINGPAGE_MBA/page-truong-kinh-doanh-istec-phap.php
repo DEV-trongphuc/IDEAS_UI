@@ -1761,8 +1761,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .programs-grid .prog-card-new:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(171, 14, 0, 0.12), 0 1px 5px rgba(171, 14, 0, 0.03);
-            border-color: rgba(171, 14, 0, 0.35);
+            box-shadow: 0 20px 40px rgba(97, 166, 14, 0.16), 0 1px 5px rgba(97, 166, 14, 0.04);
+            border-color: rgba(97, 166, 14, 0.4);
         }
 
         .programs-grid .prog-avatar-container {
@@ -1807,7 +1807,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 800;
             color: #ffffff;
             text-transform: uppercase;
-            background: rgba(171, 14, 0, 0.88);
+            background: #61A60E;
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             padding: 3px 10px;
@@ -2220,7 +2220,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: 100% !important;
                 height: auto !important;
                 border-radius: 8px !important;
-                border: 1px solid rgba(171, 14, 0, 0.2) !important;
+                border: 1px solid rgba(97, 166, 14, 0.25) !important;
                 display: block !important;
                 padding: 0 !important;
                 background: transparent !important;
@@ -2340,8 +2340,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .umef_news_card_featured:hover {
             transform: translateY(-6px);
-            border-color: rgba(171, 14, 0, 0.22);
-            box-shadow: 0 24px 50px rgba(171, 14, 0, 0.08);
+            border-color: rgba(97, 166, 14, 0.28);
+            box-shadow: 0 24px 50px rgba(97, 166, 14, 0.1);
         }
 
         .umef_news_card_featured .umef_news_card_img {
@@ -2389,7 +2389,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 100px;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(97, 166, 14, 0.3);
         }
 
         .umef_news_card_featured .umef_news_card_body {
@@ -2435,8 +2435,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .umef_news_card:hover {
             transform: translateY(-5px);
-            border-color: rgba(171, 14, 0, 0.2);
-            box-shadow: 0 16px 36px rgba(171, 14, 0, 0.07);
+            border-color: rgba(97, 166, 14, 0.28);
+            box-shadow: 0 16px 36px rgba(97, 166, 14, 0.09);
         }
 
         /* Vertical variant — used in right stack */
@@ -2488,9 +2488,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(171, 14, 0, 0.07);
-            border: 1px solid rgba(171, 14, 0, 0.14);
-            color: var(--umef-primary);
+            background: rgba(97, 166, 14, 0.08);
+            border: 1px solid rgba(97, 166, 14, 0.18);
+            color: #3b6807;
             font-size: 0.72rem;
             font-weight: 750;
             padding: 4px 11px;
@@ -2805,7 +2805,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: var(--umef-primary, #ab0e00);
             color: #ffffff;
             border-color: var(--umef-primary, #ab0e00);
-            box-shadow: 0 4px 16px rgba(171, 14, 0, 0.4);
+            box-shadow: 0 4px 16px rgba(97, 166, 14, 0.4);
         }
 
         .umef-video-carousel-btn.prev {
@@ -2957,16 +2957,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-color: var(--umef-primary);
         }
         .reason-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(171, 14, 0, 0.06);
-            color: var(--umef-primary);
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(97, 166, 14, 0.1) !important;
+            border: 1px solid rgba(97, 166, 14, 0.18) !important;
+            color: #61A60E !important;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             margin-bottom: 20px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reason-card:hover .reason-icon {
+            background: #61A60E !important;
+            color: #ffffff !important;
+            transform: scale(1.06);
+            box-shadow: 0 8px 20px rgba(97, 166, 14, 0.28);
         }
         
         /* Admissions Steps */
@@ -2998,7 +3007,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-weight: 800;
             font-size: 1rem;
             margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(171, 14, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(97, 166, 14, 0.35);
         }
         
         /* FAQ Accordion */
