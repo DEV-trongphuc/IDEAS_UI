@@ -124,7 +124,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         /* ── HERO SECTION: CÁCH TOP XUỐNG ĐẦY ĐỦ THOÁNG ĐÃNG ── */
         .istec-hero-container {
-            padding: 100px 0 40px;
+            padding: 110px 0 65px;
             background: #ffffff;
         }
 
@@ -132,7 +132,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: flex-start;
             gap: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
 
         /* Cột trái: Hộp thông số nổi vuông vức của ISTEC */
@@ -279,10 +279,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .istec-parallax-img-holder {
             position: absolute;
-            top: -25%;
+            top: -35%;
             left: 0;
             width: 100%;
-            height: 150%;
+            height: 170%;
             pointer-events: none;
             overflow: hidden;
         }
@@ -295,6 +295,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: block;
             will-change: transform;
             transform: translate3d(0, 0, 0);
+            transition: transform 0.08s ease-out;
         }
 
         .parallax-caption-tag {
@@ -324,6 +325,86 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             background: var(--bg-alt);
             border-top: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light);
+        }
+
+        /* ── SECTION IN THE HEART OF PARIS (CHUẨN THEO SCREENSHOT ISTEC PARIS) ── */
+        .campus-paris-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .campus-paris-img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: var(--radius-square);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        .campus-features-list {
+            border-top: 1px solid var(--border-light);
+            margin-top: 20px;
+        }
+
+        .campus-feature-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .campus-feature-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 0;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--dark-main);
+            transition: color 0.2s ease;
+            cursor: pointer !important;
+        }
+
+        .campus-feature-btn:hover {
+            color: var(--istec-deep-green);
+        }
+
+        .campus-arrow-icon {
+            color: var(--istec-bright-green);
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+        }
+
+        .campus-feature-btn.active .campus-arrow-icon {
+            transform: rotate(90deg);
+        }
+
+        .campus-feature-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            font-size: 0.94rem;
+            color: var(--dark-sub);
+            line-height: 1.6;
+        }
+
+        .campus-feature-panel p {
+            margin: 0 0 16px 26px;
+        }
+
+        @media (max-width: 1024px) {
+            .campus-paris-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+            .campus-paris-img {
+                height: 320px;
+            }
         }
 
         .istec-label-top {
@@ -1396,10 +1477,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
                 <!-- Nút điều hướng Slide chuyên gia -->
                 <div style="display: flex; gap: 10px; align-items: center;">
-                    <button class="btn-slider-square" id="btnPrevExpert" aria-label="Slide trước">
+                    <button class="btn-slider-square" id="btnPrevExpert" onclick="slideExpertPrev()" type="button" aria-label="Slide trước">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
                     </button>
-                    <button class="btn-slider-square" id="btnNextExpert" aria-label="Slide tiếp theo">
+                    <button class="btn-slider-square" id="btnNextExpert" onclick="slideExpertNext()" type="button" aria-label="Slide tiếp theo">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
                     </button>
                 </div>
@@ -1769,24 +1850,63 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 11. LỄ TỐT NGHIỆP TẠI PARIS ══ -->
-    <section class="istec-section-box">
+    <!-- ══ 11. KHÔNG GIAN HỌC XÁ TRUNG TÂM PARIS (IN THE HEART OF PARIS CHUẨN SCREENSHOT) ══ -->
+    <section class="istec-section-box" id="campus-paris">
         <div class="container">
-            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
-                <span class="istec-label-top">GRADUATION IN PARIS</span>
-                <h2 class="istec-heading-large">Lễ tốt nghiệp ISTEC trang trọng tại Paris</h2>
-                <p class="istec-body-lead" style="margin: 0 auto;">
-                    Khoảnh khắc vinh danh đáng nhớ được tổ chức tại các khán phòng nghệ thuật biểu tượng của thủ đô Paris như Grand Rex hay Folies Bergère.
-                </p>
-            </div>
+            <div class="campus-paris-grid">
+                <!-- Cột trái: Giới thiệu học xá & Danh mục mở rộng kiểu trường ISTEC -->
+                <div class="campus-paris-info">
+                    <span class="istec-label-top" style="color: var(--istec-bright-green); font-weight: 800; letter-spacing: 0.1em; font-size: 0.82rem;">IN THE HEART OF PARIS</span>
+                    <h2 style="font-size: clamp(2rem, 3.2vw, 2.75rem); font-weight: 800; color: var(--dark-main); line-height: 1.2; margin: 12px 0 20px; letter-spacing: -0.015em;">
+                        A campus that fosters innovation and learning
+                    </h2>
+                    <p style="font-size: 0.98rem; color: var(--dark-sub); line-height: 1.65; margin-bottom: 14px;">
+                        Tọa lạc ngay giữa trái tim thủ đô Paris (bên bờ kênh Saint-Martin thơ mộng), ISTEC mang đến cho học viên một môi trường học thuật năng động, kết nối trực tiếp với các tập đoàn đa quốc gia, vườn ươm khởi nghiệp và giới chuyên gia kinh tế hàng đầu.
+                    </p>
+                    <p style="font-size: 0.95rem; color: var(--dark-muted); line-height: 1.65; margin-bottom: 24px;">
+                        Học xá hiện đại và thân thiện thúc đẩy tính sáng tạo, hợp tác và phương pháp học tập trải nghiệm thực tế, trang bị cho bạn bản lĩnh sẵn sàng trước mọi thách thức của thế giới kinh doanh.
+                    </p>
 
-            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px; align-items: center; max-width: 960px; margin: 0 auto;">
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-square); border: 1px solid var(--border-light); background: #000;">
-                    <iframe src="https://www.youtube.com/embed/99pGEp4Dkko" title="Lễ tốt nghiệp ISTEC Business School Paris" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+                    <!-- 3 Dòng Accordion tương tác chuẩn screenshot -->
+                    <div class="campus-features-list">
+                        <div class="campus-feature-item">
+                            <button class="campus-feature-btn" type="button" onclick="toggleCampusTab(this)">
+                                <span class="campus-arrow-icon">→</span>
+                                <span class="campus-feature-title">Studying and living in Paris</span>
+                            </button>
+                            <div class="campus-feature-panel">
+                                <p>Cơ hội tham gia các chuyến Study Tour tại Paris, giao lưu cùng học viên quốc tế và tham dự Lễ tốt nghiệp trang trọng tại các khán phòng nghệ thuật biểu tượng như Le Grand Rex.</p>
+                            </div>
+                        </div>
+
+                        <div class="campus-feature-item">
+                            <button class="campus-feature-btn" type="button" onclick="toggleCampusTab(this)">
+                                <span class="campus-arrow-icon">→</span>
+                                <span class="campus-feature-title">An outstanding faculty</span>
+                            </button>
+                            <div class="campus-feature-panel">
+                                <p>Hội tụ đội ngũ Giáo sư, Tiến sĩ và Chuyên gia tư vấn chiến lược hàng đầu tại Pháp và Châu Âu với nhiều công trình nghiên cứu được xuất bản quốc tế.</p>
+                            </div>
+                        </div>
+
+                        <div class="campus-feature-item">
+                            <button class="campus-feature-btn" type="button" onclick="toggleCampusTab(this)">
+                                <span class="campus-arrow-icon">→</span>
+                                <span class="campus-feature-title">An international program</span>
+                            </button>
+                            <div class="campus-feature-panel">
+                                <p>Chương trình MBA đạt kiểm định chuẩn quốc gia Pháp RNCP Level 7 (Bac+5), kết nối mạng lưới hơn 8.000 cựu học viên và 3.500 doanh nghiệp đối tác toàn cầu.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 16px;">
-                    <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Lễ tốt nghiệp ISTEC Paris" style="border-radius: var(--radius-square); width: 100%; height: 160px; object-fit: cover; border: 1px solid var(--border-light);" loading="lazy" />
-                    <img src="https://istec.fr/wp-content/uploads/2025/10/istec_bs25.jpg" alt="Sinh viên quốc tế ISTEC Paris" style="border-radius: var(--radius-square); width: 100%; height: 160px; object-fit: cover; border: 1px solid var(--border-light);" loading="lazy" />
+
+                <!-- Cột phải: Ảnh lớn kênh Saint-Martin Paris tuyệt đẹp chuẩn ảnh mẫu của trường -->
+                <div class="campus-paris-media">
+                    <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0776_LD-scaled.jpg" 
+                         alt="ISTEC Campus in the heart of Paris" 
+                         class="campus-paris-img" 
+                         loading="lazy" />
                 </div>
             </div>
         </div>
@@ -1986,37 +2106,44 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <script>
         // ── 1. ĐIỀU KHIỂN SLIDER 2 CHUYÊN GIA 1 HÀNG (CÓ ANIMATION SLIDE & NÚT) ──
         let currentExpertPage = 0;
-        const totalPages = 2; // 4 chuyên gia chia làm 2 trang trên desktop
-        const expertTrack = document.getElementById('expertSlideTrack');
-        const expertNavDots = document.querySelectorAll('.expert-nav-item');
 
         function updateExpertSlider() {
+            const track = document.getElementById('expertSlideTrack');
+            if (!track) return;
             const isMobile = window.innerWidth <= 1024;
-            const cardWidth = isMobile ? expertTrack.offsetWidth : (expertTrack.offsetWidth / 2);
-            const gap = 24;
-            const shift = currentExpertPage * (isMobile ? (cardWidth + gap) : (cardWidth * 2 + gap));
 
-            expertTrack.style.transform = `translateX(-${shift}px)`;
+            if (isMobile) {
+                track.style.transform = `translateX(calc(-${currentExpertPage * 100}% - ${currentExpertPage * 24}px))`;
+            } else {
+                if (currentExpertPage === 0) {
+                    track.style.transform = 'translateX(0)';
+                } else {
+                    track.style.transform = 'translateX(calc(-100% - 24px))';
+                }
+            }
 
-            expertNavDots.forEach((dot, idx) => {
+            const dots = document.querySelectorAll('.expert-nav-item');
+            dots.forEach((dot, idx) => {
                 dot.classList.toggle('active', idx === currentExpertPage);
             });
         }
 
-        function goExpertSlide(page) {
+        window.slideExpertNext = function () {
+            const maxPages = (window.innerWidth <= 1024) ? 4 : 2;
+            currentExpertPage = (currentExpertPage + 1) % maxPages;
+            updateExpertSlider();
+        };
+
+        window.slideExpertPrev = function () {
+            const maxPages = (window.innerWidth <= 1024) ? 4 : 2;
+            currentExpertPage = (currentExpertPage - 1 + maxPages) % maxPages;
+            updateExpertSlider();
+        };
+
+        window.goExpertSlide = function (page) {
             currentExpertPage = page;
             updateExpertSlider();
-        }
-
-        document.getElementById('btnNextExpert')?.addEventListener('click', () => {
-            currentExpertPage = (currentExpertPage + 1) % totalPages;
-            updateExpertSlider();
-        });
-
-        document.getElementById('btnPrevExpert')?.addEventListener('click', () => {
-            currentExpertPage = (currentExpertPage - 1 + totalPages) % totalPages;
-            updateExpertSlider();
-        });
+        };
 
         window.addEventListener('resize', updateExpertSlider);
 
@@ -2094,7 +2221,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }, 600);
         }
 
-        // ── 4. REAL PARALLAX SCROLL CONTROLLER TRÊN ẢNH ──
+        // ── 4. TOGGLE TABS TRẢI NGHIỆM HỌC XÁ PARIS (IN THE HEART OF PARIS) ──
+        window.toggleCampusTab = function (btn) {
+            const item = btn.closest('.campus-feature-item');
+            const panel = item.querySelector('.campus-feature-panel');
+            const isOpen = btn.classList.contains('active');
+
+            document.querySelectorAll('.campus-feature-btn').forEach(b => {
+                b.classList.remove('active');
+                const p = b.closest('.campus-feature-item')?.querySelector('.campus-feature-panel');
+                if (p) p.style.maxHeight = '0px';
+            });
+
+            if (!isOpen) {
+                btn.classList.add('active');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+        };
+
+        // ── 5. REAL PARALLAX SCROLL CONTROLLER TRÊN ẢNH ──
         function initRealParallax() {
             const parallaxWraps = [
                 { wrap: document.getElementById('parallaxWrap1'), img: document.getElementById('parallaxImg1') },
@@ -2109,10 +2254,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     if (!item.wrap || !item.img) return;
                     const rect = item.wrap.getBoundingClientRect();
                     if (rect.top < winH && rect.bottom > 0) {
-                        const midElement = rect.top + rect.height / 2;
-                        const midWindow = winH / 2;
-                        const dist = midElement - midWindow;
-                        const translateY = (dist / winH) * 75; // 75px smooth glide
+                        const totalScroll = winH + rect.height;
+                        const scrolled = winH - rect.top;
+                        const progress = scrolled / totalScroll; // 0 to 1
+                        const translateY = (progress - 0.5) * 220; // 220px deep glide
                         item.img.style.transform = `translate3d(0, ${translateY}px, 0)`;
                     }
                 });
