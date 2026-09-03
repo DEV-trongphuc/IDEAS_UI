@@ -43,15 +43,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
         <title>
-            <?php echo $is_en ? 'ISTEC Paris University Switzerland | Official Admissions Partner IDEAS' : 'Đại học ISTEC Paris Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>
+            <?php echo $is_en ? 'ISTEC Paris Business School France | Official Admissions Partner IDEAS' : 'Trường Kinh Doanh ISTEC Paris (Pháp) | Đối tác tuyển sinh chính thức IDEAS'; ?>
         </title>
         <meta name="description"
-            content="<?php echo $is_en ? 'Explore ISTEC Paris University in Geneva, Switzerland. Officially accredited by the Grande École Member Council, QS 5-Star rated, and recognized by the Ministry of Education and Training of Vietnam.' : 'Khám phá Đại học ISTEC Paris tại Geneva, Thụy Sĩ. Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars và được công nhận bởi Bộ GD&ĐT Việt Nam.'; ?>" />
+            content="<?php echo $is_en ? 'Explore ISTEC Paris Business School in France. Grande École member accredited by CGE, Grade de Master & Grade de Licence, recognized by the French Ministry of Higher Education.' : 'Khám phá Trường Kinh Doanh ISTEC Paris tại Pháp. Thành viên Grande École uy tín thuộc Hiệp hội CGE, kiểm định Grade de Master & Grade de Licence bởi Bộ Giáo dục Pháp.'; ?>" />
         <meta property="og:type" content="article" />
         <meta property="og:title"
-            content="<?php echo $is_en ? 'ISTEC Paris University Switzerland | Official Admissions Partner IDEAS' : 'Đại học ISTEC Paris Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>" />
+            content="<?php echo $is_en ? 'ISTEC Paris Business School France | Official Admissions Partner IDEAS' : 'Trường Kinh Doanh ISTEC Paris (Pháp) | Đối tác tuyển sinh chính thức IDEAS'; ?>" />
         <meta property="og:description"
-            content="<?php echo $is_en ? 'Experience the elite Swiss education with a prestigious international degree, accredited by CGE, ACBSP, EduQua.' : 'Trải nghiệm giáo dục tinh hoa Thụy Sĩ với bằng cấp quốc tế danh giá, được kiểm định bởi CGE, ACBSP, EduQua.'; ?>" />
+            content="<?php echo $is_en ? 'Experience elite French Grande École business education with prestigious international degrees (DBA, MBA) accredited by CGE, CEFDG, Ministry of Higher Education.' : 'Trải nghiệm giáo dục kinh doanh Grande École tinh hoa nước Pháp với bằng cấp quốc tế danh giá (DBA, MBA) từ ISTEC Paris.'; ?>" />
         <meta property="og:image"
             content="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
@@ -67,12 +67,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <style>
         :root {
-            --umef-primary: var(--clr-primary, #ab0e00);
-            --umef-primary-hover: var(--clr-primary-d, #8c1000);
+            --istec-green: #61A60E;
+            --istec-green-dark: #467909;
+            --istec-green-deep: #2f5404;
+            --istec-green-light: #7ec420;
+            --istec-green-soft: rgba(97, 166, 14, 0.08);
+            --istec-green-glow: rgba(97, 166, 14, 0.28);
+            --clr-primary: #61A60E;
+            --clr-primary-d: #467909;
+            --clr-primary-light: #7ec420;
+            --umef-primary: #61A60E;
+            --umef-primary-hover: #467909;
         }
 
         /* ══════════════════════════════════════
-           SWISS UMEF PAGE – PREMIUM LIGHT DESIGN
+           ISTEC PARIS PAGE – PREMIUM MODERN DESIGN
            ══════════════════════════════════════ */
         html,
         body {
@@ -92,191 +101,616 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             inset: 0;
             z-index: -1;
             background-image:
-                radial-gradient(circle at 5% 15%, rgba(239, 68, 68, 0.04) 0%, transparent 45%),
-                radial-gradient(circle at 95% 75%, rgba(239, 68, 68, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 5% 15%, rgba(97, 166, 14, 0.045) 0%, transparent 45%),
+                radial-gradient(circle at 95% 75%, rgba(97, 166, 14, 0.035) 0%, transparent 40%),
                 radial-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 28px 28px;
             pointer-events: none;
             will-change: transform;
         }
 
-        /* ── Hero Section ── */
-        .umef-hero {
+        /* ── Modern Impressive Hero Section (Like mba.html with ISTEC Green) ── */
+        .istec-hero {
             position: relative;
-            padding: 180px 20px 140px;
-            text-align: center;
-            overflow: hidden;
-            background: #040508;
-            min-height: 80vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            background: linear-gradient(180deg, #ffffff 0%, #f7faf4 50%, #f0f7ea 100%);
+            padding: 130px 0 80px;
+            overflow: hidden;
             width: 100vw;
             margin-left: 50%;
             transform: translateX(-50%);
         }
 
-        .umef-hero-bg {
+        .istec-hero .hero-bg {
             position: absolute;
             inset: 0;
+            pointer-events: none;
             z-index: 1;
-            background-image: url('https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg');
-            background-size: cover;
-            background-position: center 60%;
-            opacity: 0.38;
-            will-change: transform;
-            transform: scale(1.02);
         }
 
-        .umef-hero-logo-link {
-            display: inline-block;
-            margin-top: -30px;
-            margin-bottom: 20px;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            z-index: 3;
-        }
-
-        .umef-hero-logo-link:hover {
-            transform: scale(1.12);
-        }
-
-        .umef-hero-circle-logo {
-            width: 120px;
-            height: 120px;
+        .istec-hero .hero-orb {
+            position: absolute;
             border-radius: 50%;
-            border: 2.5px solid rgba(255, 255, 255, 0.45);
-            background: #ffffff;
-            padding: 4px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-            object-fit: contain;
+            filter: blur(80px);
+            pointer-events: none;
         }
 
-        .umef-hero-overlay {
+        .istec-hero .hero-orb-1 {
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(97, 166, 14, 0.16) 0%, transparent 70%);
+            top: -140px;
+            right: -60px;
+            animation: orb-drift 9s ease-in-out infinite alternate;
+        }
+
+        .istec-hero .hero-orb-2 {
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(126, 196, 32, 0.14) 0%, transparent 70%);
+            bottom: -60px;
+            left: -80px;
+            animation: orb-drift 11s ease-in-out infinite alternate-reverse;
+        }
+
+        .istec-hero .hero-orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(97, 166, 14, 0.09) 0%, transparent 70%);
+            top: 45%;
+            left: 35%;
+            animation: orb-drift 13s ease-in-out infinite alternate;
+        }
+
+        .istec-hero .hero-grid {
             position: absolute;
             inset: 0;
-            z-index: 2;
-            background:
-                linear-gradient(180deg, rgba(4, 5, 8, 0.55) 0%, rgba(6, 9, 14, 0.92) 100%),
-                radial-gradient(ellipse at 50% 50%, rgba(217, 38, 38, 0.18) 0%, transparent 65%);
+            background-image:
+                linear-gradient(rgba(97, 166, 14, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(97, 166, 14, 0.05) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 85% 65% at 50% 40%, black 0%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 40%, black 0%, transparent 100%);
         }
 
-        .umef-hero-container {
-            position: relative;
-            z-index: 3;
-            max-width: 1000px;
+        @keyframes orb-drift {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(24px, -24px) scale(1.06); }
+        }
+
+        .istec-hero .container {
+            max-width: 1240px;
             margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
         }
 
-        .umef-hero-badge {
-            background: rgba(217, 38, 38, 0.14);
-            border: 1px solid rgba(217, 38, 38, 0.4);
-            padding: 8px 22px;
-            border-radius: 100px;
-            color: #ff8a8a;
-            font-size: 0.82rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+        .istec-hero .hero-layout {
+            display: grid;
+            grid-template-columns: 54% 46%;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .istec-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            min-width: 0;
+        }
+
+        /* Badge */
+        .istec-hero .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 24px;
-            backdrop-filter: blur(12px);
+            padding: 6px 16px;
+            border-radius: 99px;
+            background: rgba(97, 166, 14, 0.09);
+            border: 1px solid rgba(97, 166, 14, 0.28);
+            color: #3e6d08;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            backdrop-filter: blur(8px);
         }
 
-        .umef-hero h1 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+        .istec-hero .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #61A60E;
+            box-shadow: 0 0 10px rgba(97, 166, 14, 0.8);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.35); opacity: 0.6; }
+        }
+
+        /* School Logo Tagline */
+        .istec-hero .hero-school-tag {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .istec-hero .hero-school-logo {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .istec-hero .hero-school-divider {
+            width: 1.5px;
+            height: 24px;
+            background: #cbd5e1;
+        }
+
+        .istec-hero .hero-school-name {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #475569;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Headline */
+        .istec-hero .hero-headline {
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
             font-weight: 900;
-            margin-bottom: 24px;
+            line-height: 1.18;
             letter-spacing: -0.025em;
-            line-height: 1.2;
-            color: #ffffff;
+            color: #0f172a;
+            margin-bottom: 20px;
         }
 
-        .umef-hero h1 span {
-            background: linear-gradient(135deg, #ff8a8a 0%, var(--umef-primary) 60%, var(--umef-primary-hover) 100%);
+        .istec-hero .hero-hl-small {
+            font-size: 0.9em;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        .istec-hero .hero-hl-big {
+            font-style: normal;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .istec-hero .gradient-text {
+            background: linear-gradient(135deg, #61A60E 0%, #3e6d08 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: inline-block;
         }
 
-        .umef-hero p {
-            font-size: 1.15rem;
-            color: rgba(241, 245, 249, 0.9);
-            max-width: 800px;
-            margin: 0 auto 40px;
+        /* Subtitle */
+        .istec-hero .hero-sub {
+            font-size: 1.05rem;
             line-height: 1.7;
-            font-weight: 500;
+            color: #475569;
+            margin-bottom: 24px;
+            max-width: 600px;
         }
 
-        .umef-hero-stats {
+        .istec-hero .hero-sub strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        /* Fast info badges row */
+        .istec-hero .hero-badges-row {
             display: flex;
-            justify-content: center;
-            gap: 24px;
             flex-wrap: wrap;
-            margin-top: 40px;
+            gap: 10px;
+            margin-bottom: 24px;
         }
 
-        .umef-stat-card {
+        .istec-hero .info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
             background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.06);
-            padding: 18px 28px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            min-width: 180px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(97, 166, 14, 0.2);
+            border-radius: 12px;
+            font-size: 0.84rem;
+            font-weight: 650;
+            color: #1e293b;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            transition: all 0.25s ease;
         }
 
-        .umef-hero .umef-stat-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: none;
+        .istec-hero .info-badge:hover {
+            border-color: #61A60E;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(97, 166, 14, 0.12);
         }
 
-        .umef-stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(239, 68, 68, 0.25);
-            background: rgba(239, 68, 68, 0.02);
-            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.06);
+        .istec-hero .info-badge .icon {
+            color: #61A60E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .umef-hero .umef-stat-card:hover {
-            border-color: rgba(217, 38, 38, 0.3);
-            background: rgba(217, 38, 38, 0.03);
-            box-shadow: 0 10px 25px rgba(217, 38, 38, 0.08);
+        /* Accreditation strip */
+        .istec-hero .hero-accred-strip {
+            margin-bottom: 28px;
+            padding-top: 14px;
+            border-top: 1px dashed rgba(97, 166, 14, 0.2);
         }
 
-        .umef-stat-num {
-            font-size: 2rem;
-            font-weight: 800;
+        .istec-hero .hero-accred-label {
             display: block;
-            margin-bottom: 5px;
-            background: linear-gradient(135deg, var(--umef-primary), var(--umef-primary-hover));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 0.76rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #64748b;
+            margin-bottom: 10px;
         }
 
-        .umef-hero .umef-stat-num {
-            background: linear-gradient(135deg, #ff8a8a, var(--umef-primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .istec-hero .hero-accred-logos {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .umef-stat-lbl {
-            font-size: 0.8rem;
+        .istec-hero .hero-accred-logos img {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(10%) contrast(105%);
+            transition: transform 0.25s ease, filter 0.25s ease;
+            background: #ffffff;
+            padding: 4px 8px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .istec-hero .hero-accred-logos img:hover {
+            transform: scale(1.08);
+            filter: grayscale(0%);
+            border-color: #61A60E;
+        }
+
+        /* CTA buttons */
+        .istec-hero .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+
+        .istec-hero .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.96rem;
+            font-weight: 750;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .istec-hero .btn-primary {
+            background: linear-gradient(135deg, #61A60E 0%, #467909 100%);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 8px 25px rgba(97, 166, 14, 0.35);
+        }
+
+        .istec-hero .btn-primary:hover {
+            background: linear-gradient(135deg, #6cba10 0%, #4f890a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(97, 166, 14, 0.45);
+            color: #ffffff;
+        }
+
+        .istec-hero .btn-outline {
+            background: #ffffff;
+            color: #1e293b;
+            border: 1.5px solid #cbd5e1;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+        }
+
+        .istec-hero .btn-outline:hover {
+            border-color: #61A60E;
+            color: #61A60E;
+            background: rgba(97, 166, 14, 0.04);
+            transform: translateY(-2px);
+        }
+
+        /* Social proof */
+        .istec-hero .hero-social-proof {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .istec-hero .avatars {
+            display: flex;
+            align-items: center;
+        }
+
+        .istec-hero .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            margin-left: -10px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+        }
+
+        .istec-hero .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .istec-hero .hero-social-proof p {
+            font-size: 0.84rem;
+            color: #64748b;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .istec-hero .hero-social-proof p strong {
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        /* ── Right Column: Hero Visual Panel ── */
+        .istec-hero .hero-visual {
+            position: relative;
+        }
+
+        .istec-hero .hero-photo-main {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 70px rgba(97, 166, 14, 0.22), 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 4px solid #ffffff;
+            background: #e2e8f0;
+        }
+
+        .istec-hero .hero-photo-main > img {
+            width: 100%;
+            height: 560px;
+            object-fit: cover;
+            object-position: center 35%;
+            display: block;
+            border-radius: 24px;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .istec-hero .hero-photo-main:hover > img {
+            transform: scale(1.03);
+        }
+
+        /* Floating stat badges */
+        .istec-hero .hero-float-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(97, 166, 14, 0.25);
+            border-radius: 16px;
+            padding: 12px 18px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(14px);
+            min-width: 170px;
+            z-index: 3;
+            animation: float-gentle 4.5s ease-in-out infinite alternate;
+        }
+
+        .istec-hero .hero-float-1 {
+            top: 24px;
+            left: -18px;
+            animation-delay: 0s;
+        }
+
+        .istec-hero .hero-float-2 {
+            top: 45%;
+            right: -20px;
+            animation-delay: 1.2s;
+        }
+
+        .istec-hero .hero-float-3 {
+            bottom: 24px;
+            left: 20px;
+            animation-delay: 2.2s;
+        }
+
+        .istec-hero .float-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(97, 166, 14, 0.12);
+            color: #61A60E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .istec-hero .float-value {
+            font-size: 1.25rem;
+            font-weight: 850;
+            color: #2f5404;
+            line-height: 1.1;
+        }
+
+        .istec-hero .float-label {
+            font-size: 0.74rem;
             color: #64748b;
             font-weight: 650;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: block;
-            margin-bottom: 5px;
+            line-height: 1.3;
         }
 
-        .umef-hero .umef-stat-lbl {
-            color: #94a3b8;
+        /* Secondary video thumbnail */
+        .istec-hero .hero-video-thumb {
+            position: absolute;
+            bottom: -18px;
+            right: -16px;
+            width: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+            border: 3px solid #ffffff;
+            background: #0f172a;
+            z-index: 4;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .istec-hero .hero-video-thumb:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 18px 45px rgba(97, 166, 14, 0.3);
+        }
+
+        .istec-hero .hero-video-thumb img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .istec-hero .hero-video-thumb:hover img {
+            opacity: 1;
+        }
+
+        .istec-hero .video-play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, transparent 20%, rgba(0, 0, 0, 0.75) 100%);
+            gap: 6px;
+        }
+
+        .istec-hero .play-pulse-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #61A60E;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 0 rgba(97, 166, 14, 0.7);
+            animation: pulse-play 1.8s infinite;
+        }
+
+        @keyframes pulse-play {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(97, 166, 14, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(97, 166, 14, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(97, 166, 14, 0); }
+        }
+
+        .istec-hero .video-play-title {
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 750;
+            text-align: center;
+            letter-spacing: 0.02em;
+            padding: 0 6px;
+        }
+
+        @keyframes float-gentle {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .istec-hero .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .istec-hero .hero-visual {
+                order: -1;
+                max-width: 580px;
+                margin: 0 auto;
+            }
+            .istec-hero .hero-photo-main > img {
+                height: 420px;
+            }
+            .istec-hero .hero-float-1 {
+                left: 12px;
+                top: 12px;
+            }
+            .istec-hero .hero-float-2 {
+                right: 12px;
+                top: 46%;
+            }
+            .istec-hero .hero-float-3 {
+                left: 12px;
+                bottom: 12px;
+            }
+            .istec-hero .hero-video-thumb {
+                right: 12px;
+                bottom: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .istec-hero {
+                padding: 100px 0 60px;
+            }
+            .istec-hero .hero-headline {
+                font-size: 1.85rem;
+            }
+            .istec-hero .hero-photo-main > img {
+                height: 320px;
+            }
+            .istec-hero .hero-float-badge {
+                min-width: 135px;
+                padding: 8px 12px;
+            }
+            .istec-hero .float-icon {
+                width: 34px;
+                height: 34px;
+            }
+            .istec-hero .float-value {
+                font-size: 1rem;
+            }
+            .istec-hero .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+            .istec-hero .btn {
+                width: 100%;
+            }
+            .istec-hero .hero-video-thumb {
+                width: 160px;
+            }
+            .istec-hero .hero-video-thumb img {
+                height: 90px;
+            }
         }
 
         /* ── Section General Layout ── */
@@ -319,7 +753,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .prog-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            border-top: 5px solid #ab0e00 !important;
+            border-top: 5px solid #61A60E !important;
             border-radius: 16px !important;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
             display: flex;
@@ -330,8 +764,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
         .prog-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 45px rgba(171, 14, 0, 0.12) !important;
-            border-color: rgba(171, 14, 0, 0.35) !important;
+            box-shadow: 0 20px 45px rgba(97, 166, 14, 0.16) !important;
+            border-color: rgba(97, 166, 14, 0.35) !important;
         }
         .prog-card-thumb {
             position: relative;
@@ -354,7 +788,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: absolute;
             top: 14px;
             right: 14px;
-            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
+            background: linear-gradient(135deg, #61A60E 0%, #467909 100%);
             color: #ffffff;
             font-size: 0.78rem;
             font-weight: 800;
@@ -362,7 +796,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 99px;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.35);
+            box-shadow: 0 4px 12px rgba(97, 166, 14, 0.35);
             z-index: 2;
         }
         .prog-card-body {
@@ -434,7 +868,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             font-size: 0.9rem;
             font-weight: 700;
             color: #ffffff;
-            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
+            background: linear-gradient(135deg, #61A60E 0%, #467909 100%);
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -442,14 +876,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 4px 14px rgba(171, 14, 0, 0.22);
+            box-shadow: 0 4px 14px rgba(97, 166, 14, 0.25);
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             text-decoration: none;
         }
         .prog-btn-reg:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(171, 14, 0, 0.35);
-            background: linear-gradient(135deg, #bf1100 0%, #9e1200 100%);
+            box-shadow: 0 6px 20px rgba(97, 166, 14, 0.38);
+            background: linear-gradient(135deg, #6cba10 0%, #4f890a 100%);
             color: #ffffff;
         }
         .prog-btn-reg svg {
@@ -2680,42 +3114,164 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Shared Header & Mobile Menu -->
     <?php get_template_part('shared-header'); ?>
 
-    <!-- Hero Area -->
-    <section class="umef-hero">
-        <div class="umef-hero-bg"></div>
-        <div class="umef-hero-overlay"></div>
-        <div class="umef-hero-container">
-            <div class="umef-hero-logo-wrap">
-                <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="umef-hero-logo-link">
-                    <img src="https://istec.fr/wp-content/themes/bubble//components/subcomponents_essentials/NavigationMain/assets/logo.svg" alt="ISTEC Paris Logo"
-                        class="umef-hero-circle-logo" fetchpriority="high" decoding="async" />
-                </a>
+    <!-- Modern Impressive Hero Area (ISTEC Green & mba.html Style) -->
+    <section class="istec-hero" id="trang-chu" aria-labelledby="hero-headline">
+        <div class="hero-bg">
+            <!-- Localized Background Decor Icons -->
+            <div class="section-bg-decor">
+                <svg class="svg-icon fa-graduation-cap fa-solid bg-decor-icon decor-lg" style="top: 10%; left: 4%; animation-duration: 28s;" viewBox="0 0 640 512" width="18" height="18" fill="#61A60E"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                <svg class="svg-icon fa-book fa-solid bg-decor-icon decor-sm" style="top: 60%; right: 3%; animation-duration: 32s;" viewBox="0 0 448 512" width="16" height="16" fill="#61A60E"><path d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
             </div>
-            <div class="umef-hero-badge">
-                <svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
-                <?php echo $is_en ? 'French Partner University' : 'Trường Đối Tác Pháp'; ?>
-            </div>
-            <h1><?php echo $is_en ? 'Elite Business School (Grande École) <span>in Paris</span> <br />accredited with <span>Grade de Master & Grade de Licence</span>' : 'Trường kinh doanh <span>tại Paris</span> <br />đạt kiểm định quốc gia <span>Grade de Master & Grade de Licence</span>'; ?>
-            </h1>
-            <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+            <div class="hero-grid"></div>
+        </div>
+
+        <div class="container hero-layout">
+            <!-- LEFT: Hero Content -->
+            <div class="hero-content reveal-up">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span><?php echo $is_en ? 'Original Knowledge – Localized Mentorship' : 'Tri thức Nguyên bản – Đồng hành Bản địa'; ?></span>
+                </div>
+
+                <div class="hero-school-tag">
+                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" title="ISTEC Paris" class="hero-school-link">
+                        <img src="https://istec.fr/wp-content/themes/bubble//components/subcomponents_essentials/NavigationMain/assets/logo.svg" alt="ISTEC Paris Logo" class="hero-school-logo" width="112" height="40" fetchpriority="high" decoding="async" />
+                    </a>
+                    <span class="hero-school-divider"></span>
+                    <span class="hero-school-name">
+                        <svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="14" height="14" fill="#61A60E"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                        <?php echo $is_en ? 'French Partner Business School' : 'Trường Đối Tác Pháp'; ?>
+                    </span>
+                </div>
+
+                <h1 class="hero-headline" id="hero-headline">
+                    <span class="hero-hl-small"><?php echo $is_en ? 'Elite Business School' : 'Trường kinh doanh'; ?></span> <em class="hero-hl-big"><?php echo $is_en ? 'in Paris' : 'tại Paris'; ?></em><br />
+                    <span class="hero-hl-small"><?php echo $is_en ? 'nationally accredited' : 'đạt kiểm định quốc gia'; ?> <span class="gradient-text">Grade de Master &amp; Grade de Licence</span></span>
+                </h1>
+
+                <p class="hero-sub">
+                    <?php echo $is_en ? 'ISTEC Paris – established in 1961, is a recognized business school (Grande École) member of CGE, officially accredited to award Grade de Licence (Bachelor) & Grade de Master (Master) by the French Ministry of Higher Education.' : 'ISTEC Paris – thành lập 1961, là trường <strong>kinh doanh</strong> (Grande École) thuộc Hiệp hội CGE, được cấp bằng Grade de Licence (Cử nhân) & Grade de Master (Thạc sĩ) bởi Bộ Giáo dục Pháp.'; ?>
+                </p>
+
+                <div class="hero-badges-row" aria-label="Thông tin nhanh về ISTEC Paris">
+                    <div class="info-badge">
+                        <span class="icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z"/></svg>
+                        </span>
+                        <span><?php echo $is_en ? 'Est. 1961 (60+ Years)' : 'Năm 1961 (60+ năm)'; ?></span>
+                    </div>
+                    <div class="info-badge">
+                        <span class="icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </span>
+                        <span>Grande École (CGE)</span>
+                    </div>
+                    <div class="info-badge">
+                        <span class="icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </span>
+                        <span>Grade de Master</span>
+                    </div>
+                    <div class="info-badge">
+                        <span class="icon">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                        </span>
+                        <span>Bac 8+ (DBA &amp; MBA)</span>
+                    </div>
+                </div>
+
+                <!-- Accreditation logos strip -->
+                <div class="hero-accred-strip" aria-label="Các tổ chức kiểm định và công nhận">
+                    <span class="hero-accred-label"><?php echo $is_en ? 'Accredited & Recognized by' : 'Được kiểm định &amp; công nhận bởi'; ?></span>
+                    <div class="hero-accred-logos">
+                        <img src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="CGE - Conférence des Grandes Écoles" title="CGE - Conférence des Grandes Écoles" width="90" height="32" loading="eager" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/04/FRANCE-COMPETENCES.png" alt="France Compétences" title="France Compétences RNCP" width="105" height="32" loading="eager" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/07/AACSB.webp" alt="AACSB Member" title="AACSB Member" width="90" height="32" loading="eager" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/04/EFMD-2.png" alt="EFMD Member" title="EFMD Member" width="85" height="32" loading="eager" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/04/CDEFM.png" alt="CDEFM" title="CDEFM" width="85" height="32" loading="eager" decoding="async" />
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <button type="button" class="btn btn-primary" id="hero-main-cta"
+                        onclick="if(typeof window.openRegModal === 'function') { window.openRegModal('hero-istec-tuvan'); } else if(typeof window.showform === 'function') { window.showform('hero-istec-tuvan'); }">
+                        <span><?php echo $is_en ? 'Request ISTEC Consultation' : 'Nhận tư vấn chương trình ISTEC'; ?></span>
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <a href="#cac-chuong-trinh" class="btn btn-outline" id="hero-explore-cta">
+                        <span><?php echo $is_en ? 'Explore Programs' : 'Khám phá chương trình'; ?></span>
+                        <svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
+                    </a>
+                </div>
+
+                <div class="hero-social-proof">
+                    <div class="avatars" aria-hidden="true">
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/casc1-optimized.webp" alt="Học viên 1" class="avatar" loading="lazy" width="36" height="36">
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/huynhphuong-optimized.webp" alt="Học viên 2" class="avatar" loading="lazy" width="36" height="36">
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/hamien-optimized.webp" alt="Học viên 3" class="avatar" loading="lazy" width="36" height="36">
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/cumef-optimized.webp" alt="Học viên 4" class="avatar" loading="lazy" width="36" height="36">
+                        <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2025/02/chu_hoang_thai.webp" alt="Học viên 5" class="avatar" loading="lazy" width="36" height="36">
+                    </div>
+                    <p><?php echo $is_en ? '<strong>15,000+</strong> Global Alumni &amp; Executive Network in Vietnam with IDEAS' : '<strong>15,000+</strong> Cựu sinh viên toàn cầu &amp; Mạng lưới học viên tại Việt Nam cùng IDEAS'; ?></p>
+                </div>
             </div>
 
-            <p><?php echo $is_en ? 'ISTEC Paris – established in 1961, is a recognized Grande École member of CGE, officially accredited to award Grade de Licence & Grade de Master by the French Ministry of Higher Education.' : 'ISTEC Paris – thành lập 1961, là trường lớn (Grande École) thuộc Hiệp hội CGE, được cấp bằng Grade de Licence (Cử nhân) & Grade de Master (Thạc sĩ) bởi Bộ Giáo dục Pháp.'; ?>
-            </p>
-            <div class="umef-hero-stats">
-                <div class="umef-stat-card">
-                    <span class="umef-stat-lbl"><?php echo $is_en ? 'Founded Year' : 'Năm Thành Lập'; ?></span>
-                    <span class="umef-stat-num">1961</span>
+            <!-- RIGHT: Hero Visual Panel -->
+            <div class="hero-visual reveal-up">
+                <div class="hero-photo-main">
+                    <img decoding="async" src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg"
+                        alt="Sinh viên Trường Kinh Doanh ISTEC Paris" width="620" height="560"
+                        loading="eager" fetchpriority="high" />
+
+                    <!-- Floating Stat 1: Bac 8+ (Feedback) -->
+                    <div class="hero-float-badge hero-float-1">
+                        <div class="float-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <div>
+                            <div class="float-value">Bac 8+</div>
+                            <div class="float-label"><?php echo $is_en ? 'Terminal Degree (DBA)' : 'Chương trình cao nhất'; ?></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stat 2: Top 8 (Le Parisien) -->
+                    <div class="hero-float-badge hero-float-2">
+                        <div class="float-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        </div>
+                        <div>
+                            <div class="float-value">Top 8</div>
+                            <div class="float-label">Post-Bac (Le Parisien)</div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Stat 3: CGE -->
+                    <div class="hero-float-badge hero-float-3">
+                        <div class="float-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
+                        <div>
+                            <div class="float-value">CGE</div>
+                            <div class="float-label"><?php echo $is_en ? 'Grande École Member' : 'Hiệp hội Trường Lớn'; ?></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="umef-stat-card">
-                    <span class="umef-stat-lbl"><?php echo $is_en ? 'Grande École Member' : 'Uy tín tại Pháp'; ?></span>
-                    <span class="umef-stat-num">CGE</span>
-                </div>
-                <div class="umef-stat-card">
-                    <span class="umef-stat-lbl"><?php echo $is_en ? 'Post-Bac (Le Parisien)' : 'Trường Post-Bac (Le Parisien)'; ?></span>
-                    <span class="umef-stat-num">Hạng 8</span>
-                </div>
+
+                <!-- Video Ceremony Floating Thumbnail (Scrolls to video) -->
+                <a href="#istec-videos" class="hero-video-thumb" title="<?php echo $is_en ? 'Watch ISTEC Paris Graduation Ceremony' : 'Xem Lễ Tốt Nghiệp ISTEC Paris'; ?>">
+                    <img decoding="async" src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Lễ tốt nghiệp ISTEC Paris" width="200" height="110" loading="lazy" />
+                    <div class="video-play-overlay">
+                        <div class="play-pulse-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        </div>
+                        <span class="video-play-title"><?php echo $is_en ? 'Graduation Ceremony' : 'Lễ Tốt Nghiệp ISTEC'; ?></span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -2930,7 +3486,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="istec-prestige-content">
                     <h3><?php echo $is_en ? 'Network of 15,000+ Global Alumni & 60+ Years of History' : 'Mạng lưới 15,000+ Cựu sinh viên toàn cầu và 60+ năm lịch sử'; ?></h3>
                     <p>
-                        <?php echo $is_en ? 'Founded in 1961, ISTEC Paris has been one of the oldest Grande École business schools in France. The institution focuses on high-quality programs in Business Administration, Marketing, Finance, and Strategic Leadership.' : 'Thành lập từ năm 1961, ISTEC Paris đã và đang là một trong những trường lớn (Grande École) lâu đời nhất của nước Pháp. Trường tập trung phát triển các chương trình giảng dạy chất lượng cao về Quản trị Kinh doanh, Marketing, Tài chính và Lãnh đạo Chiến lược.'; ?>
+                        <?php echo $is_en ? 'Founded in 1961, ISTEC Paris has been one of the oldest Grande École business schools in France. The institution focuses on high-quality programs in Business Administration, Marketing, Finance, and Strategic Leadership.' : 'Thành lập từ năm 1961, ISTEC Paris đã và đang là một trong những trường kinh doanh (Grande École) lâu đời nhất của nước Pháp. Trường tập trung phát triển các chương trình giảng dạy chất lượng cao về Quản trị Kinh doanh, Marketing, Tài chính và Lãnh đạo Chiến lược.'; ?>
                     </p>
                     <ul class="istec-prestige-checklist">
                         <li>
@@ -2955,7 +3511,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <section class="umef-section" id="cac-chuong-trinh">
         <div class="programs-inner" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
             <div style="text-align: center; margin-bottom: 50px;">
-                <span style="color: #ab0e00; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hệ Thống Đào Tạo Đa Dạng Quốc Tế</span>
+                <span style="color: var(--istec-green, #61A60E); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Hệ Thống Đào Tạo Đa Dạng Quốc Tế</span>
                 <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Các Chương Trình <span>Liên Kết Tuyển Sinh</span></h2>
                 <p style="color: #64748b; max-width: 700px; margin: 15px auto 0; line-height: 1.6;">
                     Khám phá hệ thống đào tạo chất lượng cao của ISTEC Paris phối hợp cùng IDEAS triển khai cho học viên và các nhà quản trị Việt Nam.
@@ -2963,24 +3519,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
             
             <div class="prog-grid">
-                <!-- DBA Card -->
+                <!-- DBA Card (Chương trình DBA - 2.5 - 3 năm - Tiếng Anh) -->
                 <div class="prog-card">
                     <div class="prog-card-thumb">
-                        <img src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" alt="Tiến sĩ DBA - ISTEC Paris" loading="lazy" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" alt="Chương trình DBA - ISTEC Paris" loading="lazy" decoding="async" />
                         <span class="prog-card-badge">Bac+8</span>
                     </div>
                     <div class="prog-card-body">
-                        <h3 class="prog-card-title"><?php echo $is_en ? 'Doctorate DBA' : 'Tiến sĩ DBA'; ?></h3>
+                        <h3 class="prog-card-title"><?php echo $is_en ? 'DBA Program' : 'Chương trình DBA'; ?></h3>
                         <span class="prog-card-subtitle"><?php echo $is_en ? 'Doctor of Business Administration' : 'Doctor of Business Administration'; ?></span>
                         <p class="prog-card-desc">
                             <?php echo $is_en ? 'Senior executive doctorate program designed for business leaders, CEOs, and exceptional experts seeking to advance academic depth and contribute impactful industry research.' : 'Chương trình Tiến sĩ Quản trị Kinh doanh cao cấp dành riêng cho nhà quản lý, CEO, và chuyên gia xuất sắc muốn nâng tầm học thuật và đóng góp tri thức cho ngành.'; ?>
                         </p>
                         <ul class="prog-card-list">
                             <li>
-                                <?php echo $is_en ? 'Duration: 3 - 4 years' : 'Thời gian: 3 - 4 năm'; ?>
+                                <?php echo $is_en ? 'Duration: 2.5 - 3 years' : 'Thời gian: 2.5 - 3 năm'; ?>
                             </li>
                             <li>
-                                <?php echo $is_en ? 'Language: English / French' : 'Ngôn ngữ: Tiếng Anh / Tiếng Pháp'; ?>
+                                <?php echo $is_en ? 'Language: English' : 'Ngôn ngữ: Tiếng Anh'; ?>
                             </li>
                             <li>
                                 <?php echo $is_en ? 'Official Degree directly awarded by ISTEC Paris' : 'Bằng cấp chính thức từ ISTEC Paris'; ?>
@@ -2999,21 +3555,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </div>
                 
-                <!-- MBA Card -->
+                <!-- MBA Card (Chương trình MBA - 12 - 14 tháng) -->
                 <div class="prog-card">
                     <div class="prog-card-thumb">
-                        <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Thạc sĩ MBA - ISTEC Paris" loading="lazy" decoding="async" />
+                        <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Chương trình MBA - ISTEC Paris" loading="lazy" decoding="async" />
                         <span class="prog-card-badge">Bac+5</span>
                     </div>
                     <div class="prog-card-body">
-                        <h3 class="prog-card-title"><?php echo $is_en ? 'Master MBA' : 'Thạc sĩ MBA'; ?></h3>
+                        <h3 class="prog-card-title"><?php echo $is_en ? 'MBA Program' : 'Chương trình MBA'; ?></h3>
                         <span class="prog-card-subtitle"><?php echo $is_en ? 'Executive Master of Business Administration' : 'Executive Master of Business Administration'; ?></span>
                         <p class="prog-card-desc">
                             <?php echo $is_en ? 'Executive MBA program enhancing strategic planning capabilities, corporate financial mastery, and global operational leadership for management personnel.' : 'Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.'; ?>
                         </p>
                         <ul class="prog-card-list">
                             <li>
-                                <?php echo $is_en ? 'Duration: 18 - 24 months' : 'Thời gian: 18 - 24 tháng'; ?>
+                                <?php echo $is_en ? 'Duration: 12 - 14 months' : 'Thời gian: 12 - 14 tháng'; ?>
                             </li>
                             <li>
                                 <?php echo $is_en ? 'National Master Degree recognized by CEFDG' : 'Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG'; ?>
@@ -3039,14 +3595,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     </section>
 
     <!-- ISTEC Paris Combined Videos Section -->
-    <section class="umef-section umef-videos-section">
+    <section class="umef-section umef-videos-section" id="istec-videos">
         <!-- Localized Background Decor -->
         <div class="section-bg-decor">
             <svg class="svg-icon fa-circle-play fa-solid bg-decor-icon decor-white decor-lg" style="top: 25%; left: 8%; animation-duration: 30s;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
             <svg class="svg-icon fa-comments fa-solid bg-decor-icon decor-white decor-md" style="top: 60%; right: 9%; animation-duration: 26s;" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2s0 0 0 0s0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.2-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9c0 0 0 0 0 0s0 0 0 0l-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></svg>
         </div>
         <div class="section-header">
-            <span class="section-badge" style="color:#ff9e9e;">HÌNH ẢNH THỰC TẾ</span>
+            <span class="section-badge" style="color:#7ec420;">HÌNH ẢNH THỰC TẾ</span>
             <h2 class="section-title" style="color:#ffffff;">Lễ Tốt Nghiệp <span>ISTEC Paris</span></h2>
             <p class="section-subtitle" style="color:#94a3b8;">Những khoảnh khắc vinh danh trang trọng và đầy cảm xúc của các tân học viên tại thủ đô Paris, Pháp.</p>
         </div>
