@@ -3283,6 +3283,198 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 font-size: 1.6rem !important;
             }
         }
+
+        /* ── Section FAQ & Consultation Form (Program Style: FAQ Left, Form Right) ── */
+        .istec-cta-faq-section {
+            padding: 96px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            border-top: 1px solid #eef2f6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .istec-cta-faq-section .cta-inner {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 56px;
+            align-items: start;
+            max-width: 1380px !important;
+            margin: 0 auto;
+            padding: 0 28px;
+            width: 100%;
+        }
+
+        .istec-cta-faq-section .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .istec-cta-faq-section .faq-item {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+        }
+
+        .istec-cta-faq-section .faq-item:hover {
+            border-color: rgba(97, 166, 14, 0.4);
+            box-shadow: 0 6px 18px rgba(97, 166, 14, 0.08);
+        }
+
+        .istec-cta-faq-section .faq-item.faq-open {
+            border-color: #61A60E;
+            box-shadow: 0 8px 24px rgba(97, 166, 14, 0.1);
+        }
+
+        .istec-cta-faq-section .faq-trigger {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 22px;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: 0.96rem;
+            font-weight: 700;
+            color: #1e293b;
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            outline: none;
+            gap: 16px;
+        }
+
+        .istec-cta-faq-section .faq-trigger:hover,
+        .istec-cta-faq-section .faq-item.faq-open .faq-trigger {
+            color: #3b6807;
+        }
+
+        .istec-cta-faq-section .faq-arrow {
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            color: #64748b;
+        }
+
+        .istec-cta-faq-section .faq-item.faq-open .faq-arrow {
+            transform: rotate(180deg);
+            color: #61A60E;
+        }
+
+        .istec-cta-faq-section .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0 22px;
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .istec-cta-faq-section .faq-content p {
+            margin: 0 0 18px 0;
+        }
+
+        .istec-cta-faq-section .cta-form-wrapper {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(97, 166, 14, 0.12);
+            overflow: hidden;
+        }
+
+        .istec-cta-faq-section .form-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 30px 36px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .istec-cta-faq-section .form-header-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #61A60E;
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            border-radius: 100px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(97, 166, 14, 0.3);
+        }
+
+        .istec-cta-faq-section .form-header h3 {
+            font-size: 1.45rem;
+            font-weight: 850;
+            color: #0f172a;
+            line-height: 1.3;
+            margin: 0 0 8px;
+        }
+
+        .istec-cta-faq-section .form-header p {
+            font-size: 0.86rem;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .istec-cta-faq-section .cta-form {
+            padding: 28px 36px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .istec-cta-faq-section .btn-primary.istec-form-btn {
+            background: linear-gradient(135deg, #61A60E 0%, #467909 100%) !important;
+            border: none !important;
+            border-radius: 999px !important;
+            padding: 14px 24px !important;
+            font-size: 0.96rem !important;
+            font-weight: 750 !important;
+            color: #ffffff !important;
+            cursor: pointer !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 10px !important;
+            box-shadow: 0 8px 24px rgba(97, 166, 14, 0.35) !important;
+            transition: all 0.3s ease !important;
+            margin-top: 4px !important;
+        }
+
+        .istec-cta-faq-section .btn-primary.istec-form-btn:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 30px rgba(97, 166, 14, 0.45) !important;
+            filter: brightness(1.05);
+        }
+
+        .istec-cta-faq-section .istec-gradient {
+            background: linear-gradient(135deg, #61A60E 0%, #3e6d08 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+
+        @media (max-width: 992px) {
+            .istec-cta-faq-section {
+                padding: 60px 0;
+            }
+            .istec-cta-faq-section .cta-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .istec-cta-faq-section .cta-form {
+                padding: 24px 20px 28px;
+            }
+            .istec-cta-faq-section .form-header {
+                padding: 24px 20px 16px;
+            }
+        }
     </style>
     <?php wp_head(); ?>
 </head>
@@ -3624,8 +3816,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>ISTEC nằm trong danh sách các trường quản lý được kiểm định xuất sắc của Pháp</span></li>
                     </ul>
                     <div class="acc-sac-cert-strip">
-                        <a href="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" class="acc-cert-thumb" target="_blank" rel="noopener noreferrer">
+                        <a href="https://istec.fr/en/accreditations/" class="acc-cert-thumb" target="_blank" rel="noopener noreferrer" title="Xem danh sách kiểm định chính thức trên website ISTEC Paris">
                             Thành viên chính thức Conférence des Grandes Écoles (CGE)
+                            <svg class="svg-icon fa-arrow-up-right-from-square fa-solid" style="margin-left: 6px;" viewBox="0 0 512 512" width="12" height="12" fill="currentColor"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -3940,42 +4133,170 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     </section>
 
 
-    <!-- Section: FAQs -->
-    <section class="umef-section" id="cau-hoi-thuong-gap" style="background: #ffffff; padding: 80px 20px; border-top: 1px solid #f1f5f9;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <span style="color: var(--umef-primary); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; font-size: 0.9rem;">Giải Đáp Thắc Mắc</span>
-                <h2 style="font-size: 2.5rem; font-weight: 900; color: #1e293b; margin-top: 10px;">Câu Hỏi <span>Thường Gặp</span></h2>
+    <!-- Section: FAQ & Consultation Form (Program Landingpage Layout: FAQ Left, Form Right) -->
+    <section class="cta-section istec-cta-faq-section" id="cau-hoi-thuong-gap" aria-labelledby="cta-faq-headline">
+        <div class="container cta-inner">
+            <!-- LEFT COLUMN: FAQ Accordion -->
+            <div class="cta-left reveal-up">
+                <span class="section-badge" style="background: rgba(97, 166, 14, 0.1); color: #61A60E; border: 1px solid rgba(97, 166, 14, 0.28); display: inline-block; padding: 5px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
+                    <?php echo $is_en ? 'Admissions FAQ' : 'Giải Đáp Thắc Mắc'; ?>
+                </span>
+                <h2 class="cta-headline" id="cta-faq-headline" style="margin-top: 14px; margin-bottom: 14px;">
+                    <?php echo $is_en ? 'Frequently Asked Questions &amp;<br><span class="cta-gradient istec-gradient">Program Counseling</span>' : 'Câu Hỏi Thường Gặp &amp;<br><span class="cta-gradient istec-gradient">Tư Vấn Tuyển Sinh ISTEC</span>'; ?>
+                </h2>
+                <p class="cta-sub" style="color: #475569; font-size: 0.96rem; line-height: 1.6; margin-bottom: 24px;">
+                    <?php echo $is_en ? 'Comprehensive details regarding ISTEC Paris Grande École degrees, blended learning schedules, and admission eligibility in Vietnam.' : 'Giải đáp chi tiết về bằng cấp chuẩn Grande École Pháp, mô hình học tập linh hoạt và quy trình xét tuyển hồ sơ học viên tại Việt Nam.'; ?>
+                </p>
+
+                <!-- FAQ Accordion -->
+                <div class="faq-accordion" role="region" aria-label="FAQ Accordion">
+                    <div class="faq-item faq-open">
+                        <button type="button" class="faq-trigger" aria-expanded="true">
+                            <span><?php echo $is_en ? '1. Are ISTEC Paris degrees recognized internationally and in Vietnam?' : '1. Bằng cấp của ISTEC Paris có được công nhận quốc tế và tại Việt Nam không?'; ?></span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="15" height="15" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <p><?php echo $is_en ? 'Yes. ISTEC Paris is an officially recognized Grande École business school in France, a member of CGE. Its Bachelor (BBA) and Master degrees meet European ECTS standards and are accredited by CEFDG and the French Ministry of Higher Education. In Vietnam, degrees can undergo consular legalization at the Vietnamese Embassy in France according to current laws.' : 'Có. ISTEC Paris là trường lớn (Grande École) được công nhận chính thức bởi Nhà nước Pháp, thành viên CGE. Các văn bằng Cử nhân (BBA) và Thạc sĩ (PGE/MBA) đều đạt chuẩn châu Âu (ECTS) và được kiểm định bởi Bộ Giáo dục & Nghiên cứu Pháp. Tại Việt Nam, văn bằng có thể thực hiện thủ tục hợp pháp hóa lãnh sự tại Đại sứ quán Việt Nam tại Pháp theo đúng quy định pháp luật hiện hành.'; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span><?php echo $is_en ? '2. What is the study format? Do students have to travel to France?' : '2. Hình thức học tập của chương trình như thế nào? Có phải đi Pháp không?'; ?></span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="15" height="15" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <p><?php echo $is_en ? 'The program applies an optimized Blended/Hybrid Learning model designed for working professionals. Students primarily study and conduct research in Vietnam with mentorship from IDEAS faculty and French professors. At the end of the course, students are encouraged to visit Paris to attend Graduation and participate in short-term immersion experiences.' : 'Chương trình áp dụng mô hình học tập kết hợp (Hybrid/Blended Learning) tối ưu cho người đi làm. Học viên chủ yếu học tập và nghiên cứu tại Việt Nam với sự hỗ trợ của các cố vấn khoa học từ IDEAS và giáo sư Pháp giảng dạy. Vào cuối khóa học, học viên được khuyến khích sang Paris tham gia Lễ tốt nghiệp và trải nghiệm học tập ngắn hạn tại cơ sở của ISTEC Pháp.'; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span><?php echo $is_en ? '3. What are the entry requirements for the Doctorate (DBA) program?' : '3. Chương trình Tiến sĩ DBA yêu cầu điều kiện đầu vào như thế nào?'; ?></span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="15" height="15" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <p><?php echo $is_en ? 'Applicants for the Doctor of Business Administration (DBA - Bac+8) program need a Master\'s degree in business, economics or related fields, alongside at least 3-5 years of managerial or specialized experience, and participate in an academic interview on their proposed research direction.' : 'Ứng viên chương trình Tiến sĩ Quản trị Kinh doanh (DBA - Bac+8) cần có bằng Thạc sĩ chuyên ngành kinh tế, quản trị hoặc tương đương, đồng thời có tối thiểu 3-5 năm kinh nghiệm làm việc ở vị trí quản lý hoặc chuyên gia. Ứng viên cũng cần tham dự phỏng vấn khoa học thuyết minh về định hướng đề tài nghiên cứu của mình.'; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-trigger" aria-expanded="false">
+                            <span><?php echo $is_en ? '4. How does the program support candidates needing English assistance?' : '4. Chương trình hỗ trợ ngôn ngữ thế nào cho học viên chưa tự tin tiếng Anh?'; ?></span>
+                            <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="15" height="15" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                        </button>
+                        <div class="faq-content">
+                            <p><?php echo $is_en ? 'The network of academic mentors from IDEAS in Vietnam directly accompanies students, guiding research methodologies, translating and clarifying specialized materials, and assisting candidates throughout thesis preparation to confidently defend before the international scientific council.' : 'Mạng lưới cố vấn học thuật (Mentors) của IDEAS tại Việt Nam sẽ hỗ trợ đồng hành trực tiếp, hướng dẫn phương pháp nghiên cứu khoa học, giải thích tài liệu chuyên môn và hỗ trợ học viên trong suốt quá trình chuẩn bị các báo cáo, luận văn để tự tin trình bày trước hội đồng khoa học quốc tế.'; ?></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="faq-container">
-                <details class="faq-item" open>
-                    <summary>Bằng cấp của ISTEC Paris có được công nhận quốc tế và tại Việt Nam không?</summary>
-                    <div class="faq-content">
-                        Có. ISTEC Paris là trường lớn (Grande École) được công nhận chính thức bởi Nhà nước Pháp, thành viên CGE. Các văn bằng Cử nhân (BBA) và Thạc sĩ (PGE/MBA) đều đạt chuẩn châu Âu (ECTS) và được kiểm định bởi Bộ Giáo dục & Nghiên cứu Pháp. Tại Việt Nam, văn bằng có thể thực hiện thủ tục hợp pháp hóa lãnh sự tại Đại sứ quán Việt Nam tại Pháp theo đúng quy định pháp luật hiện hành.
+
+            <!-- RIGHT COLUMN: Lead Consultation Form -->
+            <div class="cta-form-wrapper reveal-up" id="form-wrapper">
+                <div class="form-header">
+                    <div class="form-header-badge"><?php echo $is_en ? '1:1 COUNSELING' : 'NHẬN TƯ VẤN 1:1'; ?></div>
+                    <h3><?php echo $is_en ? 'Start Your Journey with<br><span class="gradient-text istec-gradient">ISTEC Paris</span>' : 'Đăng Ký Tư Vấn &amp;<br><span class="gradient-text istec-gradient">Lộ Trình ISTEC Paris</span>'; ?></h3>
+                    <p><?php echo $is_en ? 'Our admissions advisor will reach out within 24 working hours to guide your program requirements.' : 'Chuyên viên IDEAS sẽ liên hệ trong vòng 24h làm việc để tư vấn lộ trình và điều kiện tuyển sinh.'; ?></p>
+                </div>
+
+                <form class="cta-form" id="cta-form" novalidate aria-label="Form đăng ký tư vấn ISTEC Paris">
+                    <input type="hidden" name="program" value="ISTEC Paris Business School" />
+                    <input type="hidden" name="lead_source" value="istec_landing_page" />
+
+                    <div class="form-group">
+                        <label for="fullname"><?php echo $is_en ? 'Full Name *' : 'Họ và tên *'; ?></label>
+                        <input type="text" id="fullname" name="fullname" placeholder="<?php echo $is_en ? 'Your full name' : 'Họ và tên của bạn'; ?>" required autocomplete="name" aria-required="true" />
+                        <span class="form-error" id="fullname-error" role="alert"></span>
                     </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Hình thức học tập của chương trình như thế nào? Có phải đi Pháp không?</summary>
-                    <div class="faq-content">
-                        Chương trình áp dụng mô hình học tập kết hợp (Hybrid/Blended Learning) tối ưu cho người đi làm. Học viên chủ yếu học tập và nghiên cứu tại Việt Nam với sự hỗ trợ của các cố vấn khoa học từ IDEAS và giáo sư Pháp giảng dạy. Vào cuối khóa học, học viên được khuyến khích sang Paris tham gia Lễ tốt nghiệp và trải nghiệm học tập ngắn hạn tại cơ sở của ISTEC Pháp.
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone"><?php echo $is_en ? 'Phone Number *' : 'Số điện thoại *'; ?></label>
+                            <input type="tel" id="phone" name="phone" placeholder="<?php echo $is_en ? 'Your phone number' : 'Số điện thoại của bạn'; ?>" required autocomplete="tel" aria-required="true" />
+                            <span class="form-error" id="phone-error" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><?php echo $is_en ? 'Email Address *' : 'Email *'; ?></label>
+                            <input type="email" id="email" name="email" placeholder="<?php echo $is_en ? 'Your email address' : 'Địa chỉ email của bạn'; ?>" required autocomplete="email" aria-required="true" />
+                            <span class="form-error" id="email-error" role="alert"></span>
+                        </div>
                     </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Chương trình Tiến sĩ DBA yêu cầu điều kiện đầu vào như thế nào?</summary>
-                    <div class="faq-content">
-                        Ứng viên chương trình Tiến sĩ Quản trị Kinh doanh (DBA - Bac+8) cần có bằng Thạc sĩ chuyên ngành kinh tế, quản trị hoặc tương đương, đồng thời có tối thiểu 3-5 năm kinh nghiệm làm việc ở vị trí quản lý hoặc chuyên gia. Ứng viên cũng cần tham dự phỏng vấn khoa học thuyết minh về định hướng đề tài nghiên cứu của mình.
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="education"><?php echo $is_en ? 'Education Level *' : 'Trình độ học vấn *'; ?></label>
+                            <select id="education" name="education" required>
+                                <option value=""><?php echo $is_en ? '-- Select Level --' : '-- Chọn trình độ --'; ?></option>
+                                <option value="master"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></option>
+                                <option value="bachelor"><?php echo $is_en ? 'Bachelor' : 'Cử nhân / Đại học'; ?></option>
+                                <option value="college"><?php echo $is_en ? 'College' : 'Cao đẳng'; ?></option>
+                                <option value="other"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
+                            </select>
+                            <span class="form-error" id="education-error" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="program_interest"><?php echo $is_en ? 'Program of Interest *' : 'Chương trình quan tâm *'; ?></label>
+                            <select id="program_interest" name="program_interest" required>
+                                <option value="DBA (Tiến sĩ Quản trị)">Tiến sĩ Quản trị Kinh doanh (DBA - Bac+8)</option>
+                                <option value="MBA (Thạc sĩ Quản trị)">Thạc sĩ Quản trị Kinh doanh (MBA - Bac+5)</option>
+                                <option value="BBA (Cử nhân Quản trị)">Cử nhân Quản trị Kinh doanh (BBA - Bac+3)</option>
+                            </select>
+                            <span class="form-error" id="program_interest-error" role="alert"></span>
+                        </div>
                     </div>
-                </details>
-                
-                <details class="faq-item">
-                    <summary>Chương trình hỗ trợ ngôn ngữ thế nào cho học viên chưa tự tin tiếng Anh?</summary>
-                    <div class="faq-content">
-                        Mạng lưới cố vấn học thuật (Mentors) của IDEAS tại Việt Nam sẽ hỗ trợ đồng hành trực tiếp, hướng dẫn phương pháp nghiên cứu khoa học, giải thích tài liệu chuyên môn và hỗ trợ học viên trong suốt quá trình chuẩn bị các báo cáo, luận văn để tự tin trình bày trước hội đồng khoa học quốc tế.
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="chuc_danh"><?php echo $is_en ? 'Current Position *' : 'Chức danh hiện tại *'; ?></label>
+                            <select id="chuc_danh" name="chuc_danh" required>
+                                <option value=""><?php echo $is_en ? '-- Select Position --' : '-- Chọn chức danh --'; ?></option>
+                                <option value="Chủ DN">Chủ DN / Founder / C-Level</option>
+                                <option value="Giám đốc">Giám đốc / Tổng giám đốc</option>
+                                <option value="Manager">Manager / Trưởng / Phó phòng</option>
+                                <option value="Chuyên viên">Chuyên gia / Chuyên viên</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                            <span class="form-error" id="chuc_danh-error" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="english"><?php echo $is_en ? 'English Level' : 'Trình độ Tiếng Anh'; ?></label>
+                            <select id="english" name="english">
+                                <option value="Cần hỗ trợ tiếng Việt"><?php echo $is_en ? 'Need Vietnamese Mentorship' : 'Cần cố vấn hỗ trợ tiếng Việt'; ?></option>
+                                <option value="IELTS 5.5 - 6.0">IELTS 5.5 - 6.0</option>
+                                <option value="IELTS 6.5+">IELTS 6.5+</option>
+                                <option value="Khác"><?php echo $is_en ? 'Other' : 'Khác'; ?></option>
+                            </select>
+                        </div>
                     </div>
-                </details>
+
+                    <div class="form-group">
+                        <label for="message"><?php echo $is_en ? 'Notes / Preferred Consultation Time' : 'Nội dung cần hỗ trợ / Thời gian nghe tư vấn thuận tiện'; ?></label>
+                        <textarea id="message" name="message" placeholder="<?php echo $is_en ? 'E.g., I would like advice on DBA admission requirements and fee schedule...' : 'Ví dụ: Tôi muốn được tư vấn cụ thể về học phí DBA và lịch khai giảng...'; ?>" rows="2"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full istec-form-btn" id="form-submit-btn" aria-label="Gửi đăng ký tư vấn">
+                        <span id="btn-text"><?php echo $is_en ? 'Submit Registration' : 'Gửi thông tin đăng ký tư vấn'; ?></span>
+                        <svg class="btn-arrow" width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <p class="form-privacy" style="font-size: 0.78rem; color: #94a3b8; text-align: center; margin: 4px 0 0;">
+                        <?php echo $is_en ? '✓ Confidentiality guaranteed under IDEAS privacy policy.' : '✓ Cam kết bảo mật thông tin theo tiêu chuẩn học thuật IDEAS.'; ?>
+                    </p>
+                </form>
+
+                <!-- Success State -->
+                <div class="form-success" id="form-success" role="status" aria-live="polite" style="display:none; padding: 40px 30px; text-align: center;">
+                    <div class="success-icon" style="width: 60px; height: 60px; border-radius: 50%; background: rgba(97, 166, 14, 0.12); color: #61A60E; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <h3 style="font-size: 1.4rem; font-weight: 800; color: #0f172a; margin-bottom: 8px;"><?php echo $is_en ? 'Registration Successful!' : 'Đăng Ký Thành Công!'; ?></h3>
+                    <p style="color: #64748b; font-size: 0.92rem; line-height: 1.6; margin-bottom: 0;">
+                        <?php echo $is_en ? 'An IDEAS admissions consultant will contact you within <strong>24 working hours</strong>.' : 'Chuyên viên tư vấn IDEAS sẽ liên hệ với bạn trong vòng <strong>24 giờ làm việc</strong>.'; ?>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -3984,6 +4305,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // FAQ Accordion Handler (Program Landingpage Style)
+            const faqTriggers = document.querySelectorAll('.istec-cta-faq-section .faq-trigger');
+            faqTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const item = trigger.closest('.faq-item');
+                    const content = item.querySelector('.faq-content');
+                    const isOpen = item.classList.contains('faq-open');
+
+                    document.querySelectorAll('.istec-cta-faq-section .faq-item').forEach(el => {
+                        el.classList.remove('faq-open');
+                        const btn = el.querySelector('.faq-trigger');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                        const c = el.querySelector('.faq-content');
+                        if (c) c.style.maxHeight = '0px';
+                    });
+
+                    if (!isOpen) {
+                        item.classList.add('faq-open');
+                        trigger.setAttribute('aria-expanded', 'true');
+                        if (content) content.style.maxHeight = (content.scrollHeight + 30) + 'px';
+                    }
+                });
+            });
+
+            // Initialize 1st FAQ open
+            const firstFaq = document.querySelector('.istec-cta-faq-section .faq-item.faq-open');
+            if (firstFaq) {
+                const fc = firstFaq.querySelector('.faq-content');
+                if (fc) fc.style.maxHeight = (fc.scrollHeight + 30) + 'px';
+            }
+
             // Accreditations Tab Switching
             const tabButtons = document.querySelectorAll('.acc-tab-btn');
             const tabPanels = document.querySelectorAll('.acc-panel');
