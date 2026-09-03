@@ -357,12 +357,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transition: opacity 0.3s ease;
         }
 
-        /* Fast info badges row (Không xuống hàng, không scrollbar) */
+        /* Fast info badges row (Không xuống hàng, màu xanh ISTEC, to hơn, hover sắc nét) */
         .istec-hero .hero-badges-row {
             display: flex !important;
             flex-wrap: nowrap !important;
-            gap: 6px !important;
-            margin-bottom: 24px !important;
+            gap: 10px !important;
+            margin-bottom: 26px !important;
             overflow: visible !important;
             scrollbar-width: none !important;
         }
@@ -371,34 +371,65 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: none !important;
         }
 
-        .istec-hero .info-badge {
+        .istec-hero .hero-badges-row .info-badge {
             display: inline-flex !important;
             align-items: center !important;
-            gap: 5px !important;
-            padding: 5px 9px !important;
+            gap: 8px !important;
+            padding: 8px 14px !important;
             background: #ffffff !important;
-            border: 1px solid rgba(97, 166, 14, 0.22) !important;
+            border: 1.5px solid rgba(97, 166, 14, 0.28) !important;
             border-radius: 999px !important;
-            font-size: 0.74rem !important;
+            font-size: 0.82rem !important;
             font-weight: 650 !important;
             color: #1e293b !important;
-            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03) !important;
+            box-shadow: 0 3px 10px rgba(97, 166, 14, 0.08) !important;
             white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            cursor: default !important;
+        }
+
+        .istec-hero .hero-badges-row .info-badge:hover {
+            border-color: #61A60E !important;
+            background: #ffffff !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 18px rgba(97, 166, 14, 0.18) !important;
+        }
+
+        .istec-hero .hero-badges-row .info-badge .icon {
+            width: 24px !important;
+            height: 24px !important;
+            border-radius: 50% !important;
+            background: rgba(97, 166, 14, 0.12) !important;
+            color: #61A60E !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
             flex-shrink: 0 !important;
             transition: all 0.25s ease !important;
         }
 
-        .istec-hero .info-badge:hover {
-            border-color: #61A60E;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 14px rgba(97, 166, 14, 0.12);
+        .istec-hero .hero-badges-row .info-badge .icon svg {
+            width: 14px !important;
+            height: 14px !important;
+            stroke: #61A60E !important;
+            color: #61A60E !important;
+            transition: all 0.25s ease !important;
         }
 
-        .istec-hero .info-badge .icon {
-            color: #61A60E;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Khi hover: Icon chuyển nền xanh ISTEC đậm, icon stroke màu trắng sắc nét, chữ xanh đậm */
+        .istec-hero .hero-badges-row .info-badge:hover .icon {
+            background: #61A60E !important;
+            color: #ffffff !important;
+        }
+
+        .istec-hero .hero-badges-row .info-badge:hover .icon svg {
+            stroke: #ffffff !important;
+            color: #ffffff !important;
+        }
+
+        .istec-hero .hero-badges-row .info-badge:hover span:not(.icon) {
+            color: #3b6807 !important;
         }
 
         /* Accreditation strip */
