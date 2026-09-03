@@ -1127,7 +1127,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .istec-hero-flex {
-                flex-direction: column;
+                flex-direction: column-reverse !important;
                 gap: 32px;
             }
             .istec-spec-box {
@@ -1165,12 +1165,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         @media (max-width: 768px) {
             .istec-hero-container {
-                padding: 85px 0 25px;
+                padding: 85px 0 35px;
             }
-            .istec-parallax-fullwidth {
-                height: 280px;
-                background-attachment: scroll;
-                padding: 20px 24px;
+            .istec-hero-headline {
+                font-size: 1.9rem !important;
+                line-height: 1.25 !important;
+            }
+            .istec-real-parallax-wrap {
+                height: 300px;
+                padding: 20px 20px;
             }
             .istec-white-bar-card {
                 grid-template-columns: 1fr;
