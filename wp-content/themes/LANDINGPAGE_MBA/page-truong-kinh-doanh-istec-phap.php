@@ -73,11 +73,49 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             --istec-green-light: #7ec420;
             --istec-green-soft: rgba(97, 166, 14, 0.08);
             --istec-green-glow: rgba(97, 166, 14, 0.28);
-            --clr-primary: #61A60E;
-            --clr-primary-d: #467909;
-            --clr-primary-light: #7ec420;
+            --clr-primary: #ab0e00;
+            --clr-primary-d: #8c1000;
+            --clr-primary-light: #d41500;
             --umef-primary: #61A60E;
             --umef-primary-hover: #467909;
+            --container: 1380px;
+        }
+
+        /* ── Header IDEAS – Giữ nguyên màu Đỏ thương hiệu IDEAS (#ab0e00) ── */
+        #site-header,
+        .ideas_header {
+            --clr-primary: #ab0e00 !important;
+            --clr-primary-d: #8c1000 !important;
+        }
+
+        .ideas_header .nav-link:hover,
+        .ideas_header .nav-link.active,
+        .ideas_header .dropdown-toggle:hover,
+        .ideas_header .dropdown-toggle[aria-expanded="true"],
+        .ideas_header .dropdown-toggle.active {
+            color: #ab0e00 !important;
+        }
+
+        .ideas_header .dropdown-item-simple:hover,
+        .ideas_header .mobile-dropdown-item-simple:hover {
+            color: #ab0e00 !important;
+            background: rgba(171, 14, 0, 0.04) !important;
+        }
+
+        .ideas_header .dropdown-item-simple i,
+        .ideas_header .dropdown-item-simple .svg-icon,
+        .ideas_header .mobile-dropdown-item-simple i,
+        .ideas_header .mobile-dropdown-item-simple .svg-icon {
+            color: #ab0e00 !important;
+            fill: #ab0e00 !important;
+        }
+
+        .ideas_header .dropdown-item-simple:hover i,
+        .ideas_header .dropdown-item-simple:hover .svg-icon,
+        .ideas_header .mobile-dropdown-item-simple:hover i,
+        .ideas_header .mobile-dropdown-item-simple:hover .svg-icon {
+            color: #8c1000 !important;
+            fill: #8c1000 !important;
         }
 
         /* ══════════════════════════════════════
@@ -181,16 +219,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .istec-hero .container {
-            max-width: 1240px;
+            max-width: 1380px !important;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 28px;
             width: 100%;
         }
 
         .istec-hero .hero-layout {
             display: grid;
-            grid-template-columns: 54% 46%;
-            gap: 48px;
+            grid-template-columns: 55% 45%;
+            gap: 56px;
             align-items: center;
             position: relative;
             z-index: 2;
@@ -594,7 +632,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .istec-hero .hero-photo-main > img {
             width: 100% !important;
-            height: 560px !important;
+            height: 580px !important;
             object-fit: cover !important;
             object-position: center center !important;
             display: block !important;
@@ -763,12 +801,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 order: -1;
                 max-width: 580px;
                 margin: 0 auto;
+                width: 100%;
             }
-            .istec-hero .hero-photo-top img {
-                height: 220px;
-            }
-            .istec-hero .hero-photo-bottom img {
-                height: 200px;
+            .istec-hero .hero-photo-main > img {
+                height: 440px !important;
             }
             .istec-hero .hero-float-1 {
                 left: 12px;
@@ -795,11 +831,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .istec-hero .hero-headline {
                 font-size: 1.85rem;
             }
-            .istec-hero .hero-photo-top img {
-                height: 180px;
-            }
-            .istec-hero .hero-photo-bottom img {
-                height: 160px;
+            .istec-hero .hero-photo-main > img {
+                height: 340px !important;
             }
             .istec-hero .hero-float-badge {
                 min-width: 135px;
