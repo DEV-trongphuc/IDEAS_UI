@@ -531,77 +531,156 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             min-width: calc(50% - 12px);
             background: #ffffff;
             border: 1px solid var(--border-light);
+            border-top: 3.5px solid var(--istec-deep-green);
             border-radius: var(--radius-square);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 40, 30, 0.04);
+            padding: 30px 28px 26px;
+            position: relative;
             overflow: hidden;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 290px;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
             box-sizing: border-box;
         }
 
         .expert-slide-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.09);
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px rgba(0, 92, 77, 0.11), 0 4px 12px rgba(0, 0, 0, 0.03);
+            border-color: rgba(97, 166, 14, 0.45);
+            border-top-color: var(--istec-bright-green);
         }
 
-        .expert-card-grid-inner {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            min-height: 380px;
-            height: 100%;
-        }
-
-        .expert-card-left-text {
-            padding: 32px 28px;
+        /* Top Bar trong Card: Badge danh mục & Icon Quote */
+        .expert-card-topbar {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
         }
 
-        .expert-quote-icon {
-            width: 42px;
-            height: 34px;
-            margin-bottom: 18px;
-        }
-
-        .expert-card-name {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--dark-main);
-            margin-bottom: 4px;
-            letter-spacing: -0.01em;
+        .expert-topbar-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: var(--istec-deep-green);
+            background: rgba(0, 92, 77, 0.06);
+            border: 1px solid rgba(0, 92, 77, 0.12);
+            padding: 4px 10px;
+            border-radius: var(--radius-square);
+            letter-spacing: 0.02em;
             text-transform: uppercase;
         }
 
-        .expert-card-role {
-            font-size: 0.92rem;
-            font-weight: 700;
+        .expert-card-quote-icon {
+            width: 28px;
+            height: 22px;
+            color: var(--istec-deep-green);
+            opacity: 0.35;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .expert-slide-card:hover .expert-card-quote-icon {
+            opacity: 0.85;
             color: var(--istec-bright-green);
-            margin-bottom: 14px;
-            line-height: 1.35;
+            transform: scale(1.08);
+        }
+
+        /* Thân nội dung trích dẫn */
+        .expert-card-body {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            margin-bottom: 20px;
         }
 
         .expert-card-quote {
-            font-size: 0.92rem;
-            color: var(--dark-sub);
-            line-height: 1.65;
+            font-size: 0.96rem;
+            color: #334155;
+            line-height: 1.68;
             margin: 0;
+            font-style: italic;
         }
 
-        .expert-card-right-photo {
-            position: relative;
-            background: #f8fafc;
+        /* Chữ ký tác giả ở đáy card: Avatar tròn nhỏ + Tên + Chức vụ */
+        .expert-card-author-block {
             display: flex;
-            align-items: flex-end;
+            align-items: center;
+            gap: 14px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-subtle);
+            position: relative;
+            z-index: 1;
+        }
+
+        .expert-avatar-frame {
+            width: 58px;
+            height: 58px;
+            min-width: 58px;
+            border-radius: 50%;
+            padding: 2.5px;
+            background: #ffffff;
+            border: 2px solid var(--istec-bright-green);
+            box-shadow: 0 0 0 3px rgba(97, 166, 14, 0.14), 0 3px 10px rgba(0, 92, 77, 0.12);
+            display: flex;
+            align-items: center;
             justify-content: center;
             overflow: hidden;
+            flex-shrink: 0;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
 
-        .expert-card-right-photo img {
+        .expert-slide-card:hover .expert-avatar-frame {
+            transform: scale(1.04);
+            box-shadow: 0 0 0 4px rgba(97, 166, 14, 0.25), 0 6px 14px rgba(0, 92, 77, 0.18);
+        }
+
+        .expert-avatar-img {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
             object-fit: cover;
-            object-position: center top;
             display: block;
+        }
+
+        .expert-author-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .expert-card-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--dark-main);
+            margin: 0 0 3px 0;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            line-height: 1.25;
+        }
+
+        .expert-card-role {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--istec-deep-green);
+            margin: 0 0 3px 0;
+            line-height: 1.35;
+        }
+
+        .expert-card-affil {
+            font-size: 0.77rem;
+            color: var(--dark-muted);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            line-height: 1.3;
         }
 
         /* Nút điều hướng slide chuyên gia */
@@ -649,6 +728,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .expert-nav-item.active {
             background: var(--istec-deep-green) !important;
             width: 54px;
+        }
+
+        .istec-mobile-only-dot {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .istec-mobile-only-dot {
+                display: block;
+            }
         }
 
         /* ── LOGO FULL MÀU KO GRAY TRONG MARQUEE KIỂM ĐỊNH ── */
@@ -1150,12 +1239,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .expert-slide-card {
                 flex: 0 0 100%;
                 min-width: 100%;
-            }
-            .expert-card-grid-inner {
-                grid-template-columns: 1fr;
-            }
-            .expert-card-right-photo {
-                height: 300px;
+                padding: 24px 22px;
             }
             .faq-form-grid-2 {
                 grid-template-columns: 1fr;
@@ -1334,8 +1418,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .grid-5-cols {
                 grid-template-columns: 1fr;
             }
-            .expert-card-left-text {
-                padding: 28px 20px;
+            .expert-slide-card {
+                padding: 22px 18px;
+            }
+            .expert-avatar-frame {
+                width: 52px;
+                height: 52px;
+                min-width: 52px;
+            }
+            .expert-card-name {
+                font-size: 1rem;
+            }
+            .expert-card-quote {
+                font-size: 0.9rem;
+                line-height: 1.55;
             }
 
             .istec-stats-strip {
@@ -1409,6 +1505,237 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 display: none !important;
             }
         }
+
+        /* ── SECTION POSITIONING & CONTAINER Z-INDEX FOR DECOR SVGS ── */
+        .istec-hero-container,
+        .istec-section-box,
+        .istec-dark-green-section,
+        .section-syllabus-darkgreen {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .istec-hero-container > .container,
+        .istec-section-box > .container,
+        .istec-dark-green-section > .container,
+        .section-syllabus-darkgreen > .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── DECORATIVE SVG CONTAINERS & AMBIENT ELEMENTS ── */
+        .istec-decor-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .istec-decor-item {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* Ambient subtle glowing orbs */
+        .ambient-glow-green {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(97, 166, 14, 0.08) 0%, rgba(0, 92, 77, 0.03) 45%, transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .ambient-glow-mint {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(110, 231, 183, 0.12) 0%, rgba(97, 166, 14, 0.04) 50%, transparent 70%);
+            filter: blur(45px);
+            pointer-events: none;
+        }
+
+        /* Continuous Ambient Keyframe Animations */
+        @keyframes istecFloatSlow {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -10px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        @keyframes istecFloatSlowRev {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, 10px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        @keyframes istecSpinSlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes istecSpinRev {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes istecPulseGlow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.06); }
+        }
+
+        @keyframes istecDashFlow {
+            0% { stroke-dashoffset: 200; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes istecBadgeShimmer {
+            0% { background-position: -150% 0; }
+            100% { background-position: 150% 0; }
+        }
+
+        .anim-float {
+            animation: istecFloatSlow 8s ease-in-out infinite;
+        }
+
+        .anim-float-rev {
+            animation: istecFloatSlowRev 9s ease-in-out infinite;
+        }
+
+        .anim-spin-slow {
+            animation: istecSpinSlow 75s linear infinite;
+            transform-origin: center center;
+        }
+
+        .anim-spin-rev {
+            animation: istecSpinRev 85s linear infinite;
+            transform-origin: center center;
+        }
+
+        .anim-pulse-glow {
+            animation: istecPulseGlow 5s ease-in-out infinite;
+            transform-origin: center center;
+        }
+
+        .anim-dash {
+            stroke-dasharray: 8 6;
+            animation: istecDashFlow 20s linear infinite;
+        }
+
+        /* ── SCROLL REVEAL (INTERSECTION OBSERVER) ── */
+        .istec-reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .istec-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered card reveals */
+        .istec-stagger > * {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .istec-stagger.is-visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.04s; }
+        .istec-stagger.is-visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.10s; }
+        .istec-stagger.is-visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.16s; }
+        .istec-stagger.is-visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.22s; }
+        .istec-stagger.is-visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.28s; }
+        .istec-stagger.is-visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.34s; }
+
+        /* ── ENHANCED CARD HOVER MICRO-INTERACTIONS ── */
+        .istec-square-card {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+        }
+
+        .istec-square-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 92, 77, 0.08);
+            border-color: rgba(97, 166, 14, 0.35);
+        }
+
+        .value-card-square {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+        }
+
+        .value-card-square:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 92, 77, 0.09);
+            border-color: var(--istec-deep-green);
+        }
+
+        .value-card-square:hover .value-icon-box {
+            transform: scale(1.1) rotate(4deg);
+            background: rgba(97, 166, 14, 0.18);
+        }
+
+        .value-icon-box {
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .stat-strip-card {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+        }
+
+        .stat-strip-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0, 92, 77, 0.08);
+            border-color: var(--istec-deep-green);
+        }
+
+        .pillar-square-box {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+        }
+
+        .pillar-square-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            border-color: rgba(97, 166, 14, 0.35);
+        }
+
+        /* Shimmer on discount pill */
+        .tuition-header-dark span[style*="background: rgba(97, 166, 14"] {
+            background: linear-gradient(90deg, rgba(97, 166, 14, 0.25) 0%, rgba(163, 230, 53, 0.45) 50%, rgba(97, 166, 14, 0.25) 100%) !important;
+            background-size: 200% 100% !important;
+            animation: istecBadgeShimmer 3.5s linear infinite;
+        }
+
+        /* Subtle glow pulse on hero spec box */
+        .istec-spec-box {
+            position: relative;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .istec-spec-box:hover {
+            box-shadow: 0 14px 40px rgba(0, 92, 77, 0.1);
+            border-color: rgba(97, 166, 14, 0.4);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .istec-reveal,
+            .istec-stagger > *,
+            .anim-float,
+            .anim-float-rev,
+            .anim-spin-slow,
+            .anim-spin-rev,
+            .anim-pulse-glow,
+            .anim-dash {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -1419,8 +1746,63 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 1. HERO SECTION (CÁCH TOP XUỐNG ĐẦY ĐỦ, CHUẨN STYLE ISTEC) ══ -->
     <section class="istec-hero-container">
+        <!-- ── SVG DECOR HERO (SUBTLE EUROPEAN TECH ACCENTS) ── -->
+        <div class="istec-decor-bg" aria-hidden="true">
+            <!-- Ambient Radial Glows -->
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 520px; height: 520px; top: -140px; right: -60px;"></div>
+            <div class="ambient-glow-green" style="width: 380px; height: 380px; bottom: -80px; left: -100px; opacity: 0.6;"></div>
+
+            <!-- Top-Right Tech Orbit Concentric Rings -->
+            <div class="istec-decor-item anim-spin-slow" style="top: -80px; right: -80px; width: 420px; height: 420px; opacity: 0.12;">
+                <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <circle cx="210" cy="210" r="200" stroke="#005C4D" stroke-width="1.2" stroke-dasharray="6 6"/>
+                    <circle cx="210" cy="210" r="160" stroke="#61A60E" stroke-width="1.5"/>
+                    <circle cx="210" cy="210" r="110" stroke="#005C4D" stroke-width="1" stroke-dasharray="3 4"/>
+                    <circle cx="210" cy="210" r="60" stroke="#61A60E" stroke-width="1"/>
+                    <circle cx="370" cy="210" r="5" fill="#61A60E"/>
+                    <circle cx="50" cy="210" r="4" fill="#005C4D"/>
+                    <circle cx="210" cy="50" r="4" fill="#61A60E"/>
+                    <circle cx="210" cy="370" r="5" fill="#005C4D"/>
+                    <line x1="210" y1="0" x2="210" y2="420" stroke="#005C4D" stroke-width="0.8" stroke-dasharray="4 6"/>
+                    <line x1="0" y1="210" x2="420" y2="210" stroke="#005C4D" stroke-width="0.8" stroke-dasharray="4 6"/>
+                </svg>
+            </div>
+
+            <!-- Dot Matrix Grid in Background -->
+            <div class="istec-decor-item" style="top: 40px; left: 2%; width: 220px; height: 260px; opacity: 0.08;">
+                <svg width="220" height="260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <pattern id="hero-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+                        <circle cx="2.5" cy="2.5" r="2.5" fill="#005C4D"/>
+                    </pattern>
+                    <rect width="220" height="260" fill="url(#hero-dots)"/>
+                </svg>
+            </div>
+
+            <!-- Subtle Crosshairs / Corner Marks -->
+            <div class="istec-decor-item anim-float" style="top: 160px; right: 28%; opacity: 0.18;">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <path d="M14 0v28M0 14h28" stroke="#61A60E" stroke-width="1.5"/>
+                    <circle cx="14" cy="14" r="5" stroke="#61A60E" stroke-width="1" fill="none"/>
+                </svg>
+            </div>
+
+            <div class="istec-decor-item anim-float-rev" style="bottom: 40px; right: 10%; opacity: 0.14;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 0v24M0 12h24" stroke="#005C4D" stroke-width="1.5"/>
+                </svg>
+            </div>
+
+            <!-- Dynamic Flowing Accent Curve -->
+            <div class="istec-decor-item" style="bottom: 0; left: 15%; width: 70%; height: 120px; opacity: 0.06;">
+                <svg viewBox="0 0 800 120" fill="none" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                    <path d="M0 100 C 250 140, 450 20, 800 60" stroke="#61A60E" stroke-width="2" fill="none"/>
+                    <path d="M0 80 C 280 120, 520 10, 800 40" stroke="#005C4D" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="istec-hero-flex">
+            <div class="istec-hero-flex istec-reveal is-visible">
                 <!-- HỘP THÔNG SỐ NỔI VUÔNG VỨC (ACCESS, RHYTHM, BACK TO SCHOOL, DIPLOMA, TUITION) -->
                 <div class="istec-spec-box">
                     <div class="spec-item">
@@ -1513,8 +1895,42 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 2. CURRICULUM & PROGRAM (CHUẨN THEO SCREENSHOT 4 CỦA ISTEC) ══ -->
     <section class="istec-section-box" id="chuong-trinh">
+        <!-- ── SVG DECOR CURRICULUM ── -->
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green" style="width: 400px; height: 400px; top: -50px; right: -80px; opacity: 0.5;"></div>
+
+            <!-- Top Right Geometric Architectural Lines -->
+            <div class="istec-decor-item anim-float" style="top: 20px; right: 4%; width: 200px; height: 180px; opacity: 0.09;">
+                <svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <rect x="20" y="20" width="160" height="140" stroke="#005C4D" stroke-width="1.2" stroke-dasharray="5 5"/>
+                    <rect x="45" y="45" width="110" height="90" stroke="#61A60E" stroke-width="1"/>
+                    <line x1="0" y1="20" x2="200" y2="20" stroke="#005C4D" stroke-width="0.8"/>
+                    <line x1="20" y1="0" x2="20" y2="180" stroke="#005C4D" stroke-width="0.8"/>
+                    <circle cx="20" cy="20" r="4" fill="#61A60E"/>
+                    <circle cx="180" cy="160" r="4" fill="#005C4D"/>
+                </svg>
+            </div>
+
+            <!-- Bottom Left Dot Matrix Cluster -->
+            <div class="istec-decor-item" style="bottom: 20px; left: 3%; width: 180px; height: 140px; opacity: 0.07;">
+                <svg width="180" height="140" fill="none">
+                    <pattern id="curr-dots" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="2" fill="#61A60E"/>
+                    </pattern>
+                    <rect width="180" height="140" fill="url(#curr-dots)"/>
+                </svg>
+            </div>
+
+            <!-- Subtle Crosshair Accent -->
+            <div class="istec-decor-item anim-float-rev" style="top: 45%; left: 8%; opacity: 0.12;">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path d="M11 0v22M0 11h22" stroke="#00876C" stroke-width="1.5"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="margin-bottom: 36px;">
+            <div style="margin-bottom: 36px;" class="istec-reveal">
                 <span class="istec-label-top">CURRICULUM</span>
                 <h2 class="istec-heading-large">Chương trình đào tạo MBA ISTEC</h2>
                 <p class="istec-body-lead">
@@ -1523,7 +1939,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Focus card vuông vức -->
-            <div class="istec-square-card" style="margin-bottom: 48px; border-left: 4px solid var(--istec-teal); padding: 28px 32px;">
+            <div class="istec-square-card istec-reveal" style="margin-bottom: 48px; border-left: 4px solid var(--istec-teal); padding: 28px 32px;">
                 <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">
                     SPECIALIZATION FOCUS
                 </div>
@@ -1536,7 +1952,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- 4 Con số ấn tượng từ Brief ISTEC -->
-            <div class="istec-stats-strip">
+            <div class="istec-stats-strip istec-stagger">
                 <div class="stat-strip-card">
                     <div class="stat-strip-num">60+</div>
                     <div class="stat-strip-label">Năm đào tạo kinh doanh & quản trị tại Pháp</div>
@@ -1559,11 +1975,49 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 3. MỤC XANH ĐẬM: LESSONS & GOALS (CHUẨN THEO SCREENSHOT 5 CỦA ISTEC) ══ -->
     <section class="istec-dark-green-section">
+        <!-- ── SVG DECOR DARK GREEN SECTION ── -->
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-mint anim-pulse-glow" style="width: 500px; height: 500px; top: -100px; left: -80px;"></div>
+            <div class="ambient-glow-green" style="width: 450px; height: 450px; bottom: -80px; right: -60px; opacity: 0.35;"></div>
+
+            <!-- Top Right Blueprint Celestial Orbit in Mint/Gold -->
+            <div class="istec-decor-item anim-spin-rev" style="top: -60px; right: -60px; width: 380px; height: 380px; opacity: 0.13;">
+                <svg viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <circle cx="190" cy="190" r="170" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="8 6"/>
+                    <circle cx="190" cy="190" r="130" stroke="#61A60E" stroke-width="1.2"/>
+                    <circle cx="190" cy="190" r="85" stroke="#ffffff" stroke-width="0.8" stroke-dasharray="4 4"/>
+                    <circle cx="320" cy="190" r="6" fill="#6ee7b7"/>
+                    <circle cx="60" cy="190" r="4" fill="#61A60E"/>
+                    <line x1="190" y1="10" x2="190" y2="370" stroke="#6ee7b7" stroke-width="0.8" stroke-dasharray="4 8"/>
+                    <line x1="10" y1="190" x2="370" y2="190" stroke="#6ee7b7" stroke-width="0.8" stroke-dasharray="4 8"/>
+                </svg>
+            </div>
+
+            <!-- Subtle European Academic Emblem Outline Watermark -->
+            <div class="istec-decor-item anim-float" style="bottom: 20px; left: 4%; width: 190px; height: 190px; opacity: 0.08;">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <circle cx="100" cy="100" r="90" stroke="#6ee7b7" stroke-width="1.5"/>
+                    <circle cx="100" cy="100" r="75" stroke="#6ee7b7" stroke-width="1" stroke-dasharray="4 4"/>
+                    <path d="M100 35 L120 75 L165 75 L130 102 L145 145 L100 120 L55 145 L70 102 L35 75 L80 75 Z" stroke="#61A60E" stroke-width="1.2" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Light Grid Pattern -->
+            <div class="istec-decor-item" style="top: 30%; right: 12%; width: 140px; height: 140px; opacity: 0.08;">
+                <svg width="140" height="140" fill="none">
+                    <pattern id="dark-green-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1.5" fill="#6ee7b7"/>
+                    </pattern>
+                    <rect width="140" height="140" fill="url(#dark-green-dots)"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
             <!-- Khối 1: Lessons -->
-            <div style="margin-bottom: 48px;">
+            <div style="margin-bottom: 48px;" class="istec-reveal">
                 <h3 class="istec-green-block-title">Lessons (Học phần trọng tâm)</h3>
-                <div class="istec-white-bar-card">
+                <div class="istec-white-bar-card istec-stagger">
                     <div class="bar-item-tick">
                         Strategic Management & Leadership
                     </div>
@@ -1580,9 +2034,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Khối 2: Goals -->
-            <div style="margin-bottom: 48px;">
+            <div style="margin-bottom: 48px;" class="istec-reveal">
                 <h3 class="istec-green-block-title">Goals (Mục tiêu năng lực đầu ra)</h3>
-                <div class="istec-white-goals-card">
+                <div class="istec-white-goals-card istec-stagger">
                     <div class="goal-item-tick">
                         <span><strong>Tư duy quản trị tích hợp:</strong> Kết nối nhuần nhuyễn tài chính, marketing, vận hành và công nghệ vào bức tranh tổng thể của doanh nghiệp.</span>
                     </div>
@@ -1599,9 +2053,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Khối 3: 4 Phương pháp đào tạo thực chiến chuẩn Brief -->
-            <div>
+            <div class="istec-reveal">
                 <h3 class="istec-green-block-title">Methodology (4 Phương pháp đào tạo thực chiến)</h3>
-                <div class="istec-white-bar-card">
+                <div class="istec-white-bar-card istec-stagger">
                     <div class="bar-item-tick">
                         <span><strong>CASE STUDY:</strong> Phân tích các tình huống kinh doanh thực tế toàn cầu</span>
                     </div>
@@ -1621,8 +2075,44 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 4. 6 THÁCH THỨC SỰ NGHIỆP ══ -->
     <section class="istec-section-box bg-alt" id="thach-thuc">
+        <!-- ── SVG DECOR CHALLENGES ── -->
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green" style="width: 360px; height: 360px; top: 10%; left: -60px; opacity: 0.45;"></div>
+
+            <!-- Ascending Stepped Ladder / Path (Career Progression) -->
+            <div class="istec-decor-item anim-float" style="top: 30px; right: 5%; width: 240px; height: 200px; opacity: 0.08;">
+                <svg viewBox="0 0 240 200" fill="none" width="100%" height="100%">
+                    <path d="M20 180 H70 V140 H120 V100 H170 V60 H220 V20" stroke="#005C4D" stroke-width="2" fill="none"/>
+                    <path d="M20 180 H70 V140 H120 V100 H170 V60 H220 V20" stroke="#61A60E" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+                    <circle cx="20" cy="180" r="4" fill="#005C4D"/>
+                    <circle cx="70" cy="140" r="4" fill="#005C4D"/>
+                    <circle cx="120" cy="100" r="4" fill="#005C4D"/>
+                    <circle cx="170" cy="60" r="4" fill="#61A60E"/>
+                    <circle cx="220" cy="20" r="5" fill="#61A60E"/>
+                </svg>
+            </div>
+
+            <!-- Floating Subtle Coordinate Markers -->
+            <div class="istec-decor-item anim-float-rev" style="bottom: 40px; left: 5%; opacity: 0.12;">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                    <path d="M13 0v26M0 13h26" stroke="#61A60E" stroke-width="1.5"/>
+                    <rect x="8" y="8" width="10" height="10" stroke="#005C4D" stroke-width="1"/>
+                </svg>
+            </div>
+
+            <!-- Diagonal Hatched Vector Lines -->
+            <div class="istec-decor-item" style="bottom: 10px; right: 15%; width: 160px; height: 80px; opacity: 0.06;">
+                <svg width="160" height="80" fill="none">
+                    <line x1="0" y1="80" x2="80" y2="0" stroke="#005C4D" stroke-width="1"/>
+                    <line x1="30" y1="80" x2="110" y2="0" stroke="#005C4D" stroke-width="1"/>
+                    <line x1="60" y1="80" x2="140" y2="0" stroke="#005C4D" stroke-width="1"/>
+                    <line x1="90" y1="80" x2="170" y2="0" stroke="#005C4D" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="margin-bottom: 40px;">
+            <div style="margin-bottom: 40px;" class="istec-reveal">
                 <span class="istec-label-top">CAREER CHALLENGES</span>
                 <h2 class="istec-heading-large">Thách thức của người đi làm khi bước lên vị trí quản lý</h2>
                 <p class="istec-body-lead">
@@ -1631,7 +2121,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <div class="challenges-slider-container">
-                <div class="grid-3-cols" id="challengeTrack">
+                <div class="grid-3-cols istec-stagger" id="challengeTrack">
                     <div class="istec-square-card">
                         <div class="num-square-badge">01</div>
                         <h3 class="card-inner-title">Ra quyết định trong bức tranh lớn</h3>
@@ -1684,8 +2174,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 5. 5 GIÁ TRỊ CỐT LÕI ══ -->
     <section class="istec-section-box" id="gia-tri">
+        <!-- ── SVG DECOR CORE VALUES ── -->
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 440px; height: 440px; top: -50px; left: 40%; opacity: 0.4;"></div>
+
+            <!-- Pentagonal 5-Axis Central Orbit Ring (5 Core Values) -->
+            <div class="istec-decor-item anim-spin-slow" style="top: 50%; left: 50%; width: 500px; height: 500px; margin-top: -250px; margin-left: -250px; opacity: 0.07;">
+                <svg viewBox="0 0 500 500" fill="none" width="100%" height="100%">
+                    <circle cx="250" cy="250" r="230" stroke="#005C4D" stroke-width="1.2" stroke-dasharray="8 8"/>
+                    <circle cx="250" cy="250" r="170" stroke="#61A60E" stroke-width="1"/>
+                    <circle cx="250" cy="250" r="100" stroke="#00876C" stroke-width="1" stroke-dasharray="4 6"/>
+                    <!-- 5 Equidistant Points -->
+                    <circle cx="250" cy="20" r="5" fill="#61A60E"/>
+                    <circle cx="469" cy="179" r="5" fill="#005C4D"/>
+                    <circle cx="385" cy="436" r="5" fill="#61A60E"/>
+                    <circle cx="115" cy="436" r="5" fill="#005C4D"/>
+                    <circle cx="31" cy="179" r="5" fill="#61A60E"/>
+                </svg>
+            </div>
+
+            <!-- Top Left Decorative Matrix -->
+            <div class="istec-decor-item" style="top: 30px; left: 4%; width: 140px; height: 140px; opacity: 0.08;">
+                <svg width="140" height="140" fill="none">
+                    <pattern id="val-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="2" fill="#005C4D"/>
+                    </pattern>
+                    <rect width="140" height="140" fill="url(#val-dots)"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="margin-bottom: 32px;">
+            <div style="margin-bottom: 32px;" class="istec-reveal">
                 <span class="istec-label-top">CORE VALUES</span>
                 <h2 class="istec-heading-large">Từ chuyên môn đến năng lực quản trị toàn diện</h2>
                 <p class="istec-body-lead">
@@ -1693,7 +2213,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </p>
             </div>
 
-            <div class="grid-5-cols">
+            <div class="grid-5-cols istec-stagger">
                 <div class="value-card-square">
                     <div class="value-icon-box">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
@@ -1739,13 +2259,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 6. 2 CỘT NĂNG LỰC & LỢI ÍCH ══ -->
     <section class="istec-section-box bg-alt" id="loi-ich">
+        <!-- ── SVG DECOR COMPETENCIES ── -->
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green" style="width: 420px; height: 420px; bottom: -60px; right: -50px; opacity: 0.45;"></div>
+
+            <!-- Geometric Crest / Shield Outline Watermark -->
+            <div class="istec-decor-item anim-float" style="top: 15%; right: 6%; width: 220px; height: 260px; opacity: 0.06;">
+                <svg viewBox="0 0 220 260" fill="none" width="100%" height="100%">
+                    <path d="M110 10 L200 45 V130 C200 190, 110 245, 110 245 C110 245, 20 190, 20 130 V45 Z" stroke="#005C4D" stroke-width="2" fill="none"/>
+                    <path d="M110 30 L180 58 V125 C180 172, 110 220, 110 220 C110 220, 40 172, 40 125 V58 Z" stroke="#61A60E" stroke-width="1.2" stroke-dasharray="6 4" fill="none"/>
+                    <line x1="110" y1="30" x2="110" y2="220" stroke="#005C4D" stroke-width="1"/>
+                    <line x1="40" y1="125" x2="180" y2="125" stroke="#005C4D" stroke-width="1"/>
+                </svg>
+            </div>
+
+            <!-- Floating Tech Coordinate -->
+            <div class="istec-decor-item anim-float-rev" style="bottom: 30px; left: 8%; opacity: 0.12;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="#61A60E" stroke-width="1.2"/>
+                    <path d="M12 2v20M2 12h20" stroke="#61A60E" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="margin-bottom: 36px;">
+            <div style="margin-bottom: 36px;" class="istec-reveal">
                 <span class="istec-label-top">COMPETENCIES & ADVANTAGES</span>
                 <h2 class="istec-heading-large">Vì sao chọn Thạc sĩ Quản trị Kinh doanh của ISTEC?</h2>
             </div>
 
-            <div class="grid-2-cols">
+            <div class="grid-2-cols istec-stagger">
                 <!-- Năng lực đạt được -->
                 <div class="pillar-square-box">
                     <div class="pillar-head-title">
@@ -1809,10 +2352,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 7. SECTION CHUYÊN GIA: 2 CHUYÊN GIA 1 HÀNG, CÓ NÚT VÀ ANIMATION SLIDE ══ -->
+    <!-- ══ 7. SECTION CHUYÊN GIA: 2 CHUYÊN GIA 1 HÀNG, AVATAR TRÒN GỌN GÀNG & TINH TẾ ══ -->
     <section class="istec-section-box" id="chuyen-gia">
+        <!-- ── SVG DECOR FACULTY ── -->
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 460px; height: 460px; top: 10%; right: -50px; opacity: 0.4;"></div>
+
+            <!-- Giant Elegant Quotation Watermark -->
+            <div class="istec-decor-item" style="top: 40px; left: 5%; width: 220px; height: 180px; opacity: 0.04;">
+                <svg viewBox="0 0 220 180" fill="#005C4D">
+                    <path d="M90 0H40C17.9 0 0 17.9 0 40v50c0 22.1 17.9 40 40 40h20v50h-40v-20H0v40h90v-90H40V40h50V0zm130 0h-50c-22.1 0-40 17.9-40 40v50c0 22.1 17.9 40 40 40h20v50h-40v-20h-20v40h90v-90h-50V40h50V0z"/>
+                </svg>
+            </div>
+
+            <!-- Academic Compass Starburst in Corner -->
+            <div class="istec-decor-item anim-spin-slow" style="bottom: -40px; right: 4%; width: 200px; height: 200px; opacity: 0.08;">
+                <svg viewBox="0 0 200 200" fill="none" width="100%" height="100%">
+                    <circle cx="100" cy="100" r="90" stroke="#61A60E" stroke-width="1" stroke-dasharray="5 5"/>
+                    <circle cx="100" cy="100" r="60" stroke="#005C4D" stroke-width="1"/>
+                    <path d="M100 10 L108 85 L180 100 L108 115 L100 190 L92 115 L20 100 L92 85 Z" stroke="#61A60E" stroke-width="1.2" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;" class="istec-reveal">
                 <div>
                     <span class="istec-label-top">LEADERSHIP & FACULTY</span>
                     <h2 class="istec-heading-large" style="margin-bottom: 0;">Thông điệp từ Ban lãnh đạo & Hội đồng học thuật</h2>
@@ -1829,88 +2393,136 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Khung trượt Slider -->
-            <div class="expert-slider-outer">
+            <div class="expert-slider-outer istec-reveal">
                 <div class="expert-slider-track" id="expertSlideTrack">
                     <!-- Card 1: Jean-Nicolas MANNONI -->
                     <div class="expert-slide-card">
-                        <div class="expert-card-grid-inner">
-                            <div class="expert-card-left-text">
-                                <div>
-                                    <svg class="expert-quote-icon" viewBox="0 0 65 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M27.2 0H11.5C5.1 0 0 5.1 0 11.5V27.2C0 33.6 5.1 38.7 11.5 38.7H19.2V51.2H0V38.7C0 24.5 11.5 13 25.7 13V0H27.2ZM64.8 0H49.1C42.7 0 37.6 5.1 37.6 11.5V27.2C37.6 33.6 42.7 38.7 49.1 38.7H56.8V51.2H37.6V38.7C37.6 24.5 49.1 13 63.3 13V0H64.8Z" fill="#61A60E"/>
-                                    </svg>
-                                    <h3 class="expert-card-name">JEAN-NICOLAS MANNONI</h3>
-                                    <div class="expert-card-role">Director General of Istec</div>
-                                    <p class="expert-card-quote">
-                                        "Là cựu sinh viên ISTEC Paris, tôi tự hào về sự phát triển vững mạnh của trường: đề cao tính nhân văn, năng lực thực chiến và kết nối doanh nghiệp chặt chẽ."
-                                    </p>
-                                </div>
+                        <div class="expert-card-topbar">
+                            <span class="expert-topbar-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="#61A60E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>Ban Lãnh Đạo ISTEC Paris</span>
+                            </span>
+                            <svg class="expert-card-quote-icon" viewBox="0 0 32 26" fill="currentColor">
+                                <path d="M0 16.25C0 7.25 5.5 1.75 13.5 0l2 3.25C9.75 4.75 7.5 8 7 12h7v14H0V16.25zm18 0C18 7.25 23.5 1.75 31.5 0l2 3.25c-5.75 1.5-8 4.75-8.5 8.75H32v14H18V16.25z"/>
+                            </svg>
+                        </div>
+
+                        <div class="expert-card-body">
+                            <p class="expert-card-quote">
+                                "Là cựu sinh viên ISTEC Paris, tôi tự hào về sự phát triển vững mạnh của trường: đề cao tính nhân văn, năng lực thực chiến và kết nối doanh nghiệp toàn cầu."
+                            </p>
+                        </div>
+
+                        <div class="expert-card-author-block">
+                            <div class="expert-avatar-frame">
+                                <img src="https://istec.fr/wp-content/uploads/2026/02/JK260212_0603_LD-scaled.jpg" alt="Jean-Nicolas MANNONI" class="expert-avatar-img" style="object-position: center 12%;" loading="lazy" />
                             </div>
-                            <div class="expert-card-right-photo">
-                                <img src="https://istec.fr/wp-content/uploads/2026/02/JK260212_0603_LD-scaled.jpg" alt="Jean-Nicolas MANNONI" loading="lazy" />
+                            <div class="expert-author-info">
+                                <h3 class="expert-card-name">JEAN-NICOLAS MANNONI</h3>
+                                <div class="expert-card-role">Director General of Istec • Tổng Giám đốc</div>
+                                <div class="expert-card-affil">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    <span>ISTEC Business School Paris • Pháp</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Card 2: Prof. Adel ALOUI -->
                     <div class="expert-slide-card">
-                        <div class="expert-card-grid-inner">
-                            <div class="expert-card-left-text">
-                                <div>
-                                    <svg class="expert-quote-icon" viewBox="0 0 65 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M27.2 0H11.5C5.1 0 0 5.1 0 11.5V27.2C0 33.6 5.1 38.7 11.5 38.7H19.2V51.2H0V38.7C0 24.5 11.5 13 25.7 13V0H27.2ZM64.8 0H49.1C42.7 0 37.6 5.1 37.6 11.5V27.2C37.6 33.6 42.7 38.7 49.1 38.7H56.8V51.2H37.6V38.7C37.6 24.5 49.1 13 63.3 13V0H64.8Z" fill="#61A60E"/>
-                                    </svg>
-                                    <h3 class="expert-card-name">PROF. ADEL ALOUI</h3>
-                                    <div class="expert-card-role">Professeur-chercheur en Management</div>
-                                    <p class="expert-card-quote">
-                                        "Tại ISTEC Paris, học viên MBA được rèn luyện trực tiếp trên các tình huống chiến lược thực chiến, tối ưu hóa chuỗi cung ứng toàn cầu và quản trị số."
-                                    </p>
-                                </div>
+                        <div class="expert-card-topbar">
+                            <span class="expert-topbar-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="#61A60E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>Hội Đồng Học Thuật</span>
+                            </span>
+                            <svg class="expert-card-quote-icon" viewBox="0 0 32 26" fill="currentColor">
+                                <path d="M0 16.25C0 7.25 5.5 1.75 13.5 0l2 3.25C9.75 4.75 7.5 8 7 12h7v14H0V16.25zm18 0C18 7.25 23.5 1.75 31.5 0l2 3.25c-5.75 1.5-8 4.75-8.5 8.75H32v14H18V16.25z"/>
+                            </svg>
+                        </div>
+
+                        <div class="expert-card-body">
+                            <p class="expert-card-quote">
+                                "Tại ISTEC Paris, học viên MBA được rèn luyện trực tiếp trên các tình huống chiến lược thực chiến, tối ưu hóa chuỗi cung ứng toàn cầu và quản trị số."
+                            </p>
+                        </div>
+
+                        <div class="expert-card-author-block">
+                            <div class="expert-avatar-frame">
+                                <img src="https://istec.fr/wp-content/uploads/2025/02/Adel_aloui.png" alt="Prof. Adel ALOUI" class="expert-avatar-img" style="object-position: center 25%;" loading="lazy" />
                             </div>
-                            <div class="expert-card-right-photo">
-                                <img src="https://istec.fr/wp-content/uploads/2025/02/Adel_aloui.png" alt="Prof. Adel ALOUI" loading="lazy" />
+                            <div class="expert-author-info">
+                                <h3 class="expert-card-name">PROF. ADEL ALOUI</h3>
+                                <div class="expert-card-role">Professeur-chercheur en Management</div>
+                                <div class="expert-card-affil">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    <span>CERI ISTEC Paris • Strategy & Operations</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Card 3: TS. Phạm Quang Vinh -->
                     <div class="expert-slide-card">
-                        <div class="expert-card-grid-inner">
-                            <div class="expert-card-left-text">
-                                <div>
-                                    <svg class="expert-quote-icon" viewBox="0 0 65 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M27.2 0H11.5C5.1 0 0 5.1 0 11.5V27.2C0 33.6 5.1 38.7 11.5 38.7H19.2V51.2H0V38.7C0 24.5 11.5 13 25.7 13V0H27.2ZM64.8 0H49.1C42.7 0 37.6 5.1 37.6 11.5V27.2C37.6 33.6 42.7 38.7 49.1 38.7H56.8V51.2H37.6V38.7C37.6 24.5 49.1 13 63.3 13V0H64.8Z" fill="#61A60E"/>
-                                    </svg>
-                                    <h3 class="expert-card-name">TS. PHẠM QUANG VINH</h3>
-                                    <div class="expert-card-role">Viện trưởng Viện IDEAS • Tiến sĩ QTKD Hoa Kỳ</div>
-                                    <p class="expert-card-quote">
-                                        "Chương trình mang lại chuẩn mực Grande École Pháp danh giá cùng sự đồng hành học thuật bản địa sâu sát của IDEAS giúp mỗi học viên bứt phá sự nghiệp."
-                                    </p>
-                                </div>
+                        <div class="expert-card-topbar">
+                            <span class="expert-topbar-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="#61A60E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>Viện IDEAS Việt Nam</span>
+                            </span>
+                            <svg class="expert-card-quote-icon" viewBox="0 0 32 26" fill="currentColor">
+                                <path d="M0 16.25C0 7.25 5.5 1.75 13.5 0l2 3.25C9.75 4.75 7.5 8 7 12h7v14H0V16.25zm18 0C18 7.25 23.5 1.75 31.5 0l2 3.25c-5.75 1.5-8 4.75-8.5 8.75H32v14H18V16.25z"/>
+                            </svg>
+                        </div>
+
+                        <div class="expert-card-body">
+                            <p class="expert-card-quote">
+                                "Chương trình mang lại chuẩn mực Grande École Pháp danh giá cùng sự đồng hành học thuật bản địa sâu sát của IDEAS giúp mỗi học viên bứt phá sự nghiệp."
+                            </p>
+                        </div>
+
+                        <div class="expert-card-author-block">
+                            <div class="expert-avatar-frame">
+                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" class="expert-avatar-img" style="object-position: center center;" loading="lazy" />
                             </div>
-                            <div class="expert-card-right-photo">
-                                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" loading="lazy" />
+                            <div class="expert-author-info">
+                                <h3 class="expert-card-name">TS. PHẠM QUANG VINH</h3>
+                                <div class="expert-card-role">Viện trưởng Viện IDEAS • Tiến sĩ QTKD Hoa Kỳ</div>
+                                <div class="expert-card-affil">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    <span>Viện Nghiên Cứu & Đào Tạo IDEAS</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Card 4: Prof. Rey DANG -->
                     <div class="expert-slide-card">
-                        <div class="expert-card-grid-inner">
-                            <div class="expert-card-left-text">
-                                <div>
-                                    <svg class="expert-quote-icon" viewBox="0 0 65 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M27.2 0H11.5C5.1 0 0 5.1 0 11.5V27.2C0 33.6 5.1 38.7 11.5 38.7H19.2V51.2H0V38.7C0 24.5 11.5 13 25.7 13V0H27.2ZM64.8 0H49.1C42.7 0 37.6 5.1 37.6 11.5V27.2C37.6 33.6 42.7 38.7 49.1 38.7H56.8V51.2H37.6V38.7C37.6 24.5 49.1 13 63.3 13V0H64.8Z" fill="#61A60E"/>
-                                    </svg>
-                                    <h3 class="expert-card-name">PROF. REY DANG</h3>
-                                    <div class="expert-card-role">Directeur de la Recherche • CERI ISTEC Paris</div>
-                                    <p class="expert-card-quote">
-                                        "Các nghiên cứu ứng dụng về Trí tuệ nhân tạo và Quản trị bền vững được tích hợp trực tiếp, mang lại cho học viên lợi thế cạnh tranh tiên phong."
-                                    </p>
-                                </div>
+                        <div class="expert-card-topbar">
+                            <span class="expert-topbar-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="#61A60E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>Ban Nghiên Cứu CERI</span>
+                            </span>
+                            <svg class="expert-card-quote-icon" viewBox="0 0 32 26" fill="currentColor">
+                                <path d="M0 16.25C0 7.25 5.5 1.75 13.5 0l2 3.25C9.75 4.75 7.5 8 7 12h7v14H0V16.25zm18 0C18 7.25 23.5 1.75 31.5 0l2 3.25c-5.75 1.5-8 4.75-8.5 8.75H32v14H18V16.25z"/>
+                            </svg>
+                        </div>
+
+                        <div class="expert-card-body">
+                            <p class="expert-card-quote">
+                                "Các nghiên cứu ứng dụng về Trí tuệ nhân tạo và Quản trị bền vững được tích hợp trực tiếp, mang lại cho học viên lợi thế cạnh tranh tiên phong."
+                            </p>
+                        </div>
+
+                        <div class="expert-card-author-block">
+                            <div class="expert-avatar-frame">
+                                <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0630_LD-scaled-e1771801981334.jpg" alt="Prof. Rey DANG" class="expert-avatar-img" style="object-position: center 12%;" loading="lazy" />
                             </div>
-                            <div class="expert-card-right-photo">
-                                <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0630_LD-scaled-e1771801981334.jpg" alt="Prof. Rey DANG" loading="lazy" />
+                            <div class="expert-author-info">
+                                <h3 class="expert-card-name">PROF. REY DANG</h3>
+                                <div class="expert-card-role">Directeur de la Recherche • CERI ISTEC Paris</div>
+                                <div class="expert-card-affil">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    <span>CERI Research Center • AI & Strategy</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1919,30 +2531,62 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
             <!-- Gạch điều khiển phân trang -->
             <div class="expert-nav-lines">
-                <button class="expert-nav-item active" onclick="goExpertSlide(0)" aria-label="Trang 1"></button>
-                <button class="expert-nav-item" onclick="goExpertSlide(1)" aria-label="Trang 2"></button>
+                <button class="expert-nav-item active" onclick="goExpertSlide(0)" aria-label="Slide 1"></button>
+                <button class="expert-nav-item" onclick="goExpertSlide(1)" aria-label="Slide 2"></button>
+                <button class="expert-nav-item istec-mobile-only-dot" onclick="goExpertSlide(2)" aria-label="Slide 3"></button>
+                <button class="expert-nav-item istec-mobile-only-dot" onclick="goExpertSlide(3)" aria-label="Slide 4"></button>
             </div>
         </div>
     </section>
 
     <!-- ══ 8. TIMELINE 15 MÔN HỌC & LUẬN VĂN (NỀN XANH TỐI, ITEM TRẮNG) ══ -->
     <section class="istec-section-box section-syllabus-darkgreen" id="chuong-trinh">
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-mint anim-pulse-glow" style="width: 500px; height: 500px; top: -120px; left: -100px; opacity: 0.18;"></div>
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 440px; height: 440px; bottom: -80px; right: -80px; opacity: 0.22;"></div>
+
+            <!-- Curriculum Flow Line Matrix SVG -->
+            <div class="istec-decor-item anim-float-slow" style="top: 50px; right: 4%; width: 260px; height: 260px; opacity: 0.08;">
+                <svg viewBox="0 0 260 260" fill="none">
+                    <circle cx="130" cy="130" r="110" stroke="#61A60E" stroke-width="1.2" stroke-dasharray="6 6"/>
+                    <circle cx="130" cy="130" r="75" stroke="#A7D489" stroke-width="1"/>
+                    <line x1="20" y1="130" x2="240" y2="130" stroke="#61A60E" stroke-width="1" stroke-dasharray="3 3"/>
+                    <line x1="130" y1="20" x2="130" y2="240" stroke="#61A60E" stroke-width="1" stroke-dasharray="3 3"/>
+                    <circle cx="130" cy="20" r="4" fill="#61A60E"/>
+                    <circle cx="240" cy="130" r="4" fill="#61A60E"/>
+                    <circle cx="130" cy="240" r="4" fill="#61A60E"/>
+                    <circle cx="20" cy="130" r="4" fill="#61A60E"/>
+                </svg>
+            </div>
+
+            <!-- Academic Dot Matrix Bottom Left -->
+            <div class="istec-decor-item" style="bottom: 30px; left: 3%; width: 160px; height: 160px; opacity: 0.12;">
+                <svg viewBox="0 0 160 160" fill="#61A60E">
+                    <circle cx="20" cy="20" r="1.5"/><circle cx="50" cy="20" r="1.5"/><circle cx="80" cy="20" r="1.5"/><circle cx="110" cy="20" r="1.5"/><circle cx="140" cy="20" r="1.5"/>
+                    <circle cx="20" cy="50" r="1.5"/><circle cx="50" cy="50" r="1.5"/><circle cx="80" cy="50" r="1.5"/><circle cx="110" cy="50" r="1.5"/><circle cx="140" cy="50" r="1.5"/>
+                    <circle cx="20" cy="80" r="1.5"/><circle cx="50" cy="80" r="1.5"/><circle cx="80" cy="80" r="1.5"/><circle cx="110" cy="80" r="1.5"/><circle cx="140" cy="80" r="1.5"/>
+                    <circle cx="20" cy="110" r="1.5"/><circle cx="50" cy="110" r="1.5"/><circle cx="80" cy="110" r="1.5"/><circle cx="110" cy="110" r="1.5"/><circle cx="140" cy="110" r="1.5"/>
+                    <circle cx="20" cy="140" r="1.5"/><circle cx="50" cy="140" r="1.5"/><circle cx="80" cy="140" r="1.5"/><circle cx="110" cy="140" r="1.5"/><circle cx="140" cy="140" r="1.5"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
+            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;" class="istec-reveal">
                 <span class="istec-label-top">SYLLABUS DETAILS</span>
                 <h2 class="istec-heading-large">Chi tiết lộ trình 15 môn học & Luận văn</h2>
                 <p class="istec-body-lead" style="margin: 0 auto;">Cấu trúc khoa học gồm 3 học kỳ nền tảng và giai đoạn thực hiện luận văn tốt nghiệp (60 tín chỉ ECTS Châu Âu).</p>
             </div>
 
             <!-- Timeline Navigation Buttons: Active màu xanh brand ISTEC -->
-            <div class="timeline-tabs-clean">
+            <div class="timeline-tabs-clean istec-reveal">
                 <button class="btn-tab-square active" data-term="boxTerm1">Học Kỳ I (3 Tháng)</button>
                 <button class="btn-tab-square" data-term="boxTerm2">Học Kỳ II (3 Tháng)</button>
                 <button class="btn-tab-square" data-term="boxTerm3">Học Kỳ III (3 Tháng)</button>
                 <button class="btn-tab-square" data-term="boxTerm4">Luận Văn Tốt Nghiệp (2 Tháng)</button>
             </div>
 
-            <div class="accordion-square-wrap" style="max-width: 920px; margin: 0 auto;">
+            <div class="accordion-square-wrap istec-reveal" style="max-width: 920px; margin: 0 auto;">
                 <!-- Kỳ 1 -->
                 <div class="acc-square-box" id="boxTerm1">
                     <button class="acc-square-header" type="button">
@@ -2063,8 +2707,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 9. VĂN BẰNG & MARQUEE KIỂM ĐỊNH (LOGO FULL MÀU 100%, KHÔNG GRAYSCALE) ══ -->
     <section class="istec-section-box" id="kiem-dinh">
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 460px; height: 460px; top: 0; right: -50px; opacity: 0.35;"></div>
+
+            <!-- French Academic Laurel Crest Outline -->
+            <div class="istec-decor-item" style="top: 40px; left: 3%; width: 220px; height: 220px; opacity: 0.05;">
+                <svg viewBox="0 0 220 220" fill="none" stroke="#005C4D" stroke-width="1.5">
+                    <path d="M110 20 C60 50 40 100 50 160 C70 190 100 205 110 210 C120 205 150 190 170 160 C180 100 160 50 110 20 Z"/>
+                    <path d="M70 70 Q90 110 110 170 Q130 110 150 70" stroke-dasharray="4 4"/>
+                    <circle cx="110" cy="110" r="40" stroke="#61A60E" stroke-width="1"/>
+                </svg>
+            </div>
+
+            <!-- Global Latitude Longitude Wireframe Grid -->
+            <div class="istec-decor-item anim-spin-slow" style="bottom: -50px; right: 3%; width: 240px; height: 240px; opacity: 0.07;">
+                <svg viewBox="0 0 240 240" fill="none" stroke="#005C4D" stroke-width="1.2">
+                    <circle cx="120" cy="120" r="100"/>
+                    <ellipse cx="120" cy="120" rx="100" ry="40"/>
+                    <ellipse cx="120" cy="120" rx="40" ry="100"/>
+                    <line x1="20" y1="120" x2="220" y2="120" stroke-dasharray="4 4"/>
+                    <line x1="120" y1="20" x2="120" y2="220" stroke-dasharray="4 4"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
+            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;" class="istec-reveal">
                 <span class="istec-label-top">GLOBAL ACCREDITATIONS</span>
                 <h2 class="istec-heading-large">Văn bằng giá trị quốc tế được công nhận toàn cầu</h2>
                 <p class="istec-body-lead" style="margin: 0 auto;">
@@ -2073,7 +2741,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Slide Marquee Bự Lên Chạy Liên Tục (Full Màu Gốc) -->
-            <div class="marquee-square-container">
+            <div class="marquee-square-container istec-reveal">
                 <div class="marquee-track-infinite">
                     <div class="marquee-slides-track">
                         <img src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="France Compétences RNCP" class="logo-acc-istec" />
@@ -2096,24 +2764,24 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- 5 Thẻ kiểm định chi tiết -->
-            <div class="grid-5-cols" style="margin-top: 0;">
-                <div class="istec-square-card">
+            <div class="grid-5-cols istec-stagger" style="margin-top: 0;">
+                <div class="istec-square-card istec-reveal">
                     <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">Visa Bac+5</h3>
                     <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Công nhận chính thức bởi Bộ Giáo dục Đại học và Nghiên cứu Pháp đối với chương trình MBA.</p>
                 </div>
-                <div class="istec-square-card">
+                <div class="istec-square-card istec-reveal">
                     <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">RNCP Level 7</h3>
                     <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Chứng nhận nghề nghiệp cấp độ cao nhất (Bac+5) trong Khung chứng nhận quốc gia Pháp.</p>
                 </div>
-                <div class="istec-square-card">
+                <div class="istec-square-card istec-reveal">
                     <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">CGE Member</h3>
                     <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên Conférence des Grandes Écoles – hiệp hội các trường đại học tinh hoa của Pháp.</p>
                 </div>
-                <div class="istec-square-card">
+                <div class="istec-square-card istec-reveal">
                     <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">AACSB Member</h3>
                     <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên Hiệp hội phát triển giảng dạy quản trị kinh doanh Hoa Kỳ danh giá toàn cầu.</p>
                 </div>
-                <div class="istec-square-card">
+                <div class="istec-square-card istec-reveal">
                     <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">EFMD Global</h3>
                     <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên tổ chức phát triển quản lý Châu Âu EFMD, đảm bảo chuẩn mực học thuật quốc tế.</p>
                 </div>
@@ -2137,14 +2805,40 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 10. HỌC PHÍ VÀ LỘ TRÌNH TÀI CHÍNH ══ -->
     <section class="istec-section-box bg-alt" id="hoc-phi">
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 440px; height: 440px; top: -50px; left: 10%; opacity: 0.3;"></div>
+
+            <!-- European Star Arc & Geometric Shield -->
+            <div class="istec-decor-item anim-spin-slow" style="top: 40px; right: 4%; width: 220px; height: 220px; opacity: 0.06;">
+                <svg viewBox="0 0 220 220" fill="none" stroke="#005C4D" stroke-width="1.2">
+                    <circle cx="110" cy="110" r="95" stroke-dasharray="6 6"/>
+                    <circle cx="110" cy="110" r="65"/>
+                    <polygon points="110,35 116,52 134,52 120,63 125,80 110,70 95,80 100,63 86,52 104,52" fill="#61A60E" stroke="none" opacity="0.6"/>
+                    <polygon points="185,110 168,116 168,134 157,120 140,125 150,110 140,95 157,100 168,86 168,104" fill="#61A60E" stroke="none" opacity="0.6"/>
+                    <polygon points="110,185 104,168 86,168 100,157 95,140 110,150 125,140 120,157 134,168 116,168" fill="#61A60E" stroke="none" opacity="0.6"/>
+                    <polygon points="35,110 52,104 52,86 63,100 80,95 70,110 80,125 63,120 52,134 52,116" fill="#61A60E" stroke="none" opacity="0.6"/>
+                </svg>
+            </div>
+
+            <!-- Micro Dot Matrix -->
+            <div class="istec-decor-item" style="bottom: 40px; left: 5%; width: 140px; height: 140px; opacity: 0.08;">
+                <svg viewBox="0 0 140 140" fill="#005C4D">
+                    <circle cx="20" cy="20" r="2"/><circle cx="50" cy="20" r="2"/><circle cx="80" cy="20" r="2"/><circle cx="110" cy="20" r="2"/>
+                    <circle cx="20" cy="50" r="2"/><circle cx="50" cy="50" r="2"/><circle cx="80" cy="50" r="2"/><circle cx="110" cy="50" r="2"/>
+                    <circle cx="20" cy="80" r="2"/><circle cx="50" cy="80" r="2"/><circle cx="80" cy="80" r="2"/><circle cx="110" cy="80" r="2"/>
+                    <circle cx="20" cy="110" r="2"/><circle cx="50" cy="110" r="2"/><circle cx="80" cy="110" r="2"/><circle cx="110" cy="110" r="2"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
+            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;" class="istec-reveal">
                 <span class="istec-label-top">TUITION & ADMISSIONS</span>
                 <h2 class="istec-heading-large">Chính sách học phí & Lộ trình tài chính</h2>
                 <p class="istec-body-lead" style="margin: 0 auto;">Chính sách hỗ trợ học phí tối ưu cho học viên Việt Nam từ đối tác tuyển sinh chính thức Viện IDEAS.</p>
             </div>
 
-            <div class="tuition-square-card">
+            <div class="tuition-square-card istec-reveal">
                 <div class="tuition-header-dark">
                     <span style="font-size: 0.84rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #9ca3af;">CHÍNH SÁCH HỌC PHÍ ƯU ĐÃI KHÓA MBA</span>
                     <div style="margin-top: 14px; display: flex; align-items: baseline; justify-content: center; gap: 14px; flex-wrap: wrap;">
@@ -2194,10 +2888,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 11. KHÔNG GIAN HỌC XÁ TRUNG TÂM PARIS (LINH HOẠT NỘI DUNG CHUẨN MBA) ══ -->
     <section class="istec-section-box" id="campus-paris">
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-mint anim-pulse-glow" style="width: 450px; height: 450px; top: 10%; right: -50px; opacity: 0.28;"></div>
+
+            <!-- Compass Rose / City Navigation Grid SVG -->
+            <div class="istec-decor-item anim-spin-slow" style="top: 20px; right: 2%; width: 240px; height: 240px; opacity: 0.06;">
+                <svg viewBox="0 0 240 240" fill="none" stroke="#005C4D" stroke-width="1.2">
+                    <circle cx="120" cy="120" r="110"/>
+                    <circle cx="120" cy="120" r="85" stroke-dasharray="4 4"/>
+                    <polygon points="120,20 128,110 220,120 128,130 120,220 112,130 20,120 112,110" stroke="#61A60E" stroke-width="1.5" fill="none"/>
+                </svg>
+            </div>
+
+            <!-- Canal Saint-Martin Water Wave Contour -->
+            <div class="istec-decor-item" style="bottom: 0; left: 0; width: 340px; height: 100px; opacity: 0.05;">
+                <svg viewBox="0 0 340 100" fill="none" stroke="#005C4D" stroke-width="1.5">
+                    <path d="M0 30 Q85 10 170 30 T340 30"/>
+                    <path d="M0 60 Q85 40 170 60 T340 60"/>
+                    <path d="M0 90 Q85 70 170 90 T340 90"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
             <div class="campus-paris-grid">
                 <!-- Cột trái: Nội dung linh hoạt chuẩn học viên MBA -->
-                <div class="campus-paris-info">
+                <div class="campus-paris-info istec-reveal">
                     <span class="istec-label-top" style="color: var(--istec-bright-green); font-weight: 800; letter-spacing: 0.1em; font-size: 0.82rem;">TRẢI NGHIỆM HỌC THUẬT QUỐC TẾ</span>
                     <h2 style="font-size: clamp(1.85rem, 3vw, 2.5rem); font-weight: 800; color: var(--dark-main); line-height: 1.25; margin: 12px 0 20px; letter-spacing: -0.015em;">
                         Môi trường học tập đỉnh cao & kết nối doanh nghiệp toàn cầu
@@ -2244,11 +2960,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <!-- Cột phải: Ảnh lớn kênh Saint-Martin Paris -->
-                <div class="campus-paris-media">
+                <div class="campus-paris-media istec-reveal">
                     <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0776_LD-scaled.jpg" 
                          alt="ISTEC Campus in the heart of Paris" 
                          class="campus-paris-img" 
-                         loading="lazy" />
                 </div>
             </div>
         </div>
@@ -2256,8 +2971,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 11B. THÔNG TIN TUYỂN SINH: ĐIỀU KIỆN & QUY TRÌNH 4 BƯỚC ĐƠN GIẢN (CHUẨN BRIEF) ══ -->
     <section class="istec-section-box" id="tuyen-sinh" style="border-top: 1px solid var(--border-light);">
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 420px; height: 420px; bottom: -50px; left: -50px; opacity: 0.28;"></div>
+
+            <!-- Step Ladder Progression Wave SVG -->
+            <div class="istec-decor-item" style="top: 40px; right: 5%; width: 220px; height: 200px; opacity: 0.06;">
+                <svg viewBox="0 0 220 200" fill="none" stroke="#005C4D" stroke-width="1.3">
+                    <path d="M10 180 L70 130 L130 80 L190 30" stroke-dasharray="5 5"/>
+                    <circle cx="10" cy="180" r="5" fill="#005C4D"/>
+                    <circle cx="70" cy="130" r="5" fill="#005C4D"/>
+                    <circle cx="130" cy="80" r="5" fill="#61A60E"/>
+                    <circle cx="190" cy="30" r="6" fill="#61A60E"/>
+                    <line x1="70" y1="130" x2="70" y2="180" stroke="#61A60E" stroke-width="1"/>
+                    <line x1="130" y1="80" x2="130" y2="180" stroke="#61A60E" stroke-width="1"/>
+                    <line x1="190" y1="30" x2="190" y2="180" stroke="#61A60E" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
-            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
+            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;" class="istec-reveal">
                 <span class="istec-label-top">ADMISSION PROCESS</span>
                 <h2 class="istec-heading-large">Điều kiện & Quy trình tuyển sinh 4 bước đơn giản</h2>
                 <p class="istec-body-lead" style="margin: 0 auto;">
@@ -2266,9 +2999,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Điều kiện & 4 bước -->
-            <div class="admission-grid-wrap">
+            <div class="admission-grid-wrap istec-stagger">
                 <!-- Cột trái: Điều kiện đầu vào -->
-                <div class="istec-square-card" style="padding: 32px; border-left: 4px solid var(--istec-deep-green); background: #ffffff;">
+                <div class="istec-square-card istec-reveal" style="padding: 32px; border-left: 4px solid var(--istec-deep-green); background: #ffffff;">
                     <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-deep-green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
                         YÊU CẦU ĐẦU VÀO
                     </div>
@@ -2292,7 +3025,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <!-- Cột phải: Quy trình 4 bước -->
-                <div class="istec-square-card" style="padding: 32px; background: #ffffff;">
+                <div class="istec-square-card istec-reveal" style="padding: 32px; background: #ffffff;">
                     <div style="font-size: 0.8rem; font-weight: 800; color: var(--istec-bright-green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
                         LỘ TRÌNH NHẬP HỌC
                     </div>
@@ -2328,10 +3061,34 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ 12. BỐ CỤC 2 CỘT: FAQ BÊN TRÁI & FORM ĐẦY ĐỦ CÁC TRƯỜNG BÊN PHẢI ══ -->
     <section class="istec-section-box bg-alt" id="faq-dang-ky">
+        <div class="istec-decor-bg" aria-hidden="true">
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 520px; height: 520px; top: 5%; right: -80px; opacity: 0.35;"></div>
+            <div class="ambient-glow-mint anim-pulse-glow" style="width: 440px; height: 440px; bottom: 5%; left: -60px; opacity: 0.22;"></div>
+
+            <!-- Dialogue / Speech Bubble Watermark behind FAQ -->
+            <div class="istec-decor-item" style="top: 80px; left: 4%; width: 220px; height: 180px; opacity: 0.05;">
+                <svg viewBox="0 0 220 180" fill="none" stroke="#005C4D" stroke-width="1.5">
+                    <rect x="10" y="10" width="160" height="110" rx="4"/>
+                    <polygon points="40,120 40,150 70,120" fill="#005C4D"/>
+                    <circle cx="55" cy="65" r="5" fill="#61A60E"/>
+                    <circle cx="90" cy="65" r="5" fill="#61A60E"/>
+                    <circle cx="125" cy="65" r="5" fill="#61A60E"/>
+                </svg>
+            </div>
+
+            <!-- Trust Shield Watermark behind Form -->
+            <div class="istec-decor-item" style="bottom: 60px; right: 4%; width: 240px; height: 260px; opacity: 0.04;">
+                <svg viewBox="0 0 240 260" fill="none" stroke="#005C4D" stroke-width="1.8">
+                    <path d="M120 15 L215 50 V130 C215 190 120 245 120 245 C120 245 25 190 25 130 V50 Z"/>
+                    <polyline points="75 125 105 155 165 95" stroke="#61A60E" stroke-width="2.5" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
         <div class="container">
             <div class="faq-form-grid-2">
                 <!-- CỘT TRÁI: CÂU HỎI THƯỜNG GẶP (FAQ) & KHỐI THÔNG ĐIỆP ĐẶC TRƯNG -->
-                <div class="faq-col-left">
+                <div class="faq-col-left istec-reveal">
                     <!-- KHỐI THÔNG ĐIỆP ĐẶC TRƯNG CHUẨN BRAND ISTEC -->
                     <div style="margin-bottom: 28px;">
                         <h2 style="font-size: clamp(1.85rem, 2.8vw, 2.45rem); font-weight: 800; color: var(--dark-main); line-height: 1.25; margin-bottom: 20px; letter-spacing: -0.015em;">
@@ -2435,7 +3192,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <!-- CỘT PHẢI: FORM ĐẦY ĐỦ CÁC TRƯỜNG CHUẨN MỰC THEO YÊU CẦU -->
-                <div class="form-col-right" id="dang-ky-ngay">
+                <div class="form-col-right istec-reveal" id="dang-ky-ngay">
                     <div class="istec-square-card" style="padding: 34px 28px; background: #ffffff; border: 1px solid var(--border-light); box-shadow: 0 10px 35px rgba(0,0,0,0.06);">
                         <div style="margin-bottom: 20px;">
                             <span class="istec-label-top">NHẬN TƯ VẤN 1:1</span>
@@ -2551,6 +3308,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             const track = document.getElementById('expertSlideTrack');
             if (!track) return;
             const isMobile = window.innerWidth <= 1024;
+            const maxPages = isMobile ? 4 : 2;
+            if (currentExpertPage >= maxPages) {
+                currentExpertPage = maxPages - 1;
+            }
 
             if (isMobile) {
                 track.style.transform = `translateX(calc(-${currentExpertPage * 100}% - ${currentExpertPage * 24}px))`;
@@ -2758,6 +3519,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         window.scrollToTop = function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
+
+        // ── 8. TỰ ĐỘNG KÍCH HOẠT ANIMATION SCROLL REVEAL BẰNG INTERSECTION OBSERVER ──
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.istec-reveal, .istec-stagger');
+            if (!reveals.length) return;
+
+            if (!('IntersectionObserver' in window)) {
+                reveals.forEach(el => el.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            reveals.forEach(el => observer.observe(el));
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initScrollReveal);
+        } else {
+            initScrollReveal();
+        }
     </script>
 </body>
 
