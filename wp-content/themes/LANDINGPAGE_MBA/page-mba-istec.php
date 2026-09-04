@@ -130,12 +130,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .istec-hero-flex {
             display: flex;
-            align-items: flex-start;
-            gap: 48px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 52px;
             margin-bottom: 50px;
         }
 
-        /* Cột trái: Hộp thông số nổi vuông vức của ISTEC */
+        /* Cột trái: Tiêu đề chương trình và mô tả phong cách ISTEC */
+        .istec-hero-main-content {
+            flex: 1;
+            min-width: 0;
+            padding-top: 0;
+        }
+
+        /* Cột phải: Hộp thông số nổi vuông vức của ISTEC */
         .istec-spec-box {
             flex: 0 0 340px;
             background: #ffffff;
@@ -143,6 +151,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: var(--radius-square);
             padding: 32px 26px;
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+            align-self: center;
+            margin-top: 24px;
         }
 
         .spec-item {
@@ -173,12 +183,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             height: 1px;
             background: var(--border-subtle);
             margin: 16px 0;
-        }
-
-        /* Cột phải: Tiêu đề chương trình và mô tả phong cách ISTEC */
-        .istec-hero-main-content {
-            flex: 1;
-            padding-top: 8px;
         }
 
         .istec-hero-headline {
@@ -1225,13 +1229,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 padding-top: 130px !important;
             }
             .istec-hero-flex {
-                flex-direction: column-reverse !important;
+                flex-direction: column !important;
                 gap: 32px;
             }
             .istec-spec-box {
                 flex: none;
                 width: 100%;
                 max-width: none;
+                margin-top: 0 !important;
             }
             .istec-white-bar-card {
                 grid-template-columns: repeat(2, 1fr);
@@ -1803,7 +1808,40 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         <div class="container">
             <div class="istec-hero-flex istec-reveal is-visible">
-                <!-- HỘP THÔNG SỐ NỔI VUÔNG VỨC (ACCESS, RHYTHM, BACK TO SCHOOL, DIPLOMA, TUITION) -->
+                <!-- NỘI DUNG CHÍNH (TIÊU ĐỀ 2-TONE & MÔ TẢ PHONG CÁCH CHÂU ÂU) - BÊN TRÁI -->
+                <div class="istec-hero-main-content">
+                    <!-- Logo ISTEC Paris chính thức to rõ hơn -->
+                    <div style="margin-bottom: 18px;">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/logo-istec-paris.svg" 
+                             alt="ISTEC Business School Paris Logo" 
+                             class="istec-hero-logo" />
+                    </div>
+
+                    <h1 class="istec-hero-headline">
+                        <span class="hl-dark">MBA</span> <span class="hl-green">Leadership & Business Transformation</span>
+                    </h1>
+
+                    <div class="istec-hero-sub-title">
+                        Từ người giỏi chuyên môn đến nhà quản trị toàn diện
+                    </div>
+
+                    <p class="istec-hero-paragraph">
+                        Trong một môi trường kinh doanh ngày càng phức tạp, năng lực chuyên môn giỏi là chưa đủ. Chương trình MBA tại ISTEC Business School Paris giúp người học mở rộng tư duy quản trị đa chiều từ Chiến lược, Lãnh đạo, Tài chính, Vận hành đến Đổi mới sáng tạo và AI, trang bị bản lĩnh sẵn sàng đảm nhận các cương vị quản lý và điều hành cấp cao.
+                    </p>
+
+                    <div class="istec-hero-btn-group">
+                        <a href="#faq-dang-ky" class="btn-istec-square-dark">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <span>Đăng ký xét tuyển</span>
+                        </a>
+                        <a href="#chuong-trinh" class="btn-istec-square-green">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+                            <span>Khung chương trình</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HỘP THÔNG SỐ NỔI VUÔNG VỨC (ACCESS, RHYTHM, BACK TO SCHOOL, DIPLOMA, TUITION) - BÊN PHẢI -->
                 <div class="istec-spec-box">
                     <div class="spec-item">
                         <div class="spec-label">ACCESS</div>
@@ -1840,39 +1878,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span style="color: var(--istec-bright-green); font-weight: 800; margin-left: 6px;">6.500 EUR</span>
                             <div style="font-size: 0.85rem; color: #6b7280; margin-top: 2px;">Lệ phí hồ sơ: 200 EUR</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- NỘI DUNG CHÍNH (TIÊU ĐỀ 2-TONE & MÔ TẢ PHONG CÁCH CHÂU ÂU) -->
-                <div class="istec-hero-main-content">
-                    <!-- Logo ISTEC Paris chính thức to rõ hơn -->
-                    <div style="margin-bottom: 18px;">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/logo-istec-paris.svg" 
-                             alt="ISTEC Business School Paris Logo" 
-                             class="istec-hero-logo" />
-                    </div>
-
-                    <h1 class="istec-hero-headline">
-                        <span class="hl-dark">MBA</span> <span class="hl-green">Leadership & Business Transformation</span>
-                    </h1>
-
-                    <div class="istec-hero-sub-title">
-                        Từ người giỏi chuyên môn đến nhà quản trị toàn diện
-                    </div>
-
-                    <p class="istec-hero-paragraph">
-                        Trong một môi trường kinh doanh ngày càng phức tạp, năng lực chuyên môn giỏi là chưa đủ. Chương trình MBA tại ISTEC Business School Paris giúp người học mở rộng tư duy quản trị đa chiều từ Chiến lược, Lãnh đạo, Tài chính, Vận hành đến Đổi mới sáng tạo và AI, trang bị bản lĩnh sẵn sàng đảm nhận các cương vị quản lý và điều hành cấp cao.
-                    </p>
-
-                    <div class="istec-hero-btn-group">
-                        <a href="#faq-dang-ky" class="btn-istec-square-dark">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            <span>Đăng ký xét tuyển</span>
-                        </a>
-                        <a href="#chuong-trinh" class="btn-istec-square-green">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
-                            <span>Khung chương trình</span>
-                        </a>
                     </div>
                 </div>
             </div>
