@@ -1069,6 +1069,65 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: var(--radius-square);
             padding: 34px 30px;
             box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+        }
+
+        .pillar-square-box:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Thẻ Lợi ích: Màu xanh ISTEC Signature */
+        .pillar-square-box.is-istec-green {
+            background: linear-gradient(150deg, #005C4D 0%, #004237 100%);
+            border: 1px solid rgba(97, 166, 14, 0.45);
+            box-shadow: 0 14px 36px rgba(0, 92, 77, 0.22);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+
+        .pillar-square-box.is-istec-green::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(97, 166, 14, 0.22) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pillar-square-box.is-istec-green:hover {
+            transform: translateY(-5px);
+            border-color: rgba(97, 166, 14, 0.85);
+            box-shadow: 0 20px 46px rgba(0, 92, 77, 0.35);
+        }
+
+        .pillar-square-box.is-istec-green .pillar-head-title {
+            color: #ffffff !important;
+        }
+
+        .pillar-square-box.is-istec-green .square-dot {
+            background: #a3e635 !important;
+            box-shadow: 0 0 12px rgba(163, 230, 53, 0.7);
+        }
+
+        .pillar-square-box.is-istec-green .clean-tick-list li {
+            color: #e2e8f0 !important;
+        }
+
+        .pillar-square-box.is-istec-green .clean-tick-list li strong {
+            color: #ffffff !important;
+            font-weight: 750;
+        }
+
+        .pillar-square-box.is-istec-green .clean-tick-list svg {
+            color: #a3e635 !important;
+            stroke: #a3e635 !important;
+            filter: drop-shadow(0 2px 6px rgba(163, 230, 53, 0.45));
         }
 
         .pillar-head-title {
@@ -1483,6 +1542,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: var(--istec-deep-green);
             line-height: 1.1;
             margin-bottom: 6px;
+            font-variant-numeric: tabular-nums;
         }
 
         .stat-strip-label {
@@ -1959,19 +2019,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- 4 Con số ấn tượng từ Brief ISTEC -->
             <div class="istec-stats-strip istec-stagger">
                 <div class="stat-strip-card">
-                    <div class="stat-strip-num">60+</div>
+                    <div class="stat-strip-num" data-counter-target="60" data-counter-suffix="+">60+</div>
                     <div class="stat-strip-label">Năm đào tạo kinh doanh & quản trị tại Pháp</div>
                 </div>
                 <div class="stat-strip-card">
-                    <div class="stat-strip-num">3.500+</div>
+                    <div class="stat-strip-num" data-counter-target="3500" data-counter-format="dot" data-counter-suffix="+">3.500+</div>
                     <div class="stat-strip-label">Doanh nghiệp đối tác toàn cầu</div>
                 </div>
                 <div class="stat-strip-card">
-                    <div class="stat-strip-num">8.000+</div>
+                    <div class="stat-strip-num" data-counter-target="8000" data-counter-format="dot" data-counter-suffix="+">8.000+</div>
                     <div class="stat-strip-label">Cựu học viên trên 40 quốc gia</div>
                 </div>
                 <div class="stat-strip-card">
-                    <div class="stat-strip-num">Top 8</div>
+                    <div class="stat-strip-num" data-counter-target="8" data-counter-prefix="Top ">Top 8</div>
                     <div class="stat-strip-label">Trường Kinh doanh Post-Bac (Le Parisien)</div>
                 </div>
             </div>
@@ -2325,9 +2385,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <!-- Lợi ích khi hoàn thành -->
-                <div class="pillar-square-box">
+                <div class="pillar-square-box is-istec-green">
                     <div class="pillar-head-title">
-                        <span class="square-dot" style="background: var(--dark-main);"></span>
+                        <span class="square-dot"></span>
                         <span>Lợi ích khi hoàn thành chương trình</span>
                     </div>
                     <ul class="clean-tick-list">
@@ -3554,6 +3614,83 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             document.addEventListener('DOMContentLoaded', initScrollReveal);
         } else {
             initScrollReveal();
+        }
+
+        // ── 9. HIỆU ỨNG CHẠY SỐ (COUNT-UP RUNNING ANIMATION) ──
+        function initCounterAnimation() {
+            const counterEls = document.querySelectorAll('.stat-strip-num[data-counter-target]');
+            if (!counterEls.length) return;
+
+            function formatNumber(val, useDot) {
+                if (useDot) {
+                    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                }
+                return val.toString();
+            }
+
+            function runCounter(el) {
+                const target = parseInt(el.getAttribute('data-counter-target'), 10);
+                if (isNaN(target)) return;
+
+                const prefix = el.getAttribute('data-counter-prefix') || '';
+                const suffix = el.getAttribute('data-counter-suffix') || '';
+                const useDot = el.getAttribute('data-counter-format') === 'dot';
+                const duration = 1800;
+                let startTime = null;
+
+                function easeOutExpo(t) {
+                    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+                }
+
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    const elapsed = timestamp - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easedProgress = easeOutExpo(progress);
+                    const currentVal = Math.floor(easedProgress * target);
+
+                    el.textContent = `${prefix}${formatNumber(currentVal, useDot)}${suffix}`;
+
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        el.textContent = `${prefix}${formatNumber(target, useDot)}${suffix}`;
+                    }
+                }
+
+                window.requestAnimationFrame(step);
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                counterEls.forEach(runCounter);
+                return;
+            }
+
+            let hasAnimated = false;
+            const statsStrip = document.querySelector('.istec-stats-strip');
+            if (statsStrip) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !hasAnimated) {
+                            hasAnimated = true;
+                            counterEls.forEach(el => runCounter(el));
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -30px 0px'
+                });
+                observer.observe(statsStrip);
+            } else {
+                counterEls.forEach(runCounter);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCounterAnimation);
+        } else {
+            initCounterAnimation();
         }
     </script>
 </body>
