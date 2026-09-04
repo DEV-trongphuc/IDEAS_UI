@@ -48,7 +48,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <meta property="og:type" content="article" />
         <meta property="og:title" content="MBA ISTEC Business School Paris | Chuẩn Giáo Dục Pháp" />
         <meta property="og:description" content="Từ người giỏi chuyên môn đến nhà quản trị toàn diện. Chương trình MBA 12 tháng trực tuyến từ trường kinh doanh ISTEC Paris với hơn 60 năm lịch sử." />
-        <meta property="og:image" content="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" />
+        <meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-grand-rex-paris.jpg" />
         <meta property="og:url" content="<?php echo esc_url(home_url('/mba-istec')); ?>" />
     <?php endif; ?>
 
@@ -1946,8 +1946,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ FULL-WIDTH REAL PARALLAX BANNER (ẢNH CUỘN PARALLAX THỰC SỰ TRÊN ẢNH SINH VIÊN) ══ -->
     <div class="istec-real-parallax-wrap" id="parallaxWrap1">
-        <div class="istec-parallax-img-holder">
-            <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" 
+        <div class="istec-parallax-img-holder" style="background: #002c24 url('<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-campus-students.jpg') center 25% / cover no-repeat;">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-campus-students.jpg" 
                  alt="Sinh viên trường Kinh doanh ISTEC Paris" 
                  class="parallax-inner-img" 
                  id="parallaxImg1" 
@@ -2856,12 +2856,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- ══ FULL-WIDTH REAL PARALLAX BANNER (PARIS GRADUATION & CAMPUS) ══ -->
     <div class="istec-real-parallax-wrap" id="parallaxWrap2">
-        <div class="istec-parallax-img-holder">
-            <img src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" 
+        <div class="istec-parallax-img-holder" style="background: #002c24 url('<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-grand-rex-paris.jpg') center 25% / cover no-repeat;">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-grand-rex-paris.jpg" 
                  alt="Lễ tốt nghiệp ISTEC tại Nhà hát Grand Rex Paris" 
                  class="parallax-inner-img" 
                  id="parallaxImg2" 
-                 loading="lazy" />
+                 loading="eager" />
         </div>
         <div class="parallax-caption-tag">
             <span>DIPLÔME DE L'ISTEC • GRADUATION AT LE GRAND REX PARIS</span>
@@ -3026,9 +3026,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 <!-- Cột phải: Ảnh lớn kênh Saint-Martin Paris -->
                 <div class="campus-paris-media istec-reveal">
-                    <img src="https://istec.fr/wp-content/uploads/2025/07/JK260212_0776_LD-scaled.jpg" 
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-paris-campus-saint-martin.jpg" 
                          alt="ISTEC Campus in the heart of Paris" 
-                         class="campus-paris-img" 
+                         class="campus-paris-img" />
                 </div>
             </div>
         </div>
