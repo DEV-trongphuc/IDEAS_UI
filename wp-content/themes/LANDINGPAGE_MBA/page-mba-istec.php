@@ -1754,11 +1754,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <!-- ── SVG DECOR HERO (SUBTLE EUROPEAN TECH ACCENTS) ── -->
         <div class="istec-decor-bg" aria-hidden="true">
             <!-- Ambient Radial Glows -->
-            <div class="ambient-glow-green anim-pulse-glow" style="width: 520px; height: 520px; top: -140px; right: -60px;"></div>
-            <div class="ambient-glow-green" style="width: 380px; height: 380px; bottom: -80px; left: -100px; opacity: 0.6;"></div>
+            <div class="ambient-glow-green anim-pulse-glow" style="width: 520px; height: 520px; top: -140px; left: -60px;"></div>
+            <div class="ambient-glow-green" style="width: 380px; height: 380px; bottom: -80px; right: -100px; opacity: 0.6;"></div>
 
-            <!-- Top-Right Tech Orbit Concentric Rings -->
-            <div class="istec-decor-item anim-spin-slow" style="top: -80px; right: -80px; width: 420px; height: 420px; opacity: 0.12;">
+            <!-- Top-Left Tech Orbit Concentric Rings -->
+            <div class="istec-decor-item anim-spin-slow" style="top: -80px; left: -80px; width: 420px; height: 420px; opacity: 0.12;">
                 <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                     <circle cx="210" cy="210" r="200" stroke="#005C4D" stroke-width="1.2" stroke-dasharray="6 6"/>
                     <circle cx="210" cy="210" r="160" stroke="#61A60E" stroke-width="1.5"/>
@@ -1773,8 +1773,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </svg>
             </div>
 
-            <!-- Dot Matrix Grid in Background -->
-            <div class="istec-decor-item" style="top: 40px; left: 2%; width: 220px; height: 260px; opacity: 0.08;">
+            <!-- Dot Matrix Grid in Background - Top-Right -->
+            <div class="istec-decor-item" style="top: 40px; right: 2%; width: 220px; height: 260px; opacity: 0.08;">
                 <svg width="220" height="260" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <pattern id="hero-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
                         <circle cx="2.5" cy="2.5" r="2.5" fill="#005C4D"/>
@@ -1784,14 +1784,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Subtle Crosshairs / Corner Marks -->
-            <div class="istec-decor-item anim-float" style="top: 160px; right: 28%; opacity: 0.18;">
+            <div class="istec-decor-item anim-float" style="top: 160px; left: 28%; opacity: 0.18;">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                     <path d="M14 0v28M0 14h28" stroke="#61A60E" stroke-width="1.5"/>
                     <circle cx="14" cy="14" r="5" stroke="#61A60E" stroke-width="1" fill="none"/>
                 </svg>
             </div>
 
-            <div class="istec-decor-item anim-float-rev" style="bottom: 40px; right: 10%; opacity: 0.14;">
+            <div class="istec-decor-item anim-float-rev" style="bottom: 40px; left: 10%; opacity: 0.14;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M12 0v24M0 12h24" stroke="#005C4D" stroke-width="1.5"/>
                 </svg>
