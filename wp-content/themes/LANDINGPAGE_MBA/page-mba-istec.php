@@ -1326,6 +1326,139 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-wrap: wrap;
         }
 
+        /* ── KHỐI CHỨNG NHẬN CGE & DÀN LOGO KIỂM ĐỊNH TẠI HERO ── */
+        .istec-hero-trust-block {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .istec-hero-cge-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(0, 92, 77, 0.16);
+            border-left: 4px solid var(--istec-deep-green);
+            border-radius: var(--radius-square);
+            padding: 14px 18px;
+            box-shadow: 0 4px 18px rgba(0, 44, 36, 0.05);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .hero-cge-logo-box {
+            flex: 0 0 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .hero-cge-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 44px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .hero-cge-text-box {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hero-cge-title {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: var(--istec-deep-green);
+            letter-spacing: 0.02em;
+            margin-bottom: 5px;
+            line-height: 1.35;
+        }
+
+        .hero-cge-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hero-cge-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: var(--dark-sub);
+            line-height: 1.45;
+        }
+
+        .hero-cge-list li svg {
+            color: var(--istec-bright-green);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Dàn Logo Kiểm Định */
+        .istec-hero-acc-wrap {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-square);
+            padding: 10px 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .hero-acc-header {
+            margin-bottom: 6px;
+        }
+
+        .hero-acc-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--dark-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .hero-acc-logos-strip {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+        }
+
+        .hero-acc-badge {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 6px;
+            padding: 3px 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            height: 32px;
+        }
+
+        .hero-acc-badge:hover {
+            transform: translateY(-2px);
+            border-color: var(--istec-teal);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-acc-badge img {
+            max-height: 22px;
+            width: auto;
+            max-width: 80px;
+            object-fit: contain;
+            display: block;
+        }
+
         /* Nút Scroll Top kiểu App trên Mobile (chỉ hiện trên mobile, cách xuống, không đè nút Reels) */
         .app-back-to-top {
             display: none !important;
@@ -1411,6 +1544,34 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .istec-hero-btn-group svg {
                 width: 13px !important;
                 height: 13px !important;
+            }
+
+            .istec-hero-cge-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 12px 14px;
+            }
+            .hero-cge-logo-box {
+                align-self: flex-start;
+                max-width: 90px;
+            }
+            .hero-cge-title {
+                font-size: 0.82rem;
+            }
+            .hero-cge-list li {
+                font-size: 0.78rem;
+            }
+            .hero-acc-logos-strip {
+                gap: 6px 8px;
+            }
+            .hero-acc-badge {
+                height: 28px;
+                padding: 2px 6px;
+            }
+            .hero-acc-badge img {
+                max-height: 18px;
+                max-width: 65px;
             }
 
             /* Bỏ 4 nút kỳ trên mobile (học viên tự dropdown toggle card) */
@@ -1534,6 +1695,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .stat-strip-card:hover {
             transform: translateY(-3px);
             border-color: var(--istec-deep-green);
+        }
+
+        .stat-strip-icon {
+            width: 46px;
+            height: 46px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(0, 92, 77, 0.08);
+            color: var(--istec-deep-green);
+            transition: all 0.25s ease;
+        }
+
+        .stat-strip-card:hover .stat-strip-icon {
+            transform: translateY(-2px) scale(1.08);
+            background: var(--istec-deep-green);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(0, 92, 77, 0.25);
         }
 
         .stat-strip-num {
@@ -1890,7 +2071,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </p>
 
                     <div class="istec-hero-btn-group">
-                        <a href="#faq-dang-ky" class="btn-istec-square-dark">
+                        <a href="javascript:void(0);" onclick="if(typeof window.openRegModal === 'function') { event.preventDefault(); window.openRegModal('Đăng ký xét tuyển MBA ISTEC'); } else if(typeof window.showform === 'function') { event.preventDefault(); window.showform('Đăng ký xét tuyển MBA ISTEC'); } else { var m = document.getElementById('reg-modal'); if(m){ m.style.display='flex'; setTimeout(function(){ m.classList.add('open'); }, 10); } }" class="btn-istec-square-dark">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             <span>Đăng ký xét tuyển</span>
                         </a>
@@ -1898,6 +2079,61 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
                             <span>Khung chương trình</span>
                         </a>
+                    </div>
+
+                    <!-- KHỐI CHỨNG NHẬN CGE THEO STANDEE & DÀN LOGO KIỂM ĐỊNH -->
+                    <div class="istec-hero-trust-block">
+                        <!-- Khối CGE Chuẩn Giáo Dục Đại Học Pháp (Nội dung Standee) -->
+                        <div class="istec-hero-cge-card">
+                            <div class="hero-cge-logo-box">
+                                <img src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" 
+                                     alt="Conférence des Grandes Écoles (CGE)" 
+                                     class="hero-cge-img" />
+                            </div>
+                            <div class="hero-cge-text-box">
+                                <div class="hero-cge-title">GRANDE ÉCOLE – CHUẨN GIÁO DỤC ĐẠI HỌC PHÁP</div>
+                                <ul class="hero-cge-list">
+                                    <li>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
+                                        <span>Đạt danh hiệu chất lượng học thuật Grade de Master & Grade de Licence</span>
+                                    </li>
+                                    <li>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
+                                        <span>Được Bộ Giáo dục & Nghiên cứu Pháp trực tiếp phê duyệt – Bằng cấp công nhận toàn cầu</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Dàn Logo Kiểm Định Quốc Tế -->
+                        <div class="istec-hero-acc-wrap">
+                            <div class="hero-acc-header">
+                                <span class="hero-acc-label">HỆ THỐNG KIỂM ĐỊNH & CÔNG NHẬN QUỐC TẾ:</span>
+                            </div>
+                            <div class="hero-acc-logos-strip">
+                                <div class="hero-acc-badge" title="France Compétences RNCP Level 7">
+                                    <img src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="France Compétences RNCP" />
+                                </div>
+                                <div class="hero-acc-badge" title="CEFDG France">
+                                    <img src="https://istec.fr/wp-content/uploads/2026/02/CEFDG-1.webp" alt="CEFDG France" />
+                                </div>
+                                <div class="hero-acc-badge" title="Conférence des Grandes Écoles (CGE)">
+                                    <img src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="CGE" />
+                                </div>
+                                <div class="hero-acc-badge" title="AACSB Member">
+                                    <img src="https://istec.fr/wp-content/uploads/2025/07/AACSB.webp" alt="AACSB Member" />
+                                </div>
+                                <div class="hero-acc-badge" title="EFMD Global Member">
+                                    <img src="https://istec.fr/wp-content/uploads/2026/01/EFMD-Logo-2-300x122-1.png" alt="EFMD Global" />
+                                </div>
+                                <div class="hero-acc-badge" title="Campus France">
+                                    <img src="https://istec.fr/wp-content/uploads/2026/02/campus-france-logo.png" alt="Campus France" />
+                                </div>
+                                <div class="hero-acc-badge" title="Qualiopi France">
+                                    <img src="https://istec.fr/wp-content/uploads/2026/02/qualiopi-logo-png.png" alt="Qualiopi" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1919,7 +2155,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                     <div class="spec-item">
                         <div class="spec-label">BACK TO SCHOOL</div>
-                        <div class="spec-value">Tháng 03 & Tháng 10 hàng năm</div>
+                        <div class="spec-value">Tháng 10 hàng năm</div>
                     </div>
 
                     <div class="spec-divider"></div>
@@ -2019,18 +2255,43 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <!-- 4 Con số ấn tượng từ Brief ISTEC -->
             <div class="istec-stats-strip istec-stagger">
                 <div class="stat-strip-card">
+                    <div class="stat-strip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                        </svg>
+                    </div>
                     <div class="stat-strip-num" data-counter-target="60" data-counter-suffix="+">60+</div>
                     <div class="stat-strip-label">Năm đào tạo kinh doanh & quản trị tại Pháp</div>
                 </div>
                 <div class="stat-strip-card">
+                    <div class="stat-strip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
                     <div class="stat-strip-num" data-counter-target="3500" data-counter-format="dot" data-counter-suffix="+">3.500+</div>
                     <div class="stat-strip-label">Doanh nghiệp đối tác toàn cầu</div>
                 </div>
                 <div class="stat-strip-card">
+                    <div class="stat-strip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
                     <div class="stat-strip-num" data-counter-target="8000" data-counter-format="dot" data-counter-suffix="+">8.000+</div>
                     <div class="stat-strip-label">Cựu học viên trên 40 quốc gia</div>
                 </div>
                 <div class="stat-strip-card">
+                    <div class="stat-strip-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
                     <div class="stat-strip-num" data-counter-target="8" data-counter-prefix="Top ">Top 8</div>
                     <div class="stat-strip-label">Trường Kinh doanh Post-Bac (Le Parisien)</div>
                 </div>
@@ -2084,16 +2345,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3 class="istec-green-block-title">Lessons (Học phần trọng tâm)</h3>
                 <div class="istec-white-bar-card istec-stagger">
                     <div class="bar-item-tick">
-                        Strategic Management & Leadership
+                        <div>
+                            <div style="font-weight: 700; color: var(--dark-main);">Quản trị Chiến lược & Lãnh đạo</div>
+                            <div style="font-size: 0.8rem; color: var(--dark-muted); font-weight: 500; margin-top: 2px;">Strategic Management & Leadership</div>
+                        </div>
                     </div>
                     <div class="bar-item-tick">
-                        Business Analytics & Decision Making
+                        <div>
+                            <div style="font-weight: 700; color: var(--dark-main);">Phân tích Kinh doanh & Ra quyết định</div>
+                            <div style="font-size: 0.8rem; color: var(--dark-muted); font-weight: 500; margin-top: 2px;">Business Analytics & Decision Making</div>
+                        </div>
                     </div>
                     <div class="bar-item-tick">
-                        Digital Transformation & AI Strategy
+                        <div>
+                            <div style="font-weight: 700; color: var(--dark-main);">Chuyển đổi số & Chiến lược AI</div>
+                            <div style="font-size: 0.8rem; color: var(--dark-muted); font-weight: 500; margin-top: 2px;">Digital Transformation & AI Strategy</div>
+                        </div>
                     </div>
                     <div class="bar-item-tick">
-                        International Negotiation & Global Business
+                        <div>
+                            <div style="font-weight: 700; color: var(--dark-main);">Đàm phán Quốc tế & Kinh doanh Toàn cầu</div>
+                            <div style="font-size: 0.8rem; color: var(--dark-muted); font-weight: 500; margin-top: 2px;">International Negotiation & Global Business</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3693,6 +3966,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             initCounterAnimation();
         }
     </script>
+
+    <?php
+    $js_path = get_stylesheet_directory() . '/common-assets/js/script.min.js';
+    $js_version = file_exists($js_path) ? filemtime($js_path) : time();
+    ?>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/js/script.min.js?v=<?php echo $js_version; ?>" defer></script>
 </body>
 
 </html>

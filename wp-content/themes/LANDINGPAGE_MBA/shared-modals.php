@@ -35,6 +35,9 @@ if ($is_en) {
     } elseif (is_page('business-leadership-essentials')) {
         $modal_title = 'Register to receive <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
         $modal_subtitle = 'Fill in your details below to receive the 100% tuition grant for July.';
+    } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
+        $modal_title = 'Apply for Admission <br><span class="gradient-text" id="modal-program-title">MBA ISTEC Paris</span>';
+        $modal_subtitle = 'Our admissions team will contact you within 24 business hours to assist with your application.';
     }
 } else {
     $modal_title = 'Đăng ký tìm hiểu <br><span class="gradient-text" id="modal-program-title">Hành Trình Học Tập</span>';
@@ -63,6 +66,9 @@ if ($is_en) {
     } elseif (is_page('business-leadership-essentials')) {
         $modal_title = 'Đăng ký nhận <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
         $modal_subtitle = 'Điền thông tin bên dưới để nhận suất học bổng 100% học phí trong tháng 7.';
+    } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
+        $modal_title = 'Đăng ký xét tuyển <br><span class="gradient-text" id="modal-program-title">MBA ISTEC Paris</span>';
+        $modal_subtitle = 'Chuyên viên tuyển sinh sẽ liên hệ hỗ trợ hồ sơ xét tuyển và học bổng trong vòng 24h làm việc.';
     }
 }
 
@@ -117,6 +123,12 @@ if ($is_en) {
             ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Swiss UMEF short course', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
+        $program_options = [
+            ['value' => 'MBA ISTEC Paris', 'label' => 'MBA ISTEC Paris', 'desc' => 'French Master Degree (Bac+5)', 'icon' => '🎓'],
+            ['value' => 'Scholarship Inquiry', 'label' => 'Scholarship & Fees', 'desc' => 'Tuition assistance options', 'icon' => '🎁'],
+            ['value' => 'Flexible Learning Path', 'label' => 'Flexible Path', 'desc' => '100% Online for executives', 'icon' => '💡']
         ];
     } else {
         $program_options = [
@@ -173,6 +185,12 @@ if ($is_en) {
             ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Khóa ngắn hạn Swiss UMEF', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
+        $program_options = [
+            ['value' => 'MBA ISTEC Paris', 'label' => 'MBA ISTEC Paris', 'desc' => 'Thạc sĩ QTKD chuẩn Pháp (Bac+5)', 'icon' => '🎓'],
+            ['value' => 'Học bổng & Ưu đãi', 'label' => 'Học bổng & Ưu đãi', 'desc' => 'Chính sách hỗ trợ học phí', 'icon' => '🎁'],
+            ['value' => 'Tư vấn lộ trình', 'label' => 'Tư vấn lộ trình', 'desc' => 'Lịch học 100% online linh hoạt', 'icon' => '💡']
         ];
     } else {
         $program_options = [
