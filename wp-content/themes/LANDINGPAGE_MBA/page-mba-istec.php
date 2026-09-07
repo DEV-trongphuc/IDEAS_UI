@@ -2154,13 +2154,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="spec-divider"></div>
 
                     <div class="spec-item">
-                        <div class="spec-label">BACK TO SCHOOL</div>
-                        <div class="spec-value">Tháng 10 hàng năm</div>
-                    </div>
-
-                    <div class="spec-divider"></div>
-
-                    <div class="spec-item">
                         <div class="spec-label">DIPLOMA</div>
                         <div class="spec-value">Thạc sĩ Quản trị Kinh doanh (MBA) - RNCP Level 7 (Bac+5)</div>
                     </div>
