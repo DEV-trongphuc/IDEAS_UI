@@ -35,6 +35,9 @@ if ($is_en) {
     } elseif (is_page('business-leadership-essentials')) {
         $modal_title = 'Register to receive <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
         $modal_subtitle = 'Fill in your details below to receive the 100% tuition grant for July.';
+    } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
+        $modal_title = 'Apply for Admission <br><span class="gradient-text" id="modal-program-title">DBA ISTEC Paris</span>';
+        $modal_subtitle = 'Our admissions team will contact you within 24 business hours to assist with your doctoral application.';
     } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
         $modal_title = 'Apply for Admission <br><span class="gradient-text" id="modal-program-title">MBA ISTEC Paris</span>';
         $modal_subtitle = 'Our admissions team will contact you within 24 business hours to assist with your application.';
@@ -66,6 +69,9 @@ if ($is_en) {
     } elseif (is_page('business-leadership-essentials')) {
         $modal_title = 'Đăng ký nhận <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
         $modal_subtitle = 'Điền thông tin bên dưới để nhận suất học bổng 100% học phí trong tháng 7.';
+    } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
+        $modal_title = 'Đăng ký xét tuyển <br><span class="gradient-text" id="modal-program-title">DBA ISTEC Paris</span>';
+        $modal_subtitle = 'Chuyên viên tuyển sinh sẽ liên hệ hỗ trợ thẩm định hồ sơ và đề cương nghiên cứu trong vòng 24h làm việc.';
     } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
         $modal_title = 'Đăng ký xét tuyển <br><span class="gradient-text" id="modal-program-title">MBA ISTEC Paris</span>';
         $modal_subtitle = 'Chuyên viên tuyển sinh sẽ liên hệ hỗ trợ hồ sơ xét tuyển và học bổng trong vòng 24h làm việc.';
@@ -123,6 +129,12 @@ if ($is_en) {
             ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Swiss UMEF short course', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
+        $program_options = [
+            ['value' => 'DBA ISTEC Paris', 'label' => 'DBA ISTEC Paris', 'desc' => 'Doctorate of Business Administration (Bac+8)', 'icon' => '🎓'],
+            ['value' => 'Research Topic Assessment', 'label' => 'Research Proposal', 'desc' => 'Topic feasibility consultation', 'icon' => '📚'],
+            ['value' => 'AI Copilot & Tuition Support', 'label' => 'Tuition & Copilot', 'desc' => 'Tuition packages & AI platform', 'icon' => '💡']
         ];
     } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
         $program_options = [
@@ -185,6 +197,12 @@ if ($is_en) {
             ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Khóa ngắn hạn Swiss UMEF', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
+        $program_options = [
+            ['value' => 'DBA ISTEC Paris', 'label' => 'DBA ISTEC Paris', 'desc' => 'Tiến sĩ Quản trị Kinh doanh (Bac+8 / EQF 8)', 'icon' => '🎓'],
+            ['value' => 'Tư vấn Đề tài Nghiên cứu', 'label' => 'Tư vấn Đề tài', 'desc' => 'Thẩm định đề cương & dự án tư vấn', 'icon' => '📚'],
+            ['value' => 'Chính sách Học phí & AI Copilot', 'label' => 'Học phí & AI Copilot', 'desc' => 'Trọn gói 13.000 EUR & Trợ lý AI', 'icon' => '💡']
         ];
     } elseif (is_page('mba-istec') || is_page('istec-mba') || is_page_template('page-mba-istec.php')) {
         $program_options = [
