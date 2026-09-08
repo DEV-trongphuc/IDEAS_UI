@@ -1418,7 +1418,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </p>
 
                     <div class="istec-hero-btn-group">
-                        <a href="#faq-dang-ky" class="btn-istec-square-dark">
+                        <a href="javascript:void(0);" onclick="if(typeof window.openRegModal === 'function') { event.preventDefault(); window.openRegModal('Đăng ký xét tuyển DBA ISTEC'); } else if(typeof window.showform === 'function') { event.preventDefault(); window.showform('Đăng ký xét tuyển DBA ISTEC'); } else { var m = document.getElementById('reg-modal'); if(m){ m.style.display='flex'; setTimeout(function(){ m.classList.add('open'); }, 10); } }" class="btn-istec-square-dark">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             <span>Đăng ký xét tuyển DBA</span>
                         </a>
@@ -1426,9 +1426,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
                             <span>Lộ trình 3 năm</span>
                         </a>
-                        <a href="#faq-dang-ky" class="btn-istec-square-outline">
+                        <a href="https://ideas.edu.vn/wp-content/uploads/2026/09/DBA-ISTEC-2026-Tuyen-sinh.pdf" target="_blank" rel="noopener noreferrer" class="btn-istec-square-outline">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                            <span>Nhận Brochure</span>
+                            <span>Xem Brochure DBA</span>
                         </a>
                     </div>
 
@@ -2269,7 +2269,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div style="font-size: 0.88rem; font-weight: 800; color: var(--dark-main);">TRẢ GÓP 0% LÃI SUẤT QUA NGÂN HÀNG SACOMBANK</div>
                             <div style="font-size: 0.8rem; color: var(--dark-muted);">Linh hoạt chia kỳ thanh toán từ 12 đến 24 tháng tối ưu dòng tiền.</div>
                         </div>
-                        <a href="#faq-dang-ky" class="btn-istec-square-dark" style="padding: 9px 18px; font-size: 0.84rem;">
+                        <a href="javascript:void(0);" onclick="if(typeof window.openRegModal === 'function') { event.preventDefault(); window.openRegModal('Nhận Lộ Trình Phí DBA'); } else if(typeof window.showform === 'function') { event.preventDefault(); window.showform('Nhận Lộ Trình Phí DBA'); } else { var m = document.getElementById('reg-modal'); if(m){ m.style.display='flex'; setTimeout(function(){ m.classList.add('open'); }, 10); } }" class="btn-istec-square-dark" style="padding: 9px 18px; font-size: 0.84rem;">
                             Nhận Lộ Trình Phí
                         </a>
                     </div>
