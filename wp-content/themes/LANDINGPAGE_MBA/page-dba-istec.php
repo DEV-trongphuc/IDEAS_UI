@@ -549,6 +549,33 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-bottom: 1px solid var(--border-light);
         }
 
+        .istec-section-box.bg-brand-green {
+            background: linear-gradient(135deg, #00463a 0%, #005C4D 60%, #003e34 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .istec-section-box.bg-brand-green .istec-label-top {
+            color: #86efac;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(134, 239, 172, 0.3);
+            padding: 4px 14px;
+            border-radius: var(--radius-square);
+            letter-spacing: 0.12em;
+            display: inline-block;
+        }
+
+        .istec-section-box.bg-brand-green .istec-heading-large {
+            color: #ffffff;
+        }
+
+        .diff-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
         .istec-label-top {
             font-size: 0.76rem;
             font-weight: 800;
@@ -1266,6 +1293,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .topic-plan-grid {
                 grid-template-columns: 1fr;
             }
+            .diff-grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
             .ai-agents-grid {
                 grid-template-columns: 1fr;
             }
@@ -1291,6 +1322,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         @media (max-width: 640px) {
+            .diff-grid-4 {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
             .stage-tabs-nav {
                 display: flex;
                 flex-direction: row;
@@ -1637,9 +1672,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
     </section>
 
-    <!-- ══ 4. 4 ĐIỂM KHÁC BIỆT CỐT LÕI ══ -->
-    <section class="istec-section-box">
-        <div class="container">
+    <!-- ══ 4. 4 ĐIỂM KHÁC BIỆT CỐT LÕI (NỀN XANH BRAND ISTEC) ══ -->
+    <section class="istec-section-box bg-brand-green" id="diem-khac-biet">
+        <div class="ambient-glow-green" style="width: 500px; height: 500px; top: -140px; right: -140px; opacity: 0.22; pointer-events: none;" aria-hidden="true"></div>
+        <div class="ambient-glow-green" style="width: 400px; height: 400px; bottom: -120px; left: -100px; opacity: 0.18; pointer-events: none;" aria-hidden="true"></div>
+        <div class="container" style="position: relative; z-index: 2;">
             <div style="text-align: center; max-width: 760px; margin: 0 auto 36px;" class="istec-reveal">
                 <span class="istec-label-top">GIÁ TRỊ ĐỘT PHÁ</span>
                 <h2 class="istec-heading-large">
@@ -1647,30 +1684,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </h2>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;" class="istec-reveal">
-                <div class="istec-square-card" style="border-top: 3px solid var(--istec-deep-green);">
-                    <div class="card-icon-wrap" style="color: var(--istec-deep-green);">
+            <div class="diff-grid-4 istec-reveal">
+                <div class="istec-square-card" style="background: #ffffff; border-top: 4px solid var(--istec-deep-green); box-shadow: 0 10px 28px rgba(0, 30, 24, 0.25);">
+                    <div class="card-icon-wrap" style="color: var(--istec-deep-green); background: rgba(0, 92, 77, 0.08);">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
                     </div>
                     <div class="card-title-bold">AI Native Copilot</div>
                     <p class="card-text-muted">Hỗ trợ bởi 03 AI Agents chuyên dụng 24/7, đẩy nhanh tiến độ làm đề cương, phân tích dữ liệu và viết luận án.</p>
                 </div>
-                <div class="istec-square-card" style="border-top: 3px solid var(--istec-bright-green);">
-                    <div class="card-icon-wrap" style="color: var(--istec-bright-green);">
+                <div class="istec-square-card" style="background: #ffffff; border-top: 4px solid var(--istec-bright-green); box-shadow: 0 10px 28px rgba(0, 30, 24, 0.25);">
+                    <div class="card-icon-wrap" style="color: var(--istec-bright-green); background: rgba(97, 166, 14, 0.1);">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
                     <div class="card-title-bold">Thực Chiến Doanh Nghiệp</div>
                     <p class="card-text-muted">Đề tài bắt nguồn từ vấn đề thực tiễn của doanh nghiệp, đúc kết thành mô hình quản trị có khả năng ứng dụng ngay.</p>
                 </div>
-                <div class="istec-square-card" style="border-top: 3px solid #0284c7;">
-                    <div class="card-icon-wrap" style="color: #0284c7;">
+                <div class="istec-square-card" style="background: #ffffff; border-top: 4px solid #0284c7; box-shadow: 0 10px 28px rgba(0, 30, 24, 0.25);">
+                    <div class="card-icon-wrap" style="color: #0284c7; background: rgba(2, 132, 199, 0.1);">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="card-title-bold">Business Doctors</div>
                     <p class="card-text-muted">Cơ hội gia nhập Hội đồng Chuyên gia IDEAS, tham gia chẩn đoán và tư vấn chiến lược cho mạng lưới doanh nghiệp đối tác.</p>
                 </div>
-                <div class="istec-square-card" style="border-top: 3px solid #d97706;">
-                    <div class="card-icon-wrap" style="color: #d97706;">
+                <div class="istec-square-card" style="background: #ffffff; border-top: 4px solid #d97706; box-shadow: 0 10px 28px rgba(0, 30, 24, 0.25);">
+                    <div class="card-icon-wrap" style="color: #d97706; background: rgba(217, 119, 6, 0.1);">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                     </div>
                     <div class="card-title-bold">Giá Trị Kép</div>
