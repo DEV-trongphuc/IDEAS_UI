@@ -17,7 +17,7 @@ global $wp;
 // Block unwanted old theme styles
 ob_start(function ($html) {
     return preg_replace(
-        '/<link[^>]+href=['"][^'"]*LANDINGPAGE_MBA\/main\.css[^'"]*['"][^>]*\/?>/i',
+        '/<link[^>]+href=[\'"][^\'"]*LANDINGPAGE_MBA\/main\.css[^\'"]*[\'"][^>]*\/?>/i',
         '<!-- [BLOCKED: LANDINGPAGE_MBA/main.css] -->',
         $html
     );
