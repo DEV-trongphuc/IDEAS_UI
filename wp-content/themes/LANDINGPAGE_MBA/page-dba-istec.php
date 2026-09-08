@@ -326,16 +326,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-left: 4px solid var(--istec-deep-green);
             border-radius: var(--radius-square);
             padding: 12px 16px;
-            box-shadow: 0 3px 14px rgba(0, 44, 36, 0.04);
+            box-shadow: 0 4px 16px rgba(0, 44, 36, 0.05);
         }
 
         .hero-cge-logo-box {
-            flex: 0 0 90px;
+            flex: 0 0 85px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #ffffff;
-            padding: 5px;
+            padding: 6px;
             border-radius: 4px;
             border: 1px solid rgba(0, 0, 0, 0.06);
         }
@@ -383,6 +383,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .hero-cge-list li svg {
             flex-shrink: 0;
             color: var(--istec-bright-green);
+        }
+
+        .hero-cge-bac8-badge {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 92, 77, 0.08);
+            border: 2px solid var(--istec-deep-green);
+            border-radius: var(--radius-square);
+            padding: 6px 14px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 92, 77, 0.1);
+        }
+
+        .hero-cge-bac8-badge .bac8-val {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--istec-deep-green);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-cge-bac8-badge .bac8-lbl {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--istec-deep-green);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 3px;
+            white-space: nowrap;
         }
 
         .istec-hero-acc-wrap {
@@ -1289,6 +1321,23 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: 100%;
                 justify-content: center;
             }
+            .istec-hero-cge-card {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .hero-cge-bac8-badge {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                gap: 8px;
+                padding: 8px 12px;
+            }
+            .hero-cge-bac8-badge .bac8-val {
+                font-size: 1.35rem;
+            }
+            .hero-cge-bac8-badge .bac8-lbl {
+                margin-top: 0;
+            }
         }
     </style>
 </head>
@@ -1357,17 +1406,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                      class="hero-cge-img" />
                             </div>
                             <div class="hero-cge-text-box">
-                                <div class="hero-cge-title">GRANDE ÉCOLE – CHUẨN GIÁO DỤC ĐẠI HỌC PHÁP • PRO BAC+8</div>
+                                <div class="hero-cge-title">GRANDE ÉCOLE – CHUẨN GIÁO DỤC TIẾN SĨ PHÁP</div>
                                 <ul class="hero-cge-list">
                                     <li>
                                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>Bộ Giáo dục Đại học Pháp công nhận Visa Bac+5 & Grade de Master</span>
+                                        <span>Bậc đào tạo Tiến sĩ Chuyên nghiệp Pro – Bac+8 (EQF Level 8) cao nhất Châu Âu</span>
                                     </li>
                                     <li>
                                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
                                         <span>Đánh giá WES (Hoa Kỳ & Canada): tương đương học vị <strong>Earned Doctorate</strong></span>
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="hero-cge-bac8-badge">
+                                <span class="bac8-val">BAC +8</span>
+                                <span class="bac8-lbl">HỌC VỊ TIẾN SĨ</span>
                             </div>
                         </div>
 
@@ -1377,7 +1430,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="hero-acc-logos-strip">
                                 <div class="hero-acc-badge" title="WES Evaluated Earned Doctorate (USA & Canada)">
-                                    <div class="badge-wes-text">WES <span>Earned Doctorate</span></div>
+                                     <div class="badge-wes-text">WES <span>Earned Doctorate</span></div>
                                 </div>
                                 <div class="hero-acc-badge" title="Conférence des Grandes Écoles (CGE)">
                                     <img src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="CGE" />
@@ -1408,13 +1461,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Cột phải: Hộp thông số nổi (Spec Box) -->
                 <div class="istec-spec-box">
                     <div class="spec-item">
-                        <div class="spec-label">ACCESS • HÌNH THỨC XÉT TUYỂN</div>
-                        <div class="spec-value">Hồ sơ học thuật & Phỏng vấn đề tài với Hội đồng</div>
-                    </div>
-
-                    <div class="spec-divider"></div>
-
-                    <div class="spec-item">
                         <div class="spec-label">RHYTHM • THỜI GIAN ĐÀO TẠO</div>
                         <div class="spec-value">03 Năm chính quy • 100% Trực tuyến linh hoạt cho Lãnh đạo</div>
                     </div>
@@ -1424,13 +1470,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="spec-item">
                         <div class="spec-label">CREDITS • TÍN CHỈ CHUẨN CHÂU ÂU</div>
                         <div class="spec-value">180 ECTS (03 Giai đoạn: Research • Fieldwork • Defense)</div>
-                    </div>
-
-                    <div class="spec-divider"></div>
-
-                    <div class="spec-item">
-                        <div class="spec-label">DIPLOMA • VĂN BẰNG TỐT NGHIỆP</div>
-                        <div class="spec-value">Doctorate of Business Administration (Pro – Bac+8)</div>
                     </div>
 
                     <div class="spec-divider"></div>
