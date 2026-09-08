@@ -206,9 +206,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="../common-assets/css/style.min.css?v=1788774875" as="style" />
-    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1788774875" />
-    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1788774875" media="print"
+    <link rel="preload" href="../common-assets/css/style.min.css?v=1788837474" as="style" />
+    <link rel="stylesheet" href="../common-assets/css/style.min.css?v=1788837474" />
+    <link rel="stylesheet" href="../common-assets/css/booking-modal.min.css?v=1788837474" media="print"
         onload="this.media='all'" />
     <style>
         /* ═══════════════════════════════════════
@@ -6650,558 +6650,52 @@
         <div class="pricing-section reveal-up" id="bang-gia"
             style="background: #f8fafc; padding: 80px 24px !important; border-radius: 32px; margin: 40px auto !important; max-width: 1400px !important; width: 100% !important; border: 1px solid #e2e8f0; box-sizing: border-box;">
 
-            <style>
-                .pricing-grid-new {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 32px;
-                    margin: 48px auto;
-                    align-items: stretch;
-                    max-width: 960px;
-                }
-
-                .pricing-card-new {
-                    background: #ffffff;
-                    border: 1px solid #e2e8f0;
-                    border-radius: 24px;
-                    padding: 40px 32px;
-                    display: flex;
-                    flex-direction: column;
-                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
-                    position: relative;
-                }
-
-                .pricing-card-new:hover {
-                    transform: translateY(-8px);
-                    border-color: #cbd5e1;
-                    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
-                }
-
-                .pricing-card-new.recommended-new {
-                    border: 2.5px solid #ab0e00;
-                    box-shadow: 0 20px 40px -15px rgba(171, 14, 0, 0.1);
-                }
-
-                .pricing-card-new.recommended-new:hover {
-                    box-shadow: 0 25px 50px -12px rgba(171, 14, 0, 0.18);
-                }
-
-                .pricing-badge-new {
-                    position: absolute;
-                    top: -14px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: #ab0e00;
-                    color: #ffffff;
-                    font-size: 0.75rem;
-                    font-weight: 800;
-                    padding: 6px 16px;
-                    border-radius: 20px;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    box-shadow: 0 4px 10px rgba(171, 14, 0, 0.3);
-                }
-
-                .pricing-price-box-new {
-                    border-top: 1px solid #f1f5f9;
-                    border-bottom: 1px solid #f1f5f9;
-                    padding: 24px 0;
-                    margin: 24px 0;
-                }
-
-                .pricing-features-new {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0 0 40px 0;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 14px;
-                    flex-grow: 1;
-                }
-
-                .pricing-features-new li {
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 10px;
-                    font-size: 0.95rem;
-                    line-height: 1.4;
-                    color: #334155;
-                    text-align: left;
-                }
-
-                .pricing-features-new li.disabled-feat {
-                    color: #94a3b8;
-                    text-decoration: line-through;
-                }
-
-                .pricing-features-new li .check-icon-new {
-                    color: #10b981;
-                    font-weight: 800;
-                    font-size: 1.1rem;
-                    line-height: 1;
-                }
-
-                .pricing-features-new li .cross-icon-new {
-                    color: #ef4444;
-                    font-weight: 800;
-                    font-size: 1.1rem;
-                    line-height: 1;
-                }
-
-                .pricing-btn-new {
-                    display: block;
-                    text-align: center;
-                    padding: 16px;
-                    font-weight: 700;
-                    border-radius: 14px;
-                    text-decoration: none;
-                    transition: all 0.3s ease;
-                    font-size: 1.05rem;
-                }
-
-                .pricing-btn-new.standard-btn-new {
-                    background: #f1f5f9;
-                    color: #334155;
-                    border: 1px solid #e2e8f0;
-                }
-
-                .pricing-btn-new.standard-btn-new:hover {
-                    background: #e2e8f0;
-                    color: #1e293b;
-                }
-
-                .pricing-btn-new.recommended-btn-new {
-                    background: #ab0e00;
-                    color: #ffffff;
-                    box-shadow: 0 4px 14px rgba(171, 14, 0, 0.3);
-                }
-
-                .pricing-btn-new.recommended-btn-new:hover {
-                    background: #900c00;
-                    box-shadow: 0 6px 20px rgba(171, 14, 0, 0.4);
-                    transform: translateY(-1px);
-                }
-
-                .scholarship-banner-new {
-                    background: linear-gradient(135deg, rgba(171, 14, 0, 0.04) 0%, rgba(255, 76, 76, 0.04) 100%);
-                    border: 1.5px dashed rgba(171, 14, 0, 0.3);
-                    border-radius: 20px;
-                    padding: 24px 32px;
-                    display: flex;
-                    align-items: center;
-                    gap: 24px;
-                    max-width: 960px;
-                    margin: 0 auto 40px;
-                    width: 100%;
-                    box-sizing: border-box;
-                    box-shadow: 0 4px 20px rgba(171, 14, 0, 0.02);
-                }
-
-
-                @media (min-width: 1024px) {
-                    .pricing-grid-new {
-                        grid-template-columns: repeat(2, 1fr) !important;
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    .pricing-grid-new {
-                        grid-template-columns: 1fr;
-                        gap: 24px;
-                    }
-
-                    .scholarship-banner-new {
-                        flex-direction: column;
-                        text-align: center;
-                        padding: 24px;
-                    }
-                }
-            </style>
-
             <div class="section-label"
                 style="margin: 0 auto 1.5rem; display: table; color: #ab0e00; background: rgba(171, 14, 0, 0.08); font-weight: 700;">
-                TUITION & FINANCIAL PATHWAY</div>
+                TUITION &amp; FINANCIAL ROADMAP</div>
             <h3 class="pricing-title"
-                style="text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; color: #0f172a; margin-bottom: 12px; line-height: 1.2;">
-                Smart Investment for<br /><span style="color:#ab0e00">the Future of Technology Management</span>
+                style="text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; color: #0f172a; margin-bottom: 36px; line-height: 1.2;">
+                Smart Investment for<br /><span style="color:#ab0e00">Technology Management Future</span>
             </h3>
 
-
-            <!-- Scholarship Banner -->
-                    <!-- Tuition Support Card -->
-                    <style>
-                        .tuition-support-card {
-                            max-width: 980px;
-                            margin: 0 auto 2.5rem auto;
-                            background: #ffffff;
-                            border: 1px solid #e2e8f0;
-                            border-radius: 16px;
-                            padding: 24px;
-                            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-                            display: flex;
-                            align-items: center;
-                            gap: 24px;
-                            text-align: left;
-                            position: relative;
-                            overflow: hidden;
-                            box-sizing: border-box;
-                        }
-                        .tuition-support-card::before {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 4px;
-                            height: 100%;
-                            background: #ab0e00;
-                        }
-                        .tuition-school-logo {
-                            flex-shrink: 0;
-                            width: 80px;
-                            height: 80px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            background: #f8fafc;
-                            border-radius: 12px;
-                            padding: 8px;
-                            border: 1px solid #edf2f7;
-                        }
-                        .tuition-support-info {
-                            flex-grow: 1;
-                        }
-                        @media (max-width: 640px) {
-                            .tuition-support-card {
-                                flex-direction: column !important;
-                                text-align: center !important;
-                                padding: 20px !important;
-                                gap: 16px !important;
-                            }
-                            .tuition-support-card::before {
-                                width: 100% !important;
-                                height: 4px !important;
-                                left: 0 !important;
-                                top: 0 !important;
-                            }
-                        }
-                    </style>
-                    <div class="tuition-support-card">
-                        <div class="tuition-school-logo">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/external-migrated/images_b4d597a4.webp" alt="Swiss UMEF Logo" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
-                        </div>
-                        <div class="tuition-support-info">
-                            <div style="display: inline-block; background: rgba(171, 14, 0, 0.08); color: #ab0e00; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; margin-bottom: 8px; letter-spacing: 0.05em; text-transform: uppercase;">International Support Policy</div>
-                            <h4 style="margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 800; color: #0f172a;">Tuition Support Program for Vietnam</h4>
-                            <p style="margin: 0; font-size: 0.95rem; color: #475569; line-height: 1.5; font-weight: 400;">The official on-campus tuition fee in Switzerland is <strong style="color: #ab0e00;">18,900 CHF/year</strong>. For the online format, the school's base tuition is <strong style="color: #0f172a;">12,900 CHF</strong>. Through the <strong>special support policy for Vietnamese learners in partnership with IDEAS (its comprehensive strategic partner)</strong>, the actual tuition cost is further optimized starting from <strong style="color: #ab0e00;">3,870 CHF</strong>, including flexible installment options and 0% interest payment plans via Sacombank.</p>
-                        </div>
+            <!-- Single Tuition Box matching Brochure -->
+            <div style="max-width: 820px; margin: 0 auto 36px; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); border: 1px solid #e2e8f0; overflow: hidden;">
+                <!-- Red-bordered Header Box -->
+                <div style="border: 2px solid #ab0e00; border-radius: 12px; margin: 24px; overflow: hidden; background: #ffffff;">
+                    <div style="padding: 16px 20px; text-align: center;">
+                        <h4 style="margin: 0; font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-weight: 800; color: #ab0e00; letter-spacing: -0.5px;">Program Tuition</h4>
                     </div>
-
-            <div class="scholarship-banner-new">
-                <div
-                    style="background: #ab0e00; color: #fff; font-size: 0.85rem; font-weight: 800; padding: 8px 16px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap;">
-                    Scholarship Support
-                </div>
-                <div style="font-size: 0.95rem; color: #334155; line-height: 1.6; text-align: left;">
-                    Swiss UMEF special sponsorship <strong>70% basic tuition (Platform)</strong> valued at <strong>9,030
-                        CHF
-                        (~298,000,000 VND)</strong>. The original basic tuition of 12,900 CHF is reduced to
-                    <strong>3,870 CHF</strong>.
-                </div>
-            </div>
-
-            <!-- Pricing Grid -->
-            <div class="pricing-grid-new">
-
-                <!-- Card 1: Standard -->
-                <div class="pricing-card-new">
-                    <div style="margin-bottom: 24px; text-align: left;">
-                        <span
-                            style="background: #f1f5f9; color: #475569; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Self-Study
-                            Pathway</span>
-                        <h4 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 12px 0 8px;">Standard
-                            Package</h4>
-                        <p style="font-size: 0.85rem; color: #64748b; line-height: 1.4; min-height: 40px; margin: 0;">
-                            For students who actively study and arrange their schedule via the Platform.</p>
+                    <div style="background: #ab0e00; padding: 18px 24px; text-align: center;">
+                        <div style="font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 900; color: #ffffff; line-height: 1; letter-spacing: 0.5px;">10.970 CHF</div>
                     </div>
-
-                    <div class="pricing-price-box-new" style="text-align: left;">
-                        <div style="display: flex; align-items: baseline; gap: 4px;">
-                            <span
-                                style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; line-height: 1;">4.220</span>
-                            <span style="font-size: 1.2rem; font-weight: 700; color: #ab0e00;">CHF</span>
-                        </div>
-                        <div style="font-size: 1.1rem; font-weight: 800; color: #1e293b; margin-top: 6px;">~139,260,000
-                            VND
-                        </div>
-                        <div
-                            style="font-size: 0.85rem; color: #94a3b8; text-decoration: line-through; margin-top: 4px;">
-                            Original Tuition: 5.570 CHF</div>
-                    </div>
-
-                    <ul class="pricing-features-new">
-                        <li>
-                            <svg style="color: #10b981; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(16, 185, 129, 0.1)"></circle>
-                                <polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="2.5"></polyline>
-                            </svg>
-                            <span>Application & Admission Fee (150 CHF)</span>
-                        </li>
-                        <li>
-                            <svg style="color: #10b981; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(16, 185, 129, 0.1)"></circle>
-                                <polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="2.5"></polyline>
-                            </svg>
-                            <span>Platform Tuition (3,870 CHF - after 70% scholarship)</span>
-                        </li>
-                        <li>
-                            <svg style="color: #10b981; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(16, 185, 129, 0.1)"></circle>
-                                <polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="2.5"></polyline>
-                            </svg>
-                            <span>IDEAS Basic Academic Support Services (200 CHF)</span>
-                        </li>
-                        <li class="disabled-feat">
-                            <svg style="color: #ef4444; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(239, 68, 68, 0.1)"></circle>
-                                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                                <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                            </svg>
-                            <span>Workshops & 1:1 Thesis Advising</span>
-                        </li>
-                        <li class="disabled-feat">
-                            <svg style="color: #ef4444; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(239, 68, 68, 0.1)"></circle>
-                                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                                <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                            </svg>
-                            <span>Live Zoom interactive sessions with international faculty</span>
-                        </li>
-                        <li class="disabled-feat">
-                            <svg style="color: #ef4444; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(239, 68, 68, 0.1)"></circle>
-                                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                                <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                            </svg>
-                            <span>Canton graduation fee & consular legalization of degree</span>
-                        </li>
-                        <li class="disabled-feat">
-                            <svg style="color: #ef4444; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(239, 68, 68, 0.1)"></circle>
-                                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                                <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                            </svg>
-                            <span>Switzerland study trip in Geneva (Optional)</span>
-                        </li>
-                    </ul>
-
-                    <a href="#dang-ky" class="pricing-btn-new standard-btn-new">Consultation for Self-Study Pathway</a>
                 </div>
 
-                <!-- Card 2: Recommended (High Quality) -->
-                <div class="pricing-card-new recommended-new" style="border-radius: 32px;">
-                    <div class="pricing-badge-new">Recommended</div>
-
-                    <div style="margin-bottom: 24px; text-align: left; margin-top: 4px;">
-                        <span
-                            style="background: rgba(171, 14, 0, 0.08); color: #ab0e00; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">Study
-                            in Vietnam</span>
-                        <h4
-                            style="font-size: 1.8rem; font-weight: 900; color: #0f172a; margin: 16px 0 8px; text-transform: none; letter-spacing: -0.5px;">
-                            High
-                            Quality</h4>
-                        <p style="font-size: 0.95rem; color: #64748b; line-height: 1.5; min-height: 40px; margin: 0;">
-                            Complete study
-                            pathway in Vietnam with international faculty, 1:1 thesis advising &amp;
-                            consular legalization
-                            of degree.</p>
+                <div style="padding: 0 28px 28px 28px; text-align: left;">
+                    <div style="text-align: right; font-size: 0.9rem; font-style: italic; color: #64748b; margin-bottom: 20px; font-weight: 600;">
+                        *Applied exchange rate: 33,000 VND / CHF
                     </div>
 
-                    <div class="pricing-price-box-new" style="text-align: left; padding: 12px 0;">
-                        <style>
-                            /* ── Toggle Switch ── */
-                            .hq-toggle-switch input:checked+.hq-toggle-slider {
-                                background-color: #ab0e00;
-                            }
-
-                            .hq-toggle-switch input:checked+.hq-toggle-slider:before {
-                                transform: translateX(18px);
-                            }
-
-                            .hq-toggle-slider {
-                                position: absolute;
-                                cursor: pointer;
-                                inset: 0;
-                                background-color: #cbd5e1;
-                                transition: .3s;
-                                border-radius: 20px;
-                            }
-
-                            .hq-toggle-slider:before {
-                                position: absolute;
-                                content: "";
-                                height: 14px;
-                                width: 14px;
-                                left: 3px;
-                                bottom: 3px;
-                                background-color: white;
-                                transition: .3s;
-                                border-radius: 50%;
-                                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-                            }
-                        </style>
-                        <div style="display: flex; align-items: baseline; gap: 4px;">
-                            <span id="hq-price-chf-mbainai"
-                                style="font-size: 2.2rem; font-weight: 900; color: #ab0e00; line-height: 1;">5.120</span>
-                            <span style="font-size: 1.2rem; font-weight: 700; color: #1e293b;">CHF</span>
-                        </div>
-                        <div id="hq-price-vnd-mbainai"
-                            style="font-size: 1.1rem; font-weight: 800; color: #1e293b; margin-top: 6px;">~168,960,000
-                            VND
-                        </div>
-                        <div id="hq-price-original-mbainai"
-                            style="font-size: 0.85rem; color: #94a3b8; text-decoration: line-through; margin-top: 4px;">
-                            Original Tuition: 7,970 CHF</div>
-
-                        <!-- Toggle Switch container -->
-                        <div
-                            style="display: flex; align-items: center; gap: 10px; margin-top: 14px; background: rgba(171, 14, 0, 0.04); border: 1px solid rgba(171, 14, 0, 0.08); padding: 8px 12px; border-radius: 10px; width: fit-content;">
-                            <span style="font-size: 0.82rem; font-weight: 700; color: #475569;">Switzerland Study
-                                Trip</span>
-                            <label class="hq-toggle-switch"
-                                style="position: relative; display: inline-block; width: 38px; height: 20px; margin: 0; flex-shrink: 0;">
-                                <input type="checkbox" id="hq-tour-toggle-mbainai"
-                                    aria-label="Select Switzerland study trip" style="opacity: 0; width: 0; height: 0;"
-                                    onchange="toggleHqTourMbainai(this)">
-                                <span class="hq-toggle-slider"></span>
-                            </label>
-                        </div>
-
-                        <script>
-                            function toggleHqTourMbainai(cb) {
-                                const priceChf = document.getElementById("hq-price-chf-mbainai");
-                                const priceVnd = document.getElementById("hq-price-vnd-mbainai");
-                                const priceOrig = document.getElementById("hq-price-original-mbainai");
-                                if (cb.checked) {
-                                    priceChf.innerText = "6.500";
-                                    priceVnd.innerText = "~214,500,000 VND";
-                                    priceOrig.innerText = "Original Tuition: 10.970 CHF";
-                                } else {
-                                    priceChf.innerText = "5.120";
-                                    priceVnd.innerText = "~168,960,000 VND";
-                                    priceOrig.innerText = "Original Tuition: 7,970 CHF";
-                                }
-                            }
-                        </script>
+                    <div style="background: #f8fafc; border-radius: 14px; padding: 20px 24px; border: 1px solid #edf2f7;">
+                        <div style="font-weight: 800; color: #0f172a; font-size: 1.05rem; margin-bottom: 6px;">Note:</div>
+                        <div style="font-weight: 600; color: #334155; font-size: 0.98rem; margin-bottom: 10px;">Tuition fee includes:</div>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: #334155; line-height: 1.55;">
+                                <span style="color: #ab0e00; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+                                <span>Swiss UMEF program tuition and IDEAS academic support service fee throughout the study.</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.95rem; color: #334155; line-height: 1.55;">
+                                <span style="color: #ab0e00; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+                                <span>01 Switzerland experiential study trip combined with graduation ceremony (05 days, including 02 travel days).</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <ul class="pricing-features-new">
-                        <li>
-                            <svg style="color: #10b981; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(16, 185, 129, 0.1)"></circle>
-                                <polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="2.5"></polyline>
-                            </svg>
-                            <span><strong>All content of the Standard pathway (4,220 CHF)</strong></span>
-                        </li>
-                        <li>
-                            <svg style="color: #10b981; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(16, 185, 129, 0.1)"></circle>
-                                <polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="2.5"></polyline>
-                            </svg>
-                            <span>Advanced Zoom interactive classes with international faculty (2,400 CHF)</span>
-                        </li>
-                        <li>
-                            <svg style="color: #10b981; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(16, 185, 129, 0.1)"></circle>
-                                <polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="2.5"></polyline>
-                            </svg>
-                            <span>Workshops, 1:1 thesis advising, IDEAS LMS &amp; Cengage (750 CHF)</span>
-                        </li>
-                        <li>
-                            <svg style="color: #10b981; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(16, 185, 129, 0.1)"></circle>
-                                <polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="2.5"></polyline>
-                            </svg>
-                            <span>Canton graduation fee, Swiss Consular legalization of degree (300 CHF)</span>
-                        </li>
-                        <li class="disabled-feat">
-                            <svg style="color: #ef4444; flex-shrink: 0; margin-top: 2px;" width="18" height="18"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
-                                    fill="rgba(239, 68, 68, 0.1)"></circle>
-                                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                                <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2.5"></line>
-                            </svg>
-                            <span>Switzerland study trip in Geneva</span>
-                        </li>
-                    </ul>
-
-                    <a href="#dang-ky" class="pricing-btn-new recommended-btn-new">Apply High Quality</a>
+                    <div style="margin-top: 24px; text-align: center;">
+                        <a href="#dang-ky" class="btn btn-primary" style="display: inline-block; padding: 14px 36px; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none;">
+                            Register for Tuition Consultation
+                        </a>
+                    </div>
                 </div>
-
-
-
-            </div>
-
-            <!-- Payment notes -->
-            <div
-                style="max-width: 1000px; margin: 0 auto 48px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); text-align: left;">
-                <h5
-                    style="color: #0f172a; font-size: 1rem; font-weight: 800; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#ab0e00" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    Tuition payment note:
-                </h5>
-                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: #475569;">
-                        <span style="color: #ab0e00; font-size: 1rem; line-height: 1;">•</span>
-                        <span>Students pay the Swiss UMEF tuition portion directly to Switzerland according to the
-                            Invoice issued by the
-                            School. IDEAS support fees are paid in Vietnam.</span>
-                    </li>
-                    <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: #475569;">
-                        <span style="color: #ab0e00; font-size: 1rem; line-height: 1;">•</span>
-                        <span>The <strong>Switzerland study trip (3,000 CHF)</strong> is voluntary. Without the
-                            trip (Option 1), the tuition is <strong>5,120 CHF</strong>. With the
-                            trip (Option 2), the tuition is <strong>6,500 CHF</strong>.</span>
-                    </li>
-                </ul>
             </div>
 
             <!-- Sacombank installment banner -->
@@ -8412,8 +7906,8 @@
         </div>
     </div>
 
-    <script src="../common-assets/js/script.min.js?v=1788774875" defer></script>
-    <script src="../common-assets/js/booking-modal.min.js?v=1788774875" defer></script>
+    <script src="../common-assets/js/script.min.js?v=1788837474" defer></script>
+    <script src="../common-assets/js/booking-modal.min.js?v=1788837474" defer></script>
 
 
 
