@@ -1745,6 +1745,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 2px;
         }
 
+        .hero-cge-bac5-badge {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 92, 77, 0.08);
+            border: 2px solid var(--istec-deep-green);
+            border-radius: var(--radius-square);
+            padding: 8px 16px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 92, 77, 0.1);
+        }
+
+        .hero-cge-bac5-badge .bac5-val {
+            font-size: 1.65rem;
+            font-weight: 900;
+            color: var(--istec-deep-green);
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-cge-bac5-badge .bac5-lbl {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--istec-deep-green);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+            white-space: nowrap;
+        }
+
         /* Dàn Logo Kiểm Định */
         .istec-hero-acc-wrap {
             background: rgba(255, 255, 255, 0.88);
@@ -1901,6 +1933,20 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
             .hero-cge-list li {
                 font-size: 0.78rem;
+            }
+            .hero-cge-bac5-badge {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                gap: 8px;
+                padding: 8px 12px;
+                box-sizing: border-box;
+            }
+            .hero-cge-bac5-badge .bac5-val {
+                font-size: 1.35rem;
+            }
+            .hero-cge-bac5-badge .bac5-lbl {
+                margin-top: 0;
             }
             .hero-acc-logos-strip {
                 gap: 6px 8px;
@@ -2433,17 +2479,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                      class="hero-cge-img" />
                             </div>
                             <div class="hero-cge-text-box">
-                                <div class="hero-cge-title">GRANDE ÉCOLE – CHUẨN GIÁO DỤC ĐẠI HỌC PHÁP</div>
+                                <div class="hero-cge-title">GRANDE ÉCOLE – CHUẨN GIÁO DỤC THẠC SĨ PHÁP</div>
                                 <ul class="hero-cge-list">
                                     <li>
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>Đạt danh hiệu chất lượng học thuật Grade de Master & Grade de Licence</span>
+                                        <span>Chuẩn học vị Thạc sĩ Quốc gia Pháp Bac+5 (EQF Level 7 & RNCP Level 7)</span>
                                     </li>
                                     <li>
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>Được Bộ Giáo dục & Nghiên cứu Pháp trực tiếp phê duyệt – Bằng cấp công nhận toàn cầu</span>
+                                        <span>Được Bộ Giáo dục Đại học & Nghiên cứu Pháp phê duyệt Visa Bac+5 & Grade de Master</span>
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="hero-cge-bac5-badge">
+                                <span class="bac5-val">BAC +5</span>
+                                <span class="bac5-lbl">HỌC VỊ THẠC SĨ</span>
                             </div>
                         </div>
 
@@ -2497,7 +2547,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                     <div class="spec-item">
                         <div class="spec-label">VĂN BẰNG TỐT NGHIỆP</div>
-                        <div class="spec-value">Thạc sĩ Quản trị Kinh doanh (MBA) - RNCP Level 7 (Bac+5)</div>
+                        <div class="spec-value">Thạc sĩ Quản trị Kinh doanh (MBA) • <strong>Bac+5</strong> (RNCP Level 7)</div>
                     </div>
 
                     <div class="spec-divider"></div>
@@ -3413,7 +3463,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         Bằng Thạc Sĩ MBA Do ISTEC Paris Trực Tiếp Cấp
                     </h2>
                     <p class="istec-body-lead" style="margin-bottom: 20px;">
-                        Văn bằng chuẩn học vị Thạc sĩ – Bac+5 (EQF Level 7 / RNCP Level 7) của Pháp, được công nhận trên toàn cầu và định vị năng lực quản trị cấp cao trong môi trường quốc tế.
+                        Văn bằng chuẩn học vị Thạc sĩ – <strong>Bac+5</strong> (EQF Level 7 / RNCP Level 7) của Pháp, được công nhận trên toàn cầu và định vị năng lực quản trị cấp cao trong môi trường quốc tế.
                     </p>
 
                     <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px;">
