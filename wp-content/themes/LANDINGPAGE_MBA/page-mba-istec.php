@@ -744,15 +744,74 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
-        /* ── LOGO FULL MÀU KO GRAY TRONG MARQUEE KIỂM ĐỊNH ── */
+        /* ── DIPLOMA SHOWCASE & GRADUATION PARIS ── */
+        .diploma-showcase-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 36px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .diploma-img-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-square);
+            padding: 12px;
+            box-shadow: 0 14px 40px -6px rgba(0, 44, 36, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .diploma-img-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 50px -10px rgba(0, 44, 36, 0.18);
+        }
+
+        .diploma-img-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .grad-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .grad-gallery-item {
+            height: 155px;
+            border-radius: var(--radius-square);
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .grad-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .grad-gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        /* ── LOGO FULL MÀU KO GRAY TRONG MARQUEE KIỂM ĐỊNH (TƯƠNG TÁC CLICK) ── */
         .marquee-square-container {
             background: #ffffff;
             border: 1px solid var(--border-light);
             border-radius: var(--radius-square);
-            padding: 34px 0;
+            padding: 24px 0;
             overflow: hidden;
             margin-bottom: 36px;
             position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
         .marquee-track-infinite {
@@ -763,18 +822,68 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
         }
 
+        .marquee-track-infinite:hover .marquee-slides-track {
+            animation-play-state: paused;
+        }
+
         .marquee-slides-track {
             display: flex;
-            gap: 60px;
+            gap: 40px;
             align-items: center;
             flex-shrink: 0;
             min-width: 100%;
-            animation: istecScrollMarquee 24s linear infinite;
+            animation: istecScrollMarquee 26s linear infinite;
         }
 
         @keyframes istecScrollMarquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        /* LOGO ITEM CÓ HIỆU ỨNG TƯƠNG TÁC NHẤP CHUỘT */
+        .logo-acc-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 18px;
+            border-radius: 12px;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid transparent;
+            user-select: none;
+            outline: none;
+        }
+
+        .logo-acc-item:hover,
+        .logo-acc-item:focus-visible {
+            background: #f0fdf4;
+            border-color: rgba(97, 166, 14, 0.35);
+            transform: translateY(-3px) scale(1.06);
+            box-shadow: 0 8px 24px rgba(0, 92, 77, 0.1);
+        }
+
+        .logo-acc-item .click-hint {
+            position: absolute;
+            bottom: -8px;
+            font-size: 0.68rem;
+            color: var(--istec-deep-green);
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1px 6px;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo-acc-item:hover .click-hint {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* LOGO FULL MÀU 100%, HOÀN TOÀN KHÔNG DÙNG GRAYSCALE */
@@ -786,10 +895,252 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             filter: none !important;        /* FULL MÀU GỐC */
             opacity: 1 !important;
             transition: transform 0.25s ease;
+            display: block;
         }
 
-        .logo-acc-istec:hover {
-            transform: scale(1.08);
+        /* THẺ KIỂM ĐỊNH TƯƠNG TÁC */
+        .accred-interactive-card {
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .accred-interactive-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--istec-deep-green);
+            box-shadow: 0 14px 30px rgba(0, 92, 77, 0.1);
+            background: #ffffff;
+        }
+
+        .accred-interactive-card .card-more-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--istec-deep-green);
+            margin-top: 12px;
+            transition: gap 0.2s ease, color 0.2s ease;
+        }
+
+        .accred-interactive-card:hover .card-more-link {
+            gap: 7px;
+            color: var(--istec-light-green);
+        }
+
+        /* ── ISTEC ACCREDITATION MODAL POPUP (CHUẨN SWISS UMEF) ── */
+        .istec-accred-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+            padding: 20px;
+        }
+
+        .istec-accred-modal.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .istec-accred-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 30, 24, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .istec-accred-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 680px;
+            max-height: 90vh;
+            background: #ffffff;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 60px -10px rgba(0, 30, 24, 0.4);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transform: scale(0.92) translateY(18px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .istec-accred-modal.open .istec-accred-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .istec-accred-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: none;
+            color: #475569;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .istec-accred-close:hover {
+            background: var(--istec-deep-green);
+            color: #ffffff;
+            transform: rotate(90deg);
+        }
+
+        .istec-accred-header {
+            padding: 28px 32px 20px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .istec-accred-logo-wrap {
+            width: 120px;
+            height: 64px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .istec-accred-logo-wrap img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .istec-accred-title-box h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark-main);
+            margin: 0 0 6px;
+            line-height: 1.3;
+        }
+
+        .istec-accred-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            background: rgba(97, 166, 14, 0.14);
+            color: #2e7d32;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .istec-accred-body {
+            padding: 26px 32px 30px;
+            overflow-y: auto;
+            font-size: 0.93rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+
+        .istec-accred-desc {
+            margin-bottom: 20px;
+        }
+
+        .istec-accred-highlights {
+            background: #f8fafc;
+            border-left: 4px solid var(--istec-deep-green);
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 22px;
+        }
+
+        .istec-accred-highlights h4 {
+            margin: 0 0 10px;
+            font-size: 0.86rem;
+            font-weight: 800;
+            color: var(--dark-main);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .istec-accred-highlights ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .istec-accred-highlights li {
+            margin-bottom: 6px;
+            color: #475569;
+        }
+
+        .istec-accred-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.82rem;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .istec-accred-official-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: var(--istec-deep-green);
+            color: #ffffff !important;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .istec-accred-official-btn:hover {
+            background: #004539;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 640px) {
+            .istec-accred-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 22px 20px 16px;
+                gap: 12px;
+            }
+            .istec-accred-body {
+                padding: 20px;
+            }
+            .istec-accred-footer {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
         }
 
         /* ── ACTIVE MÀU XANH BRAND ISTEC ── */
@@ -1317,6 +1668,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
             .grid-5-cols {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .diploma-showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
             }
         }
 
@@ -3065,58 +3420,165 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         </div>
 
         <div class="container">
-            <div style="text-align: center; max-width: 820px; margin: 0 auto 36px;" class="istec-reveal">
-                <span class="istec-label-top">GLOBAL ACCREDITATIONS</span>
-                <h2 class="istec-heading-large">Văn bằng giá trị quốc tế được công nhận toàn cầu</h2>
-                <p class="istec-body-lead" style="margin: 0 auto;">
-                    Được kiểm định và bảo chứng bởi hệ thống giáo dục đại học hàng đầu Cộng hòa Pháp và các tổ chức kiểm định quốc tế uy tín.
-                </p>
-            </div>
+            <!-- ── A. MẪU BẰNG & LỄ TỐT NGHIỆP PARIS (CHUẨN SHOWCASE DBA) ── -->
+            <div class="diploma-showcase-grid istec-reveal">
+                <div>
+                    <span class="istec-label-top">GIÁ TRỊ VĂN BẰNG</span>
+                    <h2 class="istec-heading-large">
+                        Bằng Thạc Sĩ MBA Do ISTEC Paris Trực Tiếp Cấp
+                    </h2>
+                    <p class="istec-body-lead" style="margin-bottom: 20px;">
+                        Văn bằng chuẩn học vị Thạc sĩ – Bac+5 (EQF Level 7 / RNCP Level 7) của Pháp, được công nhận trên toàn cầu và định vị năng lực quản trị cấp cao trong môi trường quốc tế.
+                    </p>
 
-            <!-- Slide Marquee Bự Lên Chạy Liên Tục (Full Màu Gốc) -->
-            <div class="marquee-square-container istec-reveal">
-                <div class="marquee-track-infinite">
-                    <div class="marquee-slides-track">
-                        <img src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="France Compétences RNCP" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/02/CEFDG-1.webp" alt="CEFDG France" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="Conférence des Grandes Écoles (CGE)" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/AACSB.webp" alt="AACSB Member" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/01/EFMD-Logo-2-300x122-1.png" alt="EFMD Global Member" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/02/campus-france-logo.png" alt="Campus France" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/02/qualiopi-logo-png.png" alt="Qualiopi France" class="logo-acc-istec" />
-                        <!-- Lặp lại để cuộn vô tận mượt mà -->
-                        <img src="https://istec.fr/wp-content/uploads/2025/02/logo-france-competences.30a014-1.png" alt="France Compétences RNCP" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/02/CEFDG-1.webp" alt="CEFDG France" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/CGE.webp" alt="Conférence des Grandes Écoles (CGE)" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2025/07/AACSB.webp" alt="AACSB Member" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/01/EFMD-Logo-2-300x122-1.png" alt="EFMD Global Member" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/02/campus-france-logo.png" alt="Campus France" class="logo-acc-istec" />
-                        <img src="https://istec.fr/wp-content/uploads/2026/02/qualiopi-logo-png.png" alt="Qualiopi France" class="logo-acc-istec" />
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--dark-main);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#61A60E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Tra cứu và xác thực văn bằng quốc tế vĩnh viễn</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--dark-main);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#61A60E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Hỗ trợ thủ tục hợp pháp hóa lãnh sự toàn cầu</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--dark-main);">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#61A60E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Tham dự Lễ Tốt nghiệp trang trọng tại Le Grand Rex Paris</span>
+                        </div>
+                    </div>
+
+                    <div class="grad-gallery-grid">
+                        <div class="grad-gallery-item">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/dba/p16_img4_1248x832.jpeg" alt="Lễ tốt nghiệp ISTEC Paris" />
+                        </div>
+                        <div class="grad-gallery-item">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/dba/p16_img2_1248x832.jpeg" alt="Học viên tốt nghiệp ISTEC Paris" />
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="diploma-img-card">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg" 
+                             alt="Mẫu văn bằng Thạc sĩ MBA ISTEC Business School Paris" />
+                    </div>
+                    <div style="text-align: center; margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: var(--dark-muted);">
+                        Mẫu văn bằng Master of Business Administration (MBA) – ISTEC Paris
                     </div>
                 </div>
             </div>
 
-            <!-- 5 Thẻ kiểm định chi tiết -->
+            <!-- ── B. KIỂM ĐỊNH & CÔNG NHẬN TOÀN CẦU (SLIDE MARQUEE TƯƠNG TÁC) ── -->
+            <div style="text-align: center; max-width: 820px; margin: 56px auto 26px;" class="istec-reveal">
+                <span class="istec-label-top">GLOBAL ACCREDITATIONS</span>
+                <h3 class="istec-heading-large" style="font-size: 1.85rem; margin-top: 4px;">Văn bằng giá trị quốc tế được công nhận toàn cầu</h3>
+                <p class="istec-body-lead" style="margin: 0 auto; font-size: 0.95rem;">
+                    Được kiểm định và bảo chứng bởi hệ thống giáo dục đại học hàng đầu Cộng hòa Pháp và các tổ chức kiểm định quốc tế uy tín. <span style="display: inline-block; color: var(--istec-deep-green); font-weight: 700;">(Nhấp vào từng logo hoặc thẻ để xem chi tiết kiểm định)</span>
+                </p>
+            </div>
+
+            <!-- Slide Marquee Chạy Vô Tận (Tương Tác Bấm Vào Mở Modal Như Swiss UMEF) -->
+            <div class="marquee-square-container istec-reveal" title="Nhấp vào logo để xem chi tiết kiểm định">
+                <div class="marquee-track-infinite">
+                    <div class="marquee-slides-track">
+                        <!-- Set 1 -->
+                        <div class="logo-acc-item" onclick="openIstecAccred('france-competences')" role="button" tabindex="0" title="Xem chi tiết kiểm định France Compétences">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/france-competences.png" alt="France Compétences RNCP" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('cefdg')" role="button" tabindex="0" title="Xem chi tiết Visa Bac+5 CEFDG">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/cefdg.webp" alt="CEFDG France" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('cge')" role="button" tabindex="0" title="Xem chi tiết Conférence des Grandes Écoles">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/cge.webp" alt="Conférence des Grandes Écoles (CGE)" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('aacsb')" role="button" tabindex="0" title="Xem chi tiết AACSB Member">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/aacsb.webp" alt="AACSB Member" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('efmd')" role="button" tabindex="0" title="Xem chi tiết EFMD Global Member">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/efmd.png" alt="EFMD Global Member" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('campus-france')" role="button" tabindex="0" title="Xem chi tiết Campus France">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/campus-france.png" alt="Campus France" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('qualiopi')" role="button" tabindex="0" title="Xem chi tiết Qualiopi France">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/qualiopi.png" alt="Qualiopi France" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+
+                        <!-- Set 2 (Duplicate for smooth infinite seamless loop) -->
+                        <div class="logo-acc-item" onclick="openIstecAccred('france-competences')" role="button" tabindex="0" title="Xem chi tiết kiểm định France Compétences">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/france-competences.png" alt="France Compétences RNCP" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('cefdg')" role="button" tabindex="0" title="Xem chi tiết Visa Bac+5 CEFDG">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/cefdg.webp" alt="CEFDG France" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('cge')" role="button" tabindex="0" title="Xem chi tiết Conférence des Grandes Écoles">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/cge.webp" alt="Conférence des Grandes Écoles (CGE)" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('aacsb')" role="button" tabindex="0" title="Xem chi tiết AACSB Member">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/aacsb.webp" alt="AACSB Member" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('efmd')" role="button" tabindex="0" title="Xem chi tiết EFMD Global Member">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/efmd.png" alt="EFMD Global Member" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('campus-france')" role="button" tabindex="0" title="Xem chi tiết Campus France">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/campus-france.png" alt="Campus France" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                        <div class="logo-acc-item" onclick="openIstecAccred('qualiopi')" role="button" tabindex="0" title="Xem chi tiết Qualiopi France">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/qualiopi.png" alt="Qualiopi France" class="logo-acc-istec" />
+                            <span class="click-hint">Xem chi tiết</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Thẻ kiểm định chi tiết (Có thể bấm để mở Modal) -->
             <div class="grid-5-cols istec-stagger" style="margin-top: 0;">
-                <div class="istec-square-card istec-reveal">
-                    <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">Visa Bac+5</h3>
-                    <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Công nhận chính thức bởi Bộ Giáo dục Đại học và Nghiên cứu Pháp đối với chương trình MBA.</p>
+                <div class="istec-square-card accred-interactive-card istec-reveal" onclick="openIstecAccred('cefdg')" role="button" tabindex="0" title="Xem chi tiết Visa Bac+5">
+                    <div>
+                        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">Visa Bac+5</h3>
+                        <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Công nhận chính thức bởi Bộ Giáo dục Đại học và Nghiên cứu Pháp đối với chương trình MBA.</p>
+                    </div>
+                    <span class="card-more-link">Xem chi tiết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
-                <div class="istec-square-card istec-reveal">
-                    <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">RNCP Level 7</h3>
-                    <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Chứng nhận nghề nghiệp cấp độ cao nhất (Bac+5) trong Khung chứng nhận quốc gia Pháp.</p>
+                <div class="istec-square-card accred-interactive-card istec-reveal" onclick="openIstecAccred('france-competences')" role="button" tabindex="0" title="Xem chi tiết RNCP Level 7">
+                    <div>
+                        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">RNCP Level 7</h3>
+                        <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Chứng nhận nghề nghiệp cấp độ cao nhất (Bac+5) trong Khung chứng nhận quốc gia Pháp.</p>
+                    </div>
+                    <span class="card-more-link">Xem chi tiết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
-                <div class="istec-square-card istec-reveal">
-                    <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">CGE Member</h3>
-                    <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên Conférence des Grandes Écoles – hiệp hội các trường đại học tinh hoa của Pháp.</p>
+                <div class="istec-square-card accred-interactive-card istec-reveal" onclick="openIstecAccred('cge')" role="button" tabindex="0" title="Xem chi tiết CGE Member">
+                    <div>
+                        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">CGE Member</h3>
+                        <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên Conférence des Grandes Écoles – hiệp hội các trường đại học tinh hoa của Pháp.</p>
+                    </div>
+                    <span class="card-more-link">Xem chi tiết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
-                <div class="istec-square-card istec-reveal">
-                    <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">AACSB Member</h3>
-                    <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên Hiệp hội phát triển giảng dạy quản trị kinh doanh Hoa Kỳ danh giá toàn cầu.</p>
+                <div class="istec-square-card accred-interactive-card istec-reveal" onclick="openIstecAccred('aacsb')" role="button" tabindex="0" title="Xem chi tiết AACSB Member">
+                    <div>
+                        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">AACSB Member</h3>
+                        <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên Hiệp hội phát triển giảng dạy quản trị kinh doanh Hoa Kỳ danh giá toàn cầu.</p>
+                    </div>
+                    <span class="card-more-link">Xem chi tiết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
-                <div class="istec-square-card istec-reveal">
-                    <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">EFMD Global</h3>
-                    <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên tổ chức phát triển quản lý Châu Âu EFMD, đảm bảo chuẩn mực học thuật quốc tế.</p>
+                <div class="istec-square-card accred-interactive-card istec-reveal" onclick="openIstecAccred('efmd')" role="button" tabindex="0" title="Xem chi tiết EFMD Global">
+                    <div>
+                        <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--dark-main); margin-bottom: 6px;">EFMD Global</h3>
+                        <p style="font-size: 0.86rem; color: var(--dark-sub); margin: 0; line-height: 1.55;">Thành viên tổ chức phát triển quản lý Châu Âu EFMD, đảm bảo chuẩn mực học thuật quốc tế.</p>
+                    </div>
+                    <span class="card-more-link">Xem chi tiết <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
             </div>
         </div>
@@ -3632,6 +4094,38 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- ══ MODALS CHUẨN ĐỒNG BỘ CỦA THEME IDEAS ══ -->
     <?php get_template_part('shared-modals'); ?>
 
+    <!-- ══ MODAL CHI TIẾT KIỂM ĐỊNH ISTEC PARIS (CHUẨN SWISS UMEF) ══ -->
+    <div class="istec-accred-modal" id="istecAccredModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="istec-accred-overlay" id="istecAccredOverlay" onclick="closeIstecAccred()"></div>
+        <div class="istec-accred-container" data-lenis-prevent>
+            <button class="istec-accred-close" id="istecAccredClose" onclick="closeIstecAccred()" aria-label="Đóng modal">✕</button>
+            <div class="istec-accred-header">
+                <div class="istec-accred-logo-wrap">
+                    <img id="modalAccredLogo" src="" alt="Accreditation Logo" />
+                </div>
+                <div class="istec-accred-title-box">
+                    <span class="istec-accred-badge" id="modalAccredBadge">CHỨNG NHẬN QUỐC TẾ</span>
+                    <h3 id="modalAccredTitle">Tiêu đề kiểm định</h3>
+                    <div style="font-size: 0.82rem; color: #64748b; font-weight: 600;" id="modalAccredAuthority">Cơ quan ban hành</div>
+                </div>
+            </div>
+            <div class="istec-accred-body">
+                <div class="istec-accred-desc" id="modalAccredDesc"></div>
+                <div class="istec-accred-highlights">
+                    <h4>Đặc Quyền &amp; Giá Trị Cho Học Viên MBA</h4>
+                    <ul id="modalAccredHighlights"></ul>
+                </div>
+                <div class="istec-accred-footer">
+                    <span style="color: #64748b; font-size: 0.82rem;">Kiểm tra &amp; xác thực trực tiếp tại cổng thông tin chính thức:</span>
+                    <a href="#" id="modalAccredLink" target="_blank" rel="noopener noreferrer" class="istec-accred-official-btn">
+                        <span id="modalAccredLinkLabel">Truy cập cổng thông tin</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- ══ JAVASCRIPT ĐIỀU KHIỂN TƯƠNG TÁC ══ -->
     <script>
         // ── 1. ĐIỀU KHIỂN SLIDER 2 CHUYÊN GIA 1 HÀNG (CÓ ANIMATION SLIDE & NÚT) ──
@@ -3960,6 +4454,162 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         } else {
             initCounterAnimation();
         }
+
+        // ── 10. ĐIỀU KHIỂN MODAL KIỂM ĐỊNH ISTEC (ACCREDITATION MODAL CONTROLLER) ──
+        const istecAccredData = {
+            "france-competences": {
+                logo: "<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/france-competences.png",
+                title: "France Compétences (RNCP Level 7)",
+                badge: "CHỨNG NHẬN NGHỀ NGHIỆP QUỐC GIA PHÁP • BAC+5",
+                authority: "Cơ quan Quản lý Chứng nhận Nghề nghiệp Quốc gia Pháp",
+                desc: "France Compétences là cơ quan quốc gia Pháp trực thuộc Bộ Lao động Pháp, có thẩm quyền duy nhất trong việc thẩm định, quản lý và đăng ký các văn bằng vào Danh mục Chứng nhận Nghề nghiệp Quốc gia (RNCP - Répertoire National des Certifications Professionnelles).<br><br>Văn bằng Thạc sĩ MBA của ISTEC Business School Paris đạt chuẩn <strong>RNCP Level 7 (Niveau 7)</strong> – cấp độ cao nhất của bậc Thạc sĩ (tương đương Bac+5). Đây là sự bảo chứng pháp lý vững chắc nhất, giúp văn bằng được công nhận bình đẳng tại Pháp, toàn bộ Liên minh Châu Âu (EU) và các tập đoàn đa quốc gia.",
+                highlights: [
+                    "Cấp độ RNCP Level 7 (Bac+5) – chuẩn Thạc sĩ cao nhất của Cộng hòa Pháp",
+                    "Được đối sánh tương đương Khung Trình độ Châu Âu (EQF Level 7)",
+                    "Giá trị pháp lý quốc tế để thăng tiến, chuyển đổi công tác và định cư toàn cầu"
+                ],
+                verifyUrl: "https://www.francecompetences.fr/",
+                verifyLabel: "Trang chủ France Compétences"
+            },
+            "cefdg": {
+                logo: "<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/cefdg.webp",
+                title: "CEFDG (Visa Bac+5)",
+                badge: "VISA BỘ GIÁO DỤC ĐẠI HỌC VÀ NGHIÊN CỨU PHÁP",
+                authority: "Commission d'Évaluation des Formations et Diplômes de Gestion",
+                desc: "CEFDG là Ủy ban Đánh giá các Chương trình và Văn bằng Quản lý trực thuộc Bộ Giáo dục Đại học, Nghiên cứu và Đổi mới Cộng hòa Pháp (Ministère de l'Enseignement supérieur et de la Recherche).<br><br>Chương trình đào tạo của ISTEC Business School Paris đã vượt qua kỳ thẩm định độc lập khắt khe về chất lượng học thuật, trình độ đội ngũ giảng viên, nghiên cứu khoa học và liên kết doanh nghiệp để được Bộ trao tặng <strong>Visa Bac+5</strong> danh giá.",
+                highlights: [
+                    "Thẩm định và bảo chứng trực tiếp bởi Bộ Giáo dục Đại học & Nghiên cứu Pháp",
+                    "Khẳng định chất lượng học thuật và năng lực đào tạo quản lý xuất sắc chuẩn Pháp",
+                    "Giá trị văn bằng được công nhận chính thức trên toàn hệ thống công & tư pháp"
+                ],
+                verifyUrl: "https://www.cefdg.fr/",
+                verifyLabel: "Trang chủ CEFDG Pháp"
+            },
+            "cge": {
+                logo: "<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/cge.webp",
+                title: "Conférence des Grandes Écoles (CGE)",
+                badge: "HIỆP HỘI CÁC TRƯỜNG ĐẠI HỌC TINH HOA PHÁP",
+                authority: "Mạng lưới Grandes Écoles hàng đầu nước Pháp",
+                desc: "Conférence des Grandes Écoles (CGE) là hiệp hội tinh hoa quy tụ các trường đại học, trường kỹ sư và trường kinh doanh danh giá bậc nhất nước Pháp (chỉ khoảng 10% các cơ sở giáo dục ưu tú đủ điều kiện gia nhập).<br><br>Là thành viên chính thức của CGE, ISTEC khẳng định tiêu chuẩn tuyển chọn cao, chất lượng đào tạo vượt trội và sự kết nối trực tiếp với mạng lưới lãnh đạo các tập đoàn kinh tế lớn tại châu Âu.",
+                highlights: [
+                    "Thành viên chính thức của mạng lưới trường tinh hoa danh giá nước Pháp",
+                    "Mạng lưới kết nối hơn 8.000 cựu sinh viên và các CEO, nhà sáng lập tại Pháp",
+                    "Hệ sinh thái liên kết chặt chẽ với hơn 3.500 doanh nghiệp hàng đầu"
+                ],
+                verifyUrl: "https://www.cge.asso.fr/",
+                verifyLabel: "Trang chủ CGE Pháp"
+            },
+            "aacsb": {
+                logo: "<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/aacsb.webp",
+                title: "AACSB Member",
+                badge: "THÀNH VIÊN KIỂM ĐỊNH HOA KỲ DANH GIÁ",
+                authority: "Association to Advance Collegiate Schools of Business (USA)",
+                desc: "AACSB là tổ chức kiểm định giáo dục kinh doanh hàng đầu thế giới được thành lập từ năm 1916 tại Hoa Kỳ, đại diện cho tiêu chuẩn vàng trong giáo dục quản trị kinh doanh toàn cầu.<br><br>ISTEC Paris là thành viên chính thức (AACSB Business Education Alliance Member), cam kết duy trì chất lượng giảng dạy, đổi mới chương trình và hợp tác nghiên cứu cùng các trường đại học kinh doanh hàng đầu thế giới.",
+                highlights: [
+                    "Tổ chức kiểm định giáo dục kinh doanh uy tín nhất Hoa Kỳ và thế giới",
+                    "Chuẩn mực vàng về chất lượng đào tạo quản lý và đổi mới kinh doanh",
+                    "Mở rộng cơ hội hợp tác và công nhận chuyển tiếp quốc tế"
+                ],
+                verifyUrl: "https://www.aacsb.edu/",
+                verifyLabel: "Trang chủ AACSB International"
+            },
+            "efmd": {
+                logo: "<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/efmd.png",
+                title: "EFMD Global Member",
+                badge: "TỔ CHỨC PHÁT TRIỂN QUẢN LÝ CHÂU ÂU",
+                authority: "European Foundation for Management Development",
+                desc: "EFMD Global là mạng lưới quốc tế hàng đầu về phát triển quản lý với hơn 900 tổ chức thành viên trên 90 quốc gia, đồng thời là cơ quan sở hữu kiểm định EQUIS và EFMD Accredited danh tiếng.<br><br>Việc ISTEC trở thành thành viên chính thức của EFMD Global khẳng định cam kết nâng tầm chuẩn mực quản trị, gắn kết nghiên cứu học thuật với thực tiễn kinh doanh quốc tế.",
+                highlights: [
+                    "Tổ chức phát triển quản lý và kiểm định kinh doanh uy tín bậc nhất Châu Âu",
+                    "Bảo chứng chuẩn mực đào tạo quản trị định hướng toàn cầu",
+                    "Cơ hội giao lưu, trao đổi học thuật và nghiên cứu quốc tế"
+                ],
+                verifyUrl: "https://www.efmdglobal.org/",
+                verifyLabel: "Trang chủ EFMD Global"
+            },
+            "campus-france": {
+                logo: "<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/campus-france.png",
+                title: "Campus France",
+                badge: "CƠ QUAN QUẢNG BÁ GIÁO DỤC ĐẠI HỌC PHÁP",
+                authority: "Cơ quan công quyền thuộc Bộ Ngoại giao & Bộ Giáo dục Đại học Pháp",
+                desc: "Campus France là cơ quan công quyền quốc gia của Pháp trực thuộc Bộ Ngoại giao Pháp và Bộ Giáo dục Đại học Pháp, có trách nhiệm thúc đẩy và quảng bá hệ thống giáo dục đại học Pháp ra toàn thế giới.<br><br>ISTEC Paris là thành viên tổ chức đối tác của Campus France, được giới thiệu chính thức đến học viên và chuyên gia quốc tế có nguyện vọng theo học các chương trình kinh doanh chuẩn Pháp.",
+                highlights: [
+                    "Bảo trợ bởi Bộ Châu Âu & Ngoại giao cùng Bộ Giáo dục Đại học Pháp",
+                    "Hỗ trợ thủ tục du học, trao đổi văn hóa và giao lưu học thuật Paris",
+                    "Bảo chứng điểm đến đào tạo uy tín và an tâm cho học viên quốc tế"
+                ],
+                verifyUrl: "https://www.campusfrance.org/",
+                verifyLabel: "Trang chủ Campus France"
+            },
+            "qualiopi": {
+                logo: "<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/accred/qualiopi.png",
+                title: "Chứng nhận Qualiopi",
+                badge: "CHUẨN CHẤT LƯỢNG QUỐC GIA CỘNG HÒA PHÁP",
+                authority: "Thương hiệu Chứng nhận Chất lượng Đào tạo Quốc gia Pháp",
+                desc: "Qualiopi là chứng nhận chất lượng quốc gia chính thức của Cộng hòa Pháp được quy định theo Luật Tự do Lựa chọn Tương lai Nghề nghiệp.<br><br>Chứng nhận Qualiopi xác nhận quy trình vận hành, cơ sở vật chất, năng lực giảng viên, tính minh bạch và dịch vụ chăm sóc hỗ trợ học viên của ISTEC đáp ứng đầy đủ Bộ tiêu chuẩn chất lượng quốc gia (Référentiel National Qualité - RNQ) của Pháp.",
+                highlights: [
+                    "Chứng nhận chất lượng đào tạo chính thức theo luật định nước Pháp",
+                    "Đảm bảo quyền lợi tối đa và sự hỗ trợ học tập chu đáo cho học viên",
+                    "Minh bạch toàn diện về năng lực giảng viên và quy trình đánh giá"
+                ],
+                verifyUrl: "https://travail-emploi.gouv.fr/formation-professionnelle/acteurs-cadre-et-qualite-de-la-formation-professionnelle/qualiopi",
+                verifyLabel: "Thông tin Qualiopi Bộ Lao Động Pháp"
+            }
+        };
+
+        window.openIstecAccred = function(key) {
+            const data = istecAccredData[key];
+            const modal = document.getElementById('istecAccredModal');
+            if (!data || !modal) return;
+
+            const logo = document.getElementById('modalAccredLogo');
+            const badge = document.getElementById('modalAccredBadge');
+            const title = document.getElementById('modalAccredTitle');
+            const authority = document.getElementById('modalAccredAuthority');
+            const desc = document.getElementById('modalAccredDesc');
+            const hlList = document.getElementById('modalAccredHighlights');
+            const link = document.getElementById('modalAccredLink');
+            const linkLabel = document.getElementById('modalAccredLinkLabel');
+
+            if (logo) { logo.src = data.logo; logo.alt = data.title; }
+            if (badge) badge.textContent = data.badge;
+            if (title) title.textContent = data.title;
+            if (authority) authority.textContent = data.authority;
+            if (desc) desc.innerHTML = data.desc;
+
+            if (hlList) {
+                hlList.innerHTML = '';
+                (data.highlights || []).forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    hlList.appendChild(li);
+                });
+            }
+
+            if (link) {
+                link.href = data.verifyUrl || '#';
+                if (linkLabel) linkLabel.textContent = data.verifyLabel || 'Truy cập cổng thông tin';
+            }
+
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeIstecAccred = function() {
+            const modal = document.getElementById('istecAccredModal');
+            if (!modal) return;
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        };
+
+        // Đóng modal bằng phím Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                closeIstecAccred();
+            }
+        });
     </script>
 
     <?php
