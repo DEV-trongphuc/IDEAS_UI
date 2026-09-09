@@ -14,6 +14,15 @@ if (!defined('ABSPATH')) {
 
 global $wp;
 
+// Override Yoast SEO & RankMath social preview images/titles dynamically
+add_filter('wpseo_title', function($t) { return 'Thạc Sĩ Quản Trị Kinh Doanh (MBA) ISTEC Paris | Chuẩn Pháp Bac+5 & RNCP Level 7'; });
+add_filter('wpseo_metadesc', function($d) { return 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.'; });
+add_filter('wpseo_opengraph_image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
+add_filter('rank_math/frontend/title', function($t) { return 'Thạc Sĩ Quản Trị Kinh Doanh (MBA) ISTEC Paris | Chuẩn Pháp Bac+5 & RNCP Level 7'; });
+add_filter('rank_math/frontend/description', function($d) { return 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.'; });
+add_filter('rank_math/opengraph/facebook/image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
+add_filter('rank_math/opengraph/twitter/image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
+
 // Block unwanted old theme styles
 ob_start(function ($html) {
     return preg_replace(
@@ -24,12 +33,51 @@ ob_start(function ($html) {
 });
 
 $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
+$page_canonical_url = 'https://ideas.edu.vn/mba-istec';
+$og_thumb_url = get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg';
+$seo_title = $is_en 
+    ? 'MBA ISTEC Business School Paris | Online Master of Business Administration Bac+5' 
+    : 'Thạc Sĩ Quản Trị Kinh Doanh (MBA) ISTEC Paris | Chuẩn Pháp Bac+5 & RNCP Level 7';
+$seo_desc = $is_en 
+    ? 'Online Master of Business Administration (MBA) from ISTEC Business School Paris (Grande École est. 1961). 12 months, 60 ECTS, accredited Bac+5 (RNCP Level 7 & Visa Bac+5). Tuition discount 6,500 EUR. Apply now!' 
+    : 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.';
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <?php get_template_part('shared-head'); ?>
+
+    <!-- ══ THẺ TIÊU ĐỀ & META SEO TIÊU CHUẨN GOOGLE ══ -->
+    <title><?php echo esc_html($seo_title); ?></title>
+    <meta name="title" content="<?php echo esc_attr($seo_title); ?>" />
+    <meta name="description" content="<?php echo esc_attr($seo_desc); ?>" />
+    <meta name="keywords" content="MBA ISTEC, MBA ISTEC Paris, thạc sĩ quản trị kinh doanh, học MBA trực tuyến, thạc sĩ kinh doanh Pháp, ISTEC Business School Paris, Visa Bac+5, RNCP Level 7, viện IDEAS, MBA cho người đi làm" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Viện IDEAS & ISTEC Business School Paris" />
+    <link rel="canonical" href="<?php echo esc_url($page_canonical_url); ?>" />
+
+    <!-- ══ THẺ OPEN GRAPH (FACEBOOK, ZALO, LINKEDIN) ══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo esc_url($page_canonical_url); ?>" />
+    <meta property="og:site_name" content="Viện IDEAS - Viện Nghiên cứu Đào tạo Kinh tế Hiện đại" />
+    <meta property="og:locale" content="<?php echo $is_en ? 'en_US' : 'vi_VN'; ?>" />
+    <meta property="og:title" content="<?php echo esc_attr($seo_title); ?>" />
+    <meta property="og:description" content="<?php echo esc_attr($seo_desc); ?>" />
+    <meta property="og:image" content="<?php echo esc_url($og_thumb_url); ?>" />
+    <meta property="og:image:secure_url" content="<?php echo esc_url($og_thumb_url); ?>" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Lễ tốt nghiệp Thạc sĩ MBA ISTEC Paris tại Nhà hát Le Grand Rex Paris" />
+
+    <!-- ══ THẺ TWITTER CARD ══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="<?php echo esc_url($page_canonical_url); ?>" />
+    <meta name="twitter:title" content="<?php echo esc_attr($seo_title); ?>" />
+    <meta name="twitter:description" content="<?php echo esc_attr($seo_desc); ?>" />
+    <meta name="twitter:image" content="<?php echo esc_url($og_thumb_url); ?>" />
+    <meta name="twitter:image:alt" content="Lễ tốt nghiệp Thạc sĩ MBA ISTEC Paris tại Nhà hát Le Grand Rex Paris" />
 
     <!-- Booking Modal stylesheet -->
     <?php
@@ -41,49 +89,196 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>"
         media="print" onload="this.media='all'" />
 
-    <!-- SEO Meta Fallback -->
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>MBA ISTEC Business School Paris | Bằng Thạc Sĩ Chuẩn Quốc Gia Pháp Bac+5 RNCP Level 7</title>
-        <meta name="description" content="Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến 100% cấp bằng bởi ISTEC Business School Paris. 12 tháng, 15 môn học + luận văn, công nhận quốc tế RNCP Level 7 (Bac+5)." />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="MBA ISTEC Business School Paris | Chuẩn Giáo Dục Pháp" />
-        <meta property="og:description" content="Từ người giỏi chuyên môn đến nhà quản trị toàn diện. Chương trình MBA 12 tháng trực tuyến từ trường kinh doanh ISTEC Paris với hơn 60 năm lịch sử." />
-        <meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-grand-rex-paris.jpg" />
-        <meta property="og:url" content="<?php echo esc_url(home_url('/mba-istec')); ?>" />
-    <?php endif; ?>
-
-    <!-- Structured Data (JSON-LD) -->
+    <!-- ══ CẤU TRÚC DỮ LIỆU SCHEMA CHUẨN GOOGLE (JSON-LD ĐA THỰC THỂ) ══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Thạc sĩ Quản trị Kinh doanh (MBA) – ISTEC Business School Paris",
-      "description": "Chương trình Thạc sĩ Quản trị Kinh doanh trực tuyến 100% từ ISTEC Paris, thời gian 12 tháng, 15 môn học và luận văn, công nhận RNCP Level 7 (Bac+5).",
-      "courseCode": "MBA-ISTEC-PARIS",
-      "educationalLevel": "Master",
-      "inLanguage": "vi",
-      "courseMode": "online",
-      "timeRequired": "P12M",
-      "provider": [
+      "@graph": [
         {
-          "@type": "EducationalOrganization",
-          "name": "ISTEC Business School Paris",
-          "url": "https://istec.fr"
+          "@type": "WebSite",
+          "@id": "https://ideas.edu.vn/#website",
+          "url": "https://ideas.edu.vn/",
+          "name": "Viện IDEAS",
+          "description": "Viện Nghiên cứu Đào tạo Kinh tế Hiện đại – Đối tác Đào tạo Quốc tế Thạc sĩ MBA & Tiến sĩ DBA",
+          "publisher": {
+            "@id": "https://ideas.edu.vn/#organization"
+          }
         },
         {
           "@type": "EducationalOrganization",
-          "name": "Viện IDEAS",
-          "url": "https://ideas.edu.vn"
+          "@id": "https://ideas.edu.vn/#organization",
+          "name": "Viện Nghiên cứu Đào tạo Kinh tế Hiện đại (IDEAS)",
+          "alternateName": "Viện IDEAS",
+          "url": "https://ideas.edu.vn/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp"
+          },
+          "sameAs": [
+            "https://www.facebook.com/ideas.edu.vn",
+            "https://istec.fr/executive-education-partenaires-ideas/"
+          ]
+        },
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://istec.fr/#organization",
+          "name": "ISTEC Business School Paris",
+          "alternateName": "Institut Supérieur des Sciences, Techniques et Économie Commerciales",
+          "url": "https://istec.fr",
+          "logo": "https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/logo-istec-paris.svg",
+          "foundingDate": "1961",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "12 Rue Alexandre Parodi",
+            "addressLocality": "Paris",
+            "postalCode": "75010",
+            "addressCountry": "FR"
+          },
+          "memberOf": [
+            {
+              "@type": "Organization",
+              "name": "Conférence des Grandes Écoles (CGE)"
+            },
+            {
+              "@type": "Organization",
+              "name": "AACSB International"
+            },
+            {
+              "@type": "Organization",
+              "name": "EFMD Global"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://ideas.edu.vn/mba-istec#webpage",
+          "url": "https://ideas.edu.vn/mba-istec",
+          "name": "Thạc Sĩ Quản Trị Kinh Doanh (MBA) ISTEC Paris | Chuẩn Pháp Bac+5 & RNCP Level 7",
+          "isPartOf": {
+            "@id": "https://ideas.edu.vn/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://ideas.edu.vn/mba-istec#breadcrumb"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "@id": "https://ideas.edu.vn/mba-istec#primaryimage",
+            "url": "https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/istec-grand-rex-paris.jpg",
+            "width": 1200,
+            "height": 630,
+            "caption": "Lễ tốt nghiệp Thạc sĩ MBA ISTEC Paris tại Nhà hát Le Grand Rex Paris"
+          },
+          "description": "Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ideas.edu.vn/mba-istec#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Trang chủ",
+              "item": "https://ideas.edu.vn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Chương trình Thạc sĩ",
+              "item": "https://ideas.edu.vn/truong-kinh-doanh-istec-phap"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "MBA ISTEC Paris",
+              "item": "https://ideas.edu.vn/mba-istec"
+            }
+          ]
+        },
+        {
+          "@type": "Course",
+          "@id": "https://ideas.edu.vn/mba-istec#course",
+          "name": "Thạc sĩ Quản trị Kinh doanh (MBA) – ISTEC Business School Paris",
+          "alternateName": "Master of Business Administration – ISTEC Paris",
+          "description": "Chương trình đào tạo Thạc sĩ Quản trị Kinh doanh trực tuyến 12 tháng (60 ECTS) từ trường kinh doanh ISTEC Business School Paris (Grande École thành lập 1961, thành viên CGE danh giá). Văn bằng chuẩn học vị Thạc sĩ Quốc gia Pháp Bac+5 (RNCP Level 7 & Visa Bac+5 của Bộ Giáo dục Đại học Pháp).",
+          "courseCode": "MBA-ISTEC-PARIS",
+          "educationalLevel": "Master / Level 7 (EQF) / Bac+5",
+          "inLanguage": "vi",
+          "availableLanguage": ["vi", "en"],
+          "courseMode": "online",
+          "timeRequired": "P12M",
+          "educationalCredentialAwarded": "Master of Business Administration (MBA) – ISTEC Business School Paris (Bac+5 / RNCP Level 7)",
+          "provider": [
+            {
+              "@id": "https://istec.fr/#organization"
+            },
+            {
+              "@id": "https://ideas.edu.vn/#organization"
+            }
+          ],
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "Online",
+            "courseWorkload": "60 ECTS (15 môn học thực tiễn & Luận văn tốt nghiệp)",
+            "instructor": [
+              {
+                "@type": "Person",
+                "name": "Prof. Philippe Bastien",
+                "jobTitle": "Giáo sư ISTEC Business School Paris"
+              },
+              {
+                "@type": "Person",
+                "name": "Dr. Stanislas Kihm",
+                "jobTitle": "Tiến sĩ - Giảng viên ISTEC Paris"
+              },
+              {
+                "@type": "Person",
+                "name": "Dr. Phạm Quang Vinh",
+                "jobTitle": "Cố vấn Học thuật Viện IDEAS"
+              }
+            ]
+          },
+          "offers": {
+            "@type": "Offer",
+            "category": "TuitionFees",
+            "price": "6500",
+            "priceCurrency": "EUR",
+            "description": "Học phí ưu đãi chương trình Thạc sĩ MBA ISTEC Paris: 6.500 EUR (Học phí gốc 8.500 EUR, ưu đãi đăng ký qua Viện IDEAS cùng 200 EUR lệ phí hồ sơ xét tuyển)",
+            "url": "https://ideas.edu.vn/mba-istec",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-01-01"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://ideas.edu.vn/mba-istec#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Chương trình MBA ISTEC Paris có được công nhận tại Việt Nam và quốc tế không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Có. ISTEC Business School Paris là trường lớn (Grande École) tại Pháp thành lập từ năm 1961. Bằng Thạc sĩ MBA do trường cấp chuẩn Bac+5 (EQF Level 7 và RNCP Level 7), được Bộ Giáo dục & Nghiên cứu Pháp công nhận và có giá trị sử dụng trên toàn cầu."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hình thức học và thời gian đào tạo chương trình MBA như thế nào?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Chương trình đào tạo 12 tháng theo hình thức 100% trực tuyến linh hoạt, rất phù hợp cho người đi làm và nhà quản lý. Học viên hoàn thành 15 môn học thực tiễn và thực hiện luận văn tốt nghiệp."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Học phí chương trình MBA ISTEC Paris là bao nhiêu?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Học phí công bố là 8.500 EUR, ưu đãi đăng ký thông qua đối tác chính thức Viện IDEAS còn 6.500 EUR cùng 200 EUR lệ phí hồ sơ xét tuyển."
+              }
+            }
+          ]
         }
-      ],
-      "offers": {
-        "@type": "Offer",
-        "category": "MBA",
-        "price": "6500",
-        "priceCurrency": "EUR",
-        "description": "Học phí công bố 8.500 EUR, ưu đãi còn 6.500 EUR + 200 EUR lệ phí xét tuyển hồ sơ (LPHS)",
-        "url": "https://ideas.edu.vn/mba-istec"
-      }
+      ]
     }
     </script>
 
