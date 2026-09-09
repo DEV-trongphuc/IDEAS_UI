@@ -774,10 +774,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <option value="" disabled selected hidden><?php echo $is_en ? 'Program of Interest' : 'Chương trình quan tâm'; ?></option>
                             <option value="Top-up BBA"><?php echo $is_en ? 'Top-up BBA (12-month Bachelor Top-up)' : 'Top-up BBA (Cử nhân liên thông 12 tháng)'; ?></option>
                             <option value="Full BBA">Global Online BBA</option>
+                            <option value="MBA ISTEC Paris"><?php echo $is_en ? 'MBA ISTEC Paris (French Master of Business Admin)' : 'MBA ISTEC Paris (Thạc sĩ QTKD chuẩn Pháp)'; ?></option>
                             <option value="Online MBA"><?php echo $is_en ? 'Online MBA (Master of Business Administration)' : 'Online MBA (Thạc sĩ QTKD)'; ?></option>
                             <option value="Executive MBA"><?php echo $is_en ? 'Executive MBA' : 'Executive MBA (Thạc sĩ điều hành)'; ?></option>
                             <option value="MBA in AI"><?php echo $is_en ? 'MBA in AI' : 'MBA in AI (Thạc sĩ QTKD Ứng dụng AI)'; ?></option>
                             <option value="MSc AI"><?php echo $is_en ? 'MSc AI' : 'MSc AI (Thạc sĩ AI ứng dụng)'; ?></option>
+                            <option value="DBA ISTEC Paris"><?php echo $is_en ? 'DBA ISTEC Paris (French Doctorate of Business Admin)' : 'DBA ISTEC Paris (Tiến sĩ QTKD chuẩn Pháp)'; ?></option>
                             <option value="Dual DBA"><?php echo $is_en ? 'Dual DBA (UK &amp; France Doctor of Business Administration)' : 'Dual DBA (Tiến sĩ song bằng Pháp &amp; Anh)'; ?></option>
                         </select>
                         <textarea rows="3" placeholder="<?php echo $is_en ? 'Notes on your experience, requirements...' : 'Ghi chú về kinh nghiệm, nhu cầu của bạn...'; ?>" aria-label="<?php echo $is_en ? 'Additional notes' : 'Ghi chú thêm'; ?>"></textarea>

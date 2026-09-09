@@ -630,12 +630,18 @@ const isEn = document.documentElement.lang === 'en';
                     else if (selectedProgramVal === 'MBA in AI') resolvedProgramKey = 'IDEAS05';
                     else if (selectedProgramVal === 'MSc AI') resolvedProgramKey = 'IDEAS04';
                     else if (selectedProgramVal === 'Dual DBA') resolvedProgramKey = 'IDEAS06';
+                    else if (selectedProgramVal === 'MBA ISTEC Paris') resolvedProgramKey = 'MBA_ISTEC';
+                    else if (selectedProgramVal === 'DBA ISTEC Paris') resolvedProgramKey = 'DBA_ISTEC';
                     else if (selectedProgramVal === 'Lộ trình phù hợp' || selectedProgramVal === 'Suitable Roadmap') {
                         resolvedProgramKey = 'ROADMAP';
                     }
                 } else {
                     const path = window.location.pathname.toLowerCase();
-                    if (path.includes("istec")) {
+                    if (path.includes("mba-istec") || path.includes("istec-mba")) {
+                        resolvedProgramKey = 'MBA_ISTEC';
+                    } else if (path.includes("dba-istec") || path.includes("istec-dba")) {
+                        resolvedProgramKey = 'DBA_ISTEC';
+                    } else if (path.includes("istec")) {
                         resolvedProgramKey = 'ISTEC';
                     } else if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
                         resolvedProgramKey = 'IDEAS05';
@@ -656,7 +662,13 @@ const isEn = document.documentElement.lang === 'en';
             }
 
             // Map programKey to sourceVal and chuongTrinhVal
-            if (resolvedProgramKey === 'ISTEC') {
+            if (resolvedProgramKey === 'MBA_ISTEC') {
+                sourceVal = "Landing_MBA_ISTEC";
+                chuongTrinhVal = "MBA ISTEC Paris";
+            } else if (resolvedProgramKey === 'DBA_ISTEC') {
+                sourceVal = "Landing_DBA_ISTEC";
+                chuongTrinhVal = "DBA ISTEC Paris";
+            } else if (resolvedProgramKey === 'ISTEC') {
                 const selectedInterest = form.querySelector('[name="program_interest"]')?.value || 'ISTEC Paris Programs';
                 sourceVal = "Landing_ISTEC";
                 chuongTrinhVal = "ISTEC Paris - " + selectedInterest;

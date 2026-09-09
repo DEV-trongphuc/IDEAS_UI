@@ -764,12 +764,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                      <label for="interest"><?php echo $is_en ? 'Program of Interest *' : 'Chương trình quan tâm *'; ?></label>
                                      <select id="interest" name="interest" required>
                                          <option value=""><?php echo $is_en ? '-- Select Program --' : '-- Chọn chương trình học --'; ?></option>
+                                         <option value="MBA ISTEC Paris"><?php echo $is_en ? 'MBA ISTEC Paris (French Master of Business Administration)' : 'MBA ISTEC Paris (Thạc sĩ QTKD chuẩn Pháp)'; ?></option>
                                          <option value="Online MBA"><?php echo $is_en ? 'Online MBA (Master of Business Administration)' : 'Online MBA (Thạc sĩ QTKD)'; ?></option>
                                          <option value="Executive MBA"><?php echo $is_en ? 'Executive MBA' : 'Executive MBA (Thạc sĩ Điều hành)'; ?></option>
                                          <option value="Master AI"><?php echo $is_en ? 'Master AI (MSc AI)' : 'Master AI (Thạc sĩ Khoa học AI)'; ?></option>
                                          <option value="MBA in AI"><?php echo $is_en ? 'MBA in AI' : 'MBA in AI (Thạc sĩ QTKD Ứng dụng AI)'; ?></option>
                                          <option value="Top-up BBA"><?php echo $is_en ? 'Top-up BBA (12-month Bachelor Top-up)' : 'Top-up BBA (Cử nhân liên thông 12 tháng)'; ?></option>
                                          <option value="Full BBA">Global Online BBA</option>
+                                         <option value="DBA ISTEC Paris"><?php echo $is_en ? 'DBA ISTEC Paris (French Doctorate of Business Administration)' : 'DBA ISTEC Paris (Tiến sĩ QTKD chuẩn Pháp)'; ?></option>
                                          <option value="Dual DBA"><?php echo $is_en ? 'Dual DBA (UK &amp; France Doctor of Business Administration)' : 'Dual DBA (Tiến sĩ song bằng Pháp &amp; Anh)'; ?></option>
                                          <option value="Cần tư vấn chung"><?php echo $is_en ? 'General Inquiry (Scholarships &amp; Admissions)' : 'Cần tư vấn chung (Học bổng &amp; Tuyển sinh)'; ?></option>
                                      </select>

@@ -5417,6 +5417,38 @@ button.nav-link {
   text-align: left;
 }
 
+.dropdown-subgroup-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ab0e00;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: rgba(171, 14, 0, 0.05);
+  border-left: 2.5px solid #ab0e00;
+  border-radius: 0 4px 4px 0;
+  margin: 4px 0 2px 0;
+}
+
+.mobile-subgroup-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ab0e00;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: rgba(171, 14, 0, 0.05);
+  border-left: 2.5px solid #ab0e00;
+  border-radius: 0 4px 4px 0;
+  margin: 6px 0 4px 0;
+}
+
 .dropdown-column-divider {
   width: 1px;
   background: #f1f5f9;

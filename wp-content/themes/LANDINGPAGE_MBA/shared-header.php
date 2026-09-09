@@ -177,6 +177,36 @@ $mba_istec_url = '/mba-istec';
             align-items: center;
             width: 100%;
         }
+        .dropdown-subgroup-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ab0e00;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            background: rgba(171, 14, 0, 0.05);
+            border-left: 2.5px solid #ab0e00;
+            border-radius: 0 4px 4px 0;
+            margin: 4px 0 2px 0;
+        }
+        .mobile-subgroup-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ab0e00;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 8px;
+            background: rgba(171, 14, 0, 0.05);
+            border-left: 2.5px solid #ab0e00;
+            border-radius: 0 4px 4px 0;
+            margin: 6px 0 4px 0;
+        }
     </style>
     <div class="container header-inner">
         <a href="<?php echo esc_url($home_url); ?>" class="logo" aria-label="<?php echo $is_en ? 'IDEAS Homepage' : 'Trang chủ IDEAS'; ?>">
@@ -253,6 +283,7 @@ $mba_istec_url = '/mba-istec';
                 <div class="dropdown-menu-box">
                     <div class="dropdown-column">
                         <div class="dropdown-column-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
+                        <div class="dropdown-subgroup-title"><?php echo $is_en ? 'France (MBA Istec Program)' : 'Pháp (Chương trình MBA Istec)'; ?></div>
                         <a href="<?php echo esc_url($mba_istec_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
                                 src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg"
@@ -262,6 +293,7 @@ $mba_istec_url = '/mba-istec';
                                 <div class="item-desc"><?php echo $is_en ? 'Master of Business Admin' : 'Thạc sĩ QTKD chuẩn Pháp'; ?></div>
                             </div>
                         </a>
+                        <div class="dropdown-subgroup-title" style="margin-top: 8px;"><?php echo $is_en ? 'Switzerland (Swiss UMEF Programs)' : 'Thụy Sĩ (Chương trình của Swiss UMEF)'; ?></div>
                         <a href="<?php echo esc_url($mba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
                                 src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
@@ -595,6 +627,7 @@ $mba_istec_url = '/mba-istec';
         <div class="mobile-dropdown-content active">
             <div class="mobile-dropdown-section">
                 <div class="mobile-section-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
+                <div class="mobile-subgroup-title"><?php echo $is_en ? 'France (MBA Istec Program)' : 'Pháp (Chương trình MBA Istec)'; ?></div>
                 <a href="<?php echo esc_url($mba_istec_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg"
                         alt="MBA ISTEC Paris" loading="lazy" decoding="async" />
@@ -603,6 +636,7 @@ $mba_istec_url = '/mba-istec';
                         <div class="item-desc"><?php echo $is_en ? 'Master of Business Admin' : 'Thạc sĩ QTKD chuẩn Pháp'; ?></div>
                     </div>
                 </a>
+                <div class="mobile-subgroup-title" style="margin-top: 8px;"><?php echo $is_en ? 'Switzerland (Swiss UMEF Programs)' : 'Thụy Sĩ (Chương trình của Swiss UMEF)'; ?></div>
                 <a href="<?php echo esc_url($mba_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
                         alt="Online MBA" loading="lazy" decoding="async" />
