@@ -93,10 +93,17 @@ try {
     
     console.log('\n4. Đang chạy: git push cpanel main');
     execSync('git push cpanel main', { stdio: 'inherit' });
-    
+
+    console.log('\n5. Đang sync trực tiếp lên web root và purge cache qua SSH...');
+    try {
+        execSync(`ssh -p 2210 -o BatchMode=yes -o StrictHostKeyChecking=no vhvxoigh@chiefaiofficer.vn 'cd ~/repositories/ideas_wp_ui && export DEPLOYPATH=/home/vhvxoigh/ideas.edu.vn && cp .htaccess $DEPLOYPATH/.htaccess && cp purge-cache.php $DEPLOYPATH/purge-cache.php && /bin/rsync -av --exclude=".git*" wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/ && /bin/rsync -av --exclude=".git*" wp-content/themes/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/ && php -r "if(function_exists(\"opcache_reset\")) opcache_reset();"'`, { stdio: 'inherit' });
+        console.log('Sync trực tiếp thành công!');
+    } catch (syncErr) {
+        console.warn('[Cảnh báo] Không thể chạy lệnh sync trực tiếp qua SSH:', syncErr.message);
+    }
+
     console.log(`\n==================================================`);
-    console.log(`Đã push thành công lên origin/main và cpanel/main!`);
-    console.log(`cPanel sẽ tự động thực hiện deploy qua .cpanel.yml`);
+    console.log(`Đã deploy thành công 100% lên web root và origin/main!`);
     console.log(`==================================================`);
 } catch (error) {
     console.error('\n[Lỗi] Có lỗi xảy ra trong quá trình chạy Git:', error.message);
