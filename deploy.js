@@ -96,7 +96,8 @@ try {
 
     console.log('\n5. Đang sync trực tiếp lên web root và purge cache qua SSH...');
     try {
-        execSync(`ssh -p 2210 -o BatchMode=yes -o StrictHostKeyChecking=no vhvxoigh@chiefaiofficer.vn 'cd ~/repositories/ideas_wp_ui && export DEPLOYPATH=/home/vhvxoigh/ideas.edu.vn && cp .htaccess $DEPLOYPATH/.htaccess && cp purge-cache.php $DEPLOYPATH/purge-cache.php && /bin/rsync -av --exclude=".git*" wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/ && /bin/rsync -av --exclude=".git*" wp-content/themes/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/ && php -r "if(function_exists(\"opcache_reset\")) opcache_reset();"'`, { stdio: 'inherit' });
+        const remoteCmd = 'cd ~/repositories/ideas_wp_ui && export DEPLOYPATH=/home/vhvxoigh/ideas.edu.vn && cp .htaccess $DEPLOYPATH/.htaccess && cp purge-cache.php $DEPLOYPATH/purge-cache.php && /bin/rsync -av --exclude=".git*" wp-content/new_public/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/new_public/LANDINGPAGE_MBA/ && /bin/rsync -av --exclude=".git*" wp-content/themes/LANDINGPAGE_MBA/ $DEPLOYPATH/wp-content/themes/LANDINGPAGE_MBA/ && php $DEPLOYPATH/purge-cache.php';
+        execSync(`ssh -p 2210 -o BatchMode=yes -o StrictHostKeyChecking=no vhvxoigh@chiefaiofficer.vn "${remoteCmd}"`, { stdio: 'inherit' });
         console.log('Sync trực tiếp thành công!');
     } catch (syncErr) {
         console.warn('[Cảnh báo] Không thể chạy lệnh sync trực tiếp qua SSH:', syncErr.message);
