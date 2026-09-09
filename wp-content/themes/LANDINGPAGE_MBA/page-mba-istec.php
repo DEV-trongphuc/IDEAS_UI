@@ -2140,28 +2140,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- HỘP THÔNG SỐ NỔI VUÔNG VỨC (ACCESS, RHYTHM, BACK TO SCHOOL, DIPLOMA, TUITION) - BÊN PHẢI -->
                 <div class="istec-spec-box">
                     <div class="spec-item">
-                        <div class="spec-label">ACCESS</div>
+                        <div class="spec-label">HÌNH THỨC XÉT TUYỂN</div>
                         <div class="spec-value">Xét tuyển hồ sơ & Phỏng vấn trực tuyến</div>
                     </div>
 
                     <div class="spec-divider"></div>
 
                     <div class="spec-item">
-                        <div class="spec-label">RHYTHM</div>
+                        <div class="spec-label">THỜI GIAN ĐÀO TẠO</div>
                         <div class="spec-value">12 Tháng • 100% Trực tuyến linh hoạt cho người đi làm</div>
                     </div>
 
                     <div class="spec-divider"></div>
 
                     <div class="spec-item">
-                        <div class="spec-label">DIPLOMA</div>
+                        <div class="spec-label">VĂN BẰNG TỐT NGHIỆP</div>
                         <div class="spec-value">Thạc sĩ Quản trị Kinh doanh (MBA) - RNCP Level 7 (Bac+5)</div>
                     </div>
 
                     <div class="spec-divider"></div>
 
                     <div class="spec-item">
-                        <div class="spec-label">TUITION & FEES</div>
+                        <div class="spec-label">HỌC PHÍ & LỆ PHÍ</div>
                         <div class="spec-value">
                             <span style="text-decoration: line-through; color: #9ca3af; font-size: 0.9rem;">8.500 EUR</span>
                             <span style="color: var(--istec-bright-green); font-weight: 800; margin-left: 6px;">6.500 EUR</span>

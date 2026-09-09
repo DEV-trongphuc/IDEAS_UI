@@ -1496,28 +1496,28 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Cột phải: Hộp thông số nổi (Spec Box) -->
                 <div class="istec-spec-box">
                     <div class="spec-item">
-                        <div class="spec-label">RHYTHM • THỜI GIAN ĐÀO TẠO</div>
+                        <div class="spec-label">THỜI GIAN ĐÀO TẠO</div>
                         <div class="spec-value">03 Năm chính quy • 100% Trực tuyến linh hoạt cho Lãnh đạo</div>
                     </div>
 
                     <div class="spec-divider"></div>
 
                     <div class="spec-item">
-                        <div class="spec-label">CREDITS • TÍN CHỈ CHUẨN CHÂU ÂU</div>
-                        <div class="spec-value">180 ECTS (03 Giai đoạn: Research • Fieldwork • Defense)</div>
+                        <div class="spec-label">TÍN CHỈ CHUẨN CHÂU ÂU</div>
+                        <div class="spec-value">180 ECTS (03 Giai đoạn: Nghiên cứu • Thực địa • Bảo vệ)</div>
                     </div>
 
                     <div class="spec-divider"></div>
 
                     <div class="spec-item">
-                        <div class="spec-label">GLOBAL EVALUATION • QUỐC TẾ</div>
-                        <div class="spec-value">WES Đánh giá "Earned Doctorate" (Mỹ & Canada)</div>
+                        <div class="spec-label">CÔNG NHẬN QUỐC TẾ</div>
+                        <div class="spec-value">WES đánh giá "Earned Doctorate" (Mỹ & Canada)</div>
                     </div>
 
                     <div class="spec-divider"></div>
 
                     <div class="spec-item">
-                        <div class="spec-label">TUITION • HỌC PHÍ TRỌN GÓI</div>
+                        <div class="spec-label">HỌC PHÍ TRỌN GÓI</div>
                         <div class="spec-value" style="color: var(--istec-deep-green); font-size: 1rem;">
                             13.000 EUR (Bao gồm AI Copilot 24/7 & Hỗ trợ IDEAS)
                         </div>
@@ -2240,7 +2240,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                     <div class="tuition-price-headline">13.000 EUR</div>
                     <div style="font-size: 0.9rem; color: #cbd5e1;">
-                        Bằng Tiến sĩ do ISTEC Paris trực tiếp cấp • WES Evaluated: "Earned Doctorate"
+                        Bằng Tiến sĩ do ISTEC Paris trực tiếp cấp • WES đánh giá tương đương "Earned Doctorate"
                     </div>
                 </div>
 
