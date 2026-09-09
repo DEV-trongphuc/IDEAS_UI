@@ -130,6 +130,7 @@ $bba_url = $is_en ? '/en/bba' : '/bba';
 $fullbba_url = $is_en ? '/en/fullbba' : '/fullbba';
 $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
 $dba_istec_url = '/dba-istec';
+$mba_istec_url = '/mba-istec';
 ?>
 <!-- Site Header -->
 <header class="ideas_header" id="site-header">
@@ -252,6 +253,15 @@ $dba_istec_url = '/dba-istec';
                 <div class="dropdown-menu-box">
                     <div class="dropdown-column">
                         <div class="dropdown-column-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
+                        <a href="<?php echo esc_url($mba_istec_url); ?>" class="dropdown-item">
+                            <img class="item-avatar" width="90" height="50"
+                                src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg"
+                                alt="MBA ISTEC Paris" decoding="async" loading="lazy" />
+                            <div class="item-content">
+                                <div class="item-title">MBA ISTEC Paris</div>
+                                <div class="item-desc"><?php echo $is_en ? 'Master of Business Admin' : 'Thạc sĩ QTKD chuẩn Pháp'; ?></div>
+                            </div>
+                        </a>
                         <a href="<?php echo esc_url($mba_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50"
                                 src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
@@ -585,6 +595,14 @@ $dba_istec_url = '/dba-istec';
         <div class="mobile-dropdown-content active">
             <div class="mobile-dropdown-section">
                 <div class="mobile-section-title"><?php echo $is_en ? 'Master' : 'Thạc sĩ'; ?></div>
+                <a href="<?php echo esc_url($mba_istec_url); ?>" class="mobile-dropdown-item">
+                    <img class="item-avatar" width="90" height="50" src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg"
+                        alt="MBA ISTEC Paris" loading="lazy" decoding="async" />
+                    <div class="item-content">
+                        <div class="item-title">MBA ISTEC Paris</div>
+                        <div class="item-desc"><?php echo $is_en ? 'Master of Business Admin' : 'Thạc sĩ QTKD chuẩn Pháp'; ?></div>
+                    </div>
+                </a>
                 <a href="<?php echo esc_url($mba_url); ?>" class="mobile-dropdown-item">
                     <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/07/6.webp"
                         alt="Online MBA" loading="lazy" decoding="async" />

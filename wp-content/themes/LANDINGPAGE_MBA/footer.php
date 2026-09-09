@@ -29,6 +29,8 @@ $emba_url = $is_en ? '/en/emba' : '/emba';
 $mbainai_url = $is_en ? '/en/mbainai' : '/mbainai';
 $mscai_url = $is_en ? '/en/mscai' : '/mscai';
 $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
+$dba_istec_url = '/dba-istec';
+$mba_istec_url = '/mba-istec';
 ?>
 
 <!-- Footer -->
@@ -85,10 +87,12 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
             <h3><?php echo $is_en ? 'Programs' : 'Các Chương Trình'; ?></h3>
             <a href="<?php echo esc_url($bba_url); ?>"><?php echo $is_en ? 'Top-up BBA' : 'Cử nhân Top-up BBA'; ?></a>
             <a href="<?php echo esc_url($fullbba_url); ?>"><?php echo $is_en ? 'Global Online BBA' : 'Global Online BBA'; ?></a>
+            <a href="<?php echo esc_url($mba_istec_url); ?>"><?php echo $is_en ? 'MBA ISTEC Paris' : 'Thạc sĩ MBA ISTEC Paris'; ?></a>
             <a href="<?php echo esc_url($mba_url); ?>"><?php echo $is_en ? 'Online MBA' : 'Thạc sĩ Online MBA'; ?></a>
             <a href="<?php echo esc_url($emba_url); ?>"><?php echo $is_en ? 'Executive MBA' : 'Thạc sĩ Executive MBA'; ?></a>
             <a href="<?php echo esc_url($mbainai_url); ?>"><?php echo $is_en ? 'MBA in AI' : 'Thạc sĩ MBA in AI'; ?></a>
             <a href="<?php echo esc_url($mscai_url); ?>"><?php echo $is_en ? 'Master AI (MSc AI)' : 'Thạc sĩ MSc AI'; ?></a>
+            <a href="<?php echo esc_url($dba_istec_url); ?>"><?php echo $is_en ? 'DBA ISTEC Paris' : 'Tiến sĩ DBA ISTEC Paris'; ?></a>
             <a href="<?php echo esc_url($dual_dba_url); ?>"><?php echo $is_en ? 'Dual DBA' : 'Tiến sĩ Dual DBA'; ?></a>
         </div>
 
