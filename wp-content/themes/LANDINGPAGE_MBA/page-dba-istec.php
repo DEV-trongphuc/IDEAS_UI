@@ -13,6 +13,15 @@ if (!defined('ABSPATH')) {
 
 global $wp;
 
+// Override Yoast SEO & RankMath social preview images/titles dynamically
+add_filter('wpseo_title', function($t) { return 'Tiến Sĩ Quản Trị Kinh Doanh (DBA) ISTEC Paris | Chuẩn Pháp Bac+8 & WES'; });
+add_filter('wpseo_metadesc', function($d) { return 'Chương trình Tiến sĩ Quản trị Kinh doanh (DBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 03 năm (180 ECTS), 03 AI Copilot chuyên dụng, WES Earned Doctorate tại Mỹ & Canada. Học phí trọn gói 13.000 EUR.'; });
+add_filter('wpseo_opengraph_image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
+add_filter('rank_math/frontend/title', function($t) { return 'Tiến Sĩ Quản Trị Kinh Doanh (DBA) ISTEC Paris | Chuẩn Pháp Bac+8 & WES'; });
+add_filter('rank_math/frontend/description', function($d) { return 'Chương trình Tiến sĩ Quản trị Kinh doanh (DBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 03 năm (180 ECTS), 03 AI Copilot chuyên dụng, WES Earned Doctorate tại Mỹ & Canada. Học phí trọn gói 13.000 EUR.'; });
+add_filter('rank_math/opengraph/facebook/image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
+add_filter('rank_math/opengraph/twitter/image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
+
 ob_start(function ($html) {
     return preg_replace(
         '/<link[^>]+href=[\'"][^\'"]*LANDINGPAGE_MBA\/main\.css[^\'"]*[\'"][^>]*\/?>/i',
@@ -22,12 +31,51 @@ ob_start(function ($html) {
 });
 
 $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
+$page_canonical_url = 'https://ideas.edu.vn/dba-istec';
+$og_thumb_url = get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg';
+$seo_title = $is_en 
+    ? 'DBA ISTEC Business School Paris | Online Doctorate of Business Administration Bac+8' 
+    : 'Tiến Sĩ Quản Trị Kinh Doanh (DBA) ISTEC Paris | Bằng Chuẩn Pháp Bac+8 & WES';
+$seo_desc = $is_en 
+    ? 'Online Doctorate of Business Administration (DBA) from ISTEC Business School Paris (Grande École est. 1961). 03 years, 180 ECTS, 03 dedicated AI Copilots, WES evaluated Earned Doctorate in USA & Canada. All-inclusive tuition 13,000 EUR. Apply now!' 
+    : 'Chương trình Tiến sĩ Quản trị Kinh doanh (DBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 03 năm (180 ECTS), 03 AI Copilot chuyên dụng, văn bằng WES đánh giá tương đương Earned Doctorate tại Mỹ & Canada. Học phí trọn gói 13.000 EUR.';
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <?php get_template_part('shared-head'); ?>
+
+    <!-- ══ THẺ TIÊU ĐỀ & META SEO TIÊU CHUẨN GOOGLE ══ -->
+    <title><?php echo esc_html($seo_title); ?></title>
+    <meta name="title" content="<?php echo esc_attr($seo_title); ?>" />
+    <meta name="description" content="<?php echo esc_attr($seo_desc); ?>" />
+    <meta name="keywords" content="DBA ISTEC, DBA ISTEC Paris, tiến sĩ quản trị kinh doanh, học tiến sĩ DBA, tiến sĩ kinh doanh trực tuyến, DBA Pháp, ISTEC Business School Paris, WES Earned Doctorate, viện IDEAS, tiến sĩ trực tuyến cho lãnh đạo" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Viện IDEAS & ISTEC Business School Paris" />
+    <link rel="canonical" href="<?php echo esc_url($page_canonical_url); ?>" />
+
+    <!-- ══ THẺ OPEN GRAPH (FACEBOOK, ZALO, LINKEDIN) ══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?php echo esc_url($page_canonical_url); ?>" />
+    <meta property="og:site_name" content="Viện IDEAS - Viện Nghiên cứu Đào tạo Kinh tế Hiện đại" />
+    <meta property="og:locale" content="<?php echo $is_en ? 'en_US' : 'vi_VN'; ?>" />
+    <meta property="og:title" content="<?php echo esc_attr($seo_title); ?>" />
+    <meta property="og:description" content="<?php echo esc_attr($seo_desc); ?>" />
+    <meta property="og:image" content="<?php echo esc_url($og_thumb_url); ?>" />
+    <meta property="og:image:secure_url" content="<?php echo esc_url($og_thumb_url); ?>" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Lễ tốt nghiệp Tiến sĩ DBA ISTEC Paris tại Nhà hát Grand Rex Paris" />
+
+    <!-- ══ THẺ TWITTER CARD ══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="<?php echo esc_url($page_canonical_url); ?>" />
+    <meta name="twitter:title" content="<?php echo esc_attr($seo_title); ?>" />
+    <meta name="twitter:description" content="<?php echo esc_attr($seo_desc); ?>" />
+    <meta name="twitter:image" content="<?php echo esc_url($og_thumb_url); ?>" />
+    <meta name="twitter:image:alt" content="Lễ tốt nghiệp Tiến sĩ DBA ISTEC Paris tại Nhà hát Grand Rex Paris" />
 
     <?php
     define('BOOKING_MODAL_CSS_LOADED', true);
@@ -38,47 +86,212 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>"
         media="print" onload="this.media='all'" />
 
-    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
-        <title>DBA ISTEC Business School Paris | Tiến Sĩ Quản Trị Kinh Doanh Chuẩn Pháp Bac+8</title>
-        <meta name="description" content="Chương trình Tiến sĩ Quản trị Kinh doanh (DBA) trực tuyến từ ISTEC Business School Paris. 03 năm, 180 ECTS, 03 AI Copilot chuyên dụng, WES Earned Doctorate tại Hoa Kỳ & Canada." />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="DBA ISTEC Business School Paris | Chuẩn Giáo Dục Tiến Sĩ Pháp Bac+8" />
-        <meta property="og:description" content="Chuyển hóa bài toán thực tế thành mô hình quản trị. Bằng Tiến sĩ do ISTEC Paris trực tiếp cấp, WES đánh giá tương đương Earned Doctorate tại Mỹ và Canada." />
-        <meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/istec-grand-rex-paris.jpg" />
-        <meta property="og:url" content="<?php echo esc_url(home_url('/dba-istec')); ?>" />
-    <?php endif; ?>
-
+    <!-- ══ CẤU TRÚC DỮ LIỆU SCHEMA CHUẨN GOOGLE (JSON-LD ĐA THỰC THỂ) ══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Tiến sĩ Quản trị Kinh doanh (DBA) – ISTEC Business School Paris",
-      "description": "Chương trình Tiến sĩ Quản trị Kinh doanh (DBA) trực tuyến từ ISTEC Paris, 03 năm, 180 ECTS, 03 AI Copilot, văn bằng WES Earned Doctorate.",
-      "courseCode": "DBA-ISTEC-PARIS",
-      "educationalLevel": "Doctorate",
-      "inLanguage": "vi",
-      "courseMode": "online",
-      "timeRequired": "P3Y",
-      "provider": [
+      "@graph": [
         {
-          "@type": "EducationalOrganization",
-          "name": "ISTEC Business School Paris",
-          "url": "https://istec.fr"
+          "@type": "WebSite",
+          "@id": "https://ideas.edu.vn/#website",
+          "url": "https://ideas.edu.vn/",
+          "name": "Viện IDEAS",
+          "description": "Viện Nghiên cứu Đào tạo Kinh tế Hiện đại – Đối tác Đào tạo Quốc tế Thạc sĩ MBA & Tiến sĩ DBA",
+          "publisher": {
+            "@id": "https://ideas.edu.vn/#organization"
+          }
         },
         {
           "@type": "EducationalOrganization",
-          "name": "Viện IDEAS",
-          "url": "https://ideas.edu.vn"
+          "@id": "https://ideas.edu.vn/#organization",
+          "name": "Viện Nghiên cứu Đào tạo Kinh tế Hiện đại (IDEAS)",
+          "alternateName": "Viện IDEAS",
+          "url": "https://ideas.edu.vn/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ideas.edu.vn/wp-content/uploads/2023/04/logofavicon.webp"
+          },
+          "sameAs": [
+            "https://www.facebook.com/ideas.edu.vn",
+            "https://istec.fr/executive-education-partenaires-ideas/"
+          ]
+        },
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://istec.fr/#organization",
+          "name": "ISTEC Business School Paris",
+          "alternateName": "Institut Supérieur des Sciences, Techniques et Économie Commerciales",
+          "url": "https://istec.fr",
+          "logo": "https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/logo-istec-paris.svg",
+          "foundingDate": "1961",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "12 Rue Alexandre Parodi",
+            "addressLocality": "Paris",
+            "postalCode": "75010",
+            "addressCountry": "FR"
+          },
+          "memberOf": [
+            {
+              "@type": "Organization",
+              "name": "Conférence des Grandes Écoles (CGE)"
+            },
+            {
+              "@type": "Organization",
+              "name": "AACSB International"
+            },
+            {
+              "@type": "Organization",
+              "name": "EFMD Global"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://ideas.edu.vn/dba-istec#webpage",
+          "url": "https://ideas.edu.vn/dba-istec",
+          "name": "Tiến Sĩ Quản Trị Kinh Doanh (DBA) ISTEC Paris | Bằng Chuẩn Pháp Bac+8 & WES",
+          "isPartOf": {
+            "@id": "https://ideas.edu.vn/#website"
+          },
+          "breadcrumb": {
+            "@id": "https://ideas.edu.vn/dba-istec#breadcrumb"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "@id": "https://ideas.edu.vn/dba-istec#primaryimage",
+            "url": "https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/istec-grand-rex-paris.jpg",
+            "width": 1200,
+            "height": 630,
+            "caption": "Lễ tốt nghiệp Tiến sĩ DBA ISTEC Paris tại Nhà hát Le Grand Rex Paris"
+          },
+          "description": "Chương trình Tiến sĩ Quản trị Kinh doanh (DBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 03 năm (180 ECTS), 03 AI Copilot chuyên dụng, văn bằng WES đánh giá tương đương Earned Doctorate tại Mỹ & Canada. Học phí trọn gói 13.000 EUR."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://ideas.edu.vn/dba-istec#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Trang chủ",
+              "item": "https://ideas.edu.vn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Chương trình Tiến sĩ",
+              "item": "https://ideas.edu.vn/truong-kinh-doanh-istec-phap"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "DBA ISTEC Paris",
+              "item": "https://ideas.edu.vn/dba-istec"
+            }
+          ]
+        },
+        {
+          "@type": "Course",
+          "@id": "https://ideas.edu.vn/dba-istec#course",
+          "name": "Tiến sĩ Quản trị Kinh doanh (DBA) – ISTEC Business School Paris",
+          "alternateName": "Doctorate of Business Administration – ISTEC Paris",
+          "description": "Chương trình đào tạo Tiến sĩ Quản trị Kinh doanh trực tuyến chuyên sâu 03 năm (180 ECTS) từ trường kinh doanh ISTEC Business School Paris (Grande École thành lập 1961, thành viên CGE danh giá). Tích hợp 03 AI Research Copilots độc quyền 24/7, hướng dẫn 1:1 cùng Giáo sư quốc tế, văn bằng được WES đánh giá tương đương Earned Doctorate tại Hoa Kỳ và Canada.",
+          "courseCode": "DBA-ISTEC-PARIS",
+          "educationalLevel": "Doctorate / Level 8 (EQF) / Bac+8",
+          "inLanguage": "vi",
+          "availableLanguage": ["vi", "en"],
+          "courseMode": "online",
+          "timeRequired": "P3Y",
+          "educationalCredentialAwarded": "Doctorate of Business Administration (DBA) – ISTEC Business School Paris (Bac+8 / EQF Level 8)",
+          "provider": [
+            {
+              "@id": "https://istec.fr/#organization"
+            },
+            {
+              "@id": "https://ideas.edu.vn/#organization"
+            }
+          ],
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "Online",
+            "courseWorkload": "180 ECTS (03 Giai đoạn: Nghiên cứu • Thực địa • Bảo vệ)",
+            "instructor": [
+              {
+                "@type": "Person",
+                "name": "Prof. Philippe Bastien",
+                "jobTitle": "Giáo sư ISTEC Business School Paris"
+              },
+              {
+                "@type": "Person",
+                "name": "Dr. Stanislas Kihm",
+                "jobTitle": "Tiến sĩ - Giảng viên Nghiên cứu ISTEC Paris"
+              },
+              {
+                "@type": "Person",
+                "name": "Dr. Phạm Quang Vinh",
+                "jobTitle": "Cố vấn Học thuật Viện IDEAS"
+              }
+            ]
+          },
+          "offers": {
+            "@type": "Offer",
+            "category": "TuitionFees",
+            "price": "13000",
+            "priceCurrency": "EUR",
+            "description": "Học phí trọn gói 03 năm chương trình Tiến sĩ DBA ISTEC Paris: 13.000 EUR (Bao gồm toàn bộ học phí, hướng dẫn 1:1 với Giáo sư, AI Copilot 24/7 & Hỗ trợ IDEAS)",
+            "url": "https://ideas.edu.vn/dba-istec",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-01-01"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://ideas.edu.vn/dba-istec#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "NCS được đồng hành như thế nào trong nghiên cứu?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "NCS được hướng dẫn trực tiếp 1:1 với Giáo sư (Supervisor), tham gia các Progress Seminars định kỳ để nhận phản biện liên tục. Đồng thời được trang bị riêng 03 AI Agents chuyên dụng hỗ trợ xử lý dữ liệu và học liệu 24/7."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "NCS có được tự chọn đề tài từ doanh nghiệp mình?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Hoàn toàn được. NCS chủ động đề xuất bài toán thực tế từ chính doanh nghiệp đang điều hành (tái cấu trúc, chiến lược, chuyển đổi số) để phát triển thành luận án Tiến sĩ (Phương án A)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Nếu chưa có đề tài nghiên cứu sẵn có thì sao?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IDEAS sẽ giao 01 Dự án Tư vấn Thực tế từ mạng lưới doanh nghiệp đối tác để NCS tham gia với vai trò Chuyên gia tư vấn chính (Business Doctor). NCS dùng dữ liệu dự án làm thực nghiệm cho luận án (Phương án B)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Văn bằng DBA ISTEC được quốc tế công nhận ra sao?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Bằng do ISTEC Paris trực tiếp cấp theo chuẩn giáo dục đại học Pháp (Pro – Bac+8 / EQF Level 8). Trường là thành viên CGE danh giá. Bằng được tổ chức WES đánh giá tương đương học vị 'Earned Doctorate' tại Hoa Kỳ và Canada."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Học phí 13.000 EUR đã bao gồm những gì?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mức phí trọn gói đã bao gồm toàn bộ học phí 03 năm của ISTEC Paris, phí hướng dẫn 1:1 với Giáo sư, quyền sử dụng 03 AI Copilot, nền tảng IDEAS AI Platform và toàn bộ các buổi bảo vệ cấp hội đồng."
+              }
+            }
+          ]
         }
-      ],
-      "offers": {
-        "@type": "Offer",
-        "category": "DBA",
-        "price": "13000",
-        "priceCurrency": "EUR",
-        "description": "Học phí trọn gói chương trình DBA ISTEC Paris: 13.000 EUR",
-        "url": "https://ideas.edu.vn/dba-istec"
-      }
+      ]
     }
     </script>
 
