@@ -3516,7 +3516,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <div class="hero-school-tag">
-                    <a href="https://istec.fr/en/" target="_blank" rel="noopener" title="ISTEC Paris" class="hero-school-link">
+                    <a href="https://istec.fr/executive-education-partenaires-ideas/" target="_blank" rel="noopener noreferrer" title="ISTEC Paris - Executive Education Partenaires IDEAS" class="hero-school-link">
                         <img src="https://istec.fr/wp-content/themes/bubble//components/subcomponents_essentials/NavigationMain/assets/logo.svg" alt="ISTEC Paris Logo" class="hero-school-logo" width="112" height="40" fetchpriority="high" decoding="async" />
                     </a>
                     <span class="hero-school-divider"></span>

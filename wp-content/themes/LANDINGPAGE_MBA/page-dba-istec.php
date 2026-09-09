@@ -1400,9 +1400,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <!-- Cột trái: Nội dung chính -->
                 <div class="istec-hero-main-content">
                     <div style="margin-bottom: 16px;">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/logo-istec-paris.svg" 
-                             alt="ISTEC Business School Paris Logo" 
-                             style="height: 64px; width: auto; display: block;" />
+                        <a href="https://istec.fr/executive-education-partenaires-ideas/" target="_blank" rel="noopener noreferrer" title="ISTEC Business School Paris - Đối tác IDEAS" style="display: inline-block;">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/logo-istec-paris.svg" 
+                                 alt="ISTEC Business School Paris Logo" 
+                                 style="height: 64px; width: auto; display: block;" />
+                        </a>
                     </div>
 
                     <h1 class="istec-hero-headline">
