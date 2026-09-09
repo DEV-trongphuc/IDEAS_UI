@@ -950,6 +950,33 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     })
                 );
 
+                // 2. Submit to MYERP Webhook
+                const webhookPayload = {
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    source: "Landing_AI_Register_Page",
+                    type: "ai_account_registration",
+                    chuong_trinh: "IDEAS AI Platform",
+                    chuc_danh: chucDanhText,
+                    nhu_cau: `Đăng ký nhận tài khoản AI Platform miễn phí | Chức danh: ${chucDanhText} | Mục đích: ${mucDichText} | Note: ${combinedNote}`
+                };
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
+                utmParams.forEach(param => {
+                    const val = urlParams.get(param);
+                    if (val) webhookPayload[param] = val;
+                });
+
+                promises.push(
+                    fetch("https://myerp.ideas.edu.vn/backend/webhook.php?token=tok_kjhbs32a", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(webhookPayload)
+                    })
+                );
+
                 // 2. Submit to Google Sheets (if configured)
                 if (GOOGLE_SHEET_WEB_APP_URL && GOOGLE_SHEET_WEB_APP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
                     const sheetPayload = {

@@ -1002,7 +1002,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     body: JSON.stringify(payload)
                 });
 
-                const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
+                const p2 = fetch("https://myerp.ideas.edu.vn/backend/webhook.php?token=tok_kjhbs32a", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(webhookPayload)

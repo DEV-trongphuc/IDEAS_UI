@@ -35,7 +35,7 @@ This project is built using a hybrid structure consisting of a custom WordPress 
 ### 1. Dynamic Lead Form Submission
 Forms submit asynchronously to two parallel endpoints:
 - **Core lead logging**: `https://automation.ideas.edu.vn/mail_api/forms.php?route=submit` (using `form_id: "4fe1eeb0570742a1fdde61af6fc0680c"`).
-- **Sales Metas & Webhooks**: `https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a`.
+- **Sales Metas & Webhooks**: `https://myerp.ideas.edu.vn/backend/webhook.php?token=tok_kjhbs32a`.
 - **Conversion Tracking**: Google Ads conversion tags are fired (`AW-11205917800/mdXJCOTL-bccEOj4st8p`) upon successful asynchronous API response.
 
 ### 2. Autocomplete Live Search Suggestion Engine

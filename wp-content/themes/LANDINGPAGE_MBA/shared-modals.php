@@ -930,7 +930,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                     body: JSON.stringify(payload)
                 });
 
-                const p2 = fetch("https://open.domation.net/sale_data/webhook.php?token=tok_kjhbs32a", {
+                const p2 = fetch("https://myerp.ideas.edu.vn/backend/webhook.php?token=tok_kjhbs32a", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(webhookPayload)
