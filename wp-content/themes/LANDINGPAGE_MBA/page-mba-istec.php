@@ -380,6 +380,54 @@ $seo_desc = $is_en
             margin: 16px 0;
         }
 
+        .istec-hero-trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: rgba(0, 92, 77, 0.04);
+            border: 1px solid rgba(0, 92, 77, 0.15);
+            border-left: 3px solid var(--istec-bright-green);
+            padding: 6px 14px;
+            border-radius: var(--radius-square);
+            margin-bottom: 14px;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            color: var(--dark-sub);
+            box-shadow: 0 2px 8px rgba(0, 92, 77, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .istec-hero-trust-badge:hover {
+            background: rgba(0, 92, 77, 0.08);
+            border-color: var(--istec-teal);
+            transform: translateY(-1px);
+        }
+
+        .istec-hero-trust-badge .badge-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--istec-teal);
+            flex-shrink: 0;
+        }
+
+        .istec-hero-trust-badge .school-name {
+            color: var(--istec-deep-green);
+            font-weight: 800;
+        }
+
+        @media (max-width: 640px) {
+            .istec-hero-trust-badge {
+                font-size: 0.82rem;
+                padding: 6px 11px;
+                gap: 7px;
+                align-items: flex-start;
+            }
+            .istec-hero-trust-badge .badge-icon {
+                margin-top: 2px;
+            }
+        }
+
         .istec-hero-headline {
             font-size: clamp(2rem, 3.2vw, 2.75rem);
             font-weight: 800;
@@ -2633,12 +2681,22 @@ $seo_desc = $is_en
                 <!-- NỘI DUNG CHÍNH (TIÊU ĐỀ 2-TONE & MÔ TẢ PHONG CÁCH CHÂU ÂU) - BÊN TRÁI -->
                 <div class="istec-hero-main-content">
                     <!-- Logo ISTEC Paris chính thức to rõ hơn -->
-                    <div style="margin-bottom: 18px;">
+                    <div style="margin-bottom: 12px;">
                         <a href="https://istec.fr/executive-education-partenaires-ideas/" target="_blank" rel="noopener noreferrer" title="ISTEC Business School Paris - Đối tác IDEAS" style="display: inline-block; cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease;" onmouseover="this.style.opacity='0.85'; this.style.transform='translateY(-2px)'" onmouseout="this.style.opacity='1'; this.style.transform='none'">
                             <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/logo-istec-paris.svg" 
                                  alt="ISTEC Business School Paris Logo" 
                                  class="istec-hero-logo" />
                         </a>
+                    </div>
+
+                    <!-- Huy hiệu nhận diện & kiểm định ISTEC Paris -->
+                    <div class="istec-hero-trust-badge">
+                        <span class="badge-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </span>
+                        <span class="badge-text">
+                            <strong class="school-name">ISTEC Business School Paris:</strong> <?php echo $is_en ? 'Leading Business School in Paris, Recognized by the French State' : 'Trường Kinh doanh hàng đầu tại Paris, được Nhà nước Pháp công nhận'; ?>
+                        </span>
                     </div>
 
                     <h1 class="istec-hero-headline">
