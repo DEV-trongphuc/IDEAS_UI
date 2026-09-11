@@ -780,7 +780,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                         <div class="stat-item">
                             <span class="stat-lbl"><?php echo $is_en ? 'Tuition from' : 'Học phí chỉ từ'; ?></span>
-                            <span class="stat-val"><?php echo $is_en ? '4,020 CHF' : '4.020 CHF'; ?></span>
+                            <span class="stat-val"><?php echo $is_en ? '12,900 CHF' : '12.900 CHF'; ?></span>
                         </div>
                     </div>
 

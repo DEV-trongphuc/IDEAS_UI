@@ -951,6 +951,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             aspect-ratio: 16 / 9;
             overflow: hidden;
             background: #f1f5f9;
+            display: block;
+            text-decoration: none;
         }
         .prog-card-thumb img {
             width: 100%;
@@ -990,6 +992,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 0;
             margin-bottom: 4px;
             line-height: 1.3;
+        }
+        .prog-card-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+        .prog-card-title a:hover {
+            color: var(--istec-green, #61A60E);
         }
         .prog-card-subtitle {
             color: var(--umef-primary);
@@ -1087,7 +1097,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
         .prog-btn-more:hover {
             background: #f1f5f9;
-            color: var(--umef-primary);
+            color: var(--istec-green, #61A60E);
             border-color: #cbd5e1;
         }
         
@@ -3951,15 +3961,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </p>
             </div>
             
+            <?php
+            $dba_ldp_url = $is_en ? '/dba-istec?lang=en' : '/dba-istec';
+            $mba_ldp_url = $is_en ? '/mba-istec?lang=en' : '/mba-istec';
+            ?>
             <div class="prog-grid">
                 <!-- DBA Card (Chương trình DBA - 2.5 - 3 năm - Tiếng Anh) -->
-                <div class="prog-card">
-                    <div class="prog-card-thumb">
+                <div class="prog-card" onclick="if(!event.target.closest('button, a')) { window.location.href='<?php echo esc_url($dba_ldp_url); ?>'; }" style="cursor: pointer;">
+                    <a href="<?php echo esc_url($dba_ldp_url); ?>" class="prog-card-thumb" aria-label="<?php echo $is_en ? 'DBA Program' : 'Chương trình DBA'; ?>">
                         <img src="https://istec.fr/wp-content/uploads/2025/05/230912_05457_HD-scaled.jpg" alt="Chương trình DBA - ISTEC Paris" loading="lazy" decoding="async" />
                         <span class="prog-card-badge">Bac+8</span>
-                    </div>
+                    </a>
                     <div class="prog-card-body">
-                        <h3 class="prog-card-title"><?php echo $is_en ? 'DBA Program' : 'Chương trình DBA'; ?></h3>
+                        <h3 class="prog-card-title">
+                            <a href="<?php echo esc_url($dba_ldp_url); ?>"><?php echo $is_en ? 'DBA Program' : 'Chương trình DBA'; ?></a>
+                        </h3>
                         <span class="prog-card-subtitle"><?php echo $is_en ? 'Doctor of Business Administration' : 'Doctor of Business Administration'; ?></span>
                         <p class="prog-card-desc">
                             <?php echo $is_en ? 'Senior executive doctorate program designed for business leaders, CEOs, and exceptional experts seeking to advance academic depth and contribute impactful industry research.' : 'Chương trình Tiến sĩ Quản trị Kinh doanh cao cấp dành riêng cho nhà quản lý, CEO, và chuyên gia xuất sắc muốn nâng tầm học thuật và đóng góp tri thức cho ngành.'; ?>
@@ -3981,7 +3997,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
                                 <span><?php echo $is_en ? 'Register Consultation' : 'Đăng ký tư vấn'; ?></span>
                             </button>
-                            <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="prog-btn-more">
+                            <a href="<?php echo esc_url($dba_ldp_url); ?>" class="prog-btn-more">
                                 <span><?php echo $is_en ? 'Details' : 'Tìm hiểu thêm'; ?></span> &rarr;
                             </a>
                         </div>
@@ -3989,13 +4005,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
                 
                 <!-- MBA Card (Chương trình MBA - 12 - 14 tháng) -->
-                <div class="prog-card">
-                    <div class="prog-card-thumb">
+                <div class="prog-card" onclick="if(!event.target.closest('button, a')) { window.location.href='<?php echo esc_url($mba_ldp_url); ?>'; }" style="cursor: pointer;">
+                    <a href="<?php echo esc_url($mba_ldp_url); ?>" class="prog-card-thumb" aria-label="<?php echo $is_en ? 'MBA Program' : 'Chương trình MBA'; ?>">
                         <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Chương trình MBA - ISTEC Paris" loading="lazy" decoding="async" />
                         <span class="prog-card-badge">Bac+5</span>
-                    </div>
+                    </a>
                     <div class="prog-card-body">
-                        <h3 class="prog-card-title"><?php echo $is_en ? 'MBA Program' : 'Chương trình MBA'; ?></h3>
+                        <h3 class="prog-card-title">
+                            <a href="<?php echo esc_url($mba_ldp_url); ?>"><?php echo $is_en ? 'MBA Program' : 'Chương trình MBA'; ?></a>
+                        </h3>
                         <span class="prog-card-subtitle"><?php echo $is_en ? 'Executive Master of Business Administration' : 'Executive Master of Business Administration'; ?></span>
                         <p class="prog-card-desc">
                             <?php echo $is_en ? 'Executive MBA program enhancing strategic planning capabilities, corporate financial mastery, and global operational leadership for management personnel.' : 'Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.'; ?>
@@ -4017,7 +4035,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <svg class="svg-icon fa-paper-plane fa-solid" viewBox="0 0 512 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
                                 <span><?php echo $is_en ? 'Register Consultation' : 'Đăng ký tư vấn'; ?></span>
                             </button>
-                            <a href="https://istec.fr/en/" target="_blank" rel="noopener" class="prog-btn-more">
+                            <a href="<?php echo esc_url($mba_ldp_url); ?>" class="prog-btn-more">
                                 <span><?php echo $is_en ? 'Details' : 'Tìm hiểu thêm'; ?></span> &rarr;
                             </a>
                         </div>

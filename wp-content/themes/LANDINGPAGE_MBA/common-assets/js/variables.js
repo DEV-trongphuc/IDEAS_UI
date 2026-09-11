@@ -256,7 +256,7 @@ const IDEAS_DATA = {
                 {
                     name: "High Quality",
                     icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
-                    price: "9.900 CHF",
+                    price: "12.900 CHF",
                     // price_promo: "4.675 CHF",
                     benefits: [
                         "Hỗ trợ trả góp 12 - 24 tháng qua Sacombank",
@@ -552,7 +552,7 @@ const IDEAS_DATA = {
                 {
                     name: "High Quality",
                     icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
-                    price: "8.900 CHF",
+                    price: "12.900 CHF",
                     // price_promo: "4.165 CHF",
                     benefits: [
                         "Hỗ trợ trả góp 12 - 24 tháng qua Sacombank",
@@ -811,7 +811,7 @@ const IDEAS_DATA = {
                 {
                     name: "High Quality",
                     icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
-                    price: "11.900 CHF",
+                    price: "15.900 CHF",
                     price_promo: "4.165 CHF",
                     benefits: [
                         "Hỗ trợ trả góp 12 - 24 tháng qua Sacombank",
