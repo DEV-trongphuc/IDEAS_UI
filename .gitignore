@@ -26,5 +26,10 @@ wp-content/plugins/
 # Scratch and helper scripts
 search_container.py
 scratch/
+implementation_plan.md
+*.zip
+logo-mba-dba-istec/
+logos_mba_dba_istec/
+
 
 

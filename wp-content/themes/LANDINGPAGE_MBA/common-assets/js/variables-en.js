@@ -494,7 +494,7 @@ const IDEAS_DATA = {
                 {
                     name: "High Quality",
                     icon: "https://ideas.edu.vn/wp-content/uploads/2026/06/icon5.webp",
-                    price: "15,900 CHF",
+                    price: "12,900 CHF",
                     price_promo: "4,165 CHF",
                     benefits: [
                         "Installment support for 12 - 24 months via Sacombank.",

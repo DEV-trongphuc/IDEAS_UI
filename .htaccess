@@ -22,13 +22,16 @@ RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-# Route search queries on homepage (Vietnamese & English) to WordPress index.php immediately
-RewriteCond %{THE_REQUEST} [?&]s=
+# Route WordPress queries (preview, posts, pages, search, query vars) on homepage to WordPress index.php immediately
+RewriteCond %{QUERY_STRING} (?:^|&)(p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)(=|&|$) [NC,OR]
+RewriteCond %{THE_REQUEST} [?&](p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)[=\s&] [NC]
 RewriteRule ^/?(en/?)?$ /index.php [L]
 
-# Catch search queries that were rewritten to index.html (VI or EN) and redirect back to WordPress
-RewriteCond %{THE_REQUEST} [?&]s=
+# Catch WordPress queries that were rewritten to index.html (VI or EN) and redirect back to WordPress
+RewriteCond %{QUERY_STRING} (?:^|&)(p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)(=|&|$) [NC,OR]
+RewriteCond %{THE_REQUEST} [?&](p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)[=\s&] [NC]
 RewriteRule ^/?wp-content/new_public/LANDINGPAGE_MBA/(en/)?index\.html$ /index.php [L,NC]
+
 
 
 
@@ -89,7 +92,8 @@ RewriteRule ^swiss-umef-topup-bba-en/?$ /en/bba [R=301,L,NC]
 # --- 2. INTERNAL REWRITES (Silently map clean URLs to physical files) ---
 
 # Vietnamese clean URLs
-RewriteCond %{THE_REQUEST} ![?&]s=
+RewriteCond %{QUERY_STRING} !(?:^|&)(p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)(=|&|$) [NC]
+RewriteCond %{THE_REQUEST} ![?&](p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)[=\s&] [NC]
 RewriteRule ^$ /wp-content/new_public/LANDINGPAGE_MBA/index.html [L]
 RewriteRule ^mba/?$ /wp-content/new_public/LANDINGPAGE_MBA/mba.html [L]
 RewriteRule ^(mba-istec|istec-mba)/?$ /wp-content/themes/LANDINGPAGE_MBA/page-mba-istec.php [L,NC]
@@ -105,7 +109,8 @@ RewriteRule ^uu-dai-doanh-nghiep/?$ /tri-tue-song-hanh [R=301,L,NC]
 RewriteRule ^tri-tue-song-hanh/?$ /wp-content/new_public/LANDINGPAGE_MBA/tri-tue-song-hanh.html [L]
 
 # English clean URLs
-RewriteCond %{THE_REQUEST} ![?&]s=
+RewriteCond %{QUERY_STRING} !(?:^|&)(p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)(=|&|$) [NC]
+RewriteCond %{THE_REQUEST} ![?&](p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)[=\s&] [NC]
 RewriteRule ^en/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/index.html [L]
 RewriteRule ^en/mba/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/mba.html [L]
 RewriteRule ^en/msc-?ai/?$ /wp-content/new_public/LANDINGPAGE_MBA/en/mscai.html [L,NC]
