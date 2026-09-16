@@ -720,6 +720,42 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #64748b;
         }
 
+        /* Sidebar ISTEC Promo Banner Widget */
+        .istec-sidebar-promo-widget {
+            display: block;
+        }
+
+        .istec-sidebar-banner-card {
+            display: block;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+            text-decoration: none;
+            background: #ffffff;
+        }
+
+        .istec-sidebar-banner-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(97, 166, 14, 0.2), 0 4px 12px rgba(15, 23, 42, 0.06);
+            border-color: rgba(97, 166, 14, 0.4);
+        }
+
+        .istec-sidebar-banner-img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .istec-sidebar-banner-card:hover .istec-sidebar-banner-img {
+            transform: scale(1.02);
+        }
+
         /* Post navigation cards */
         .post-navigation {
             display: grid;
@@ -1376,6 +1412,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <!-- Sidebar Widgets Area -->
                         <aside data-lenis-prevent>
                             <div class="sidebar-wrapper">
+
+                                <!-- ISTEC Paris Promo Banner Widget -->
+                                <div class="sidebar-widget istec-sidebar-promo-widget" style="padding: 0; background: transparent; border: none; box-shadow: none; margin-top: 0 !important; margin-bottom: 0 !important;">
+                                    <a href="<?php echo esc_url(home_url('/truong-kinh-doanh-istec-phap')); ?>" class="istec-sidebar-banner-card" title="<?php echo $is_en ? 'ISTEC Business School Paris - Master &amp; Doctorate Programs' : 'Trường Kinh Doanh ISTEC Paris - Chương trình Thạc sĩ &amp; Tiến sĩ'; ?>">
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/carousel-istec.webp" 
+                                             alt="<?php echo $is_en ? 'ISTEC Business School Paris' : 'Chương trình Thạc sĩ - Tiến sĩ chuẩn Pháp từ ISTEC Business School'; ?>" 
+                                             width="1080" height="1080" 
+                                             loading="lazy" 
+                                             decoding="async" 
+                                             class="istec-sidebar-banner-img">
+                                    </a>
+                                </div>
 
                                 <!-- Quick Register Consultation Widget -->
                                 <div class="sidebar-widget">
