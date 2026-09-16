@@ -1469,26 +1469,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                     echo $content_html;
                                     ?>
-
-                                    <!-- Article ISTEC In-Content Banner Card -->
-                                    <div class="article-istec-promo-card">
-                                        <div class="istec-card-media">
-                                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/carousel-istec.webp" 
-                                                 alt="<?php echo $is_en ? 'ISTEC Business School Paris' : 'Chương trình Thạc sĩ – Tiến sĩ chuẩn giáo dục Pháp từ ISTEC BUSINESS SCHOOL'; ?>" 
-                                                 width="1080" height="1080" 
-                                                 loading="lazy" 
-                                                 decoding="async" 
-                                                 class="istec-card-img">
-                                        </div>
-                                        <div class="istec-card-content">
-                                            <h3 class="istec-card-title"><?php echo $is_en ? 'French Standard Master &amp; Doctorate Programs from ISTEC BUSINESS SCHOOL' : 'Chương trình Thạc sĩ – Tiến sĩ chuẩn giáo dục Pháp từ ISTEC BUSINESS SCHOOL'; ?></h3>
-                                            <p class="istec-card-desc"><?php echo $is_en ? 'Explore the high-quality training ecosystem of ISTEC Paris in partnership with IDEAS for Vietnamese learners and executives.' : 'Khám phá hệ thống đào tạo chất lượng cao của ISTEC Paris phối hợp cùng IDEAS triển khai cho học viên và các nhà quản trị Việt Nam.'; ?></p>
-                                            <a href="<?php echo esc_url(home_url('/truong-kinh-doanh-istec-phap')); ?>" class="istec-card-btn" title="<?php echo $is_en ? 'Explore ISTEC Paris' : 'Khám phá ngay'; ?>">
-                                                <span><?php echo $is_en ? 'Explore Now' : 'Khám phá ngay'; ?></span>
-                                                <svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <!-- Share Section -->
