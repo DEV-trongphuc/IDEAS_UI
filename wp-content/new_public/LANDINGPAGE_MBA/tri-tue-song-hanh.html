@@ -264,9 +264,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1789542509" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1789542509" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1789542509" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1789547941" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1789547941" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1789547941" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -10779,9 +10779,9 @@
         </div>
     </div>
 
-    <script src="common-assets/js/variables.min.js?v=1789542509" defer></script>
-    <script src="common-assets/js/script.min.js?v=1789542509" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1789542509" defer></script>
+    <script src="common-assets/js/variables.min.js?v=1789547941" defer></script>
+    <script src="common-assets/js/script.min.js?v=1789547941" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1789547941" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -12226,7 +12226,9 @@
                 'IDEAS03': 'https://ideas.edu.vn/wp-content/uploads/2026/07/7.webp',
                 'IDEAS05': 'https://ideas.edu.vn/wp-content/uploads/2026/07/MBA-in-AI-1.webp',
                 'IDEAS04': 'https://ideas.edu.vn/wp-content/uploads/2026/07/8.webp',
-                'IDEAS06': 'https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp'
+                'IDEAS06': 'https://ideas.edu.vn/wp-content/uploads/2025/10/Dual-DBA-optimized.webp',
+                'IDEAS08': '/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg',
+                'IDEAS09': '/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/dba/p14_img6_912x614.jpeg'
             };
 
             const progSubtitles = {
@@ -12236,7 +12238,9 @@
                 'IDEAS03': isEnglish ? 'Executive MBA' : 'Thạc sĩ Điều hành QTKD',
                 'IDEAS05': isEnglish ? 'MBA in AI' : 'Thạc sĩ QTKD Ứng dụng AI',
                 'IDEAS04': isEnglish ? 'MSc AI' : 'Thạc sĩ Khoa học Trí tuệ Nhân tạo',
-                'IDEAS06': isEnglish ? 'Dual DBA' : 'Tiến sĩ Quản trị Kinh doanh Song bằng'
+                'IDEAS06': isEnglish ? 'Dual DBA' : 'Tiến sĩ Quản trị Kinh doanh Song bằng',
+                'IDEAS08': isEnglish ? 'Master of Business Administration' : 'Thạc sĩ Quản trị Kinh doanh',
+                'IDEAS09': isEnglish ? 'Doctor of Business Administration' : 'Tiến sĩ Quản trị Kinh doanh'
             };
 
             matches.forEach(key => {
@@ -12339,9 +12343,9 @@
                 if (eduLevel === 'highschool') {
                     matches = ['IDEAS01'];
                 } else if (eduLevel === 'bachelor') {
-                    matches = ['IDEAS02', 'IDEAS03', 'IDEAS05', 'IDEAS04'];
+                    matches = ['IDEAS08', 'IDEAS02', 'IDEAS03', 'IDEAS05', 'IDEAS04'];
                 } else if (eduLevel === 'master') {
-                    matches = ['IDEAS06'];
+                    matches = ['IDEAS09', 'IDEAS06'];
                 }
                 renderPathfinderMatches(matches, isEnglish);
             }
@@ -12367,7 +12371,9 @@
                 'IDEAS03': '/emba',
                 'IDEAS05': '/mbainai',
                 'IDEAS04': '/mscai',
-                'IDEAS06': '/dual-dba-estiam-rb'
+                'IDEAS06': '/dual-dba-estiam-rb',
+                'IDEAS08': '/mba-istec',
+                'IDEAS09': '/dba-istec'
             };
             const localUrls = {
                 'IDEAS01': 'fullbba.html',
@@ -12376,7 +12382,9 @@
                 'IDEAS03': 'emba.html',
                 'IDEAS05': 'mbainai.html',
                 'IDEAS04': 'mscai.html',
-                'IDEAS06': 'dual-dba.html'
+                'IDEAS06': 'dual-dba.html',
+                'IDEAS08': 'mba-istec.html',
+                'IDEAS09': 'dba-istec.html'
             };
             const currentHref = window.location.href;
             const isLocal = currentHref.includes('localhost') || currentHref.includes('127.0.0.1') || currentHref.startsWith('file:///');
@@ -12401,7 +12409,7 @@
                 window.openRegModal(`pathfinder-${key}`);
                 const eduSelect = document.getElementById('modal-education');
                 if (eduSelect) {
-                    eduSelect.value = key === 'IDEAS01' ? 'highschool' : (key === 'IDEAS07' ? 'college' : (key === 'IDEAS06' ? 'master' : 'bachelor'));
+                    eduSelect.value = (key === 'IDEAS01') ? 'highschool' : ((key === 'IDEAS07') ? 'college' : ((key === 'IDEAS06' || key === 'IDEAS09') ? 'master' : 'bachelor'));
                 }
             }
         }
@@ -12454,7 +12462,7 @@
 
             const table = document.getElementById('compare-matrix-table');
             if (table && table.children.length === 0) {
-                const keys = ['IDEAS01', 'IDEAS07', 'IDEAS02', 'IDEAS03', 'IDEAS05', 'IDEAS04', 'IDEAS06'];
+                const keys = ['IDEAS01', 'IDEAS07', 'IDEAS08', 'IDEAS02', 'IDEAS03', 'IDEAS05', 'IDEAS04', 'IDEAS09', 'IDEAS06'];
                 const pros = keys.map(k => IDEAS_DATA.programmes[k]);
 
                 let headerRow = `<tr style="background: linear-gradient(135deg, #ab0e00, #d41500); color: #fff; border-bottom: 2px solid var(--clr-gold);">

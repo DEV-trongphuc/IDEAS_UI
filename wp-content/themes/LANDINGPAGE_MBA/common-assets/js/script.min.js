@@ -612,7 +612,7 @@ const isEn = document.documentElement.lang === 'en';
             if (formId === 'modal-cta-form' && activeCtaSource) {
                 if (activeCtaSource.startsWith('pathfinder-')) {
                     resolvedProgramKey = activeCtaSource.replace('pathfinder-', '');
-                } else if (['IDEAS01', 'IDEAS02', 'IDEAS03', 'IDEAS04', 'IDEAS05', 'IDEAS06', 'IDEAS07'].includes(activeCtaSource)) {
+                } else if (['IDEAS01', 'IDEAS02', 'IDEAS03', 'IDEAS04', 'IDEAS05', 'IDEAS06', 'IDEAS07', 'IDEAS08', 'IDEAS09', 'MBA_ISTEC', 'DBA_ISTEC'].includes(activeCtaSource)) {
                     resolvedProgramKey = activeCtaSource;
                 }
             }
@@ -662,10 +662,10 @@ const isEn = document.documentElement.lang === 'en';
             }
 
             // Map programKey to sourceVal and chuongTrinhVal
-            if (resolvedProgramKey === 'MBA_ISTEC') {
+            if (resolvedProgramKey === 'MBA_ISTEC' || resolvedProgramKey === 'IDEAS08') {
                 sourceVal = "Landing_MBA_ISTEC";
                 chuongTrinhVal = "MBA ISTEC Paris";
-            } else if (resolvedProgramKey === 'DBA_ISTEC') {
+            } else if (resolvedProgramKey === 'DBA_ISTEC' || resolvedProgramKey === 'IDEAS09') {
                 sourceVal = "Landing_DBA_ISTEC";
                 chuongTrinhVal = "DBA ISTEC Paris";
             } else if (resolvedProgramKey === 'ISTEC') {
@@ -871,14 +871,18 @@ const isEn = document.documentElement.lang === 'en';
         if (ctaSource && typeof ctaSource === 'string') {
             if (ctaSource.startsWith('pathfinder-')) {
                 programKey = ctaSource.replace('pathfinder-', '');
-            } else if (['IDEAS01', 'IDEAS02', 'IDEAS03', 'IDEAS04', 'IDEAS05', 'IDEAS06', 'IDEAS07'].includes(ctaSource)) {
+            } else if (['IDEAS01', 'IDEAS02', 'IDEAS03', 'IDEAS04', 'IDEAS05', 'IDEAS06', 'IDEAS07', 'IDEAS08', 'IDEAS09', 'MBA_ISTEC', 'DBA_ISTEC'].includes(ctaSource)) {
                 programKey = ctaSource;
             }
         }
 
         if (!programKey) {
             const path = window.location.pathname.toLowerCase();
-            if (path.includes('mscai')) {
+            if (path.includes('mba-istec') || path.includes('istec-mba')) {
+                programKey = 'IDEAS08';
+            } else if (path.includes('dba-istec') || path.includes('istec-dba')) {
+                programKey = 'IDEAS09';
+            } else if (path.includes('mscai')) {
                 programKey = 'IDEAS04';
             } else if (path.includes('mbainai') || path.includes('tri-tue-song-hanh')) {
                 programKey = 'IDEAS05';
@@ -903,6 +907,10 @@ const isEn = document.documentElement.lang === 'en';
             'IDEAS05': 'MBA in AI Thụy Sĩ',
             'IDEAS04': 'MSc AI Thụy Sĩ',
             'IDEAS06': 'Song bằng Tiến sĩ DBA',
+            'IDEAS08': 'MBA ISTEC Paris (Pháp)',
+            'IDEAS09': 'DBA ISTEC Paris (Pháp)',
+            'MBA_ISTEC': 'MBA ISTEC Paris (Pháp)',
+            'DBA_ISTEC': 'DBA ISTEC Paris (Pháp)',
             'default': 'Chương trình Đào tạo Quốc tế'
         };
 
@@ -914,6 +922,10 @@ const isEn = document.documentElement.lang === 'en';
             'IDEAS05': 'Swiss MBA in AI',
             'IDEAS04': 'Swiss MSc AI',
             'IDEAS06': 'Song Doctoral degree DBA',
+            'IDEAS08': 'MBA ISTEC Paris (France)',
+            'IDEAS09': 'DBA ISTEC Paris (France)',
+            'MBA_ISTEC': 'MBA ISTEC Paris (France)',
+            'DBA_ISTEC': 'DBA ISTEC Paris (France)',
             'default': 'International Programs'
         };
 
