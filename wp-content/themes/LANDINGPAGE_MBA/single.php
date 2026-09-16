@@ -756,6 +756,132 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transform: scale(1.02);
         }
 
+        /* Article ISTEC Horizontal Promo Card */
+        .article-istec-promo-card {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 36px 0 28px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+        }
+
+        .article-istec-promo-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .istec-card-media {
+            width: 220px;
+            height: 220px;
+            flex-shrink: 0;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f8fafc;
+        }
+
+        .istec-card-img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            border-radius: 14px;
+            transition: transform 0.4s ease;
+        }
+
+        .article-istec-promo-card:hover .istec-card-img {
+            transform: scale(1.03);
+        }
+
+        .istec-card-content {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .istec-card-title {
+            font-size: 1.28rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.35;
+            margin: 0 0 12px 0;
+            font-family: inherit;
+        }
+
+        .istec-card-desc {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.65;
+            margin: 0 0 20px 0;
+        }
+
+        .istec-card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ab0e00;
+            color: #ffffff !important;
+            padding: 11px 22px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(171, 14, 0, 0.2);
+        }
+
+        .istec-card-btn:hover {
+            background: #8c1000;
+            color: #ffffff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(171, 14, 0, 0.35);
+        }
+
+        .istec-card-btn svg {
+            transition: transform 0.2s ease;
+        }
+
+        .istec-card-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .article-istec-promo-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .istec-card-media {
+                width: 100%;
+                max-width: 240px;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
+
+            .istec-card-content {
+                align-items: center;
+            }
+
+            .istec-card-title {
+                font-size: 1.15rem;
+            }
+
+            .istec-card-desc {
+                font-size: 0.9rem;
+            }
+        }
+
         /* Post navigation cards */
         .post-navigation {
             display: grid;
@@ -1343,6 +1469,26 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                                     echo $content_html;
                                     ?>
+
+                                    <!-- Article ISTEC In-Content Banner Card -->
+                                    <div class="article-istec-promo-card">
+                                        <div class="istec-card-media">
+                                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/carousel-istec.webp" 
+                                                 alt="<?php echo $is_en ? 'ISTEC Business School Paris' : 'Chương trình Thạc sĩ – Tiến sĩ chuẩn giáo dục Pháp từ ISTEC BUSINESS SCHOOL'; ?>" 
+                                                 width="1080" height="1080" 
+                                                 loading="lazy" 
+                                                 decoding="async" 
+                                                 class="istec-card-img">
+                                        </div>
+                                        <div class="istec-card-content">
+                                            <h3 class="istec-card-title"><?php echo $is_en ? 'French Standard Master &amp; Doctorate Programs from ISTEC BUSINESS SCHOOL' : 'Chương trình Thạc sĩ – Tiến sĩ chuẩn giáo dục Pháp từ ISTEC BUSINESS SCHOOL'; ?></h3>
+                                            <p class="istec-card-desc"><?php echo $is_en ? 'Explore the high-quality training ecosystem of ISTEC Paris in partnership with IDEAS for Vietnamese learners and executives.' : 'Khám phá hệ thống đào tạo chất lượng cao của ISTEC Paris phối hợp cùng IDEAS triển khai cho học viên và các nhà quản trị Việt Nam.'; ?></p>
+                                            <a href="<?php echo esc_url(home_url('/truong-kinh-doanh-istec-phap')); ?>" class="istec-card-btn" title="<?php echo $is_en ? 'Explore ISTEC Paris' : 'Khám phá ngay'; ?>">
+                                                <span><?php echo $is_en ? 'Explore Now' : 'Khám phá ngay'; ?></span>
+                                                <svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Share Section -->
