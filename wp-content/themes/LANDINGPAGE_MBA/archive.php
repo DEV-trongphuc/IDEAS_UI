@@ -1070,18 +1070,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="sidebar-widget">
                     <h3 class="widget-title"><?php echo $is_en ? 'Academic Programs' : 'Chương trình đào tạo'; ?></h3>
                     <div class="sidebar-course-list">
-                        <a href="<?php echo $is_en ? '/en/bba' : '/bba'; ?>" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP-optimized.webp" alt="Top-up BBA"
-                                class="sidebar-course-img">
+                        <a href="<?php echo $is_en ? '/en/mba-istec' : '/mba-istec'; ?>" class="sidebar-course-item">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg"
+                                alt="MBA ISTEC Paris" class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Top-up BBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? '12-month Bachelor Top-up' : 'Liên thông Cử nhân 12 tháng'; ?></p>
+                                <h4 class="sidebar-course-title">MBA ISTEC Paris</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Master of Business Admin' : 'Thạc sĩ QTKD chuẩn Pháp'; ?></p>
                             </div>
                         </a>
-                        <a href="<?php echo $is_en ? '/en/fullbba' : '/fullbba'; ?>" class="sidebar-course-item">
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
-                                alt="Global Online BBA" class="sidebar-course-img">
+                        <a href="<?php echo $is_en ? '/en/dba-istec' : '/dba-istec'; ?>" class="sidebar-course-item">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/dba/p14_img6_912x614.jpeg"
+                                alt="DBA ISTEC Paris" class="sidebar-course-img">
                             <div>
-                                <h4 class="sidebar-course-title">Global Online BBA</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'International BBA' : 'Cử nhân QTKD Quốc tế'; ?></p>
+                                <h4 class="sidebar-course-title">DBA ISTEC Paris</h4><p class="sidebar-course-desc"><?php echo $is_en ? 'Doctorate of Business Admin' : 'Tiến sĩ QTKD chuẩn Pháp'; ?></p>
                             </div>
                         </a>
                         <a href="<?php echo $is_en ? '/en/mba' : '/mba'; ?>" class="sidebar-course-item">

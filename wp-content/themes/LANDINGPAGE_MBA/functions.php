@@ -1114,23 +1114,46 @@ function ideas_admin_column_styles()
             }
 
             #adminmenuwrap {
-                padding-top: 98px !important;
+                padding-top: 88px !important;
+                padding-bottom: 75px !important;
                 position: fixed !important;
                 top: 0 !important;
                 left: 0 !important;
                 height: 100vh !important;
                 box-sizing: border-box !important;
-                overflow: visible !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+            }
+
+            #adminmenuwrap::-webkit-scrollbar {
+                width: 4px !important;
+            }
+
+            #adminmenuwrap::-webkit-scrollbar-track {
+                background: transparent !important;
+            }
+
+            #adminmenuwrap::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.15) !important;
+                border-radius: 4px !important;
+            }
+
+            #adminmenuwrap::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.35) !important;
             }
 
             .ideas-sidebar-logo {
-                position: absolute !important;
+                position: fixed !important;
                 top: 0 !important;
                 left: 0 !important;
-                width: 100% !important;
+                width: 210px !important;
                 height: 88px !important;
                 margin-bottom: 0 !important;
-                z-index: 10 !important;
+                z-index: 9999 !important;
+                background: #0f172a !important;
+                box-sizing: border-box !important;
             }
 
             #wpcontent,
