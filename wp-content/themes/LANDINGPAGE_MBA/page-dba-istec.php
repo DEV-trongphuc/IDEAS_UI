@@ -2007,7 +2007,7 @@ $seo_desc = $is_en
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
                         </span>
                         <span class="badge-text">
-                            <strong class="school-name">ISTEC Business School Paris:</strong> <?php echo $is_en ? 'Leading Business School in Paris, Recognized by the French State' : 'Trường Kinh doanh hàng đầu tại Paris, được Nhà nước Pháp công nhận'; ?>
+                            <strong class="school-name">ISTEC Business School Paris:</strong> <?php echo $is_en ? 'Practical Business School in Paris, Recognized by the French Ministry of Higher Education and Research' : 'Trường Kinh doanh kết hợp thực tiễn tại Paris, được Bộ Giáo dục Đại học và Nghiên cứu Pháp công nhận'; ?>
                         </span>
                     </div>
 

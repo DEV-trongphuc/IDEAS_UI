@@ -16,10 +16,10 @@ global $wp;
 
 // Override Yoast SEO & RankMath social preview images/titles dynamically
 add_filter('wpseo_title', function($t) { return 'Thạc Sĩ Quản Trị Kinh Doanh (MBA) ISTEC Paris | Chuẩn Pháp Bac+5 & RNCP Level 7'; });
-add_filter('wpseo_metadesc', function($d) { return 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.'; });
+add_filter('wpseo_metadesc', function($d) { return 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 14 - 16 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.'; });
 add_filter('wpseo_opengraph_image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
 add_filter('rank_math/frontend/title', function($t) { return 'Thạc Sĩ Quản Trị Kinh Doanh (MBA) ISTEC Paris | Chuẩn Pháp Bac+5 & RNCP Level 7'; });
-add_filter('rank_math/frontend/description', function($d) { return 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.'; });
+add_filter('rank_math/frontend/description', function($d) { return 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 14 - 16 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.'; });
 add_filter('rank_math/opengraph/facebook/image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
 add_filter('rank_math/opengraph/twitter/image', function($img) { return get_stylesheet_directory_uri() . '/common-assets/images/istec/istec-grand-rex-paris.jpg'; });
 
@@ -39,8 +39,8 @@ $seo_title = $is_en
     ? 'MBA ISTEC Business School Paris | Online Master of Business Administration Bac+5' 
     : 'Thạc Sĩ Quản Trị Kinh Doanh (MBA) ISTEC Paris | Chuẩn Pháp Bac+5 & RNCP Level 7';
 $seo_desc = $is_en 
-    ? 'Online Master of Business Administration (MBA) from ISTEC Business School Paris (Grande École est. 1961). 12 months, 60 ECTS, accredited Bac+5 (RNCP Level 7 & Visa Bac+5). Tuition discount 6,500 EUR. Apply now!' 
-    : 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.';
+    ? 'Online Master of Business Administration (MBA) from ISTEC Business School Paris (Grande École est. 1961). 14 - 16 months, 60 ECTS, accredited Bac+5 (RNCP Level 7 & Visa Bac+5). Tuition discount 6,500 EUR. Apply now!' 
+    : 'Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 14 - 16 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR.';
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
@@ -168,7 +168,7 @@ $seo_desc = $is_en
             "height": 630,
             "caption": "Lễ tốt nghiệp Thạc sĩ MBA ISTEC Paris tại Nhà hát Le Grand Rex Paris"
           },
-          "description": "Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 12 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR."
+          "description": "Chương trình Thạc sĩ Quản trị Kinh doanh (MBA) trực tuyến từ ISTEC Paris – Grande École thành lập 1961. Đào tạo 14 - 16 tháng, văn bằng chuẩn Pháp Bac+5 (RNCP Level 7 & Visa Bac+5). Học phí ưu đãi 6.500 EUR."
         },
         {
           "@type": "BreadcrumbList",
@@ -199,13 +199,13 @@ $seo_desc = $is_en
           "@id": "https://ideas.edu.vn/mba-istec#course",
           "name": "Thạc sĩ Quản trị Kinh doanh (MBA) – ISTEC Business School Paris",
           "alternateName": "Master of Business Administration – ISTEC Paris",
-          "description": "Chương trình đào tạo Thạc sĩ Quản trị Kinh doanh trực tuyến 12 tháng (60 ECTS) từ trường kinh doanh ISTEC Business School Paris (Grande École thành lập 1961, thành viên CGE danh giá). Văn bằng chuẩn học vị Thạc sĩ Quốc gia Pháp Bac+5 (RNCP Level 7 & Visa Bac+5 của Bộ Giáo dục Đại học Pháp).",
+          "description": "Chương trình đào tạo Thạc sĩ Quản trị Kinh doanh trực tuyến 14 - 16 tháng (60 ECTS) từ trường kinh doanh ISTEC Business School Paris (Grande École thành lập 1961, thành viên CGE danh giá). Văn bằng chuẩn học vị Thạc sĩ Quốc gia Pháp Bac+5 (RNCP Level 7 & Visa Bac+5 của Bộ Giáo dục Đại học Pháp).",
           "courseCode": "MBA-ISTEC-PARIS",
           "educationalLevel": "Master / Level 7 (EQF) / Bac+5",
           "inLanguage": "vi",
           "availableLanguage": ["vi", "en"],
           "courseMode": "online",
-          "timeRequired": "P12M",
+          "timeRequired": "P16M",
           "educationalCredentialAwarded": "Master of Business Administration (MBA) – ISTEC Business School Paris (Bac+5 / RNCP Level 7)",
           "provider": [
             {
@@ -265,7 +265,7 @@ $seo_desc = $is_en
               "name": "Hình thức học và thời gian đào tạo chương trình MBA như thế nào?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Chương trình đào tạo 12 tháng theo hình thức 100% trực tuyến linh hoạt, rất phù hợp cho người đi làm và nhà quản lý. Học viên hoàn thành 15 môn học thực tiễn và thực hiện luận văn tốt nghiệp."
+                "text": "Chương trình đào tạo 14 - 16 tháng theo hình thức 100% trực tuyến linh hoạt, rất phù hợp cho người đi làm và nhà quản lý. Học viên hoàn thành 15 môn học thực tiễn và thực hiện luận văn tốt nghiệp."
               }
             },
             {
@@ -2695,7 +2695,7 @@ $seo_desc = $is_en
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
                         </span>
                         <span class="badge-text">
-                            <strong class="school-name">ISTEC Business School Paris:</strong> <?php echo $is_en ? 'Leading Business School in Paris, Recognized by the French State' : 'Trường Kinh doanh hàng đầu tại Paris, được Nhà nước Pháp công nhận'; ?>
+                            <strong class="school-name">ISTEC Business School Paris:</strong> <?php echo $is_en ? 'Practical Business School in Paris, Recognized by the French Ministry of Higher Education and Research' : 'Trường Kinh doanh kết hợp thực tiễn tại Paris, được Bộ Giáo dục Đại học và Nghiên cứu Pháp công nhận'; ?>
                         </span>
                     </div>
 
@@ -2793,7 +2793,7 @@ $seo_desc = $is_en
 
                     <div class="spec-item">
                         <div class="spec-label">THỜI GIAN ĐÀO TẠO</div>
-                        <div class="spec-value">12 Tháng • 100% Trực tuyến linh hoạt cho người đi làm</div>
+                        <div class="spec-value">14 - 16 Tháng • 100% Trực tuyến linh hoạt cho người đi làm</div>
                     </div>
 
                     <div class="spec-divider"></div>
@@ -3556,9 +3556,9 @@ $seo_desc = $is_en
 
             <!-- Timeline Navigation Buttons: Active màu xanh brand ISTEC -->
             <div class="timeline-tabs-clean istec-reveal">
-                <button class="btn-tab-square active" data-term="boxTerm1">Học Kỳ I (3 Tháng)</button>
-                <button class="btn-tab-square" data-term="boxTerm2">Học Kỳ II (3 Tháng)</button>
-                <button class="btn-tab-square" data-term="boxTerm3">Học Kỳ III (3 Tháng)</button>
+                <button class="btn-tab-square active" data-term="boxTerm1">Học Kỳ I (4 Tháng)</button>
+                <button class="btn-tab-square" data-term="boxTerm2">Học Kỳ II (5 Tháng)</button>
+                <button class="btn-tab-square" data-term="boxTerm3">Học Kỳ III (5 Tháng)</button>
                 <button class="btn-tab-square" data-term="boxTerm4">Luận Văn Tốt Nghiệp (2 Tháng)</button>
             </div>
 
@@ -3900,7 +3900,7 @@ $seo_desc = $is_en
                     <ul class="clean-tick-list" style="margin-bottom: 24px;">
                         <li>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Học phí trọn khóa MBA và phí dịch vụ đào tạo chuyên sâu từ Viện IDEAS trong suốt 12 tháng.</span>
+                            <span>Học phí trọn khóa MBA và phí dịch vụ đào tạo chuyên sâu từ Viện IDEAS trong suốt 14 - 16 tháng.</span>
                         </li>
                         <li>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -4186,7 +4186,7 @@ $seo_desc = $is_en
                             </button>
                             <div class="acc-square-panel">
                                 <div class="acc-square-content">
-                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Chương trình kéo dài 12 tháng, gồm 3 học kỳ nền tảng (mỗi kỳ 3 tháng) và giai đoạn thực hiện luận văn/dự án kinh doanh ứng dụng cuối khóa trong 2 tháng (tổng 60 tín chỉ ECTS Châu Âu).</p>
+                                    <p style="margin: 0; color: var(--dark-sub); line-height: 1.65;">Chương trình kéo dài từ 14 - 16 tháng, gồm 3 học kỳ nền tảng (Học kỳ I: 4 tháng, Học kỳ II: 5 tháng, Học kỳ III: 5 tháng) và giai đoạn thực hiện luận văn/dự án kinh doanh ứng dụng cuối khóa trong 2 tháng (tổng 60 tín chỉ ECTS Châu Âu).</p>
                                 </div>
                             </div>
                         </div>

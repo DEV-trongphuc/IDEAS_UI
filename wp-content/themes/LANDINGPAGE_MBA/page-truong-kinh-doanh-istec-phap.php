@@ -3813,7 +3813,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="acc-sac-stat-label">Grande École</span>
                         </div>
                         <div class="acc-sac-stat">
-                            <span class="acc-sac-stat-val">RNCP 7/8</span>
+                            <span class="acc-sac-stat-val">RNCP 7</span>
                             <span class="acc-sac-stat-label">Đăng ký Nghề nghiệp QG</span>
                         </div>
                     </div>
@@ -4004,7 +4004,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </div>
                 
-                <!-- MBA Card (Chương trình MBA - 12 - 14 tháng) -->
+                <!-- MBA Card (Chương trình MBA - 14 - 16 tháng) -->
                 <div class="prog-card" onclick="if(!event.target.closest('button, a')) { window.location.href='<?php echo esc_url($mba_ldp_url); ?>'; }" style="cursor: pointer;">
                     <a href="<?php echo esc_url($mba_ldp_url); ?>" class="prog-card-thumb" aria-label="<?php echo $is_en ? 'MBA Program' : 'Chương trình MBA'; ?>">
                         <img src="https://istec.fr/wp-content/uploads/2025/05/Homepage_5-1-scaled.jpg" alt="Chương trình MBA - ISTEC Paris" loading="lazy" decoding="async" />
@@ -4020,7 +4020,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </p>
                         <ul class="prog-card-list">
                             <li>
-                                <?php echo $is_en ? 'Duration: 12 - 14 months' : 'Thời gian: 12 - 14 tháng'; ?>
+                                <?php echo $is_en ? 'Duration: 14 - 16 months' : 'Thời gian: 14 - 16 tháng'; ?>
                             </li>
                             <li>
                                 <?php echo $is_en ? 'National Master Degree recognized by CEFDG' : 'Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG'; ?>
