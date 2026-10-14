@@ -1791,37 +1791,6 @@ $seo_desc = $is_en
             box-shadow: 0 0 0 3px rgba(0, 92, 77, 0.08);
         }
 
-        /* ── APP BACK TO TOP ── */
-        .app-back-to-top {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 99;
-            background: #111827;
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: var(--radius-square);
-            padding: 8px 12px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.2s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .app-back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .app-back-to-top:hover {
-            background: var(--istec-deep-green);
-            transform: translateY(-2px);
-        }
 
         .istec-reveal {
             opacity: 0;
@@ -3198,11 +3167,6 @@ $seo_desc = $is_en
         </div>
     </div>
 
-    <!-- ══ NÚT CUỘN LÊN ĐẦU TRANG ══ -->
-    <button id="btnScrollTop" class="app-back-to-top" onclick="scrollToTop()" type="button" aria-label="Lên đầu trang">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
-        <span>Lên đầu trang</span>
-    </button>
 
     <!-- ══ FOOTER CHUẨN ĐỒNG BỘ CỦA WEBSITE IDEAS ══ -->
     <?php get_footer(); ?>
@@ -3362,19 +3326,6 @@ $seo_desc = $is_en
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' || e.keyCode === 27) {
                 closeIstecAccred();
-            }
-        });
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        window.addEventListener('scroll', function() {
-            const btn = document.getElementById('btnScrollTop');
-            if (!btn) return;
-            if (window.scrollY > 350) {
-                btn.classList.add('visible');
-            } else {
-                btn.classList.remove('visible');
             }
         });
 

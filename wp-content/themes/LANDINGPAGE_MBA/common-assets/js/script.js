@@ -2733,7 +2733,15 @@ function initMobileTopSheet() {
     let programSub = "";
     let avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp";
 
-    if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
+    if (path.includes("dba-istec") || path.includes("istec-dba")) {
+        programName = "DBA ISTEC Paris";
+        programSub = isEn ? "Doctorate of Business Admin" : "Tiến sĩ QTKD chuẩn Pháp";
+        avatarUrl = "https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/dba/p14_img6_912x614.jpeg";
+    } else if (path.includes("mba-istec") || path.includes("istec-mba")) {
+        programName = "MBA ISTEC Paris";
+        programSub = isEn ? "Master of Business Admin" : "Thạc sĩ QTKD chuẩn Pháp";
+        avatarUrl = "https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/dba/p14_img6_912x614.jpeg";
+    } else if (path.includes("mbainai") || path.includes("tri-tue-song-hanh")) {
         programName = "MBA in AI";
         programSub = isEn ? "Swiss Applied AI Master's" : "Thạc sĩ QTKD Ứng dụng AI";
         avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/mba_in_ai.webp";
@@ -2761,11 +2769,16 @@ function initMobileTopSheet() {
         programName = "Online MBA";
         programSub = isEn ? "Master of Business Administration" : "Thạc sĩ Quản trị Kinh doanh";
         avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp";
+    } else if (path.includes("istec")) {
+        programName = "ISTEC Paris";
+        programSub = isEn ? "Grande École Paris" : "Trường Kinh doanh ISTEC Paris";
+        avatarUrl = "https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/dba/p14_img6_912x614.jpeg";
     } else {
         programName = isEn ? "IDEAS" : "IDEAS";
         programSub = isEn ? "Admissions & Scholarship Roadmaps" : "Tư vấn lộ trình phù hợp";
         avatarUrl = "https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp";
     }
+
 
     // Create elements
     const sheet = document.createElement('div');

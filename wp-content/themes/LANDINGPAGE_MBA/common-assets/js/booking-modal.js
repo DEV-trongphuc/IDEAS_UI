@@ -528,6 +528,12 @@
         } else if (path.includes("bba")) {
             sourceVal = "Landing_BBA_Topup";
             chuongTrinhVal = "Online Top-up BBA";
+        } else if (path.includes("dba-istec") || path.includes("istec-dba")) {
+            sourceVal = "Landing_DBA_ISTEC";
+            chuongTrinhVal = "Online DBA ISTEC";
+        } else if (path.includes("mba-istec") || path.includes("istec-mba")) {
+            sourceVal = "Landing_MBA_ISTEC";
+            chuongTrinhVal = "Online MBA ISTEC";
         } else if (path.includes("dual-dba") || path.includes("dba")) {
             sourceVal = "Landing_Dual_DBA";
             chuongTrinhVal = "Online Dual DBA";
