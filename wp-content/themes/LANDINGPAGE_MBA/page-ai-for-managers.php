@@ -1038,30 +1038,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-mini-chip {
             display: inline-flex;
             align-items: center;
-            font-size: 0.74rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            color: #ab0e00;
-            background: #fff5f5;
-            border: 1px solid rgba(171, 14, 0, 0.16);
+            color: #1e293b;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
             padding: 4px 12px;
             border-radius: 100px;
             line-height: 1.3;
         }
 
         .ble-mini-chip.red {
-            background: #ffebeb;
-            border-color: rgba(171, 14, 0, 0.25);
+            background: #ab0e00;
+            color: #ffffff;
+            border-color: #ab0e00;
             font-weight: 800;
         }
 
-        /* ── Horizontal 4-Step AI Maturity Bar (Light Brand UI) ── */
+        /* ── Horizontal 4-Step AI Maturity Bar (High-Contrast Clean Slate & Brand Red) ── */
         .ble-maturity-bar {
-            margin-top: 28px;
-            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #ffebeb 100%);
-            border: 1.5px solid rgba(171, 14, 0, 0.18);
+            margin-top: 32px;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
             border-radius: 24px;
-            padding: 26px 28px;
-            box-shadow: 0 16px 40px rgba(171, 14, 0, 0.06);
+            padding: 28px 30px;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);
             position: relative;
             z-index: 2;
         }
@@ -1072,14 +1073,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid rgba(171, 14, 0, 0.12);
+            margin-bottom: 22px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .ble-maturity-header h4 {
             margin: 0;
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             font-weight: 800;
             color: #0f172a;
             display: flex;
@@ -1088,14 +1089,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .ble-maturity-header span {
-            font-size: 0.75rem;
-            color: #ab0e00;
-            background: rgba(171, 14, 0, 0.08);
-            border: 1px solid rgba(171, 14, 0, 0.16);
-            padding: 5px 14px;
+            font-size: 0.76rem;
+            color: #ffffff;
+            background: #0f172a;
+            padding: 6px 14px;
             border-radius: 100px;
-            font-weight: 800;
-            letter-spacing: 0.04em;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
 
         .ble-maturity-steps {
@@ -1106,63 +1106,65 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-mat-step {
             background: #ffffff;
-            border: 1.5px solid rgba(171, 14, 0, 0.14);
+            border: 1.5px solid #e2e8f0;
             border-radius: 16px;
-            padding: 18px 16px;
+            padding: 20px 18px;
             position: relative;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.025);
         }
 
         .ble-mat-step:hover {
-            background: #fffafa;
             border-color: #ab0e00;
             transform: translateY(-3px);
-            box-shadow: 0 12px 26px rgba(171, 14, 0, 0.1);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
         }
 
+        .ble-mat-step.active-target,
         .ble-mat-step:last-child {
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
-            border-color: rgba(171, 14, 0, 0.32);
+            background: #ffffff;
+            border: 2px solid #ab0e00;
+            box-shadow: 0 10px 24px rgba(171, 14, 0, 0.08);
         }
 
         .ble-mat-badge {
             display: inline-block;
-            font-size: 0.68rem;
+            font-size: 0.7rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #ab0e00;
-            background: #fff0f0;
-            border: 1px solid rgba(171, 14, 0, 0.2);
-            padding: 3px 9px;
+            color: #0f172a;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 4px 10px;
             border-radius: 6px;
             margin-bottom: 10px;
         }
 
+        .ble-mat-step.active-target .ble-mat-badge,
         .ble-mat-step:last-child .ble-mat-badge {
-            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
+            background: #ab0e00;
             color: #ffffff;
-            border-color: transparent;
+            border-color: #ab0e00;
         }
 
         .ble-mat-step h5 {
             margin: 0 0 6px 0;
-            font-size: 0.98rem;
+            font-size: 1rem;
             font-weight: 800;
             color: #0f172a;
         }
 
         .ble-mat-step p {
             margin: 0;
-            font-size: 0.82rem;
-            color: #475569;
-            line-height: 1.5;
+            font-size: 0.84rem;
+            color: #334155;
+            line-height: 1.55;
         }
 
-        /* ── 4. CURRICULUM SECTION (Light Brand UI & Cask Layout) ── */
+        /* ── 4. CURRICULUM SECTION (Clean Slate Background & Crisp Cards) ── */
         #curriculum {
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #ffebeb 100%) !important;
+            background: #f8fafc !important;
             position: relative;
         }
 
@@ -1190,7 +1192,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-tab {
             background: #ffffff;
-            border: 1.5px solid rgba(171, 14, 0, 0.14);
+            border: 1.5px solid #e2e8f0;
             border-radius: 16px;
             padding: 22px 24px;
             cursor: pointer;
@@ -1214,7 +1216,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-tab-title {
             font-size: 1.02rem;
             font-weight: 800;
-            color: #1e293b;
+            color: #0f172a;
             line-height: 1.35;
             position: relative;
             z-index: 2;
@@ -1226,13 +1228,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-tab.active {
-            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.25);
-            border-color: #ab0e00;
+            background: #0f172a;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+            border-color: #0f172a;
         }
 
         .curr-tab.active .curr-tab-tag {
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: #ff6b6b !important;
         }
 
         .curr-tab.active .curr-tab-title {
@@ -1261,9 +1263,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 66%;
             background: #ffffff;
             border-radius: 24px;
-            border: 1.5px solid rgba(171, 14, 0, 0.14);
+            border: 1.5px solid #e2e8f0;
             padding: 42px;
-            box-shadow: 0 12px 35px rgba(171, 14, 0, 0.05);
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -1272,7 +1274,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-panel-header {
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
             padding-bottom: 24px;
             margin-bottom: 24px;
         }
@@ -1288,7 +1290,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-panel-desc {
             font-size: 0.92rem;
             line-height: 1.6;
-            color: #475569;
+            color: #334155;
             margin: 0;
         }
 
@@ -1300,16 +1302,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-acc-item {
             background: #f8fafc;
-            border: 1.5px solid rgba(15, 23, 42, 0.06);
+            border: 1.5px solid #e2e8f0;
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .curr-acc-item.active {
-            border-color: rgba(171, 14, 0, 0.22);
+            border-color: #cbd5e1;
             background: #ffffff;
-            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.04);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
         }
 
         .curr-acc-header {
@@ -1346,8 +1348,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-acc-badge {
             font-size: 0.72rem;
             font-weight: 800;
-            color: #ab0e00;
-            background: rgba(171, 14, 0, 0.08);
+            color: #0f172a;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
             padding: 5px 12px;
             border-radius: 8px;
             text-transform: uppercase;
@@ -1357,7 +1360,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-acc-content-inner {
             padding: 20px 24px 24px 48px;
-            border-top: 1px solid #f1f5f9;
+            border-top: 1px solid #e2e8f0;
             background-color: #ffffff;
         }
 
@@ -1370,7 +1373,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 10px;
         }
 
-        /* FIXED: Use display:block + absolute bullet so inline <strong> and <code> never break into flex columns */
         .curr-topics-list li {
             font-size: 0.9rem;
             color: #334155;
@@ -1393,22 +1395,21 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-topics-list li code {
             display: inline-block;
-            background: #fff5f5;
-            color: #ab0e00;
-            padding: 1px 6px;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 1px 7px;
             border-radius: 5px;
             font-size: 0.84em;
             font-weight: 700;
-            border: 1px solid rgba(171, 14, 0, 0.16);
+            border: 1px solid #cbd5e1;
         }
 
         .curr-outcomes {
             margin-top: 28px;
-            background: linear-gradient(135deg, #ffffff 0%, #fff8f8 100%);
+            background: #f8fafc;
             border-radius: 16px;
             padding: 26px 28px;
-            border: 1.5px solid rgba(171, 14, 0, 0.15);
-            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.03);
+            border: 1.5px solid #e2e8f0;
             position: relative;
             overflow: hidden;
         }
@@ -1426,7 +1427,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-outcomes-title {
             font-size: 0.92rem;
             font-weight: 800;
-            color: #ab0e00;
+            color: #0f172a;
             margin: 0 0 14px 0;
             text-transform: uppercase;
             letter-spacing: 0.03em;
@@ -1460,253 +1461,324 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin-top: 3px;
         }
 
-        /* ── 5B. BENTO COCKPIT: P.R.O.M.P.T ENGINE & 108+ AI AGENTS (Light Brand UI) ── */
+        /* ── 5B. BENTO COCKPIT: P.R.O.M.P.T ENGINE & 108+ AI AGENTS (High-Contrast Clean Slate UI) ── */
+        #thu-vien-agents {
+            background: #f8fafc !important;
+        }
+
         .ble-cockpit-grid {
             display: grid;
-            grid-template-columns: 370px 1fr;
-            gap: 24px;
+            grid-template-columns: 380px 1fr;
+            gap: 28px;
             align-items: stretch;
         }
 
-        /* Left Column: Light Brand P.R.O.M.P.T Command Deck */
+        /* Left Column: High-Contrast P.R.O.M.P.T Command Deck */
         .ble-prompt-deck {
-            background: linear-gradient(155deg, #fff5f5 0%, #ffffff 55%, #ffebeb 100%);
-            border: 1.5px solid rgba(171, 14, 0, 0.2);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-top: 4px solid #ab0e00;
             border-radius: 22px;
-            padding: 26px 22px;
+            padding: 28px 24px;
             color: #0f172a;
             display: flex;
             flex-direction: column;
             gap: 14px;
-            box-shadow: 0 16px 36px -6px rgba(171, 14, 0, 0.08);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
         }
 
         .ble-pdeck-badge {
             font-size: 0.72rem;
             font-weight: 800;
-            color: #ab0e00;
-            background: rgba(171, 14, 0, 0.08);
-            border: 1px solid rgba(171, 14, 0, 0.16);
-            padding: 4px 12px;
-            border-radius: 100px;
+            color: #ffffff;
+            background: #0f172a;
+            padding: 5px 12px;
+            border-radius: 6px;
             letter-spacing: 0.06em;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
-            gap: 7px;
             align-self: flex-start;
-        }
-
-        .ble-pdeck-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #ab0e00;
-            box-shadow: 0 0 8px rgba(171, 14, 0, 0.5);
         }
 
         .ble-pdeck-title {
             margin: 0;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 800;
             color: #0f172a;
             letter-spacing: -0.015em;
             line-height: 1.25;
         }
 
+        .ble-pdeck-title span {
+            color: #ab0e00;
+        }
+
         .ble-pdeck-sub {
             margin: 0;
-            font-size: 0.83rem;
+            font-size: 0.85rem;
             color: #475569;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         .ble-pdeck-list {
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 10px;
             margin-top: 4px;
         }
 
         .ble-pdeck-item {
-            background: #ffffff;
-            border: 1.5px solid rgba(171, 14, 0, 0.12);
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
             border-radius: 14px;
-            padding: 11px 14px;
+            padding: 13px 15px;
             display: flex;
-            flex-direction: column;
             align-items: flex-start;
-            gap: 3px;
+            gap: 14px;
             cursor: pointer;
             transition: all 0.22s ease;
-            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.025);
         }
 
         .ble-pdeck-item:hover,
         .ble-pdeck-item.active {
-            background: #fffafa;
+            background: #ffffff;
             border-color: #ab0e00;
             transform: translateX(4px);
-            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
         }
 
-        .ble-pdeck-item-top {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .ble-pdeck-char {
-            width: 26px;
-            height: 26px;
-            border-radius: 7px;
-            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
+        .ble-pdeck-letter {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: #0f172a;
             color: #ffffff;
             font-weight: 800;
-            font-size: 0.82rem;
+            font-size: 0.92rem;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 3px 8px rgba(171, 14, 0, 0.22);
+            transition: all 0.22s ease;
         }
 
-        .ble-pdeck-key {
-            font-size: 0.88rem;
+        .ble-pdeck-item:hover .ble-pdeck-letter,
+        .ble-pdeck-item.active .ble-pdeck-letter {
+            background: #ab0e00;
+            color: #ffffff;
+        }
+
+        .ble-pdeck-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ble-pdeck-info h5 {
+            margin: 0 0 4px 0;
+            font-size: 0.9rem;
             font-weight: 800;
             color: #0f172a;
+            line-height: 1.3;
         }
 
-        .ble-pdeck-val {
-            font-size: 0.78rem;
+        .ble-pdeck-info p {
+            margin: 0;
+            font-size: 0.81rem;
             color: #475569;
-            line-height: 1.4;
-            padding-left: 36px;
+            line-height: 1.5;
         }
 
         .ble-pdeck-footer {
             margin-top: auto;
-            padding-top: 12px;
-            border-top: 1px solid rgba(171, 14, 0, 0.14);
-            font-size: 0.78rem;
-            font-weight: 800;
-            color: #ab0e00;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* Right Column: Strategic Agent Suite with Interactive Switcher */
-        .ble-agents-center {
-            background: #ffffff;
-            border: 1.5px solid rgba(171, 14, 0, 0.14);
-            border-radius: 22px;
-            padding: 24px 26px;
+            padding: 12px 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            box-shadow: 0 12px 32px -4px rgba(171, 14, 0, 0.05);
+            gap: 4px;
         }
 
-        .ble-center-topbar {
+        .ble-pdeck-footer strong {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .ble-pdeck-footer span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #334155;
+            line-height: 1.45;
+        }
+
+        /* Right Column: Interactive 108+ AI Agents Command Center */
+        .ble-agents-center {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 22px;
+            padding: 28px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+        }
+
+        .ble-agents-toolbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 12px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #f1f5f9;
+            gap: 16px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ble-agents-toolbar-title h3 {
+            margin: 0 0 4px 0;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+
+        .ble-agents-toolbar-title h3 span {
+            color: #ab0e00;
+        }
+
+        .ble-agents-toolbar-title p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #475569;
         }
 
         .ble-switch-pills {
             display: inline-flex;
-            background: #fff5f5;
-            border: 1px solid rgba(171, 14, 0, 0.16);
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
             border-radius: 12px;
-            padding: 4px;
-            gap: 4px;
+            padding: 5px;
+            gap: 6px;
         }
 
         .ble-switch-btn {
             background: transparent;
             border: none;
-            padding: 9px 18px;
-            border-radius: 9px;
+            padding: 10px 16px;
+            border-radius: 8px;
             font-size: 0.84rem;
             font-weight: 800;
-            color: #64748b;
+            color: #334155;
             cursor: pointer;
             transition: all 0.2s ease;
             outline: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .ble-switch-btn:hover {
-            color: #ab0e00;
+            color: #0f172a;
+            background: rgba(255, 255, 255, 0.6);
         }
 
         .ble-switch-btn.active {
-            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
+            background: #0f172a;
             color: #ffffff;
-            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.25);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+        }
+
+        .ble-switch-btn .badge-cnt {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .ble-switch-btn.active .badge-cnt {
+            background: #ab0e00;
+            color: #ffffff;
         }
 
         /* View 1: 7 C-Suite Advisors Deck */
         .ble-csuite-deck {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            gap: 16px;
         }
 
         .ble-exec-card {
-            background: #fffafa;
-            border: 1.5px solid rgba(171, 14, 0, 0.1);
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
             border-radius: 16px;
-            padding: 16px 16px;
+            padding: 20px 18px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.22s ease;
         }
 
         .ble-exec-card:hover {
             background: #ffffff;
             border-color: #ab0e00;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px -4px rgba(171, 14, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
         }
 
-        .ble-exec-card-wide {
-            grid-column: span 3;
-            background: linear-gradient(135deg, #fffafa 0%, #fff5f5 100%);
+        .ble-exec-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 8px;
         }
 
-        .ble-exec-tag {
-            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
+        .ble-exec-role {
+            background: #0f172a;
             color: #ffffff;
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 800;
-            padding: 3px 10px;
+            padding: 4px 10px;
             border-radius: 6px;
             letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
-        .ble-exec-title {
+        .ble-exec-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #ab0e00;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ble-exec-card h4 {
             margin: 0;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             font-weight: 800;
             color: #0f172a;
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
-        .ble-exec-desc {
+        .ble-exec-card p {
             margin: 0;
-            font-size: 0.8rem;
-            color: #475569;
-            line-height: 1.5;
+            font-size: 0.84rem;
+            color: #334155;
+            line-height: 1.55;
         }
 
         .ble-exec-tools {
@@ -1714,18 +1786,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-wrap: wrap;
             gap: 6px;
             margin-top: auto;
-            padding-top: 8px;
-            border-top: 1px solid rgba(171, 14, 0, 0.08);
+            padding-top: 10px;
+            border-top: 1px solid #e2e8f0;
             width: 100%;
         }
 
         .ble-exec-tool-pill {
-            font-size: 0.7rem;
+            font-size: 0.73rem;
             font-weight: 700;
-            color: #ab0e00;
+            color: #1e293b;
             background: #ffffff;
-            border: 1px solid rgba(171, 14, 0, 0.18);
-            padding: 3px 8px;
+            border: 1px solid #cbd5e1;
+            padding: 4px 10px;
             border-radius: 6px;
             white-space: nowrap;
         }
@@ -1734,124 +1806,131 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-dept-deck {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
+            gap: 16px;
         }
 
-        .ble-dept-card {
-            background: #fffafa;
-            border: 1.5px solid rgba(171, 14, 0, 0.1);
+        .ble-dept-pod {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
             border-radius: 16px;
-            padding: 16px 16px;
+            padding: 20px 18px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
+            gap: 12px;
             transition: all 0.22s ease;
         }
 
-        .ble-dept-card:hover {
+        .ble-dept-pod:hover {
             background: #ffffff;
             border-color: #ab0e00;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px -4px rgba(171, 14, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
         }
 
-        .ble-dept-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: #fff5f5;
-            border: 1px solid rgba(171, 14, 0, 0.18);
-            color: #ab0e00;
+        .ble-dept-pod-head {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ble-dept-pod-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ble-dept-pod-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #ab0e00;
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            font-size: 1.15rem;
             flex-shrink: 0;
         }
 
-        .ble-dept-title {
+        .ble-dept-pod-title h4 {
             margin: 0;
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             font-weight: 800;
             color: #0f172a;
             line-height: 1.3;
         }
 
-        .ble-dept-count {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: #ab0e00;
-            background: #fff5f5;
-            border: 1px solid rgba(171, 14, 0, 0.2);
-            padding: 2px 8px;
-            border-radius: 6px;
-        }
-
-        .ble-dept-roster {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            width: 100%;
-            margin-top: 2px;
-            padding-top: 8px;
-            border-top: 1px solid rgba(171, 14, 0, 0.08);
-        }
-
-        .ble-dept-item {
-            font-size: 0.78rem;
-            color: #334155;
-            font-weight: 600;
-            line-height: 1.4;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
-
-        .ble-dept-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: #ab0e00;
-            display: inline-block;
-            flex-shrink: 0;
-        }
-
-        /* ── 5C. SOP 5-STEP PIPELINE & 30-60-90 ROADMAP (Light Brand UI) ── */
-        .ble-sop-track-panel {
-            background: #ffffff;
-            border: 1.5px solid rgba(171, 14, 0, 0.15);
-            border-radius: 22px;
-            padding: 24px 26px;
-            box-shadow: 0 12px 30px -4px rgba(171, 14, 0, 0.05);
-            margin-bottom: 24px;
-        }
-
-        .ble-sop-track-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding-bottom: 14px;
-            margin-bottom: 18px;
-            border-bottom: 1px solid rgba(171, 14, 0, 0.1);
-        }
-
-        .ble-sop-kicker {
+        .ble-dept-pod-count {
             font-size: 0.72rem;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #ab0e00;
-            background: #fff5f5;
-            padding: 4px 12px;
+            color: #ffffff;
+            background: #0f172a;
+            padding: 4px 9px;
             border-radius: 6px;
-            border: 1px solid rgba(171, 14, 0, 0.2);
+            white-space: nowrap;
         }
 
-        .ble-sop-sub {
-            font-size: 0.84rem;
+        .ble-dept-pod-roster {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ble-dept-pod-roster li {
+            font-size: 0.82rem;
+            color: #334155;
+            font-weight: 600;
+            line-height: 1.45;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .ble-dept-pod-roster li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #ab0e00;
+            font-weight: 800;
+        }
+
+        /* ── 5C. SOP 5-STEP PIPELINE & 30-60-90 ROADMAP (Clean High-Contrast Slate & Crimson UI) ── */
+        .ble-sop-track-panel {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 22px;
+            padding: 28px 28px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+            margin-bottom: 28px;
+        }
+
+        .ble-sop-track-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .ble-sop-track-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .ble-sop-track-header p {
+            margin: 0;
+            font-size: 0.86rem;
             color: #475569;
             font-weight: 600;
         }
@@ -1859,67 +1938,79 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-sop-steps-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 14px;
+            gap: 16px;
         }
 
         .ble-sop-box {
-            background: #fffafa;
-            border: 1.5px solid rgba(171, 14, 0, 0.1);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
             border-radius: 16px;
-            padding: 18px 16px;
+            padding: 20px 18px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             gap: 8px;
             transition: all 0.22s ease;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.025);
         }
 
         .ble-sop-box:hover {
-            background: #ffffff;
             border-color: #ab0e00;
             transform: translateY(-3px);
-            box-shadow: 0 10px 22px -4px rgba(171, 14, 0, 0.1);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.07);
         }
 
-        .ble-sop-num {
-            font-size: 0.74rem;
+        .ble-sop-circle {
+            font-size: 0.82rem;
             font-weight: 800;
             color: #ffffff;
-            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
-            width: 30px;
-            height: 30px;
-            border-radius: 8px;
+            background: #0f172a;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(171, 14, 0, 0.22);
+            margin-bottom: 2px;
         }
 
-        .ble-sop-title {
+        .ble-sop-box:hover .ble-sop-circle {
+            background: #ab0e00;
+        }
+
+        .ble-sop-stage {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #ab0e00;
+        }
+
+        .ble-sop-box h4 {
             margin: 0;
-            font-size: 0.92rem;
+            font-size: 0.96rem;
             font-weight: 800;
             color: #0f172a;
-            line-height: 1.3;
-        }
-
-        .ble-sop-desc {
-            margin: 0;
-            font-size: 0.8rem;
-            color: #475569;
-            line-height: 1.5;
-        }
-
-        .ble-sop-tag {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #ab0e00;
-            background: #ffffff;
-            border: 1px solid rgba(171, 14, 0, 0.18);
-            padding: 4px 8px;
-            border-radius: 6px;
-            display: block;
             line-height: 1.35;
+        }
+
+        .ble-sop-box p {
+            margin: 0;
+            font-size: 0.83rem;
+            color: #334155;
+            line-height: 1.55;
+        }
+
+        .ble-sop-deliverable {
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #0f172a;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 7px 10px;
+            border-radius: 8px;
+            display: block;
+            line-height: 1.4;
             margin-top: auto;
             width: 100%;
             box-sizing: border-box;
@@ -1928,63 +2019,67 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-horizon-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .ble-horizon-card {
             background: #ffffff;
-            border: 1.5px solid rgba(171, 14, 0, 0.14);
+            border: 1.5px solid #e2e8f0;
             border-radius: 20px;
-            padding: 24px 22px;
-            box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.04);
+            padding: 26px 24px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
             transition: all 0.25s ease;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 14px;
+        }
+
+        .ble-horizon-card.highlight {
+            border-top: 4px solid #ab0e00;
         }
 
         .ble-horizon-card:hover {
             transform: translateY(-4px);
             border-color: #ab0e00;
-            box-shadow: 0 16px 32px -4px rgba(171, 14, 0, 0.1);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+        }
+
+        .ble-hz-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
         }
 
         .ble-hz-badge {
-            font-size: 0.72rem;
+            font-size: 0.73rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #ab0e00;
-            background: #fff5f5;
-            padding: 4px 10px;
+            color: #ffffff;
+            background: #0f172a;
+            padding: 5px 12px;
             border-radius: 6px;
-            border: 1px solid rgba(171, 14, 0, 0.2);
-            align-self: flex-start;
         }
 
-        .ble-hz-time {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: #64748b;
+        .ble-horizon-card.highlight .ble-hz-badge {
+            background: #ab0e00;
         }
 
-        .ble-hz-progress {
-            width: 100%;
-            height: 5px;
-            background: #ffebeb;
-            border-radius: 99px;
-            overflow: hidden;
+        .ble-hz-days {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: -0.02em;
         }
 
-        .ble-hz-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ab0e00 0%, #e11d48 100%);
-            border-radius: 99px;
+        .ble-horizon-card.highlight .ble-hz-days {
+            color: #ab0e00;
         }
 
         .ble-hz-title {
             margin: 0;
-            font-size: 1.05rem;
+            font-size: 1.06rem;
             font-weight: 800;
             color: #0f172a;
             line-height: 1.35;
@@ -1992,45 +2087,68 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .ble-hz-desc {
             margin: 0;
-            font-size: 0.84rem;
-            color: #475569;
-            line-height: 1.55;
-        }
-
-        .ble-hz-kpi {
-            background: #fffafa;
-            border: 1px solid rgba(171, 14, 0, 0.15);
-            border-radius: 12px;
-            padding: 12px 14px;
-            font-size: 0.8rem;
+            font-size: 0.86rem;
             color: #334155;
-            line-height: 1.45;
-            margin-top: auto;
+            line-height: 1.6;
         }
 
-        .ble-kpi-kicker {
+        .ble-hz-progress {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .ble-hz-progress span {
             display: block;
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: #ab0e00;
-            letter-spacing: 0.04em;
-            margin-bottom: 3px;
+            height: 100%;
+            background: linear-gradient(90deg, #0f172a 0%, #ab0e00 100%);
+            border-radius: 99px;
         }
 
-        .ble-hz-footer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            padding-top: 6px;
-        }
-
-        .ble-hz-chip {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #475569;
+        .ble-hz-kpi-box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 3px 9px;
+            border-left: 4px solid #ab0e00;
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .ble-hz-kpi-box strong {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .ble-hz-kpi-box span {
+            display: block;
+            font-size: 0.83rem;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .ble-hz-kirkpatrick {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+            padding-top: 4px;
+        }
+
+        .ble-hz-kp-chip {
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: #1e293b;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 4px 10px;
             border-radius: 6px;
         }
 
@@ -3676,8 +3794,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 5B. THƯ VIỆN 108+ AI AGENTS & CÔNG THỨC P.R.O.M.P.T (Interactive Bento Cockpit Layout in Light Brand UI) -->
-        <section class="ble-section bg-soft-cream" id="thu-vien-agents">
+        <!-- 5B. THƯ VIỆN 108+ AI AGENTS & CÔNG THỨC P.R.O.M.P.T (Interactive Bento Cockpit Layout - High-Contrast Slate & Crimson UI) -->
+        <section class="ble-section" id="thu-vien-agents">
             <div class="ble-glow-orb ble-glow-orb-gold" style="top: 10%; right: -10%;"></div>
 
             <div class="ble-container">
@@ -3743,7 +3861,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
 
                         <div class="ble-pdeck-footer">
-                            <strong>⚡ Kỹ thuật nâng cao thực hành tại lớp:</strong>
+                            <strong>Kỹ thuật nâng cao thực hành tại lớp:</strong>
                             <span>Role Prompting • Chain-of-Thought (CoT) • Few-Shot • Meta-Prompting</span>
                         </div>
                     </div>
@@ -3757,10 +3875,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="ble-switch-pills">
                                 <button type="button" class="ble-switch-btn active" id="btn-cockpit-csuite" onclick="switchCockpitView('csuite')">
-                                    👑 7 C-Suite AI Advisors <span class="badge-cnt">07</span>
+                                    7 C-Suite AI Advisors <span class="badge-cnt">07</span>
                                 </button>
                                 <button type="button" class="ble-switch-btn" id="btn-cockpit-dept" onclick="switchCockpitView('dept')">
-                                    ⚡ 101+ Trợ Lý Nghiệp Vụ <span class="badge-cnt">6 Phòng Ban</span>
+                                    101+ Trợ Lý Nghiệp Vụ <span class="badge-cnt">6 Phòng Ban</span>
                                 </button>
                             </div>
                         </div>
@@ -3772,7 +3890,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-exec-card">
                                     <div class="ble-exec-top">
                                         <span class="ble-exec-role">CEO Advisor</span>
-                                        <div class="ble-exec-avatar">👑</div>
+                                        <div class="ble-exec-avatar">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        </div>
                                     </div>
                                     <h4>Cố Vấn Chiến Lược &amp; Điều Hành</h4>
                                     <p>Phản biện tầm nhìn, thiết lập bản đồ chiến lược và phân rã mục tiêu AOP 2027 toàn công ty.</p>
@@ -3787,7 +3907,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-exec-card">
                                     <div class="ble-exec-top">
                                         <span class="ble-exec-role">CFO Advisor</span>
-                                        <div class="ble-exec-avatar">📊</div>
+                                        <div class="ble-exec-avatar">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                        </div>
                                     </div>
                                     <h4>Cố Vấn Tài Chính &amp; Dòng Tiền</h4>
                                     <p>Thẩm định hiệu quả đầu tư, tối ưu cấu trúc chi phí và mô phỏng kịch bản dòng tiền doanh nghiệp.</p>
@@ -3802,7 +3924,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-exec-card">
                                     <div class="ble-exec-top">
                                         <span class="ble-exec-role">COO Advisor</span>
-                                        <div class="ble-exec-avatar">⚙️</div>
+                                        <div class="ble-exec-avatar">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                                        </div>
                                     </div>
                                     <h4>Cố Vấn Vận Hành &amp; Quy Trình</h4>
                                     <p>Chẩn đoán điểm nghẽn quy trình, tinh gọn chuỗi cung ứng và chuẩn hóa SOP liên phòng ban.</p>
@@ -3817,7 +3941,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-exec-card">
                                     <div class="ble-exec-top">
                                         <span class="ble-exec-role">CMO Advisor</span>
-                                        <div class="ble-exec-avatar">🚀</div>
+                                        <div class="ble-exec-avatar">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                                        </div>
                                     </div>
                                     <h4>Cố Vấn Tiếp Thị &amp; Tăng Trưởng</h4>
                                     <p>Hoạch định chiến lược Go-to-Market, định vị thương hiệu, thiết kế phễu chuyển đổi và tối ưu ROI Marketing.</p>
@@ -3832,7 +3958,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-exec-card">
                                     <div class="ble-exec-top">
                                         <span class="ble-exec-role">CHRO Advisor</span>
-                                        <div class="ble-exec-avatar">👥</div>
+                                        <div class="ble-exec-avatar">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                        </div>
                                     </div>
                                     <h4>Cố Vấn Quản Trị Nguồn Nhân Lực</h4>
                                     <p>Kiến tạo khung năng lực, từ điển KPI/OKR, chính sách đãi ngộ Total Rewards (Hay Group) và lộ trình kế thừa.</p>
@@ -3847,7 +3975,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-exec-card">
                                     <div class="ble-exec-top">
                                         <span class="ble-exec-role">CLO Advisor</span>
-                                        <div class="ble-exec-avatar">⚖️</div>
+                                        <div class="ble-exec-avatar">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                        </div>
                                     </div>
                                     <h4>Cố Vấn Pháp Chế &amp; Tuân Thủ</h4>
                                     <p>Thẩm định điều khoản hợp đồng thương mại, cảnh báo rủi ro pháp lý, kiểm soát tuân thủ và quản trị tranh chấp.</p>
@@ -3867,7 +3997,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         <h4 style="margin-bottom: 4px;">Cố Vấn Kiến Trúc Công Nghệ, Dữ Liệu &amp; Tự Động Hóa AI</h4>
                                         <p style="margin: 0;">Tư vấn lộ trình tích hợp AI vào hệ thống hiện hữu, quản trị kho tri thức Enterprise RAG, bảo mật thông tin và kiến trúc Multi-Agent.</p>
                                     </div>
-                                    <div class="ble-exec-tools" style="margin-top: 0;">
+                                    <div class="ble-exec-tools" style="margin-top: 0; width: auto; border-top: none; padding-top: 0;">
                                         <span class="ble-exec-tool-pill">Enterprise RAG Architecture</span>
                                         <span class="ble-exec-tool-pill">Data Governance</span>
                                         <span class="ble-exec-tool-pill">Multi-Agent Workflow</span>
@@ -3883,7 +4013,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-dept-pod">
                                     <div class="ble-dept-pod-head">
                                         <div class="ble-dept-pod-title">
-                                            <div class="ble-dept-pod-icon">👥</div>
+                                            <div class="ble-dept-pod-icon">
+                                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                            </div>
                                             <h4>Nhân Sự &amp; Đào Tạo (HR)</h4>
                                         </div>
                                         <span class="ble-dept-pod-count">18+ Agents</span>
@@ -3901,7 +4033,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-dept-pod">
                                     <div class="ble-dept-pod-head">
                                         <div class="ble-dept-pod-title">
-                                            <div class="ble-dept-pod-icon">💰</div>
+                                            <div class="ble-dept-pod-icon">
+                                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                                            </div>
                                             <h4>Tài Chính – Kế Toán</h4>
                                         </div>
                                         <span class="ble-dept-pod-count">16+ Agents</span>
@@ -3919,7 +4053,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-dept-pod">
                                     <div class="ble-dept-pod-head">
                                         <div class="ble-dept-pod-title">
-                                            <div class="ble-dept-pod-icon">📈</div>
+                                            <div class="ble-dept-pod-icon">
+                                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                                            </div>
                                             <h4>Kinh Doanh &amp; Tiếp Thị</h4>
                                         </div>
                                         <span class="ble-dept-pod-count">22+ Agents</span>
@@ -3937,7 +4073,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-dept-pod">
                                     <div class="ble-dept-pod-head">
                                         <div class="ble-dept-pod-title">
-                                            <div class="ble-dept-pod-icon">🏭</div>
+                                            <div class="ble-dept-pod-icon">
+                                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                            </div>
                                             <h4>Vận Hành &amp; Chuỗi Cung Ứng</h4>
                                         </div>
                                         <span class="ble-dept-pod-count">19+ Agents</span>
@@ -3955,7 +4093,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-dept-pod">
                                     <div class="ble-dept-pod-head">
                                         <div class="ble-dept-pod-title">
-                                            <div class="ble-dept-pod-icon">⚖️</div>
+                                            <div class="ble-dept-pod-icon">
+                                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                            </div>
                                             <h4>Pháp Chế &amp; Tuân Thủ</h4>
                                         </div>
                                         <span class="ble-dept-pod-count">12+ Agents</span>
@@ -3973,7 +4113,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <div class="ble-dept-pod">
                                     <div class="ble-dept-pod-head">
                                         <div class="ble-dept-pod-title">
-                                            <div class="ble-dept-pod-icon">📋</div>
+                                            <div class="ble-dept-pod-icon">
+                                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                            </div>
                                             <h4>Quản Lý Dự Án &amp; Công Nghệ</h4>
                                         </div>
                                         <span class="ble-dept-pod-count">14+ Agents</span>
@@ -3993,7 +4135,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 5C. QUY TRÌNH SOP 5 BƯỚC & LỘ TRÌNH 30-60-90 NGÀY (Connected 5-Step SOP Track + 3-Col Horizon Grid in Light Brand UI) -->
+        <!-- 5C. QUY TRÌNH SOP 5 BƯỚC & LỘ TRÌNH 30-60-90 NGÀY (Connected 5-Step SOP Track + 3-Col Horizon Grid) -->
         <section class="ble-section bg-white" id="lo-trinh-sop">
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 15%; left: -10%;"></div>
 
@@ -4023,7 +4165,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="ble-sop-stage">Bước 01 • Audit &amp; Decompose</span>
                             <h4>Rà Soát &amp; Bóc Tách</h4>
                             <p>Rà soát luồng việc hiện tại của phòng ban, bóc tách các tác vụ tốn thời gian và phân loại mức độ nhạy cảm dữ liệu.</p>
-                            <div class="ble-sop-deliverable">📄 Đầu ra: Ma trận WBS &amp; Tokenization</div>
+                            <div class="ble-sop-deliverable">Đầu ra: Ma trận WBS &amp; Tokenization</div>
                         </div>
 
                         <!-- Step 2 -->
@@ -4032,7 +4174,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="ble-sop-stage">Bước 02 • Prompt &amp; Agent</span>
                             <h4>Thiết Lập Công Cụ Chuẩn</h4>
                             <p>Thiết kế câu lệnh chuẩn P.R.O.M.P.T, kết nối kho tri thức RAG và đóng gói thành Custom AI Agent chuyên trách.</p>
-                            <div class="ble-sop-deliverable">🤖 Đầu ra: Master Prompts &amp; AI Agent</div>
+                            <div class="ble-sop-deliverable">Đầu ra: Master Prompts &amp; AI Agent</div>
                         </div>
 
                         <!-- Step 3 -->
@@ -4041,7 +4183,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="ble-sop-stage">Bước 03 • Quality Gate</span>
                             <h4>Tiêu Chuẩn Nghiệm Thu</h4>
                             <p>Thiết lập tiêu chí kiểm chứng nguồn trích dẫn (Source Grounding) và chốt chặn duyệt bởi con người (Human-in-the-Loop).</p>
-                            <div class="ble-sop-deliverable">✅ Đầu ra: Checklist Nghiệm thu QA</div>
+                            <div class="ble-sop-deliverable">Đầu ra: Checklist Nghiệm thu QA</div>
                         </div>
 
                         <!-- Step 4 -->
@@ -4050,7 +4192,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="ble-sop-stage">Bước 04 • SOP Packaging</span>
                             <h4>Đóng Gói &amp; Phân Quyền</h4>
                             <p>Đóng gói hướng dẫn thao tác, câu lệnh mẫu và quy tắc bảo mật thành văn bản SOP, chia sẻ lên IDEAS Team Workspace.</p>
-                            <div class="ble-sop-deliverable">📦 Đầu ra: Văn bản SOP &amp; Workspace</div>
+                            <div class="ble-sop-deliverable">Đầu ra: Văn bản SOP &amp; Workspace</div>
                         </div>
 
                         <!-- Step 5 -->
@@ -4059,7 +4201,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <span class="ble-sop-stage">Bước 05 • Monitor &amp; ROI</span>
                             <h4>Đo Lường &amp; Cải Tiến</h4>
                             <p>Theo dõi nhật ký vận hành (Audit Trail), đo lường thời gian tiết kiệm và đánh giá hiệu quả theo chuẩn Kirkpatrick.</p>
-                            <div class="ble-sop-deliverable">📈 Đầu ra: Báo cáo ROI Kirkpatrick</div>
+                            <div class="ble-sop-deliverable">Đầu ra: Báo cáo ROI Kirkpatrick</div>
                         </div>
                     </div>
                 </div>
@@ -4078,7 +4220,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-hz-progress"><span style="width: 35%;"></span></div>
 
                         <div class="ble-hz-kpi-box">
-                            <strong>🎯 Mục tiêu nghiệm thu 30 Ngày (Quick Wins)</strong>
+                            <strong>Mục tiêu nghiệm thu 30 Ngày (Quick Wins)</strong>
                             <span>Tiết kiệm 20–30% thời gian xử lý văn bản, tổng hợp báo cáo tuần và tra cứu quy chế nội bộ.</span>
                         </div>
 
@@ -4100,7 +4242,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-hz-progress"><span style="width: 68%;"></span></div>
 
                         <div class="ble-hz-kpi-box">
-                            <strong>🎯 Mục tiêu nghiệm thu 60 Ngày (Scaling &amp; SOPs)</strong>
+                            <strong>Mục tiêu nghiệm thu 60 Ngày (Scaling &amp; SOPs)</strong>
                             <span>100% nhân sự trong nhóm sử dụng chung thư viện Prompt &amp; Agent chuẩn hóa theo phân quyền RBAC.</span>
                         </div>
 
@@ -4121,7 +4263,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="ble-hz-progress"><span style="width: 100%;"></span></div>
 
                         <div class="ble-hz-kpi-box">
-                            <strong>🏆 Mục tiêu nghiệm thu 90 Ngày (Agentic ROI)</strong>
+                            <strong>Mục tiêu nghiệm thu 90 Ngày (Agentic ROI)</strong>
                             <span>Tối ưu 30–50% chi phí &amp; thời gian vận hành quy trình cốt lõi; hoàn tất hệ thống tri thức AI tự vận hành.</span>
                         </div>
 
