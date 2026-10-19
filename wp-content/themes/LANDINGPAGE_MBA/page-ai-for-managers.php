@@ -898,16 +898,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-color: rgba(171, 14, 0, 0.15);
         }
 
-        .pain-stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: #ab0e00;
-        }
-
         .pain-stat-number-box {
             display: flex;
             flex-direction: column;
@@ -1414,16 +1404,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow: hidden;
         }
 
-        .curr-outcomes::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 4px;
-            background: #ab0e00;
-        }
-
         .curr-outcomes-title {
             font-size: 0.92rem;
             font-weight: 800;
@@ -1434,7 +1414,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             gap: 8px;
-            padding-left: 8px;
         }
 
         .curr-outcomes-list {
@@ -1477,7 +1456,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-prompt-deck {
             background: #ffffff;
             border: 1.5px solid #e2e8f0;
-            border-top: 4px solid #ab0e00;
             border-radius: 22px;
             padding: 28px 24px;
             color: #0f172a;
@@ -2034,10 +2012,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 14px;
         }
 
-        .ble-horizon-card.highlight {
-            border-top: 4px solid #ab0e00;
-        }
-
         .ble-horizon-card:hover {
             transform: translateY(-4px);
             border-color: #ab0e00;
@@ -2110,7 +2084,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .ble-hz-kpi-box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            border-left: 4px solid #ab0e00;
             border-radius: 10px;
             padding: 12px 14px;
             display: flex;
@@ -2453,16 +2426,6 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             position: relative;
         }
 
-        .cert-wrap::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #ab0e00, #ff6b6b);
-        }
-
         .cert-mockup {
             background: #faf8f5;
             border-radius: 20px;
@@ -2711,19 +2674,17 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .faq-item {
-            border: 1.5px solid rgba(15, 23, 42, 0.06) !important;
+            border: 1.5px solid #e2e8f0 !important;
             background: #ffffff !important;
             border-radius: 16px;
             margin-bottom: 16px;
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 4px solid transparent !important;
             color: #475569 !important;
         }
 
         .faq-item.active {
-            border-color: rgba(171, 14, 0, 0.2) !important;
-            border-left: 4px solid #ab0e00 !important;
+            border-color: #ab0e00 !important;
             box-shadow: 0 12px 30px rgba(171, 14, 0, 0.06) !important;
         }
 
