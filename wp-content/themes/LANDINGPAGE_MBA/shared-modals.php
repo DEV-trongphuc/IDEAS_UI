@@ -35,6 +35,9 @@ if ($is_en) {
     } elseif (is_page('business-leadership-essentials')) {
         $modal_title = 'Register to receive <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
         $modal_subtitle = 'Fill in your details below to receive the 100% tuition grant for July.';
+    } elseif (is_page('ai-for-managers') || is_page_template('page-ai-for-managers.php')) {
+        $modal_title = 'Register for Consultation <br><span class="gradient-text" id="modal-program-title">AI for Managers</span>';
+        $modal_subtitle = 'Our academic advisor will contact you within 24 business hours with the brochure & platform demo.';
     } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
         $modal_title = 'Apply for Admission <br><span class="gradient-text" id="modal-program-title">DBA ISTEC Paris</span>';
         $modal_subtitle = 'Our admissions team will contact you within 24 business hours to assist with your doctoral application.';
@@ -69,6 +72,9 @@ if ($is_en) {
     } elseif (is_page('business-leadership-essentials')) {
         $modal_title = 'Đăng ký nhận <br><span class="gradient-text" id="modal-program-title">Learning Grant 100%</span>';
         $modal_subtitle = 'Điền thông tin bên dưới để nhận suất học bổng 100% học phí trong tháng 7.';
+    } elseif (is_page('ai-for-managers') || is_page_template('page-ai-for-managers.php')) {
+        $modal_title = 'Đăng ký tư vấn <br><span class="gradient-text" id="modal-program-title">AI for Managers</span>';
+        $modal_subtitle = 'Chuyên viên học vụ Viện IDEAS sẽ liên hệ trong vòng 24h làm việc để tư vấn lộ trình & cấp tài khoản Demo.';
     } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
         $modal_title = 'Đăng ký xét tuyển <br><span class="gradient-text" id="modal-program-title">DBA ISTEC Paris</span>';
         $modal_subtitle = 'Chuyên viên tuyển sinh sẽ liên hệ hỗ trợ thẩm định hồ sơ và đề cương nghiên cứu trong vòng 24h làm việc.';
@@ -129,6 +135,12 @@ if ($is_en) {
             ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Swiss UMEF short course', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'Premium MBA', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Undecided', 'desc' => 'Need counseling to choose', 'icon' => '💡']
+        ];
+    } elseif (is_page('ai-for-managers') || is_page_template('page-ai-for-managers.php')) {
+        $program_options = [
+            ['value' => 'AI for Managers: Làm Chủ & Thực Thi AI', 'label' => 'AI for Managers', 'desc' => '04 Sessions (12h) on IDEAS AI Platform', 'icon' => '🤖'],
+            ['value' => 'Đào tạo In-house Doanh nghiệp', 'label' => 'In-house Training', 'desc' => 'Customized for corporate teams', 'icon' => '🏢'],
+            ['value' => 'Trải nghiệm IDEAS AI Platform', 'label' => 'Platform Demo', 'desc' => '7 C-Suite & 101+ Business Agents', 'icon' => '💡']
         ];
     } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
         $program_options = [
@@ -197,6 +209,12 @@ if ($is_en) {
             ['value' => 'Business Leadership Essentials', 'label' => 'Leadership Essentials', 'desc' => 'Khóa ngắn hạn Swiss UMEF', 'icon' => '💼'],
             ['value' => 'MBA High Quality', 'label' => 'MBA Chất Lượng Cao', 'desc' => 'MBA / EMBA / MBA in AI', 'icon' => '🎓'],
             ['value' => 'Chưa quyết định', 'label' => 'Chưa quyết định', 'desc' => 'Cần tư vấn để lựa chọn', 'icon' => '💡']
+        ];
+    } elseif (is_page('ai-for-managers') || is_page_template('page-ai-for-managers.php')) {
+        $program_options = [
+            ['value' => 'AI for Managers: Làm Chủ & Thực Thi AI', 'label' => 'AI for Managers', 'desc' => '04 Buổi (12h) thực chiến trên IDEAS AI Platform', 'icon' => '🤖'],
+            ['value' => 'Đào tạo In-house Doanh nghiệp', 'label' => 'Đào tạo In-house', 'desc' => 'Tùy biến theo dữ liệu & bài toán doanh nghiệp', 'icon' => '🏢'],
+            ['value' => 'Trải nghiệm IDEAS AI Platform', 'label' => 'Demo AI Platform', 'desc' => '7 C-Suite Advisors & 101+ Business Agents', 'icon' => '💡']
         ];
     } elseif (is_page('dba-istec') || is_page('istec-dba') || is_page_template('page-dba-istec.php')) {
         $program_options = [
