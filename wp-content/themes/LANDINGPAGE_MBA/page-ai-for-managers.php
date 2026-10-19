@@ -46,19 +46,32 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <!-- Plus Jakarta Sans Font for Modern UI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-    <!-- Premium Custom Styles for AI for Managers (Exact Business Leadership Essentials Design System) -->
+    <!-- Premium Custom Styles for AI for Managers (Light Brand UI Design System) -->
     <style>
         /* ══════════════════════════════════════
-           BUSINESS LEADERSHIP ESSENTIALS STYLES
+           GLOBAL UNIFIED FONT SYSTEM (PLUS JAKARTA SANS)
         ══════════════════════════════════════ */
+        :root {
+            --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+            --font-serif: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+            --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+            --clr-font-main: 'Plus Jakarta Sans', sans-serif !important;
+        }
+
+        html, body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea, label, div, strong, b, em, i, li, dt, dd,
+        .faq-trigger, .btn, .btn-submit, .ble-btn, .ble-switch-btn {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         html, body {
             overflow-x: clip !important;
-            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #ffffff;
             color: #334155;
-            -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
         }
 
@@ -939,31 +952,31 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             margin: 0;
         }
 
-        /* ── 3. CORE COMPETENCIES GRID (Exact BLE .comp-grid) ── */
+        /* ── 3. CORE COMPETENCIES GRID (2x2 Layout + Light Brand 4-Step Maturity Bar) ── */
         .comp-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
 
         .comp-card {
             background: #ffffff;
             border-radius: 24px;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            padding: 32px 28px;
+            border: 1.5px solid rgba(15, 23, 42, 0.07);
+            padding: 28px 28px;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.025);
             z-index: 2;
             height: 100%;
             box-sizing: border-box;
         }
 
         .comp-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(171, 14, 0, 0.3);
+            transform: translateY(-6px);
+            border-color: rgba(171, 14, 0, 0.28);
             box-shadow: 0 20px 40px rgba(171, 14, 0, 0.08);
         }
 
@@ -971,7 +984,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
         }
 
         .comp-icon-box {
@@ -979,9 +992,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(171, 14, 0, 0.06);
-            width: 52px;
-            height: 52px;
+            background: #fff5f5;
+            border: 1px solid rgba(171, 14, 0, 0.12);
+            width: 50px;
+            height: 50px;
             border-radius: 14px;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             flex-shrink: 0;
@@ -990,7 +1004,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .comp-card:hover .comp-icon-box {
             background: #ab0e00 !important;
             color: #ffffff !important;
-            transform: scale(1.08) rotate(5deg);
+            transform: scale(1.06);
         }
 
         .comp-card:hover .comp-icon-box svg {
@@ -998,80 +1012,163 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .comp-card-caps-title {
-            font-size: 1.02rem;
+            font-size: 1.05rem;
             font-weight: 800;
             color: #0f172a;
             text-transform: uppercase;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
             margin: 0;
             line-height: 1.35;
         }
 
         .comp-desc {
-            font-size: 0.88rem;
-            line-height: 1.65;
-            color: #1e293b !important;
-            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #334155 !important;
+            margin: 0 0 16px 0;
         }
 
-        .comp-badge-pill {
+        .ble-pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .ble-mini-chip {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            font-size: 0.72rem;
-            font-weight: 800;
+            font-size: 0.74rem;
+            font-weight: 700;
             color: #ab0e00;
             background: #fff5f5;
-            border: 1px solid rgba(171, 14, 0, 0.14);
-            padding: 4px 10px;
+            border: 1px solid rgba(171, 14, 0, 0.16);
+            padding: 4px 12px;
             border-radius: 100px;
-            margin-top: auto;
-            padding-top: 4px;
-            align-self: flex-start;
+            line-height: 1.3;
         }
 
-        /* ── 4. CURRICULUM SECTION (Exact BLE Dark Theme & Cask Layout) ── */
-        #curriculum {
-            background: #040508 !important;
+        .ble-mini-chip.red {
+            background: #ffebeb;
+            border-color: rgba(171, 14, 0, 0.25);
+            font-weight: 800;
+        }
+
+        /* ── Horizontal 4-Step AI Maturity Bar (Light Brand UI) ── */
+        .ble-maturity-bar {
+            margin-top: 28px;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #ffebeb 100%);
+            border: 1.5px solid rgba(171, 14, 0, 0.18);
+            border-radius: 24px;
+            padding: 26px 28px;
+            box-shadow: 0 16px 40px rgba(171, 14, 0, 0.06);
             position: relative;
+            z-index: 2;
         }
 
-        #curriculum::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 20% 30%, rgba(217, 38, 38, 0.14) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 70%, rgba(217, 38, 38, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
+        .ble-maturity-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(171, 14, 0, 0.12);
+        }
+
+        .ble-maturity-header h4 {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ble-maturity-header span {
+            font-size: 0.75rem;
+            color: #ab0e00;
+            background: rgba(171, 14, 0, 0.08);
+            border: 1px solid rgba(171, 14, 0, 0.16);
+            padding: 5px 14px;
+            border-radius: 100px;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+
+        .ble-maturity-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .ble-mat-step {
+            background: #ffffff;
+            border: 1.5px solid rgba(171, 14, 0, 0.14);
+            border-radius: 16px;
+            padding: 18px 16px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+        }
+
+        .ble-mat-step:hover {
+            background: #fffafa;
+            border-color: #ab0e00;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(171, 14, 0, 0.1);
+        }
+
+        .ble-mat-step:last-child {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+            border-color: rgba(171, 14, 0, 0.32);
+        }
+
+        .ble-mat-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #ab0e00;
+            background: #fff0f0;
+            border: 1px solid rgba(171, 14, 0, 0.2);
+            padding: 3px 9px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .ble-mat-step:last-child .ble-mat-badge {
+            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        .ble-mat-step h5 {
+            margin: 0 0 6px 0;
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .ble-mat-step p {
+            margin: 0;
+            font-size: 0.82rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        /* ── 4. CURRICULUM SECTION (Light Brand UI & Cask Layout) ── */
+        #curriculum {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #ffebeb 100%) !important;
+            position: relative;
         }
 
         #curriculum .ble-container {
             position: relative;
             z-index: 2;
-        }
-
-        #curriculum .ble-section-tag {
-            color: #ff9e9e !important;
-            background: rgba(217, 38, 38, 0.1) !important;
-            border: 1px solid rgba(217, 38, 38, 0.25) !important;
-        }
-
-        #curriculum .ble-section-tag .dot {
-            background-color: #ff9e9e !important;
-        }
-
-        #curriculum .ble-section-title {
-            color: #ffffff !important;
-        }
-
-        #curriculum .ble-section-title .ble-text-red {
-            color: #ff4d4d !important;
-        }
-
-        #curriculum .ble-section-subtitle {
-            color: #cbd5e1 !important;
         }
 
         .curr-layout {
@@ -1093,18 +1190,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-tab {
             background: #ffffff;
-            border: 1.5px solid #cbd5e1;
+            border: 1.5px solid rgba(171, 14, 0, 0.14);
             border-radius: 16px;
             padding: 22px 24px;
             cursor: pointer;
             text-align: left;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
         }
 
         .curr-tab-tag {
             font-size: 0.72rem;
-            font-weight: 900;
+            font-weight: 800;
             color: #ab0e00;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -1116,7 +1214,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         .curr-tab-title {
             font-size: 1.02rem;
             font-weight: 800;
-            color: #475569;
+            color: #1e293b;
             line-height: 1.35;
             position: relative;
             z-index: 2;
@@ -1128,7 +1226,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-tab.active {
-            background: #ab0e00;
+            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
             box-shadow: 0 10px 30px rgba(171, 14, 0, 0.25);
             border-color: #ab0e00;
         }
@@ -1146,7 +1244,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border-radius: 18px !important;
             overflow: hidden;
             border: 4px solid #ffffff;
-            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.15);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.1);
             width: 100%;
             box-sizing: border-box;
         }
@@ -1163,9 +1261,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             width: 66%;
             background: #ffffff;
             border-radius: 24px;
-            border: 1px solid #cbd5e1;
+            border: 1.5px solid rgba(171, 14, 0, 0.14);
             padding: 42px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+            box-shadow: 0 12px 35px rgba(171, 14, 0, 0.05);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -1174,14 +1272,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-panel-header {
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #f1f5f9;
             padding-bottom: 24px;
             margin-bottom: 24px;
         }
 
         .curr-panel-title {
             font-size: 1.4rem;
-            font-weight: 850;
+            font-weight: 800;
             color: #0f172a;
             margin: 0 0 10px 0;
             line-height: 1.3;
@@ -1202,16 +1300,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-acc-item {
             background: #f8fafc;
-            border: 1.5px solid rgba(15, 23, 42, 0.04);
+            border: 1.5px solid rgba(15, 23, 42, 0.06);
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .curr-acc-item.active {
-            border-color: rgba(171, 14, 0, 0.2);
+            border-color: rgba(171, 14, 0, 0.22);
             background: #ffffff;
-            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.03);
+            box-shadow: 0 10px 25px rgba(171, 14, 0, 0.04);
         }
 
         .curr-acc-header {
@@ -1232,16 +1330,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-acc-num {
             font-size: 1.35rem;
-            font-weight: 900;
+            font-weight: 800;
             font-style: italic;
             color: #ab0e00;
-            font-family: 'Plus Jakarta Sans', sans-serif;
             flex-shrink: 0;
         }
 
         .curr-acc-title {
             font-size: 0.96rem;
-            font-weight: 850;
+            font-weight: 800;
             color: #0f172a;
             line-height: 1.4;
         }
@@ -1259,7 +1356,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         }
 
         .curr-acc-content-inner {
-            padding: 20px 24px 24px 60px;
+            padding: 20px 24px 24px 48px;
             border-top: 1px solid #f1f5f9;
             background-color: #ffffff;
         }
@@ -1273,21 +1370,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 10px;
         }
 
+        /* FIXED: Use display:block + absolute bullet so inline <strong> and <code> never break into flex columns */
         .curr-topics-list li {
             font-size: 0.9rem;
             color: #334155;
-            line-height: 1.6;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
+            line-height: 1.65;
+            display: block !important;
+            position: relative !important;
+            padding-left: 18px !important;
         }
 
         .curr-topics-list li::before {
             content: '•';
             color: #ab0e00;
-            font-weight: 900;
+            font-weight: 800;
             font-size: 1.1rem;
             line-height: 1.2;
+            position: absolute !important;
+            left: 0 !important;
+            top: 2px !important;
+        }
+
+        .curr-topics-list li code {
+            display: inline-block;
+            background: #fff5f5;
+            color: #ab0e00;
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-size: 0.84em;
+            font-weight: 700;
+            border: 1px solid rgba(171, 14, 0, 0.16);
         }
 
         .curr-outcomes {
@@ -1313,7 +1425,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
         .curr-outcomes-title {
             font-size: 0.92rem;
-            font-weight: 900;
+            font-weight: 800;
             color: #ab0e00;
             margin: 0 0 14px 0;
             text-transform: uppercase;
@@ -1346,6 +1458,580 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             color: #10b981;
             flex-shrink: 0;
             margin-top: 3px;
+        }
+
+        /* ── 5B. BENTO COCKPIT: P.R.O.M.P.T ENGINE & 108+ AI AGENTS (Light Brand UI) ── */
+        .ble-cockpit-grid {
+            display: grid;
+            grid-template-columns: 370px 1fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        /* Left Column: Light Brand P.R.O.M.P.T Command Deck */
+        .ble-prompt-deck {
+            background: linear-gradient(155deg, #fff5f5 0%, #ffffff 55%, #ffebeb 100%);
+            border: 1.5px solid rgba(171, 14, 0, 0.2);
+            border-radius: 22px;
+            padding: 26px 22px;
+            color: #0f172a;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: 0 16px 36px -6px rgba(171, 14, 0, 0.08);
+        }
+
+        .ble-pdeck-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #ab0e00;
+            background: rgba(171, 14, 0, 0.08);
+            border: 1px solid rgba(171, 14, 0, 0.16);
+            padding: 4px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            align-self: flex-start;
+        }
+
+        .ble-pdeck-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ab0e00;
+            box-shadow: 0 0 8px rgba(171, 14, 0, 0.5);
+        }
+
+        .ble-pdeck-title {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.015em;
+            line-height: 1.25;
+        }
+
+        .ble-pdeck-sub {
+            margin: 0;
+            font-size: 0.83rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .ble-pdeck-list {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-top: 4px;
+        }
+
+        .ble-pdeck-item {
+            background: #ffffff;
+            border: 1.5px solid rgba(171, 14, 0, 0.12);
+            border-radius: 14px;
+            padding: 11px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 3px;
+            cursor: pointer;
+            transition: all 0.22s ease;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.025);
+        }
+
+        .ble-pdeck-item:hover,
+        .ble-pdeck-item.active {
+            background: #fffafa;
+            border-color: #ab0e00;
+            transform: translateX(4px);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.1);
+        }
+
+        .ble-pdeck-item-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ble-pdeck-char {
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(171, 14, 0, 0.22);
+        }
+
+        .ble-pdeck-key {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .ble-pdeck-val {
+            font-size: 0.78rem;
+            color: #475569;
+            line-height: 1.4;
+            padding-left: 36px;
+        }
+
+        .ble-pdeck-footer {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid rgba(171, 14, 0, 0.14);
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #ab0e00;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Right Column: Strategic Agent Suite with Interactive Switcher */
+        .ble-agents-center {
+            background: #ffffff;
+            border: 1.5px solid rgba(171, 14, 0, 0.14);
+            border-radius: 22px;
+            padding: 24px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 12px 32px -4px rgba(171, 14, 0, 0.05);
+        }
+
+        .ble-center-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .ble-switch-pills {
+            display: inline-flex;
+            background: #fff5f5;
+            border: 1px solid rgba(171, 14, 0, 0.16);
+            border-radius: 12px;
+            padding: 4px;
+            gap: 4px;
+        }
+
+        .ble-switch-btn {
+            background: transparent;
+            border: none;
+            padding: 9px 18px;
+            border-radius: 9px;
+            font-size: 0.84rem;
+            font-weight: 800;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ble-switch-btn:hover {
+            color: #ab0e00;
+        }
+
+        .ble-switch-btn.active {
+            background: linear-gradient(135deg, #ab0e00 0%, #8c1000 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(171, 14, 0, 0.25);
+        }
+
+        /* View 1: 7 C-Suite Advisors Deck */
+        .ble-csuite-deck {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .ble-exec-card {
+            background: #fffafa;
+            border: 1.5px solid rgba(171, 14, 0, 0.1);
+            border-radius: 16px;
+            padding: 16px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            transition: all 0.22s ease;
+        }
+
+        .ble-exec-card:hover {
+            background: #ffffff;
+            border-color: #ab0e00;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px -4px rgba(171, 14, 0, 0.1);
+        }
+
+        .ble-exec-card-wide {
+            grid-column: span 3;
+            background: linear-gradient(135deg, #fffafa 0%, #fff5f5 100%);
+        }
+
+        .ble-exec-tag {
+            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.04em;
+        }
+
+        .ble-exec-title {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+
+        .ble-exec-desc {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .ble-exec-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 8px;
+            border-top: 1px solid rgba(171, 14, 0, 0.08);
+            width: 100%;
+        }
+
+        .ble-exec-tool-pill {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #ab0e00;
+            background: #ffffff;
+            border: 1px solid rgba(171, 14, 0, 0.18);
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        /* View 2: 101+ Department Agents (6 Pods) */
+        .ble-dept-deck {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .ble-dept-card {
+            background: #fffafa;
+            border: 1.5px solid rgba(171, 14, 0, 0.1);
+            border-radius: 16px;
+            padding: 16px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            transition: all 0.22s ease;
+        }
+
+        .ble-dept-card:hover {
+            background: #ffffff;
+            border-color: #ab0e00;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px -4px rgba(171, 14, 0, 0.1);
+        }
+
+        .ble-dept-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #fff5f5;
+            border: 1px solid rgba(171, 14, 0, 0.18);
+            color: #ab0e00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
+        .ble-dept-title {
+            margin: 0;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+
+        .ble-dept-count {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #ab0e00;
+            background: #fff5f5;
+            border: 1px solid rgba(171, 14, 0, 0.2);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .ble-dept-roster {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+            margin-top: 2px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(171, 14, 0, 0.08);
+        }
+
+        .ble-dept-item {
+            font-size: 0.78rem;
+            color: #334155;
+            font-weight: 600;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .ble-dept-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #ab0e00;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        /* ── 5C. SOP 5-STEP PIPELINE & 30-60-90 ROADMAP (Light Brand UI) ── */
+        .ble-sop-track-panel {
+            background: #ffffff;
+            border: 1.5px solid rgba(171, 14, 0, 0.15);
+            border-radius: 22px;
+            padding: 24px 26px;
+            box-shadow: 0 12px 30px -4px rgba(171, 14, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .ble-sop-track-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid rgba(171, 14, 0, 0.1);
+        }
+
+        .ble-sop-kicker {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #ab0e00;
+            background: #fff5f5;
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(171, 14, 0, 0.2);
+        }
+
+        .ble-sop-sub {
+            font-size: 0.84rem;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .ble-sop-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .ble-sop-box {
+            background: #fffafa;
+            border: 1.5px solid rgba(171, 14, 0, 0.1);
+            border-radius: 16px;
+            padding: 18px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            transition: all 0.22s ease;
+        }
+
+        .ble-sop-box:hover {
+            background: #ffffff;
+            border-color: #ab0e00;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px -4px rgba(171, 14, 0, 0.1);
+        }
+
+        .ble-sop-num {
+            font-size: 0.74rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ab0e00 0%, #d92414 100%);
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(171, 14, 0, 0.22);
+        }
+
+        .ble-sop-title {
+            margin: 0;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.3;
+        }
+
+        .ble-sop-desc {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .ble-sop-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #ab0e00;
+            background: #ffffff;
+            border: 1px solid rgba(171, 14, 0, 0.18);
+            padding: 4px 8px;
+            border-radius: 6px;
+            display: block;
+            line-height: 1.35;
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .ble-horizon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .ble-horizon-card {
+            background: #ffffff;
+            border: 1.5px solid rgba(171, 14, 0, 0.14);
+            border-radius: 20px;
+            padding: 24px 22px;
+            box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.04);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ble-horizon-card:hover {
+            transform: translateY(-4px);
+            border-color: #ab0e00;
+            box-shadow: 0 16px 32px -4px rgba(171, 14, 0, 0.1);
+        }
+
+        .ble-hz-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #ab0e00;
+            background: #fff5f5;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(171, 14, 0, 0.2);
+            align-self: flex-start;
+        }
+
+        .ble-hz-time {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        .ble-hz-progress {
+            width: 100%;
+            height: 5px;
+            background: #ffebeb;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .ble-hz-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ab0e00 0%, #e11d48 100%);
+            border-radius: 99px;
+        }
+
+        .ble-hz-title {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.35;
+        }
+
+        .ble-hz-desc {
+            margin: 0;
+            font-size: 0.84rem;
+            color: #475569;
+            line-height: 1.55;
+        }
+
+        .ble-hz-kpi {
+            background: #fffafa;
+            border: 1px solid rgba(171, 14, 0, 0.15);
+            border-radius: 12px;
+            padding: 12px 14px;
+            font-size: 0.8rem;
+            color: #334155;
+            line-height: 1.45;
+            margin-top: auto;
+        }
+
+        .ble-kpi-kicker {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #ab0e00;
+            letter-spacing: 0.04em;
+            margin-bottom: 3px;
+        }
+
+        .ble-hz-footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding-top: 6px;
+        }
+
+        .ble-hz-chip {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #475569;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 3px 9px;
+            border-radius: 6px;
         }
 
         /* ── 5. IDEAS AI PLATFORM SECTION ────────────── */
@@ -2027,6 +2713,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: calc((100% - 20px) / 2) !important;
                 max-width: calc((100% - 20px) / 2) !important;
             }
+            .ble-sop-steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .ble-sop-steps-grid::before {
+                display: none !important;
+            }
         }
 
         @media (max-width: 991px) {
@@ -2035,9 +2727,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             .pain-split-layout,
             .ai-grid,
             .cert-wrap,
-            .ble-audience-split {
+            .ble-audience-split,
+            .ble-cockpit-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+            .ble-maturity-steps,
+            .ble-csuite-deck,
+            .ble-dept-deck,
+            .ble-sop-steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .ble-horizon-grid {
+                grid-template-columns: 1fr;
             }
             .curr-layout {
                 flex-direction: column;
@@ -2083,6 +2785,27 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 width: 84% !important;
                 max-width: 84% !important;
                 scroll-snap-align: center !important;
+            }
+            .ble-maturity-bar,
+            .ble-prompt-deck,
+            .ble-agents-center,
+            .ble-sop-track-panel {
+                padding: 24px 18px;
+            }
+            .ble-maturity-steps,
+            .ble-csuite-deck,
+            .ble-dept-deck,
+            .ble-sop-steps-grid,
+            .ble-horizon-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .ble-switch-pills {
+                width: 100%;
+                flex-direction: column;
+            }
+            .ble-switch-btn {
+                width: 100%;
+                justify-content: center;
             }
             .ble-hero-meta-row {
                 grid-template-columns: 1fr;
@@ -2329,7 +3052,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 3. CORE COMPETENCIES & AI MATURITY SECTION (White Background, Exact BLE .comp-grid) -->
+        <!-- 3. CORE COMPETENCIES & AI MATURITY SECTION (White Background, 2x2 Pillars + Horizontal 4-Step Maturity Bar) -->
         <section class="ble-section bg-white" id="muc-tieu">
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 20%; right: -10%;"></div>
             <div class="ble-glow-orb ble-glow-orb-gold" style="bottom: 10%; left: -15%;"></div>
@@ -2339,11 +3062,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="ble-section-tag">
                         <span class="dot"></span> Mục tiêu chương trình &amp; Lộ trình trưởng thành AI
                     </span>
-                    <h2 class="ble-section-title">4 Trụ Cột Năng Lực &amp; <span class="ble-gradient-text">4 Cấp Độ Trưởng Thành AI</span></h2>
-                    <p class="ble-section-subtitle" style="max-width: 760px; margin: 0 auto;">Chương trình trang bị toàn diện tư duy chiến lược, kỹ năng bảo mật, quản trị kho tri thức và đóng gói hệ thống AI Agents để nâng cấp doanh nghiệp từ <strong>AI Beside</strong> lên <strong>AI Agentic</strong>:</p>
+                    <h2 class="ble-section-title">Nâng Tầm <span class="ble-text-red">4 Trụ Cột Năng Lực Quản Trị AI</span></h2>
+                    <p class="ble-section-subtitle" style="max-width: 760px; margin: 0 auto;">Chương trình được thiết kế theo phương pháp <strong>30% Lý thuyết cốt lõi – 70% Thực hành trực tiếp</strong>, giúp học viên làm chủ toàn diện 4 nhóm năng lực trọng yếu:</p>
                 </div>
 
-                <!-- 8 Cards in Exact BLE .comp-grid (4 Core Pillars + 4 AI Maturity Levels) -->
+                <!-- 4 Core Competency Pillars (2x2 Grid) -->
                 <div class="comp-grid">
                     <!-- Pillar 1 -->
                     <div class="comp-card">
@@ -2353,7 +3076,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <h4 class="comp-card-caps-title">1. Tư Duy &amp; Nhận Thức AI</h4>
                         </div>
-                        <p class="comp-desc">Hiểu đúng bản chất Generative AI, cơ chế hoạt động và giới hạn của LLM (Context Window, Hallucination) để hoạch định chiến lược ứng dụng AI hiệu quả.</p>
+                        <p class="comp-desc">Hiểu đúng bản chất Generative AI, cơ chế hoạt động và giới hạn của LLM (Context Window, Hallucination). Xác định rõ vị thế hiện tại và hoạch định lộ trình chuyển dịch doanh nghiệp qua 4 cấp độ trưởng thành AI.</p>
+                        <div class="ble-pill-row">
+                            <span class="ble-mini-chip red">LLM Mechanics</span>
+                            <span class="ble-mini-chip">Context Window</span>
+                            <span class="ble-mini-chip">4 AI Maturity Levels</span>
+                        </div>
                     </div>
 
                     <!-- Pillar 2 -->
@@ -2362,9 +3090,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="comp-icon-box">
                                 <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                             </div>
-                            <h4 class="comp-card-caps-title">2. An Toàn &amp; Bảo Mật</h4>
+                            <h4 class="comp-card-caps-title">2. An Toàn &amp; Bảo Mật Dữ Liệu</h4>
                         </div>
-                        <p class="comp-desc">Nắm vững nguyên tắc phân loại dữ liệu nhạy cảm, thực hành thành thạo kỹ thuật ẩn danh hóa (Anonymization) và mã hóa nhất quán (Consistent Tokenization).</p>
+                        <p class="comp-desc">Nắm vững nguyên tắc phân loại dữ liệu nhạy cảm của doanh nghiệp. Thực hành thành thạo kỹ thuật Ẩn danh hóa (Anonymization) và Mã hóa nhất quán (Consistent Tokenization), xây dựng từ điển mã hóa phòng ban.</p>
+                        <div class="ble-pill-row">
+                            <span class="ble-mini-chip red">Consistent Tokenization</span>
+                            <span class="ble-mini-chip">Data Anonymization</span>
+                            <span class="ble-mini-chip">Zero Data Leakage</span>
+                        </div>
                     </div>
 
                     <!-- Pillar 3 -->
@@ -2373,9 +3106,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="comp-icon-box">
                                 <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                             </div>
-                            <h4 class="comp-card-caps-title">3. Điều Khiển &amp; Tri Thức</h4>
+                            <h4 class="comp-card-caps-title">3. Điều Khiển AI &amp; Quản Trị Tri Thức</h4>
                         </div>
-                        <p class="comp-desc">Làm chủ công thức P.R.O.M.P.T, kỹ thuật Meta-Prompting và xây dựng "Bộ não thứ 2" với kho tri thức phòng ban chuẩn Enterprise RAG để lập kế hoạch AOP 2027.</p>
+                        <p class="comp-desc">Làm chủ công thức P.R.O.M.P.T và kỹ thuật Meta-Prompting (dùng AI viết câu lệnh cho AI). Xây dựng "Bộ não thứ 2" với kho tri thức nội bộ chuẩn Enterprise RAG, kiểm chứng nguồn trích dẫn (Source Grounding) và lập kế hoạch AOP 2027.</p>
+                        <div class="ble-pill-row">
+                            <span class="ble-mini-chip red">P.R.O.M.P.T &amp; Meta-Prompt</span>
+                            <span class="ble-mini-chip">Enterprise RAG</span>
+                            <span class="ble-mini-chip">Kế hoạch AOP 2027</span>
+                        </div>
                     </div>
 
                     <!-- Pillar 4 -->
@@ -2384,53 +3122,44 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="comp-icon-box">
                                 <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
                             </div>
-                            <h4 class="comp-card-caps-title">4. Đóng Gói &amp; Vận Hành</h4>
+                            <h4 class="comp-card-caps-title">4. Đóng Gói Hệ Thống &amp; Vận Hành</h4>
                         </div>
-                        <p class="comp-desc">Thiết kế Custom AI Agents, khai thác 7 C-Suite Advisors &amp; 101+ Business Skills, chuẩn hóa quy trình SOP 5 bước và quản trị IDEAS Team Workspace.</p>
+                        <p class="comp-desc">Tự thiết kế Custom AI Agents, khai thác thư viện 108+ Đại lý chuyên biệt (7 C-Suite Advisors &amp; 101+ Business Skills). Xây dựng lộ trình chuyển đổi 30-60-90 ngày, chuẩn hóa SOP 5 bước và quản trị IDEAS Team Workspace.</p>
+                        <div class="ble-pill-row">
+                            <span class="ble-mini-chip red">Custom AI Agents</span>
+                            <span class="ble-mini-chip">SOP 5 Bước</span>
+                            <span class="ble-mini-chip">Team Workspace</span>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Maturity Level 1 -->
-                    <div class="comp-card">
-                        <div class="comp-card-header">
-                            <div class="comp-icon-box">
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                            </div>
-                            <h4 class="comp-card-caps-title">Cấp Độ 01: AI Beside</h4>
-                        </div>
-                        <p class="comp-desc">Trợ lý bên cạnh — sử dụng AI để hỏi đáp rời rạc, hỗ trợ tra cứu thông tin, tóm tắt văn bản và soạn thảo cá nhân nhanh chóng.</p>
+                <!-- 4-Level AI Maturity Progression Bar (Light Brand UI) -->
+                <div class="ble-maturity-bar">
+                    <div class="ble-maturity-header">
+                        <h4>Lộ Trình 4 Cấp Độ Trưởng Thành AI Trong Doanh Nghiệp</h4>
+                        <span>Mục tiêu khóa học: Đưa doanh nghiệp từ Cấp độ 1 lên Cấp độ 3 &amp; 4</span>
                     </div>
-
-                    <!-- Maturity Level 2 -->
-                    <div class="comp-card">
-                        <div class="comp-card-header">
-                            <div class="comp-icon-box">
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                            </div>
-                            <h4 class="comp-card-caps-title">Cấp Độ 02: AI Inline</h4>
+                    <div class="ble-maturity-steps">
+                        <div class="ble-mat-step">
+                            <span class="ble-mat-badge">Cấp độ 01</span>
+                            <h5>AI Beside</h5>
+                            <p>Trợ lý bên cạnh — Sử dụng AI rời rạc để hỏi đáp, dịch thuật, viết email cá nhân khi phát sinh nhu cầu.</p>
                         </div>
-                        <p class="comp-desc">Tích hợp trực tiếp vào luồng công việc hàng ngày thông qua bộ khung câu lệnh P.R.O.M.P.T chuẩn hóa và thư viện IDEAS Prompt Hub.</p>
-                    </div>
-
-                    <!-- Maturity Level 3 -->
-                    <div class="comp-card">
-                        <div class="comp-card-header">
-                            <div class="comp-icon-box">
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                            </div>
-                            <h4 class="comp-card-caps-title">Cấp Độ 03: AI Inside</h4>
+                        <div class="ble-mat-step">
+                            <span class="ble-mat-badge">Cấp độ 02</span>
+                            <h5>AI Inline</h5>
+                            <p>Tích hợp vào luồng việc — Chuẩn hóa khung câu lệnh P.R.O.M.P.T và thư viện mẫu dùng chung trong công việc hàng ngày.</p>
                         </div>
-                        <p class="comp-desc">Nhúng sâu vào kho tri thức nội bộ (Enterprise RAG), kiểm chứng nguồn trích dẫn (Source Grounding), phân tích đa tài liệu và lập kế hoạch AOP 2027.</p>
-                    </div>
-
-                    <!-- Maturity Level 4 -->
-                    <div class="comp-card">
-                        <div class="comp-card-header">
-                            <div class="comp-icon-box">
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ble-svg-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <h4 class="comp-card-caps-title">Cấp Độ 04: AI Agentic</h4>
+                        <div class="ble-mat-step">
+                            <span class="ble-mat-badge">Cấp độ 03</span>
+                            <h5>AI Inside</h5>
+                            <p>Nhúng vào tri thức cốt lõi — Kết nối kho dữ liệu nội bộ Enterprise RAG, phân tích đa tài liệu và lập kế hoạch chiến lược.</p>
                         </div>
-                        <p class="comp-desc">Hệ thống Đại lý AI tự hành phối hợp liên phòng ban (Multi-Agent Collaboration), vận hành đồng bộ theo quy trình SOP 5 bước trên IDEAS Team Workspace.</p>
+                        <div class="ble-mat-step active-target">
+                            <span class="ble-mat-badge">Cấp độ 04 • Đích đến</span>
+                            <h5>AI Agentic</h5>
+                            <p>Hệ thống Đại lý tự hành — Đóng gói Custom AI Agents, phối hợp đa tác nhân (Multi-Agent) và vận hành theo SOP chuẩn trên Team Workspace.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2947,7 +3676,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </section>
 
-        <!-- 5B. THƯ VIỆN 108+ AI AGENTS & CÔNG THỨC P.R.O.M.P.T (Warm Cream Background, Exact BLE .comp-grid Style) -->
+        <!-- 5B. THƯ VIỆN 108+ AI AGENTS & CÔNG THỨC P.R.O.M.P.T (Interactive Bento Cockpit Layout in Light Brand UI) -->
         <section class="ble-section bg-soft-cream" id="thu-vien-agents">
             <div class="ble-glow-orb ble-glow-orb-gold" style="top: 10%; right: -10%;"></div>
 
@@ -2960,227 +3689,311 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p class="ble-section-subtitle">Chuẩn hóa giao thức điều khiển AI kết hợp Hội đồng 7 Cố vấn C-Suite ảo và 101+ Trợ lý nghiệp vụ chuyên sâu cho 6 phòng ban trọng yếu:</p>
                 </div>
 
-                <!-- Sub-block 1: 6 Thành phần Công thức P.R.O.M.P.T + 7 C-Suite AI Advisors (Exact BLE .comp-grid) -->
-                <div style="margin-bottom: 48px;">
-                    <h3 style="font-size: 1.35rem; font-weight: 850; color: #0f172a; margin: 0 0 24px 0; text-align: center;">Hội Đồng <span class="ble-text-red">07 C-Suite AI Advisors</span> &amp; Giao Thức <span class="ble-text-red">P.R.O.M.P.T</span></h3>
-                    <div class="comp-grid">
-                        <!-- Card 1: P.R.O.M.P.T Protocol -->
-                        <div class="comp-card" style="background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%); border-color: rgba(171, 14, 0, 0.2);">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box" style="background: #ab0e00; color: #ffffff;">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                <!-- Interactive 2-Column Bento Cockpit Grid -->
+                <div class="ble-cockpit-grid">
+                    <!-- Left Column: Enterprise P.R.O.M.P.T Engine Deck -->
+                    <div class="ble-prompt-deck">
+                        <div class="ble-pdeck-badge">Enterprise Prompt Engine</div>
+                        <h3 class="ble-pdeck-title">Công Thức <span>P.R.O.M.P.T</span></h3>
+                        <p class="ble-pdeck-sub">Chuẩn hóa cấu trúc câu lệnh quản trị — kết hợp Role Prompting, Chain-of-Thought và Meta-Prompting để kích hoạt tư duy chuyên sâu của AI:</p>
+
+                        <div class="ble-pdeck-list">
+                            <div class="ble-pdeck-item active" onclick="selectPromptStep(this)">
+                                <div class="ble-pdeck-letter">P</div>
+                                <div class="ble-pdeck-info">
+                                    <h5>Purpose • Mục tiêu cốt lõi</h5>
+                                    <p>Xác định rõ mục đích cuối cùng và bài toán quản trị cần giải quyết (ra quyết định, thẩm định hay lập kế hoạch).</p>
                                 </div>
-                                <h4 class="comp-card-caps-title" style="color: #ab0e00;">Khung P.R.O.M.P.T Chuẩn</h4>
                             </div>
-                            <p class="comp-desc"><strong>P</strong>urpose (Mục tiêu) • <strong>R</strong>ole (Vai trò chuyên gia) • <strong>O</strong>utput (Định dạng đầu ra) • <strong>M</strong>ain Info (Ngữ cảnh &amp; RAG) • <strong>P</strong>arameters (Ràng buộc &amp; Chống ảo giác) • <strong>T</strong>one (Văn phong C-Level), tích hợp Role Prompting, Chain-of-Thought &amp; Meta-Prompting.</p>
+                            <div class="ble-pdeck-item" onclick="selectPromptStep(this)">
+                                <div class="ble-pdeck-letter">R</div>
+                                <div class="ble-pdeck-info">
+                                    <h5>Role • Vai trò chuyên gia</h5>
+                                    <p>Thiết lập nhân vật C-Level / Chuyên gia cao cấp với khung tư duy và tiêu chuẩn nghề nghiệp rõ ràng.</p>
+                                </div>
+                            </div>
+                            <div class="ble-pdeck-item" onclick="selectPromptStep(this)">
+                                <div class="ble-pdeck-letter">O</div>
+                                <div class="ble-pdeck-info">
+                                    <h5>Output • Định dạng đầu ra</h5>
+                                    <p>Chỉ định cấu trúc kết quả: Bảng ma trận RACI, báo cáo Markdown, biểu đồ ngân sách, hoặc kế hoạch AOP.</p>
+                                </div>
+                            </div>
+                            <div class="ble-pdeck-item" onclick="selectPromptStep(this)">
+                                <div class="ble-pdeck-letter">M</div>
+                                <div class="ble-pdeck-info">
+                                    <h5>Main Info • Dữ liệu &amp; Ngữ cảnh</h5>
+                                    <p>Cung cấp dữ liệu đã ẩn danh (Tokenized) hoặc kết nối kho tri thức nội bộ qua Enterprise RAG.</p>
+                                </div>
+                            </div>
+                            <div class="ble-pdeck-item" onclick="selectPromptStep(this)">
+                                <div class="ble-pdeck-letter">P</div>
+                                <div class="ble-pdeck-info">
+                                    <h5>Parameters • Ràng buộc &amp; Tiêu chuẩn</h5>
+                                    <p>Giới hạn phạm vi, quy tắc chống ảo giác (Anti-Hallucination) và yêu cầu trích dẫn nguồn chính xác.</p>
+                                </div>
+                            </div>
+                            <div class="ble-pdeck-item" onclick="selectPromptStep(this)">
+                                <div class="ble-pdeck-letter">T</div>
+                                <div class="ble-pdeck-info">
+                                    <h5>Tone • Văn phong &amp; Giọng điệu</h5>
+                                    <p>Định hình giọng văn chuẩn mực: Trang trọng, sắc bén cấp Điều hành (Executive), hoặc thuyết phục đối tác.</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Card 2: CEO Advisor -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                                </div>
-                                <h4 class="comp-card-caps-title">CEO Advisor • Chiến Lược</h4>
-                            </div>
-                            <p class="comp-desc">Phản biện tầm nhìn, thiết lập bản đồ chiến lược và phân rã mục tiêu <strong>AOP 2027</strong> toàn công ty thông qua các mô hình <strong>OGSM, BSC, SWOT/PESTEL</strong>.</p>
-                        </div>
-
-                        <!-- Card 3: CFO Advisor -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                                </div>
-                                <h4 class="comp-card-caps-title">CFO Advisor • Tài Chính</h4>
-                            </div>
-                            <p class="comp-desc">Thẩm định hiệu quả đầu tư, tối ưu cấu trúc chi phí và mô phỏng kịch bản dòng tiền thông qua phân tích <strong>P&amp;L, Cashflow, DuPont &amp; Ngân sách</strong>.</p>
-                        </div>
-
-                        <!-- Card 4: COO Advisor -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                                </div>
-                                <h4 class="comp-card-caps-title">COO Advisor • Vận Hành</h4>
-                            </div>
-                            <p class="comp-desc">Chẩn đoán điểm nghẽn quy trình, tinh gọn chuỗi cung ứng và chuẩn hóa <strong>SOP liên phòng ban</strong> theo chuẩn <strong>Lean / Six Sigma &amp; SLA</strong>.</p>
-                        </div>
-
-                        <!-- Card 5: CMO Advisor -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-                                </div>
-                                <h4 class="comp-card-caps-title">CMO Advisor • Tăng Trưởng</h4>
-                            </div>
-                            <p class="comp-desc">Hoạch định chiến lược Go-to-Market, định vị thương hiệu (Brand Positioning), thiết kế phễu chuyển đổi và tối ưu hiệu suất <strong>ROI Marketing</strong>.</p>
-                        </div>
-
-                        <!-- Card 6: CHRO Advisor -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                </div>
-                                <h4 class="comp-card-caps-title">CHRO Advisor • Nhân Sự</h4>
-                            </div>
-                            <p class="comp-desc">Kiến tạo khung năng lực (Competency Matrix), từ điển KPI/OKR, chính sách đãi ngộ <strong>Total Rewards (Hay Group)</strong> và lộ trình kế thừa.</p>
-                        </div>
-
-                        <!-- Card 7: CLO Advisor -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                </div>
-                                <h4 class="comp-card-caps-title">CLO Advisor • Pháp Chế</h4>
-                            </div>
-                            <p class="comp-desc">Thẩm định điều khoản hợp đồng thương mại, cảnh báo rủi ro pháp lý, kiểm soát tuân thủ quy chế nội bộ và quản trị tranh chấp doanh nghiệp.</p>
-                        </div>
-
-                        <!-- Card 8: CTO / CDO Advisor -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                                </div>
-                                <h4 class="comp-card-caps-title">CTO / CDO Advisor • Công Nghệ</h4>
-                            </div>
-                            <p class="comp-desc">Tư vấn kiến trúc dữ liệu Enterprise RAG, lộ trình tích hợp hệ thống AI Agents, quản trị an toàn thông tin và chuyển đổi số toàn diện.</p>
+                        <div class="ble-pdeck-footer">
+                            <strong>⚡ Kỹ thuật nâng cao thực hành tại lớp:</strong>
+                            <span>Role Prompting • Chain-of-Thought (CoT) • Few-Shot • Meta-Prompting</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Sub-block 2: 101+ Business Skills Agents across 6 Functional Departments -->
-                <div>
-                    <h3 style="font-size: 1.35rem; font-weight: 850; color: #0f172a; margin: 0 0 24px 0; text-align: center;">Thư Viện <span class="ble-text-red">101+ Trợ Lý Nghiệp Vụ</span> Cho 6 Khối Phòng Ban</h3>
-                    <div class="comp-grid" style="grid-template-columns: repeat(3, 1fr);">
-                        <!-- Dept 1: HR -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                </div>
-                                <div>
-                                    <h4 class="comp-card-caps-title">Nhân Sự &amp; Đào Tạo (HR)</h4>
-                                    <span style="font-size: 0.75rem; font-weight: 800; color: #ab0e00;">18+ Agents Chuyên Biệt</span>
-                                </div>
+                    <!-- Right Column: Interactive 108+ AI Agents Command Center -->
+                    <div class="ble-agents-center">
+                        <div class="ble-agents-toolbar">
+                            <div class="ble-agents-toolbar-title">
+                                <h3>Bàn Điều Khiển <span>108+ Đại Lý AI Chuyên Biệt</span></h3>
+                                <p>Chuyển đổi giữa Hội đồng 7 Cố vấn C-Suite và 101+ Trợ lý nghiệp vụ theo 6 khối phòng ban</p>
                             </div>
-                            <ul class="curr-topics-list">
-                                <li>Thiết kế JD &amp; Khung năng lực chuẩn</li>
-                                <li>Sàng lọc CV &amp; Bộ câu hỏi phỏng vấn STAR</li>
-                                <li>Xây dựng Lộ trình Onboarding &amp; L&amp;D</li>
-                                <li>Thiết kế KPI/OKR &amp; Đánh giá hiệu suất</li>
-                                <li>Soạn thảo Quy chế lương thưởng &amp; Nội quy</li>
-                            </ul>
+                            <div class="ble-switch-pills">
+                                <button type="button" class="ble-switch-btn active" id="btn-cockpit-csuite" onclick="switchCockpitView('csuite')">
+                                    👑 7 C-Suite AI Advisors <span class="badge-cnt">07</span>
+                                </button>
+                                <button type="button" class="ble-switch-btn" id="btn-cockpit-dept" onclick="switchCockpitView('dept')">
+                                    ⚡ 101+ Trợ Lý Nghiệp Vụ <span class="badge-cnt">6 Phòng Ban</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Dept 2: Finance -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        <!-- View 1: 7 C-Suite Advisors -->
+                        <div id="cockpit-view-csuite">
+                            <div class="ble-csuite-deck">
+                                <!-- CEO -->
+                                <div class="ble-exec-card">
+                                    <div class="ble-exec-top">
+                                        <span class="ble-exec-role">CEO Advisor</span>
+                                        <div class="ble-exec-avatar">👑</div>
+                                    </div>
+                                    <h4>Cố Vấn Chiến Lược &amp; Điều Hành</h4>
+                                    <p>Phản biện tầm nhìn, thiết lập bản đồ chiến lược và phân rã mục tiêu AOP 2027 toàn công ty.</p>
+                                    <div class="ble-exec-tools">
+                                        <span class="ble-exec-tool-pill">OGSM / BSC</span>
+                                        <span class="ble-exec-tool-pill">SWOT &amp; PESTEL</span>
+                                        <span class="ble-exec-tool-pill">AOP 2027</span>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="comp-card-caps-title">Tài Chính – Kế Toán</h4>
-                                    <span style="font-size: 0.75rem; font-weight: 800; color: #ab0e00;">16+ Agents Chuyên Biệt</span>
+
+                                <!-- CFO -->
+                                <div class="ble-exec-card">
+                                    <div class="ble-exec-top">
+                                        <span class="ble-exec-role">CFO Advisor</span>
+                                        <div class="ble-exec-avatar">📊</div>
+                                    </div>
+                                    <h4>Cố Vấn Tài Chính &amp; Dòng Tiền</h4>
+                                    <p>Thẩm định hiệu quả đầu tư, tối ưu cấu trúc chi phí và mô phỏng kịch bản dòng tiền doanh nghiệp.</p>
+                                    <div class="ble-exec-tools">
+                                        <span class="ble-exec-tool-pill">P&amp;L &amp; Cashflow</span>
+                                        <span class="ble-exec-tool-pill">DuPont Analysis</span>
+                                        <span class="ble-exec-tool-pill">Ngân sách</span>
+                                    </div>
+                                </div>
+
+                                <!-- COO -->
+                                <div class="ble-exec-card">
+                                    <div class="ble-exec-top">
+                                        <span class="ble-exec-role">COO Advisor</span>
+                                        <div class="ble-exec-avatar">⚙️</div>
+                                    </div>
+                                    <h4>Cố Vấn Vận Hành &amp; Quy Trình</h4>
+                                    <p>Chẩn đoán điểm nghẽn quy trình, tinh gọn chuỗi cung ứng và chuẩn hóa SOP liên phòng ban.</p>
+                                    <div class="ble-exec-tools">
+                                        <span class="ble-exec-tool-pill">Lean / Six Sigma</span>
+                                        <span class="ble-exec-tool-pill">SLA &amp; SOP</span>
+                                        <span class="ble-exec-tool-pill">Bottleneck</span>
+                                    </div>
+                                </div>
+
+                                <!-- CMO -->
+                                <div class="ble-exec-card">
+                                    <div class="ble-exec-top">
+                                        <span class="ble-exec-role">CMO Advisor</span>
+                                        <div class="ble-exec-avatar">🚀</div>
+                                    </div>
+                                    <h4>Cố Vấn Tiếp Thị &amp; Tăng Trưởng</h4>
+                                    <p>Hoạch định chiến lược Go-to-Market, định vị thương hiệu, thiết kế phễu chuyển đổi và tối ưu ROI Marketing.</p>
+                                    <div class="ble-exec-tools">
+                                        <span class="ble-exec-tool-pill">GTM Strategy</span>
+                                        <span class="ble-exec-tool-pill">Brand Positioning</span>
+                                        <span class="ble-exec-tool-pill">Marketing ROI</span>
+                                    </div>
+                                </div>
+
+                                <!-- CHRO -->
+                                <div class="ble-exec-card">
+                                    <div class="ble-exec-top">
+                                        <span class="ble-exec-role">CHRO Advisor</span>
+                                        <div class="ble-exec-avatar">👥</div>
+                                    </div>
+                                    <h4>Cố Vấn Quản Trị Nguồn Nhân Lực</h4>
+                                    <p>Kiến tạo khung năng lực, từ điển KPI/OKR, chính sách đãi ngộ Total Rewards (Hay Group) và lộ trình kế thừa.</p>
+                                    <div class="ble-exec-tools">
+                                        <span class="ble-exec-tool-pill">Competency Matrix</span>
+                                        <span class="ble-exec-tool-pill">Hay Group C&amp;B</span>
+                                        <span class="ble-exec-tool-pill">L&amp;D Pathway</span>
+                                    </div>
+                                </div>
+
+                                <!-- CLO -->
+                                <div class="ble-exec-card">
+                                    <div class="ble-exec-top">
+                                        <span class="ble-exec-role">CLO Advisor</span>
+                                        <div class="ble-exec-avatar">⚖️</div>
+                                    </div>
+                                    <h4>Cố Vấn Pháp Chế &amp; Tuân Thủ</h4>
+                                    <p>Thẩm định điều khoản hợp đồng thương mại, cảnh báo rủi ro pháp lý, kiểm soát tuân thủ và quản trị tranh chấp.</p>
+                                    <div class="ble-exec-tools">
+                                        <span class="ble-exec-tool-pill">Rà soát Hợp đồng</span>
+                                        <span class="ble-exec-tool-pill">Compliance Audit</span>
+                                        <span class="ble-exec-tool-pill">Quản trị rủi ro</span>
+                                    </div>
+                                </div>
+
+                                <!-- CTO / CDO (Full Width Bottom Card) -->
+                                <div class="ble-exec-card" style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+                                    <div style="flex: 1; min-width: 260px;">
+                                        <div class="ble-exec-top" style="margin-bottom: 6px;">
+                                            <span class="ble-exec-role">CTO / CDO Advisor • Chuyển Đổi Số &amp; Dữ Liệu</span>
+                                        </div>
+                                        <h4 style="margin-bottom: 4px;">Cố Vấn Kiến Trúc Công Nghệ, Dữ Liệu &amp; Tự Động Hóa AI</h4>
+                                        <p style="margin: 0;">Tư vấn lộ trình tích hợp AI vào hệ thống hiện hữu, quản trị kho tri thức Enterprise RAG, bảo mật thông tin và kiến trúc Multi-Agent.</p>
+                                    </div>
+                                    <div class="ble-exec-tools" style="margin-top: 0;">
+                                        <span class="ble-exec-tool-pill">Enterprise RAG Architecture</span>
+                                        <span class="ble-exec-tool-pill">Data Governance</span>
+                                        <span class="ble-exec-tool-pill">Multi-Agent Workflow</span>
+                                    </div>
                                 </div>
                             </div>
-                            <ul class="curr-topics-list">
-                                <li>Phân tích biến động BCTC (Variance Analysis)</li>
-                                <li>Lập dự toán ngân sách AOP 2027</li>
-                                <li>Đánh giá thẩm định dự án (NPV, IRR, Payback)</li>
-                                <li>Kiểm soát chi phí &amp; Tối ưu vốn lưu động</li>
-                                <li>Cảnh báo rủi ro công nợ &amp; Dòng tiền</li>
-                            </ul>
                         </div>
 
-                        <!-- Dept 3: Sales & Marketing -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        <!-- View 2: 101+ Functional Skills across 6 Departments -->
+                        <div id="cockpit-view-dept" style="display: none;">
+                            <div class="ble-dept-deck">
+                                <!-- Dept 1: HR -->
+                                <div class="ble-dept-pod">
+                                    <div class="ble-dept-pod-head">
+                                        <div class="ble-dept-pod-title">
+                                            <div class="ble-dept-pod-icon">👥</div>
+                                            <h4>Nhân Sự &amp; Đào Tạo (HR)</h4>
+                                        </div>
+                                        <span class="ble-dept-pod-count">18+ Agents</span>
+                                    </div>
+                                    <ul class="ble-dept-pod-roster">
+                                        <li>Thiết kế JD &amp; Khung năng lực chuẩn</li>
+                                        <li>Sàng lọc CV &amp; Bộ câu hỏi phỏng vấn STAR</li>
+                                        <li>Xây dựng Lộ trình Onboarding &amp; L&amp;D</li>
+                                        <li>Thiết kế KPI/OKR &amp; Đánh giá hiệu suất</li>
+                                        <li>Soạn thảo Quy chế lương thưởng &amp; Nội quy</li>
+                                    </ul>
                                 </div>
-                                <div>
-                                    <h4 class="comp-card-caps-title">Kinh Doanh &amp; Tiếp Thị</h4>
-                                    <span style="font-size: 0.75rem; font-weight: 800; color: #ab0e00;">22+ Agents Chuyên Biệt</span>
-                                </div>
-                            </div>
-                            <ul class="curr-topics-list">
-                                <li>Nghiên cứu Insight khách hàng &amp; Đối thủ</li>
-                                <li>Lập kế hoạch IMC &amp; Chiến dịch đa kênh</li>
-                                <li>Xây dựng Kịch bản B2B Sales &amp; Xử lý từ chối</li>
-                                <li>Tối ưu tỷ lệ chuyển đổi (CRO) &amp; Customer Journey</li>
-                                <li>Phân tích dữ liệu CRM &amp; Dự báo doanh số</li>
-                            </ul>
-                        </div>
 
-                        <!-- Dept 4: Operations -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                <!-- Dept 2: Finance -->
+                                <div class="ble-dept-pod">
+                                    <div class="ble-dept-pod-head">
+                                        <div class="ble-dept-pod-title">
+                                            <div class="ble-dept-pod-icon">💰</div>
+                                            <h4>Tài Chính – Kế Toán</h4>
+                                        </div>
+                                        <span class="ble-dept-pod-count">16+ Agents</span>
+                                    </div>
+                                    <ul class="ble-dept-pod-roster">
+                                        <li>Phân tích biến động BCTC (Variance Analysis)</li>
+                                        <li>Lập dự toán ngân sách AOP 2027</li>
+                                        <li>Đánh giá thẩm định dự án (NPV, IRR, Payback)</li>
+                                        <li>Kiểm soát chi phí &amp; Tối ưu vốn lưu động</li>
+                                        <li>Cảnh báo rủi ro công nợ &amp; Dòng tiền</li>
+                                    </ul>
                                 </div>
-                                <div>
-                                    <h4 class="comp-card-caps-title">Vận Hành &amp; Chuỗi Cung Ứng</h4>
-                                    <span style="font-size: 0.75rem; font-weight: 800; color: #ab0e00;">19+ Agents Chuyên Biệt</span>
-                                </div>
-                            </div>
-                            <ul class="curr-topics-list">
-                                <li>Chuẩn hóa lưu đồ quy trình SOP &amp; SLA</li>
-                                <li>Phân tích điểm nghẽn (Bottleneck) &amp; Kaizen</li>
-                                <li>Đánh giá &amp; Đàm phán nhà cung cấp (Procurement)</li>
-                                <li>Tối ưu định mức tồn kho &amp; Logistics</li>
-                                <li>Kiểm soát chất lượng (QA/QC) &amp; Báo cáo sự cố</li>
-                            </ul>
-                        </div>
 
-                        <!-- Dept 5: Legal -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                <!-- Dept 3: Sales & Marketing -->
+                                <div class="ble-dept-pod">
+                                    <div class="ble-dept-pod-head">
+                                        <div class="ble-dept-pod-title">
+                                            <div class="ble-dept-pod-icon">📈</div>
+                                            <h4>Kinh Doanh &amp; Tiếp Thị</h4>
+                                        </div>
+                                        <span class="ble-dept-pod-count">22+ Agents</span>
+                                    </div>
+                                    <ul class="ble-dept-pod-roster">
+                                        <li>Nghiên cứu Insight khách hàng &amp; Đối thủ</li>
+                                        <li>Lập kế hoạch IMC &amp; Chiến dịch đa kênh</li>
+                                        <li>Xây dựng Kịch bản B2B Sales &amp; Xử lý từ chối</li>
+                                        <li>Tối ưu tỷ lệ chuyển đổi (CRO) &amp; Customer Journey</li>
+                                        <li>Phân tích dữ liệu CRM &amp; Dự báo doanh số</li>
+                                    </ul>
                                 </div>
-                                <div>
-                                    <h4 class="comp-card-caps-title">Pháp Chế &amp; Tuân Thủ</h4>
-                                    <span style="font-size: 0.75rem; font-weight: 800; color: #ab0e00;">12+ Agents Chuyên Biệt</span>
-                                </div>
-                            </div>
-                            <ul class="curr-topics-list">
-                                <li>Rà soát rủi ro Hợp đồng thương mại &amp; Lao động</li>
-                                <li>Đối chiếu tuân thủ Quy chế nội bộ trên RAG</li>
-                                <li>Soạn thảo Công văn, Biên bản &amp; Phụ lục</li>
-                                <li>Bảo vệ dữ liệu cá nhân &amp; Bảo mật thông tin</li>
-                            </ul>
-                        </div>
 
-                        <!-- Dept 6: PM & IT -->
-                        <div class="comp-card">
-                            <div class="comp-card-header">
-                                <div class="comp-icon-box">
-                                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                <!-- Dept 4: Operations -->
+                                <div class="ble-dept-pod">
+                                    <div class="ble-dept-pod-head">
+                                        <div class="ble-dept-pod-title">
+                                            <div class="ble-dept-pod-icon">🏭</div>
+                                            <h4>Vận Hành &amp; Chuỗi Cung Ứng</h4>
+                                        </div>
+                                        <span class="ble-dept-pod-count">19+ Agents</span>
+                                    </div>
+                                    <ul class="ble-dept-pod-roster">
+                                        <li>Chuẩn hóa lưu đồ quy trình SOP &amp; SLA</li>
+                                        <li>Phân tích điểm nghẽn (Bottleneck) &amp; Kaizen</li>
+                                        <li>Đánh giá &amp; Đàm phán nhà cung cấp (Procurement)</li>
+                                        <li>Tối ưu định mức tồn kho &amp; Logistics</li>
+                                        <li>Kiểm soát chất lượng (QA/QC) &amp; Báo cáo sự cố</li>
+                                    </ul>
                                 </div>
-                                <div>
-                                    <h4 class="comp-card-caps-title">Quản Lý Dự Án &amp; Công Nghệ</h4>
-                                    <span style="font-size: 0.75rem; font-weight: 800; color: #ab0e00;">14+ Agents Chuyên Biệt</span>
+
+                                <!-- Dept 5: Legal -->
+                                <div class="ble-dept-pod">
+                                    <div class="ble-dept-pod-head">
+                                        <div class="ble-dept-pod-title">
+                                            <div class="ble-dept-pod-icon">⚖️</div>
+                                            <h4>Pháp Chế &amp; Tuân Thủ</h4>
+                                        </div>
+                                        <span class="ble-dept-pod-count">12+ Agents</span>
+                                    </div>
+                                    <ul class="ble-dept-pod-roster">
+                                        <li>Rà soát rủi ro Hợp đồng thương mại &amp; Lao động</li>
+                                        <li>Đối chiếu tuân thủ Quy chế nội bộ trên RAG</li>
+                                        <li>Soạn thảo Công văn, Biên bản &amp; Phụ lục</li>
+                                        <li>Tư vấn quy định Pháp luật chuyên ngành</li>
+                                        <li>Bảo vệ dữ liệu cá nhân &amp; Bảo mật thông tin</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Dept 6: PM & IT -->
+                                <div class="ble-dept-pod">
+                                    <div class="ble-dept-pod-head">
+                                        <div class="ble-dept-pod-title">
+                                            <div class="ble-dept-pod-icon">📋</div>
+                                            <h4>Quản Lý Dự Án &amp; Công Nghệ</h4>
+                                        </div>
+                                        <span class="ble-dept-pod-count">14+ Agents</span>
+                                    </div>
+                                    <ul class="ble-dept-pod-roster">
+                                        <li>Phân rã công việc WBS &amp; Lập tiến độ Gantt</li>
+                                        <li>Ma trận phân quyền RACI &amp; Quản trị rủi ro dự án</li>
+                                        <li>Viết tài liệu đặc tả yêu cầu nghiệp vụ (BRD/SRS)</li>
+                                        <li>Tổng hợp biên bản họp &amp; Theo dõi Action Items</li>
+                                        <li>Báo cáo tiến độ Sprint / Agile Dashboard</li>
+                                    </ul>
                                 </div>
                             </div>
-                            <ul class="curr-topics-list">
-                                <li>Phân rã công việc WBS &amp; Lập tiến độ Gantt</li>
-                                <li>Ma trận phân quyền RACI &amp; Quản trị rủi ro dự án</li>
-                                <li>Viết tài liệu đặc tả yêu cầu nghiệp vụ (BRD/SRS)</li>
-                                <li>Tổng hợp biên bản họp &amp; Theo dõi Action Items</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5C. QUY TRÌNH SOP 5 BƯỚC & LỘ TRÌNH 30-60-90 NGÀY (White Background, Exact BLE .pain-split-layout Style) -->
+        <!-- 5C. QUY TRÌNH SOP 5 BƯỚC & LỘ TRÌNH 30-60-90 NGÀY (Connected 5-Step SOP Track + 3-Col Horizon Grid in Light Brand UI) -->
         <section class="ble-section bg-white" id="lo-trinh-sop">
             <div class="ble-glow-orb ble-glow-orb-primary" style="top: 15%; left: -10%;"></div>
 
@@ -3193,97 +4006,127 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p class="ble-section-subtitle">Đảm bảo tính kế thừa bền vững trong toàn tổ chức và đo lường hiệu quả thực tế sau đào tạo theo mô hình chuẩn quốc tế <strong>Kirkpatrick 4 Cấp Độ</strong>:</p>
                 </div>
 
-                <div class="pain-split-layout">
-                    <!-- Left Column: 30-60-90 Day Transformation Roadmap Cards -->
-                    <div class="pain-left-col" style="padding-right: 0;">
-                        <h3 style="font-size: 1.3rem; font-weight: 850; color: #0f172a; margin: 0 0 20px 0;">Lộ Trình Chuyển Đổi <span class="ble-text-red">30–60–90 Ngày (Kirkpatrick)</span></h3>
-                        <div style="display: flex; flex-direction: column; gap: 20px;">
-                            <!-- Month 1 -->
-                            <div class="comp-card" style="padding: 24px 26px;">
-                                <div class="comp-card-header" style="margin-bottom: 12px;">
-                                    <div class="comp-icon-box" style="width: 44px; height: 44px;">
-                                        <span style="font-weight: 900; font-size: 0.9rem;">30D</span>
-                                    </div>
-                                    <div>
-                                        <span style="font-size: 0.72rem; font-weight: 800; color: #ab0e00; text-transform: uppercase;">Tháng 01 (Ngày 01 – 30) • Quick Wins (Kirkpatrick L1 – L2)</span>
-                                        <h4 class="comp-card-caps-title" style="margin-top: 2px;">Chuẩn Hóa Bảo Mật &amp; Làm Chủ Công Cụ Cá Nhân</h4>
-                                    </div>
-                                </div>
-                                <p class="comp-desc">100% quản lý nắm vững quy tắc phân loại dữ liệu, hoàn tất <strong>Tokenization Dictionary</strong>, khởi tạo kho RAG cơ sở và áp dụng công thức P.R.O.M.P.T tiết kiệm <strong>20–30% thời gian</strong> xử lý văn bản, báo cáo tuần.</p>
-                            </div>
+                <!-- Part 1: Connected 5-Step SOP Pipeline -->
+                <div class="ble-sop-track-panel">
+                    <div class="ble-sop-track-header">
+                        <div>
+                            <span style="display:inline-block; font-size:0.75rem; font-weight:800; color:#ab0e00; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">Enterprise AI Workflow Standard</span>
+                            <h3>Khung Quy Trình <span class="ble-text-red">SOP AI 5 Bước Chuẩn Hóa</span></h3>
+                        </div>
+                        <p>Chuyển hóa kỹ năng AI cá nhân thành tài sản quy trình có tính kế thừa của phòng ban</p>
+                    </div>
 
-                            <!-- Month 2 -->
-                            <div class="comp-card" style="padding: 24px 26px;">
-                                <div class="comp-card-header" style="margin-bottom: 12px;">
-                                    <div class="comp-icon-box" style="width: 44px; height: 44px;">
-                                        <span style="font-weight: 900; font-size: 0.9rem;">60D</span>
-                                    </div>
-                                    <div>
-                                        <span style="font-size: 0.72rem; font-weight: 800; color: #ab0e00; text-transform: uppercase;">Tháng 02 (Ngày 31 – 60) • Scaling &amp; SOPs (Kirkpatrick L3)</span>
-                                        <h4 class="comp-card-caps-title" style="margin-top: 2px;">Đóng Gói Custom Agents &amp; Vận Hành Team Workspace</h4>
-                                    </div>
-                                </div>
-                                <p class="comp-desc">Triển khai Custom AI Agents cho các tác vụ lặp lại, ban hành tối thiểu <strong>02 quy trình SOP AI cấp phòng ban</strong> và đưa đội ngũ vào làm việc đồng bộ, phân quyền RBAC trên <strong>IDEAS Team Workspace</strong>.</p>
-                            </div>
+                    <div class="ble-sop-steps-grid">
+                        <!-- Step 1 -->
+                        <div class="ble-sop-box">
+                            <div class="ble-sop-circle">01</div>
+                            <span class="ble-sop-stage">Bước 01 • Audit &amp; Decompose</span>
+                            <h4>Rà Soát &amp; Bóc Tách</h4>
+                            <p>Rà soát luồng việc hiện tại của phòng ban, bóc tách các tác vụ tốn thời gian và phân loại mức độ nhạy cảm dữ liệu.</p>
+                            <div class="ble-sop-deliverable">📄 Đầu ra: Ma trận WBS &amp; Tokenization</div>
+                        </div>
 
-                            <!-- Month 3 -->
-                            <div class="comp-card" style="padding: 24px 26px;">
-                                <div class="comp-card-header" style="margin-bottom: 12px;">
-                                    <div class="comp-icon-box" style="width: 44px; height: 44px;">
-                                        <span style="font-weight: 900; font-size: 0.9rem;">90D</span>
-                                    </div>
-                                    <div>
-                                        <span style="font-size: 0.72rem; font-weight: 800; color: #ab0e00; text-transform: uppercase;">Tháng 03 (Ngày 61 – 90) • Agentic ROI (Kirkpatrick L4)</span>
-                                        <h4 class="comp-card-caps-title" style="margin-top: 2px;">Tự Động Hóa Liên Phòng Ban &amp; Nghiệm Thu ROI</h4>
-                                    </div>
-                                </div>
-                                <p class="comp-desc">Vận hành chuỗi Multi-Agent giải quyết bài toán liên phòng ban, hoàn thiện kế hoạch chiến lược <strong>AOP 2027</strong> và đo lường KPI tiết kiệm <strong>30–50% chi phí/thời gian</strong> vận hành trình Ban Giám đốc.</p>
-                            </div>
+                        <!-- Step 2 -->
+                        <div class="ble-sop-box">
+                            <div class="ble-sop-circle">02</div>
+                            <span class="ble-sop-stage">Bước 02 • Prompt &amp; Agent</span>
+                            <h4>Thiết Lập Công Cụ Chuẩn</h4>
+                            <p>Thiết kế câu lệnh chuẩn P.R.O.M.P.T, kết nối kho tri thức RAG và đóng gói thành Custom AI Agent chuyên trách.</p>
+                            <div class="ble-sop-deliverable">🤖 Đầu ra: Master Prompts &amp; AI Agent</div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="ble-sop-box">
+                            <div class="ble-sop-circle">03</div>
+                            <span class="ble-sop-stage">Bước 03 • Quality Gate</span>
+                            <h4>Tiêu Chuẩn Nghiệm Thu</h4>
+                            <p>Thiết lập tiêu chí kiểm chứng nguồn trích dẫn (Source Grounding) và chốt chặn duyệt bởi con người (Human-in-the-Loop).</p>
+                            <div class="ble-sop-deliverable">✅ Đầu ra: Checklist Nghiệm thu QA</div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="ble-sop-box">
+                            <div class="ble-sop-circle">04</div>
+                            <span class="ble-sop-stage">Bước 04 • SOP Packaging</span>
+                            <h4>Đóng Gói &amp; Phân Quyền</h4>
+                            <p>Đóng gói hướng dẫn thao tác, câu lệnh mẫu và quy tắc bảo mật thành văn bản SOP, chia sẻ lên IDEAS Team Workspace.</p>
+                            <div class="ble-sop-deliverable">📦 Đầu ra: Văn bản SOP &amp; Workspace</div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="ble-sop-box">
+                            <div class="ble-sop-circle">05</div>
+                            <span class="ble-sop-stage">Bước 05 • Monitor &amp; ROI</span>
+                            <h4>Đo Lường &amp; Cải Tiến</h4>
+                            <p>Theo dõi nhật ký vận hành (Audit Trail), đo lường thời gian tiết kiệm và đánh giá hiệu quả theo chuẩn Kirkpatrick.</p>
+                            <div class="ble-sop-deliverable">📈 Đầu ra: Báo cáo ROI Kirkpatrick</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Part 2: 30-60-90 Day Transformation Horizon + Kirkpatrick 4 Levels -->
+                <div class="ble-horizon-grid">
+                    <!-- Phase 1: 30 Days -->
+                    <div class="ble-horizon-card">
+                        <div class="ble-hz-top">
+                            <span class="ble-hz-badge">Tháng 01 • Ngày 01 – 30</span>
+                            <span class="ble-hz-days">30D</span>
+                        </div>
+                        <h4 class="ble-hz-title">Chuẩn Hóa Bảo Mật &amp; Làm Chủ Công Cụ Cá Nhân</h4>
+                        <p class="ble-hz-desc">100% cấp quản lý nắm vững quy tắc phân loại dữ liệu, hoàn tất <strong>Tokenization Dictionary</strong>, khởi tạo kho RAG cơ sở và áp dụng công thức P.R.O.M.P.T vào công việc hàng ngày.</p>
+
+                        <div class="ble-hz-progress"><span style="width: 35%;"></span></div>
+
+                        <div class="ble-hz-kpi-box">
+                            <strong>🎯 Mục tiêu nghiệm thu 30 Ngày (Quick Wins)</strong>
+                            <span>Tiết kiệm 20–30% thời gian xử lý văn bản, tổng hợp báo cáo tuần và tra cứu quy chế nội bộ.</span>
+                        </div>
+
+                        <div class="ble-hz-kirkpatrick">
+                            <span class="ble-hz-kp-chip">Kirkpatrick Level 1: Reaction</span>
+                            <span class="ble-hz-kp-chip">Kirkpatrick Level 2: Learning</span>
                         </div>
                     </div>
 
-                    <!-- Right Column: 5-Step SOP Pipeline (Exact BLE .pain-list-item) -->
-                    <div class="pain-right-col">
-                        <h3 style="font-size: 1.3rem; font-weight: 850; color: #0f172a; margin: 0 0 4px 0;">Khung Quy Trình <span class="ble-text-red">SOP AI 5 Bước Chuẩn Hóa</span></h3>
+                    <!-- Phase 2: 60 Days -->
+                    <div class="ble-horizon-card">
+                        <div class="ble-hz-top">
+                            <span class="ble-hz-badge">Tháng 02 • Ngày 31 – 60</span>
+                            <span class="ble-hz-days">60D</span>
+                        </div>
+                        <h4 class="ble-hz-title">Đóng Gói Custom Agents &amp; Vận Hành Team Workspace</h4>
+                        <p class="ble-hz-desc">Triển khai Custom AI Agents cho các nghiệp vụ lặp lại của từng bộ phận, ban hành tối thiểu <strong>02 quy trình SOP AI cấp phòng ban</strong> và đưa đội ngũ vào làm việc chung trên <strong>IDEAS Team Workspace</strong>.</p>
 
-                        <div class="pain-list-item">
-                            <div class="pain-number">01</div>
-                            <div class="pain-info">
-                                <h4>Audit &amp; Decomposition (Rà soát &amp; Bóc tách tác vụ)</h4>
-                                <p>Rà soát luồng việc phòng ban, bóc tách các tác vụ tốn thời gian và phân loại mức độ nhạy cảm dữ liệu. <strong>Đầu ra: Ma trận WBS &amp; Tokenization Dictionary.</strong></p>
-                            </div>
+                        <div class="ble-hz-progress"><span style="width: 68%;"></span></div>
+
+                        <div class="ble-hz-kpi-box">
+                            <strong>🎯 Mục tiêu nghiệm thu 60 Ngày (Scaling &amp; SOPs)</strong>
+                            <span>100% nhân sự trong nhóm sử dụng chung thư viện Prompt &amp; Agent chuẩn hóa theo phân quyền RBAC.</span>
                         </div>
 
-                        <div class="pain-list-item">
-                            <div class="pain-number">02</div>
-                            <div class="pain-info">
-                                <h4>Prompt &amp; Custom Agent (Thiết lập công cụ chuẩn)</h4>
-                                <p>Thiết kế câu lệnh chuẩn P.R.O.M.P.T, kết nối kho tri thức RAG và đóng gói thành Custom AI Agent. <strong>Đầu ra: Master Prompts &amp; Phòng ban AI Agent.</strong></p>
-                            </div>
+                        <div class="ble-hz-kirkpatrick">
+                            <span class="ble-hz-kp-chip">Kirkpatrick Level 3: Behavior (Hành vi vận hành)</span>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3: 90 Days -->
+                    <div class="ble-horizon-card highlight">
+                        <div class="ble-hz-top">
+                            <span class="ble-hz-badge">Tháng 03 • Ngày 61 – 90</span>
+                            <span class="ble-hz-days">90D</span>
+                        </div>
+                        <h4 class="ble-hz-title">Tự Động Hóa Liên Phòng Ban &amp; Nghiệm Thu ROI</h4>
+                        <p class="ble-hz-desc">Vận hành chuỗi phối hợp đa tác nhân (Multi-Agent Collaboration) giải quyết bài toán liên phòng ban, hoàn thiện kế hoạch chiến lược <strong>AOP 2027</strong> và báo cáo đo lường ROI trình Ban Giám đốc.</p>
+
+                        <div class="ble-hz-progress"><span style="width: 100%;"></span></div>
+
+                        <div class="ble-hz-kpi-box">
+                            <strong>🏆 Mục tiêu nghiệm thu 90 Ngày (Agentic ROI)</strong>
+                            <span>Tối ưu 30–50% chi phí &amp; thời gian vận hành quy trình cốt lõi; hoàn tất hệ thống tri thức AI tự vận hành.</span>
                         </div>
 
-                        <div class="pain-list-item">
-                            <div class="pain-number">03</div>
-                            <div class="pain-info">
-                                <h4>Quality Acceptance (Tiêu chuẩn nghiệm thu)</h4>
-                                <p>Thiết lập tiêu chí kiểm chứng nguồn trích dẫn (Source Grounding) và chốt chặn duyệt bởi con người. <strong>Đầu ra: Checklist Nghiệm thu Human-in-the-Loop.</strong></p>
-                            </div>
-                        </div>
-
-                        <div class="pain-list-item">
-                            <div class="pain-number">04</div>
-                            <div class="pain-info">
-                                <h4>SOP Packaging (Đóng gói tài liệu hướng dẫn)</h4>
-                                <p>Đóng gói toàn bộ hướng dẫn thao tác, câu lệnh mẫu và quy tắc bảo mật thành văn bản SOP chuẩn. <strong>Đầu ra: Văn bản SOP AI &amp; Phân quyền Workspace.</strong></p>
-                            </div>
-                        </div>
-
-                        <div class="pain-list-item">
-                            <div class="pain-number">05</div>
-                            <div class="pain-info">
-                                <h4>Monitoring &amp; ROI (Đo lường hiệu suất &amp; cải tiến)</h4>
-                                <p>Theo dõi nhật ký vận hành (Audit Trail), đo lường thời gian tiết kiệm và đánh giá hiệu quả sau đào tạo. <strong>Đầu ra: Báo cáo ROI Kirkpatrick 4 Cấp độ.</strong></p>
-                            </div>
+                        <div class="ble-hz-kirkpatrick">
+                            <span class="ble-hz-kp-chip">Kirkpatrick Level 4: Results &amp; Business ROI</span>
                         </div>
                     </div>
                 </div>
@@ -3709,7 +4552,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
     <!-- Interactive JS scripts for Curriculum Tab, FAQ Accordions, Advisor Slider & AJAX Bottom Form -->
     <script>
-        // 1. Curriculum Tab Switcher
+        // 0. Bento Cockpit View Switcher & P.R.O.M.P.T Interactive Selector
+        window.switchCockpitView = function(view) {
+            const viewCsuite = document.getElementById('cockpit-view-csuite');
+            const viewDept = document.getElementById('cockpit-view-dept');
+            const btnCsuite = document.getElementById('btn-cockpit-csuite');
+            const btnDept = document.getElementById('btn-cockpit-dept');
+            if (!viewCsuite || !viewDept) return;
+
+            if (view === 'dept') {
+                viewCsuite.style.display = 'none';
+                viewDept.style.display = 'block';
+                if (btnCsuite) btnCsuite.classList.remove('active');
+                if (btnDept) btnDept.classList.add('active');
+            } else {
+                viewCsuite.style.display = 'block';
+                viewDept.style.display = 'none';
+                if (btnCsuite) btnCsuite.classList.add('active');
+                if (btnDept) btnDept.classList.remove('active');
+            }
+        };
+
+        window.selectPromptStep = function(el) {
+            if (!el) return;
+            const list = el.closest('.ble-pdeck-list');
+            if (list) {
+                list.querySelectorAll('.ble-pdeck-item').forEach(item => item.classList.remove('active'));
+            }
+            el.classList.add('active');
+        };
+
+        // 1. Curriculum Tab Switcher & Accordion Toggle
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.curr-tab');
             const panels = document.querySelectorAll('.curr-panel');
@@ -3729,6 +4602,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     if (targetPanel) {
                         targetPanel.classList.add('active');
                         targetPanel.style.display = 'block';
+                    }
+                });
+            });
+
+            // Curriculum Accordion Toggle
+            document.querySelectorAll('.curr-acc-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.closest('.curr-acc-item');
+                    if (item) {
+                        item.classList.toggle('active');
                     }
                 });
             });
