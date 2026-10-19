@@ -42,11 +42,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     // Preload LCP featured article image dynamically on page 1
     $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
     if ($current_page == 1) {
-        $latest_posts = get_posts(array(
+        $preload_args = array(
             'post_type' => 'post',
             'posts_per_page' => 1,
             'post_status' => 'publish'
-        ));
+        );
+        if (is_category()) {
+            $preload_args['cat'] = get_queried_object_id();
+        }
+        $latest_posts = get_posts($preload_args);
         if (!empty($latest_posts)) {
             $featured_id = $latest_posts[0]->ID;
             $featured_img = get_the_post_thumbnail_url($featured_id, 'large');
@@ -721,11 +725,19 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </div>
         <div class="container" style="position: relative; z-index: 3;">
-            <h1><?php echo $is_en ? 'News &amp; Events' : 'Tin Tức &amp; Sự Kiện'; ?></h1>
-            <div class="verify-slogan">
-                <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
-            </div>
-            <p><?php echo $is_en ? 'Stay updated with the latest admissions information, student activities, and academic articles shared by the IDEAS Academic Council.' : 'Cập nhật những thông tin tuyển sinh mới nhất, hoạt động của học viên và bài viết chia sẻ tri thức chuyên môn từ Hội đồng Học thuật IDEAS.'; ?></p>
+            <?php if (is_category('testimonial')): ?>
+                <h1><?php echo $is_en ? 'Student Testimonials' : 'Testimonial - Góc Nhìn Học Viên'; ?></h1>
+                <div class="verify-slogan">
+                    <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                </div>
+                <p><?php echo $is_en ? 'Real stories, learning journeys, and career transformations shared by MBA, EMBA, MSc AI, and DBA students and alumni at IDEAS.' : 'Lắng nghe những câu chuyện thực tế, hành trình chinh phục tri thức và bước chuyển mình trong sự nghiệp từ các học viên, Tân Thạc sĩ và Tân Tiến sĩ tại Viện IDEAS.'; ?></p>
+            <?php else: ?>
+                <h1><?php echo $is_en ? 'News &amp; Events' : 'Tin Tức &amp; Sự Kiện'; ?></h1>
+                <div class="verify-slogan">
+                    <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
+                </div>
+                <p><?php echo $is_en ? 'Stay updated with the latest admissions information, student activities, and academic articles shared by the IDEAS Academic Council.' : 'Cập nhật những thông tin tuyển sinh mới nhất, hoạt động của học viên và bài viết chia sẻ tri thức chuyên môn từ Hội đồng Học thuật IDEAS.'; ?></p>
+            <?php endif; ?>
 
             <!-- Search bar -->
             <form role="search" method="get" class="archive-search-form"

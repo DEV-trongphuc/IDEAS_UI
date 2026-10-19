@@ -74,6 +74,14 @@ add_action('parse_request', function($wp) {
             $_GET['lang'] = 'en';
             $wp->query_vars['lang'] = 'en';
             return;
+        } elseif (in_array($slug, ['testimonial', 'kiem-dinh-2'], true)) {
+            $wp->query_vars = [
+                'category_name' => $slug,
+                'lang' => 'en'
+            ];
+            $_GET['lang'] = 'en';
+            $wp->query_vars['lang'] = 'en';
+            return;
         }
         
         // Unsupported EN path -> Redirect 301 to the corresponding Vietnamese version

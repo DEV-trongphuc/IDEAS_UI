@@ -598,6 +598,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </a>
                     </li>
                     <li class="sitemap-item">
+                        <a href="/testimonial<?php echo $is_en ? '?lang=en' : ''; ?>" class="sitemap-link">
+                            <svg class="svg-icon fa-comment-dots fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3c0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+                            <div class="sitemap-item-content">
+                                <span class="sitemap-item-title">Testimonial</span>
+                                <span class="sitemap-item-desc"><?php echo $is_en ? 'Student stories, learning journeys &amp; alumni testimonials' : 'Chia sẻ thực tế và góc nhìn học tập từ các học viên, Tân Thạc sĩ, Tân Tiến sĩ'; ?></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="sitemap-item">
                         <a href="<?php echo $is_en ? '/en/events#chuyen-di' : '/dong-su-kien#chuyen-di'; ?>" class="sitemap-link">
                             <svg class="svg-icon fa-plane-departure fa-solid" viewBox="0 0 640 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M381 114.9L186.1 41.8c-16.7-6.2-35.2-5.3-51.1 2.7L89.1 67.4C78 73 77.2 88.5 87.6 95.2l146.9 94.5L136 240 77.8 214.1c-8.7-3.9-18.8-3.7-27.3 .6L18.3 230.8c-9.3 4.7-11.8 16.8-5 24.7l73.1 85.3c6.1 7.1 15 11.2 24.3 11.2l137.7 0c5 0 9.9-1.2 14.3-3.4L535.6 212.2c46.5-23.3 82.5-63.3 100.8-112C645.9 75 627.2 48 600.2 48l-57.4 0c-20.2 0-40.2 4.8-58.2 14L381 114.9zM0 480c0 17.7 14.3 32 32 32l576 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 448c-17.7 0-32 14.3-32 32z"/></svg>
                             <div class="sitemap-item-content">
