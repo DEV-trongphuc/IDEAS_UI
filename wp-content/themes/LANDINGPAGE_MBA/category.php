@@ -784,10 +784,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         $featured_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                     }
 
-                    $excerpt = get_the_excerpt();
-                    if (empty($excerpt)) {
-                        $excerpt = wp_strip_all_tags(wp_trim_words(get_the_content(), 35));
-                    }
+                    $raw_excerpt = has_excerpt() ? get_the_excerpt() : get_the_content();
+                    $excerpt = html_entity_decode(wp_trim_words(wp_strip_all_tags($raw_excerpt), 35), ENT_QUOTES, 'UTF-8');
                     ?>
                     <a href="<?php the_permalink(); ?>" class="blog-featured-card">
                         <div class="featured-img-wrap skeleton">
@@ -846,10 +844,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         $post_img = isset($matches[1][0]) ? $matches[1][0] : 'https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp';
                     }
 
-                    $excerpt = get_the_excerpt();
-                    if (empty($excerpt)) {
-                        $excerpt = wp_strip_all_tags(wp_trim_words(get_the_content(), 22));
-                    }
+                    $raw_excerpt = has_excerpt() ? get_the_excerpt() : get_the_content();
+                    $excerpt = html_entity_decode(wp_trim_words(wp_strip_all_tags($raw_excerpt), 22), ENT_QUOTES, 'UTF-8');
                     ?>
                     <a href="<?php the_permalink(); ?>" class="blog-card">
                         <div class="card-img-wrap skeleton">
