@@ -3,307 +3,500 @@
  * Template Name: AI for Managers Page
  * Description: Landing page for AI for Managers: Làm Chủ & Thực Thi AI Trên Nền Tảng IDEAS AI Platform (Styled identically to Business Leadership Essentials)
  */
+global $wp;
+
+// Block unwanted old theme styles via output buffering
+ob_start(function ($html) {
+    $html = preg_replace(
+        '/<link[^>]+href=[\'"][^\'"]*LANDINGPAGE_MBA\/main\.css[^\'"]*[\'"][^>]*\/?>/i',
+        '<!-- [BLOCKED: LANDINGPAGE_MBA/main.css] -->',
+        $html
+    );
+    return $html;
+});
 $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html lang="<?php echo $is_en ? 'en' : 'vi'; ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <?php get_template_part('shared-head'); ?>
+
+    <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
+            <title><?php echo $is_en ? 'AI for Managers: Master & Execute AI on IDEAS AI Platform | IDEAS' : 'AI for Managers: Làm Chủ & Thực Thi AI Trên Nền Tảng IDEAS AI Platform | IDEAS'; ?></title>
+            <meta name="description"
+                content="<?php echo $is_en ? 'Intensive 04-session practical AI program for managers on IDEAS AI Platform (Enterprise RAG, 108+ AI Agents, P.R.O.M.P.T Framework & 30-60-90 Day SOP).' : 'Chương trình đào tạo thực chiến 04 buổi (12 giờ) giúp Cấp Quản lý làm chủ 4 cấp độ AI (Beside → Agentic), công thức P.R.O.M.P.T, 108+ AI Agents và 08 sản phẩm quản trị thực tế trên IDEAS AI Platform.'; ?>" />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="<?php echo $is_en ? 'AI for Managers - IDEAS AI Platform' : 'Chương trình AI for Managers - IDEAS AI Platform'; ?>" />
+            <meta property="og:description"
+                content="<?php echo $is_en ? '30% Theory - 70% Hands-on Lab on 100% IDEAS AI Platform. Build 08 management deliverables & 30-60-90 day SOP.' : '30% Lý thuyết - 70% Thực hành trên 100% IDEAS AI Platform. Đóng gói 08 sản phẩm quản trị thực tế & lộ trình 30-60-90 ngày.'; ?>" />
+            <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2026/07/UMEFLOGO.webp" />
+            <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
+    <?php endif; ?>
+
+    <!-- Booking Modal stylesheet -->
+    <?php
+    define('BOOKING_MODAL_CSS_LOADED', true);
+    $bk_css_path = get_stylesheet_directory() . '/common-assets/css/booking-modal.min.css';
+    $bk_css_version = file_exists($bk_css_path) ? filemtime($bk_css_path) : time();
+    ?>
+    <link rel="stylesheet"
+        href="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/css/booking-modal.min.css?v=<?php echo $bk_css_version; ?>" media="print" onload="this.media='all'" />
 
     <!-- Plus Jakarta Sans Font for Modern UI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-    <!-- Scoped Styles for AI for Managers Landing Page (Exact Business Leadership Essentials Design System) -->
+    <!-- Premium Custom Styles for AI for Managers (Exact Business Leadership Essentials Design System) -->
     <style>
-        /* ── Global Reset & Typography ───────────────── */
-        body,
-        .ideas_main {
+        /* ══════════════════════════════════════
+           BUSINESS LEADERSHIP ESSENTIALS STYLES
+        ══════════════════════════════════════ */
+        html, body {
+            overflow-x: clip !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #ffffff;
-            color: #0f172a;
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
         }
 
-        /* ── Top Full-Width Standalone Banner ────────── */
-        .ble-top-banner {
-            width: 100%;
-            padding-top: 80px;
-            background: #0f172a;
-            line-height: 0;
-            overflow: hidden;
+        body {
+            background-image: radial-gradient(rgba(171, 14, 0, 0.015) 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
         }
 
-        .ble-top-banner-img {
-            width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: cover;
-            object-position: center;
-            display: block;
+        /* ─── Custom Webkit Scrollbar ─── */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
         }
 
-        /* ── Section Layout & Ambient Glows ──────────── */
+        ::-webkit-scrollbar-track {
+            background: #faf8f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ab0e00;
+            border-radius: 100px;
+            border: 2.5px solid #faf8f5;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8c1000;
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #ab0e00 #faf8f5;
+        }
+
+        /* ── Sections Common (Alternating White & Cream) ── */
         .ble-section {
-            padding: 75px 20px;
+            padding: 100px 20px;
             position: relative;
+            background-color: #ffffff;
             overflow: hidden;
-        }
-
-        .ble-section.bg-soft-cream {
-            background-color: #FDFBF7;
-            border-top: 1px solid rgba(171, 14, 0, 0.05);
-            border-bottom: 1px solid rgba(171, 14, 0, 0.05);
         }
 
         .ble-section.bg-white {
             background-color: #ffffff;
         }
 
+        .ble-section.bg-soft-cream {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #ffebeb 100%);
+            border-top: 1px solid rgba(171, 14, 0, 0.08);
+            border-bottom: 1px solid rgba(171, 14, 0, 0.08);
+        }
+
         .ble-container {
-            max-width: 1240px;
+            max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
             position: relative;
             z-index: 2;
         }
 
-        /* Ambient Glow Orbs */
+        .ble-title-wrap {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        /* ─── Ambient Glow Orbs ─── */
         .ble-glow-orb {
             position: absolute;
             border-radius: 50%;
-            filter: blur(110px);
+            filter: blur(90px);
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
+            opacity: 0.55;
+            will-change: transform;
+            transform: translate3d(0, 0, 0);
         }
 
         .ble-glow-orb-primary {
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(171, 14, 0, 0.06) 0%, rgba(171, 14, 0, 0) 70%);
+            background: radial-gradient(circle, rgba(171, 14, 0, 0.07) 0%, transparent 70%);
+            width: 450px;
+            height: 450px;
         }
 
         .ble-glow-orb-gold {
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, rgba(255, 200, 55, 0.08) 0%, rgba(255, 200, 55, 0) 70%);
+            background: radial-gradient(circle, rgba(217, 159, 56, 0.08) 0%, transparent 70%);
+            width: 500px;
+            height: 500px;
         }
 
-        /* ── Section Titles & Badges ─────────────────── */
-        .ble-title-wrap {
-            text-align: center;
-            max-width: 780px;
-            margin: 0 auto 48px auto;
-            position: relative;
-            z-index: 2;
-        }
-
+        /* ─── Pulsing Premium Badges ─── */
         .ble-section-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 14px;
-            border-radius: 100px;
-            background: #fff5f5;
-            border: 1px solid rgba(171, 14, 0, 0.12);
+            background: rgba(171, 14, 0, 0.06);
             color: #ab0e00;
+            padding: 8px 20px;
+            border-radius: 100px;
             font-size: 0.72rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+            margin-bottom: 18px;
+            border: 1.5px solid rgba(171, 14, 0, 0.15);
         }
 
         .ble-section-tag .dot {
-            width: 6px;
-            height: 6px;
-            background-color: #ab0e00;
+            width: 8px;
+            height: 8px;
+            background: #ab0e00;
             border-radius: 50%;
-            box-shadow: 0 0 8px #ab0e00;
+            display: inline-block;
+            box-shadow: 0 0 0 2.5px rgba(171, 14, 0, 0.25);
+            animation: pulse-dot-red-crisp 1.5s infinite;
+        }
+
+        @keyframes pulse-dot-red-crisp {
+            0% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 2px rgba(171, 14, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 4px rgba(171, 14, 0, 0.35);
+            }
+            100% {
+                transform: scale(0.9);
+                box-shadow: 0 0 0 2px rgba(171, 14, 0, 0.2);
+            }
+        }
+
+        @keyframes pulse-dot-red {
+            0% {
+                transform: scale(0.85);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.85);
+                opacity: 0.5;
+            }
         }
 
         .ble-section-title {
-            font-size: clamp(1.85rem, 3.5vw, 2.5rem);
-            font-weight: 800;
-            line-height: 1.25;
+            font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+            font-weight: 900;
             color: #0f172a;
             margin: 0 0 16px 0;
+            line-height: 1.25;
             letter-spacing: -0.02em;
         }
 
         .ble-section-subtitle {
             font-size: 1rem;
-            line-height: 1.6;
             color: #475569;
-            margin: 0;
-            font-weight: 400;
-        }
-
-        .ble-gradient-text {
-            background: linear-gradient(95deg, #ab0e00 0%, #e53935 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.6;
         }
 
         .ble-text-red {
-            color: #ab0e00;
+            color: #ab0e00 !important;
         }
 
-        /* ── Primary & Outline Buttons ───────────────── */
-        .ble-btn {
-            background: linear-gradient(135deg, #ab0e00 0%, #c62828 100%);
-            color: #ffffff !important;
-            font-weight: 700;
-            font-size: 0.95rem;
-            padding: 15px 32px;
+        .ble-gradient-text {
+            background: linear-gradient(135deg, #ab0e00 0%, #ff4d4d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            font-weight: 850;
+        }
+
+        #curriculum.ble-section {
+            overflow: visible !important;
+        }
+
+        /* ── Red Box Title Accents ── */
+        .ble-title-badge-red {
+            display: inline-block;
+            background: #ab0e00;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            padding: 10px 24px;
             border-radius: 12px;
-            border: none;
-            cursor: pointer;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        /* ── SVG Icons Styling ─────────────── */
+        .ble-svg-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* ── Buttons ── */
+        .ble-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #ab0e00;
+            color: #ffffff !important;
+            font-weight: 750;
+            font-size: 0.95rem;
+            height: 48px;
+            padding: 0 34px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(171, 14, 0, 0.15);
             text-decoration: none !important;
-            box-shadow: 0 8px 25px rgba(171, 14, 0, 0.2);
             position: relative;
             overflow: hidden;
-            z-index: 2;
+            z-index: 5;
+            box-sizing: border-box;
+        }
+
+        .ble-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: skewX(-25deg);
+            transition: 0.75s;
+        }
+
+        .ble-btn:hover::before {
+            left: 150%;
         }
 
         .ble-btn:hover {
+            background: #8c1000;
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(171, 14, 0, 0.3);
-            background: linear-gradient(135deg, #8f0b00 0%, #ab0e00 100%);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.25);
+        }
+
+        .ble-btn:active {
+            transform: translateY(0);
         }
 
         .ble-btn-outline {
-            background: #ffffff;
-            color: #0f172a !important;
-            border: 1.5px solid #cbd5e1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            color: #ab0e00 !important;
+            border: 1.5px solid #ab0e00;
+            font-weight: 750;
+            font-size: 0.95rem;
+            height: 48px;
+            padding: 0 32.5px;
+            border-radius: 100px;
+            z-index: 5;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none !important;
+            box-shadow: none;
+            box-sizing: border-box;
         }
 
         .ble-btn-outline:hover {
-            background: #fff5f5;
-            border-color: #ab0e00;
-            color: #ab0e00 !important;
-            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.08);
+            background: rgba(171, 14, 0, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.1);
         }
 
-        /* ── 1. HERO SECTION ─────────────────────────── */
+        /* ── Hero Section (herobg.webp faded background) ── */
         .ble-hero {
             padding-top: 120px;
             padding-bottom: 85px;
-            background: radial-gradient(circle at 85% 20%, rgba(171, 14, 0, 0.04) 0%, transparent 55%),
-                        radial-gradient(circle at 10% 80%, rgba(255, 200, 55, 0.05) 0%, transparent 50%),
-                        #ffffff;
-            border-bottom: 1px solid #f1f5f9;
+            background: #ffffff;
+            border-bottom: 1px solid #cbd5e1;
+            position: relative;
+        }
+
+        .ble-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets/herobg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.35;
+            z-index: 1;
+            pointer-events: none;
         }
 
         .ble-hero-grid {
             display: grid;
             grid-template-columns: 1.15fr 0.85fr;
-            gap: 60px;
+            gap: 65px;
             align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ble-hero-content {
+            z-index: 5;
         }
 
         .ble-hero-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 14px;
-            background: #fff5f5;
-            border: 1px solid rgba(171, 14, 0, 0.15);
-            border-radius: 100px;
+            background: rgba(171, 14, 0, 0.08);
+            border: 1px solid rgba(171,14,0,0.15);
             color: #ab0e00;
-            font-size: 0.75rem;
             font-weight: 800;
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 18px;
+            letter-spacing: 0.1em;
+            padding: 8px 18px;
+            border-radius: 100px;
+            margin-bottom: 24px;
         }
 
         .ble-hero-tag span {
-            width: 7px;
-            height: 7px;
-            background: #ab0e00;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            box-shadow: 0 0 8px #ab0e00;
+            background: #ab0e00;
+            box-shadow: 0 0 0 2.5px rgba(171, 14, 0, 0.25);
+            animation: pulse-dot-red-crisp 1.5s infinite;
         }
 
         .ble-hero-title {
-            font-size: clamp(2.1rem, 4vw, 3.1rem);
+            font-size: clamp(2.3rem, 4.5vw, 3.35rem);
             font-weight: 900;
-            line-height: 1.18;
             color: #0f172a;
-            margin: 0 0 16px 0;
-            letter-spacing: -0.025em;
-        }
-
-        .ble-hero-tagline {
-            font-size: 1.12rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 14px;
-            line-height: 1.45;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin: 0 0 20px 0;
         }
 
         .ble-hero-desc {
-            font-size: 0.96rem;
+            font-size: 0.95rem;
             line-height: 1.65;
             color: #475569;
-            margin: 0 0 28px 0;
+            margin-bottom: 30px;
+            max-width: 620px;
         }
 
-        /* Sleek 2x2 Meta Grid in Hero */
+        .ble-hero-tagline {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            max-width: 620px;
+        }
+
         .ble-hero-meta-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 32px;
-            background: #f8fafc;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            border-radius: 16px;
             padding: 20px;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
+            gap: 16px;
+            margin-left: 0 !important;
+            margin-right: auto !important;
+            margin-bottom: 35px;
+            max-width: 820px;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
         }
 
         .ble-hero-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
+            display: flex !important;
+            align-items: center !important;
+            gap: 14px !important;
+            justify-content: flex-start !important;
+            position: relative !important;
+            padding: 14px 18px !important;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ble-hero-meta-item:hover {
+            border-color: #ab0e00;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(171, 14, 0, 0.05);
+            transform: translateY(-2px);
         }
 
         .ble-meta-icon-wrapper {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #ab0e00 0%, #d32f2f 100%);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 6px 15px rgba(171, 14, 0, 0.2);
+            width: 32px !important;
+            height: 32px !important;
+            background: #ab0e00 !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex-shrink: 0 !important;
         }
 
         .ble-meta-icon-wrapper svg {
-            width: 20px;
-            height: 20px;
+            width: 16px !important;
+            height: 16px !important;
+            color: #ffffff !important;
+            display: block !important;
+        }
+
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg *,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg path,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg polygon,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg circle,
+        body main.ideas_main .ble-hero-meta-row .ble-hero-meta-item svg rect {
+            stroke: #ffffff !important;
+            stroke-width: 2.5 !important;
+            fill: none !important;
         }
 
         .ble-hero-meta-item span {
             display: flex;
             flex-direction: column;
+            text-align: left;
             font-size: 0.75rem;
             color: #64748b;
-            font-weight: 600;
-            line-height: 1.35;
+            line-height: 1.3;
         }
 
         .ble-hero-meta-item strong {
@@ -320,24 +513,49 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             flex-wrap: wrap;
         }
 
-        /* Hero Right Visual Portal Dashboard Mockup */
+        /* Hero Right Column: Dashboard Mockup Design */
         .ble-hero-visual {
             position: relative;
+            z-index: 5;
             display: flex;
             justify-content: center;
             align-items: center;
+            perspective: 1200px;
+        }
+
+        .ble-hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(171, 14, 0, 0.12) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .ble-dashboard-preview {
-            background: #ffffff;
+            background: linear-gradient(135deg, #ab0e00 0%, #7a0900 100%);
             border-radius: 28px;
-            border: 1.5px solid rgba(15, 23, 42, 0.08);
-            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
-            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(171, 14, 0, 0.25);
             width: 100%;
-            max-width: 460px;
+            max-width: 450px;
+            padding: 30px;
             position: relative;
+            overflow: visible;
             z-index: 2;
+            transform: rotateY(-8deg) rotateX(4deg) scale(0.98);
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ble-dashboard-preview:hover {
+            transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+            box-shadow: 0 30px 70px rgba(171, 14, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .db-header {
@@ -345,157 +563,188 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             align-items: center;
             gap: 14px;
             margin-bottom: 24px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            padding-bottom: 20px;
         }
 
         .db-avatar {
             width: 48px;
             height: 48px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #ab0e00, #ff5252);
-            color: #ffffff;
-            font-weight: 800;
-            font-size: 1rem;
+            border-radius: 50%;
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 16px rgba(171, 14, 0, 0.25);
+            color: #ab0e00;
+            font-weight: 900;
+            font-size: 1.05rem;
+            flex-shrink: 0;
         }
 
         .db-user-info h5 {
             margin: 0 0 4px 0;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 800;
-            color: #0f172a;
+            color: #ffffff;
         }
 
         .db-user-info span {
             font-size: 0.75rem;
-            color: #ab0e00;
-            font-weight: 700;
-            background: #fff5f5;
-            padding: 3px 10px;
-            border-radius: 100px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 600;
         }
 
         .db-progress-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 18px;
             padding: 20px;
-            color: #ffffff;
-            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: 24px;
         }
 
         .db-progress-card h6 {
-            margin: 0 0 12px 0;
+            margin: 0 0 8px 0;
             font-size: 0.82rem;
-            font-weight: 700;
-            color: #e2e8f0;
+            font-weight: 750;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .db-bar-container {
-            width: 100%;
             height: 8px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 100px;
+            margin-bottom: 12px;
             overflow: hidden;
-            margin-bottom: 10px;
         }
 
         .db-bar-fill {
-            width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, #ff5252, #ffc837);
+            background: linear-gradient(90deg, #ff8a00, #ffc000);
             border-radius: 100px;
+            width: 100%;
         }
 
         .db-progress-meta {
             display: flex;
             justify-content: space-between;
-            font-size: 0.74rem;
-            color: #cbd5e1;
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.85);
             font-weight: 600;
         }
 
-        .db-module-list {
+        .db-module-list,
+        .db-modules-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .db-module-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 12px 14px;
-            border-radius: 12px;
-            background: #f8fafc;
-            border: 1px solid #f1f5f9;
-            transition: all 0.2s ease;
-        }
-
-        .db-module-item.active {
-            background: #fff5f5;
-            border-color: rgba(171, 14, 0, 0.2);
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 13px 16px;
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
         }
 
         .db-module-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            background: #10b981;
-            color: #ffffff;
+            background: rgba(255, 255, 255, 0.18);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #ffffff;
+            font-size: 0.82rem;
+            font-weight: 900;
             flex-shrink: 0;
         }
 
         .db-module-icon.pending {
-            background: #ab0e00;
+            background: #10b981;
+            color: #ffffff;
         }
 
         .db-module-title {
             font-size: 0.8rem;
-            font-weight: 700;
-            color: #1e293b;
+            font-weight: 750;
+            color: rgba(255, 255, 255, 0.95);
             flex-grow: 1;
+        }
+
+        .db-module-item.active {
+            background: rgba(255, 255, 255, 0.14) !important;
+            border-color: rgba(255, 255, 255, 0.28) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
         }
 
         .db-active-pulse {
             font-size: 0.65rem;
             font-weight: 800;
-            color: #ab0e00;
-            background: rgba(171, 14, 0, 0.1);
-            padding: 3px 8px;
+            background: #10b981;
+            color: #ffffff !important;
+            padding: 3px 9px;
             border-radius: 100px;
+            margin-left: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.35);
             white-space: nowrap;
         }
 
+        .db-active-pulse::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: blink-dot 1.5s infinite;
+        }
+
+        @keyframes blink-dot {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        /* Floating Badge in Hero visual */
         .db-floating-badge {
             position: absolute;
             background: #ffffff;
             border-radius: 16px;
-            padding: 12px 18px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 14px 18px;
+            box-shadow: 0 10px 30px rgba(171, 14, 0, 0.12);
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
-            border: 1px solid rgba(15, 23, 42, 0.06);
-            z-index: 3;
-            animation: float-gentle 3s ease-in-out infinite alternate;
+            z-index: 10;
+            animation: float-gentle 4s ease-in-out infinite alternate;
+            transition: all 0.3s ease;
+        }
+
+        .db-floating-badge:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(171, 14, 0, 0.18);
         }
 
         .db-floating-badge.badge-1 {
             bottom: 20px;
-            left: -30px;
+            left: -35px;
             animation-delay: 0s;
         }
 
         .db-floating-badge.badge-2 {
-            top: 40px;
-            right: -30px;
+            top: 50px;
+            right: -35px;
             animation-delay: 1.5s;
         }
 
