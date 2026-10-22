@@ -537,7 +537,11 @@
         } else if (path.includes("dual-dba") || path.includes("dba")) {
             sourceVal = "Landing_Dual_DBA";
             chuongTrinhVal = "Online Dual DBA";
+        } else if (path.includes("ai-for-managers")) {
+            sourceVal = "Landing_AI_for_Managers";
+            chuongTrinhVal = "AI for Managers: Làm Chủ & Thực Thi AI";
         }
+        const isAiForManagers = path.includes("ai-for-managers");
 
         // Nếu có chương trình cụ thể được chọn trong radio thì dùng
         if (programVal) {
@@ -552,7 +556,7 @@
 
         // Payload cũ cho API automation.ideas.edu.vn
         const payload = {
-            form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
+            form_id: isAiForManagers ? "6977a247e9c9ee74d8b045908e42468e" : "4fe1eeb0570742a1fdde61af6fc0680c",
             email: emailVal,
             firstName: nameVal,
             phoneNumber: phoneVal,
@@ -593,7 +597,8 @@
         confirmB.innerHTML = isEn ? '<span>Sending...</span>' : '<span>Đang gửi...</span>';
         confirmB.style.opacity = '0.7';
 
-        const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+        const mailflowUrl = isAiForManagers ? "https://myerp.ideas.edu.vn/backend/automation/forms.php?route=submit" : "https://automation.ideas.edu.vn/mail_api/forms.php?route=submit";
+        const p1 = fetch(mailflowUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)

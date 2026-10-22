@@ -867,7 +867,13 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 typeVal = "tri_tue_song_hanh_registration";
                 notePrefix = "Đăng ký chương trình Trí tuệ song hành";
                 chuongTrinhVal = "Trí tuệ song hành";
+            } else if (path.includes("ai-for-managers")) {
+                sourceVal = "Landing_AI_for_Managers";
+                typeVal = "ai_for_managers_registration";
+                notePrefix = "Đăng ký Khóa học AI for Managers";
+                chuongTrinhVal = "AI for Managers: Làm Chủ & Thực Thi AI";
             }
+            const isAiForManagers = path.includes("ai-for-managers");
 
             // Override notePrefix dynamically with the page title and program name
             const pageTitle = "<?php
@@ -901,7 +907,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
 
             // Prepare submission payloads
             const payload = {
-                form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
+                form_id: isAiForManagers ? "6977a247e9c9ee74d8b045908e42468e" : "4fe1eeb0570742a1fdde61af6fc0680c",
                 email: email,
                 firstName: name,
                 phoneNumber: phone,
@@ -942,7 +948,8 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
             }
 
             try {
-                const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+                const mailflowUrl = isAiForManagers ? "https://myerp.ideas.edu.vn/backend/automation/forms.php?route=submit" : "https://automation.ideas.edu.vn/mail_api/forms.php?route=submit";
+                const p1 = fetch(mailflowUrl, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)

@@ -4971,7 +4971,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     const noteText = `Chức danh: ${chucDanhTextLabel} | Học vấn: ${eduLabel} | Hình thức: ${engLabel}${message ? ' | Lời nhắn: ' + message : ''}`;
 
                     const payload = {
-                        form_id: "4fe1eeb0570742a1fdde61af6fc0680c",
+                        form_id: "6977a247e9c9ee74d8b045908e42468e",
                         email: email,
                         firstName: name,
                         phoneNumber: phone,
@@ -5009,11 +5009,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     }
 
                     try {
-                        const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+                        const p1 = fetch("https://myerp.ideas.edu.vn/backend/automation/forms.php?route=submit", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(payload)
-                        });
+                        }).then(res => res.json());
 
                         const p2 = fetch("https://myerp.ideas.edu.vn/backend/webhook.php?token=tok_kjhbs32a", {
                             method: "POST",
@@ -5021,7 +5021,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             body: JSON.stringify(webhookPayload)
                         });
 
-                        await Promise.allSettled([p1, p2]);
+                        const [res1] = await Promise.allSettled([p1, p2]);
+                        if (res1 && res1.status === 'fulfilled' && res1.value && !res1.value.success) {
+                            console.error("Lỗi từ server:", res1.value.message);
+                        }
 
                         if (typeof window.gtag === 'function') {
                             window.gtag('event', 'conversion', {
@@ -5031,10 +5034,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             });
                         }
 
-                        alert('Đăng ký thành công! Chuyên viên học vụ Viện IDEAS sẽ liên hệ hỗ trợ bạn trong vòng 24h làm việc.');
+                        alert('Cảm ơn bạn đã đăng ký! Chuyên viên học vụ Viện IDEAS sẽ liên hệ hỗ trợ bạn trong vòng 24h làm việc.');
                         form.reset();
                     } catch (error) {
-                        console.error('Submission error:', error);
+                        console.error('Lỗi kết nối API:', error);
                         alert('Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
                     } finally {
                         if (btn) {

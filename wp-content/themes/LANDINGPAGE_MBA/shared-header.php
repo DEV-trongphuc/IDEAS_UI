@@ -132,6 +132,7 @@ $dual_dba_url = $is_en ? '/en/dual-dba' : '/dual-dba-estiam-rb';
 $dba_istec_url = '/dba-istec';
 $mba_istec_url = '/mba-istec';
 $tuyendung_url = '/tuyen-dung';
+$ai_for_managers_url = $is_en ? '/ai-for-managers?lang=en' : '/ai-for-managers';
 ?>
 <!-- Site Header -->
 <header class="ideas_header" id="site-header">
@@ -366,6 +367,32 @@ $tuyendung_url = '/tuyen-dung';
                             <div class="item-content">
                                 <div class="item-title">Dual DBA</div>
                                 <div class="item-desc"><?php echo $is_en ? 'Dual French & UK DBA' : 'Tiến sĩ song bằng Pháp & Anh'; ?></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- Dropdown 2.5: Khóa học / Courses -->
+            <div class="nav-dropdown">
+                <button type="button" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $is_en ? 'Courses' : 'Khóa học'; ?>
+                    <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="dropdown-menu-box" style="min-width: 400px; padding: 20px;">
+                    <div class="dropdown-column">
+                        <div class="dropdown-column-title"><?php echo $is_en ? 'Executive AI Courses' : 'Khóa học AI Thực chiến'; ?></div>
+                        <a href="<?php echo esc_url($ai_for_managers_url); ?>" class="dropdown-item">
+                            <img class="item-avatar" width="90" height="50"
+                                src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp"
+                                alt="AI for Managers" loading="lazy" decoding="async" />
+                            <div class="item-content">
+                                <div class="item-title">AI for Managers</div>
+                                <div class="item-desc"><?php echo $is_en ? 'Master & Execute AI on IDEAS AI Platform' : 'Làm chủ & Thực thi AI trên IDEAS AI Platform'; ?></div>
                             </div>
                         </a>
                     </div>
@@ -697,6 +724,30 @@ $tuyendung_url = '/tuyen-dung';
                     <div class="item-content">
                         <div class="item-title">Dual DBA</div>
                         <div class="item-desc"><?php echo $is_en ? 'Dual French & UK DBA' : 'Tiến sĩ song bằng Pháp & Anh'; ?></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+        <div class="mobile-dropdown">
+        <button type="button" class="mobile-dropdown-toggle" aria-expanded="false">
+            <?php echo $is_en ? 'Courses' : 'Khóa học'; ?>
+            <svg class="dropdown-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="mobile-dropdown-content">
+            <div class="mobile-dropdown-section">
+                <div class="mobile-section-title"><?php echo $is_en ? 'Executive AI Courses' : 'Khóa học AI Thực chiến'; ?></div>
+                <a href="<?php echo esc_url($ai_for_managers_url); ?>" class="mobile-dropdown-item">
+                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2025/03/workshopAI.webp"
+                        alt="AI for Managers" loading="lazy" decoding="async" />
+                    <div class="item-content">
+                        <div class="item-title">AI for Managers</div>
+                        <div class="item-desc"><?php echo $is_en ? 'Master & Execute AI on IDEAS AI Platform' : 'Làm chủ & Thực thi AI trên IDEAS AI Platform'; ?></div>
                     </div>
                 </a>
             </div>
