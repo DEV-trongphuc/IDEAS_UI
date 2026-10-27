@@ -257,6 +257,123 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
+        
+        /* School Filter Tag Bar */
+        .archive-school-filter-bar {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+            flex-wrap: wrap;
+        }
+
+        .school-filter-label-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        .school-filter-label-group svg {
+            color: #ab0e00;
+        }
+
+        .school-filter-pills {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .school-filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: #f8fafc;
+            color: #475569;
+            border: 1.5px solid #e2e8f0;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+        }
+
+        .school-filter-btn:hover {
+            background: #ffffff;
+            color: #ab0e00;
+            border-color: rgba(171, 14, 0, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(171, 14, 0, 0.1);
+        }
+
+        .school-filter-btn.active {
+            background: #ab0e00;
+            color: #ffffff !important;
+            border-color: #ab0e00;
+            box-shadow: 0 4px 14px rgba(171, 14, 0, 0.25);
+        }
+
+        .school-filter-btn .filter-count-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1px 7px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 800;
+            background: #e2e8f0;
+            color: #475569;
+            transition: all 0.25s ease;
+        }
+
+        .school-filter-btn.active .filter-count-badge {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
+
+        .school-filter-btn:hover:not(.active) .filter-count-badge {
+            background: rgba(171, 14, 0, 0.1);
+            color: #ab0e00;
+        }
+
+        @media (max-width: 768px) {
+            .archive-school-filter-bar {
+                padding: 12px 14px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin-bottom: 22px;
+            }
+            
+            .school-filter-pills {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 4px;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .school-filter-btn {
+                padding: 7px 14px;
+                font-size: 0.82rem;
+                flex-shrink: 0;
+            }
+        }
+
         /* Featured Post Card Style */
         .blog-featured-card {
             background: #ffffff;
@@ -757,16 +874,130 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <main>
             <?php
             // Support both standard archive queries and custom page template setups
-            if (!is_archive() && !is_home()) {
-                global $wp_query;
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                $wp_query = new WP_Query(array(
-                    'post_type' => 'post',
-                    'posts_per_page' => 7,
-                    'paged' => $paged,
-                    'post_status' => 'publish'
-                ));
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+            $school_filter = '';
+            if (!empty($_GET['school'])) {
+                $school_filter = sanitize_key($_GET['school']);
+            } elseif (!empty($_GET['tag'])) {
+                $school_filter = sanitize_key($_GET['tag']);
             }
+            if (!in_array($school_filter, array('swiss-umef', 'istec'), true)) {
+                $school_filter = '';
+            }
+
+            // Real-time counts
+            $total_all_posts = wp_count_posts('post')->publish;
+
+            $umef_query = new WP_Query(array(
+                'post_type'      => 'post',
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+                'fields'         => 'ids',
+                'no_found_rows'  => false,
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => 'post_tag',
+                        'field'    => 'slug',
+                        'terms'    => array('swiss-umef', 'thuy-si'),
+                    ),
+                ),
+            ));
+            $umef_count = $umef_query->found_posts;
+
+            $istec_query = new WP_Query(array(
+                'post_type'      => 'post',
+                'post_status'    => 'publish',
+                'posts_per_page' => 1,
+                'fields'         => 'ids',
+                'no_found_rows'  => false,
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => 'post_tag',
+                        'field'    => 'slug',
+                        'terms'    => array('istec'),
+                    ),
+                ),
+            ));
+            $istec_count = $istec_query->found_posts;
+
+            $query_args = array(
+                'post_type'      => 'post',
+                'posts_per_page' => 7,
+                'paged'          => $paged,
+                'post_status'    => 'publish',
+            );
+
+            if (is_category()) {
+                $cat_id = get_queried_object_id();
+                if ($cat_id) {
+                    $query_args['cat'] = $cat_id;
+                }
+            }
+
+            if ($school_filter === 'swiss-umef') {
+                $query_args['tax_query'] = array(
+                    array(
+                        'taxonomy' => 'post_tag',
+                        'field'    => 'slug',
+                        'terms'    => array('swiss-umef', 'thuy-si'),
+                    ),
+                );
+            } elseif ($school_filter === 'istec') {
+                $query_args['tax_query'] = array(
+                    array(
+                        'taxonomy' => 'post_tag',
+                        'field'    => 'slug',
+                        'terms'    => array('istec'),
+                    ),
+                );
+            }
+
+            if (!is_archive() && !is_home() || !empty($school_filter) || is_category()) {
+                global $wp_query;
+                $wp_query = new WP_Query($query_args);
+            }
+            ?>
+
+            <!-- School / Program Tag Filter Bar -->
+            <div class="archive-school-filter-bar">
+                <div class="school-filter-label-group">
+                    <svg class="svg-icon fa-filter fa-solid" viewBox="0 0 512 512" width="14" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.9 54.9C1.4 60.8 0 67.2 0 74l0 36c0 10.7 5.3 20.7 14.2 26.6L192 256l0 176c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l64-64c6.7-6.7 10.5-15.8 10.5-25.3l0-103.7L497.8 136.6c8.9-5.9 14.2-15.9 14.2-26.6l0-36c0-6.8-1.4-13.2-3.9-19.1C501.9 39.8 487.6 32 472 32L40 32C24.4 32 10.1 39.8 3.9 54.9z"/>
+                    </svg>
+                    <span><?php echo $is_en ? 'Filter:' : 'Chủ đề:'; ?></span>
+                </div>
+                <div class="school-filter-pills">
+                    <a href="<?php echo esc_url(remove_query_arg(array('school', 'tag', 'paged'))); ?>" 
+                       class="school-filter-btn <?php echo empty($school_filter) ? 'active' : ''; ?>">
+                        <svg class="svg-icon" viewBox="0 0 512 512" width="13" height="13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 48C26.7 48 16 58.7 16 72l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24L40 48zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L192 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l288 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-288 0zM16 232l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24l0 48c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-48 0z"/>
+                        </svg>
+                        <span><?php echo $is_en ? 'All' : 'Tất cả'; ?></span>
+                        <span class="filter-count-badge"><?php echo number_format($total_all_posts); ?></span>
+                    </a>
+
+                    <a href="<?php echo esc_url(add_query_arg('school', 'swiss-umef', remove_query_arg('paged'))); ?>" 
+                       class="school-filter-btn <?php echo ($school_filter === 'swiss-umef') ? 'active' : ''; ?>">
+                        <svg class="svg-icon" viewBox="0 0 512 512" width="13" height="13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M243.4 2.6l-224 96c-11.8 5-19.4 16.6-19.4 29.4s7.6 24.4 19.4 29.4l224 96c8.4 3.6 17.9 3.6 26.2 0l224-96c11.8-5 19.4-16.6 19.4-29.4s-7.6-24.4-19.4-29.4l-224-96c-8.4-3.6-17.9-3.6-26.2 0zM256 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm-48 208l96 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-96 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm-48-96l192 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z"/>
+                        </svg>
+                        <span>Swiss UMEF</span>
+                        <span class="filter-count-badge"><?php echo number_format($umef_count); ?></span>
+                    </a>
+
+                    <a href="<?php echo esc_url(add_query_arg('school', 'istec', remove_query_arg('paged'))); ?>" 
+                       class="school-filter-btn <?php echo ($school_filter === 'istec') ? 'active' : ''; ?>">
+                        <svg class="svg-icon" viewBox="0 0 512 512" width="13" height="13" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M243.4 2.6l-224 96c-11.8 5-19.4 16.6-19.4 29.4s7.6 24.4 19.4 29.4l224 96c8.4 3.6 17.9 3.6 26.2 0l224-96c11.8-5 19.4-16.6 19.4-29.4s-7.6-24.4-19.4-29.4l-224-96c-8.4-3.6-17.9-3.6-26.2 0zM192 384c-17.7 0-32 14.3-32 32l0 16c0 44.2 35.8 80 80 80l32 0c44.2 0 80-35.8 80-80l0-16c0-17.7-14.3-32-32-32l-128 0z"/>
+                        </svg>
+                        <span>ISTEC</span>
+                        <span class="filter-count-badge"><?php echo number_format($istec_count); ?></span>
+                    </a>
+                </div>
+            </div>
+
+            <?php
 
             if (have_posts()) {
                 $post_counter = 0;
@@ -895,11 +1126,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 echo '</div>'; // End Grid
             
                 // 3. Render Modern Pagination
-                $pagination_links = paginate_links(array(
+                $paginate_args = array(
                     'type' => 'array',
                     'prev_text' => '<svg class="svg-icon fa-chevron-left fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>',
                     'next_text' => '<svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>',
-                ));
+                );
+                if (!empty($school_filter)) {
+                    $paginate_args['add_args'] = array('school' => $school_filter);
+                }
+                $pagination_links = paginate_links($paginate_args);
 
                 if (!empty($pagination_links)) {
                     echo '<div class="blog-pagination">';
