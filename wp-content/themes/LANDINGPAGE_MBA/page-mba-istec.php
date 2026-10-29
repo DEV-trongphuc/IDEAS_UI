@@ -4637,6 +4637,10 @@ $seo_desc = $is_en
                 program: 'MBA ISTEC Paris'
             };
 
+            if (typeof gtag_report_conversion === 'function') {
+                gtag_report_conversion();
+            }
+
             if (window._mf && typeof window._mf.trackEvent === 'function') {
                 window._mf.trackEvent('Lead_MBA_ISTEC_Full', payload);
             }

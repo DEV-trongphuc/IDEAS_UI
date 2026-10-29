@@ -11,6 +11,36 @@
       gtag('config', 'AW-11205917800');
   </script>
 
+    <!-- Event snippet for Lượt đăng ký conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+            'value': 1.0,
+            'currency': 'VND',
+            'event_callback': callback
+        });
+      } else if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+            'value': 1.0,
+            'currency': 'VND',
+            'event_callback': callback
+        });
+      } else {
+        callback();
+      }
+      return false;
+    }
+    </script>
+
+
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -44,7 +74,7 @@
   <?php endif; ?>
 
   <!-- Load JS sớm nhất -->
-  <script src="/wp-content/new_public/LANDINGPAGE_MBA/variable.js?v=1793092666"></script>
+  <script src="/wp-content/new_public/LANDINGPAGE_MBA/variable.js?v=1793240715"></script>
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

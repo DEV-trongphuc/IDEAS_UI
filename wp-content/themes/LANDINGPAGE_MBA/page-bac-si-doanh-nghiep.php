@@ -2733,6 +2733,9 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
+                        if (typeof gtag_report_conversion === 'function') {
+                            gtag_report_conversion();
+                        }
                         showToast(res.data);
                         input.value = '';
                         toggleCommentsDrawer(topicId);

@@ -966,7 +966,7 @@ if (!defined('BOOKING_MODAL_CSS_LOADED')) {
                 // Google Ads Conversion tracking
                 if (typeof window.gtag === 'function') {
                     window.gtag('event', 'conversion', {
-                        'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                        'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
                         'value': 1.0,
                         'currency': 'USD'
                     });

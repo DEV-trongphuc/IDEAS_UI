@@ -3491,6 +3491,9 @@ $seo_desc = $is_en
             .then(res => res.json())
             .catch(() => ({ success: true }))
             .finally(() => {
+                if (typeof gtag_report_conversion === 'function') {
+                    gtag_report_conversion();
+                }
                 if (successDiv) successDiv.style.display = 'block';
                 form.reset();
                 if (submitBtn) {

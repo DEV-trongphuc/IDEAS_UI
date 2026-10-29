@@ -207,9 +207,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1793092666" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1793092666" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1793092666" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1793240715" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1793240715" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1793240715" media="print"
         onload="this.media='all'" />
     <style>
         /* ═══════════════════════════════════════
@@ -3029,6 +3029,35 @@
             bottom: -18px;
         }
     </style>
+        <!-- Event snippet for Lượt đăng ký conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+            'value': 1.0,
+            'currency': 'VND',
+            'event_callback': callback
+        });
+      } else if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+            'value': 1.0,
+            'currency': 'VND',
+            'event_callback': callback
+        });
+      } else {
+        callback();
+      }
+      return false;
+    }
+    </script>
+
     <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -8768,8 +8797,8 @@ END PROMO SECTION COMMENTED OUT -->
         </div>
     </div>
 
-    <script src="common-assets/js/script.min.js?v=1793092666" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1793092666" defer></script>
+    <script src="common-assets/js/script.min.js?v=1793240715" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1793240715" defer></script>
 
 
 

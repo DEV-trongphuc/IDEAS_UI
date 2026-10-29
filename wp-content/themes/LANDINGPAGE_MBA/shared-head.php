@@ -14,6 +14,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         gtag('config', 'AW-11205917800');
     </script>
 
+    <!-- Event snippet for Lượt đăng ký conversion page -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+            'value': 1.0,
+            'currency': 'VND',
+            'event_callback': callback
+        });
+      } else if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+            'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+            'value': 1.0,
+            'currency': 'VND',
+            'event_callback': callback
+        });
+      } else {
+        callback();
+      }
+      return false;
+    }
+    </script>
+
+
         <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
