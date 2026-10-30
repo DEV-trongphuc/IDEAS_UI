@@ -142,13 +142,31 @@ function ideas_translate_page_titles($title) {
     return $title;
 }
 
-// Meta description translation
+// Meta description translation & sanitization
 add_filter('wpseo_metadesc', 'ideas_translate_meta_descriptions', 100);
 add_filter('wpseo_opengraph_description', 'ideas_translate_meta_descriptions', 100);
 add_filter('rank_math/frontend/description', 'ideas_translate_meta_descriptions', 100);
+add_filter('rank_math/opengraph/facebook/og_description', 'ideas_translate_meta_descriptions', 100);
+add_filter('rank_math/opengraph/twitter/twitter_description', 'ideas_translate_meta_descriptions', 100);
 
 function ideas_translate_meta_descriptions($desc) {
+    global $post;
+    
+    if ($post && (!isset($_GET['lang']) || $_GET['lang'] !== 'en')) {
+        $vi_descs = [
+            'swiss-umef' => 'Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Trường đại học danh tiếng thành lập từ năm 1984, xếp hạng QS Stars 5 sao toàn diện, đạt các kiểm định quốc tế uy tín và được công nhận bởi Bộ GD&ĐT Việt Nam.',
+        ];
+        if (isset($vi_descs[$post->post_name])) {
+            return $vi_descs[$post->post_name];
+        }
+    }
+    
     if (!isset($_GET['lang']) || $_GET['lang'] !== 'en') {
+        if (is_string($desc)) {
+            $desc = str_replace('Đại học tư thục đầu tiên tại Geneva đạt kiểm định Liên Bang cao nhất', 'Trường đại học danh tiếng tại Geneva với các kiểm định quốc tế', $desc);
+            $desc = str_replace('SAC (Swiss Accreditation Council)', 'các tổ chức quốc tế uy tín', $desc);
+            $desc = str_replace('đầu tiên tại Geneva', 'danh tiếng tại Geneva', $desc);
+        }
         return $desc;
     }
     
