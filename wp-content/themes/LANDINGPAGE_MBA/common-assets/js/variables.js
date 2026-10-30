@@ -45,7 +45,7 @@ const IDEAS_DATA = {
             country: "Thụy Sĩ",
             subjects: "<b>180</b> ECTS - <b>34</b> môn học và Luận văn tốt nghiệp",
             duration: "36 tháng",
-            tagline: "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ",
+            tagline: "Swiss UMEF: Trường đại học danh tiếng tại Geneva - đạt các kiểm định và chuẩn chất lượng quốc tế",
             link: "/fullbba",
             experience: [
                 "Tốt nghiệp THPT hoặc tương đương",
@@ -181,7 +181,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ",
+                "Swiss UMEF: Trường đại học danh tiếng tại Geneva - đạt các kiểm định và chuẩn chất lượng quốc tế",
             link: "/mba",
             description:
                 "Chương trình MBA Online phù hợp cho người bận rộn. Bằng cấp được công nhận bởi Hội đồng Kiểm định Liên bang Thụy Sĩ, đảm bảo giá trị quốc tế, mang đến kiến thức thực tiễn và cập nhật theo xu hướng kinh doanh toàn cầu.",
@@ -311,7 +311,7 @@ const IDEAS_DATA = {
                 },
                 {
                     q: "Bằng MBA của Swiss UMEF có giá trị như thế nào?",
-                    a: "Bằng MBA do Swiss UMEF (Thụy Sĩ) cấp, có giá trị quốc tế. Swiss UMEF là một trường đại học tư nhân đầu tiên tại Geneva có kiểm định Liên Bang và được công nhận tại nhiều quốc gia. Phù hợp với những người muốn nâng cao kiến thức quản trị, phát triển sự nghiệp ở môi trường quốc tế.",
+                    a: "Bằng MBA do Swiss UMEF (Thụy Sĩ) cấp, có giá trị quốc tế. Swiss UMEF là trường đại học danh tiếng tại Geneva thành lập từ năm 1984, đạt xếp hạng QS Stars 5 sao và các kiểm định quốc tế uy tín như IACBE, ACBSP, EduQua.",
                 },
             ],
             this_subjects: [
@@ -473,7 +473,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ",
+                "Swiss UMEF: Trường đại học danh tiếng tại Geneva - đạt các kiểm định và chuẩn chất lượng quốc tế",
             link: "/emba",
             description:
                 "Chương trình EMBA Online phù hợp cho người bận rộn. Bằng cấp được công nhận bởi Hội đồng Kiểm định Liên bang Thụy Sĩ, đảm bảo giá trị quốc tế, mang đến kiến thức thực tiễn và cập nhật theo xu hướng kinh doanh toàn cầu.",
@@ -737,7 +737,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ",
+                "Swiss UMEF: Trường đại học danh tiếng tại Geneva - đạt các kiểm định và chuẩn chất lượng quốc tế",
             link: "/mscai",
             description:
                 "Chương trình AI được thiết kế đặc biệt cho những nhà quản trị kinh doanh, những người muốn khám phá và khai thác tiềm năng của trí tuệ nhân tạo trong quản lý doanh nghiệp",
@@ -986,7 +986,7 @@ const IDEAS_DATA = {
             country: "Thụy Sĩ",
             subjects: "<b>90</b> ECTS - <b>12</b> môn học và Luận văn tốt nghiệp",
             duration: "16-18 tháng",
-            tagline: "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ",
+            tagline: "Swiss UMEF: Trường đại học danh tiếng tại Geneva - đạt các kiểm định và chuẩn chất lượng quốc tế",
             link: "/mbainai",
             experience: [
                 "Tốt nghiệp Đại học",
@@ -1328,7 +1328,7 @@ const IDEAS_DATA = {
                 "2 buổi chuyên đề/môn (Chủ nhật)",
             ],
             tagline:
-                "Swiss UMEF: Đại học tư thục đầu tiên tại Geneva - được công nhận chính thức trong hệ thống giáo dục Thụy Sĩ",
+                "Swiss UMEF: Trường đại học danh tiếng tại Geneva - đạt các kiểm định và chuẩn chất lượng quốc tế",
             link: "/bba",
             description:
                 "Chương trình liên thông lên Cử nhân trong 1 năm đào tạo liên thông trực tuyến Cử nhân Quản trị Kinh doanh, đừng để tấm bằng Cử nhân là rào cản trước mọi con đường thăng tiến của bạn!",
