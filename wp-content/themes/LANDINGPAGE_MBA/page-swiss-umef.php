@@ -2139,18 +2139,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
-            <p><?php echo $is_en ? 'Swiss UMEF – established in 1984, is accredited by the Swiss Accreditation Council (SAC) and is listed among the official Swiss higher education institutions under Swissuniversities.' : 'Swiss UMEF – thành lập 1984, được công nhận bởi Hội đồng Kiểm định Thụy Sĩ SAC (Swiss Accreditation Council) và nằm trong danh sách các cơ sở giáo dục đại học chính thức thuộc Swissuniversities.'; ?>
+            <p><?php echo $is_en ? 'Swiss UMEF – established in 1984, is an institution with prestigious international accreditations and is recognized in Switzerland.' : 'Swiss UMEF – thành lập 1984, với nhiều kiểm định quốc tế uy tín và được công nhận rộng rãi tại Thụy Sĩ.'; ?>
             </p>
             <div class="umef-hero-stats">
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">1984</span>
                     <span class="umef-stat-lbl"><?php echo $is_en ? 'Founded Year' : 'Năm Thành Lập'; ?></span>
                 </div>
-                <div class="umef-stat-card">
+                <div class="umef-stat-card" style="display: none !important;"><div class="umef-stat-card">
                     <span class="umef-stat-num">SAC</span>
                     <span
                         class="umef-stat-lbl"><?php echo $is_en ? 'Swiss Accreditation' : 'Kiểm Định Thụy Sĩ'; ?></span>
-                </div>
+                </div></div>
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">5 Stars</span>
                     <span class="umef-stat-lbl"><?php echo $is_en ? 'QS Stars Rating' : 'Xếp Hạng QS Stars'; ?></span>
@@ -2186,7 +2186,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- SAC Hero Card -->
-            <div class="acc-sac-hero">
+            <div class="acc-sac-hero" style="display: none !important;">
                 <div class="acc-sac-left">
                     <div class="acc-sac-badge">
                         <span class="acc-sac-badge-dot"></span>
@@ -2271,7 +2271,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
 
             <!-- Divider -->
-            <div class="acc-others-title">
+            <div class="acc-others-title" style="display: none !important;">
                 <?php echo $is_en ? 'Other International Accreditations' : 'Các kiểm định quốc tế khác'; ?></div>
 
             <!-- Other accreditations grid -->

@@ -362,7 +362,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <img src="https://ideas.edu.vn/wp-content/uploads/2026/07/UMEFLOGO.webp"
                                 alt="Swiss UMEF Logo" class="fee-partner-logo" />
                             <h4 class="fee-partner-title">Swiss UMEF University</h4>
-                            <p class="fee-partner-desc"><?php echo $is_en ? 'An internationally accredited university recognized by the Swiss Accreditation Council.' : 'Trường Đại học chuẩn quốc tế được công nhận bởi Hội đồng Kiểm định Thụy Sĩ (Swiss Accreditation Council).'; ?></p>
+                            <p class="fee-partner-desc"><?php echo $is_en ? 'An internationally accredited university with prestigious recognitions.' : 'Trường Đại học uy tín với nhiều kiểm định và công nhận quốc tế.'; ?></p>
 
                             <div class="fee-table-highlights">
                                 <div class="fee-hl-item">

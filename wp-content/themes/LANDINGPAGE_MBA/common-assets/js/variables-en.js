@@ -219,7 +219,6 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },
@@ -368,7 +367,6 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },
@@ -508,7 +506,6 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },
@@ -875,7 +872,6 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/05/iacbe.webp", link: "#" },
                 { name: "Accreditation UMEF", logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef5.webp", link: "#" },

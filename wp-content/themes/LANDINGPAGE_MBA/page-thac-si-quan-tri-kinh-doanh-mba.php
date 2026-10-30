@@ -2878,7 +2878,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <!-- SAC Hero Card -->
-                <div class="acc-sac-hero">
+                <div class="acc-sac-hero" style="display: none !important;">
                     <div class="acc-sac-left">
                         <div class="acc-sac-badge"><span class="acc-sac-badge-dot"></span>
                             <?php echo $is_en ? 'Official Recognition from Education Council' : 'Công nhận chính thức từ Hội đồng Giáo dục'; ?>
@@ -2963,7 +2963,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 </div>
 
                 <!-- Divider -->
-                <div class="acc-others-title">
+                <div class="acc-others-title" style="display: none !important;">
                     <?php echo $is_en ? 'Other International Accreditations' : 'Các kiểm định quốc tế khác'; ?></div>
 
                 <!-- Other accreditations grid -->

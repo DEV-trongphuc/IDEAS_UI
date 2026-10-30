@@ -272,11 +272,6 @@ const IDEAS_DATA = {
             accreditation: [
                 {
                     name: "Kiểm định trường UMEF",
-                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp",
-                    link: "#",
-                },
-                {
-                    name: "Kiểm định trường UMEF",
                     logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp",
                     link: "#",
                 },
@@ -568,11 +563,6 @@ const IDEAS_DATA = {
             accreditation: [
                 {
                     name: "Công nhận và Kiểm định",
-                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp",
-                    link: "#",
-                },
-                {
-                    name: "Công nhận và Kiểm định",
                     logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp",
                     link: "#",
                 },
@@ -826,11 +816,6 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                {
-                    name: "Công nhận và Kiểm định",
-                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp",
-                    link: "#",
-                },
                 {
                     name: "Công nhận và Kiểm định",
                     logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp",
@@ -1429,11 +1414,6 @@ const IDEAS_DATA = {
                 },
             ],
             accreditation: [
-                {
-                    name: "Công nhận và Kiểm định",
-                    logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef1.webp",
-                    link: "#",
-                },
                 {
                     name: "Công nhận và Kiểm định",
                     logo: "https://ideas.edu.vn/wp-content/uploads/2026/06/kdumef3.webp",
