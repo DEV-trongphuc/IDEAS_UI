@@ -2740,7 +2740,7 @@ $seo_desc = $is_en
                                     </li>
                                     <li>
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>Được Bộ Giáo dục Đại học & Nghiên cứu Pháp phê duyệt Visa Bac+5 & Grade de Master</span>
+                                        <span>Trường được Bộ Giáo dục Đại học & Nghiên cứu Pháp phê duyệt Visa Bac+5 & Grade de Master</span>
                                     </li>
                                 </ul>
                             </div>
@@ -2873,7 +2873,7 @@ $seo_desc = $is_en
                 <span class="istec-label-top">CURRICULUM</span>
                 <h2 class="istec-heading-large">Chương trình đào tạo MBA ISTEC</h2>
                 <p class="istec-body-lead">
-                    Chương trình Thạc sĩ Quản trị Kinh doanh tại ISTEC Paris cung cấp nền tảng học thuật vững chắc (60 tín chỉ ECTS Châu Âu) với 15 môn học thực tiễn và luận văn tốt nghiệp. Học phí công bố là 8.500 EUR, ưu đãi đăng ký qua Viện IDEAS còn 6.500 EUR cùng 200 EUR lệ phí hồ sơ. Bằng cấp được Bộ Giáo dục Đại học và Nghiên cứu Pháp cấp chuẩn Visa Bac+5 và đăng ký Khung nghề nghiệp quốc gia RNCP Level 7.
+                    Chương trình Thạc sĩ Quản trị Kinh doanh tại ISTEC Paris cung cấp nền tảng học thuật vững chắc (60 tín chỉ ECTS Châu Âu) với 15 môn học thực tiễn và luận văn tốt nghiệp. Học phí công bố là 8.500 EUR, ưu đãi đăng ký qua Viện IDEAS còn 6.500 EUR cùng 200 EUR lệ phí hồ sơ.
                 </p>
             </div>
 

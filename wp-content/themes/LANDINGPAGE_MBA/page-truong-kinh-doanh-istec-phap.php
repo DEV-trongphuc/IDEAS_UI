@@ -3795,7 +3795,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         Grade de Master & Grade de Licence
                     </h3>
                     <p class="acc-sac-tagline">
-                        Được kiểm định bởi Ủy ban Đánh giá văn bằng quản lý <strong>CEFDG</strong> và được Bộ Giáo dục & Nghiên cứu Pháp công nhận chính thức ở cấp độ quốc gia cao nhất (Bac+3 cho Cử nhân và Bac+5 cho Thạc sĩ).
+                        Được kiểm định bởi Ủy ban Đánh giá văn bằng quản lý <strong>CEFDG</strong> và được Bộ Giáo dục & Nghiên cứu Pháp công nhận chính thức ở cấp độ quốc gia cao nhất.
                     </p>
                     <div class="acc-sac-stats">
                         <div class="acc-sac-stat">
@@ -3830,8 +3830,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </div>
                     </div>
                     <ul class="acc-sac-points">
-                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Bằng cấp được hợp pháp hóa lãnh sự, công nhận toàn châu Âu và Việt Nam</span></li>
-                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Đạt danh hiệu "Grade de Master" và "Grade de Licence" chính phủ Pháp phê duyệt</span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Bằng cấp được hợp pháp hóa lãnh sự</span></li>
+                        <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>Trường đạt danh hiệu "Grade de Master" và "Grade de Licence" chính phủ Pháp phê duyệt</span></li>
                         <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg><span>ISTEC nằm trong danh sách các trường quản lý được kiểm định xuất sắc của Pháp</span></li>
                     </ul>
                     <div class="acc-sac-cert-strip">
@@ -4014,16 +4014,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <h3 class="prog-card-title">
                             <a href="<?php echo esc_url($mba_ldp_url); ?>"><?php echo $is_en ? 'MBA Program' : 'Chương trình MBA'; ?></a>
                         </h3>
-                        <span class="prog-card-subtitle"><?php echo $is_en ? 'Executive Master of Business Administration' : 'Executive Master of Business Administration'; ?></span>
+                        <span class="prog-card-subtitle"><?php echo $is_en ? 'Master of Business Administration' : 'Master of Business Administration'; ?></span>
                         <p class="prog-card-desc">
-                            <?php echo $is_en ? 'Executive MBA program enhancing strategic planning capabilities, corporate financial mastery, and global operational leadership for management personnel.' : 'Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh (Executive MBA) nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.'; ?>
+                            <?php echo $is_en ? 'MBA program enhancing strategic planning capabilities, corporate financial mastery, and global operational leadership for management personnel.' : 'Chương trình Thạc sĩ Lãnh đạo & Quản trị Kinh doanh nâng cao năng lực hoạch định chiến lược, tài chính và điều hành toàn cầu cho nhân sự quản lý.'; ?>
                         </p>
                         <ul class="prog-card-list">
                             <li>
                                 <?php echo $is_en ? 'Duration: 14 - 16 months' : 'Thời gian: 14 - 16 tháng'; ?>
                             </li>
                             <li>
-                                <?php echo $is_en ? 'National Master Degree recognized by CEFDG' : 'Bằng Thạc sĩ Quốc gia công nhận bởi CEFDG'; ?>
+                                <?php echo $is_en ? 'Master Degree awarded by ISTEC Business School' : 'Bằng Thạc sĩ do ISTEC Business School cấp'; ?>
                             </li>
                             <li>
                                 <?php echo $is_en ? 'Flexible, modern hybrid learning model' : 'Hình thức học tập linh hoạt, ưu việt'; ?>
@@ -4151,7 +4151,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div style="width:48px; height:48px; border-radius:50%; background:#ab0e00; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold;">TL</div>
                         <div>
                             <h4 style="color:#1e293b; font-weight:700; margin:0;">Trần Thu Liên</h4>
-                            <span style="color:#64748b; font-size:0.85rem;">Học viên Executive MBA</span>
+                            <span style="color:#64748b; font-size:0.85rem;">Học viên MBA</span>
                         </div>
                     </div>
                 </div>
@@ -4183,7 +4183,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <svg class="svg-icon fa-chevron-down fa-solid faq-arrow" viewBox="0 0 512 512" width="15" height="15" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
                         </button>
                         <div class="faq-content">
-                            <p><?php echo $is_en ? 'Yes. ISTEC Paris is an officially recognized Grande École business school in France, a member of CGE. Its Bachelor (BBA) and Master degrees meet European ECTS standards and are accredited by CEFDG and the French Ministry of Higher Education. In Vietnam, degrees can undergo consular legalization at the Vietnamese Embassy in France according to current laws.' : 'Có. ISTEC Paris là trường lớn (Grande École) được công nhận chính thức bởi Nhà nước Pháp, thành viên CGE. Các văn bằng Cử nhân (BBA) và Thạc sĩ (PGE/MBA) đều đạt chuẩn châu Âu (ECTS) và được kiểm định bởi Bộ Giáo dục & Nghiên cứu Pháp. Tại Việt Nam, văn bằng có thể thực hiện thủ tục hợp pháp hóa lãnh sự tại Đại sứ quán Việt Nam tại Pháp theo đúng quy định pháp luật hiện hành.'; ?></p>
+                            <p><?php echo $is_en ? 'Yes. ISTEC Paris is an officially recognized Grande École business school in France, a member of CGE. Its Bachelor (BBA) and Master degrees meet European ECTS standards. In Vietnam, degrees can undergo consular legalization at the Vietnamese Embassy in France according to current laws.' : 'Có. ISTEC Paris là trường lớn (Grande École) được công nhận chính thức bởi Nhà nước Pháp, thành viên CGE. Các văn bằng Cử nhân (BBA) và Thạc sĩ (PGE/MBA) đều đạt chuẩn châu Âu (ECTS). Tại Việt Nam, văn bằng có thể thực hiện thủ tục hợp pháp hóa lãnh sự tại Đại sứ quán Việt Nam tại Pháp theo đúng quy định pháp luật hiện hành.'; ?></p>
                         </div>
                     </div>
 
