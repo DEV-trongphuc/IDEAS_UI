@@ -3908,7 +3908,7 @@ $seo_desc = $is_en
                         </li>
                         <li>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Thư viện trực tuyến Cengage MindTap.</span>
+                            <span>Thư viện trực tuyến Cengage.</span>
                         </li>
                     </ul>
 
@@ -4144,7 +4144,7 @@ $seo_desc = $is_en
                         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px;">
                             <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 1.02rem; color: var(--dark-sub); line-height: 1.55;">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
-                                <span>Tấm bằng <strong>Thạc sĩ Quản trị kinh doanh Pháp (ISTEC Paris)</strong> – RNCP Level 7 (Bac+5)</span>
+                                <span>Tấm bằng <strong>Thạc sĩ Quản trị kinh doanh Pháp (ISTEC Paris)</strong></span>
                             </li>
                             <li style="display: flex; align-items: flex-start; gap: 12px; font-size: 1.02rem; color: var(--dark-sub); line-height: 1.55;">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--istec-deep-green)" stroke-width="2.5" style="margin-top: 3px; flex-shrink: 0;"><polyline points="20 6 9 17 4 12"/></svg>
