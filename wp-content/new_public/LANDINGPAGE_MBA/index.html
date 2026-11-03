@@ -263,9 +263,9 @@
         rel="stylesheet" media="print" onload="this.media='all'" />
 
     <!-- Styles -->
-    <link rel="preload" href="common-assets/css/style.min.css?v=1793676394" as="style" />
-    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1793676394" />
-    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1793676394" media="print"
+    <link rel="preload" href="common-assets/css/style.min.css?v=1793677388" as="style" />
+    <link rel="stylesheet" href="common-assets/css/style.min.css?v=1793677388" />
+    <link rel="stylesheet" href="common-assets/css/booking-modal.min.css?v=1793677388" media="print"
         onload="this.media='all'" />
     <style>
         .menu-badge {
@@ -918,6 +918,114 @@
 
         .pain-card-v2 p strong {
             color: #f1f5f9;
+        }
+
+        /* --- Pain Points Carousel Styles --- */
+        .pain-carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto 16px auto;
+            padding: 0 48px;
+            box-sizing: border-box;
+        }
+        @media (max-width: 640px) {
+            .pain-carousel-container {
+                padding: 0 10px;
+            }
+        }
+        .pain-carousel-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 12px 0 18px 0;
+        }
+        .pain-carousel-track {
+            display: flex !important;
+            gap: 20px !important;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+            cursor: grab;
+            user-select: none;
+        }
+        .pain-carousel-track:active {
+            cursor: grabbing;
+        }
+        .pain-card-v2.pain-slide {
+            flex: 0 0 calc((100% - 40px) / 3) !important;
+            min-width: 0 !important;
+            box-sizing: border-box !important;
+            margin-bottom: 0 !important;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 991px) {
+            .pain-card-v2.pain-slide {
+                flex: 0 0 calc((100% - 20px) / 2) !important;
+            }
+        }
+        @media (max-width: 640px) {
+            .pain-card-v2.pain-slide {
+                flex: 0 0 100% !important;
+            }
+        }
+        .pain-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            z-index: 10;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+        .pain-carousel-btn:hover {
+            background: #ab0e00;
+            border-color: #ab0e00;
+            box-shadow: 0 0 16px rgba(171, 14, 0, 0.5);
+            color: #fff;
+            transform: translateY(-50%) scale(1.06);
+        }
+        .pain-carousel-btn.prev {
+            left: -4px;
+        }
+        .pain-carousel-btn.next {
+            right: -4px;
+        }
+        @media (max-width: 640px) {
+            .pain-carousel-btn {
+                display: none;
+            }
+        }
+        .pain-carousel-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 3;
+        }
+        .pain-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        .pain-dot.active {
+            width: 28px;
+            background: #ab0e00;
+            box-shadow: 0 0 12px rgba(171, 14, 0, 0.6);
         }
 
         /* Bottom row: stat + trends */
@@ -3579,10 +3687,7 @@
             inset: 0;
             pointer-events: none;
             z-index: -2;
-            background-image: url('https://ideas.edu.vn/wp-content/new_public/LANDINGPAGE_MBA/assets/herobg.webp');
-            background-size: cover;
-            background-position: center bottom 0px;
-            opacity: 0.25;
+            background: #ffffff;
         }
 
         /* Beautiful dotted mesh overlay for hero */
@@ -7121,8 +7226,15 @@
                     </p>
                 </div>
 
-                <div class="pain-cards reveal-up" style="display: grid; gap: 16px; margin-bottom: 56px;">
-                    <div class="pain-card-v2">
+                <div class="pain-carousel-container reveal-up">
+                    <button class="pain-carousel-btn prev" aria-label="Previous card" type="button">
+                        <svg class="svg-icon fa-chevron-left fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+                        </svg>
+                    </button>
+                    <div class="pain-carousel-track-wrapper">
+                        <div class="pain-carousel-track">
+                    <div class="pain-card-v2 pain-slide">
                         <div class="pain-card-num">01</div>
                         <div class="pain-card-header">
                             <div class="pain-card-icon">
@@ -7140,7 +7252,7 @@
                         <p class="pain-card-desc">Học trực tuyến đòi hỏi tính tự giác rất cao. Không có người thúc ép
                             hay bạn bè bên cạnh, học viên rất dễ nản lòng và bỏ cuộc khi gặp bài học khó.</p>
                     </div>
-                    <div class="pain-card-v2">
+                    <div class="pain-card-v2 pain-slide">
                         <div class="pain-card-num">02</div>
                         <div class="pain-card-header">
                             <div class="pain-card-icon">
@@ -7158,7 +7270,7 @@
                         <p class="pain-card-desc">Các chương trình quốc tế giảng dạy hoàn toàn bằng tiếng Anh. Học viên
                             dễ gặp bế tắc khi viết bài luận (assignment) hoặc nghiên cứu học thuật chuyên sâu.</p>
                     </div>
-                    <div class="pain-card-v2">
+                    <div class="pain-card-v2 pain-slide">
                         <div class="pain-card-num">03</div>
                         <div class="pain-card-header">
                             <div class="pain-card-icon">
@@ -7176,7 +7288,7 @@
                         <p class="pain-card-desc">Kiến thức từ các giáo trình nước ngoài đôi khi quá vĩ mô và xa rời
                             thực tế kinh doanh tại Việt Nam, gây khó khăn khi muốn ứng dụng ngay vào công việc.</p>
                     </div>
-                    <div class="pain-card-v2">
+                    <div class="pain-card-v2 pain-slide">
                         <div class="pain-card-num">04</div>
                         <div class="pain-card-header">
                             <div class="pain-card-icon">
@@ -7194,7 +7306,7 @@
                         <p class="pain-card-desc">Vừa phải hoàn thành công việc tại cơ quan, vừa chăm sóc gia đình, lại
                             phải tự nghiên cứu hàng chục môn học dẫn đến áp lực lớn và kiệt sức.</p>
                     </div>
-                    <div class="pain-card-v2">
+                    <div class="pain-card-v2 pain-slide">
                         <div class="pain-card-num">05</div>
                         <div class="pain-card-header">
                             <div class="pain-card-icon">
@@ -7212,7 +7324,7 @@
                         <p class="pain-card-desc">Học qua màn hình khiến bạn cảm thấy bị cô lập. Bạn bỏ lỡ cơ hội kết
                             nối, giao lưu trực tiếp và mở rộng mạng lưới quan hệ với cộng đồng học viên tinh anh.</p>
                     </div>
-                    <div class="pain-card-v2">
+                    <div class="pain-card-v2 pain-slide">
                         <div class="pain-card-num">06</div>
                         <div class="pain-card-header">
                             <div class="pain-card-icon">
@@ -7230,7 +7342,16 @@
                         <p class="pain-card-desc">Nhiều học viên lo ngại bằng cấp trực tuyến không được công nhận rộng
                             rãi hoặc thiếu đi các kiểm định liên bang và kiểm định quốc tế uy tín để thăng tiến.</p>
                     </div>
+                
+                        </div>
+                    </div>
+                    <button class="pain-carousel-btn next" aria-label="Next card" type="button">
+                        <svg class="svg-icon fa-chevron-right fa-solid" viewBox="0 0 320 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+                        </svg>
+                    </button>
                 </div>
+                <div class="pain-carousel-dots"></div></div>
 
                 <!-- Stat + Trends -->
                 <div class="pain-bottom-row reveal-up">
@@ -7912,8 +8033,7 @@
         <!-- ══════════════════════════════════════════
          SECTION 4B: AI ADVISOR
         ══════════════════════════════════════════ -->
-        <section class="ai-advisor-section" id="ai-tu-van"
-            style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 0; background-color: #070d19; background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 28px 28px; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <section class="ai-advisor-section" id="ai-tu-van" style="display: none !important; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 0; background-color: #070d19; background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 28px 28px; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
             <!-- background light effects -->
             <div
                 style="position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(171,14,0,0.15) 0%, transparent 70%); top: -100px; left: -100px; pointer-events: none;">
@@ -8510,12 +8630,7 @@
                                 style="height: 24px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
                                 onmouseover="this.style.filter='none'"
                                 onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                            <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/eacademy.webp" alt="eacademy"
-                                width="85" height="26"
-                                style="height: 26px; width: auto; object-fit: contain; filter: grayscale(1) opacity(0.85); transition: all 0.3s;"
-                                onmouseover="this.style.filter='none'"
-                                onmouseout="this.style.filter='grayscale(1) opacity(0.85)'" />
-                        </div>
+                            </div>
                     </div>
                 </div>
 
@@ -10835,8 +10950,7 @@
             <div class="container"
                 style="text-align: center; display: flex; flex-direction: column; align-items: center;">
                 <!-- Connection Widget -->
-                <div class="partner-connection-widget"
-                    style="margin: 0 auto 40px auto; max-width: 580px; display: flex; flex-direction: column; align-items: center; gap: 14px; background: #ffffff; padding: 20px 36px 24px 36px; border-radius: 18px; box-shadow: 0 12px 32px rgba(15,23,42,0.04); border: 1px solid #e2e8f0; width: 100%; box-sizing: border-box;">
+                <div class="partner-connection-widget" style="display: none !important; margin: 0 auto 40px auto; max-width: 580px; display: flex; flex-direction: column; align-items: center; gap: 14px; background: #ffffff; padding: 20px 36px 24px 36px; border-radius: 18px; box-shadow: 0 12px 32px rgba(15,23,42,0.04); border: 1px solid #e2e8f0; width: 100%; box-sizing: border-box;">
                     <span
                         style="font-size: 0.65rem; font-weight: 800; color: #ab0e00; background: rgba(171, 14, 0, 0.05); padding: 5px 14px; border-radius: 99px; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 4px;">ĐỐI
                         TÁC CHIẾN LƯỢC TOÀN DIỆN</span>
@@ -12005,9 +12119,9 @@
         </div>
     </div>
 
-    <script src="common-assets/js/variables.min.js?v=1793676394" defer></script>
-    <script src="common-assets/js/script.min.js?v=1793676394" defer></script>
-    <script src="common-assets/js/booking-modal.min.js?v=1793676394" defer></script>
+    <script src="common-assets/js/variables.min.js?v=1793677388" defer></script>
+    <script src="common-assets/js/script.min.js?v=1793677388" defer></script>
+    <script src="common-assets/js/booking-modal.min.js?v=1793677388" defer></script>
 
     <!-- ═══════════════════════════════════════
          Swiss UMEF Program Orientation Quiz
@@ -14758,6 +14872,189 @@ document.addEventListener('keydown', (e) => {
     }
 });
 </script>
+
+
+    <!-- Pain Points Carousel Controller -->
+    <script>
+        (function () {
+            function initPainCarousel() {
+                const container = document.querySelector('.pain-carousel-container');
+                if (!container) return;
+                const track = container.querySelector('.pain-carousel-track');
+                if (!track) return;
+                const slides = Array.from(track.querySelectorAll('.pain-slide'));
+                const prevBtn = container.querySelector('.pain-carousel-btn.prev');
+                const nextBtn = container.querySelector('.pain-carousel-btn.next');
+                const dotsContainer = document.querySelector('.pain-carousel-dots');
+                if (slides.length === 0) return;
+
+                let currentIndex = 0;
+                let visibleCount = getVisibleCount();
+                let maxIndex = Math.max(0, slides.length - visibleCount);
+
+                function getVisibleCount() {
+                    if (window.innerWidth <= 640) return 1;
+                    if (window.innerWidth <= 991) return 2;
+                    return 3;
+                }
+
+                function createDots() {
+                    if (!dotsContainer) return;
+                    dotsContainer.innerHTML = '';
+                    const totalDots = maxIndex + 1;
+                    for (let i = 0; i < totalDots; i++) {
+                        const dot = document.createElement('button');
+                        dot.className = 'pain-dot' + (i === currentIndex ? ' active' : '');
+                        dot.setAttribute('aria-label', 'Go to slide group ' + (i + 1));
+                        dot.addEventListener('click', function () {
+                            goToSlide(i);
+                            resetAutoplay();
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                function updateDots() {
+                    if (!dotsContainer) return;
+                    const dots = dotsContainer.querySelectorAll('.pain-dot');
+                    dots.forEach(function (dot, idx) {
+                        dot.classList.toggle('active', idx === currentIndex);
+                    });
+                }
+
+                function goToSlide(index) {
+                    visibleCount = getVisibleCount();
+                    maxIndex = Math.max(0, slides.length - visibleCount);
+                    if (index < 0) {
+                        currentIndex = maxIndex;
+                    } else if (index > maxIndex) {
+                        currentIndex = 0;
+                    } else {
+                        currentIndex = index;
+                    }
+
+                    if (slides[0]) {
+                        const slideWidth = slides[0].getBoundingClientRect().width;
+                        const gap = 20;
+                        const amountToMove = currentIndex * (slideWidth + gap);
+                        track.style.transform = 'translateX(-' + amountToMove + 'px)';
+                    }
+                    updateDots();
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function () {
+                        goToSlide(currentIndex - 1);
+                        resetAutoplay();
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function () {
+                        goToSlide(currentIndex + 1);
+                        resetAutoplay();
+                    });
+                }
+
+                // Touch Swipe
+                let startX = 0;
+                let currentX = 0;
+                let isDragging = false;
+
+                track.addEventListener('touchstart', function (e) {
+                    startX = e.touches[0].clientX;
+                    currentX = startX;
+                    isDragging = true;
+                    stopAutoplay();
+                }, { passive: true });
+
+                track.addEventListener('touchmove', function (e) {
+                    if (!isDragging) return;
+                    currentX = e.touches[0].clientX;
+                }, { passive: true });
+
+                track.addEventListener('touchend', function () {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    const diff = startX - currentX;
+                    if (Math.abs(diff) > 40) {
+                        if (diff > 0) {
+                            goToSlide(currentIndex + 1);
+                        } else {
+                            goToSlide(currentIndex - 1);
+                        }
+                    }
+                    startAutoplay();
+                });
+
+                // Mouse Drag Support
+                let mouseStartX = 0;
+                let isMouseDown = false;
+
+                track.addEventListener('mousedown', function (e) {
+                    mouseStartX = e.clientX;
+                    isMouseDown = true;
+                    stopAutoplay();
+                });
+
+                window.addEventListener('mouseup', function (e) {
+                    if (!isMouseDown) return;
+                    isMouseDown = false;
+                    const diff = mouseStartX - e.clientX;
+                    if (Math.abs(diff) > 40) {
+                        if (diff > 0) {
+                            goToSlide(currentIndex + 1);
+                        } else {
+                            goToSlide(currentIndex - 1);
+                        }
+                    }
+                    startAutoplay();
+                });
+
+                // Autoplay
+                let timer = null;
+                function startAutoplay() {
+                    if (timer) clearInterval(timer);
+                    timer = setInterval(function () {
+                        goToSlide(currentIndex + 1);
+                    }, 5000);
+                }
+
+                function stopAutoplay() {
+                    if (timer) clearInterval(timer);
+                }
+
+                function resetAutoplay() {
+                    stopAutoplay();
+                    startAutoplay();
+                }
+
+                container.addEventListener('mouseenter', stopAutoplay);
+                container.addEventListener('mouseleave', startAutoplay);
+
+                window.addEventListener('resize', function () {
+                    const newVisibleCount = getVisibleCount();
+                    if (newVisibleCount !== visibleCount) {
+                        visibleCount = newVisibleCount;
+                        maxIndex = Math.max(0, slides.length - visibleCount);
+                        if (currentIndex > maxIndex) currentIndex = maxIndex;
+                        createDots();
+                    }
+                    goToSlide(currentIndex);
+                });
+
+                createDots();
+                goToSlide(0);
+                startAutoplay();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initPainCarousel);
+            } else {
+                initPainCarousel();
+            }
+        })();
+    </script>
 
 </body>
 </html>
