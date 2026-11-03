@@ -278,7 +278,7 @@ $seo_desc = $is_en
               "name": "Văn bằng DBA ISTEC được quốc tế công nhận ra sao?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Bằng do ISTEC Paris trực tiếp cấp theo chuẩn giáo dục đại học Pháp (Pro – Bac+8 / EQF Level 8). Trường là thành viên CGE danh giá. Bằng được tổ chức WES đánh giá tương đương học vị 'Earned Doctorate' tại Hoa Kỳ và Canada."
+                "text": "Bằng do ISTEC Paris trực tiếp cấp. Trường là thành viên CGE danh giá. Bằng được tổ chức WES đánh giá tương đương học vị 'Earned Doctorate' tại Hoa Kỳ và Canada."
               }
             },
             {
@@ -2020,17 +2020,13 @@ $seo_desc = $is_en
                                 <ul class="hero-cge-list">
                                     <li>
                                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>Bậc đào tạo Tiến sĩ Chuyên nghiệp Pro – Bac+8 (EQF Level 8) cao nhất Châu Âu</span>
+                                        <span>Doctorate of Business Administration do ISTEC Business School cấp</span>
                                     </li>
                                     <li>
                                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
                                         <span>Đánh giá WES (Hoa Kỳ & Canada): tương đương học vị <strong>Earned Doctorate</strong></span>
                                     </li>
                                 </ul>
-                            </div>
-                            <div class="hero-cge-bac8-badge">
-                                <span class="bac8-val">BAC +8</span>
-                                <span class="bac8-lbl">HỌC VỊ TIẾN SĨ</span>
                             </div>
                         </div>
 
@@ -2757,7 +2753,7 @@ $seo_desc = $is_en
                         Bằng Tiến Sĩ DBA Do ISTEC Paris Trực Tiếp Cấp
                     </h2>
                     <p class="istec-body-lead" style="margin-bottom: 20px;">
-                        Văn bằng chuẩn học vị Pro – Bac+8 (EQF Level 8) của Pháp, được tổ chức WES đánh giá tương đương <strong>"Earned Doctorate"</strong> tại Mỹ và Canada.
+                        Văn bằng được tổ chức WES đánh giá tương đương <strong>"Earned Doctorate"</strong> tại Mỹ và Canada.
                     </p>
 
                     <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px;">
@@ -3065,7 +3061,7 @@ $seo_desc = $is_en
                         </button>
                         <div class="acc-square-panel">
                             <div class="acc-square-content">
-                                Bằng do ISTEC Paris trực tiếp cấp theo chuẩn giáo dục đại học Pháp (Pro – Bac+8 / EQF Level 8). Trường là thành viên CGE danh giá. Bằng được tổ chức WES đánh giá tương đương học vị "Earned Doctorate" tại Hoa Kỳ và Canada.
+                                Bằng do ISTEC Paris trực tiếp cấp. Trường là thành viên CGE danh giá. Bằng được tổ chức WES đánh giá tương đương học vị "Earned Doctorate" tại Hoa Kỳ và Canada.
                             </div>
                         </div>
                     </div>
