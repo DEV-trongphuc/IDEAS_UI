@@ -2736,7 +2736,7 @@ $seo_desc = $is_en
                                 <ul class="hero-cge-list">
                                     <li>
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
-                                        <span>Chuẩn học vị Thạc sĩ Quốc gia Pháp Bac+5 (EQF Level 7 & RNCP Level 7)</span>
+                                        <span>Được WES đánh giá tương đương trình độ thạc sĩ tại Hoa Kỳ/Canada</span>
                                     </li>
                                     <li>
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><polyline points="20 6 9 17 4 12"/></svg>
@@ -2800,7 +2800,7 @@ $seo_desc = $is_en
 
                     <div class="spec-item">
                         <div class="spec-label">VĂN BẰNG TỐT NGHIỆP</div>
-                        <div class="spec-value">Thạc sĩ Quản trị Kinh doanh (MBA) • <strong>Bac+5</strong> (RNCP Level 7)</div>
+                        <div class="spec-value">Thạc sĩ Quản trị Kinh doanh (MBA) do ISTEC Business School cấp</div>
                     </div>
 
                     <div class="spec-divider"></div>
@@ -3716,7 +3716,7 @@ $seo_desc = $is_en
                         Bằng Thạc Sĩ MBA Do ISTEC Paris Trực Tiếp Cấp
                     </h2>
                     <p class="istec-body-lead" style="margin-bottom: 20px;">
-                        Văn bằng chuẩn học vị Thạc sĩ – <strong>Bac+5</strong> (EQF Level 7 / RNCP Level 7) của Pháp, được công nhận trên toàn cầu và định vị năng lực quản trị cấp cao trong môi trường quốc tế.
+                        Được thiết kế theo chuẩn <strong>Bac+5</strong> và phù hợp với nhu cầu phát triển của người học Việt Nam, chương trình hướng đến xây dựng năng lực quản trị tích hợp và bản lĩnh lãnh đạo trong bối cảnh kinh doanh hiện đại.
                     </p>
 
                     <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px;">
@@ -3758,7 +3758,7 @@ $seo_desc = $is_en
             <!-- ── B. KIỂM ĐỊNH & CÔNG NHẬN TOÀN CẦU (SLIDE MARQUEE TƯƠNG TÁC) ── -->
             <div style="text-align: center; max-width: 820px; margin: 56px auto 26px;" class="istec-reveal">
                 <span class="istec-label-top">GLOBAL ACCREDITATIONS</span>
-                <h3 class="istec-heading-large" style="font-size: 1.85rem; margin-top: 4px;">Văn bằng giá trị quốc tế được công nhận toàn cầu</h3>
+                <h3 class="istec-heading-large" style="font-size: 1.85rem; margin-top: 4px;">Văn bằng giá trị quốc tế</h3>
                 <p class="istec-body-lead" style="margin: 0 auto; font-size: 0.95rem;">
                     Được kiểm định và bảo chứng bởi hệ thống giáo dục đại học hàng đầu Cộng hòa Pháp và các tổ chức kiểm định quốc tế uy tín. <span style="display: inline-block; color: var(--istec-deep-green); font-weight: 700;">(Nhấp vào từng logo hoặc thẻ để xem chi tiết kiểm định)</span>
                 </p>
@@ -3908,7 +3908,7 @@ $seo_desc = $is_en
                         </li>
                         <li>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Thư viện trực tuyến Cengage MindTap với hơn 1.000 đầu sách học thuật quốc tế bản quyền.</span>
+                            <span>Thư viện trực tuyến Cengage MindTap.</span>
                         </li>
                     </ul>
 
@@ -3994,7 +3994,7 @@ $seo_desc = $is_en
                                 <span class="campus-feature-title">Bằng Thạc sĩ quốc gia Pháp & Mạng lưới Alumni 40+ quốc gia</span>
                             </button>
                             <div class="campus-feature-panel">
-                                <p>Bằng Thạc sĩ MBA RNCP Level 7 (Bac+5) được Bộ Giáo dục Đại học & Nghiên cứu Pháp chứng nhận, mở ra cơ hội kết nối với hơn 8.000 cựu học viên và 3.500 doanh nghiệp đối tác trên khắp thế giới.</p>
+                                <p>Mở ra cơ hội kết nối với hơn 8.000 cựu học viên và 3.500 doanh nghiệp đối tác trên khắp thế giới.</p>
                             </div>
                         </div>
                     </div>
