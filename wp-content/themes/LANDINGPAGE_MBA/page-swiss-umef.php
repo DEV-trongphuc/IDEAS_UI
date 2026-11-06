@@ -31,7 +31,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>
         </title>
         <meta name="description"
-            content="<?php echo $is_en ? 'Explore Swiss UMEF University in Geneva, Switzerland. Officially accredited by the Swiss Accreditation Council, QS 5-Star rated, and recognized by the Ministry of Education and Training of Vietnam.' : 'Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars và được công nhận bởi Bộ GD&ĐT Việt Nam.'; ?>" />
+            content="<?php echo $is_en ? 'Explore Swiss UMEF University in Geneva, Switzerland. Officially accredited by the Swiss Accreditation Council, and QS 5-Star rated.' : 'Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars.'; ?>" />
         <meta property="og:type" content="article" />
         <meta property="og:title"
             content="<?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>" />
@@ -2365,7 +2365,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <h3 class="campus-card-title">
                         <?php echo $is_en ? 'Affirmed International Prestige' : 'Uy tín quốc tế khẳng định'; ?></h3>
                     <p class="campus-card-desc">
-                        <?php echo $is_en ? 'Officially accredited by the Swiss Accreditation Council, rated 5 stars by QS Stars, and recognized by the Ministry of Education & Training of Vietnam, ensuring the global value of the prestigious degree.' : 'Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars và được công nhận bởi Bộ GD&amp;ĐT Việt Nam, bảo đảm giá trị tấm bằng danh giá toàn cầu.'; ?>
+                        <?php echo $is_en ? 'Officially accredited by the Swiss Accreditation Council, rated 5 stars by QS Stars, ensuring the global value of the prestigious degree.' : 'Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars, bảo đảm giá trị tấm bằng danh giá toàn cầu.'; ?>
                     </p>
                 </div>
             </div>
