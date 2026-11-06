@@ -176,8 +176,8 @@ function ideas_translate_meta_descriptions($desc) {
     }
     
     $en_descs = [
-        'he-thong-ho-tro-hoc-tap-lms-ideas' => 'LMS Moodle learning support system, IDEAS AI, and Cengage academic library. Full professional academic support for international program students.',
-        'swiss-umef' => 'Explore Swiss UMEF University in Geneva, Switzerland. Prestigious international accreditations, and QS 5-Star rated.',
+        'he-thong-ho-tro-hoc-tap-lms-ideas' => 'LMS Moodle learning support system, IDEAS AI platform, and exclusive academic materials. Full professional academic support for international program students.',
+        'swiss-umef' => 'Explore Swiss UMEF University in Geneva, Switzerland. Prestigious international accreditations ACBSP, IACBE, EduQua, and QS 5-Star rated.',
         'so-do-to-chuc' => 'Explore the organizational structure, departments, and academic leadership team of IDEAS.',
         'doi-ngu-giang-vien' => 'Academic Board and Faculty of IDEAS – leading experts with international teaching experience and practical business backgrounds.',
         'bac-si-doanh-nghiep' => 'Connect 1:1 with Corporate Doctors at IDEAS. Diagnose your business pain points, get expert consultations, and read community clinic topics.',

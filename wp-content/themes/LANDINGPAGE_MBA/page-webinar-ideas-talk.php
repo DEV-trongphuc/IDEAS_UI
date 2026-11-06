@@ -3199,7 +3199,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <p><?php echo $is_en ? '#IDEAS Monthly Workshop - The place to update new knowledge, lean methods, and breakthrough solutions for individuals & businesses.' : '#IDEAS Monthly Workshop - Nơi cập nhật tri thức mới, phương pháp tinh gọn và giải pháp bứt phá cho cá nhân & doanh nghiệp.'; ?></p>
 
                     <div class="talk-hero-ctas">
-                        <a href="javascript:void(0)" onclick="registerForTopic('Cengage – Nâng tầm tri thức MBA/EMBA với kho học liệu chuẩn quốc tế (29/09/2026)')" class="btn-talk btn-talk-primary">
+                        <a href="javascript:void(0)" onclick="registerForTopic('Học liệu số & Thư viện học thuật quốc tế – Nâng tầm tri thức MBA/EMBA (29/09/2026)')" class="btn-talk btn-talk-primary">
                             <?php echo $is_en ? 'Register Now' : 'Đăng ký tham gia ngay'; ?>
                         </a>
                         <a href="#recap" class="btn-talk btn-talk-secondary-dark">
@@ -3217,7 +3217,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </span>
 
                         <h3 class="ticket-title">
-                            <?php echo $is_en ? 'Cengage – Elevating MBA/EMBA Knowledge with Global Standard Academic Resources' : 'Cengage – Nâng tầm tri thức MBA/EMBA với kho học liệu chuẩn quốc tế'; ?>
+                            <?php echo $is_en ? 'Digital Academic Resources & International Library – Elevating MBA/EMBA Knowledge' : 'Học liệu số & Thư viện học thuật quốc tế – Nâng tầm tri thức MBA/EMBA'; ?>
                         </h3>
 
                         <div class="ticket-countdown-container">
@@ -3606,7 +3606,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                         </span>
                                         <span class="timeline-card-format-tag">Zoom Meeting</span>
                                     </div>
-                                    <h3><?php echo $is_en ? 'Cengage – Elevating MBA/EMBA Knowledge with Global Standard Academic Resources' : 'Cengage – Nâng tầm tri thức MBA/EMBA với kho học liệu chuẩn quốc tế'; ?></h3>
+                                    <h3><?php echo $is_en ? 'Digital Academic Resources & International Library – Elevating MBA/EMBA Knowledge' : 'Học liệu số & Thư viện học thuật quốc tế – Nâng tầm tri thức MBA/EMBA'; ?></h3>
                                     <div class="timeline-meta">
                                         <div class="timeline-meta-item date-item">
                                             <svg viewBox="0 0 448 512" fill="currentColor" width="12" height="12" style="vertical-align: -1px; display: inline-block;" xmlns="http://www.w3.org/2000/svg">
@@ -3619,10 +3619,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                             Zoom Meeting
                                         </div>
                                     </div>
-                                    <p class="timeline-desc"><?php echo $is_en ? 'Harness world-class digital learning resources from Cengage to maximize academic study and research efficiency for MBA/EMBA learners.' : 'Khai thác kho học liệu số bản quyền chuẩn quốc tế từ Cengage, tối ưu hóa năng lực tự học và nghiên cứu chuyên sâu cho học viên MBA/EMBA.'; ?></p>
+                                    <p class="timeline-desc"><?php echo $is_en ? 'Harness world-class digital learning resources and academic support tools to maximize study and research efficiency for MBA/EMBA learners.' : 'Khai thác kho học liệu số và công cụ hỗ trợ học thuật chuẩn quốc tế, tối ưu hóa năng lực tự học và nghiên cứu chuyên sâu cho học viên MBA/EMBA.'; ?></p>
                                 </div>
                                 <div class="timeline-btn-wrapper">
-                                    <a href="javascript:void(0)" onclick="registerForTopic('Cengage – Nâng tầm tri thức MBA/EMBA với kho học liệu chuẩn quốc tế (29/09/2026)')" class="btn-register-timeline">
+                                    <a href="javascript:void(0)" onclick="registerForTopic('Học liệu số & Thư viện học thuật quốc tế – Nâng tầm tri thức MBA/EMBA (29/09/2026)')" class="btn-register-timeline">
                                         <svg viewBox="0 0 512 512" fill="currentColor" width="13" height="13" style="flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/>
                                         </svg>
@@ -4191,7 +4191,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         });
 
-        window.selectedWebinarTopic = 'Cengage – Nâng tầm tri thức MBA/EMBA với kho học liệu chuẩn quốc tế (29/09/2026)';
+        window.selectedWebinarTopic = 'Học liệu số & Thư viện học thuật quốc tế – Nâng tầm tri thức MBA/EMBA (29/09/2026)';
 
         // Function to select topic and scroll to register form
         function registerForTopic(topicName) {
@@ -4203,7 +4203,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             if (mucDichSel) {
                 if (topicName.toLowerCase().includes('luật') || topicName.toLowerCase().includes('kinh doanh') || topicName.toLowerCase().includes('quốc tế') || topicName.toLowerCase().includes('law')) {
                     mucDichSel.value = 'Giải quyết bài toán DN';
-                } else if (topicName.toLowerCase().includes('cengage') || topicName.toLowerCase().includes('mba') || topicName.toLowerCase().includes('học liệu')) {
+                } else if (topicName.toLowerCase().includes('mba') || topicName.toLowerCase().includes('học liệu')) {
                     mucDichSel.value = 'Phát triển sự nghiệp';
                 } else if (topicName.toLowerCase().includes('quản trị') || topicName.toLowerCase().includes('quản lý') || topicName.toLowerCase().includes('peter') || topicName.toLowerCase().includes('management')) {
                     mucDichSel.value = 'Nâng cao năng lực quản lý';
@@ -4345,7 +4345,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 const chucDanhText = chucDanhVal === 'Khác' ? otherChucDanhVal : chucDanhVal;
                 const mucDichText = mucDichVal === 'Khác' ? otherMucDichVal : mucDichVal;
-                const interestVal = window.selectedWebinarTopic || 'Cengage – Nâng tầm tri thức MBA/EMBA với kho học liệu chuẩn quốc tế (29/09/2026)';
+                const interestVal = window.selectedWebinarTopic || 'Học liệu số & Thư viện học thuật quốc tế – Nâng tầm tri thức MBA/EMBA (29/09/2026)';
 
                 const noteParts = [];
                 noteParts.push('Chức danh: ' + chucDanhText);

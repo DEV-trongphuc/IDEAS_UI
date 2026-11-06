@@ -31,12 +31,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>
         </title>
         <meta name="description"
-            content="<?php echo $is_en ? 'Explore Swiss UMEF University in Geneva, Switzerland. Officially accredited by the Swiss Accreditation Council, and QS 5-Star rated.' : 'Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars.'; ?>" />
+            content="<?php echo $is_en ? 'Explore Swiss UMEF University in Geneva, Switzerland. Prestigious international accreditations ACBSP, IACBE, EduQua, and QS 5-Star rated.' : 'Khám phá Đại học Swiss UMEF tại Geneva, Thụy Sĩ. Trường đại học danh tiếng với các kiểm định quốc tế uy tín ACBSP, IACBE, EduQua và xếp hạng 5 sao QS Stars toàn diện.'; ?>" />
         <meta property="og:type" content="article" />
         <meta property="og:title"
             content="<?php echo $is_en ? 'Swiss UMEF University Switzerland | Official Admissions Partner IDEAS' : 'Đại học Swiss UMEF Thụy Sĩ | Đối tác tuyển sinh chính thức IDEAS'; ?>" />
         <meta property="og:description"
-            content="<?php echo $is_en ? 'Experience the elite Swiss education with a prestigious international degree, accredited by SAC, ACBSP, EduQua.' : 'Trải nghiệm giáo dục tinh hoa Thụy Sĩ với bằng cấp quốc tế danh giá, được kiểm định bởi SAC, ACBSP, EduQua.'; ?>" />
+            content="<?php echo $is_en ? 'Experience the elite Swiss education with a prestigious international degree, accredited by ACBSP, IACBE, EduQua.' : 'Trải nghiệm giáo dục tinh hoa Thụy Sĩ với bằng cấp quốc tế danh giá, được kiểm định bởi ACBSP, IACBE, EduQua.'; ?>" />
         <meta property="og:image"
             content="/wp-content/uploads/external-migrated/fc7eeb_82548a7721e6472b9c5f4813e39e94b9_mv2_ea5d6ab4.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
@@ -2146,11 +2146,10 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="umef-stat-num">1984</span>
                     <span class="umef-stat-lbl"><?php echo $is_en ? 'Founded Year' : 'Năm Thành Lập'; ?></span>
                 </div>
-                <div class="umef-stat-card" style="display: none !important;"><div class="umef-stat-card">
-                    <span class="umef-stat-num">SAC</span>
-                    <span
-                        class="umef-stat-lbl"><?php echo $is_en ? 'Swiss Accreditation' : 'Kiểm Định Thụy Sĩ'; ?></span>
-                </div></div>
+                <div class="umef-stat-card">
+                    <span class="umef-stat-num">EduQua</span>
+                    <span class="umef-stat-lbl"><?php echo $is_en ? 'Swiss Quality' : 'Kiểm Định Thụy Sĩ'; ?></span>
+                </div>
                 <div class="umef-stat-card">
                     <span class="umef-stat-num">5 Stars</span>
                     <span class="umef-stat-lbl"><?php echo $is_en ? 'QS Stars Rating' : 'Xếp Hạng QS Stars'; ?></span>
@@ -2365,7 +2364,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <h3 class="campus-card-title">
                         <?php echo $is_en ? 'Affirmed International Prestige' : 'Uy tín quốc tế khẳng định'; ?></h3>
                     <p class="campus-card-desc">
-                        <?php echo $is_en ? 'Officially accredited by the Swiss Accreditation Council, rated 5 stars by QS Stars, ensuring the global value of the prestigious degree.' : 'Được công nhận chính thức bởi Hội đồng Giáo dục Thụy Sĩ, xếp hạng 5 sao QS Stars, bảo đảm giá trị tấm bằng danh giá toàn cầu.'; ?>
+                        <?php echo $is_en ? 'Accredited by prestigious international bodies (ACBSP, IACBE, EduQua), rated 5 stars by QS Stars, ensuring the global value of the prestigious degree.' : 'Đạt các kiểm định quốc tế uy tín (ACBSP, IACBE, EduQua), xếp hạng 5 sao QS Stars, bảo đảm giá trị tấm bằng danh giá toàn cầu.'; ?>
                     </p>
                 </div>
             </div>

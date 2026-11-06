@@ -30,7 +30,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
     <?php endif; ?>
     <?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta name="description"
-                content="<?php echo $is_en ? 'LMS Moodle learning support system, IDEAS AI, and Cengage academic library. Full professional academic support for international program students.' : 'Hệ thống hỗ trợ học tập LMS Moodle, IDEAS AI, và thư viện học thuật Cengage. Hỗ trợ học vụ chuyên nghiệp trọn vẹn dành cho học viên của IDEAS.'; ?>" />
+                content="<?php echo $is_en ? 'LMS Moodle learning support system, IDEAS AI platform, and exclusive academic support materials. Full professional academic support for IDEAS students.' : 'Hệ thống hỗ trợ học tập LMS Moodle, IDEAS AI Platform, cùng kho học liệu bổ trợ độc quyền và diễn đàn học thuật hỗ trợ học viên IDEAS.'; ?>" />
     <?php endif; ?><?php if (!defined('WPSEO_VERSION') && !class_exists('RankMath') && !class_exists('AIOSEO_Base')): ?>
             <meta property="og:type" content="article" />
             <meta property="og:title" content="<?php echo $is_en ? 'LMS System & Comprehensive Learning Ecosystem | IDEAS' : 'Hệ thống LMS &amp; Hệ sinh thái học tập toàn diện | IDEAS'; ?>" />
@@ -751,8 +751,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             }
         }
 
-        /* ── Cengage Blog Post Card ── */
-        .cengage-post-card {
+        /* ── Academic Blog Post Card ── */
+        .academic-post-card {
             display: flex;
             align-items: center;
             gap: 18px;
@@ -769,7 +769,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .cengage-post-card::before {
+        .academic-post-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -781,18 +781,18 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transition: transform 0.6s ease;
         }
 
-        .cengage-post-card:hover::before {
+        .academic-post-card:hover::before {
             transform: translateX(100%);
         }
 
-        .cengage-post-card:hover {
+        .academic-post-card:hover {
             transform: translateY(-4px);
             background: rgba(255, 255, 255, 0.06);
             border-color: rgba(239, 68, 68, 0.35);
             box-shadow: 0 12px 30px rgba(239, 68, 68, 0.1);
         }
 
-        .cengage-post-card-img {
+        .academic-post-card-img {
             width: 88px;
             height: 88px;
             border-radius: 10px;
@@ -802,25 +802,25 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .cengage-post-card-img img {
+        .academic-post-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .cengage-post-card:hover .cengage-post-card-img img {
+        .academic-post-card:hover .academic-post-card-img img {
             transform: scale(1.08);
         }
 
-        .cengage-post-card-content {
+        .academic-post-card-content {
             display: flex;
             flex-direction: column;
             gap: 6px;
             flex: 1;
         }
 
-        .cengage-post-card-tag {
+        .academic-post-card-tag {
             font-size: 0.72rem;
             color: #ef4444;
             font-weight: 700;
@@ -831,7 +831,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             gap: 5px;
         }
 
-        .cengage-post-card-title {
+        .academic-post-card-title {
             font-size: 0.95rem;
             font-weight: 700;
             color: #ffffff;
@@ -844,11 +844,11 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             overflow: hidden;
         }
 
-        .cengage-post-card:hover .cengage-post-card-title {
+        .academic-post-card:hover .academic-post-card-title {
             color: #ef4444;
         }
 
-        .cengage-post-card-link {
+        .academic-post-card-link {
             font-size: 0.8rem;
             color: #94a3b8;
             font-weight: 600;
@@ -858,36 +858,36 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             transition: color 0.3s ease;
         }
 
-        .cengage-post-card-link i {
+        .academic-post-card-link i {
             font-size: 0.75rem;
             transition: transform 0.3s ease;
         }
 
-        .cengage-post-card:hover .cengage-post-card-link {
+        .academic-post-card:hover .academic-post-card-link {
             color: #ffffff;
         }
 
-        .cengage-post-card:hover .cengage-post-card-link i {
+        .academic-post-card:hover .academic-post-card-link i {
             transform: translateX(4px);
         }
 
         @media (max-width: 480px) {
-            .cengage-post-card {
+            .academic-post-card {
                 padding: 12px;
                 gap: 12px;
                 margin-top: 20px;
                 max-width: 100%;
             }
-            .cengage-post-card-img {
+            .academic-post-card-img {
                 width: 80px;
                 height: 80px;
             }
-            .cengage-post-card-title {
+            .academic-post-card-title {
                 font-size: 0.88rem;
             }
         }
     
-        /* ── Clickable Cengage Card Style ── */
+        /* ── Clickable Academic Card Style ── */
         .eco-card-v2-link {
             cursor: pointer !important;
             position: relative;
@@ -945,8 +945,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <span class="lms-stat-lbl"><?php echo $is_en ? 'Active Learning' : 'Học Tập Chủ Động'; ?></span>
                 </div>
                 <div class="lms-stat-card">
-                    <span class="lms-stat-num">1.000+</span>
-                    <span class="lms-stat-lbl"><?php echo $is_en ? 'Cengage Resources' : 'Tài Liệu Cengage'; ?></span>
+                    <span class="lms-stat-num">24/7</span>
+                    <span class="lms-stat-lbl"><?php echo $is_en ? 'AI & Academic Support' : 'Học Liệu & AI 24/7'; ?></span>
                 </div>
                 <div class="lms-stat-card">
                     <span class="lms-stat-num">100%</span>
@@ -998,19 +998,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     </div>
                 </article>
 
-                <a href="https://ideas.edu.vn/tin-tuc-moi/tai-lieu-cengage-tai-ideas.html" target="_blank" rel="noopener" class="eco-card-v2 eco-card-v2-link" style="text-decoration: none; position: relative;">
-                        <svg class="svg-icon fa-arrow-up-right-from-square fa-solid eco-card-external-icon" style="position: absolute; top: 20px; right: 20px; color: rgba(255,255,255,0.4); font-size: 0.85rem; transition: all 0.3s;" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l82.7 0L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3l0 82.7c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160c0-17.7-14.3-32-32-32L320 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z"/></svg>
+                <article class="eco-card-v2">
                     <div class="eco-card-v2-icon eco-card-v2-icon--logo"
                         style="--icon-clr:#34d399;--icon-bg:rgba(255,255,255,0.95)">
-                        <img decoding="async"
-                            src="/wp-content/uploads/external-migrated/1280px-Cengage-logo_svg_8308995d.webp"
-                            alt="Cengage logo" style="width:68px;height:auto;object-fit:contain;" loading="lazy" />
+                        <svg class="svg-icon fa-graduation-cap fa-solid" viewBox="0 0 640 512" width="28" height="28" fill="#ab0e00" xmlns="http://www.w3.org/2000/svg"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9l0 28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5l0-24.6c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></svg>
                     </div>
                     <div class="eco-card-v2-body">
-                        <h4 class="eco-card-v2-title"><?php echo $is_en ? 'Cengage Library' : 'Thư viện Cengage'; ?></h4>
-                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Free access to over 1,000 leading academic books in business and management worldwide.' : 'Miễn phí truy cập hơn 1.000 đầu sách học thuật chuyên ngành kinh doanh và quản trị hàng đầu thế giới.'; ?></p>
+                        <h4 class="eco-card-v2-title"><?php echo $is_en ? 'Supplemental Academic Materials & Forum' : 'Học liệu bổ trợ & Diễn đàn học thuật'; ?></h4>
+                        <p class="eco-card-v2-desc"><?php echo $is_en ? 'Exclusive reference materials from IDEAS & faculty, with academic forum and Final Exam preparation support.' : 'Hệ thống tài liệu tham khảo bổ trợ độc quyền từ IDEAS & giảng viên, cùng diễn đàn trao đổi hỗ trợ ôn luyện Final Exam.'; ?></p>
                     </div>
-                </a>
+                </article>
 
                 <article class="eco-card-v2">
                     <div class="eco-card-v2-icon eco-card-v2-icon--logo"
@@ -1123,7 +1120,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <h3>LMS Powered by Moodle</h3>
                 <p><?php echo $is_en ? 'Moodle is the world\'s leading popular learning management system (LMS) used by prestigious universities. At IDEAS, Moodle is smartly configured and maximized visually to accompany students throughout their learning journey:' : 'Moodle là hệ thống quản lý học tập (LMS) phổ biến hàng đầu thế giới được sử dụng bởi các trường đại học danh tiếng. Tại IDEAS, hệ thống Moodle được cấu hình thông minh và trực quan hóa tối đa để đồng hành cùng học viên trong suốt chặng đường học tập:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Watch high-quality recorded lecture videos anytime, anywhere.' : 'Xem video bài giảng ghi hình chất lượng cao mọi lúc mọi nơi.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Access course syllabus, learning progress, and academic assignments anytime.' : 'Theo dõi lộ trình đào tạo, tiến độ học tập và nộp bài tập thuận tiện.'; ?></li>
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Download study materials, curriculum, and lecture slides directly.' : 'Tải tài liệu học tập, giáo trình, slide bài giảng trực tiếp.'; ?></li>
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Submit assignments, track grades, and receive feedback directly from lecturers.' : 'Nộp bài tập, theo dõi điểm số và nhận feedback trực tiếp từ giảng viên.'; ?></li>
                     <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Discussion forums among students in the classroom.' : 'Diễn đàn trao đổi thảo luận giữa các học viên trong lớp học.'; ?></li>
@@ -1154,33 +1151,22 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             </div>
         </div>
 
-        <!-- Cengage Detail -->
+        <!-- Academic Resources & Final Exam Detail -->
         <div class="platform-detail-row">
             <div class="platform-text">
-                <span class="platform-text-badge"><?php echo $is_en ? 'Global Digital Library' : 'Thư viện số toàn cầu'; ?></span>
-                <h3><?php echo $is_en ? 'Cengage Digital Library' : 'Thư viện số Cengage'; ?></h3>
-                <p><?php echo $is_en ? 'Cengage Learning is one of the world\'s largest educational publishers. Students at IDEAS are granted free access to a massive digital library:' : 'Cengage Learning là một trong những nhà xuất bản giáo dục lớn nhất thế giới. Học viên tại IDEAS được cấp quyền truy cập miễn phí vào kho tàng tri thức số khổng lồ:'; ?></p>
+                <span class="platform-text-badge"><?php echo $is_en ? 'EXCLUSIVE RESOURCES & FORUM' : 'HỌC LIỆU BỔ TRỢ & DIỄN ĐÀN'; ?></span>
+                <h3><?php echo $is_en ? 'Exclusive Academic Resources & Final Exam Support' : 'Kho học liệu bổ trợ độc quyền & Hỗ trợ Final Exam'; ?></h3>
+                <p><?php echo $is_en ? 'IDEAS provides dedicated academic reference materials, localized business case studies, and structured guidance for final examinations and graduation theses:' : 'Viện IDEAS cung cấp hệ thống tài liệu tham khảo bổ trợ độc quyền từ đội ngũ giảng viên, chuyên đề case study thực tiễn và diễn đàn trao đổi hỗ trợ ôn luyện bài thi cuối kỳ (Final Exam) cũng như hướng dẫn làm luận văn tốt nghiệp:'; ?></p>
                 <ul class="platform-features-list">
-                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Over 1,000+ original English academic books specialized in Economics.' : 'Hơn 1.000+ đầu sách học thuật nguyên bản tiếng Anh chuyên ngành Kinh tế.'; ?></li>
-                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'The latest updated textbooks serving MBA/DBA courses.' : 'Các giáo trình cập nhật mới nhất phục vụ cho các môn học MBA/DBA.'; ?></li>
-                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Read books online easily on computers, tablets, and mobile phones.' : 'Đọc sách trực tuyến dễ dàng trên máy tính, máy tính bảng và điện thoại di động.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Dedicated reference materials and case studies compiled by IDEAS & Vietnamese faculty.' : 'Hệ thống tài liệu tham khảo và case study thực tiễn do Viện IDEAS cùng đội ngũ giảng viên biên soạn.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Academic exchange forum connecting students, instructors, and alumni community.' : 'Diễn đàn trao đổi học thuật (Forum) kết nối học viên, giảng viên và cộng đồng cựu học viên.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Structured guidance for Final Exam preparation and thesis defense methodology.' : 'Định hướng, giải đáp cấu trúc bài thi cuối kỳ (Final Exam) và phương pháp hoàn thiện luận văn tốt nghiệp.'; ?></li>
+                    <li><svg class="svg-icon fa-circle-check fa-solid" viewBox="0 0 512 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg> <?php echo $is_en ? 'Seamless 24/7 AI-assisted learning platform supporting personalized study pace.' : 'Tích hợp trợ lý AI Platform hỗ trợ 24/7, tối ưu hóa thời gian tự học của học viên.'; ?></li>
                 </ul>
-
-                <!-- Blog Post Card Link -->
-                <a href="https://ideas.edu.vn/tin-tuc-moi/tai-lieu-cengage-tai-ideas.html" class="cengage-post-card" target="_blank" rel="noopener">
-                    <div class="cengage-post-card-img">
-                        <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/cengage-blog-1.webp" alt="<?php echo $is_en ? 'Cengage materials at IDEAS' : 'Tài liệu Cengage tại IDEAS'; ?>" loading="lazy" />
-                    </div>
-                    <div class="cengage-post-card-content">
-                        <span class="cengage-post-card-tag"><svg class="svg-icon fa-book-open fa-solid" viewBox="0 0 576 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z"/></svg> <?php echo $is_en ? 'Featured Article' : 'Bài viết nổi bật'; ?></span>
-                        <h4 class="cengage-post-card-title"><?php echo $is_en ? 'Cengage Materials at IDEAS: The Competitive Edge of Online Learning' : 'Tài liệu Cengage tại IDEAS: Lợi thế cạnh tranh học online'; ?></h4>
-                        <span class="cengage-post-card-link"><?php echo $is_en ? 'Read Article' : 'Đọc bài viết'; ?> <svg class="svg-icon fa-arrow-right fa-solid" viewBox="0 0 448 512" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></span>
-                    </div>
-                </a>
             </div>
             <div class="platform-visual">
-                <img src="https://ideas.edu.vn/wp-content/uploads/2026/06/maxresdefault.webp"
-                    alt="Cengage library access" loading="lazy" />
+                <img src="https://ideas.edu.vn/wp-content/uploads/2025/03/image-1-1.webp"
+                    alt="<?php echo $is_en ? 'Academic support and examination guidance' : 'Học liệu bổ trợ và hỗ trợ học vụ'; ?>" loading="lazy" />
             </div>
         </div>
     </section>
