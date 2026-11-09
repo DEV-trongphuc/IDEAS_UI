@@ -3556,123 +3556,123 @@ $seo_desc = $is_en
 
             <!-- Timeline Navigation Buttons: Active màu xanh brand ISTEC -->
             <div class="timeline-tabs-clean istec-reveal">
-                <button class="btn-tab-square active" data-term="boxTerm1">Học Kỳ I (4 Tháng)</button>
-                <button class="btn-tab-square" data-term="boxTerm2">Học Kỳ II (5 Tháng)</button>
-                <button class="btn-tab-square" data-term="boxTerm3">Học Kỳ III (5 Tháng)</button>
-                <button class="btn-tab-square" data-term="boxTerm4">Luận Văn Tốt Nghiệp (2 Tháng)</button>
+                <button class="btn-tab-square active" data-term="boxTerm1"><?php echo $is_en ? 'Term 1: Foundation (15 ECTS)' : 'Term 1: Foundation (15 ECTS)'; ?></button>
+                <button class="btn-tab-square" data-term="boxTerm2"><?php echo $is_en ? 'Term 2: Advance (15 ECTS)' : 'Term 2: Advance (15 ECTS)'; ?></button>
+                <button class="btn-tab-square" data-term="boxTerm3"><?php echo $is_en ? 'Term 3: International (15 ECTS)' : 'Term 3: International (15 ECTS)'; ?></button>
+                <button class="btn-tab-square" data-term="boxTerm4"><?php echo $is_en ? 'Applied Project (15 ECTS)' : 'Luận Văn MBA (15 ECTS)'; ?></button>
             </div>
 
             <div class="accordion-square-wrap istec-reveal" style="max-width: 920px; margin: 0 auto;">
-                <!-- Kỳ 1 -->
+                <!-- Term 1: Foundation -->
                 <div class="acc-square-box" id="boxTerm1">
                     <button class="acc-square-header" type="button">
-                        <span class="acc-square-title">I. Xây dựng nền tảng quản trị (Học kỳ I)</span>
+                        <span class="acc-square-title"><?php echo $is_en ? 'I. TERM 1: FOUNDATION (15 ECTS)' : 'I. TERM 1: FOUNDATION (15 ECTS)'; ?></span>
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="acc-square-panel" style="max-height: 500px;">
                         <div class="acc-square-content">
                             <div class="course-row-square">
-                                <span><strong>01.</strong> Strategic Management (Quản Trị Chiến Lược)</span>
-                                <span style="color: var(--dark-muted);">Core</span>
+                                <span><strong>Môn 1:</strong> Strategic Management <?php echo $is_en ? '' : '(Quản trị Chiến lược)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>02.</strong> Leadership & Organizational Behavior (Lãnh Đạo & Hành Vi Tổ Chức)</span>
-                                <span style="color: var(--dark-muted);">Leadership</span>
+                                <span><strong>Môn 2:</strong> Leadership &amp; Organizational Behavior <?php echo $is_en ? '' : '(Lãnh đạo &amp; Hành vi Tổ chức)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>03.</strong> Financial Management for Executives (Quản Trị Tài Chính)</span>
-                                <span style="color: var(--dark-muted);">Finance</span>
+                                <span><strong>Môn 3:</strong> Financial Management for Executives <?php echo $is_en ? '' : '(Quản trị Tài chính cho Nhà Quản trị)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>04.</strong> Business Ethics & Sustainable Development (Đạo Đức & Phát Triển Bền Vững)</span>
-                                <span style="color: var(--dark-muted);">Ethics</span>
+                                <span><strong>Môn 4:</strong> Marketing Strategy &amp; Brand Management <?php echo $is_en ? '' : '(Chiến lược Marketing &amp; Quản trị Thương hiệu)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>05.</strong> Marketing Strategy & Brand Management (Chiến Lược Marketing & Thương Hiệu)</span>
-                                <span style="color: var(--dark-muted);">Marketing</span>
+                                <span><strong>Môn 5:</strong> Business Ethics &amp; Sustainable Development <?php echo $is_en ? '' : '(Đạo đức Kinh doanh &amp; Phát triển Bền vững)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Kỳ 2 -->
+                <!-- Term 2: Advance -->
                 <div class="acc-square-box" id="boxTerm2">
                     <button class="acc-square-header" type="button">
-                        <span class="acc-square-title">II. Kinh doanh & Phát triển toàn cầu (Học kỳ II)</span>
+                        <span class="acc-square-title"><?php echo $is_en ? 'II. TERM 2: ADVANCE (15 ECTS)' : 'II. TERM 2: ADVANCE (15 ECTS)'; ?></span>
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="acc-square-panel">
                         <div class="acc-square-content">
                             <div class="course-row-square">
-                                <span><strong>06.</strong> Business Analytics & Decision Making (Phân Tích Dữ Liệu Kinh Doanh)</span>
-                                <span style="color: var(--dark-muted);">Analytics</span>
+                                <span><strong>Môn 6:</strong> Business Analytics &amp; Decision Making <?php echo $is_en ? '' : '(Phân tích Kinh doanh &amp; Ra quyết định)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>07.</strong> International Business Management (Quản Trị Kinh Doanh Quốc Tế)</span>
-                                <span style="color: var(--dark-muted);">Global</span>
+                                <span><strong>Môn 7:</strong> Digital Transformation &amp; AI Strategy <?php echo $is_en ? '' : '(Chuyển đổi số &amp; Chiến lược AI)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>08.</strong> Cross-Cultural Management (Quản Trị Đa Văn Hóa)</span>
-                                <span style="color: var(--dark-muted);">Culture</span>
+                                <span><strong>Môn 8:</strong> Operations &amp; Supply Chain Management <?php echo $is_en ? '' : '(Quản trị Vận hành &amp; Chuỗi Cung ứng)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>09.</strong> International Negotiation & Business Development (Đàm Phán Quốc Tế)</span>
-                                <span style="color: var(--dark-muted);">Negotiation</span>
+                                <span><strong>Môn 9:</strong> Entrepreneurship &amp; Innovation Management <?php echo $is_en ? '' : '(Quản trị Khởi nghiệp &amp; Đổi mới Sáng tạo)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>10.</strong> Entrepreneurship & Innovation Management (Khởi Nghiệp & Đổi Mới)</span>
-                                <span style="color: var(--dark-muted);">Innovation</span>
+                                <span><strong>Môn 10:</strong> Luxury &amp; Premium Brand Management <?php echo $is_en ? '' : '(Quản trị Thương hiệu Cao cấp &amp; Xa xỉ)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Kỳ 3 -->
+                <!-- Term 3: International -->
                 <div class="acc-square-box" id="boxTerm3">
                     <button class="acc-square-header" type="button">
-                        <span class="acc-square-title">III. Đổi mới & Chuyển đổi số cùng AI (Học kỳ III)</span>
+                        <span class="acc-square-title"><?php echo $is_en ? 'III. TERM 3: INTERNATIONAL (15 ECTS)' : 'III. TERM 3: INTERNATIONAL (15 ECTS)'; ?></span>
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="acc-square-panel">
                         <div class="acc-square-content">
                             <div class="course-row-square">
-                                <span><strong>11.</strong> Digital Transformation & AI Strategy (Chuyển Đổi Số & Chiến Lược AI)</span>
-                                <span style="color: var(--istec-bright-green); font-weight: 700;">AI Strategy</span>
+                                <span><strong>Môn 11:</strong> International Business Management <?php echo $is_en ? '' : '(Quản trị Kinh doanh Quốc tế)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>12.</strong> Operations & Supply Chain Management (Quản Trị Vận Hành & Chuỗi Cung Ứng)</span>
-                                <span style="color: var(--dark-muted);">Operations</span>
+                                <span><strong>Môn 12:</strong> Cross-Cultural Management <?php echo $is_en ? '' : '(Quản trị Đa Văn hóa)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>13.</strong> Consulting Project Management (Quản Trị Dự Án Tư Vấn)</span>
-                                <span style="color: var(--dark-muted);">Consulting</span>
+                                <span><strong>Môn 13:</strong> Strategic Marketing in Emerging Markets <?php echo $is_en ? '' : '(Marketing Chiến lược tại Thị trường Mới nổi)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>14.</strong> Luxury & Premium Brand Management (Quản Trị Thương Hiệu Cao Cấp)</span>
-                                <span style="color: var(--dark-muted);">Brand</span>
+                                <span><strong>Môn 14:</strong> International Negotiation &amp; Business Development <?php echo $is_en ? '' : '(Đàm phán Quốc tế &amp; Phát triển Kinh doanh)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                             <div class="course-row-square">
-                                <span><strong>15.</strong> Strategic Marketing in Emerging Markets (Marketing Thị Trường Mới Nổi)</span>
-                                <span style="color: var(--dark-muted);">Markets</span>
+                                <span><strong>Môn 15:</strong> Consulting Project Management <?php echo $is_en ? '' : '(Quản trị Dự án Tư vấn)'; ?></span>
+                                <span style="color: #61A60E; font-weight: 700; font-size: 0.85rem; background: #f0fdf4; padding: 3px 10px; border-radius: 4px; border: 1px solid #dcfce7; white-space: nowrap;">3 ECTS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Luận văn -->
+                <!-- Luận văn: Applied Project -->
                 <div class="acc-square-box" id="boxTerm4">
                     <button class="acc-square-header" type="button">
-                        <span class="acc-square-title">IV. Luận văn tốt nghiệp / Dự án thực tiễn (2 Tháng)</span>
+                        <span class="acc-square-title"><?php echo $is_en ? 'IV. MBA THESIS / APPLIED PROJECT (15 ECTS)' : 'IV. LUẬN VĂN MBA / APPLIED PROJECT (15 ECTS)'; ?></span>
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="acc-square-panel">
                         <div class="acc-square-content">
                             <div class="course-row-square">
-                                <span><strong>16.</strong> MBA Thesis / Applied Business Project (Luận Văn / Dự Án Quản Trị Thực Tiễn)</span>
-                                <span style="color: #b91c1c; font-weight: 700;">Capstone</span>
+                                <span><strong>Luận văn:</strong> <?php echo $is_en ? 'MBA Applied Project (Master Thesis)' : 'Luận văn MBA (Applied Project)'; ?></span>
+                                <span style="color: #005C4D; font-weight: 700; font-size: 0.85rem; background: #ecfdf5; padding: 3px 10px; border-radius: 4px; border: 1px solid #a7f3d0; white-space: nowrap;">15 ECTS</span>
                             </div>
                             <p style="font-size: 0.92rem; color: var(--dark-sub); margin-top: 10px; line-height: 1.6;">
-                                Học viên trực tiếp bảo vệ luận văn hoặc dự án kinh doanh ứng dụng trước Hội đồng Giáo sư ISTEC Paris.
+                                <?php echo $is_en ? 'Students conduct and defend an applied business project (15 ECTS) before the ISTEC Paris Academic Committee.' : 'Học viên trực tiếp thực hiện và bảo vệ luận văn thạc sĩ hoặc dự án kinh doanh ứng dụng thực tế (Applied Project - 15 ECTS) trước Hội đồng Giáo sư ISTEC Paris.'; ?>
                             </p>
                         </div>
                     </div>
