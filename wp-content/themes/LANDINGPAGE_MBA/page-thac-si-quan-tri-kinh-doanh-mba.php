@@ -3050,7 +3050,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="prog-spec-item">
                                 <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
                                 <strong
-                                    class="prog-spec-value"><?php echo $is_en ? '18 months' : '18 tháng'; ?></strong>
+                                    class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
                                 <span
@@ -3096,7 +3096,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="prog-spec-item">
                                 <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
                                 <strong
-                                    class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
+                                    class="prog-spec-value"><?php echo $is_en ? '14 months' : '14 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
                                 <span
@@ -3143,7 +3143,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="prog-spec-item">
                                 <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
                                 <strong
-                                    class="prog-spec-value"><?php echo $is_en ? '15 - 18 months' : '15 - 18 tháng'; ?></strong>
+                                    class="prog-spec-value"><?php echo $is_en ? '18 months' : '18 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
                                 <span
@@ -3189,7 +3189,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="prog-spec-item">
                                 <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
                                 <strong
-                                    class="prog-spec-value"><?php echo $is_en ? '16 - 18 months' : '16 - 18 tháng'; ?></strong>
+                                    class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
                             </div>
                             <div class="prog-spec-item">
                                 <span

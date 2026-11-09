@@ -343,15 +343,6 @@ $ai_for_managers_url = $is_en ? '/ai-for-managers?lang=en' : '/ai-for-managers';
                                 <div class="item-desc"><?php echo $is_en ? '12-Month Degree Completion' : 'Liên thông Cử nhân 12 tháng'; ?></div>
                             </div>
                         </a>
-                        <a href="<?php echo esc_url($fullbba_url); ?>" class="dropdown-item">
-                            <img class="item-avatar" width="90" height="50"
-                                src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
-                                alt="Global Online BBA" loading="lazy" decoding="async" />
-                            <div class="item-content">
-                                <div class="item-title">Global Online BBA</div>
-                                <div class="item-desc"><?php echo $is_en ? 'International BBA' : 'Cử nhân QTKD Quốc tế'; ?></div>
-                            </div>
-                        </a>
                         <div class="dropdown-column-title" style="margin-top: 16px;"><?php echo $is_en ? 'Doctorate' : 'Tiến sĩ'; ?></div>
                         <a href="<?php echo esc_url($dba_istec_url); ?>" class="dropdown-item">
                             <img class="item-avatar" width="90" height="50" src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/istec/dba/p14_img6_912x614.jpeg"
@@ -700,14 +691,6 @@ $ai_for_managers_url = $is_en ? '/ai-for-managers?lang=en' : '/ai-for-managers';
                     <div class="item-content">
                         <div class="item-title">Top-up BBA</div>
                         <div class="item-desc"><?php echo $is_en ? '12-Month Completion' : 'Liên thông Cử nhân 12 tháng'; ?></div>
-                    </div>
-                </a>
-                <a href="<?php echo esc_url($fullbba_url); ?>" class="mobile-dropdown-item">
-                    <img class="item-avatar" width="90" height="50" src="https://ideas.edu.vn/wp-content/uploads/2026/06/online_bba-optimized.webp"
-                        alt="Global Online BBA" loading="lazy" decoding="async" />
-                    <div class="item-content">
-                        <div class="item-title">Global Online BBA</div>
-                        <div class="item-desc"><?php echo $is_en ? 'International BBA' : 'Cử nhân QTKD Quốc tế'; ?></div>
                     </div>
                 </a>
                 <a href="<?php echo esc_url($dba_istec_url); ?>" class="mobile-dropdown-item">

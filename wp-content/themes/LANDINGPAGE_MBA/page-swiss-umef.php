@@ -2507,7 +2507,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     <div class="prog-card-specs">
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
-                            <strong class="prog-spec-value"><?php echo $is_en ? '18 months' : '18 tháng'; ?></strong>
+                            <strong class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
@@ -2552,7 +2552,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
                             <strong
-                                class="prog-spec-value"><?php echo $is_en ? '16 - 18 months' : '16 - 18 tháng'; ?></strong>
+                                class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
@@ -2643,12 +2643,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Duration:' : 'Thời gian:'; ?></span>
                             <strong
-                                class="prog-spec-value"><?php echo $is_en ? '14 - 16 months' : '14 - 16 tháng'; ?></strong>
+                                class="prog-spec-value"><?php echo $is_en ? '14 months' : '14 tháng'; ?></strong>
                         </div>
                         <div class="prog-spec-item">
                             <span class="prog-spec-label"><?php echo $is_en ? 'Structure:' : 'Cấu trúc môn:'; ?></span>
                             <strong
-                                class="prog-spec-value"><?php echo $is_en ? '60 ECTS - 10 courses' : '60 ECTS - 10 môn học'; ?></strong>
+                                class="prog-spec-value"><?php echo $is_en ? '60 ECTS - 10 courses (No thesis)' : '60 ECTS - 10 môn học (Không luận văn)'; ?></strong>
                         </div>
                     </div>
                     <div class="prog-card-actions">

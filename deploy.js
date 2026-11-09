@@ -35,7 +35,9 @@ const patterns = [
     { regex: /variables\.js\?v=[a-zA-Z0-9]+/g, replace: `variables.js?v=${newVersion}` },
     { regex: /variables\.min\.js\?v=[a-zA-Z0-9]+/g, replace: `variables.min.js?v=${newVersion}` },
     { regex: /variables-en\.js\?v=[a-zA-Z0-9]+/g, replace: `variables-en.js?v=${newVersion}` },
-    { regex: /variables-en\.min\.js\?v=[a-zA-Z0-9]+/g, replace: `variables-en.min.js?v=${newVersion}` }
+    { regex: /variables-en\.min\.js\?v=[a-zA-Z0-9]+/g, replace: `variables-en.min.js?v=${newVersion}` },
+    { regex: /mau-bang-mba-istec-paris\.jpg(\?v=[a-zA-Z0-9]+)?/g, replace: `mau-bang-mba-istec-paris.jpg?v=${newVersion}` },
+    { regex: /p14_img6_912x614\.jpeg(\?v=[a-zA-Z0-9]+)?/g, replace: `p14_img6_912x614.jpeg?v=${newVersion}` }
 ];
 
 let updatedHtmlCount = 0;

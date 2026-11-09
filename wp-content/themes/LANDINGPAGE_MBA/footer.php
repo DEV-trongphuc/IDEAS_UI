@@ -86,7 +86,6 @@ $mba_istec_url = '/mba-istec';
         <div class="footer-col-links">
             <h3><?php echo $is_en ? 'Programs' : 'Các Chương Trình'; ?></h3>
             <a href="<?php echo esc_url($bba_url); ?>"><?php echo $is_en ? 'Top-up BBA' : 'Cử nhân Top-up BBA'; ?></a>
-            <a href="<?php echo esc_url($fullbba_url); ?>"><?php echo $is_en ? 'Global Online BBA' : 'Global Online BBA'; ?></a>
             <a href="<?php echo esc_url($mba_istec_url); ?>"><?php echo $is_en ? 'MBA ISTEC Paris' : 'Thạc sĩ MBA ISTEC Paris'; ?></a>
             <a href="<?php echo esc_url($mba_url); ?>"><?php echo $is_en ? 'Online MBA' : 'Thạc sĩ Online MBA'; ?></a>
             <a href="<?php echo esc_url($emba_url); ?>"><?php echo $is_en ? 'Executive MBA' : 'Thạc sĩ Executive MBA'; ?></a>

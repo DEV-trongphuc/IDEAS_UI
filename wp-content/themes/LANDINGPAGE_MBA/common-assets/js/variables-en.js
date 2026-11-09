@@ -150,8 +150,8 @@ const IDEAS_DATA = {
             avatar: "https://ideas.edu.vn/wp-content/uploads/2025/09/online-mba-1.png.webp",
             name: "Online MBA",
             school: "Swiss UMEF",
-            subjects: "<b>90</b> ECTS credits - <b>12</b> courses and Capstone Project",
-            duration: "18 months",
+            subjects: "<b>90</b> ECTS credits - <b>12</b> courses & Thesis",
+            duration: "14 - 16 months",
             country: "Switzerland",
             experience: [
                 "Bachelor's degree graduate",
@@ -581,7 +581,7 @@ const IDEAS_DATA = {
             school: "Swiss UMEF",
             country: "Switzerland",
             subjects: "<b>90</b> ECTS - <b>12</b> courses and Graduation Thesis",
-            duration: "16-18 months",
+            duration: "14 - 16 months",
             tagline: "Swiss UMEF: Prestigious University in Geneva - with international accreditations and Swiss quality",
             link: "/en/mbainai",
             experience: [
@@ -806,8 +806,8 @@ const IDEAS_DATA = {
             avatar: "https://ideas.edu.vn/wp-content/uploads/2026/02/TOPUP.webp",
             name: "TOP-UP BBA",
             school: "Swiss UMEF",
-            subjects: "<b>60</b> ECTS credits - <b>10</b> courses and capstone",
-            duration: "14-16 months",
+            subjects: "<b>60</b> ECTS credits - <b>10</b> courses & Capstone Project",
+            duration: "12 months",
             country: "Switzerland",
             experience: [
                 "College or diploma graduate - Completed 2nd year of University",
@@ -918,7 +918,7 @@ const IDEAS_DATA = {
             benefits: [
                 "Renowned Paris Business School (Grande École) established in 1961 in the heart of Paris, France.",
                 "French National Standard Bac+5 Master's degree recognized by the French Ministry of Higher Education (Visa Bac+5 & RNCP Level 7).",
-                "100% flexible online study over 12 months with integrated AI learning platform and 1:1 mentorship from IDEAS.",
+                "100% flexible online study over 14 - 16 months with integrated AI learning platform and 1:1 mentorship from IDEAS.",
                 "Prestigious graduation ceremony held at Le Grand Rex Theatre in Paris with European travel opportunities."
             ],
             program_name_degree: "Master of Business Administration",
@@ -945,7 +945,7 @@ const IDEAS_DATA = {
             school: "ISTEC Paris",
             country: "France",
             subjects: "<b>60</b> ECTS - <b>15</b> courses & Applied Project",
-            duration: "12 months",
+            duration: "14 - 16 months",
             tagline: "ISTEC Business School Paris: Grande École established in 1961 in Paris, France - National Bac+5 Accredited",
             link: "/en/mba-istec",
             experience: [
@@ -965,7 +965,7 @@ const IDEAS_DATA = {
                     ]
                 }
             ],
-            description: "Online Master of Business Administration from ISTEC Paris – Grande École est. 1961. 12 months, 60 ECTS, accredited Bac+5 (RNCP Level 7 & Visa Bac+5).",
+            description: "Online Master of Business Administration from ISTEC Paris – Grande École est. 1961. 14 - 16 months, 60 ECTS, accredited Bac+5 (RNCP Level 7 & Visa Bac+5).",
             degree: {
                 front: "/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg",
                 back: "/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/istec/mba/mau-bang-mba-istec-paris.jpg"
