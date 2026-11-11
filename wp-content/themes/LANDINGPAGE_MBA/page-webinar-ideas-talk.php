@@ -3758,7 +3758,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
 
                 <!-- Banner Image & Action CTAs -->
                 <div class="brief-banner" style="text-align: center; margin-top: 40px; margin-bottom: 25px;">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/webinar-ai-25-11-2026.webp" alt="<?php echo $is_en ? 'Webinar Program - Change Management Strategy in the Age of AI (25/11/2026)' : 'Nội dung chương trình - Chiến lược Quản trị sự thay đổi trong thời đại AI (25/11/2026)'; ?>" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border: 1px solid rgba(15, 23, 42, 0.05);">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/webinar-ai-25-11-2026.webp?v=<?php echo file_exists(get_stylesheet_directory() . '/common-assets/images/webinar-ai-25-11-2026.webp') ? filemtime(get_stylesheet_directory() . '/common-assets/images/webinar-ai-25-11-2026.webp') : time(); ?>" alt="<?php echo $is_en ? 'Webinar Program - Change Management Strategy in the Age of AI (25/11/2026)' : 'Nội dung chương trình - Chiến lược Quản trị sự thay đổi trong thời đại AI (25/11/2026)'; ?>" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border: 1px solid rgba(15, 23, 42, 0.05);">
                 </div>
                 <div style="text-align: center; margin-bottom: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
                     <a href="javascript:void(0)" onclick="registerForTopic('Chiến lược Quản trị sự thay đổi trong thời đại AI (25/11/2026)')" class="btn-talk btn-talk-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-size: 1rem; border-radius: 99px; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.35); text-decoration: none;">
@@ -3827,7 +3827,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <div class="brief-speaker-card">
                                 <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="NCS. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
                                 <span class="brief-speaker-name"><?php echo $is_en ? 'Vo Trung Duong, MBA' : 'ThS. Võ Trùng Dương'; ?></span>
-                                <span class="brief-speaker-role"><?php echo $is_en ? 'Director of Creative Strategy & AI' : 'Giám đốc Chiến lược Sáng tạo & AI'; ?></span>
+                                <span class="brief-speaker-role"><?php echo $is_en ? 'Master in AI &amp; Business Strategist' : 'Thạc sĩ AI &amp; Business Strategist'; ?></span>
                                 <p class="brief-speaker-perspective"><?php echo $is_en ? 'Guides direct prompting methods and highlights essential AI tools for reading, summarizing, and structural planning.' : 'Hướng dẫn <strong>Kỹ thuật viết Prompt thực chiến</strong> và công cụ AI bổ trợ đắc lực: Tóm tắt bài viết khoa học, tra cứu tài liệu nhanh và lập cấu trúc báo cáo tự động.'; ?></p>
                             </div>
                             <!-- Speaker 3 -->
