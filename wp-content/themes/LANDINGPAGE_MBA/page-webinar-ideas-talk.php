@@ -3221,7 +3221,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         </h3>
                         <div style="margin: -6px 0 16px 0; font-size: 0.85rem; color: #fef08a; display: flex; align-items: center; gap: 6px; font-weight: 600;">
                             <span>🎁</span>
-                            <span><?php echo $is_en ? 'Complimentary 14-day access to IDEAS AI Platform' : 'Tặng 14 ngày dùng miễn phí IDEAS AI Platform'; ?></span>
+                            <a href="https://ideas.edu.vn/dang-ky-tai-khoan-ai" target="_blank" rel="noopener noreferrer" style="color: #fef08a; text-decoration: underline; text-underline-offset: 3px;" title="<?php echo $is_en ? 'Register for 14-day free AI access' : 'Đăng ký nhận tài khoản AI 14 ngày'; ?>"><?php echo $is_en ? 'Complimentary 14-day access to IDEAS AI Platform ↗' : 'Tặng 14 ngày dùng miễn phí IDEAS AI Platform ↗'; ?></a>
                         </div>
 
                         <div class="ticket-countdown-container">
@@ -3869,6 +3869,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                                 <span class="privilege-badge"><?php echo $is_en ? 'Special Privilege' : 'Đặc Quyền Tham Gia'; ?></span>
                                 <h4 class="privilege-title"><?php echo $is_en ? 'Free 14-Day Trial of IDEAS AI Platform (AI Tutors 24/7)' : 'Tặng 14 ngày dùng thử miễn phí IDEAS AI Platform (AI Tutors 24/7)'; ?></h4>
                                 <p class="privilege-desc"><?php echo $is_en ? 'Every participant receives instant 14-day access to specialized AI Tutors 24/7 designed for MBA mastery and practical management transformation.' : 'Tất cả học viên đăng ký tham gia sẽ được tặng 14 ngày dùng thử miễn phí IDEAS AI Platform — trợ lý AI Tutors 24/7 chuyên biệt cho hành trình chinh phục MBA và quản trị doanh nghiệp.'; ?></p>
+                                <div style="margin-top: 20px;">
+                                    <a href="https://ideas.edu.vn/dang-ky-tai-khoan-ai" target="_blank" rel="noopener noreferrer" class="btn-talk btn-talk-primary" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; font-size: 0.95rem; border-radius: 99px; text-decoration: none; box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);">
+                                        <span><?php echo $is_en ? 'Register for 14-Day Free AI Trial' : 'Đăng ký nhận tài khoản AI 14 ngày'; ?></span>
+                                        <svg viewBox="0 0 512 512" fill="currentColor" width="13" height="13" xmlns="http://www.w3.org/2000/svg" style="vertical-align: -1px;">
+                                            <path d="M384 32c17.7 0 32 14.3 32 32l0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-82.7L182.6 281.4c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L277.3 96 192 96c-17.7 0-32-14.3-32-32s14.3-32 32-32l192 0zM80 64C35.8 64 0 99.8 0 144L0 432c0 44.2 35.8 80 80 80l288 0c44.2 0 80-35.8 80-80l0-144c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-288c0-8.8 7.2-16 16-16l144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 64z"/>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
