@@ -41,7 +41,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
         <meta property="og:title" content="<?php echo $is_en ? 'IDEAS Talk – AI Webinars &amp; Seminars' : 'IDEAS Talk – Webinar &amp; Chuyên đề AI'; ?>" />
         <meta property="og:description"
             content="<?php echo $is_en ? 'Update monthly technology workshops and hands-on AI application guides from the IDEAS expert board.' : 'Cập nhật các buổi Monthly Workshop công nghệ, hướng dẫn ứng dụng AI thực chiến từ hội đồng chuyên gia IDEAS.'; ?>" />
-        <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2024/03/Hoi-thao-MBA-50-5.webp" />
+        <meta property="og:image" content="https://ideas.edu.vn/wp-content/themes/LANDINGPAGE_MBA/common-assets/images/webinar-ai-25-11-2026.webp" />
         <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?><!-- Booking Modal stylesheet -->
     <?php
@@ -3751,24 +3751,30 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <div class="talk-section-header">
                     <span class="intro-badge-accent"><?php echo $is_en ? 'Webinar Highlights' : 'NỘI DUNG CHƯƠNG TRÌNH'; ?></span>
                     <div class="talk-section-title" style="margin-bottom: 14px !important; display: block !important;">
-                        <?php echo $is_en ? 'August 13 Session <span>Highlights & Privileges</span> <span style="font-size: 0.4em; background: #64748b; color: #fff; padding: 4px 12px; border-radius: 99px; vertical-align: middle; margin-left: 8px; font-weight: 700; white-space: nowrap;">Ended</span>' : 'Giá Trị & Đặc Quyền <span>Chuyên Đề 13/08</span> <span style="font-size: 0.4em; background: #64748b; color: #fff; padding: 4px 12px; border-radius: 99px; vertical-align: middle; margin-left: 8px; font-weight: 700; white-space: nowrap;">Đã kết thúc</span>'; ?>
+                        <?php echo $is_en ? 'November 25 Session <span>Highlights & Privileges</span> <span style="font-size: 0.4em; background: #e11d48; color: #fff; padding: 4px 12px; border-radius: 99px; vertical-align: middle; margin-left: 8px; font-weight: 700; white-space: nowrap;">Upcoming</span>' : 'Giá Trị & Đặc Quyền <span>Chuyên Đề 25/11</span> <span style="font-size: 0.4em; background: #e11d48; color: #fff; padding: 4px 12px; border-radius: 99px; vertical-align: middle; margin-left: 8px; font-weight: 700; white-space: nowrap;">Sắp diễn ra</span>'; ?>
                     </div>
                     <p style="color:#475569; max-width:800px; margin: 0 auto;"><?php echo $is_en ? 'Explore the values, expert speaker panel, target audience, and exclusive privileges of the workshop.' : 'Khám phá giá trị cốt lõi, hội đồng chuyên gia,<br>đối tượng phù hợp và đặc quyền độc quyền của buổi chia sẻ.'; ?></p>
                 </div>
 
-                <!-- Banner Image & Replay CTA -->
+                <!-- Banner Image & Action CTAs -->
                 <div class="brief-banner" style="text-align: center; margin-top: 40px; margin-bottom: 25px;">
-                    <img src="https://ideas.edu.vn/wp-content/uploads/2026/08/2026-08-05-webinar.webp" alt="<?php echo $is_en ? 'Webinar Program Content' : 'Nội dung chương trình'; ?>" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border: 1px solid rgba(15, 23, 42, 0.05);">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/common-assets/images/webinar-ai-25-11-2026.webp" alt="<?php echo $is_en ? 'Webinar Program - Change Management Strategy in the Age of AI (25/11/2026)' : 'Nội dung chương trình - Chiến lược Quản trị sự thay đổi trong thời đại AI (25/11/2026)'; ?>" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08); border: 1px solid rgba(15, 23, 42, 0.05);">
                 </div>
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <a href="https://youtu.be/7FJHzeIsoS0" target="_blank" rel="noopener noreferrer" class="btn-talk btn-talk-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-size: 1rem; border-radius: 99px; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.35); text-decoration: none;">
-                        <svg viewBox="0 0 576 512" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                <div style="text-align: center; margin-bottom: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                    <a href="javascript:void(0)" onclick="registerForTopic('Chiến lược Quản trị sự thay đổi trong thời đại AI (25/11/2026)')" class="btn-talk btn-talk-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-size: 1rem; border-radius: 99px; box-shadow: 0 10px 25px rgba(225, 29, 72, 0.35); text-decoration: none;">
+                        <svg viewBox="0 0 512 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/>
                         </svg>
-                        <span><?php echo $is_en ? 'Watch Full Webinar Recording (13/08/2026)' : 'Xem lại toàn bộ Video ghi hình buổi 13/08/2026'; ?></span>
+                        <span><?php echo $is_en ? 'Register For 25/11 Webinar Now' : 'Đăng ký tham gia Chuyên đề 25/11 ngay'; ?></span>
                         <svg viewBox="0 0 320 512" fill="currentColor" width="12" height="12" xmlns="http://www.w3.org/2000/svg">
                             <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
                         </svg>
+                    </a>
+                    <a href="#recap" class="btn-talk btn-talk-secondary-dark" style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; font-size: 0.95rem; border-radius: 99px; text-decoration: none;">
+                        <svg viewBox="0 0 576 512" fill="currentColor" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                        </svg>
+                        <span><?php echo $is_en ? 'Watch Previous Webinars' : 'Xem lại các số trước'; ?></span>
                     </a>
                 </div>
 
@@ -3794,15 +3800,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="brief-context-grid">
                             <div class="context-card">
                                 <h4>
-                                    <?php echo $is_en ? 'Shift Learning Mindset' : 'Đột Phá Tư Duy Tự Học & Nghiên Cứu'; ?>
+                                    <?php echo $is_en ? 'Change Management Strategy in AI Age' : 'Chiến Lược Quản Trị Sự Thay Đổi'; ?>
                                 </h4>
-                                <p><?php echo $is_en ? 'Escape traditional learning boundaries. Learn how to strategically integrate AI models as intellectual partners to accelerate text reading, literature review, and academic research.' : 'Vượt qua giới hạn của phương pháp học truyền thống. Thấu hiểu cách tích hợp AI như một người cộng sự học thuật để rút ngắn 80% thời gian đọc hiểu tài liệu, nghiên cứu và lập luận.'; ?></p>
+                                <p><?php echo $is_en ? 'Overcome the real bottlenecks of AI deployment: human resistance, fear of obsolescence, and skill gaps to translate AI potential into concrete business impact.' : 'Hóa giải rào cản con người — nguyên nhân hàng đầu khiến các dự án AI thất bại: tháo gỡ tâm lý kháng cự, nỗi sợ bị thay thế và khoảng cách kỹ năng để chuyển hóa tiềm năng của AI thành hiệu suất thực tế.'; ?></p>
                             </div>
                             <div class="context-card">
                                 <h4>
-                                    <?php echo $is_en ? 'Master Practical Prompting' : 'Làm Chủ Kỹ Thuật Prompting Thực Chiến'; ?>
+                                    <?php echo $is_en ? 'Empower Teams & Build AI Culture' : 'Thiết Lập Khung Năng Lực & Văn Hóa AI'; ?>
                                 </h4>
-                                <p><?php echo $is_en ? 'Get hands-on frameworks to write high-precision prompts. Automate report structuring, document summarizing, and translate complex concepts with absolute reliability.' : 'Sở hữu các cấu trúc prompt thực tiễn và chuẩn xác để tự động hóa việc tóm tắt bài viết khoa học, lập cấu trúc báo cáo phức tạp và kiểm chứng thông tin nhằm tránh lỗi sai lệch dữ liệu của AI.'; ?></p>
+                                <p><?php echo $is_en ? 'Equip leaders with systematic frameworks and actionable strategies to guide employees, automate workflows, and build an agile, AI-driven workforce.' : 'Trang bị cho cấp quản lý phương pháp luận bài bản và kỹ năng thực chiến để dẫn dắt nhân sự thích ứng linh hoạt, tối ưu quy trình và gia tăng năng suất bền vững.'; ?></p>
                             </div>
                         </div>
                     </div>
@@ -3813,15 +3819,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <!-- Speaker 1 -->
                             <div class="brief-speaker-card">
                                 <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2025/03/vientruong_avt-optimized.webp" alt="TS. Phạm Quang Vinh" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
-                                <span class="brief-speaker-name">TS. Phạm Quang Vinh</span>
-                                <span class="brief-speaker-role"><?php echo $is_en ? 'Mindset & Leadership' : 'Tư Duy & Lãnh Đạo'; ?></span>
+                                <span class="brief-speaker-name"><?php echo $is_en ? 'Prof. Dr. Pham Quang Vinh' : 'GS.TS Phạm Quang Vinh'; ?></span>
+                                <span class="brief-speaker-role"><?php echo $is_en ? 'President of IDEAS' : 'Viện Trưởng IDEAS'; ?></span>
                                 <p class="brief-speaker-perspective"><?php echo $is_en ? 'Focuses on shift of learning habits: Adopting active AI integration mindsets to escape traditional bookish learning models.' : 'Chia sẻ góc nhìn về <strong>Tư duy thay đổi thói quen học tập truyền thống</strong>: Cách tiếp cận chủ động với AI, thiết lập phương pháp luận tự học và giải phóng thời gian nghiên cứu học thuật.'; ?></p>
                             </div>
                             <!-- Speaker 2 -->
                             <div class="brief-speaker-card">
                                 <img class="brief-speaker-avatar" src="https://ideas.edu.vn/wp-content/uploads/2026/07/avatar_mr_duong.webp" alt="NCS. Võ Trùng Dương" onerror="this.src='https://secure.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=96&d=mm&r=g'">
-                                <span class="brief-speaker-name">NCS. Võ Trùng Dương</span>
-                                <span class="brief-speaker-role"><?php echo $is_en ? 'Practical Tools & Prompting' : 'Công Cụ & Prompt Thực Chiến'; ?></span>
+                                <span class="brief-speaker-name"><?php echo $is_en ? 'Vo Trung Duong, MBA' : 'ThS. Võ Trùng Dương'; ?></span>
+                                <span class="brief-speaker-role"><?php echo $is_en ? 'Director of Creative Strategy & AI' : 'Giám đốc Chiến lược Sáng tạo & AI'; ?></span>
                                 <p class="brief-speaker-perspective"><?php echo $is_en ? 'Guides direct prompting methods and highlights essential AI tools for reading, summarizing, and structural planning.' : 'Hướng dẫn <strong>Kỹ thuật viết Prompt thực chiến</strong> và công cụ AI bổ trợ đắc lực: Tóm tắt bài viết khoa học, tra cứu tài liệu nhanh và lập cấu trúc báo cáo tự động.'; ?></p>
                             </div>
                             <!-- Speaker 3 -->
@@ -3857,7 +3863,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         <div class="brief-targets-vertical-stack">
                             <div class="targets-stats-grid">
                                 <div class="target-stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <span class="target-stat-num" style="color: #b91c1c;">7 <?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
+                                    <span class="target-stat-num" style="color: #b91c1c;">14 <?php echo $is_en ? 'Days' : 'Ngày'; ?></span>
                                     <span class="target-stat-lbl"><?php echo $is_en ? 'AI IDEAS Platform Access' : 'Trải nghiệm AI Platform miễn phí'; ?></span>
                                 </div>
                                 <div class="target-stat-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -3867,8 +3873,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             </div>
                             <div class="privilege-banner-card">
                                 <span class="privilege-badge"><?php echo $is_en ? 'Special Privilege' : 'Đặc Quyền Tham Gia'; ?></span>
-                                <h4 class="privilege-title"><?php echo $is_en ? 'Free 7-Day Trial of AI IDEAS Platform & AI Book' : 'Trải nghiệm AI IDEAS Platform 7 ngày miễn phí & Nhận AI Book'; ?></h4>
-                                <p class="privilege-desc"><?php echo $is_en ? 'Every participant receives instant credentials to explore the advanced LMS & AI assistant suite, alongside practical materials and templates.' : 'Tất cả các học viên đăng ký tham gia trực tiếp sẽ nhận được tài khoản kích hoạt dùng thử 7 ngày hệ sinh thái trợ lý AI độc quyền của IDEAS, tặng kèm tài liệu phân tích viết prompt chuyên sâu và sách hướng dẫn thực chiến.'; ?></p>
+                                <h4 class="privilege-title"><?php echo $is_en ? 'Free 14-Day Trial of IDEAS AI Platform (AI Tutors 24/7)' : 'Tặng 14 ngày dùng thử miễn phí IDEAS AI Platform (AI Tutors 24/7)'; ?></h4>
+                                <p class="privilege-desc"><?php echo $is_en ? 'Every participant receives instant 14-day access to specialized AI Tutors 24/7 designed for MBA mastery and practical management transformation.' : 'Tất cả học viên đăng ký tham gia sẽ được tặng 14 ngày dùng thử miễn phí IDEAS AI Platform — trợ lý AI Tutors 24/7 chuyên biệt cho hành trình chinh phục MBA và quản trị doanh nghiệp.'; ?></p>
                             </div>
                         </div>
                     </div>
