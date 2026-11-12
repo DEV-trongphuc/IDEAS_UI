@@ -4360,42 +4360,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 noteParts.push('CTA Source: ideas_talk_webinar_page');
                 const combinedNote = noteParts.join(' | ');
 
-                // API Playload for automation.ideas.edu.vn
+                // API Payload for MYERP Automation Forms API
                 const payload = {
-                    form_id: "98a05f1a82226e1c84c32f48f21f891d",
-                    email: email,
-                    firstName: name,
-                    phoneNumber: phone,
-                    jobTitle: chucDanhText,
-
-                    // Strange info (additional custom keys)
-                    muc_dich: mucDichText,
-                    registrationGoal: mucDichText,
-                    webinarTopic: interestVal,
-                    time_dat_lich: "",
-                    note_dat_lich: `Đăng ký Webinar IDEAS Talk | ${combinedNote}`,
-                    chuong_trinh_dat_lich: "IDEAS Talk Webinar"
+                    form_id: "33172592b6d1f0b3acf2d6b86b18e5bc",
+                    email: email, // Địa chỉ Email
+                    firstName: name, // Tên Khách hàng
+                    phoneNumber: phone, // Số điện thoại
+                    jobTitle: chucDanhText, // Chức danh
+                    custom_field_1794449177977: mucDichText // Mục tiêu (custom field)
                 };
-
-                // Webhook Payload for MYERP
-                const webhookPayload = {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    source: "Ideas_Talk_Webinar_Landing_Page",
-                    type: "webinar_registration",
-                    chuong_trinh: "IDEAS Talk Webinar",
-                    chuc_danh: chucDanhText,
-                    nhu_cau: `Đăng ký Webinar IDEAS Talk | Chức danh: ${chucDanhText} | Mục tiêu đăng ký: ${mucDichText} | Topic: ${interestVal}`
-                };
-
-                // Append UTMs
-                const urlParams = new URLSearchParams(window.location.search);
-                const utmParams = ['utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
-                utmParams.forEach(param => {
-                    const val = urlParams.get(param);
-                    if (val) webhookPayload[param] = val;
-                });
 
                 // Disable submit button during request
                 const btn = document.getElementById('form-submit-btn');
@@ -4409,23 +4382,16 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 document.head.appendChild(style);
 
                 try {
-                    const p1 = fetch("https://automation.ideas.edu.vn/mail_api/forms.php?route=submit", {
+                    const response = await fetch("https://myerp.ideas.edu.vn/backend/automation/forms.php?route=submit", {
                         method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
+                        headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(payload)
                     });
 
-                    const p2 = fetch("https://myerp.ideas.edu.vn/backend/webhook.php?token=tok_kjhbs32a", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(webhookPayload)
-                    });
-
-                    await Promise.allSettled([p1, p2]);
+                    const result = await response.json();
+                    if (!result.success) {
+                        console.error("Lỗi từ server:", result.message);
+                    }
 
                     // Google Ads Conversion tracking
                     if (typeof window.gtag === 'function') {
