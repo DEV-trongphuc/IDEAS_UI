@@ -4388,18 +4388,37 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         body: JSON.stringify(payload)
                     });
 
-                    const result = await response.json();
-                    if (!result.success) {
+                    const rawText = await response.text();
+                    let result = null;
+                    try {
+                        result = JSON.parse(rawText);
+                    } catch (jsonErr) {
+                        // Resilient fallback: extract JSON object if server appended debug/worker logs
+                        const jsonMatch = rawText.match(/\{[\s\S]*?"success"\s*:\s*(true|false)[\s\S]*?\}/);
+                        if (jsonMatch) {
+                            try {
+                                result = JSON.parse(jsonMatch[0]);
+                            } catch (e2) {}
+                        }
+                    }
+
+                    if (result && result.success === false) {
                         console.error("Lỗi từ server:", result.message);
+                        alert(result.message || (isEnMode ? 'An error occurred. Please try again.' : 'Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.'));
+                        return;
                     }
 
                     // Google Ads Conversion tracking
-                    if (typeof window.gtag === 'function') {
-                        window.gtag('event', 'conversion', {
-                            'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
-                            'value': 1.0,
-                            'currency': 'USD'
-                        });
+                    try {
+                        if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'conversion', {
+                                'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+                                'value': 1.0,
+                                'currency': 'USD'
+                            });
+                        }
+                    } catch (gtagErr) {
+                        console.warn('gtag tracking error:', gtagErr);
                     }
 
                     // Success State
@@ -4411,9 +4430,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             'Cảm ơn bạn <strong>' + name + '</strong> đã đăng ký tham gia <strong>' + interestVal + '</strong>. Thông tin vé mời / địa điểm (hoặc phòng Zoom) và tài liệu đi kèm sẽ được gửi qua Email/Zalo của bạn trước ngày diễn ra.';
                     }
 
-                    form.style.display = 'none';
-                    document.getElementById('form-header').style.display = 'none';
-                    successBox.classList.add('visible');
+                    if (form) form.style.display = 'none';
+                    const formHeader = document.getElementById('form-header');
+                    if (formHeader) formHeader.style.display = 'none';
+                    if (successBox) {
+                        successBox.classList.add('visible');
+                        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
 
                 } catch (error) {
                     console.error('Submission error:', error);
