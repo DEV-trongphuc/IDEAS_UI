@@ -76,6 +76,14 @@ RewriteRule ^index-en\.html$ /en [R=301,L,NC]
 RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteRule ^dual-dba-estiam-rb-en$ /en/dual-dba-estiam-rb [R=301,L,NC]
 
+# Redirect legacy WordPress post/category .html URLs to clean trailing-slash URLs (preserving query/tracking params)
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{REQUEST_URI} !^/wp-content/
+RewriteCond %{REQUEST_URI} !^/wp-admin/
+RewriteCond %{REQUEST_URI} !^/salekit/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)\.html$ /$1/ [R=301,L,NC,QSA]
+
 # Redirect legacy/portal CTA Vietnamese URLs to clean URLs
 RewriteRule ^swiss-umef-online-mba/?$ /mba [R=301,L,NC]
 RewriteRule ^swiss-umef-executive-mba/?$ /emba [R=301,L,NC]
