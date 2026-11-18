@@ -1,4 +1,19 @@
 <?php
+// Prevent MailFlow / tracking ?name= query param from hijacking WordPress post slug (causes 404 on single posts/pages)
+add_filter('do_parse_request', function($bool, $wp) {
+    if (!is_admin() && isset($_GET['name'])) {
+        $reqPath = trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
+        $hasTrackingParam = isset($_GET['utm_source']) || isset($_GET['sid']) || isset($_GET['uid']) || isset($_GET['email']) || isset($_GET['phone']) || isset($_GET['mc_cid']) || isset($_GET['mc_fid']);
+        if ($reqPath !== '' || $hasTrackingParam) {
+            if (!isset($_GET['lead_name']) || $_GET['lead_name'] === '') {
+                $_GET['lead_name'] = $_GET['name'];
+            }
+            unset($_GET['name'], $_REQUEST['name']);
+        }
+    }
+    return $bool;
+}, 1, 2);
+
 // Custom routing hook for English version URLs (/en/...)
 add_action('parse_request', function($wp) {
     if (empty($wp->request)) {

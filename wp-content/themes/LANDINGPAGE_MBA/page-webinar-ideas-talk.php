@@ -4360,6 +4360,8 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 noteParts.push('CTA Source: ideas_talk_webinar_page');
                 const combinedNote = noteParts.join(' | ');
 
+                const urlParams = new URLSearchParams(window.location.search);
+
                 // API Payload for MYERP Automation Forms API
                 const payload = {
                     form_id: "33172592b6d1f0b3acf2d6b86b18e5bc",
@@ -4367,7 +4369,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                     firstName: name, // Tên Khách hàng
                     phoneNumber: phone, // Số điện thoại
                     jobTitle: chucDanhText, // Chức danh
-                    custom_field_1794449177977: mucDichText // Mục tiêu (custom field)
+                    custom_field_1794449177977: mucDichText, // Mục tiêu (custom field)
+                    sid: urlParams.get('sid') || '',
+                    utm_source: urlParams.get('utm_source') || '',
+                    utm_medium: urlParams.get('utm_medium') || '',
+                    utm_campaign: urlParams.get('utm_campaign') || '',
+                    utm_content: urlParams.get('utm_content') || '',
+                    utm_term: urlParams.get('utm_term') || '',
+                    referrer: document.referrer || ''
                 };
 
                 // Disable submit button during request
@@ -4402,9 +4411,12 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                         }
                     }
 
-                    if (result && result.success === false) {
-                        console.error("Lỗi từ server:", result.message);
-                        alert(result.message || (isEnMode ? 'An error occurred. Please try again.' : 'Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.'));
+                    if (!result || result.success !== true) {
+                        const errMsg = (result && result.message)
+                            ? result.message
+                            : (isEnMode ? 'An error occurred. Please try again.' : 'Có lỗi xảy ra trong quá trình gửi thông tin. Vui lòng thử lại sau.');
+                        console.error("Lỗi từ server:", errMsg, response.status);
+                        alert(errMsg);
                         return;
                     }
 
