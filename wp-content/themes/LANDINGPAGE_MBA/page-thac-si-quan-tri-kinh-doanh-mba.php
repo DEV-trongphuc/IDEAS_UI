@@ -3319,7 +3319,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             <?php echo $is_en ? 'Why Choose <span>IDEAS Education</span>?' : 'Tại sao chọn <span>IDEAS Education</span>?'; ?>
                         </h2>
                         <p style="line-height: 1.6;">
-                            <?php echo $is_en ? 'With over 15 years of establishment and development, the Institute for Applied Sciences Research and Development (IDEAS) is proud to be the leading partner for international MBA education support in Vietnam.' : 'Với hơn 15 năm hình thành và phát triển, Viện Nghiên cứu Phát triển và Trao đổi Khoa học Áp dụng (IDEAS) tự hào là đối tác hỗ trợ giáo dục và quản lý đào tạo MBA Quốc tế hàng đầu tại Việt Nam.'; ?>
+                            <?php echo $is_en ? 'With over 16 years of establishment and development, the Institute for Applied Sciences Research and Development (IDEAS) is proud to be the leading partner for international MBA education support in Vietnam.' : 'Với hơn 16 năm hình thành và phát triển, Viện Nghiên cứu Phát triển và Trao đổi Khoa học Áp dụng (IDEAS) tự hào là đối tác hỗ trợ giáo dục và quản lý đào tạo MBA Quốc tế hàng đầu tại Việt Nam.'; ?>
                         </p>
                         <ul class="ideas-points">
                             <li class="ideas-point-item">

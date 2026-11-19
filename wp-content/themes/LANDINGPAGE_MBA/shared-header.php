@@ -213,7 +213,7 @@ $ai_for_managers_url = $is_en ? '/ai-for-managers?lang=en' : '/ai-for-managers';
     <div class="container header-inner">
         <a href="<?php echo esc_url($home_url); ?>" class="logo" aria-label="<?php echo $is_en ? 'IDEAS Homepage' : 'Trang chủ IDEAS'; ?>">
             <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
-                alt="Logo IDEAS Education - 15 năm thành lập" width="60" height="60" loading="eager"
+                alt="Logo IDEAS Education - 16 năm thành lập" width="60" height="60" loading="eager"
                 fetchpriority="high">
         </a>
         <nav class="header-nav">
@@ -570,7 +570,7 @@ $ai_for_managers_url = $is_en ? '/ai-for-managers?lang=en' : '/ai-for-managers';
     <div class="mobile-menu-header">
         <a href="<?php echo esc_url($home_url); ?>" class="mobile-menu-logo" aria-label="<?php echo $is_en ? 'IDEAS Homepage' : 'Trang chủ IDEAS'; ?>">
             <img decoding="async" src="https://ideas.edu.vn/wp-content/uploads/2026/06/Logo_IDEAS_Slg-optimized.webp"
-                alt="Logo IDEAS Education - 15 năm thành lập" width="45" height="45" loading="lazy">
+                alt="Logo IDEAS Education - 16 năm thành lập" width="45" height="45" loading="lazy">
         </a>
         
         <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Đóng menu">

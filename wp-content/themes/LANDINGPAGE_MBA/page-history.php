@@ -50,7 +50,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             <meta property="og:type" content="article" />
             <meta property="og:title" content="<?php echo $is_en ? 'History & Development of IDEAS' : 'Lịch sử hình thành và phát triển IDEAS'; ?>" />
             <meta property="og:description"
-                content="<?php echo $is_en ? 'Discover the 15-year journey of creating and developing high-quality international postgraduate education at IDEAS.' : 'Khám phá hành trình 15 năm kiến tạo và phát triển giáo dục sau đại học quốc tế chất lượng cao của IDEAS.'; ?>" />
+                content="<?php echo $is_en ? 'Discover the 16-year journey of creating and developing high-quality international postgraduate education at IDEAS.' : 'Khám phá hành trình 16 năm kiến tạo và phát triển giáo dục sau đại học quốc tế chất lượng cao của IDEAS.'; ?>" />
             <meta property="og:image" content="https://ideas.edu.vn/wp-content/uploads/2025/08/quangnon_cdp-optimized.webp" />
             <meta property="og:url" content="<?php echo esc_url(home_url(add_query_arg(array(), $wp->request))); ?>" />
     <?php endif; ?>
@@ -442,7 +442,7 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 <?php echo $is_en ? '"Original Knowledge - Localized Mentorship"' : '"Tri thức Nguyên bản - Đồng hành Bản địa"'; ?>
             </div>
 
-            <p><?php echo $is_en ? 'Over 15 years of experience accompanying Vietnamese students to conquer postgraduate programs at prestigious international universities.' : 'Hơn 15 năm kinh nghiệm đồng hành cùng học viên Việt Nam chinh phục các chương trình sau Đại học tại các trường đại học quốc tế danh tiếng.'; ?></p>
+            <p><?php echo $is_en ? 'Over 16 years of experience accompanying Vietnamese students to conquer postgraduate programs at prestigious international universities.' : 'Hơn 16 năm kinh nghiệm đồng hành cùng học viên Việt Nam chinh phục các chương trình sau Đại học tại các trường đại học quốc tế danh tiếng.'; ?></p>
         </div>
     </section>
 
