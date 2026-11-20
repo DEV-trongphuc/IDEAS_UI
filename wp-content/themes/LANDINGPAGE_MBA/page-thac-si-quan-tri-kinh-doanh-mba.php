@@ -47,7 +47,14 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
             };
             if (typeof gtag === 'function') {
                 gtag('event', 'conversion', {
-                    'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+                    'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                    'value': 1.0,
+                    'currency': 'VND',
+                    'event_callback': callback
+                });
+            } else if (typeof window.gtag === 'function') {
+                window.gtag('event', 'conversion', {
+                    'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
                     'value': 1.0,
                     'currency': 'VND',
                     'event_callback': callback

@@ -2792,6 +2792,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
+                        if (typeof gtag_report_conversion === 'function') {
+                            gtag_report_conversion();
+                        } else if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'conversion', {
+                                'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                                'value': 1.0,
+                                'currency': 'VND'
+                            });
+                        }
                         showToast(res.data);
                         document.getElementById('clinic-booking-form').reset();
                         closeBookingModal();
@@ -2841,6 +2850,15 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                 .then(res => res.json())
                 .then(res => {
                     if (res.success) {
+                        if (typeof gtag_report_conversion === 'function') {
+                            gtag_report_conversion();
+                        } else if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'conversion', {
+                                'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
+                                'value': 1.0,
+                                'currency': 'VND'
+                            });
+                        }
                         showToast(res.data);
                         closeNewTopicModal();
                         document.getElementById('clinic-topic-form').reset();

@@ -5026,11 +5026,13 @@ $is_en = (isset($_GET['lang']) && $_GET['lang'] === 'en');
                             console.error("Lỗi từ server:", res1.value.message);
                         }
 
-                        if (typeof window.gtag === 'function') {
+                        if (typeof gtag_report_conversion === 'function') {
+                            gtag_report_conversion();
+                        } else if (typeof window.gtag === 'function') {
                             window.gtag('event', 'conversion', {
-                                'send_to': 'AW-11205917800/zF6BCIGMya0dEOj4st8p',
+                                'send_to': 'AW-11205917800/mdXJCOTL-bccEOj4st8p',
                                 'value': 1.0,
-                                'currency': 'USD'
+                                'currency': 'VND'
                             });
                         }
 
