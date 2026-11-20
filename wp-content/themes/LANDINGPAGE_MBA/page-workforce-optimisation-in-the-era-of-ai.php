@@ -173,12 +173,39 @@ ob_start(function ($html) {
 
         /* ── 1. Hero + Form ─────────────────────────────────────────── */
         .wf-hero {
-            padding: 104px 0 56px;
-            background: #ffffff;
+            position: relative;
+            padding: 104px 0 60px;
+            background:
+                radial-gradient(circle at 82% 22%, rgba(171, 14, 0, 0.09) 0%, transparent 46%),
+                radial-gradient(circle at 10% 18%, rgba(15, 23, 42, 0.04) 0%, transparent 42%),
+                linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
             border-bottom: 1px solid #f1f5f9;
+            overflow: hidden;
+        }
+
+        .wf-hero-dots {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(15, 23, 42, 0.09) 1px, transparent 1px);
+            background-size: 24px 24px;
+            mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 30%, transparent 82%);
+            -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 30%, transparent 82%);
+            pointer-events: none;
+        }
+
+        .wf-hero-rings {
+            position: absolute;
+            top: -70px;
+            right: -60px;
+            width: 560px;
+            height: 560px;
+            opacity: 0.09;
+            pointer-events: none;
         }
 
         .wf-hero-grid {
+            position: relative;
+            z-index: 2;
             display: grid;
             grid-template-columns: 1.08fr 0.92fr;
             gap: 48px;
@@ -216,11 +243,17 @@ ob_start(function ($html) {
             margin: 0 0 10px;
         }
 
-        .wf-hero h1 {
+        .wf-page .wf-hero h1 {
+            display: inline-block;
             font-size: clamp(1.75rem, 2.75vw, 2.3rem);
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.22;
             margin: 0 0 14px;
+            background: linear-gradient(115deg, #0f172a 10%, #881337 55%, #dc2626 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #0f172a;
         }
 
         .wf-hero-lead {
@@ -355,17 +388,19 @@ ob_start(function ($html) {
             margin-top: 4px;
             border: none;
             border-radius: 10px;
-            background: #ab0e00;
+            background: linear-gradient(135deg, #b91c1c 0%, #8b0a00 100%);
             color: #ffffff;
             font-family: inherit;
             font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.15s ease;
+            box-shadow: 0 10px 24px rgba(171, 14, 0, 0.22);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         .wf-btn-submit:hover:not(:disabled) {
-            background: #8b0a00;
+            transform: translateY(-1px);
+            box-shadow: 0 14px 28px rgba(171, 14, 0, 0.28);
         }
 
         .wf-btn-submit:disabled {
@@ -445,7 +480,7 @@ ob_start(function ($html) {
         }
 
         .wf-band-alt {
-            background: #f8fafc;
+            background: radial-gradient(circle at 15% 20%, rgba(171, 14, 0, 0.03) 0%, transparent 45%), #f8fafc;
             border-top: 1px solid #f1f5f9;
             border-bottom: 1px solid #f1f5f9;
         }
@@ -454,6 +489,16 @@ ob_start(function ($html) {
             font-size: clamp(1.45rem, 2.5vw, 1.9rem);
             font-weight: 800;
             margin: 0 0 10px;
+        }
+
+        .wf-h2::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #ab0e00 0%, #ef4444 100%);
+            margin-bottom: 12px;
         }
 
         .wf-sub {
@@ -510,6 +555,7 @@ ob_start(function ($html) {
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
         }
 
         .wf-speaker img {
@@ -622,7 +668,8 @@ ob_start(function ($html) {
             height: 44px;
             padding: 0 22px;
             border-radius: 10px;
-            background: #ab0e00;
+            background: linear-gradient(135deg, #b91c1c 0%, #8b0a00 100%);
+            box-shadow: 0 8px 20px rgba(171, 14, 0, 0.2);
             color: #ffffff !important;
             text-decoration: none;
             font-size: 0.92rem;
@@ -685,6 +732,12 @@ ob_start(function ($html) {
 
     <!-- 1. HERO + REGISTRATION FORM -->
     <section class="wf-hero" id="workshop-hero">
+        <div class="wf-hero-dots" aria-hidden="true"></div>
+        <svg class="wf-hero-rings" viewBox="0 0 500 500" fill="none" aria-hidden="true">
+            <circle cx="250" cy="250" r="220" stroke="#ab0e00" stroke-width="1" stroke-dasharray="6 6"/>
+            <circle cx="250" cy="250" r="165" stroke="#0f172a" stroke-width="1"/>
+            <circle cx="250" cy="250" r="110" stroke="#ab0e00" stroke-width="1" stroke-dasharray="3 5"/>
+        </svg>
         <div class="wf-wrap">
             <div class="wf-hero-grid">
                 <div>
