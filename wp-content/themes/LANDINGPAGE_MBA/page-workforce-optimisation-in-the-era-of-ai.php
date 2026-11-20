@@ -550,6 +550,16 @@ ob_start(function ($html) {
             color: #64748b;
         }
 
+        .wf-lead-question {
+            text-align: center;
+            font-size: clamp(1.3rem, 2.2vw, 1.68rem);
+            font-weight: 800;
+            color: #ab0e00;
+            margin: 0 0 36px;
+            padding-bottom: 26px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
         /* ── 3. Value Split (Why Attend) ────────────────────────────── */
         .wf-split {
             display: grid;
@@ -640,36 +650,44 @@ ob_start(function ($html) {
             color: #334155;
         }
 
-        /* ── 5. Timeline Agenda ─────────────────────────────────────── */
+        /* ── 5. Timeline Agenda (Single-side vertical track) ─────────── */
         .wf-timeline {
             position: relative;
-            margin-top: 36px;
+            margin-top: 32px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
         }
 
         .wf-timeline::before {
             content: '';
             position: absolute;
-            top: 18px;
-            bottom: 18px;
-            left: 50%;
+            top: 24px;
+            bottom: 24px;
+            left: 157px;
             width: 2px;
-            transform: translateX(-50%);
             background: linear-gradient(180deg, rgba(171, 14, 0, 0.45) 0%, #cbd5e1 100%);
         }
 
         .wf-tl-item {
             position: relative;
             display: grid;
-            grid-template-columns: 1fr 48px 1fr;
+            grid-template-columns: 140px 36px 1fr;
             align-items: center;
+        }
+
+        .wf-tl-time-side {
+            grid-column: 1;
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: #ab0e00;
+            font-variant-numeric: tabular-nums;
+            text-align: right;
+            padding-right: 10px;
         }
 
         .wf-tl-axis {
             grid-column: 2;
-            grid-row: 1;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -686,17 +704,8 @@ ob_start(function ($html) {
             box-shadow: 0 0 0 4px rgba(171, 14, 0, 0.12);
         }
 
-        .wf-tl-time-side {
-            grid-row: 1;
-            font-size: 0.92rem;
-            font-weight: 800;
-            color: #ab0e00;
-            font-variant-numeric: tabular-nums;
-            padding: 0 18px;
-        }
-
         .wf-tl-card {
-            grid-row: 1;
+            grid-column: 3;
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
@@ -708,24 +717,6 @@ ob_start(function ($html) {
         .wf-tl-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
-        }
-
-        .wf-tl-item:nth-child(odd) .wf-tl-card {
-            grid-column: 1;
-        }
-
-        .wf-tl-item:nth-child(odd) .wf-tl-time-side {
-            grid-column: 3;
-            text-align: left;
-        }
-
-        .wf-tl-item:nth-child(even) .wf-tl-card {
-            grid-column: 3;
-        }
-
-        .wf-tl-item:nth-child(even) .wf-tl-time-side {
-            grid-column: 1;
-            text-align: right;
         }
 
         .wf-tl-mobile-time {
@@ -826,7 +817,6 @@ ob_start(function ($html) {
         @media (max-width: 768px) {
             .wf-timeline::before {
                 left: 13px;
-                transform: none;
             }
             .wf-tl-item {
                 grid-template-columns: 28px 1fr;
@@ -835,13 +825,12 @@ ob_start(function ($html) {
             }
             .wf-tl-axis {
                 grid-column: 1;
-                padding-top: 20px;
+                padding-top: 22px;
             }
             .wf-tl-time-side {
                 display: none;
             }
-            .wf-tl-item:nth-child(odd) .wf-tl-card,
-            .wf-tl-item:nth-child(even) .wf-tl-card {
+            .wf-tl-card {
                 grid-column: 2;
             }
             .wf-tl-mobile-time {
@@ -1028,12 +1017,17 @@ ob_start(function ($html) {
     <!-- 2. WHY ATTEND (CORE PROBLEM & TAKEAWAYS) -->
     <section class="wf-band">
         <div class="wf-wrap">
+            <p class="wf-lead-question">
+                <?php echo $is_en
+                    ? 'AI Ready — Is your workforce ready for your AI strategy?'
+                    : 'Đội ngũ của bạn đã sẵn sàng cho chiến lược AI chưa?'; ?>
+            </p>
             <div class="wf-split">
                 <div>
                     <h2 class="wf-h2">
                         <?php echo $is_en
                             ? 'From AI strategy<br>to workforce execution'
-                            : 'Không chỉ ở công nghệ AI,<br>mà ở năng lực con người'; ?>
+                            : 'Không chỉ ở công nghệ AI,<br>mà còn ở năng lực con người'; ?>
                     </h2>
                     <p class="wf-sub">
                         <?php echo $is_en
@@ -1110,13 +1104,13 @@ ob_start(function ($html) {
 
             <div class="wf-timeline">
                 <div class="wf-tl-item">
+                    <div class="wf-tl-time-side">15h00 – 15h10</div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
                     <div class="wf-tl-card">
                         <div class="wf-tl-mobile-time">15h00 – 15h10</div>
                         <h3><?php echo $is_en ? 'Frame the business challenge' : 'Xác định thách thức kinh doanh'; ?></h3>
                         <p><?php echo $is_en ? 'Link transformation priorities and skills needs to business goals.' : 'Nhận diện ưu tiên chuyển đổi và yêu cầu năng lực nhân sự gắn với mục tiêu doanh nghiệp.'; ?></p>
                     </div>
-                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
-                    <div class="wf-tl-time-side">15h00 – 15h10</div>
                 </div>
 
                 <div class="wf-tl-item">
@@ -1130,13 +1124,13 @@ ob_start(function ($html) {
                 </div>
 
                 <div class="wf-tl-item">
+                    <div class="wf-tl-time-side">15h25 – 15h50</div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
                     <div class="wf-tl-card">
                         <div class="wf-tl-mobile-time">15h25 – 15h50</div>
                         <h3><?php echo $is_en ? 'Hands-on workforce assessment' : 'Thực hành đánh giá lực lượng lao động'; ?></h3>
                         <p><?php echo $is_en ? 'Work with sample role profiles to decide what to assess and interpret.' : 'Dùng hồ sơ vai trò và nhân viên mẫu để xác định cần đánh giá gì và diễn giải kết quả.'; ?></p>
                     </div>
-                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
-                    <div class="wf-tl-time-side">15h25 – 15h50</div>
                 </div>
 
                 <div class="wf-tl-item">
@@ -1150,13 +1144,13 @@ ob_start(function ($html) {
                 </div>
 
                 <div class="wf-tl-item">
+                    <div class="wf-tl-time-side">16h10 – 16h35</div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
                     <div class="wf-tl-card">
                         <div class="wf-tl-mobile-time">16h10 – 16h35</div>
                         <h3><?php echo $is_en ? 'Workforce transformation strategy' : 'Xây dựng chiến lược chuyển đổi nhân sự'; ?></h3>
                         <p><?php echo $is_en ? 'Plan upskilling, internal mobility, or hiring paths with clear metrics.' : 'Xác định phương án phát triển nội bộ, điều chuyển hoặc tuyển mới và tiêu chí đo lường.'; ?></p>
                     </div>
-                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
-                    <div class="wf-tl-time-side">16h10 – 16h35</div>
                 </div>
 
                 <div class="wf-tl-item">
@@ -1170,13 +1164,13 @@ ob_start(function ($html) {
                 </div>
 
                 <div class="wf-tl-item">
+                    <div class="wf-tl-time-side">16h50 – 17h00</div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
                     <div class="wf-tl-card">
                         <div class="wf-tl-mobile-time">16h50 – 17h00</div>
                         <h3><?php echo $is_en ? 'Open sharing, Q&A & Next Steps' : 'Chia sẻ, Q&A & Bước tiếp theo'; ?></h3>
                         <p><?php echo $is_en ? 'Discuss well-scoped enterprise diagnostics or pilot options.' : 'Thảo luận hình thức đánh giá hoặc triển khai thí điểm có phạm vi rõ ràng.'; ?></p>
                     </div>
-                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
-                    <div class="wf-tl-time-side">16h50 – 17h00</div>
                 </div>
             </div>
         </div>
