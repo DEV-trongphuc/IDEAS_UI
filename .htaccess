@@ -115,6 +115,7 @@ RewriteRule ^dual-dba(-estiam-rb)?/?$ /wp-content/new_public/LANDINGPAGE_MBA/dua
 RewriteRule ^dat-lich/?$ /wp-content/new_public/LANDINGPAGE_MBA/dat-lich.html [L]
 RewriteRule ^uu-dai-doanh-nghiep/?$ /tri-tue-song-hanh [R=301,L,NC]
 RewriteRule ^tri-tue-song-hanh/?$ /wp-content/new_public/LANDINGPAGE_MBA/tri-tue-song-hanh.html [L]
+RewriteRule ^(?:en/)?workforce-optimisation-in-the-era-of-ai/?$ /wp-content/themes/LANDINGPAGE_MBA/page-workforce-optimisation-in-the-era-of-ai.php [L,NC,QSA]
 
 # English clean URLs
 RewriteCond %{QUERY_STRING} !(?:^|&)(p|page_id|preview|preview_id|preview_nonce|s|post_type|attachment_id|cat|tag|author|feed|rest_route)(=|&|$) [NC]
