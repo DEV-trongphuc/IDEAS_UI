@@ -245,11 +245,11 @@ ob_start(function ($html) {
 
         .wf-page .wf-hero h1 {
             display: inline-block;
-            font-size: clamp(1.75rem, 2.75vw, 2.3rem);
+            font-size: clamp(1.95rem, 3.1vw, 2.55rem);
             font-weight: 800;
-            line-height: 1.22;
+            line-height: 1.18;
             margin: 0 0 14px;
-            background: linear-gradient(115deg, #0f172a 10%, #881337 55%, #dc2626 100%);
+            background: linear-gradient(110deg, #0f172a 0%, #881337 48%, #dc2626 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -597,36 +597,115 @@ ob_start(function ($html) {
             color: #334155;
         }
 
-        /* ── 5. Compact Agenda ──────────────────────────────────────── */
-        .wf-agenda {
-            margin-top: 28px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .wf-agenda-row {
-            display: grid;
-            grid-template-columns: 145px 1fr;
+        /* ── 5. Timeline Agenda ─────────────────────────────────────── */
+        .wf-timeline {
+            position: relative;
+            margin-top: 36px;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
-            padding: 16px 0;
-            border-bottom: 1px solid #e2e8f0;
-            align-items: baseline;
         }
 
-        .wf-agenda-time {
-            font-size: 0.88rem;
-            font-weight: 700;
+        .wf-timeline::before {
+            content: '';
+            position: absolute;
+            top: 18px;
+            bottom: 18px;
+            left: 50%;
+            width: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, rgba(171, 14, 0, 0.45) 0%, #cbd5e1 100%);
+        }
+
+        .wf-tl-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 48px 1fr;
+            align-items: center;
+        }
+
+        .wf-tl-axis {
+            grid-column: 2;
+            grid-row: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wf-tl-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ab0e00;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 4px rgba(171, 14, 0, 0.12);
+        }
+
+        .wf-tl-time-side {
+            grid-row: 1;
+            font-size: 0.92rem;
+            font-weight: 800;
             color: #ab0e00;
             font-variant-numeric: tabular-nums;
+            padding: 0 18px;
         }
 
-        .wf-agenda-text strong {
+        .wf-tl-card {
+            grid-row: 1;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px 22px;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .wf-tl-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+        }
+
+        .wf-tl-item:nth-child(odd) .wf-tl-card {
+            grid-column: 1;
+        }
+
+        .wf-tl-item:nth-child(odd) .wf-tl-time-side {
+            grid-column: 3;
+            text-align: left;
+        }
+
+        .wf-tl-item:nth-child(even) .wf-tl-card {
+            grid-column: 3;
+        }
+
+        .wf-tl-item:nth-child(even) .wf-tl-time-side {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .wf-tl-mobile-time {
+            display: none;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #ab0e00;
+            font-variant-numeric: tabular-nums;
+            margin-bottom: 4px;
+        }
+
+        .wf-tl-card h3 {
+            margin: 0 0 4px;
+            font-size: 1rem;
+            font-weight: 800;
             color: #0f172a;
-            font-weight: 700;
         }
 
-        .wf-agenda-text span {
+        .wf-tl-card p {
+            margin: 0;
+            font-size: 0.9rem;
             color: #64748b;
-            font-size: 0.93rem;
+            line-height: 1.5;
         }
 
         /* ── 6. Venue & Bottom CTA ──────────────────────────────────── */
@@ -701,12 +780,37 @@ ob_start(function ($html) {
             }
         }
 
+        @media (max-width: 768px) {
+            .wf-timeline::before {
+                left: 13px;
+                transform: none;
+            }
+            .wf-tl-item {
+                grid-template-columns: 28px 1fr;
+                gap: 12px;
+                align-items: start;
+            }
+            .wf-tl-axis {
+                grid-column: 1;
+                padding-top: 20px;
+            }
+            .wf-tl-time-side {
+                display: none;
+            }
+            .wf-tl-item:nth-child(odd) .wf-tl-card,
+            .wf-tl-item:nth-child(even) .wf-tl-card {
+                grid-column: 2;
+            }
+            .wf-tl-mobile-time {
+                display: block;
+            }
+        }
+
         @media (max-width: 640px) {
             .wf-hero { padding: 92px 0 44px; }
             .wf-band { padding: 48px 0; }
             .wf-meta-list,
-            .wf-row-2,
-            .wf-agenda-row {
+            .wf-row-2 {
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
@@ -752,18 +856,14 @@ ob_start(function ($html) {
                              alt="Epitome Global" class="wf-logo-epitome" width="32" height="33" decoding="async" />
                     </div>
 
-                    <p class="wf-kicker">Workshop Offline • Workforce Optimisation in the Era of AI</p>
+                    <p class="wf-kicker"><?php echo $is_en ? 'Offline Executive Workshop' : 'Workshop Offline'; ?></p>
 
-                    <h1>
-                        <?php echo $is_en
-                            ? 'AI Ready — Is Your<br>Workforce Ready?'
-                            : 'Đội ngũ của bạn đã sẵn sàng<br>cho chiến lược AI chưa?'; ?>
-                    </h1>
+                    <h1>Workforce Optimisation<br>in the Era of AI</h1>
 
                     <p class="wf-hero-lead">
                         <?php echo $is_en
-                            ? '120 minutes analyzing sample skills data with Epitome Global & AIDC experts. Limited to 30 leaders.'
-                            : '120 phút thực hành trên dữ liệu mẫu cùng chuyên gia Epitome Global & AIDC. Giới hạn 30 suất miễn phí.'; ?>
+                            ? 'Understand workforce capability before deploying AI. Turn skills data into an actionable enterprise roadmap.'
+                            : 'Thấu hiểu năng lực đội ngũ trước khi triển khai AI. Chuyển hóa dữ liệu kỹ năng thành lộ trình hành động cụ thể.'; ?>
                     </p>
 
                     <div class="wf-meta-list">
@@ -951,61 +1051,81 @@ ob_start(function ($html) {
         </div>
     </section>
 
-    <!-- 4. AGENDA -->
+    <!-- 4. AGENDA TIMELINE -->
     <section class="wf-band">
         <div class="wf-wrap">
-            <h2 class="wf-h2"><?php echo $is_en ? 'Agenda (15:00 – 17:00)' : 'Lịch trình 120 phút (15h00 – 17h00 · 04/12/2026)'; ?></h2>
-            <p class="wf-sub"><?php echo $is_en ? 'Hands-on session flow from diagnosis to action plan.' : 'Đi từ bài toán kinh doanh thực tế, thực hành phân tích mẫu đến lộ trình hành động.'; ?></p>
+            <h2 class="wf-h2"><?php echo $is_en ? 'Timeline (15:00 – 17:00)' : 'Timeline chương trình (15h00 – 17h00 · 04/12/2026)'; ?></h2>
+            <p class="wf-sub"><?php echo $is_en ? 'From business challenge and live demo to your workforce roadmap.' : '120 phút từ bài toán kinh doanh, thực hành dữ liệu mẫu đến lộ trình hành động.'; ?></p>
 
-            <div class="wf-agenda">
-                <div class="wf-agenda-row">
-                    <div class="wf-agenda-time">15h00 – 15h10</div>
-                    <div class="wf-agenda-text">
-                        <strong><?php echo $is_en ? 'Frame the business challenge' : 'Xác định thách thức kinh doanh'; ?></strong> ·
-                        <span><?php echo $is_en ? 'Link workforce priorities with corporate goals.' : 'Nhận diện ưu tiên chuyển đổi và yêu cầu năng lực gắn với mục tiêu doanh nghiệp.'; ?></span>
+            <div class="wf-timeline">
+                <div class="wf-tl-item">
+                    <div class="wf-tl-card">
+                        <div class="wf-tl-mobile-time">15h00 – 15h10</div>
+                        <h3><?php echo $is_en ? 'Frame the business challenge' : 'Xác định thách thức kinh doanh'; ?></h3>
+                        <p><?php echo $is_en ? 'Link transformation priorities and skills needs to business goals.' : 'Nhận diện ưu tiên chuyển đổi và yêu cầu năng lực nhân sự gắn với mục tiêu doanh nghiệp.'; ?></p>
+                    </div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
+                    <div class="wf-tl-time-side">15h00 – 15h10</div>
+                </div>
+
+                <div class="wf-tl-item">
+                    <div class="wf-tl-time-side">15h10 – 15h25</div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
+                    <div class="wf-tl-card">
+                        <div class="wf-tl-mobile-time">15h10 – 15h25</div>
+                        <h3><?php echo $is_en ? 'AIDC × Epitome platform demo' : 'Giới thiệu Epitome & Demo AIDC × Epitome'; ?></h3>
+                        <p><?php echo $is_en ? 'Live platform showcase with sample skills and talent datasets.' : 'Trình diễn nền tảng cùng dữ liệu kỹ năng và nhân tài mẫu.'; ?></p>
                     </div>
                 </div>
-                <div class="wf-agenda-row">
-                    <div class="wf-agenda-time">15h10 – 15h25</div>
-                    <div class="wf-agenda-text">
-                        <strong><?php echo $is_en ? 'AIDC × Epitome platform demo' : 'Giới thiệu Epitome & Demo AIDC × Epitome'; ?></strong> ·
-                        <span><?php echo $is_en ? 'Live walkthrough with sample skills & talent datasets.' : 'Trình diễn nền tảng cùng dữ liệu kỹ năng và nhân tài mẫu.'; ?></span>
+
+                <div class="wf-tl-item">
+                    <div class="wf-tl-card">
+                        <div class="wf-tl-mobile-time">15h25 – 15h50</div>
+                        <h3><?php echo $is_en ? 'Hands-on workforce assessment' : 'Thực hành đánh giá lực lượng lao động'; ?></h3>
+                        <p><?php echo $is_en ? 'Work with sample role profiles to decide what to assess and interpret.' : 'Dùng hồ sơ vai trò và nhân viên mẫu để xác định cần đánh giá gì và diễn giải kết quả.'; ?></p>
+                    </div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
+                    <div class="wf-tl-time-side">15h25 – 15h50</div>
+                </div>
+
+                <div class="wf-tl-item">
+                    <div class="wf-tl-time-side">15h50 – 16h10</div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
+                    <div class="wf-tl-card">
+                        <div class="wf-tl-mobile-time">15h50 – 16h10</div>
+                        <h3><?php echo $is_en ? 'Turn data into insight' : 'Biến dữ liệu thành Insight'; ?></h3>
+                        <p><?php echo $is_en ? 'Identify capability strengths, gaps, and business implications.' : 'Nhận diện điểm mạnh, khoảng trống và ý nghĩa với bài toán kinh doanh.'; ?></p>
                     </div>
                 </div>
-                <div class="wf-agenda-row">
-                    <div class="wf-agenda-time">15h25 – 15h50</div>
-                    <div class="wf-agenda-text">
-                        <strong><?php echo $is_en ? 'Workforce assessment exercise' : 'Thực hành đánh giá lực lượng lao động'; ?></strong> ·
-                        <span><?php echo $is_en ? 'Use sample role profiles to decide what to measure and how to read results.' : 'Dùng hồ sơ vai trò và nhân viên mẫu để xác định cần đánh giá gì và diễn giải kết quả.'; ?></span>
+
+                <div class="wf-tl-item">
+                    <div class="wf-tl-card">
+                        <div class="wf-tl-mobile-time">16h10 – 16h35</div>
+                        <h3><?php echo $is_en ? 'Workforce transformation strategy' : 'Xây dựng chiến lược chuyển đổi nhân sự'; ?></h3>
+                        <p><?php echo $is_en ? 'Plan upskilling, internal mobility, or hiring paths with clear metrics.' : 'Xác định phương án phát triển nội bộ, điều chuyển hoặc tuyển mới và tiêu chí đo lường.'; ?></p>
+                    </div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
+                    <div class="wf-tl-time-side">16h10 – 16h35</div>
+                </div>
+
+                <div class="wf-tl-item">
+                    <div class="wf-tl-time-side">16h35 – 16h50</div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
+                    <div class="wf-tl-card">
+                        <div class="wf-tl-mobile-time">16h35 – 16h50</div>
+                        <h3><?php echo $is_en ? 'Capability roadmap with AIDC' : 'Thiết kế lộ trình năng lực cùng AIDC'; ?></h3>
+                        <p><?php echo $is_en ? 'Translate priorities into targeted training objectives and learning plans.' : 'Chuyển hóa ưu tiên thành mục tiêu đào tạo và lộ trình phát triển phù hợp doanh nghiệp.'; ?></p>
                     </div>
                 </div>
-                <div class="wf-agenda-row">
-                    <div class="wf-agenda-time">15h50 – 16h10</div>
-                    <div class="wf-agenda-text">
-                        <strong><?php echo $is_en ? 'Turn data into insight' : 'Biến dữ liệu thành Insight'; ?></strong> ·
-                        <span><?php echo $is_en ? 'Identify capability strengths, gaps, and business implications.' : 'Nhận diện điểm mạnh, khoảng trống và ý nghĩa với bài toán kinh doanh.'; ?></span>
+
+                <div class="wf-tl-item">
+                    <div class="wf-tl-card">
+                        <div class="wf-tl-mobile-time">16h50 – 17h00</div>
+                        <h3><?php echo $is_en ? 'Open sharing, Q&A & Next Steps' : 'Chia sẻ, Q&A & Bước tiếp theo'; ?></h3>
+                        <p><?php echo $is_en ? 'Discuss well-scoped enterprise diagnostics or pilot options.' : 'Thảo luận hình thức đánh giá hoặc triển khai thí điểm có phạm vi rõ ràng.'; ?></p>
                     </div>
-                </div>
-                <div class="wf-agenda-row">
-                    <div class="wf-agenda-time">16h10 – 16h35</div>
-                    <div class="wf-agenda-text">
-                        <strong><?php echo $is_en ? 'Workforce transformation strategy' : 'Xây dựng chiến lược chuyển đổi lực lượng lao động'; ?></strong> ·
-                        <span><?php echo $is_en ? 'Decide build, internal mobility, or hire paths and set KPIs.' : 'Chọn phương án đào tạo nội bộ, điều chuyển hoặc tuyển mới và tiêu chí đo lường.'; ?></span>
-                    </div>
-                </div>
-                <div class="wf-agenda-row">
-                    <div class="wf-agenda-time">16h35 – 16h50</div>
-                    <div class="wf-agenda-text">
-                        <strong><?php echo $is_en ? 'Capability roadmap with AIDC' : 'Thiết kế lộ trình năng lực cùng AIDC'; ?></strong> ·
-                        <span><?php echo $is_en ? 'Translate priorities into targeted training objectives.' : 'Chuyển hóa ưu tiên thành mục tiêu và nội dung đào tạo phù hợp doanh nghiệp.'; ?></span>
-                    </div>
-                </div>
-                <div class="wf-agenda-row">
-                    <div class="wf-agenda-time">16h50 – 17h00</div>
-                    <div class="wf-agenda-text">
-                        <strong><?php echo $is_en ? 'Sharing, Q&A & Next Steps' : 'Q&A & Bước tiếp theo'; ?></strong> ·
-                        <span><?php echo $is_en ? 'Discuss scoped enterprise diagnostics or pilot options.' : 'Trao đổi hình thức đánh giá hoặc triển khai thí điểm có phạm vi rõ ràng.'; ?></span>
-                    </div>
+                    <div class="wf-tl-axis"><span class="wf-tl-dot"></span></div>
+                    <div class="wf-tl-time-side">16h50 – 17h00</div>
                 </div>
             </div>
         </div>
