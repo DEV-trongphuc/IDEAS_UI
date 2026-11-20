@@ -263,32 +263,76 @@ ob_start(function ($html) {
             max-width: 540px;
         }
 
-        .wf-meta-list {
-            border-top: 1px solid #e2e8f0;
-            padding-top: 20px;
+        .wf-meta-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px 18px;
+        }
+
+        .wf-meta-primary {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px 24px;
+            gap: 14px 20px;
         }
 
         .wf-meta-item {
-            font-size: 0.92rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.94rem;
             color: #1e293b;
+        }
+
+        .wf-meta-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #ab0e00;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
 
         .wf-meta-item small {
             display: block;
-            font-size: 0.75rem;
-            font-weight: 700;
+            font-size: 0.72rem;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
             color: #64748b;
             margin-bottom: 2px;
         }
 
         .wf-meta-item strong {
-            font-weight: 700;
+            font-size: 0.98rem;
+            font-weight: 800;
             color: #0f172a;
+            line-height: 1.35;
+        }
+
+        .wf-meta-item--time strong {
+            color: #ab0e00;
+        }
+
+        .wf-meta-secondary {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: 0.86rem;
+            color: #475569;
+        }
+
+        .wf-meta-secondary strong {
+            color: #0f172a;
+            font-weight: 700;
         }
 
         /* Registration Card */
@@ -809,7 +853,7 @@ ob_start(function ($html) {
         @media (max-width: 640px) {
             .wf-hero { padding: 92px 0 44px; }
             .wf-band { padding: 48px 0; }
-            .wf-meta-list,
+            .wf-meta-primary,
             .wf-row-2 {
                 grid-template-columns: 1fr;
                 gap: 10px;
@@ -866,22 +910,30 @@ ob_start(function ($html) {
                             : 'Thấu hiểu năng lực đội ngũ trước khi triển khai AI. Chuyển hóa dữ liệu kỹ năng thành lộ trình hành động cụ thể.'; ?>
                     </p>
 
-                    <div class="wf-meta-list">
-                        <div class="wf-meta-item">
-                            <small><?php echo $is_en ? 'Time' : 'Thời gian'; ?></small>
-                            <strong><?php echo $is_en ? '15:00 – 17:00 | Fri, Dec 04, 2026' : '15h00 – 17h00 · Thứ 6, 04/12/2026'; ?></strong>
+                    <div class="wf-meta-box">
+                        <div class="wf-meta-primary">
+                            <div class="wf-meta-item wf-meta-item--time">
+                                <span class="wf-meta-icon" aria-hidden="true">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10z"/></svg>
+                                </span>
+                                <div>
+                                    <small><?php echo $is_en ? 'Date & Time' : 'Thời gian'; ?></small>
+                                    <strong><?php echo $is_en ? '15:00 – 17:00 · Fri, Dec 04, 2026' : '15h00 – 17h00 · Thứ 6, 04/12/2026'; ?></strong>
+                                </div>
+                            </div>
+                            <div class="wf-meta-item">
+                                <span class="wf-meta-icon" aria-hidden="true">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+                                </span>
+                                <div>
+                                    <small><?php echo $is_en ? 'Location' : 'Địa điểm'; ?></small>
+                                    <strong>Lumiere Byblos Villa · 6B Ngô Thời Nhiệm, Xuân Hòa, TP.HCM</strong>
+                                </div>
+                            </div>
                         </div>
-                        <div class="wf-meta-item">
-                            <small><?php echo $is_en ? 'Location' : 'Địa điểm'; ?></small>
-                            <strong>Lumiere Byblos Villa · 6B Ngô Thời Nhiệm, TP.HCM</strong>
-                        </div>
-                        <div class="wf-meta-item">
-                            <small><?php echo $is_en ? 'Audience' : 'Đối tượng'; ?></small>
-                            <strong><?php echo $is_en ? 'CEO, HR Director / CHRO, L&D Director' : 'Lãnh đạo DN, HRD / CHRO, L&D Director'; ?></strong>
-                        </div>
-                        <div class="wf-meta-item">
-                            <small><?php echo $is_en ? 'Format' : 'Hình thức'; ?></small>
-                            <strong><?php echo $is_en ? '30 seats · Free · Chatham House Rule' : '30 suất miễn phí · Thảo luận kín Chatham House'; ?></strong>
+                        <div class="wf-meta-secondary">
+                            <span><strong><?php echo $is_en ? 'Target Guests:' : 'Đối tượng:'; ?></strong> <?php echo $is_en ? 'CEO, HRD / CHRO, L&D Director' : 'Lãnh đạo DN, HRD / CHRO, L&D Director'; ?></span>
+                            <span><strong><?php echo $is_en ? 'Quota:' : 'Số lượng:'; ?></strong> <?php echo $is_en ? '30 complimentary seats' : 'Giới hạn 30 suất miễn phí'; ?></span>
                         </div>
                     </div>
                 </div>
@@ -947,12 +999,12 @@ ob_start(function ($html) {
                         <div class="wf-alert" id="wf-form-alert" role="alert"></div>
 
                         <button type="submit" class="wf-btn-submit" id="wf-submit-btn">
-                            <?php echo $is_en ? 'Confirm Registration' : 'Đăng ký giữ suất'; ?>
+                            <?php echo $is_en ? 'Register to Attend' : 'Đăng ký tham gia'; ?>
                         </button>
 
                         <p class="wf-form-note">
                             <?php echo $is_en
-                                ? 'Chatham House Rule · No spam, strict confidentiality.'
+                                ? 'Strict confidentiality · Confirmation sent via Email/Phone.'
                                 : 'Thông tin được bảo mật · Ban Tổ Chức xác nhận qua Email/SĐT.'; ?>
                         </p>
                     </form>
@@ -1006,7 +1058,7 @@ ob_start(function ($html) {
                     </li>
                     <li>
                         <span class="wf-check-mark">✓</span>
-                        <span><strong><?php echo $is_en ? 'Chatham House roundtable:' : 'Thảo luận kín Chatham House:'; ?></strong> <?php echo $is_en ? 'Share real cases openly among 30 leaders.' : 'Chia sẻ bài toán thực tế cùng 30 lãnh đạo, không trích dẫn ra ngoài.'; ?></span>
+                        <span><strong><?php echo $is_en ? 'Executive roundtable:' : 'Thảo luận trực tiếp:'; ?></strong> <?php echo $is_en ? 'Share real cases with 30 senior leaders and speakers.' : 'Chia sẻ bài toán thực tế cùng 30 lãnh đạo và chuyên gia.'; ?></span>
                     </li>
                 </ul>
             </div>
@@ -1149,7 +1201,7 @@ ob_start(function ($html) {
                         Google Maps ↗
                     </a>
                     <a href="#workshop-register" class="wf-btn-cta js-scroll-register">
-                        <?php echo $is_en ? 'Register Now' : 'Đăng ký giữ suất'; ?>
+                        <?php echo $is_en ? 'Register to Attend' : 'Đăng ký tham gia'; ?>
                     </a>
                 </div>
             </div>
