@@ -272,21 +272,21 @@ ob_start(function ($html) {
 
         .wf-meta-primary {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px 20px;
+            grid-template-columns: 1fr;
+            gap: 10px;
         }
 
         .wf-meta-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 10px;
-            font-size: 0.94rem;
+            font-size: 0.93rem;
             color: #1e293b;
         }
 
         .wf-meta-icon {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 8px;
             background: #ffffff;
             border: 1px solid #e2e8f0;
@@ -295,24 +295,23 @@ ob_start(function ($html) {
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
         .wf-meta-item small {
-            display: block;
-            font-size: 0.72rem;
+            display: inline-block;
+            font-size: 0.74rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             color: #64748b;
-            margin-bottom: 2px;
+            margin-right: 6px;
         }
 
         .wf-meta-item strong {
-            font-size: 0.98rem;
+            font-size: 0.94rem;
             font-weight: 800;
             color: #0f172a;
-            line-height: 1.35;
+            line-height: 1.4;
         }
 
         .wf-meta-item--time strong {
@@ -914,19 +913,19 @@ ob_start(function ($html) {
                         <div class="wf-meta-primary">
                             <div class="wf-meta-item wf-meta-item--time">
                                 <span class="wf-meta-icon" aria-hidden="true">
-                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10z"/></svg>
+                                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10z"/></svg>
                                 </span>
                                 <div>
-                                    <small><?php echo $is_en ? 'Date & Time' : 'Thời gian'; ?></small>
+                                    <small><?php echo $is_en ? 'Time:' : 'Thời gian:'; ?></small>
                                     <strong><?php echo $is_en ? '15:00 – 17:00 · Fri, Dec 04, 2026' : '15h00 – 17h00 · Thứ 6, 04/12/2026'; ?></strong>
                                 </div>
                             </div>
                             <div class="wf-meta-item">
                                 <span class="wf-meta-icon" aria-hidden="true">
-                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+                                    <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
                                 </span>
                                 <div>
-                                    <small><?php echo $is_en ? 'Location' : 'Địa điểm'; ?></small>
+                                    <small><?php echo $is_en ? 'Location:' : 'Địa điểm:'; ?></small>
                                     <strong>Lumiere Byblos Villa · 6B Ngô Thời Nhiệm, Xuân Hòa, TP.HCM</strong>
                                 </div>
                             </div>
